@@ -1,0 +1,373 @@
+# \MoviesApi
+
+All URIs are relative to *http://localhost:5055/api/v1*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**GetMovieByMovieId**](MoviesApi.md#GetMovieByMovieId) | **Get** /movie/{movieId} | Get movie details
+[**GetMovieRatings**](MoviesApi.md#GetMovieRatings) | **Get** /movie/{movieId}/ratings | Get movie ratings
+[**GetMovieRatingscombined**](MoviesApi.md#GetMovieRatingscombined) | **Get** /movie/{movieId}/ratingscombined | Get RT and IMDB movie ratings combined
+[**GetMovieRecommendations**](MoviesApi.md#GetMovieRecommendations) | **Get** /movie/{movieId}/recommendations | Get recommended movies
+[**GetMovieSimilar**](MoviesApi.md#GetMovieSimilar) | **Get** /movie/{movieId}/similar | Get similar movies
+
+
+
+## GetMovieByMovieId
+
+> MovieDetails GetMovieByMovieId(ctx, movieId).Language(language).Execute()
+
+Get movie details
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    overseerrClient "./openapi"
+)
+
+func main() {
+    movieId := float32(337401) // float32 | 
+    language := "en" // string |  (optional)
+
+    configuration := overseerrClient.NewConfiguration()
+    apiClient := overseerrClient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MoviesApi.GetMovieByMovieId(context.Background(), movieId).Language(language).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieByMovieId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMovieByMovieId`: MovieDetails
+    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieByMovieId`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**movieId** | **float32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMovieByMovieIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **language** | **string** |  | 
+
+### Return type
+
+[**MovieDetails**](MovieDetails.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMovieRatings
+
+> GetMovieRatings200Response GetMovieRatings(ctx, movieId).Execute()
+
+Get movie ratings
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    overseerrClient "./openapi"
+)
+
+func main() {
+    movieId := float32(337401) // float32 | 
+
+    configuration := overseerrClient.NewConfiguration()
+    apiClient := overseerrClient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MoviesApi.GetMovieRatings(context.Background(), movieId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieRatings``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMovieRatings`: GetMovieRatings200Response
+    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieRatings`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**movieId** | **float32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMovieRatingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetMovieRatings200Response**](GetMovieRatings200Response.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMovieRatingscombined
+
+> GetMovieRatingscombined200Response GetMovieRatingscombined(ctx, movieId).Execute()
+
+Get RT and IMDB movie ratings combined
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    overseerrClient "./openapi"
+)
+
+func main() {
+    movieId := float32(337401) // float32 | 
+
+    configuration := overseerrClient.NewConfiguration()
+    apiClient := overseerrClient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MoviesApi.GetMovieRatingscombined(context.Background(), movieId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieRatingscombined``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMovieRatingscombined`: GetMovieRatingscombined200Response
+    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieRatingscombined`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**movieId** | **float32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMovieRatingscombinedRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetMovieRatingscombined200Response**](GetMovieRatingscombined200Response.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMovieRecommendations
+
+> GetDiscoverMovies200Response GetMovieRecommendations(ctx, movieId).Page(page).Language(language).Execute()
+
+Get recommended movies
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    overseerrClient "./openapi"
+)
+
+func main() {
+    movieId := float32(337401) // float32 | 
+    page := float32(1) // float32 |  (optional) (default to 1)
+    language := "en" // string |  (optional)
+
+    configuration := overseerrClient.NewConfiguration()
+    apiClient := overseerrClient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MoviesApi.GetMovieRecommendations(context.Background(), movieId).Page(page).Language(language).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieRecommendations``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMovieRecommendations`: GetDiscoverMovies200Response
+    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieRecommendations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**movieId** | **float32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMovieRecommendationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **page** | **float32** |  | [default to 1]
+ **language** | **string** |  | 
+
+### Return type
+
+[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMovieSimilar
+
+> GetDiscoverMovies200Response GetMovieSimilar(ctx, movieId).Page(page).Language(language).Execute()
+
+Get similar movies
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    overseerrClient "./openapi"
+)
+
+func main() {
+    movieId := float32(337401) // float32 | 
+    page := float32(1) // float32 |  (optional) (default to 1)
+    language := "en" // string |  (optional)
+
+    configuration := overseerrClient.NewConfiguration()
+    apiClient := overseerrClient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MoviesApi.GetMovieSimilar(context.Background(), movieId).Page(page).Language(language).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieSimilar``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMovieSimilar`: GetDiscoverMovies200Response
+    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieSimilar`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**movieId** | **float32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMovieSimilarRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **page** | **float32** |  | [default to 1]
+ **language** | **string** |  | 
+
+### Return type
+
+[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
