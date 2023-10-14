@@ -1,33 +1,33 @@
-# \UsersApi
+# \UsersAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAuthResetPassword**](UsersApi.md#CreateAuthResetPassword) | **Post** /auth/reset-password | Send a reset password email
-[**CreateAuthResetPasswordByGuid**](UsersApi.md#CreateAuthResetPasswordByGuid) | **Post** /auth/reset-password/{guid} | Reset the password for a user
-[**CreateUser**](UsersApi.md#CreateUser) | **Post** /user | Create new user
-[**CreateUserImportFromPlex**](UsersApi.md#CreateUserImportFromPlex) | **Post** /user/import-from-plex | Import all users from Plex
-[**CreateUserRegisterPushSubscription**](UsersApi.md#CreateUserRegisterPushSubscription) | **Post** /user/registerPushSubscription | Register a web push /user/registerPushSubscription
-[**CreateUserSettingsMain**](UsersApi.md#CreateUserSettingsMain) | **Post** /user/{userId}/settings/main | Update general settings for a user
-[**CreateUserSettingsNotifications**](UsersApi.md#CreateUserSettingsNotifications) | **Post** /user/{userId}/settings/notifications | Update notification settings for a user
-[**CreateUserSettingsPassword**](UsersApi.md#CreateUserSettingsPassword) | **Post** /user/{userId}/settings/password | Update password for a user
-[**CreateUserSettingsPermissions**](UsersApi.md#CreateUserSettingsPermissions) | **Post** /user/{userId}/settings/permissions | Update permission settings for a user
-[**DeleteUser**](UsersApi.md#DeleteUser) | **Delete** /user/{userId} | Delete user by ID
-[**GetAuthMe**](UsersApi.md#GetAuthMe) | **Get** /auth/me | Get logged-in user
-[**GetUser**](UsersApi.md#GetUser) | **Get** /user | Get all users
-[**GetUserByUserId**](UsersApi.md#GetUserByUserId) | **Get** /user/{userId} | Get user by ID
-[**GetUserQuota**](UsersApi.md#GetUserQuota) | **Get** /user/{userId}/quota | Get quotas for a specific user
-[**GetUserRequests**](UsersApi.md#GetUserRequests) | **Get** /user/{userId}/requests | Get requests for a specific user
-[**GetUserSettingsMain**](UsersApi.md#GetUserSettingsMain) | **Get** /user/{userId}/settings/main | Get general settings for a user
-[**GetUserSettingsNotifications**](UsersApi.md#GetUserSettingsNotifications) | **Get** /user/{userId}/settings/notifications | Get notification settings for a user
-[**GetUserSettingsPassword**](UsersApi.md#GetUserSettingsPassword) | **Get** /user/{userId}/settings/password | Get password page informatiom
-[**GetUserSettingsPermissions**](UsersApi.md#GetUserSettingsPermissions) | **Get** /user/{userId}/settings/permissions | Get permission settings for a user
-[**GetUserWatchData**](UsersApi.md#GetUserWatchData) | **Get** /user/{userId}/watch_data | Get watch data
-[**GetUserWatchlist**](UsersApi.md#GetUserWatchlist) | **Get** /user/{userId}/watchlist | Get the Plex watchlist for a specific user
-[**ListPlexUsers**](UsersApi.md#ListPlexUsers) | **Get** /settings/plex/users | Get Plex users
-[**PutUser**](UsersApi.md#PutUser) | **Put** /user | Update batch of users
-[**UpdateUser**](UsersApi.md#UpdateUser) | **Put** /user/{userId} | Update a user by user ID
+[**CreateAuthResetPassword**](UsersAPI.md#CreateAuthResetPassword) | **Post** /auth/reset-password | Send a reset password email
+[**CreateAuthResetPasswordByGuid**](UsersAPI.md#CreateAuthResetPasswordByGuid) | **Post** /auth/reset-password/{guid} | Reset the password for a user
+[**CreateUser**](UsersAPI.md#CreateUser) | **Post** /user | Create new user
+[**CreateUserImportFromPlex**](UsersAPI.md#CreateUserImportFromPlex) | **Post** /user/import-from-plex | Import all users from Plex
+[**CreateUserRegisterPushSubscription**](UsersAPI.md#CreateUserRegisterPushSubscription) | **Post** /user/registerPushSubscription | Register a web push /user/registerPushSubscription
+[**CreateUserSettingsMain**](UsersAPI.md#CreateUserSettingsMain) | **Post** /user/{userId}/settings/main | Update general settings for a user
+[**CreateUserSettingsNotifications**](UsersAPI.md#CreateUserSettingsNotifications) | **Post** /user/{userId}/settings/notifications | Update notification settings for a user
+[**CreateUserSettingsPassword**](UsersAPI.md#CreateUserSettingsPassword) | **Post** /user/{userId}/settings/password | Update password for a user
+[**CreateUserSettingsPermissions**](UsersAPI.md#CreateUserSettingsPermissions) | **Post** /user/{userId}/settings/permissions | Update permission settings for a user
+[**DeleteUser**](UsersAPI.md#DeleteUser) | **Delete** /user/{userId} | Delete user by ID
+[**GetAuthMe**](UsersAPI.md#GetAuthMe) | **Get** /auth/me | Get logged-in user
+[**GetUser**](UsersAPI.md#GetUser) | **Get** /user | Get all users
+[**GetUserByUserId**](UsersAPI.md#GetUserByUserId) | **Get** /user/{userId} | Get user by ID
+[**GetUserQuota**](UsersAPI.md#GetUserQuota) | **Get** /user/{userId}/quota | Get quotas for a specific user
+[**GetUserRequests**](UsersAPI.md#GetUserRequests) | **Get** /user/{userId}/requests | Get requests for a specific user
+[**GetUserSettingsMain**](UsersAPI.md#GetUserSettingsMain) | **Get** /user/{userId}/settings/main | Get general settings for a user
+[**GetUserSettingsNotifications**](UsersAPI.md#GetUserSettingsNotifications) | **Get** /user/{userId}/settings/notifications | Get notification settings for a user
+[**GetUserSettingsPassword**](UsersAPI.md#GetUserSettingsPassword) | **Get** /user/{userId}/settings/password | Get password page informatiom
+[**GetUserSettingsPermissions**](UsersAPI.md#GetUserSettingsPermissions) | **Get** /user/{userId}/settings/permissions | Get permission settings for a user
+[**GetUserWatchData**](UsersAPI.md#GetUserWatchData) | **Get** /user/{userId}/watch_data | Get watch data
+[**GetUserWatchlist**](UsersAPI.md#GetUserWatchlist) | **Get** /user/{userId}/watchlist | Get the Plex watchlist for a specific user
+[**ListPlexUsers**](UsersAPI.md#ListPlexUsers) | **Get** /settings/plex/users | Get Plex users
+[**PutUser**](UsersAPI.md#PutUser) | **Put** /user | Update batch of users
+[**UpdateUser**](UsersAPI.md#UpdateUser) | **Put** /user/{userId} | Update a user by user ID
 
 
 
@@ -56,13 +56,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateAuthResetPassword(context.Background()).CreateAuthResetPasswordRequest(createAuthResetPasswordRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateAuthResetPassword(context.Background()).CreateAuthResetPasswordRequest(createAuthResetPasswordRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateAuthResetPassword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateAuthResetPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateAuthResetPassword`: CreateAuthLogout200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.CreateAuthResetPassword`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateAuthResetPassword`: %v\n", resp)
 }
 ```
 
@@ -123,13 +123,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateAuthResetPasswordByGuid(context.Background(), guid).CreateAuthResetPasswordByGuidRequest(createAuthResetPasswordByGuidRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateAuthResetPasswordByGuid(context.Background(), guid).CreateAuthResetPasswordByGuidRequest(createAuthResetPasswordByGuidRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateAuthResetPasswordByGuid``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateAuthResetPasswordByGuid``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateAuthResetPasswordByGuid`: CreateAuthLogout200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.CreateAuthResetPasswordByGuid`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateAuthResetPasswordByGuid`: %v\n", resp)
 }
 ```
 
@@ -194,13 +194,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateUser(context.Background()).CreateUserRequest(createUserRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateUser(context.Background()).CreateUserRequest(createUserRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateUser`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.CreateUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUser`: %v\n", resp)
 }
 ```
 
@@ -260,13 +260,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateUserImportFromPlex(context.Background()).CreateUserImportFromPlexRequest(createUserImportFromPlexRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateUserImportFromPlex(context.Background()).CreateUserImportFromPlexRequest(createUserImportFromPlexRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateUserImportFromPlex``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserImportFromPlex``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateUserImportFromPlex`: []User
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.CreateUserImportFromPlex`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserImportFromPlex`: %v\n", resp)
 }
 ```
 
@@ -326,9 +326,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateUserRegisterPushSubscription(context.Background()).CreateUserRegisterPushSubscriptionRequest(createUserRegisterPushSubscriptionRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateUserRegisterPushSubscription(context.Background()).CreateUserRegisterPushSubscriptionRequest(createUserRegisterPushSubscriptionRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateUserRegisterPushSubscription``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserRegisterPushSubscription``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -391,13 +391,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateUserSettingsMain(context.Background(), userId).CreateUserSettingsMainRequest(createUserSettingsMainRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateUserSettingsMain(context.Background(), userId).CreateUserSettingsMainRequest(createUserSettingsMainRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateUserSettingsMain``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsMain``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateUserSettingsMain`: GetUserSettingsMain200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.CreateUserSettingsMain`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsMain`: %v\n", resp)
 }
 ```
 
@@ -463,13 +463,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateUserSettingsNotifications(context.Background(), userId).UserSettingsNotifications(userSettingsNotifications).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateUserSettingsNotifications(context.Background(), userId).UserSettingsNotifications(userSettingsNotifications).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateUserSettingsNotifications``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsNotifications``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateUserSettingsNotifications`: UserSettingsNotifications
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.CreateUserSettingsNotifications`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsNotifications`: %v\n", resp)
 }
 ```
 
@@ -535,9 +535,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateUserSettingsPassword(context.Background(), userId).CreateUserSettingsPasswordRequest(createUserSettingsPasswordRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateUserSettingsPassword(context.Background(), userId).CreateUserSettingsPasswordRequest(createUserSettingsPasswordRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateUserSettingsPassword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -605,13 +605,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.CreateUserSettingsPermissions(context.Background(), userId).CreateUserSettingsPermissionsRequest(createUserSettingsPermissionsRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.CreateUserSettingsPermissions(context.Background(), userId).CreateUserSettingsPermissionsRequest(createUserSettingsPermissionsRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.CreateUserSettingsPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsPermissions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateUserSettingsPermissions`: GetUserSettingsPermissions200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.CreateUserSettingsPermissions`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsPermissions`: %v\n", resp)
 }
 ```
 
@@ -676,13 +676,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.DeleteUser(context.Background(), userId).Execute()
+    resp, r, err := apiClient.UsersAPI.DeleteUser(context.Background(), userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.DeleteUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.DeleteUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DeleteUser`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.DeleteUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.DeleteUser`: %v\n", resp)
 }
 ```
 
@@ -745,13 +745,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetAuthMe(context.Background()).Execute()
+    resp, r, err := apiClient.UsersAPI.GetAuthMe(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetAuthMe``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetAuthMe``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetAuthMe`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetAuthMe`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetAuthMe`: %v\n", resp)
 }
 ```
 
@@ -809,13 +809,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUser(context.Background()).Take(take).Skip(skip).Sort(sort).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUser(context.Background()).Take(take).Skip(skip).Sort(sort).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUser`: GetUser200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUser`: %v\n", resp)
 }
 ```
 
@@ -877,13 +877,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserByUserId(context.Background(), userId).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserByUserId(context.Background(), userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserByUserId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserByUserId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserByUserId`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserByUserId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserByUserId`: %v\n", resp)
 }
 ```
 
@@ -947,13 +947,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserQuota(context.Background(), userId).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserQuota(context.Background(), userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserQuota``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserQuota``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserQuota`: GetUserQuota200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserQuota`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserQuota`: %v\n", resp)
 }
 ```
 
@@ -1019,13 +1019,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserRequests(context.Background(), userId).Take(take).Skip(skip).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserRequests(context.Background(), userId).Take(take).Skip(skip).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserRequests``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserRequests``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserRequests`: GetUserRequests200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserRequests`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserRequests`: %v\n", resp)
 }
 ```
 
@@ -1091,13 +1091,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserSettingsMain(context.Background(), userId).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserSettingsMain(context.Background(), userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserSettingsMain``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsMain``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserSettingsMain`: GetUserSettingsMain200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserSettingsMain`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsMain`: %v\n", resp)
 }
 ```
 
@@ -1161,13 +1161,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserSettingsNotifications(context.Background(), userId).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserSettingsNotifications(context.Background(), userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserSettingsNotifications``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsNotifications``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserSettingsNotifications`: UserSettingsNotifications
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserSettingsNotifications`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsNotifications`: %v\n", resp)
 }
 ```
 
@@ -1231,13 +1231,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserSettingsPassword(context.Background(), userId).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserSettingsPassword(context.Background(), userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserSettingsPassword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserSettingsPassword`: GetUserSettingsPassword200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserSettingsPassword`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsPassword`: %v\n", resp)
 }
 ```
 
@@ -1301,13 +1301,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserSettingsPermissions(context.Background(), userId).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserSettingsPermissions(context.Background(), userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserSettingsPermissions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsPermissions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserSettingsPermissions`: GetUserSettingsPermissions200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserSettingsPermissions`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsPermissions`: %v\n", resp)
 }
 ```
 
@@ -1371,13 +1371,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserWatchData(context.Background(), userId).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserWatchData(context.Background(), userId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserWatchData``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserWatchData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserWatchData`: GetUserWatchData200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserWatchData`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserWatchData`: %v\n", resp)
 }
 ```
 
@@ -1442,13 +1442,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.GetUserWatchlist(context.Background(), userId).Page(page).Execute()
+    resp, r, err := apiClient.UsersAPI.GetUserWatchlist(context.Background(), userId).Page(page).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.GetUserWatchlist``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserWatchlist``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetUserWatchlist`: GetUserWatchlist200Response
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.GetUserWatchlist`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserWatchlist`: %v\n", resp)
 }
 ```
 
@@ -1512,13 +1512,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.ListPlexUsers(context.Background()).Execute()
+    resp, r, err := apiClient.UsersAPI.ListPlexUsers(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.ListPlexUsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.ListPlexUsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListPlexUsers`: []ListPlexUsers200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.ListPlexUsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.ListPlexUsers`: %v\n", resp)
 }
 ```
 
@@ -1574,13 +1574,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.PutUser(context.Background()).PutUserRequest(putUserRequest).Execute()
+    resp, r, err := apiClient.UsersAPI.PutUser(context.Background()).PutUserRequest(putUserRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.PutUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.PutUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PutUser`: []User
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.PutUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.PutUser`: %v\n", resp)
 }
 ```
 
@@ -1641,13 +1641,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.UpdateUser(context.Background(), userId).User(user).Execute()
+    resp, r, err := apiClient.UsersAPI.UpdateUser(context.Background(), userId).User(user).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.UpdateUser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.UpdateUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateUser`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersApi.UpdateUser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.UpdateUser`: %v\n", resp)
 }
 ```
 

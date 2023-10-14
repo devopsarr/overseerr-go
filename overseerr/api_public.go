@@ -19,11 +19,11 @@ import (
 )
 
 
-// PublicApiService PublicApi service
-type PublicApiService service
+// PublicAPIService PublicAPI service
+type PublicAPIService service
 type ApiGetStatusRequest struct {
 	ctx context.Context
-	ApiService *PublicApiService
+	ApiService *PublicAPIService
 }
 
 func (r ApiGetStatusRequest) Execute() (*GetStatus200Response, *http.Response, error) {
@@ -38,7 +38,7 @@ Returns the current Overseerr status in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetStatusRequest
 */
-func (a *PublicApiService) GetStatus(ctx context.Context) ApiGetStatusRequest {
+func (a *PublicAPIService) GetStatus(ctx context.Context) ApiGetStatusRequest {
 	return ApiGetStatusRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -47,7 +47,7 @@ func (a *PublicApiService) GetStatus(ctx context.Context) ApiGetStatusRequest {
 
 // Execute executes the request
 //  @return GetStatus200Response
-func (a *PublicApiService) GetStatusExecute(r ApiGetStatusRequest) (*GetStatus200Response, *http.Response, error) {
+func (a *PublicAPIService) GetStatusExecute(r ApiGetStatusRequest) (*GetStatus200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -55,7 +55,7 @@ func (a *PublicApiService) GetStatusExecute(r ApiGetStatusRequest) (*GetStatus20
 		localVarReturnValue  *GetStatus200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicApiService.GetStatus")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetStatus")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -121,7 +121,7 @@ func (a *PublicApiService) GetStatusExecute(r ApiGetStatusRequest) (*GetStatus20
 }
 type ApiGetStatusAppdataRequest struct {
 	ctx context.Context
-	ApiService *PublicApiService
+	ApiService *PublicAPIService
 }
 
 func (r ApiGetStatusAppdataRequest) Execute() (*GetStatusAppdata200Response, *http.Response, error) {
@@ -136,7 +136,7 @@ For Docker installs, returns whether or not the volume mount was configured prop
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetStatusAppdataRequest
 */
-func (a *PublicApiService) GetStatusAppdata(ctx context.Context) ApiGetStatusAppdataRequest {
+func (a *PublicAPIService) GetStatusAppdata(ctx context.Context) ApiGetStatusAppdataRequest {
 	return ApiGetStatusAppdataRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -145,7 +145,7 @@ func (a *PublicApiService) GetStatusAppdata(ctx context.Context) ApiGetStatusApp
 
 // Execute executes the request
 //  @return GetStatusAppdata200Response
-func (a *PublicApiService) GetStatusAppdataExecute(r ApiGetStatusAppdataRequest) (*GetStatusAppdata200Response, *http.Response, error) {
+func (a *PublicAPIService) GetStatusAppdataExecute(r ApiGetStatusAppdataRequest) (*GetStatusAppdata200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -153,7 +153,7 @@ func (a *PublicApiService) GetStatusAppdataExecute(r ApiGetStatusAppdataRequest)
 		localVarReturnValue  *GetStatusAppdata200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicApiService.GetStatusAppdata")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetStatusAppdata")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

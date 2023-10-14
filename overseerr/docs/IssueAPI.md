@@ -1,19 +1,19 @@
-# \IssueApi
+# \IssueAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateIssue**](IssueApi.md#CreateIssue) | **Post** /issue | Create new issue
-[**CreateIssueByStatus**](IssueApi.md#CreateIssueByStatus) | **Post** /issue/{issueId}/{status} | Update an issue&#39;s status
-[**CreateIssueComment**](IssueApi.md#CreateIssueComment) | **Post** /issue/{issueId}/comment | Create a comment
-[**DeleteIssue**](IssueApi.md#DeleteIssue) | **Delete** /issue/{issueId} | Delete issue
-[**DeleteIssueComment**](IssueApi.md#DeleteIssueComment) | **Delete** /issueComment/{commentId} | Delete issue comment
-[**GetIssue**](IssueApi.md#GetIssue) | **Get** /issue | Get all issues
-[**GetIssueByIssueId**](IssueApi.md#GetIssueByIssueId) | **Get** /issue/{issueId} | Get issue
-[**GetIssueCommentByCommentId**](IssueApi.md#GetIssueCommentByCommentId) | **Get** /issueComment/{commentId} | Get issue comment
-[**GetIssueCount**](IssueApi.md#GetIssueCount) | **Get** /issue/count | Gets issue counts
-[**UpdateIssueComment**](IssueApi.md#UpdateIssueComment) | **Put** /issueComment/{commentId} | Update issue comment
+[**CreateIssue**](IssueAPI.md#CreateIssue) | **Post** /issue | Create new issue
+[**CreateIssueByStatus**](IssueAPI.md#CreateIssueByStatus) | **Post** /issue/{issueId}/{status} | Update an issue&#39;s status
+[**CreateIssueComment**](IssueAPI.md#CreateIssueComment) | **Post** /issue/{issueId}/comment | Create a comment
+[**DeleteIssue**](IssueAPI.md#DeleteIssue) | **Delete** /issue/{issueId} | Delete issue
+[**DeleteIssueComment**](IssueAPI.md#DeleteIssueComment) | **Delete** /issueComment/{commentId} | Delete issue comment
+[**GetIssue**](IssueAPI.md#GetIssue) | **Get** /issue | Get all issues
+[**GetIssueByIssueId**](IssueAPI.md#GetIssueByIssueId) | **Get** /issue/{issueId} | Get issue
+[**GetIssueCommentByCommentId**](IssueAPI.md#GetIssueCommentByCommentId) | **Get** /issueComment/{commentId} | Get issue comment
+[**GetIssueCount**](IssueAPI.md#GetIssueCount) | **Get** /issue/count | Gets issue counts
+[**UpdateIssueComment**](IssueAPI.md#UpdateIssueComment) | **Put** /issueComment/{commentId} | Update issue comment
 
 
 
@@ -42,13 +42,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.CreateIssue(context.Background()).CreateIssueRequest(createIssueRequest).Execute()
+    resp, r, err := apiClient.IssueAPI.CreateIssue(context.Background()).CreateIssueRequest(createIssueRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.CreateIssue``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssue``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateIssue`: Issue
-    fmt.Fprintf(os.Stdout, "Response from `IssueApi.CreateIssue`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssue`: %v\n", resp)
 }
 ```
 
@@ -109,13 +109,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.CreateIssueByStatus(context.Background(), issueId, status).Execute()
+    resp, r, err := apiClient.IssueAPI.CreateIssueByStatus(context.Background(), issueId, status).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.CreateIssueByStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssueByStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateIssueByStatus`: Issue
-    fmt.Fprintf(os.Stdout, "Response from `IssueApi.CreateIssueByStatus`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssueByStatus`: %v\n", resp)
 }
 ```
 
@@ -182,13 +182,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.CreateIssueComment(context.Background(), issueId).CreateIssueCommentRequest(createIssueCommentRequest).Execute()
+    resp, r, err := apiClient.IssueAPI.CreateIssueComment(context.Background(), issueId).CreateIssueCommentRequest(createIssueCommentRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.CreateIssueComment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssueComment``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateIssueComment`: Issue
-    fmt.Fprintf(os.Stdout, "Response from `IssueApi.CreateIssueComment`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssueComment`: %v\n", resp)
 }
 ```
 
@@ -253,9 +253,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.DeleteIssue(context.Background(), issueId).Execute()
+    resp, r, err := apiClient.IssueAPI.DeleteIssue(context.Background(), issueId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.DeleteIssue``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.DeleteIssue``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -321,9 +321,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.DeleteIssueComment(context.Background(), commentId).Execute()
+    resp, r, err := apiClient.IssueAPI.DeleteIssueComment(context.Background(), commentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.DeleteIssueComment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.DeleteIssueComment``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -393,13 +393,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.GetIssue(context.Background()).Take(take).Skip(skip).Sort(sort).Filter(filter).RequestedBy(requestedBy).Execute()
+    resp, r, err := apiClient.IssueAPI.GetIssue(context.Background()).Take(take).Skip(skip).Sort(sort).Filter(filter).RequestedBy(requestedBy).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.GetIssue``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssue``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetIssue`: GetIssue200Response
-    fmt.Fprintf(os.Stdout, "Response from `IssueApi.GetIssue`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssue`: %v\n", resp)
 }
 ```
 
@@ -463,13 +463,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.GetIssueByIssueId(context.Background(), issueId).Execute()
+    resp, r, err := apiClient.IssueAPI.GetIssueByIssueId(context.Background(), issueId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.GetIssueByIssueId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueByIssueId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetIssueByIssueId`: Issue
-    fmt.Fprintf(os.Stdout, "Response from `IssueApi.GetIssueByIssueId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueByIssueId`: %v\n", resp)
 }
 ```
 
@@ -533,13 +533,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.GetIssueCommentByCommentId(context.Background(), commentId).Execute()
+    resp, r, err := apiClient.IssueAPI.GetIssueCommentByCommentId(context.Background(), commentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.GetIssueCommentByCommentId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueCommentByCommentId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetIssueCommentByCommentId`: IssueComment
-    fmt.Fprintf(os.Stdout, "Response from `IssueApi.GetIssueCommentByCommentId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueCommentByCommentId`: %v\n", resp)
 }
 ```
 
@@ -602,13 +602,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.GetIssueCount(context.Background()).Execute()
+    resp, r, err := apiClient.IssueAPI.GetIssueCount(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.GetIssueCount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueCount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetIssueCount`: GetIssueCount200Response
-    fmt.Fprintf(os.Stdout, "Response from `IssueApi.GetIssueCount`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueCount`: %v\n", resp)
 }
 ```
 
@@ -665,13 +665,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueApi.UpdateIssueComment(context.Background(), commentId).UpdateIssueCommentRequest(updateIssueCommentRequest).Execute()
+    resp, r, err := apiClient.IssueAPI.UpdateIssueComment(context.Background(), commentId).UpdateIssueCommentRequest(updateIssueCommentRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueApi.UpdateIssueComment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.UpdateIssueComment``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateIssueComment`: IssueComment
-    fmt.Fprintf(os.Stdout, "Response from `IssueApi.UpdateIssueComment`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.UpdateIssueComment`: %v\n", resp)
 }
 ```
 

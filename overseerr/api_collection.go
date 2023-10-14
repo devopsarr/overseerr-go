@@ -20,11 +20,11 @@ import (
 )
 
 
-// CollectionApiService CollectionApi service
-type CollectionApiService service
+// CollectionAPIService CollectionAPI service
+type CollectionAPIService service
 type ApiGetCollectionByCollectionIdRequest struct {
 	ctx context.Context
-	ApiService *CollectionApiService
+	ApiService *CollectionAPIService
 	collectionId float32
 	language *string
 }
@@ -47,7 +47,7 @@ Returns full collection details in a JSON object.
  @param collectionId
  @return ApiGetCollectionByCollectionIdRequest
 */
-func (a *CollectionApiService) GetCollectionByCollectionId(ctx context.Context, collectionId float32) ApiGetCollectionByCollectionIdRequest {
+func (a *CollectionAPIService) GetCollectionByCollectionId(ctx context.Context, collectionId float32) ApiGetCollectionByCollectionIdRequest {
 	return ApiGetCollectionByCollectionIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *CollectionApiService) GetCollectionByCollectionId(ctx context.Context, 
 
 // Execute executes the request
 //  @return Collection
-func (a *CollectionApiService) GetCollectionByCollectionIdExecute(r ApiGetCollectionByCollectionIdRequest) (*Collection, *http.Response, error) {
+func (a *CollectionAPIService) GetCollectionByCollectionIdExecute(r ApiGetCollectionByCollectionIdRequest) (*Collection, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *CollectionApiService) GetCollectionByCollectionIdExecute(r ApiGetCollec
 		localVarReturnValue  *Collection
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CollectionApiService.GetCollectionByCollectionId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CollectionAPIService.GetCollectionByCollectionId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -20,11 +20,11 @@ import (
 )
 
 
-// MediaApiService MediaApi service
-type MediaApiService service
+// MediaAPIService MediaAPI service
+type MediaAPIService service
 type ApiCreateMediaByStatusRequest struct {
 	ctx context.Context
-	ApiService *MediaApiService
+	ApiService *MediaAPIService
 	mediaId string
 	status string
 	createMediaByStatusRequest *CreateMediaByStatusRequest
@@ -49,7 +49,7 @@ Updates a media item's status and returns the media in JSON format
  @param status New status
  @return ApiCreateMediaByStatusRequest
 */
-func (a *MediaApiService) CreateMediaByStatus(ctx context.Context, mediaId string, status string) ApiCreateMediaByStatusRequest {
+func (a *MediaAPIService) CreateMediaByStatus(ctx context.Context, mediaId string, status string) ApiCreateMediaByStatusRequest {
 	return ApiCreateMediaByStatusRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *MediaApiService) CreateMediaByStatus(ctx context.Context, mediaId strin
 
 // Execute executes the request
 //  @return MediaInfo
-func (a *MediaApiService) CreateMediaByStatusExecute(r ApiCreateMediaByStatusRequest) (*MediaInfo, *http.Response, error) {
+func (a *MediaAPIService) CreateMediaByStatusExecute(r ApiCreateMediaByStatusRequest) (*MediaInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *MediaApiService) CreateMediaByStatusExecute(r ApiCreateMediaByStatusReq
 		localVarReturnValue  *MediaInfo
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaApiService.CreateMediaByStatus")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaAPIService.CreateMediaByStatus")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -152,7 +152,7 @@ func (a *MediaApiService) CreateMediaByStatusExecute(r ApiCreateMediaByStatusReq
 }
 type ApiDeleteMediaRequest struct {
 	ctx context.Context
-	ApiService *MediaApiService
+	ApiService *MediaAPIService
 	mediaId string
 }
 
@@ -169,7 +169,7 @@ Removes a media item. The `MANAGE_REQUESTS` permission is required to perform th
  @param mediaId Media ID
  @return ApiDeleteMediaRequest
 */
-func (a *MediaApiService) DeleteMedia(ctx context.Context, mediaId string) ApiDeleteMediaRequest {
+func (a *MediaAPIService) DeleteMedia(ctx context.Context, mediaId string) ApiDeleteMediaRequest {
 	return ApiDeleteMediaRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -178,14 +178,14 @@ func (a *MediaApiService) DeleteMedia(ctx context.Context, mediaId string) ApiDe
 }
 
 // Execute executes the request
-func (a *MediaApiService) DeleteMediaExecute(r ApiDeleteMediaRequest) (*http.Response, error) {
+func (a *MediaAPIService) DeleteMediaExecute(r ApiDeleteMediaRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaApiService.DeleteMedia")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaAPIService.DeleteMedia")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -257,7 +257,7 @@ func (a *MediaApiService) DeleteMediaExecute(r ApiDeleteMediaRequest) (*http.Res
 }
 type ApiGetMediaRequest struct {
 	ctx context.Context
-	ApiService *MediaApiService
+	ApiService *MediaAPIService
 	take *float32
 	skip *float32
 	filter *string
@@ -296,7 +296,7 @@ Returns all media (can be filtered and limited) in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetMediaRequest
 */
-func (a *MediaApiService) GetMedia(ctx context.Context) ApiGetMediaRequest {
+func (a *MediaAPIService) GetMedia(ctx context.Context) ApiGetMediaRequest {
 	return ApiGetMediaRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -305,7 +305,7 @@ func (a *MediaApiService) GetMedia(ctx context.Context) ApiGetMediaRequest {
 
 // Execute executes the request
 //  @return GetMedia200Response
-func (a *MediaApiService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia200Response, *http.Response, error) {
+func (a *MediaAPIService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -313,7 +313,7 @@ func (a *MediaApiService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia200Res
 		localVarReturnValue  *GetMedia200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaApiService.GetMedia")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaAPIService.GetMedia")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -405,7 +405,7 @@ func (a *MediaApiService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia200Res
 }
 type ApiGetMediaWatchDataRequest struct {
 	ctx context.Context
-	ApiService *MediaApiService
+	ApiService *MediaAPIService
 	mediaId string
 }
 
@@ -425,7 +425,7 @@ Requires the `ADMIN` permission.
  @param mediaId Media ID
  @return ApiGetMediaWatchDataRequest
 */
-func (a *MediaApiService) GetMediaWatchData(ctx context.Context, mediaId string) ApiGetMediaWatchDataRequest {
+func (a *MediaAPIService) GetMediaWatchData(ctx context.Context, mediaId string) ApiGetMediaWatchDataRequest {
 	return ApiGetMediaWatchDataRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -435,7 +435,7 @@ func (a *MediaApiService) GetMediaWatchData(ctx context.Context, mediaId string)
 
 // Execute executes the request
 //  @return GetMediaWatchData200Response
-func (a *MediaApiService) GetMediaWatchDataExecute(r ApiGetMediaWatchDataRequest) (*GetMediaWatchData200Response, *http.Response, error) {
+func (a *MediaAPIService) GetMediaWatchDataExecute(r ApiGetMediaWatchDataRequest) (*GetMediaWatchData200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -443,7 +443,7 @@ func (a *MediaApiService) GetMediaWatchDataExecute(r ApiGetMediaWatchDataRequest
 		localVarReturnValue  *GetMediaWatchData200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaApiService.GetMediaWatchData")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaAPIService.GetMediaWatchData")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

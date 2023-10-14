@@ -1,13 +1,13 @@
-# \AuthApi
+# \AuthAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAuthLocal**](AuthApi.md#CreateAuthLocal) | **Post** /auth/local | Sign in using a local account
-[**CreateAuthLogout**](AuthApi.md#CreateAuthLogout) | **Post** /auth/logout | Sign out and clear session cookie
-[**CreateAuthPlex**](AuthApi.md#CreateAuthPlex) | **Post** /auth/plex | Sign in using a Plex token
-[**GetAuthMe**](AuthApi.md#GetAuthMe) | **Get** /auth/me | Get logged-in user
+[**CreateAuthLocal**](AuthAPI.md#CreateAuthLocal) | **Post** /auth/local | Sign in using a local account
+[**CreateAuthLogout**](AuthAPI.md#CreateAuthLogout) | **Post** /auth/logout | Sign out and clear session cookie
+[**CreateAuthPlex**](AuthAPI.md#CreateAuthPlex) | **Post** /auth/plex | Sign in using a Plex token
+[**GetAuthMe**](AuthAPI.md#GetAuthMe) | **Get** /auth/me | Get logged-in user
 
 
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthApi.CreateAuthLocal(context.Background()).CreateAuthLocalRequest(createAuthLocalRequest).Execute()
+    resp, r, err := apiClient.AuthAPI.CreateAuthLocal(context.Background()).CreateAuthLocalRequest(createAuthLocalRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthApi.CreateAuthLocal``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthLocal``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateAuthLocal`: User
-    fmt.Fprintf(os.Stdout, "Response from `AuthApi.CreateAuthLocal`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthLocal`: %v\n", resp)
 }
 ```
 
@@ -101,13 +101,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthApi.CreateAuthLogout(context.Background()).Execute()
+    resp, r, err := apiClient.AuthAPI.CreateAuthLogout(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthApi.CreateAuthLogout``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthLogout``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateAuthLogout`: CreateAuthLogout200Response
-    fmt.Fprintf(os.Stdout, "Response from `AuthApi.CreateAuthLogout`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthLogout`: %v\n", resp)
 }
 ```
 
@@ -163,13 +163,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthApi.CreateAuthPlex(context.Background()).CreateAuthPlexRequest(createAuthPlexRequest).Execute()
+    resp, r, err := apiClient.AuthAPI.CreateAuthPlex(context.Background()).CreateAuthPlexRequest(createAuthPlexRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthApi.CreateAuthPlex``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthPlex``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateAuthPlex`: User
-    fmt.Fprintf(os.Stdout, "Response from `AuthApi.CreateAuthPlex`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthPlex`: %v\n", resp)
 }
 ```
 
@@ -228,13 +228,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthApi.GetAuthMe(context.Background()).Execute()
+    resp, r, err := apiClient.AuthAPI.GetAuthMe(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthApi.GetAuthMe``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.GetAuthMe``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetAuthMe`: User
-    fmt.Fprintf(os.Stdout, "Response from `AuthApi.GetAuthMe`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `AuthAPI.GetAuthMe`: %v\n", resp)
 }
 ```
 

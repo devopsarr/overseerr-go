@@ -1,10 +1,10 @@
-# \CollectionApi
+# \CollectionAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCollectionByCollectionId**](CollectionApi.md#GetCollectionByCollectionId) | **Get** /collection/{collectionId} | Get collection details
+[**GetCollectionByCollectionId**](CollectionAPI.md#GetCollectionByCollectionId) | **Get** /collection/{collectionId} | Get collection details
 
 
 
@@ -34,13 +34,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CollectionApi.GetCollectionByCollectionId(context.Background(), collectionId).Language(language).Execute()
+    resp, r, err := apiClient.CollectionAPI.GetCollectionByCollectionId(context.Background(), collectionId).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CollectionApi.GetCollectionByCollectionId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CollectionAPI.GetCollectionByCollectionId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetCollectionByCollectionId`: Collection
-    fmt.Fprintf(os.Stdout, "Response from `CollectionApi.GetCollectionByCollectionId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `CollectionAPI.GetCollectionByCollectionId`: %v\n", resp)
 }
 ```
 

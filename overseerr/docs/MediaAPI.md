@@ -1,13 +1,13 @@
-# \MediaApi
+# \MediaAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateMediaByStatus**](MediaApi.md#CreateMediaByStatus) | **Post** /media/{mediaId}/{status} | Update media status
-[**DeleteMedia**](MediaApi.md#DeleteMedia) | **Delete** /media/{mediaId} | Delete media item
-[**GetMedia**](MediaApi.md#GetMedia) | **Get** /media | Get media
-[**GetMediaWatchData**](MediaApi.md#GetMediaWatchData) | **Get** /media/{mediaId}/watch_data | Get watch data
+[**CreateMediaByStatus**](MediaAPI.md#CreateMediaByStatus) | **Post** /media/{mediaId}/{status} | Update media status
+[**DeleteMedia**](MediaAPI.md#DeleteMedia) | **Delete** /media/{mediaId} | Delete media item
+[**GetMedia**](MediaAPI.md#GetMedia) | **Get** /media | Get media
+[**GetMediaWatchData**](MediaAPI.md#GetMediaWatchData) | **Get** /media/{mediaId}/watch_data | Get watch data
 
 
 
@@ -38,13 +38,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaApi.CreateMediaByStatus(context.Background(), mediaId, status).CreateMediaByStatusRequest(createMediaByStatusRequest).Execute()
+    resp, r, err := apiClient.MediaAPI.CreateMediaByStatus(context.Background(), mediaId, status).CreateMediaByStatusRequest(createMediaByStatusRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaApi.CreateMediaByStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.CreateMediaByStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateMediaByStatus`: MediaInfo
-    fmt.Fprintf(os.Stdout, "Response from `MediaApi.CreateMediaByStatus`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `MediaAPI.CreateMediaByStatus`: %v\n", resp)
 }
 ```
 
@@ -111,9 +111,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaApi.DeleteMedia(context.Background(), mediaId).Execute()
+    resp, r, err := apiClient.MediaAPI.DeleteMedia(context.Background(), mediaId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaApi.DeleteMedia``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.DeleteMedia``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -182,13 +182,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaApi.GetMedia(context.Background()).Take(take).Skip(skip).Filter(filter).Sort(sort).Execute()
+    resp, r, err := apiClient.MediaAPI.GetMedia(context.Background()).Take(take).Skip(skip).Filter(filter).Sort(sort).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaApi.GetMedia``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.GetMedia``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetMedia`: GetMedia200Response
-    fmt.Fprintf(os.Stdout, "Response from `MediaApi.GetMedia`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `MediaAPI.GetMedia`: %v\n", resp)
 }
 ```
 
@@ -251,13 +251,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaApi.GetMediaWatchData(context.Background(), mediaId).Execute()
+    resp, r, err := apiClient.MediaAPI.GetMediaWatchData(context.Background(), mediaId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaApi.GetMediaWatchData``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.GetMediaWatchData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetMediaWatchData`: GetMediaWatchData200Response
-    fmt.Fprintf(os.Stdout, "Response from `MediaApi.GetMediaWatchData`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `MediaAPI.GetMediaWatchData`: %v\n", resp)
 }
 ```
 

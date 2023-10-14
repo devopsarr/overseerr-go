@@ -20,11 +20,11 @@ import (
 )
 
 
-// PersonApiService PersonApi service
-type PersonApiService service
+// PersonAPIService PersonAPI service
+type PersonAPIService service
 type ApiGetPersonByPersonIdRequest struct {
 	ctx context.Context
-	ApiService *PersonApiService
+	ApiService *PersonAPIService
 	personId float32
 	language *string
 }
@@ -47,7 +47,7 @@ Returns person details based on provided personId in a JSON object.
  @param personId
  @return ApiGetPersonByPersonIdRequest
 */
-func (a *PersonApiService) GetPersonByPersonId(ctx context.Context, personId float32) ApiGetPersonByPersonIdRequest {
+func (a *PersonAPIService) GetPersonByPersonId(ctx context.Context, personId float32) ApiGetPersonByPersonIdRequest {
 	return ApiGetPersonByPersonIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *PersonApiService) GetPersonByPersonId(ctx context.Context, personId flo
 
 // Execute executes the request
 //  @return PersonDetails
-func (a *PersonApiService) GetPersonByPersonIdExecute(r ApiGetPersonByPersonIdRequest) (*PersonDetails, *http.Response, error) {
+func (a *PersonAPIService) GetPersonByPersonIdExecute(r ApiGetPersonByPersonIdRequest) (*PersonDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *PersonApiService) GetPersonByPersonIdExecute(r ApiGetPersonByPersonIdRe
 		localVarReturnValue  *PersonDetails
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonApiService.GetPersonByPersonId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonAPIService.GetPersonByPersonId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -149,7 +149,7 @@ func (a *PersonApiService) GetPersonByPersonIdExecute(r ApiGetPersonByPersonIdRe
 }
 type ApiGetPersonCombinedCreditsRequest struct {
 	ctx context.Context
-	ApiService *PersonApiService
+	ApiService *PersonAPIService
 	personId float32
 	language *string
 }
@@ -172,7 +172,7 @@ Returns the person's combined credits based on the provided personId in a JSON o
  @param personId
  @return ApiGetPersonCombinedCreditsRequest
 */
-func (a *PersonApiService) GetPersonCombinedCredits(ctx context.Context, personId float32) ApiGetPersonCombinedCreditsRequest {
+func (a *PersonAPIService) GetPersonCombinedCredits(ctx context.Context, personId float32) ApiGetPersonCombinedCreditsRequest {
 	return ApiGetPersonCombinedCreditsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -182,7 +182,7 @@ func (a *PersonApiService) GetPersonCombinedCredits(ctx context.Context, personI
 
 // Execute executes the request
 //  @return GetPersonCombinedCredits200Response
-func (a *PersonApiService) GetPersonCombinedCreditsExecute(r ApiGetPersonCombinedCreditsRequest) (*GetPersonCombinedCredits200Response, *http.Response, error) {
+func (a *PersonAPIService) GetPersonCombinedCreditsExecute(r ApiGetPersonCombinedCreditsRequest) (*GetPersonCombinedCredits200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -190,7 +190,7 @@ func (a *PersonApiService) GetPersonCombinedCreditsExecute(r ApiGetPersonCombine
 		localVarReturnValue  *GetPersonCombinedCredits200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonApiService.GetPersonCombinedCredits")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonAPIService.GetPersonCombinedCredits")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

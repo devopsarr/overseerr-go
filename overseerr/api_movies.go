@@ -20,11 +20,11 @@ import (
 )
 
 
-// MoviesApiService MoviesApi service
-type MoviesApiService service
+// MoviesAPIService MoviesAPI service
+type MoviesAPIService service
 type ApiGetMovieByMovieIdRequest struct {
 	ctx context.Context
-	ApiService *MoviesApiService
+	ApiService *MoviesAPIService
 	movieId float32
 	language *string
 }
@@ -47,7 +47,7 @@ Returns full movie details in a JSON object.
  @param movieId
  @return ApiGetMovieByMovieIdRequest
 */
-func (a *MoviesApiService) GetMovieByMovieId(ctx context.Context, movieId float32) ApiGetMovieByMovieIdRequest {
+func (a *MoviesAPIService) GetMovieByMovieId(ctx context.Context, movieId float32) ApiGetMovieByMovieIdRequest {
 	return ApiGetMovieByMovieIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *MoviesApiService) GetMovieByMovieId(ctx context.Context, movieId float3
 
 // Execute executes the request
 //  @return MovieDetails
-func (a *MoviesApiService) GetMovieByMovieIdExecute(r ApiGetMovieByMovieIdRequest) (*MovieDetails, *http.Response, error) {
+func (a *MoviesAPIService) GetMovieByMovieIdExecute(r ApiGetMovieByMovieIdRequest) (*MovieDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *MoviesApiService) GetMovieByMovieIdExecute(r ApiGetMovieByMovieIdReques
 		localVarReturnValue  *MovieDetails
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesApiService.GetMovieByMovieId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesAPIService.GetMovieByMovieId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -149,7 +149,7 @@ func (a *MoviesApiService) GetMovieByMovieIdExecute(r ApiGetMovieByMovieIdReques
 }
 type ApiGetMovieRatingsRequest struct {
 	ctx context.Context
-	ApiService *MoviesApiService
+	ApiService *MoviesAPIService
 	movieId float32
 }
 
@@ -166,7 +166,7 @@ Returns ratings based on the provided movieId in a JSON object.
  @param movieId
  @return ApiGetMovieRatingsRequest
 */
-func (a *MoviesApiService) GetMovieRatings(ctx context.Context, movieId float32) ApiGetMovieRatingsRequest {
+func (a *MoviesAPIService) GetMovieRatings(ctx context.Context, movieId float32) ApiGetMovieRatingsRequest {
 	return ApiGetMovieRatingsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -176,7 +176,7 @@ func (a *MoviesApiService) GetMovieRatings(ctx context.Context, movieId float32)
 
 // Execute executes the request
 //  @return GetMovieRatings200Response
-func (a *MoviesApiService) GetMovieRatingsExecute(r ApiGetMovieRatingsRequest) (*GetMovieRatings200Response, *http.Response, error) {
+func (a *MoviesAPIService) GetMovieRatingsExecute(r ApiGetMovieRatingsRequest) (*GetMovieRatings200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *MoviesApiService) GetMovieRatingsExecute(r ApiGetMovieRatingsRequest) (
 		localVarReturnValue  *GetMovieRatings200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesApiService.GetMovieRatings")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesAPIService.GetMovieRatings")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -265,7 +265,7 @@ func (a *MoviesApiService) GetMovieRatingsExecute(r ApiGetMovieRatingsRequest) (
 }
 type ApiGetMovieRatingscombinedRequest struct {
 	ctx context.Context
-	ApiService *MoviesApiService
+	ApiService *MoviesAPIService
 	movieId float32
 }
 
@@ -282,7 +282,7 @@ Returns ratings from RottenTomatoes and IMDB based on the provided movieId in a 
  @param movieId
  @return ApiGetMovieRatingscombinedRequest
 */
-func (a *MoviesApiService) GetMovieRatingscombined(ctx context.Context, movieId float32) ApiGetMovieRatingscombinedRequest {
+func (a *MoviesAPIService) GetMovieRatingscombined(ctx context.Context, movieId float32) ApiGetMovieRatingscombinedRequest {
 	return ApiGetMovieRatingscombinedRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -292,7 +292,7 @@ func (a *MoviesApiService) GetMovieRatingscombined(ctx context.Context, movieId 
 
 // Execute executes the request
 //  @return GetMovieRatingscombined200Response
-func (a *MoviesApiService) GetMovieRatingscombinedExecute(r ApiGetMovieRatingscombinedRequest) (*GetMovieRatingscombined200Response, *http.Response, error) {
+func (a *MoviesAPIService) GetMovieRatingscombinedExecute(r ApiGetMovieRatingscombinedRequest) (*GetMovieRatingscombined200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -300,7 +300,7 @@ func (a *MoviesApiService) GetMovieRatingscombinedExecute(r ApiGetMovieRatingsco
 		localVarReturnValue  *GetMovieRatingscombined200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesApiService.GetMovieRatingscombined")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesAPIService.GetMovieRatingscombined")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -381,7 +381,7 @@ func (a *MoviesApiService) GetMovieRatingscombinedExecute(r ApiGetMovieRatingsco
 }
 type ApiGetMovieRecommendationsRequest struct {
 	ctx context.Context
-	ApiService *MoviesApiService
+	ApiService *MoviesAPIService
 	movieId float32
 	page *float32
 	language *string
@@ -410,7 +410,7 @@ Returns list of recommended movies based on provided movie ID in a JSON object.
  @param movieId
  @return ApiGetMovieRecommendationsRequest
 */
-func (a *MoviesApiService) GetMovieRecommendations(ctx context.Context, movieId float32) ApiGetMovieRecommendationsRequest {
+func (a *MoviesAPIService) GetMovieRecommendations(ctx context.Context, movieId float32) ApiGetMovieRecommendationsRequest {
 	return ApiGetMovieRecommendationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -420,7 +420,7 @@ func (a *MoviesApiService) GetMovieRecommendations(ctx context.Context, movieId 
 
 // Execute executes the request
 //  @return GetDiscoverMovies200Response
-func (a *MoviesApiService) GetMovieRecommendationsExecute(r ApiGetMovieRecommendationsRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+func (a *MoviesAPIService) GetMovieRecommendationsExecute(r ApiGetMovieRecommendationsRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -428,7 +428,7 @@ func (a *MoviesApiService) GetMovieRecommendationsExecute(r ApiGetMovieRecommend
 		localVarReturnValue  *GetDiscoverMovies200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesApiService.GetMovieRecommendations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesAPIService.GetMovieRecommendations")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -515,7 +515,7 @@ func (a *MoviesApiService) GetMovieRecommendationsExecute(r ApiGetMovieRecommend
 }
 type ApiGetMovieSimilarRequest struct {
 	ctx context.Context
-	ApiService *MoviesApiService
+	ApiService *MoviesAPIService
 	movieId float32
 	page *float32
 	language *string
@@ -544,7 +544,7 @@ Returns list of similar movies based on the provided movieId in a JSON object.
  @param movieId
  @return ApiGetMovieSimilarRequest
 */
-func (a *MoviesApiService) GetMovieSimilar(ctx context.Context, movieId float32) ApiGetMovieSimilarRequest {
+func (a *MoviesAPIService) GetMovieSimilar(ctx context.Context, movieId float32) ApiGetMovieSimilarRequest {
 	return ApiGetMovieSimilarRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -554,7 +554,7 @@ func (a *MoviesApiService) GetMovieSimilar(ctx context.Context, movieId float32)
 
 // Execute executes the request
 //  @return GetDiscoverMovies200Response
-func (a *MoviesApiService) GetMovieSimilarExecute(r ApiGetMovieSimilarRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+func (a *MoviesAPIService) GetMovieSimilarExecute(r ApiGetMovieSimilarRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -562,7 +562,7 @@ func (a *MoviesApiService) GetMovieSimilarExecute(r ApiGetMovieSimilarRequest) (
 		localVarReturnValue  *GetDiscoverMovies200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesApiService.GetMovieSimilar")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesAPIService.GetMovieSimilar")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

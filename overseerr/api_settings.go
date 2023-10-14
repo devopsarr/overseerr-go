@@ -20,11 +20,11 @@ import (
 )
 
 
-// SettingsApiService SettingsApi service
-type SettingsApiService service
+// SettingsAPIService SettingsAPI service
+type SettingsAPIService service
 type ApiCreateCacheFlushRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	cacheId string
 }
 
@@ -41,7 +41,7 @@ Flushes all data from the cache ID provided
  @param cacheId
  @return ApiCreateCacheFlushRequest
 */
-func (a *SettingsApiService) CreateCacheFlush(ctx context.Context, cacheId string) ApiCreateCacheFlushRequest {
+func (a *SettingsAPIService) CreateCacheFlush(ctx context.Context, cacheId string) ApiCreateCacheFlushRequest {
 	return ApiCreateCacheFlushRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -50,14 +50,14 @@ func (a *SettingsApiService) CreateCacheFlush(ctx context.Context, cacheId strin
 }
 
 // Execute executes the request
-func (a *SettingsApiService) CreateCacheFlushExecute(r ApiCreateCacheFlushRequest) (*http.Response, error) {
+func (a *SettingsAPIService) CreateCacheFlushExecute(r ApiCreateCacheFlushRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateCacheFlush")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateCacheFlush")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -129,7 +129,7 @@ func (a *SettingsApiService) CreateCacheFlushExecute(r ApiCreateCacheFlushReques
 }
 type ApiCreateDiscoverRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	discoverSlider *[]DiscoverSlider
 }
 
@@ -153,7 +153,7 @@ it will be ignored. Requires the `ADMIN` permission.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateDiscoverRequest
 */
-func (a *SettingsApiService) CreateDiscover(ctx context.Context) ApiCreateDiscoverRequest {
+func (a *SettingsAPIService) CreateDiscover(ctx context.Context) ApiCreateDiscoverRequest {
 	return ApiCreateDiscoverRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -162,7 +162,7 @@ func (a *SettingsApiService) CreateDiscover(ctx context.Context) ApiCreateDiscov
 
 // Execute executes the request
 //  @return []DiscoverSlider
-func (a *SettingsApiService) CreateDiscoverExecute(r ApiCreateDiscoverRequest) ([]*DiscoverSlider, *http.Response, error) {
+func (a *SettingsAPIService) CreateDiscoverExecute(r ApiCreateDiscoverRequest) ([]*DiscoverSlider, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -170,7 +170,7 @@ func (a *SettingsApiService) CreateDiscoverExecute(r ApiCreateDiscoverRequest) (
 		localVarReturnValue  []*DiscoverSlider
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateDiscover")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateDiscover")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -255,7 +255,7 @@ func (a *SettingsApiService) CreateDiscoverExecute(r ApiCreateDiscoverRequest) (
 }
 type ApiCreateDiscoverAddRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	createDiscoverAddRequest *CreateDiscoverAddRequest
 }
 
@@ -277,7 +277,7 @@ Add a single slider and return the newly created slider. Requires the `ADMIN` pe
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateDiscoverAddRequest
 */
-func (a *SettingsApiService) CreateDiscoverAdd(ctx context.Context) ApiCreateDiscoverAddRequest {
+func (a *SettingsAPIService) CreateDiscoverAdd(ctx context.Context) ApiCreateDiscoverAddRequest {
 	return ApiCreateDiscoverAddRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -286,7 +286,7 @@ func (a *SettingsApiService) CreateDiscoverAdd(ctx context.Context) ApiCreateDis
 
 // Execute executes the request
 //  @return DiscoverSlider
-func (a *SettingsApiService) CreateDiscoverAddExecute(r ApiCreateDiscoverAddRequest) (*DiscoverSlider, *http.Response, error) {
+func (a *SettingsAPIService) CreateDiscoverAddExecute(r ApiCreateDiscoverAddRequest) (*DiscoverSlider, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -294,7 +294,7 @@ func (a *SettingsApiService) CreateDiscoverAddExecute(r ApiCreateDiscoverAddRequ
 		localVarReturnValue  *DiscoverSlider
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateDiscoverAdd")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateDiscoverAdd")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -379,7 +379,7 @@ func (a *SettingsApiService) CreateDiscoverAddExecute(r ApiCreateDiscoverAddRequ
 }
 type ApiCreateInitializeRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiCreateInitializeRequest) Execute() (*PublicSettings, *http.Response, error) {
@@ -394,7 +394,7 @@ Sets the app as initialized, allowing the user to navigate to pages other than t
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateInitializeRequest
 */
-func (a *SettingsApiService) CreateInitialize(ctx context.Context) ApiCreateInitializeRequest {
+func (a *SettingsAPIService) CreateInitialize(ctx context.Context) ApiCreateInitializeRequest {
 	return ApiCreateInitializeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -403,7 +403,7 @@ func (a *SettingsApiService) CreateInitialize(ctx context.Context) ApiCreateInit
 
 // Execute executes the request
 //  @return PublicSettings
-func (a *SettingsApiService) CreateInitializeExecute(r ApiCreateInitializeRequest) (*PublicSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateInitializeExecute(r ApiCreateInitializeRequest) (*PublicSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -411,7 +411,7 @@ func (a *SettingsApiService) CreateInitializeExecute(r ApiCreateInitializeReques
 		localVarReturnValue  *PublicSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateInitialize")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateInitialize")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -491,7 +491,7 @@ func (a *SettingsApiService) CreateInitializeExecute(r ApiCreateInitializeReques
 }
 type ApiCreateJobsCancelRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	jobId string
 }
 
@@ -508,7 +508,7 @@ Cancels a specific job. Will return the new job status in JSON format.
  @param jobId
  @return ApiCreateJobsCancelRequest
 */
-func (a *SettingsApiService) CreateJobsCancel(ctx context.Context, jobId string) ApiCreateJobsCancelRequest {
+func (a *SettingsAPIService) CreateJobsCancel(ctx context.Context, jobId string) ApiCreateJobsCancelRequest {
 	return ApiCreateJobsCancelRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -518,7 +518,7 @@ func (a *SettingsApiService) CreateJobsCancel(ctx context.Context, jobId string)
 
 // Execute executes the request
 //  @return Job
-func (a *SettingsApiService) CreateJobsCancelExecute(r ApiCreateJobsCancelRequest) (*Job, *http.Response, error) {
+func (a *SettingsAPIService) CreateJobsCancelExecute(r ApiCreateJobsCancelRequest) (*Job, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -526,7 +526,7 @@ func (a *SettingsApiService) CreateJobsCancelExecute(r ApiCreateJobsCancelReques
 		localVarReturnValue  *Job
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateJobsCancel")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateJobsCancel")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -607,7 +607,7 @@ func (a *SettingsApiService) CreateJobsCancelExecute(r ApiCreateJobsCancelReques
 }
 type ApiCreateJobsRunRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	jobId string
 }
 
@@ -624,7 +624,7 @@ Invokes a specific job to run. Will return the new job status in JSON format.
  @param jobId
  @return ApiCreateJobsRunRequest
 */
-func (a *SettingsApiService) CreateJobsRun(ctx context.Context, jobId string) ApiCreateJobsRunRequest {
+func (a *SettingsAPIService) CreateJobsRun(ctx context.Context, jobId string) ApiCreateJobsRunRequest {
 	return ApiCreateJobsRunRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -634,7 +634,7 @@ func (a *SettingsApiService) CreateJobsRun(ctx context.Context, jobId string) Ap
 
 // Execute executes the request
 //  @return Job
-func (a *SettingsApiService) CreateJobsRunExecute(r ApiCreateJobsRunRequest) (*Job, *http.Response, error) {
+func (a *SettingsAPIService) CreateJobsRunExecute(r ApiCreateJobsRunRequest) (*Job, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -642,7 +642,7 @@ func (a *SettingsApiService) CreateJobsRunExecute(r ApiCreateJobsRunRequest) (*J
 		localVarReturnValue  *Job
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateJobsRun")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateJobsRun")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -723,7 +723,7 @@ func (a *SettingsApiService) CreateJobsRunExecute(r ApiCreateJobsRunRequest) (*J
 }
 type ApiCreateJobsScheduleRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	jobId string
 	createJobsScheduleRequest *CreateJobsScheduleRequest
 }
@@ -746,7 +746,7 @@ Re-registers the job with the schedule specified. Will return the job in JSON fo
  @param jobId
  @return ApiCreateJobsScheduleRequest
 */
-func (a *SettingsApiService) CreateJobsSchedule(ctx context.Context, jobId string) ApiCreateJobsScheduleRequest {
+func (a *SettingsAPIService) CreateJobsSchedule(ctx context.Context, jobId string) ApiCreateJobsScheduleRequest {
 	return ApiCreateJobsScheduleRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -756,7 +756,7 @@ func (a *SettingsApiService) CreateJobsSchedule(ctx context.Context, jobId strin
 
 // Execute executes the request
 //  @return Job
-func (a *SettingsApiService) CreateJobsScheduleExecute(r ApiCreateJobsScheduleRequest) (*Job, *http.Response, error) {
+func (a *SettingsAPIService) CreateJobsScheduleExecute(r ApiCreateJobsScheduleRequest) (*Job, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -764,7 +764,7 @@ func (a *SettingsApiService) CreateJobsScheduleExecute(r ApiCreateJobsScheduleRe
 		localVarReturnValue  *Job
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateJobsSchedule")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateJobsSchedule")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -850,7 +850,7 @@ func (a *SettingsApiService) CreateJobsScheduleExecute(r ApiCreateJobsScheduleRe
 }
 type ApiCreateMainRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	mainSettings *MainSettings
 }
 
@@ -871,7 +871,7 @@ Updates main settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateMainRequest
 */
-func (a *SettingsApiService) CreateMain(ctx context.Context) ApiCreateMainRequest {
+func (a *SettingsAPIService) CreateMain(ctx context.Context) ApiCreateMainRequest {
 	return ApiCreateMainRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -880,7 +880,7 @@ func (a *SettingsApiService) CreateMain(ctx context.Context) ApiCreateMainReques
 
 // Execute executes the request
 //  @return MainSettings
-func (a *SettingsApiService) CreateMainExecute(r ApiCreateMainRequest) (*MainSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateMainExecute(r ApiCreateMainRequest) (*MainSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -888,7 +888,7 @@ func (a *SettingsApiService) CreateMainExecute(r ApiCreateMainRequest) (*MainSet
 		localVarReturnValue  *MainSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateMain")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateMain")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -973,7 +973,7 @@ func (a *SettingsApiService) CreateMainExecute(r ApiCreateMainRequest) (*MainSet
 }
 type ApiCreateMainRegenerateRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiCreateMainRegenerateRequest) Execute() (*MainSettings, *http.Response, error) {
@@ -988,7 +988,7 @@ Returns main settings in a JSON object, using the new API key.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateMainRegenerateRequest
 */
-func (a *SettingsApiService) CreateMainRegenerate(ctx context.Context) ApiCreateMainRegenerateRequest {
+func (a *SettingsAPIService) CreateMainRegenerate(ctx context.Context) ApiCreateMainRegenerateRequest {
 	return ApiCreateMainRegenerateRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -997,7 +997,7 @@ func (a *SettingsApiService) CreateMainRegenerate(ctx context.Context) ApiCreate
 
 // Execute executes the request
 //  @return MainSettings
-func (a *SettingsApiService) CreateMainRegenerateExecute(r ApiCreateMainRegenerateRequest) (*MainSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateMainRegenerateExecute(r ApiCreateMainRegenerateRequest) (*MainSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1005,7 +1005,7 @@ func (a *SettingsApiService) CreateMainRegenerateExecute(r ApiCreateMainRegenera
 		localVarReturnValue  *MainSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateMainRegenerate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateMainRegenerate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1085,7 +1085,7 @@ func (a *SettingsApiService) CreateMainRegenerateExecute(r ApiCreateMainRegenera
 }
 type ApiCreateNotificationsDiscordRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	discordSettings *DiscordSettings
 }
 
@@ -1106,7 +1106,7 @@ Updates Discord notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsDiscordRequest
 */
-func (a *SettingsApiService) CreateNotificationsDiscord(ctx context.Context) ApiCreateNotificationsDiscordRequest {
+func (a *SettingsAPIService) CreateNotificationsDiscord(ctx context.Context) ApiCreateNotificationsDiscordRequest {
 	return ApiCreateNotificationsDiscordRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1115,7 +1115,7 @@ func (a *SettingsApiService) CreateNotificationsDiscord(ctx context.Context) Api
 
 // Execute executes the request
 //  @return DiscordSettings
-func (a *SettingsApiService) CreateNotificationsDiscordExecute(r ApiCreateNotificationsDiscordRequest) (*DiscordSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsDiscordExecute(r ApiCreateNotificationsDiscordRequest) (*DiscordSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1123,7 +1123,7 @@ func (a *SettingsApiService) CreateNotificationsDiscordExecute(r ApiCreateNotifi
 		localVarReturnValue  *DiscordSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsDiscord")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsDiscord")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1208,7 +1208,7 @@ func (a *SettingsApiService) CreateNotificationsDiscordExecute(r ApiCreateNotifi
 }
 type ApiCreateNotificationsEmailRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	notificationEmailSettings *NotificationEmailSettings
 }
 
@@ -1229,7 +1229,7 @@ Updates email notification settings with provided values
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsEmailRequest
 */
-func (a *SettingsApiService) CreateNotificationsEmail(ctx context.Context) ApiCreateNotificationsEmailRequest {
+func (a *SettingsAPIService) CreateNotificationsEmail(ctx context.Context) ApiCreateNotificationsEmailRequest {
 	return ApiCreateNotificationsEmailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1238,7 +1238,7 @@ func (a *SettingsApiService) CreateNotificationsEmail(ctx context.Context) ApiCr
 
 // Execute executes the request
 //  @return NotificationEmailSettings
-func (a *SettingsApiService) CreateNotificationsEmailExecute(r ApiCreateNotificationsEmailRequest) (*NotificationEmailSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsEmailExecute(r ApiCreateNotificationsEmailRequest) (*NotificationEmailSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1246,7 +1246,7 @@ func (a *SettingsApiService) CreateNotificationsEmailExecute(r ApiCreateNotifica
 		localVarReturnValue  *NotificationEmailSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsEmail")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsEmail")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1331,7 +1331,7 @@ func (a *SettingsApiService) CreateNotificationsEmailExecute(r ApiCreateNotifica
 }
 type ApiCreateNotificationsGotifyRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	gotifySettings *GotifySettings
 }
 
@@ -1352,7 +1352,7 @@ Update Gotify notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsGotifyRequest
 */
-func (a *SettingsApiService) CreateNotificationsGotify(ctx context.Context) ApiCreateNotificationsGotifyRequest {
+func (a *SettingsAPIService) CreateNotificationsGotify(ctx context.Context) ApiCreateNotificationsGotifyRequest {
 	return ApiCreateNotificationsGotifyRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1361,7 +1361,7 @@ func (a *SettingsApiService) CreateNotificationsGotify(ctx context.Context) ApiC
 
 // Execute executes the request
 //  @return GotifySettings
-func (a *SettingsApiService) CreateNotificationsGotifyExecute(r ApiCreateNotificationsGotifyRequest) (*GotifySettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsGotifyExecute(r ApiCreateNotificationsGotifyRequest) (*GotifySettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1369,7 +1369,7 @@ func (a *SettingsApiService) CreateNotificationsGotifyExecute(r ApiCreateNotific
 		localVarReturnValue  *GotifySettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsGotify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsGotify")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1454,7 +1454,7 @@ func (a *SettingsApiService) CreateNotificationsGotifyExecute(r ApiCreateNotific
 }
 type ApiCreateNotificationsLunaseaRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	lunaSeaSettings *LunaSeaSettings
 }
 
@@ -1475,7 +1475,7 @@ Updates LunaSea notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsLunaseaRequest
 */
-func (a *SettingsApiService) CreateNotificationsLunasea(ctx context.Context) ApiCreateNotificationsLunaseaRequest {
+func (a *SettingsAPIService) CreateNotificationsLunasea(ctx context.Context) ApiCreateNotificationsLunaseaRequest {
 	return ApiCreateNotificationsLunaseaRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1484,7 +1484,7 @@ func (a *SettingsApiService) CreateNotificationsLunasea(ctx context.Context) Api
 
 // Execute executes the request
 //  @return LunaSeaSettings
-func (a *SettingsApiService) CreateNotificationsLunaseaExecute(r ApiCreateNotificationsLunaseaRequest) (*LunaSeaSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsLunaseaExecute(r ApiCreateNotificationsLunaseaRequest) (*LunaSeaSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1492,7 +1492,7 @@ func (a *SettingsApiService) CreateNotificationsLunaseaExecute(r ApiCreateNotifi
 		localVarReturnValue  *LunaSeaSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsLunasea")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsLunasea")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1577,7 +1577,7 @@ func (a *SettingsApiService) CreateNotificationsLunaseaExecute(r ApiCreateNotifi
 }
 type ApiCreateNotificationsPushbulletRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	pushbulletSettings *PushbulletSettings
 }
 
@@ -1598,7 +1598,7 @@ Update Pushbullet notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsPushbulletRequest
 */
-func (a *SettingsApiService) CreateNotificationsPushbullet(ctx context.Context) ApiCreateNotificationsPushbulletRequest {
+func (a *SettingsAPIService) CreateNotificationsPushbullet(ctx context.Context) ApiCreateNotificationsPushbulletRequest {
 	return ApiCreateNotificationsPushbulletRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1607,7 +1607,7 @@ func (a *SettingsApiService) CreateNotificationsPushbullet(ctx context.Context) 
 
 // Execute executes the request
 //  @return PushbulletSettings
-func (a *SettingsApiService) CreateNotificationsPushbulletExecute(r ApiCreateNotificationsPushbulletRequest) (*PushbulletSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsPushbulletExecute(r ApiCreateNotificationsPushbulletRequest) (*PushbulletSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1615,7 +1615,7 @@ func (a *SettingsApiService) CreateNotificationsPushbulletExecute(r ApiCreateNot
 		localVarReturnValue  *PushbulletSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsPushbullet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsPushbullet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1700,7 +1700,7 @@ func (a *SettingsApiService) CreateNotificationsPushbulletExecute(r ApiCreateNot
 }
 type ApiCreateNotificationsPushoverRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	pushoverSettings *PushoverSettings
 }
 
@@ -1721,7 +1721,7 @@ Update Pushover notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsPushoverRequest
 */
-func (a *SettingsApiService) CreateNotificationsPushover(ctx context.Context) ApiCreateNotificationsPushoverRequest {
+func (a *SettingsAPIService) CreateNotificationsPushover(ctx context.Context) ApiCreateNotificationsPushoverRequest {
 	return ApiCreateNotificationsPushoverRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1730,7 +1730,7 @@ func (a *SettingsApiService) CreateNotificationsPushover(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return PushoverSettings
-func (a *SettingsApiService) CreateNotificationsPushoverExecute(r ApiCreateNotificationsPushoverRequest) (*PushoverSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsPushoverExecute(r ApiCreateNotificationsPushoverRequest) (*PushoverSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1738,7 +1738,7 @@ func (a *SettingsApiService) CreateNotificationsPushoverExecute(r ApiCreateNotif
 		localVarReturnValue  *PushoverSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsPushover")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsPushover")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1823,7 +1823,7 @@ func (a *SettingsApiService) CreateNotificationsPushoverExecute(r ApiCreateNotif
 }
 type ApiCreateNotificationsSlackRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	slackSettings *SlackSettings
 }
 
@@ -1844,7 +1844,7 @@ Updates Slack notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsSlackRequest
 */
-func (a *SettingsApiService) CreateNotificationsSlack(ctx context.Context) ApiCreateNotificationsSlackRequest {
+func (a *SettingsAPIService) CreateNotificationsSlack(ctx context.Context) ApiCreateNotificationsSlackRequest {
 	return ApiCreateNotificationsSlackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1853,7 +1853,7 @@ func (a *SettingsApiService) CreateNotificationsSlack(ctx context.Context) ApiCr
 
 // Execute executes the request
 //  @return SlackSettings
-func (a *SettingsApiService) CreateNotificationsSlackExecute(r ApiCreateNotificationsSlackRequest) (*SlackSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsSlackExecute(r ApiCreateNotificationsSlackRequest) (*SlackSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1861,7 +1861,7 @@ func (a *SettingsApiService) CreateNotificationsSlackExecute(r ApiCreateNotifica
 		localVarReturnValue  *SlackSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsSlack")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsSlack")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1946,7 +1946,7 @@ func (a *SettingsApiService) CreateNotificationsSlackExecute(r ApiCreateNotifica
 }
 type ApiCreateNotificationsTelegramRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	telegramSettings *TelegramSettings
 }
 
@@ -1967,7 +1967,7 @@ Update Telegram notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsTelegramRequest
 */
-func (a *SettingsApiService) CreateNotificationsTelegram(ctx context.Context) ApiCreateNotificationsTelegramRequest {
+func (a *SettingsAPIService) CreateNotificationsTelegram(ctx context.Context) ApiCreateNotificationsTelegramRequest {
 	return ApiCreateNotificationsTelegramRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1976,7 +1976,7 @@ func (a *SettingsApiService) CreateNotificationsTelegram(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return TelegramSettings
-func (a *SettingsApiService) CreateNotificationsTelegramExecute(r ApiCreateNotificationsTelegramRequest) (*TelegramSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsTelegramExecute(r ApiCreateNotificationsTelegramRequest) (*TelegramSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1984,7 +1984,7 @@ func (a *SettingsApiService) CreateNotificationsTelegramExecute(r ApiCreateNotif
 		localVarReturnValue  *TelegramSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsTelegram")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsTelegram")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2069,7 +2069,7 @@ func (a *SettingsApiService) CreateNotificationsTelegramExecute(r ApiCreateNotif
 }
 type ApiCreateNotificationsWebhookRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	webhookSettings *WebhookSettings
 }
 
@@ -2090,7 +2090,7 @@ Updates webhook notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsWebhookRequest
 */
-func (a *SettingsApiService) CreateNotificationsWebhook(ctx context.Context) ApiCreateNotificationsWebhookRequest {
+func (a *SettingsAPIService) CreateNotificationsWebhook(ctx context.Context) ApiCreateNotificationsWebhookRequest {
 	return ApiCreateNotificationsWebhookRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2099,7 +2099,7 @@ func (a *SettingsApiService) CreateNotificationsWebhook(ctx context.Context) Api
 
 // Execute executes the request
 //  @return WebhookSettings
-func (a *SettingsApiService) CreateNotificationsWebhookExecute(r ApiCreateNotificationsWebhookRequest) (*WebhookSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsWebhookExecute(r ApiCreateNotificationsWebhookRequest) (*WebhookSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2107,7 +2107,7 @@ func (a *SettingsApiService) CreateNotificationsWebhookExecute(r ApiCreateNotifi
 		localVarReturnValue  *WebhookSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsWebhook")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsWebhook")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2192,7 +2192,7 @@ func (a *SettingsApiService) CreateNotificationsWebhookExecute(r ApiCreateNotifi
 }
 type ApiCreateNotificationsWebpushRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	webPushSettings *WebPushSettings
 }
 
@@ -2213,7 +2213,7 @@ Updates Web Push notification settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateNotificationsWebpushRequest
 */
-func (a *SettingsApiService) CreateNotificationsWebpush(ctx context.Context) ApiCreateNotificationsWebpushRequest {
+func (a *SettingsAPIService) CreateNotificationsWebpush(ctx context.Context) ApiCreateNotificationsWebpushRequest {
 	return ApiCreateNotificationsWebpushRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2222,7 +2222,7 @@ func (a *SettingsApiService) CreateNotificationsWebpush(ctx context.Context) Api
 
 // Execute executes the request
 //  @return WebPushSettings
-func (a *SettingsApiService) CreateNotificationsWebpushExecute(r ApiCreateNotificationsWebpushRequest) (*WebPushSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateNotificationsWebpushExecute(r ApiCreateNotificationsWebpushRequest) (*WebPushSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2230,7 +2230,7 @@ func (a *SettingsApiService) CreateNotificationsWebpushExecute(r ApiCreateNotifi
 		localVarReturnValue  *WebPushSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateNotificationsWebpush")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateNotificationsWebpush")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2315,7 +2315,7 @@ func (a *SettingsApiService) CreateNotificationsWebpushExecute(r ApiCreateNotifi
 }
 type ApiCreatePlexRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	plexSettings *PlexSettings
 }
 
@@ -2336,7 +2336,7 @@ Updates Plex settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreatePlexRequest
 */
-func (a *SettingsApiService) CreatePlex(ctx context.Context) ApiCreatePlexRequest {
+func (a *SettingsAPIService) CreatePlex(ctx context.Context) ApiCreatePlexRequest {
 	return ApiCreatePlexRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2345,7 +2345,7 @@ func (a *SettingsApiService) CreatePlex(ctx context.Context) ApiCreatePlexReques
 
 // Execute executes the request
 //  @return PlexSettings
-func (a *SettingsApiService) CreatePlexExecute(r ApiCreatePlexRequest) (*PlexSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreatePlexExecute(r ApiCreatePlexRequest) (*PlexSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2353,7 +2353,7 @@ func (a *SettingsApiService) CreatePlexExecute(r ApiCreatePlexRequest) (*PlexSet
 		localVarReturnValue  *PlexSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreatePlex")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreatePlex")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2438,7 +2438,7 @@ func (a *SettingsApiService) CreatePlexExecute(r ApiCreatePlexRequest) (*PlexSet
 }
 type ApiCreatePlexSyncRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	createPlexSyncRequest *CreatePlexSyncRequest
 }
 
@@ -2459,7 +2459,7 @@ Runs a full Plex library scan and returns the progress in a JSON array.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreatePlexSyncRequest
 */
-func (a *SettingsApiService) CreatePlexSync(ctx context.Context) ApiCreatePlexSyncRequest {
+func (a *SettingsAPIService) CreatePlexSync(ctx context.Context) ApiCreatePlexSyncRequest {
 	return ApiCreatePlexSyncRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2468,7 +2468,7 @@ func (a *SettingsApiService) CreatePlexSync(ctx context.Context) ApiCreatePlexSy
 
 // Execute executes the request
 //  @return GetPlexSync200Response
-func (a *SettingsApiService) CreatePlexSyncExecute(r ApiCreatePlexSyncRequest) (*GetPlexSync200Response, *http.Response, error) {
+func (a *SettingsAPIService) CreatePlexSyncExecute(r ApiCreatePlexSyncRequest) (*GetPlexSync200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2476,7 +2476,7 @@ func (a *SettingsApiService) CreatePlexSyncExecute(r ApiCreatePlexSyncRequest) (
 		localVarReturnValue  *GetPlexSync200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreatePlexSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreatePlexSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2558,7 +2558,7 @@ func (a *SettingsApiService) CreatePlexSyncExecute(r ApiCreatePlexSyncRequest) (
 }
 type ApiCreateRadarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	radarrSettings *RadarrSettings
 }
 
@@ -2579,7 +2579,7 @@ Creates a new Radarr instance from the request body.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateRadarrRequest
 */
-func (a *SettingsApiService) CreateRadarr(ctx context.Context) ApiCreateRadarrRequest {
+func (a *SettingsAPIService) CreateRadarr(ctx context.Context) ApiCreateRadarrRequest {
 	return ApiCreateRadarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2588,7 +2588,7 @@ func (a *SettingsApiService) CreateRadarr(ctx context.Context) ApiCreateRadarrRe
 
 // Execute executes the request
 //  @return RadarrSettings
-func (a *SettingsApiService) CreateRadarrExecute(r ApiCreateRadarrRequest) (*RadarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateRadarrExecute(r ApiCreateRadarrRequest) (*RadarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2596,7 +2596,7 @@ func (a *SettingsApiService) CreateRadarrExecute(r ApiCreateRadarrRequest) (*Rad
 		localVarReturnValue  *RadarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateRadarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateRadarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2681,7 +2681,7 @@ func (a *SettingsApiService) CreateRadarrExecute(r ApiCreateRadarrRequest) (*Rad
 }
 type ApiCreateSonarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	sonarrSettings *SonarrSettings
 }
 
@@ -2702,7 +2702,7 @@ Creates a new Sonarr instance from the request body.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateSonarrRequest
 */
-func (a *SettingsApiService) CreateSonarr(ctx context.Context) ApiCreateSonarrRequest {
+func (a *SettingsAPIService) CreateSonarr(ctx context.Context) ApiCreateSonarrRequest {
 	return ApiCreateSonarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2711,7 +2711,7 @@ func (a *SettingsApiService) CreateSonarr(ctx context.Context) ApiCreateSonarrRe
 
 // Execute executes the request
 //  @return SonarrSettings
-func (a *SettingsApiService) CreateSonarrExecute(r ApiCreateSonarrRequest) (*SonarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateSonarrExecute(r ApiCreateSonarrRequest) (*SonarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2719,7 +2719,7 @@ func (a *SettingsApiService) CreateSonarrExecute(r ApiCreateSonarrRequest) (*Son
 		localVarReturnValue  *SonarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateSonarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateSonarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2804,7 +2804,7 @@ func (a *SettingsApiService) CreateSonarrExecute(r ApiCreateSonarrRequest) (*Son
 }
 type ApiCreateTautulliRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	tautulliSettings *TautulliSettings
 }
 
@@ -2825,7 +2825,7 @@ Updates Tautulli settings with the provided values.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateTautulliRequest
 */
-func (a *SettingsApiService) CreateTautulli(ctx context.Context) ApiCreateTautulliRequest {
+func (a *SettingsAPIService) CreateTautulli(ctx context.Context) ApiCreateTautulliRequest {
 	return ApiCreateTautulliRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2834,7 +2834,7 @@ func (a *SettingsApiService) CreateTautulli(ctx context.Context) ApiCreateTautul
 
 // Execute executes the request
 //  @return TautulliSettings
-func (a *SettingsApiService) CreateTautulliExecute(r ApiCreateTautulliRequest) (*TautulliSettings, *http.Response, error) {
+func (a *SettingsAPIService) CreateTautulliExecute(r ApiCreateTautulliRequest) (*TautulliSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2842,7 +2842,7 @@ func (a *SettingsApiService) CreateTautulliExecute(r ApiCreateTautulliRequest) (
 		localVarReturnValue  *TautulliSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.CreateTautulli")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateTautulli")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2927,7 +2927,7 @@ func (a *SettingsApiService) CreateTautulliExecute(r ApiCreateTautulliRequest) (
 }
 type ApiDeleteDiscoverRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	sliderId float32
 }
 
@@ -2944,7 +2944,7 @@ Deletes the slider with the provided sliderId. Requires the `ADMIN` permission.
  @param sliderId
  @return ApiDeleteDiscoverRequest
 */
-func (a *SettingsApiService) DeleteDiscover(ctx context.Context, sliderId float32) ApiDeleteDiscoverRequest {
+func (a *SettingsAPIService) DeleteDiscover(ctx context.Context, sliderId float32) ApiDeleteDiscoverRequest {
 	return ApiDeleteDiscoverRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2954,7 +2954,7 @@ func (a *SettingsApiService) DeleteDiscover(ctx context.Context, sliderId float3
 
 // Execute executes the request
 //  @return DiscoverSlider
-func (a *SettingsApiService) DeleteDiscoverExecute(r ApiDeleteDiscoverRequest) (*DiscoverSlider, *http.Response, error) {
+func (a *SettingsAPIService) DeleteDiscoverExecute(r ApiDeleteDiscoverRequest) (*DiscoverSlider, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2962,7 +2962,7 @@ func (a *SettingsApiService) DeleteDiscoverExecute(r ApiDeleteDiscoverRequest) (
 		localVarReturnValue  *DiscoverSlider
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.DeleteDiscover")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.DeleteDiscover")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3043,7 +3043,7 @@ func (a *SettingsApiService) DeleteDiscoverExecute(r ApiDeleteDiscoverRequest) (
 }
 type ApiDeleteRadarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	radarrId int32
 }
 
@@ -3060,7 +3060,7 @@ Deletes an existing Radarr instance based on the radarrId parameter.
  @param radarrId Radarr instance ID
  @return ApiDeleteRadarrRequest
 */
-func (a *SettingsApiService) DeleteRadarr(ctx context.Context, radarrId int32) ApiDeleteRadarrRequest {
+func (a *SettingsAPIService) DeleteRadarr(ctx context.Context, radarrId int32) ApiDeleteRadarrRequest {
 	return ApiDeleteRadarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3070,7 +3070,7 @@ func (a *SettingsApiService) DeleteRadarr(ctx context.Context, radarrId int32) A
 
 // Execute executes the request
 //  @return RadarrSettings
-func (a *SettingsApiService) DeleteRadarrExecute(r ApiDeleteRadarrRequest) (*RadarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) DeleteRadarrExecute(r ApiDeleteRadarrRequest) (*RadarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3078,7 +3078,7 @@ func (a *SettingsApiService) DeleteRadarrExecute(r ApiDeleteRadarrRequest) (*Rad
 		localVarReturnValue  *RadarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.DeleteRadarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.DeleteRadarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3159,7 +3159,7 @@ func (a *SettingsApiService) DeleteRadarrExecute(r ApiDeleteRadarrRequest) (*Rad
 }
 type ApiDeleteSonarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	sonarrId int32
 }
 
@@ -3176,7 +3176,7 @@ Deletes an existing Sonarr instance based on the sonarrId parameter.
  @param sonarrId Sonarr instance ID
  @return ApiDeleteSonarrRequest
 */
-func (a *SettingsApiService) DeleteSonarr(ctx context.Context, sonarrId int32) ApiDeleteSonarrRequest {
+func (a *SettingsAPIService) DeleteSonarr(ctx context.Context, sonarrId int32) ApiDeleteSonarrRequest {
 	return ApiDeleteSonarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3186,7 +3186,7 @@ func (a *SettingsApiService) DeleteSonarr(ctx context.Context, sonarrId int32) A
 
 // Execute executes the request
 //  @return SonarrSettings
-func (a *SettingsApiService) DeleteSonarrExecute(r ApiDeleteSonarrRequest) (*SonarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) DeleteSonarrExecute(r ApiDeleteSonarrRequest) (*SonarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3194,7 +3194,7 @@ func (a *SettingsApiService) DeleteSonarrExecute(r ApiDeleteSonarrRequest) (*Son
 		localVarReturnValue  *SonarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.DeleteSonarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.DeleteSonarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3275,7 +3275,7 @@ func (a *SettingsApiService) DeleteSonarrExecute(r ApiDeleteSonarrRequest) (*Son
 }
 type ApiGetAboutRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetAboutRequest) Execute() (*GetAbout200Response, *http.Response, error) {
@@ -3290,7 +3290,7 @@ Returns current server stats in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAboutRequest
 */
-func (a *SettingsApiService) GetAbout(ctx context.Context) ApiGetAboutRequest {
+func (a *SettingsAPIService) GetAbout(ctx context.Context) ApiGetAboutRequest {
 	return ApiGetAboutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3299,7 +3299,7 @@ func (a *SettingsApiService) GetAbout(ctx context.Context) ApiGetAboutRequest {
 
 // Execute executes the request
 //  @return GetAbout200Response
-func (a *SettingsApiService) GetAboutExecute(r ApiGetAboutRequest) (*GetAbout200Response, *http.Response, error) {
+func (a *SettingsAPIService) GetAboutExecute(r ApiGetAboutRequest) (*GetAbout200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3307,7 +3307,7 @@ func (a *SettingsApiService) GetAboutExecute(r ApiGetAboutRequest) (*GetAbout200
 		localVarReturnValue  *GetAbout200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetAbout")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetAbout")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3387,7 +3387,7 @@ func (a *SettingsApiService) GetAboutExecute(r ApiGetAboutRequest) (*GetAbout200
 }
 type ApiGetCacheRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetCacheRequest) Execute() (*GetCache200Response, *http.Response, error) {
@@ -3402,7 +3402,7 @@ Retrieves a list of all active caches and their current stats.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetCacheRequest
 */
-func (a *SettingsApiService) GetCache(ctx context.Context) ApiGetCacheRequest {
+func (a *SettingsAPIService) GetCache(ctx context.Context) ApiGetCacheRequest {
 	return ApiGetCacheRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3411,7 +3411,7 @@ func (a *SettingsApiService) GetCache(ctx context.Context) ApiGetCacheRequest {
 
 // Execute executes the request
 //  @return GetCache200Response
-func (a *SettingsApiService) GetCacheExecute(r ApiGetCacheRequest) (*GetCache200Response, *http.Response, error) {
+func (a *SettingsAPIService) GetCacheExecute(r ApiGetCacheRequest) (*GetCache200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3419,7 +3419,7 @@ func (a *SettingsApiService) GetCacheExecute(r ApiGetCacheRequest) (*GetCache200
 		localVarReturnValue  *GetCache200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetCache")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetCache")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3499,7 +3499,7 @@ func (a *SettingsApiService) GetCacheExecute(r ApiGetCacheRequest) (*GetCache200
 }
 type ApiGetDiscoverResetRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetDiscoverResetRequest) Execute() (*http.Response, error) {
@@ -3514,7 +3514,7 @@ Resets all discovery sliders to the default values. Requires the `ADMIN` permiss
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDiscoverResetRequest
 */
-func (a *SettingsApiService) GetDiscoverReset(ctx context.Context) ApiGetDiscoverResetRequest {
+func (a *SettingsAPIService) GetDiscoverReset(ctx context.Context) ApiGetDiscoverResetRequest {
 	return ApiGetDiscoverResetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3522,14 +3522,14 @@ func (a *SettingsApiService) GetDiscoverReset(ctx context.Context) ApiGetDiscove
 }
 
 // Execute executes the request
-func (a *SettingsApiService) GetDiscoverResetExecute(r ApiGetDiscoverResetRequest) (*http.Response, error) {
+func (a *SettingsAPIService) GetDiscoverResetExecute(r ApiGetDiscoverResetRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetDiscoverReset")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetDiscoverReset")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3600,7 +3600,7 @@ func (a *SettingsApiService) GetDiscoverResetExecute(r ApiGetDiscoverResetReques
 }
 type ApiGetMainRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetMainRequest) Execute() (*MainSettings, *http.Response, error) {
@@ -3615,7 +3615,7 @@ Retrieves all main settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetMainRequest
 */
-func (a *SettingsApiService) GetMain(ctx context.Context) ApiGetMainRequest {
+func (a *SettingsAPIService) GetMain(ctx context.Context) ApiGetMainRequest {
 	return ApiGetMainRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3624,7 +3624,7 @@ func (a *SettingsApiService) GetMain(ctx context.Context) ApiGetMainRequest {
 
 // Execute executes the request
 //  @return MainSettings
-func (a *SettingsApiService) GetMainExecute(r ApiGetMainRequest) (*MainSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetMainExecute(r ApiGetMainRequest) (*MainSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3632,7 +3632,7 @@ func (a *SettingsApiService) GetMainExecute(r ApiGetMainRequest) (*MainSettings,
 		localVarReturnValue  *MainSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetMain")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetMain")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3712,7 +3712,7 @@ func (a *SettingsApiService) GetMainExecute(r ApiGetMainRequest) (*MainSettings,
 }
 type ApiGetNotificationsDiscordRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsDiscordRequest) Execute() (*DiscordSettings, *http.Response, error) {
@@ -3727,7 +3727,7 @@ Returns current Discord notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsDiscordRequest
 */
-func (a *SettingsApiService) GetNotificationsDiscord(ctx context.Context) ApiGetNotificationsDiscordRequest {
+func (a *SettingsAPIService) GetNotificationsDiscord(ctx context.Context) ApiGetNotificationsDiscordRequest {
 	return ApiGetNotificationsDiscordRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3736,7 +3736,7 @@ func (a *SettingsApiService) GetNotificationsDiscord(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return DiscordSettings
-func (a *SettingsApiService) GetNotificationsDiscordExecute(r ApiGetNotificationsDiscordRequest) (*DiscordSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsDiscordExecute(r ApiGetNotificationsDiscordRequest) (*DiscordSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3744,7 +3744,7 @@ func (a *SettingsApiService) GetNotificationsDiscordExecute(r ApiGetNotification
 		localVarReturnValue  *DiscordSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsDiscord")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsDiscord")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3824,7 +3824,7 @@ func (a *SettingsApiService) GetNotificationsDiscordExecute(r ApiGetNotification
 }
 type ApiGetNotificationsEmailRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsEmailRequest) Execute() (*NotificationEmailSettings, *http.Response, error) {
@@ -3839,7 +3839,7 @@ Returns current email notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsEmailRequest
 */
-func (a *SettingsApiService) GetNotificationsEmail(ctx context.Context) ApiGetNotificationsEmailRequest {
+func (a *SettingsAPIService) GetNotificationsEmail(ctx context.Context) ApiGetNotificationsEmailRequest {
 	return ApiGetNotificationsEmailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3848,7 +3848,7 @@ func (a *SettingsApiService) GetNotificationsEmail(ctx context.Context) ApiGetNo
 
 // Execute executes the request
 //  @return NotificationEmailSettings
-func (a *SettingsApiService) GetNotificationsEmailExecute(r ApiGetNotificationsEmailRequest) (*NotificationEmailSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsEmailExecute(r ApiGetNotificationsEmailRequest) (*NotificationEmailSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3856,7 +3856,7 @@ func (a *SettingsApiService) GetNotificationsEmailExecute(r ApiGetNotificationsE
 		localVarReturnValue  *NotificationEmailSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsEmail")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsEmail")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3936,7 +3936,7 @@ func (a *SettingsApiService) GetNotificationsEmailExecute(r ApiGetNotificationsE
 }
 type ApiGetNotificationsGotifyRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsGotifyRequest) Execute() (*GotifySettings, *http.Response, error) {
@@ -3951,7 +3951,7 @@ Returns current Gotify notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsGotifyRequest
 */
-func (a *SettingsApiService) GetNotificationsGotify(ctx context.Context) ApiGetNotificationsGotifyRequest {
+func (a *SettingsAPIService) GetNotificationsGotify(ctx context.Context) ApiGetNotificationsGotifyRequest {
 	return ApiGetNotificationsGotifyRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3960,7 +3960,7 @@ func (a *SettingsApiService) GetNotificationsGotify(ctx context.Context) ApiGetN
 
 // Execute executes the request
 //  @return GotifySettings
-func (a *SettingsApiService) GetNotificationsGotifyExecute(r ApiGetNotificationsGotifyRequest) (*GotifySettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsGotifyExecute(r ApiGetNotificationsGotifyRequest) (*GotifySettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3968,7 +3968,7 @@ func (a *SettingsApiService) GetNotificationsGotifyExecute(r ApiGetNotifications
 		localVarReturnValue  *GotifySettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsGotify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsGotify")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4048,7 +4048,7 @@ func (a *SettingsApiService) GetNotificationsGotifyExecute(r ApiGetNotifications
 }
 type ApiGetNotificationsLunaseaRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsLunaseaRequest) Execute() (*LunaSeaSettings, *http.Response, error) {
@@ -4063,7 +4063,7 @@ Returns current LunaSea notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsLunaseaRequest
 */
-func (a *SettingsApiService) GetNotificationsLunasea(ctx context.Context) ApiGetNotificationsLunaseaRequest {
+func (a *SettingsAPIService) GetNotificationsLunasea(ctx context.Context) ApiGetNotificationsLunaseaRequest {
 	return ApiGetNotificationsLunaseaRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4072,7 +4072,7 @@ func (a *SettingsApiService) GetNotificationsLunasea(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return LunaSeaSettings
-func (a *SettingsApiService) GetNotificationsLunaseaExecute(r ApiGetNotificationsLunaseaRequest) (*LunaSeaSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsLunaseaExecute(r ApiGetNotificationsLunaseaRequest) (*LunaSeaSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4080,7 +4080,7 @@ func (a *SettingsApiService) GetNotificationsLunaseaExecute(r ApiGetNotification
 		localVarReturnValue  *LunaSeaSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsLunasea")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsLunasea")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4160,7 +4160,7 @@ func (a *SettingsApiService) GetNotificationsLunaseaExecute(r ApiGetNotification
 }
 type ApiGetNotificationsPushbulletRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsPushbulletRequest) Execute() (*PushbulletSettings, *http.Response, error) {
@@ -4175,7 +4175,7 @@ Returns current Pushbullet notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsPushbulletRequest
 */
-func (a *SettingsApiService) GetNotificationsPushbullet(ctx context.Context) ApiGetNotificationsPushbulletRequest {
+func (a *SettingsAPIService) GetNotificationsPushbullet(ctx context.Context) ApiGetNotificationsPushbulletRequest {
 	return ApiGetNotificationsPushbulletRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4184,7 +4184,7 @@ func (a *SettingsApiService) GetNotificationsPushbullet(ctx context.Context) Api
 
 // Execute executes the request
 //  @return PushbulletSettings
-func (a *SettingsApiService) GetNotificationsPushbulletExecute(r ApiGetNotificationsPushbulletRequest) (*PushbulletSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsPushbulletExecute(r ApiGetNotificationsPushbulletRequest) (*PushbulletSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4192,7 +4192,7 @@ func (a *SettingsApiService) GetNotificationsPushbulletExecute(r ApiGetNotificat
 		localVarReturnValue  *PushbulletSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsPushbullet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsPushbullet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4272,7 +4272,7 @@ func (a *SettingsApiService) GetNotificationsPushbulletExecute(r ApiGetNotificat
 }
 type ApiGetNotificationsPushoverRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsPushoverRequest) Execute() (*PushoverSettings, *http.Response, error) {
@@ -4287,7 +4287,7 @@ Returns current Pushover notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsPushoverRequest
 */
-func (a *SettingsApiService) GetNotificationsPushover(ctx context.Context) ApiGetNotificationsPushoverRequest {
+func (a *SettingsAPIService) GetNotificationsPushover(ctx context.Context) ApiGetNotificationsPushoverRequest {
 	return ApiGetNotificationsPushoverRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4296,7 +4296,7 @@ func (a *SettingsApiService) GetNotificationsPushover(ctx context.Context) ApiGe
 
 // Execute executes the request
 //  @return PushoverSettings
-func (a *SettingsApiService) GetNotificationsPushoverExecute(r ApiGetNotificationsPushoverRequest) (*PushoverSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsPushoverExecute(r ApiGetNotificationsPushoverRequest) (*PushoverSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4304,7 +4304,7 @@ func (a *SettingsApiService) GetNotificationsPushoverExecute(r ApiGetNotificatio
 		localVarReturnValue  *PushoverSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsPushover")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsPushover")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4384,7 +4384,7 @@ func (a *SettingsApiService) GetNotificationsPushoverExecute(r ApiGetNotificatio
 }
 type ApiGetNotificationsSlackRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsSlackRequest) Execute() (*SlackSettings, *http.Response, error) {
@@ -4399,7 +4399,7 @@ Returns current Slack notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsSlackRequest
 */
-func (a *SettingsApiService) GetNotificationsSlack(ctx context.Context) ApiGetNotificationsSlackRequest {
+func (a *SettingsAPIService) GetNotificationsSlack(ctx context.Context) ApiGetNotificationsSlackRequest {
 	return ApiGetNotificationsSlackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4408,7 +4408,7 @@ func (a *SettingsApiService) GetNotificationsSlack(ctx context.Context) ApiGetNo
 
 // Execute executes the request
 //  @return SlackSettings
-func (a *SettingsApiService) GetNotificationsSlackExecute(r ApiGetNotificationsSlackRequest) (*SlackSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsSlackExecute(r ApiGetNotificationsSlackRequest) (*SlackSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4416,7 +4416,7 @@ func (a *SettingsApiService) GetNotificationsSlackExecute(r ApiGetNotificationsS
 		localVarReturnValue  *SlackSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsSlack")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsSlack")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4496,7 +4496,7 @@ func (a *SettingsApiService) GetNotificationsSlackExecute(r ApiGetNotificationsS
 }
 type ApiGetNotificationsTelegramRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsTelegramRequest) Execute() (*TelegramSettings, *http.Response, error) {
@@ -4511,7 +4511,7 @@ Returns current Telegram notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsTelegramRequest
 */
-func (a *SettingsApiService) GetNotificationsTelegram(ctx context.Context) ApiGetNotificationsTelegramRequest {
+func (a *SettingsAPIService) GetNotificationsTelegram(ctx context.Context) ApiGetNotificationsTelegramRequest {
 	return ApiGetNotificationsTelegramRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4520,7 +4520,7 @@ func (a *SettingsApiService) GetNotificationsTelegram(ctx context.Context) ApiGe
 
 // Execute executes the request
 //  @return TelegramSettings
-func (a *SettingsApiService) GetNotificationsTelegramExecute(r ApiGetNotificationsTelegramRequest) (*TelegramSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsTelegramExecute(r ApiGetNotificationsTelegramRequest) (*TelegramSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4528,7 +4528,7 @@ func (a *SettingsApiService) GetNotificationsTelegramExecute(r ApiGetNotificatio
 		localVarReturnValue  *TelegramSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsTelegram")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsTelegram")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4608,7 +4608,7 @@ func (a *SettingsApiService) GetNotificationsTelegramExecute(r ApiGetNotificatio
 }
 type ApiGetNotificationsWebhookRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsWebhookRequest) Execute() (*WebhookSettings, *http.Response, error) {
@@ -4623,7 +4623,7 @@ Returns current webhook notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsWebhookRequest
 */
-func (a *SettingsApiService) GetNotificationsWebhook(ctx context.Context) ApiGetNotificationsWebhookRequest {
+func (a *SettingsAPIService) GetNotificationsWebhook(ctx context.Context) ApiGetNotificationsWebhookRequest {
 	return ApiGetNotificationsWebhookRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4632,7 +4632,7 @@ func (a *SettingsApiService) GetNotificationsWebhook(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return WebhookSettings
-func (a *SettingsApiService) GetNotificationsWebhookExecute(r ApiGetNotificationsWebhookRequest) (*WebhookSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsWebhookExecute(r ApiGetNotificationsWebhookRequest) (*WebhookSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4640,7 +4640,7 @@ func (a *SettingsApiService) GetNotificationsWebhookExecute(r ApiGetNotification
 		localVarReturnValue  *WebhookSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsWebhook")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsWebhook")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4720,7 +4720,7 @@ func (a *SettingsApiService) GetNotificationsWebhookExecute(r ApiGetNotification
 }
 type ApiGetNotificationsWebpushRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetNotificationsWebpushRequest) Execute() (*WebPushSettings, *http.Response, error) {
@@ -4735,7 +4735,7 @@ Returns current Web Push notification settings in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNotificationsWebpushRequest
 */
-func (a *SettingsApiService) GetNotificationsWebpush(ctx context.Context) ApiGetNotificationsWebpushRequest {
+func (a *SettingsAPIService) GetNotificationsWebpush(ctx context.Context) ApiGetNotificationsWebpushRequest {
 	return ApiGetNotificationsWebpushRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4744,7 +4744,7 @@ func (a *SettingsApiService) GetNotificationsWebpush(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return WebPushSettings
-func (a *SettingsApiService) GetNotificationsWebpushExecute(r ApiGetNotificationsWebpushRequest) (*WebPushSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetNotificationsWebpushExecute(r ApiGetNotificationsWebpushRequest) (*WebPushSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4752,7 +4752,7 @@ func (a *SettingsApiService) GetNotificationsWebpushExecute(r ApiGetNotification
 		localVarReturnValue  *WebPushSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetNotificationsWebpush")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetNotificationsWebpush")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4832,7 +4832,7 @@ func (a *SettingsApiService) GetNotificationsWebpushExecute(r ApiGetNotification
 }
 type ApiGetPlexRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetPlexRequest) Execute() (*PlexSettings, *http.Response, error) {
@@ -4847,7 +4847,7 @@ Retrieves current Plex settings.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetPlexRequest
 */
-func (a *SettingsApiService) GetPlex(ctx context.Context) ApiGetPlexRequest {
+func (a *SettingsAPIService) GetPlex(ctx context.Context) ApiGetPlexRequest {
 	return ApiGetPlexRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4856,7 +4856,7 @@ func (a *SettingsApiService) GetPlex(ctx context.Context) ApiGetPlexRequest {
 
 // Execute executes the request
 //  @return PlexSettings
-func (a *SettingsApiService) GetPlexExecute(r ApiGetPlexRequest) (*PlexSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetPlexExecute(r ApiGetPlexRequest) (*PlexSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4864,7 +4864,7 @@ func (a *SettingsApiService) GetPlexExecute(r ApiGetPlexRequest) (*PlexSettings,
 		localVarReturnValue  *PlexSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetPlex")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetPlex")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4944,7 +4944,7 @@ func (a *SettingsApiService) GetPlexExecute(r ApiGetPlexRequest) (*PlexSettings,
 }
 type ApiGetPlexSyncRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetPlexSyncRequest) Execute() (*GetPlexSync200Response, *http.Response, error) {
@@ -4959,7 +4959,7 @@ Returns scan progress in a JSON array.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetPlexSyncRequest
 */
-func (a *SettingsApiService) GetPlexSync(ctx context.Context) ApiGetPlexSyncRequest {
+func (a *SettingsAPIService) GetPlexSync(ctx context.Context) ApiGetPlexSyncRequest {
 	return ApiGetPlexSyncRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4968,7 +4968,7 @@ func (a *SettingsApiService) GetPlexSync(ctx context.Context) ApiGetPlexSyncRequ
 
 // Execute executes the request
 //  @return GetPlexSync200Response
-func (a *SettingsApiService) GetPlexSyncExecute(r ApiGetPlexSyncRequest) (*GetPlexSync200Response, *http.Response, error) {
+func (a *SettingsAPIService) GetPlexSyncExecute(r ApiGetPlexSyncRequest) (*GetPlexSync200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4976,7 +4976,7 @@ func (a *SettingsApiService) GetPlexSyncExecute(r ApiGetPlexSyncRequest) (*GetPl
 		localVarReturnValue  *GetPlexSync200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetPlexSync")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetPlexSync")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5056,7 +5056,7 @@ func (a *SettingsApiService) GetPlexSyncExecute(r ApiGetPlexSyncRequest) (*GetPl
 }
 type ApiGetPublicRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetPublicRequest) Execute() (*PublicSettings, *http.Response, error) {
@@ -5071,7 +5071,7 @@ Returns settings that are not protected or sensitive. Mainly used to determine i
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetPublicRequest
 */
-func (a *SettingsApiService) GetPublic(ctx context.Context) ApiGetPublicRequest {
+func (a *SettingsAPIService) GetPublic(ctx context.Context) ApiGetPublicRequest {
 	return ApiGetPublicRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -5080,7 +5080,7 @@ func (a *SettingsApiService) GetPublic(ctx context.Context) ApiGetPublicRequest 
 
 // Execute executes the request
 //  @return PublicSettings
-func (a *SettingsApiService) GetPublicExecute(r ApiGetPublicRequest) (*PublicSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetPublicExecute(r ApiGetPublicRequest) (*PublicSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5088,7 +5088,7 @@ func (a *SettingsApiService) GetPublicExecute(r ApiGetPublicRequest) (*PublicSet
 		localVarReturnValue  *PublicSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetPublic")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetPublic")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5154,7 +5154,7 @@ func (a *SettingsApiService) GetPublicExecute(r ApiGetPublicRequest) (*PublicSet
 }
 type ApiGetTautulliRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiGetTautulliRequest) Execute() (*TautulliSettings, *http.Response, error) {
@@ -5169,7 +5169,7 @@ Retrieves current Tautulli settings.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTautulliRequest
 */
-func (a *SettingsApiService) GetTautulli(ctx context.Context) ApiGetTautulliRequest {
+func (a *SettingsAPIService) GetTautulli(ctx context.Context) ApiGetTautulliRequest {
 	return ApiGetTautulliRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -5178,7 +5178,7 @@ func (a *SettingsApiService) GetTautulli(ctx context.Context) ApiGetTautulliRequ
 
 // Execute executes the request
 //  @return TautulliSettings
-func (a *SettingsApiService) GetTautulliExecute(r ApiGetTautulliRequest) (*TautulliSettings, *http.Response, error) {
+func (a *SettingsAPIService) GetTautulliExecute(r ApiGetTautulliRequest) (*TautulliSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5186,7 +5186,7 @@ func (a *SettingsApiService) GetTautulliExecute(r ApiGetTautulliRequest) (*Tautu
 		localVarReturnValue  *TautulliSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.GetTautulli")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetTautulli")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5266,7 +5266,7 @@ func (a *SettingsApiService) GetTautulliExecute(r ApiGetTautulliRequest) (*Tautu
 }
 type ApiListDiscoverRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiListDiscoverRequest) Execute() ([]*DiscoverSlider, *http.Response, error) {
@@ -5281,7 +5281,7 @@ Returns all discovery sliders. Built-in and custom made.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListDiscoverRequest
 */
-func (a *SettingsApiService) ListDiscover(ctx context.Context) ApiListDiscoverRequest {
+func (a *SettingsAPIService) ListDiscover(ctx context.Context) ApiListDiscoverRequest {
 	return ApiListDiscoverRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -5290,7 +5290,7 @@ func (a *SettingsApiService) ListDiscover(ctx context.Context) ApiListDiscoverRe
 
 // Execute executes the request
 //  @return []DiscoverSlider
-func (a *SettingsApiService) ListDiscoverExecute(r ApiListDiscoverRequest) ([]*DiscoverSlider, *http.Response, error) {
+func (a *SettingsAPIService) ListDiscoverExecute(r ApiListDiscoverRequest) ([]*DiscoverSlider, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5298,7 +5298,7 @@ func (a *SettingsApiService) ListDiscoverExecute(r ApiListDiscoverRequest) ([]*D
 		localVarReturnValue  []*DiscoverSlider
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListDiscover")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListDiscover")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5378,7 +5378,7 @@ func (a *SettingsApiService) ListDiscoverExecute(r ApiListDiscoverRequest) ([]*D
 }
 type ApiListJobsRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiListJobsRequest) Execute() ([]*Job, *http.Response, error) {
@@ -5393,7 +5393,7 @@ Returns list of all scheduled jobs and details about their next execution time i
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListJobsRequest
 */
-func (a *SettingsApiService) ListJobs(ctx context.Context) ApiListJobsRequest {
+func (a *SettingsAPIService) ListJobs(ctx context.Context) ApiListJobsRequest {
 	return ApiListJobsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -5402,7 +5402,7 @@ func (a *SettingsApiService) ListJobs(ctx context.Context) ApiListJobsRequest {
 
 // Execute executes the request
 //  @return []Job
-func (a *SettingsApiService) ListJobsExecute(r ApiListJobsRequest) ([]*Job, *http.Response, error) {
+func (a *SettingsAPIService) ListJobsExecute(r ApiListJobsRequest) ([]*Job, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5410,7 +5410,7 @@ func (a *SettingsApiService) ListJobsExecute(r ApiListJobsRequest) ([]*Job, *htt
 		localVarReturnValue  []*Job
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListJobs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListJobs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5490,7 +5490,7 @@ func (a *SettingsApiService) ListJobsExecute(r ApiListJobsRequest) ([]*Job, *htt
 }
 type ApiListLogsRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	take *float32
 	skip *float32
 	filter *string
@@ -5529,7 +5529,7 @@ Returns list of all log items and details
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListLogsRequest
 */
-func (a *SettingsApiService) ListLogs(ctx context.Context) ApiListLogsRequest {
+func (a *SettingsAPIService) ListLogs(ctx context.Context) ApiListLogsRequest {
 	return ApiListLogsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -5538,7 +5538,7 @@ func (a *SettingsApiService) ListLogs(ctx context.Context) ApiListLogsRequest {
 
 // Execute executes the request
 //  @return []ListLogs200ResponseInner
-func (a *SettingsApiService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs200ResponseInner, *http.Response, error) {
+func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5546,7 +5546,7 @@ func (a *SettingsApiService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs2
 		localVarReturnValue  []*ListLogs200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListLogs")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListLogs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5638,7 +5638,7 @@ func (a *SettingsApiService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs2
 }
 type ApiListPlexDevicesServersRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiListPlexDevicesServersRequest) Execute() ([]*PlexDevice, *http.Response, error) {
@@ -5653,7 +5653,7 @@ Returns a list of available Plex servers and their connectivity state
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListPlexDevicesServersRequest
 */
-func (a *SettingsApiService) ListPlexDevicesServers(ctx context.Context) ApiListPlexDevicesServersRequest {
+func (a *SettingsAPIService) ListPlexDevicesServers(ctx context.Context) ApiListPlexDevicesServersRequest {
 	return ApiListPlexDevicesServersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -5662,7 +5662,7 @@ func (a *SettingsApiService) ListPlexDevicesServers(ctx context.Context) ApiList
 
 // Execute executes the request
 //  @return []PlexDevice
-func (a *SettingsApiService) ListPlexDevicesServersExecute(r ApiListPlexDevicesServersRequest) ([]*PlexDevice, *http.Response, error) {
+func (a *SettingsAPIService) ListPlexDevicesServersExecute(r ApiListPlexDevicesServersRequest) ([]*PlexDevice, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5670,7 +5670,7 @@ func (a *SettingsApiService) ListPlexDevicesServersExecute(r ApiListPlexDevicesS
 		localVarReturnValue  []*PlexDevice
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListPlexDevicesServers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListPlexDevicesServers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5750,7 +5750,7 @@ func (a *SettingsApiService) ListPlexDevicesServersExecute(r ApiListPlexDevicesS
 }
 type ApiListPlexLibraryRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	sync *string
 	enable *string
 }
@@ -5779,7 +5779,7 @@ Returns a list of Plex libraries in a JSON array.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListPlexLibraryRequest
 */
-func (a *SettingsApiService) ListPlexLibrary(ctx context.Context) ApiListPlexLibraryRequest {
+func (a *SettingsAPIService) ListPlexLibrary(ctx context.Context) ApiListPlexLibraryRequest {
 	return ApiListPlexLibraryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -5788,7 +5788,7 @@ func (a *SettingsApiService) ListPlexLibrary(ctx context.Context) ApiListPlexLib
 
 // Execute executes the request
 //  @return []PlexLibrary
-func (a *SettingsApiService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest) ([]*PlexLibrary, *http.Response, error) {
+func (a *SettingsAPIService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest) ([]*PlexLibrary, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5796,7 +5796,7 @@ func (a *SettingsApiService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest)
 		localVarReturnValue  []*PlexLibrary
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListPlexLibrary")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListPlexLibrary")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5882,7 +5882,7 @@ func (a *SettingsApiService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest)
 }
 type ApiListPlexUsersRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiListPlexUsersRequest) Execute() ([]*ListPlexUsers200ResponseInner, *http.Response, error) {
@@ -5900,7 +5900,7 @@ Requires the `MANAGE_USERS` permission.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListPlexUsersRequest
 */
-func (a *SettingsApiService) ListPlexUsers(ctx context.Context) ApiListPlexUsersRequest {
+func (a *SettingsAPIService) ListPlexUsers(ctx context.Context) ApiListPlexUsersRequest {
 	return ApiListPlexUsersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -5909,7 +5909,7 @@ func (a *SettingsApiService) ListPlexUsers(ctx context.Context) ApiListPlexUsers
 
 // Execute executes the request
 //  @return []ListPlexUsers200ResponseInner
-func (a *SettingsApiService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*ListPlexUsers200ResponseInner, *http.Response, error) {
+func (a *SettingsAPIService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*ListPlexUsers200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5917,7 +5917,7 @@ func (a *SettingsApiService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]
 		localVarReturnValue  []*ListPlexUsers200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListPlexUsers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListPlexUsers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5997,7 +5997,7 @@ func (a *SettingsApiService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]
 }
 type ApiListRadarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiListRadarrRequest) Execute() ([]*RadarrSettings, *http.Response, error) {
@@ -6012,7 +6012,7 @@ Returns all Radarr settings in a JSON array.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListRadarrRequest
 */
-func (a *SettingsApiService) ListRadarr(ctx context.Context) ApiListRadarrRequest {
+func (a *SettingsAPIService) ListRadarr(ctx context.Context) ApiListRadarrRequest {
 	return ApiListRadarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6021,7 +6021,7 @@ func (a *SettingsApiService) ListRadarr(ctx context.Context) ApiListRadarrReques
 
 // Execute executes the request
 //  @return []RadarrSettings
-func (a *SettingsApiService) ListRadarrExecute(r ApiListRadarrRequest) ([]*RadarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) ListRadarrExecute(r ApiListRadarrRequest) ([]*RadarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6029,7 +6029,7 @@ func (a *SettingsApiService) ListRadarrExecute(r ApiListRadarrRequest) ([]*Radar
 		localVarReturnValue  []*RadarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListRadarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListRadarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6109,7 +6109,7 @@ func (a *SettingsApiService) ListRadarrExecute(r ApiListRadarrRequest) ([]*Radar
 }
 type ApiListRadarrProfilesRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	radarrId int32
 }
 
@@ -6126,7 +6126,7 @@ Returns a list of profiles available on the Radarr server instance in a JSON arr
  @param radarrId Radarr instance ID
  @return ApiListRadarrProfilesRequest
 */
-func (a *SettingsApiService) ListRadarrProfiles(ctx context.Context, radarrId int32) ApiListRadarrProfilesRequest {
+func (a *SettingsAPIService) ListRadarrProfiles(ctx context.Context, radarrId int32) ApiListRadarrProfilesRequest {
 	return ApiListRadarrProfilesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6136,7 +6136,7 @@ func (a *SettingsApiService) ListRadarrProfiles(ctx context.Context, radarrId in
 
 // Execute executes the request
 //  @return []ServiceProfile
-func (a *SettingsApiService) ListRadarrProfilesExecute(r ApiListRadarrProfilesRequest) ([]*ServiceProfile, *http.Response, error) {
+func (a *SettingsAPIService) ListRadarrProfilesExecute(r ApiListRadarrProfilesRequest) ([]*ServiceProfile, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6144,7 +6144,7 @@ func (a *SettingsApiService) ListRadarrProfilesExecute(r ApiListRadarrProfilesRe
 		localVarReturnValue  []*ServiceProfile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListRadarrProfiles")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListRadarrProfiles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6225,7 +6225,7 @@ func (a *SettingsApiService) ListRadarrProfilesExecute(r ApiListRadarrProfilesRe
 }
 type ApiListSonarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 }
 
 func (r ApiListSonarrRequest) Execute() ([]*SonarrSettings, *http.Response, error) {
@@ -6240,7 +6240,7 @@ Returns all Sonarr settings in a JSON array.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListSonarrRequest
 */
-func (a *SettingsApiService) ListSonarr(ctx context.Context) ApiListSonarrRequest {
+func (a *SettingsAPIService) ListSonarr(ctx context.Context) ApiListSonarrRequest {
 	return ApiListSonarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6249,7 +6249,7 @@ func (a *SettingsApiService) ListSonarr(ctx context.Context) ApiListSonarrReques
 
 // Execute executes the request
 //  @return []SonarrSettings
-func (a *SettingsApiService) ListSonarrExecute(r ApiListSonarrRequest) ([]*SonarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) ListSonarrExecute(r ApiListSonarrRequest) ([]*SonarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6257,7 +6257,7 @@ func (a *SettingsApiService) ListSonarrExecute(r ApiListSonarrRequest) ([]*Sonar
 		localVarReturnValue  []*SonarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.ListSonarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListSonarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6337,7 +6337,7 @@ func (a *SettingsApiService) ListSonarrExecute(r ApiListSonarrRequest) ([]*Sonar
 }
 type ApiTestNotificationsDiscordRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	discordSettings *DiscordSettings
 }
 
@@ -6358,7 +6358,7 @@ Sends a test notification to the Discord agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsDiscordRequest
 */
-func (a *SettingsApiService) TestNotificationsDiscord(ctx context.Context) ApiTestNotificationsDiscordRequest {
+func (a *SettingsAPIService) TestNotificationsDiscord(ctx context.Context) ApiTestNotificationsDiscordRequest {
 	return ApiTestNotificationsDiscordRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6366,14 +6366,14 @@ func (a *SettingsApiService) TestNotificationsDiscord(ctx context.Context) ApiTe
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsDiscordExecute(r ApiTestNotificationsDiscordRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsDiscordExecute(r ApiTestNotificationsDiscordRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsDiscord")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsDiscord")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6449,7 +6449,7 @@ func (a *SettingsApiService) TestNotificationsDiscordExecute(r ApiTestNotificati
 }
 type ApiTestNotificationsEmailRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	notificationEmailSettings *NotificationEmailSettings
 }
 
@@ -6470,7 +6470,7 @@ Sends a test notification to the email agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsEmailRequest
 */
-func (a *SettingsApiService) TestNotificationsEmail(ctx context.Context) ApiTestNotificationsEmailRequest {
+func (a *SettingsAPIService) TestNotificationsEmail(ctx context.Context) ApiTestNotificationsEmailRequest {
 	return ApiTestNotificationsEmailRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6478,14 +6478,14 @@ func (a *SettingsApiService) TestNotificationsEmail(ctx context.Context) ApiTest
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsEmailExecute(r ApiTestNotificationsEmailRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsEmailExecute(r ApiTestNotificationsEmailRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsEmail")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsEmail")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6561,7 +6561,7 @@ func (a *SettingsApiService) TestNotificationsEmailExecute(r ApiTestNotification
 }
 type ApiTestNotificationsGotifyRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	gotifySettings *GotifySettings
 }
 
@@ -6582,7 +6582,7 @@ Sends a test notification to the Gotify agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsGotifyRequest
 */
-func (a *SettingsApiService) TestNotificationsGotify(ctx context.Context) ApiTestNotificationsGotifyRequest {
+func (a *SettingsAPIService) TestNotificationsGotify(ctx context.Context) ApiTestNotificationsGotifyRequest {
 	return ApiTestNotificationsGotifyRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6590,14 +6590,14 @@ func (a *SettingsApiService) TestNotificationsGotify(ctx context.Context) ApiTes
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsGotifyExecute(r ApiTestNotificationsGotifyRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsGotifyExecute(r ApiTestNotificationsGotifyRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsGotify")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsGotify")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6673,7 +6673,7 @@ func (a *SettingsApiService) TestNotificationsGotifyExecute(r ApiTestNotificatio
 }
 type ApiTestNotificationsLunaseaRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	lunaSeaSettings *LunaSeaSettings
 }
 
@@ -6694,7 +6694,7 @@ Sends a test notification to the LunaSea agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsLunaseaRequest
 */
-func (a *SettingsApiService) TestNotificationsLunasea(ctx context.Context) ApiTestNotificationsLunaseaRequest {
+func (a *SettingsAPIService) TestNotificationsLunasea(ctx context.Context) ApiTestNotificationsLunaseaRequest {
 	return ApiTestNotificationsLunaseaRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6702,14 +6702,14 @@ func (a *SettingsApiService) TestNotificationsLunasea(ctx context.Context) ApiTe
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsLunaseaExecute(r ApiTestNotificationsLunaseaRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsLunaseaExecute(r ApiTestNotificationsLunaseaRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsLunasea")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsLunasea")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6785,7 +6785,7 @@ func (a *SettingsApiService) TestNotificationsLunaseaExecute(r ApiTestNotificati
 }
 type ApiTestNotificationsPushbulletRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	pushbulletSettings *PushbulletSettings
 }
 
@@ -6806,7 +6806,7 @@ Sends a test notification to the Pushbullet agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsPushbulletRequest
 */
-func (a *SettingsApiService) TestNotificationsPushbullet(ctx context.Context) ApiTestNotificationsPushbulletRequest {
+func (a *SettingsAPIService) TestNotificationsPushbullet(ctx context.Context) ApiTestNotificationsPushbulletRequest {
 	return ApiTestNotificationsPushbulletRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6814,14 +6814,14 @@ func (a *SettingsApiService) TestNotificationsPushbullet(ctx context.Context) Ap
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsPushbulletExecute(r ApiTestNotificationsPushbulletRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsPushbulletExecute(r ApiTestNotificationsPushbulletRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsPushbullet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsPushbullet")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6897,7 +6897,7 @@ func (a *SettingsApiService) TestNotificationsPushbulletExecute(r ApiTestNotific
 }
 type ApiTestNotificationsPushoverRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	pushoverSettings *PushoverSettings
 }
 
@@ -6918,7 +6918,7 @@ Sends a test notification to the Pushover agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsPushoverRequest
 */
-func (a *SettingsApiService) TestNotificationsPushover(ctx context.Context) ApiTestNotificationsPushoverRequest {
+func (a *SettingsAPIService) TestNotificationsPushover(ctx context.Context) ApiTestNotificationsPushoverRequest {
 	return ApiTestNotificationsPushoverRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -6926,14 +6926,14 @@ func (a *SettingsApiService) TestNotificationsPushover(ctx context.Context) ApiT
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsPushoverExecute(r ApiTestNotificationsPushoverRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsPushoverExecute(r ApiTestNotificationsPushoverRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsPushover")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsPushover")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7009,7 +7009,7 @@ func (a *SettingsApiService) TestNotificationsPushoverExecute(r ApiTestNotificat
 }
 type ApiTestNotificationsSlackRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	slackSettings *SlackSettings
 }
 
@@ -7030,7 +7030,7 @@ Sends a test notification to the Slack agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsSlackRequest
 */
-func (a *SettingsApiService) TestNotificationsSlack(ctx context.Context) ApiTestNotificationsSlackRequest {
+func (a *SettingsAPIService) TestNotificationsSlack(ctx context.Context) ApiTestNotificationsSlackRequest {
 	return ApiTestNotificationsSlackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7038,14 +7038,14 @@ func (a *SettingsApiService) TestNotificationsSlack(ctx context.Context) ApiTest
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsSlackExecute(r ApiTestNotificationsSlackRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsSlackExecute(r ApiTestNotificationsSlackRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsSlack")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsSlack")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7121,7 +7121,7 @@ func (a *SettingsApiService) TestNotificationsSlackExecute(r ApiTestNotification
 }
 type ApiTestNotificationsTelegramRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	telegramSettings *TelegramSettings
 }
 
@@ -7142,7 +7142,7 @@ Sends a test notification to the Telegram agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsTelegramRequest
 */
-func (a *SettingsApiService) TestNotificationsTelegram(ctx context.Context) ApiTestNotificationsTelegramRequest {
+func (a *SettingsAPIService) TestNotificationsTelegram(ctx context.Context) ApiTestNotificationsTelegramRequest {
 	return ApiTestNotificationsTelegramRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7150,14 +7150,14 @@ func (a *SettingsApiService) TestNotificationsTelegram(ctx context.Context) ApiT
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsTelegramExecute(r ApiTestNotificationsTelegramRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsTelegramExecute(r ApiTestNotificationsTelegramRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsTelegram")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsTelegram")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7233,7 +7233,7 @@ func (a *SettingsApiService) TestNotificationsTelegramExecute(r ApiTestNotificat
 }
 type ApiTestNotificationsWebhookRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	webhookSettings *WebhookSettings
 }
 
@@ -7254,7 +7254,7 @@ Sends a test notification to the webhook agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsWebhookRequest
 */
-func (a *SettingsApiService) TestNotificationsWebhook(ctx context.Context) ApiTestNotificationsWebhookRequest {
+func (a *SettingsAPIService) TestNotificationsWebhook(ctx context.Context) ApiTestNotificationsWebhookRequest {
 	return ApiTestNotificationsWebhookRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7262,14 +7262,14 @@ func (a *SettingsApiService) TestNotificationsWebhook(ctx context.Context) ApiTe
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsWebhookExecute(r ApiTestNotificationsWebhookRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsWebhookExecute(r ApiTestNotificationsWebhookRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsWebhook")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsWebhook")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7345,7 +7345,7 @@ func (a *SettingsApiService) TestNotificationsWebhookExecute(r ApiTestNotificati
 }
 type ApiTestNotificationsWebpushRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	webPushSettings *WebPushSettings
 }
 
@@ -7366,7 +7366,7 @@ Sends a test notification to the Web Push agent.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestNotificationsWebpushRequest
 */
-func (a *SettingsApiService) TestNotificationsWebpush(ctx context.Context) ApiTestNotificationsWebpushRequest {
+func (a *SettingsAPIService) TestNotificationsWebpush(ctx context.Context) ApiTestNotificationsWebpushRequest {
 	return ApiTestNotificationsWebpushRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7374,14 +7374,14 @@ func (a *SettingsApiService) TestNotificationsWebpush(ctx context.Context) ApiTe
 }
 
 // Execute executes the request
-func (a *SettingsApiService) TestNotificationsWebpushExecute(r ApiTestNotificationsWebpushRequest) (*http.Response, error) {
+func (a *SettingsAPIService) TestNotificationsWebpushExecute(r ApiTestNotificationsWebpushRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestNotificationsWebpush")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestNotificationsWebpush")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7457,7 +7457,7 @@ func (a *SettingsApiService) TestNotificationsWebpushExecute(r ApiTestNotificati
 }
 type ApiTestRadarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	testRadarrRequest *TestRadarrRequest
 }
 
@@ -7478,7 +7478,7 @@ Tests if the Radarr configuration is valid. Returns profiles and root folders on
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestRadarrRequest
 */
-func (a *SettingsApiService) TestRadarr(ctx context.Context) ApiTestRadarrRequest {
+func (a *SettingsAPIService) TestRadarr(ctx context.Context) ApiTestRadarrRequest {
 	return ApiTestRadarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7487,7 +7487,7 @@ func (a *SettingsApiService) TestRadarr(ctx context.Context) ApiTestRadarrReques
 
 // Execute executes the request
 //  @return TestRadarr200Response
-func (a *SettingsApiService) TestRadarrExecute(r ApiTestRadarrRequest) (*TestRadarr200Response, *http.Response, error) {
+func (a *SettingsAPIService) TestRadarrExecute(r ApiTestRadarrRequest) (*TestRadarr200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -7495,7 +7495,7 @@ func (a *SettingsApiService) TestRadarrExecute(r ApiTestRadarrRequest) (*TestRad
 		localVarReturnValue  *TestRadarr200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestRadarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestRadarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7580,7 +7580,7 @@ func (a *SettingsApiService) TestRadarrExecute(r ApiTestRadarrRequest) (*TestRad
 }
 type ApiTestSonarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	testSonarrRequest *TestSonarrRequest
 }
 
@@ -7601,7 +7601,7 @@ Tests if the Sonarr configuration is valid. Returns profiles and root folders on
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestSonarrRequest
 */
-func (a *SettingsApiService) TestSonarr(ctx context.Context) ApiTestSonarrRequest {
+func (a *SettingsAPIService) TestSonarr(ctx context.Context) ApiTestSonarrRequest {
 	return ApiTestSonarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7610,7 +7610,7 @@ func (a *SettingsApiService) TestSonarr(ctx context.Context) ApiTestSonarrReques
 
 // Execute executes the request
 //  @return TestRadarr200Response
-func (a *SettingsApiService) TestSonarrExecute(r ApiTestSonarrRequest) (*TestRadarr200Response, *http.Response, error) {
+func (a *SettingsAPIService) TestSonarrExecute(r ApiTestSonarrRequest) (*TestRadarr200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -7618,7 +7618,7 @@ func (a *SettingsApiService) TestSonarrExecute(r ApiTestSonarrRequest) (*TestRad
 		localVarReturnValue  *TestRadarr200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.TestSonarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestSonarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7703,7 +7703,7 @@ func (a *SettingsApiService) TestSonarrExecute(r ApiTestSonarrRequest) (*TestRad
 }
 type ApiUpdateDiscoverRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	sliderId float32
 	updateDiscoverRequest *UpdateDiscoverRequest
 }
@@ -7727,7 +7727,7 @@ Updates a single slider and return the newly updated slider. Requires the `ADMIN
  @param sliderId
  @return ApiUpdateDiscoverRequest
 */
-func (a *SettingsApiService) UpdateDiscover(ctx context.Context, sliderId float32) ApiUpdateDiscoverRequest {
+func (a *SettingsAPIService) UpdateDiscover(ctx context.Context, sliderId float32) ApiUpdateDiscoverRequest {
 	return ApiUpdateDiscoverRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7737,7 +7737,7 @@ func (a *SettingsApiService) UpdateDiscover(ctx context.Context, sliderId float3
 
 // Execute executes the request
 //  @return DiscoverSlider
-func (a *SettingsApiService) UpdateDiscoverExecute(r ApiUpdateDiscoverRequest) (*DiscoverSlider, *http.Response, error) {
+func (a *SettingsAPIService) UpdateDiscoverExecute(r ApiUpdateDiscoverRequest) (*DiscoverSlider, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -7745,7 +7745,7 @@ func (a *SettingsApiService) UpdateDiscoverExecute(r ApiUpdateDiscoverRequest) (
 		localVarReturnValue  *DiscoverSlider
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.UpdateDiscover")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.UpdateDiscover")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7831,7 +7831,7 @@ func (a *SettingsApiService) UpdateDiscoverExecute(r ApiUpdateDiscoverRequest) (
 }
 type ApiUpdateRadarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	radarrId int32
 	radarrSettings *RadarrSettings
 }
@@ -7854,7 +7854,7 @@ Updates an existing Radarr instance with the provided values.
  @param radarrId Radarr instance ID
  @return ApiUpdateRadarrRequest
 */
-func (a *SettingsApiService) UpdateRadarr(ctx context.Context, radarrId int32) ApiUpdateRadarrRequest {
+func (a *SettingsAPIService) UpdateRadarr(ctx context.Context, radarrId int32) ApiUpdateRadarrRequest {
 	return ApiUpdateRadarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7864,7 +7864,7 @@ func (a *SettingsApiService) UpdateRadarr(ctx context.Context, radarrId int32) A
 
 // Execute executes the request
 //  @return RadarrSettings
-func (a *SettingsApiService) UpdateRadarrExecute(r ApiUpdateRadarrRequest) (*RadarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) UpdateRadarrExecute(r ApiUpdateRadarrRequest) (*RadarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -7872,7 +7872,7 @@ func (a *SettingsApiService) UpdateRadarrExecute(r ApiUpdateRadarrRequest) (*Rad
 		localVarReturnValue  *RadarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.UpdateRadarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.UpdateRadarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7958,7 +7958,7 @@ func (a *SettingsApiService) UpdateRadarrExecute(r ApiUpdateRadarrRequest) (*Rad
 }
 type ApiUpdateSonarrRequest struct {
 	ctx context.Context
-	ApiService *SettingsApiService
+	ApiService *SettingsAPIService
 	sonarrId int32
 	sonarrSettings *SonarrSettings
 }
@@ -7981,7 +7981,7 @@ Updates an existing Sonarr instance with the provided values.
  @param sonarrId Sonarr instance ID
  @return ApiUpdateSonarrRequest
 */
-func (a *SettingsApiService) UpdateSonarr(ctx context.Context, sonarrId int32) ApiUpdateSonarrRequest {
+func (a *SettingsAPIService) UpdateSonarr(ctx context.Context, sonarrId int32) ApiUpdateSonarrRequest {
 	return ApiUpdateSonarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -7991,7 +7991,7 @@ func (a *SettingsApiService) UpdateSonarr(ctx context.Context, sonarrId int32) A
 
 // Execute executes the request
 //  @return SonarrSettings
-func (a *SettingsApiService) UpdateSonarrExecute(r ApiUpdateSonarrRequest) (*SonarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) UpdateSonarrExecute(r ApiUpdateSonarrRequest) (*SonarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -7999,7 +7999,7 @@ func (a *SettingsApiService) UpdateSonarrExecute(r ApiUpdateSonarrRequest) (*Son
 		localVarReturnValue  *SonarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsApiService.UpdateSonarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.UpdateSonarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

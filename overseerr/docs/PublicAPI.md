@@ -1,11 +1,11 @@
-# \PublicApi
+# \PublicAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetStatus**](PublicApi.md#GetStatus) | **Get** /status | Get Overseerr status
-[**GetStatusAppdata**](PublicApi.md#GetStatusAppdata) | **Get** /status/appdata | Get application data volume status
+[**GetStatus**](PublicAPI.md#GetStatus) | **Get** /status | Get Overseerr status
+[**GetStatusAppdata**](PublicAPI.md#GetStatusAppdata) | **Get** /status/appdata | Get application data volume status
 
 
 
@@ -33,13 +33,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PublicApi.GetStatus(context.Background()).Execute()
+    resp, r, err := apiClient.PublicAPI.GetStatus(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PublicApi.GetStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetStatus`: GetStatus200Response
-    fmt.Fprintf(os.Stdout, "Response from `PublicApi.GetStatus`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetStatus`: %v\n", resp)
 }
 ```
 
@@ -94,13 +94,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PublicApi.GetStatusAppdata(context.Background()).Execute()
+    resp, r, err := apiClient.PublicAPI.GetStatusAppdata(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PublicApi.GetStatusAppdata``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetStatusAppdata``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetStatusAppdata`: GetStatusAppdata200Response
-    fmt.Fprintf(os.Stdout, "Response from `PublicApi.GetStatusAppdata`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetStatusAppdata`: %v\n", resp)
 }
 ```
 

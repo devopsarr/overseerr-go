@@ -20,11 +20,11 @@ import (
 )
 
 
-// RequestApiService RequestApi service
-type RequestApiService service
+// RequestAPIService RequestAPI service
+type RequestAPIService service
 type ApiCreateRequestRequest struct {
 	ctx context.Context
-	ApiService *RequestApiService
+	ApiService *RequestAPIService
 	createRequestRequest *CreateRequestRequest
 }
 
@@ -48,7 +48,7 @@ If the user has the `ADMIN` or `AUTO_APPROVE` permissions, their request will be
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateRequestRequest
 */
-func (a *RequestApiService) CreateRequest(ctx context.Context) ApiCreateRequestRequest {
+func (a *RequestAPIService) CreateRequest(ctx context.Context) ApiCreateRequestRequest {
 	return ApiCreateRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *RequestApiService) CreateRequest(ctx context.Context) ApiCreateRequestR
 
 // Execute executes the request
 //  @return MediaRequest
-func (a *RequestApiService) CreateRequestExecute(r ApiCreateRequestRequest) (*MediaRequest, *http.Response, error) {
+func (a *RequestAPIService) CreateRequestExecute(r ApiCreateRequestRequest) (*MediaRequest, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *RequestApiService) CreateRequestExecute(r ApiCreateRequestRequest) (*Me
 		localVarReturnValue  *MediaRequest
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestApiService.CreateRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.CreateRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,7 +150,7 @@ func (a *RequestApiService) CreateRequestExecute(r ApiCreateRequestRequest) (*Me
 }
 type ApiCreateRequestByStatusRequest struct {
 	ctx context.Context
-	ApiService *RequestApiService
+	ApiService *RequestAPIService
 	requestId string
 	status string
 }
@@ -172,7 +172,7 @@ Requires the `MANAGE_REQUESTS` permission or `ADMIN`.
  @param status New status
  @return ApiCreateRequestByStatusRequest
 */
-func (a *RequestApiService) CreateRequestByStatus(ctx context.Context, requestId string, status string) ApiCreateRequestByStatusRequest {
+func (a *RequestAPIService) CreateRequestByStatus(ctx context.Context, requestId string, status string) ApiCreateRequestByStatusRequest {
 	return ApiCreateRequestByStatusRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -183,7 +183,7 @@ func (a *RequestApiService) CreateRequestByStatus(ctx context.Context, requestId
 
 // Execute executes the request
 //  @return MediaRequest
-func (a *RequestApiService) CreateRequestByStatusExecute(r ApiCreateRequestByStatusRequest) (*MediaRequest, *http.Response, error) {
+func (a *RequestAPIService) CreateRequestByStatusExecute(r ApiCreateRequestByStatusRequest) (*MediaRequest, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -191,7 +191,7 @@ func (a *RequestApiService) CreateRequestByStatusExecute(r ApiCreateRequestBySta
 		localVarReturnValue  *MediaRequest
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestApiService.CreateRequestByStatus")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.CreateRequestByStatus")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -273,7 +273,7 @@ func (a *RequestApiService) CreateRequestByStatusExecute(r ApiCreateRequestBySta
 }
 type ApiCreateRequestRetryRequest struct {
 	ctx context.Context
-	ApiService *RequestApiService
+	ApiService *RequestAPIService
 	requestId string
 }
 
@@ -293,7 +293,7 @@ Requires the `MANAGE_REQUESTS` permission or `ADMIN`.
  @param requestId Request ID
  @return ApiCreateRequestRetryRequest
 */
-func (a *RequestApiService) CreateRequestRetry(ctx context.Context, requestId string) ApiCreateRequestRetryRequest {
+func (a *RequestAPIService) CreateRequestRetry(ctx context.Context, requestId string) ApiCreateRequestRetryRequest {
 	return ApiCreateRequestRetryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -303,7 +303,7 @@ func (a *RequestApiService) CreateRequestRetry(ctx context.Context, requestId st
 
 // Execute executes the request
 //  @return MediaRequest
-func (a *RequestApiService) CreateRequestRetryExecute(r ApiCreateRequestRetryRequest) (*MediaRequest, *http.Response, error) {
+func (a *RequestAPIService) CreateRequestRetryExecute(r ApiCreateRequestRetryRequest) (*MediaRequest, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -311,7 +311,7 @@ func (a *RequestApiService) CreateRequestRetryExecute(r ApiCreateRequestRetryReq
 		localVarReturnValue  *MediaRequest
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestApiService.CreateRequestRetry")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.CreateRequestRetry")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -392,7 +392,7 @@ func (a *RequestApiService) CreateRequestRetryExecute(r ApiCreateRequestRetryReq
 }
 type ApiDeleteRequestRequest struct {
 	ctx context.Context
-	ApiService *RequestApiService
+	ApiService *RequestAPIService
 	requestId string
 }
 
@@ -409,7 +409,7 @@ Removes a request. If the user has the `MANAGE_REQUESTS` permission, any request
  @param requestId Request ID
  @return ApiDeleteRequestRequest
 */
-func (a *RequestApiService) DeleteRequest(ctx context.Context, requestId string) ApiDeleteRequestRequest {
+func (a *RequestAPIService) DeleteRequest(ctx context.Context, requestId string) ApiDeleteRequestRequest {
 	return ApiDeleteRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -418,14 +418,14 @@ func (a *RequestApiService) DeleteRequest(ctx context.Context, requestId string)
 }
 
 // Execute executes the request
-func (a *RequestApiService) DeleteRequestExecute(r ApiDeleteRequestRequest) (*http.Response, error) {
+func (a *RequestAPIService) DeleteRequestExecute(r ApiDeleteRequestRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestApiService.DeleteRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.DeleteRequest")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -497,7 +497,7 @@ func (a *RequestApiService) DeleteRequestExecute(r ApiDeleteRequestRequest) (*ht
 }
 type ApiGetRequestRequest struct {
 	ctx context.Context
-	ApiService *RequestApiService
+	ApiService *RequestAPIService
 	take *float32
 	skip *float32
 	filter *string
@@ -545,7 +545,7 @@ If the `requestedBy` parameter is specified, only requests from that particular 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetRequestRequest
 */
-func (a *RequestApiService) GetRequest(ctx context.Context) ApiGetRequestRequest {
+func (a *RequestAPIService) GetRequest(ctx context.Context) ApiGetRequestRequest {
 	return ApiGetRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -554,7 +554,7 @@ func (a *RequestApiService) GetRequest(ctx context.Context) ApiGetRequestRequest
 
 // Execute executes the request
 //  @return GetUserRequests200Response
-func (a *RequestApiService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserRequests200Response, *http.Response, error) {
+func (a *RequestAPIService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserRequests200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -562,7 +562,7 @@ func (a *RequestApiService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserR
 		localVarReturnValue  *GetUserRequests200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestApiService.GetRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.GetRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -657,7 +657,7 @@ func (a *RequestApiService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserR
 }
 type ApiGetRequestByRequestIdRequest struct {
 	ctx context.Context
-	ApiService *RequestApiService
+	ApiService *RequestAPIService
 	requestId string
 }
 
@@ -674,7 +674,7 @@ Returns a specific MediaRequest in a JSON object.
  @param requestId Request ID
  @return ApiGetRequestByRequestIdRequest
 */
-func (a *RequestApiService) GetRequestByRequestId(ctx context.Context, requestId string) ApiGetRequestByRequestIdRequest {
+func (a *RequestAPIService) GetRequestByRequestId(ctx context.Context, requestId string) ApiGetRequestByRequestIdRequest {
 	return ApiGetRequestByRequestIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -684,7 +684,7 @@ func (a *RequestApiService) GetRequestByRequestId(ctx context.Context, requestId
 
 // Execute executes the request
 //  @return MediaRequest
-func (a *RequestApiService) GetRequestByRequestIdExecute(r ApiGetRequestByRequestIdRequest) (*MediaRequest, *http.Response, error) {
+func (a *RequestAPIService) GetRequestByRequestIdExecute(r ApiGetRequestByRequestIdRequest) (*MediaRequest, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -692,7 +692,7 @@ func (a *RequestApiService) GetRequestByRequestIdExecute(r ApiGetRequestByReques
 		localVarReturnValue  *MediaRequest
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestApiService.GetRequestByRequestId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.GetRequestByRequestId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -773,7 +773,7 @@ func (a *RequestApiService) GetRequestByRequestIdExecute(r ApiGetRequestByReques
 }
 type ApiGetRequestCountRequest struct {
 	ctx context.Context
-	ApiService *RequestApiService
+	ApiService *RequestAPIService
 }
 
 func (r ApiGetRequestCountRequest) Execute() (*GetRequestCount200Response, *http.Response, error) {
@@ -789,7 +789,7 @@ Returns the number of pending and approved requests.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetRequestCountRequest
 */
-func (a *RequestApiService) GetRequestCount(ctx context.Context) ApiGetRequestCountRequest {
+func (a *RequestAPIService) GetRequestCount(ctx context.Context) ApiGetRequestCountRequest {
 	return ApiGetRequestCountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -798,7 +798,7 @@ func (a *RequestApiService) GetRequestCount(ctx context.Context) ApiGetRequestCo
 
 // Execute executes the request
 //  @return GetRequestCount200Response
-func (a *RequestApiService) GetRequestCountExecute(r ApiGetRequestCountRequest) (*GetRequestCount200Response, *http.Response, error) {
+func (a *RequestAPIService) GetRequestCountExecute(r ApiGetRequestCountRequest) (*GetRequestCount200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -806,7 +806,7 @@ func (a *RequestApiService) GetRequestCountExecute(r ApiGetRequestCountRequest) 
 		localVarReturnValue  *GetRequestCount200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestApiService.GetRequestCount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.GetRequestCount")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -886,7 +886,7 @@ func (a *RequestApiService) GetRequestCountExecute(r ApiGetRequestCountRequest) 
 }
 type ApiUpdateRequestRequest struct {
 	ctx context.Context
-	ApiService *RequestApiService
+	ApiService *RequestAPIService
 	requestId string
 	updateRequestRequest *UpdateRequestRequest
 }
@@ -909,7 +909,7 @@ Updates a specific media request and returns the request in a JSON object. Requi
  @param requestId Request ID
  @return ApiUpdateRequestRequest
 */
-func (a *RequestApiService) UpdateRequest(ctx context.Context, requestId string) ApiUpdateRequestRequest {
+func (a *RequestAPIService) UpdateRequest(ctx context.Context, requestId string) ApiUpdateRequestRequest {
 	return ApiUpdateRequestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -919,7 +919,7 @@ func (a *RequestApiService) UpdateRequest(ctx context.Context, requestId string)
 
 // Execute executes the request
 //  @return MediaRequest
-func (a *RequestApiService) UpdateRequestExecute(r ApiUpdateRequestRequest) (*MediaRequest, *http.Response, error) {
+func (a *RequestAPIService) UpdateRequestExecute(r ApiUpdateRequestRequest) (*MediaRequest, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -927,7 +927,7 @@ func (a *RequestApiService) UpdateRequestExecute(r ApiUpdateRequestRequest) (*Me
 		localVarReturnValue  *MediaRequest
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestApiService.UpdateRequest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.UpdateRequest")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
