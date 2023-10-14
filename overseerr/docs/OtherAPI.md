@@ -1,13 +1,13 @@
-# \OtherApi
+# \OtherAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetKeywordByKeywordId**](OtherApi.md#GetKeywordByKeywordId) | **Get** /keyword/{keywordId} | Get keyword
-[**ListWatchprovidersMovies**](OtherApi.md#ListWatchprovidersMovies) | **Get** /watchproviders/movies | Get watch provider movies
-[**ListWatchprovidersRegions**](OtherApi.md#ListWatchprovidersRegions) | **Get** /watchproviders/regions | Get watch provider regions
-[**ListWatchprovidersTv**](OtherApi.md#ListWatchprovidersTv) | **Get** /watchproviders/tv | Get watch provider series
+[**GetKeywordByKeywordId**](OtherAPI.md#GetKeywordByKeywordId) | **Get** /keyword/{keywordId} | Get keyword
+[**ListWatchprovidersMovies**](OtherAPI.md#ListWatchprovidersMovies) | **Get** /watchproviders/movies | Get watch provider movies
+[**ListWatchprovidersRegions**](OtherAPI.md#ListWatchprovidersRegions) | **Get** /watchproviders/regions | Get watch provider regions
+[**ListWatchprovidersTv**](OtherAPI.md#ListWatchprovidersTv) | **Get** /watchproviders/tv | Get watch provider series
 
 
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OtherApi.GetKeywordByKeywordId(context.Background(), keywordId).Execute()
+    resp, r, err := apiClient.OtherAPI.GetKeywordByKeywordId(context.Background(), keywordId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OtherApi.GetKeywordByKeywordId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.GetKeywordByKeywordId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetKeywordByKeywordId`: Keyword
-    fmt.Fprintf(os.Stdout, "Response from `OtherApi.GetKeywordByKeywordId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `OtherAPI.GetKeywordByKeywordId`: %v\n", resp)
 }
 ```
 
@@ -106,13 +106,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OtherApi.ListWatchprovidersMovies(context.Background()).WatchRegion(watchRegion).Execute()
+    resp, r, err := apiClient.OtherAPI.ListWatchprovidersMovies(context.Background()).WatchRegion(watchRegion).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OtherApi.ListWatchprovidersMovies``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersMovies``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListWatchprovidersMovies`: []WatchProviderDetails
-    fmt.Fprintf(os.Stdout, "Response from `OtherApi.ListWatchprovidersMovies`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersMovies`: %v\n", resp)
 }
 ```
 
@@ -171,13 +171,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OtherApi.ListWatchprovidersRegions(context.Background()).Execute()
+    resp, r, err := apiClient.OtherAPI.ListWatchprovidersRegions(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OtherApi.ListWatchprovidersRegions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersRegions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListWatchprovidersRegions`: []WatchProviderRegion
-    fmt.Fprintf(os.Stdout, "Response from `OtherApi.ListWatchprovidersRegions`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersRegions`: %v\n", resp)
 }
 ```
 
@@ -233,13 +233,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OtherApi.ListWatchprovidersTv(context.Background()).WatchRegion(watchRegion).Execute()
+    resp, r, err := apiClient.OtherAPI.ListWatchprovidersTv(context.Background()).WatchRegion(watchRegion).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OtherApi.ListWatchprovidersTv``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersTv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListWatchprovidersTv`: []WatchProviderDetails
-    fmt.Fprintf(os.Stdout, "Response from `OtherApi.ListWatchprovidersTv`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersTv`: %v\n", resp)
 }
 ```
 

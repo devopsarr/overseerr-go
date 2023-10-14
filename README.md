@@ -88,174 +88,174 @@ All URIs are relative to *http://localhost:5055/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthApi* | [**CreateAuthLocal**](overseerr/docs/AuthApi.md#createauthlocal) | **Post** /auth/local | Sign in using a local account
-*AuthApi* | [**CreateAuthLogout**](overseerr/docs/AuthApi.md#createauthlogout) | **Post** /auth/logout | Sign out and clear session cookie
-*AuthApi* | [**CreateAuthPlex**](overseerr/docs/AuthApi.md#createauthplex) | **Post** /auth/plex | Sign in using a Plex token
-*AuthApi* | [**GetAuthMe**](overseerr/docs/AuthApi.md#getauthme) | **Get** /auth/me | Get logged-in user
-*CollectionApi* | [**GetCollectionByCollectionId**](overseerr/docs/CollectionApi.md#getcollectionbycollectionid) | **Get** /collection/{collectionId} | Get collection details
-*IssueApi* | [**CreateIssue**](overseerr/docs/IssueApi.md#createissue) | **Post** /issue | Create new issue
-*IssueApi* | [**CreateIssueByStatus**](overseerr/docs/IssueApi.md#createissuebystatus) | **Post** /issue/{issueId}/{status} | Update an issue&#39;s status
-*IssueApi* | [**CreateIssueComment**](overseerr/docs/IssueApi.md#createissuecomment) | **Post** /issue/{issueId}/comment | Create a comment
-*IssueApi* | [**DeleteIssue**](overseerr/docs/IssueApi.md#deleteissue) | **Delete** /issue/{issueId} | Delete issue
-*IssueApi* | [**DeleteIssueComment**](overseerr/docs/IssueApi.md#deleteissuecomment) | **Delete** /issueComment/{commentId} | Delete issue comment
-*IssueApi* | [**GetIssue**](overseerr/docs/IssueApi.md#getissue) | **Get** /issue | Get all issues
-*IssueApi* | [**GetIssueByIssueId**](overseerr/docs/IssueApi.md#getissuebyissueid) | **Get** /issue/{issueId} | Get issue
-*IssueApi* | [**GetIssueCommentByCommentId**](overseerr/docs/IssueApi.md#getissuecommentbycommentid) | **Get** /issueComment/{commentId} | Get issue comment
-*IssueApi* | [**GetIssueCount**](overseerr/docs/IssueApi.md#getissuecount) | **Get** /issue/count | Gets issue counts
-*IssueApi* | [**UpdateIssueComment**](overseerr/docs/IssueApi.md#updateissuecomment) | **Put** /issueComment/{commentId} | Update issue comment
-*MediaApi* | [**CreateMediaByStatus**](overseerr/docs/MediaApi.md#createmediabystatus) | **Post** /media/{mediaId}/{status} | Update media status
-*MediaApi* | [**DeleteMedia**](overseerr/docs/MediaApi.md#deletemedia) | **Delete** /media/{mediaId} | Delete media item
-*MediaApi* | [**GetMedia**](overseerr/docs/MediaApi.md#getmedia) | **Get** /media | Get media
-*MediaApi* | [**GetMediaWatchData**](overseerr/docs/MediaApi.md#getmediawatchdata) | **Get** /media/{mediaId}/watch_data | Get watch data
-*MoviesApi* | [**GetMovieByMovieId**](overseerr/docs/MoviesApi.md#getmoviebymovieid) | **Get** /movie/{movieId} | Get movie details
-*MoviesApi* | [**GetMovieRatings**](overseerr/docs/MoviesApi.md#getmovieratings) | **Get** /movie/{movieId}/ratings | Get movie ratings
-*MoviesApi* | [**GetMovieRatingscombined**](overseerr/docs/MoviesApi.md#getmovieratingscombined) | **Get** /movie/{movieId}/ratingscombined | Get RT and IMDB movie ratings combined
-*MoviesApi* | [**GetMovieRecommendations**](overseerr/docs/MoviesApi.md#getmovierecommendations) | **Get** /movie/{movieId}/recommendations | Get recommended movies
-*MoviesApi* | [**GetMovieSimilar**](overseerr/docs/MoviesApi.md#getmoviesimilar) | **Get** /movie/{movieId}/similar | Get similar movies
-*OtherApi* | [**GetKeywordByKeywordId**](overseerr/docs/OtherApi.md#getkeywordbykeywordid) | **Get** /keyword/{keywordId} | Get keyword
-*OtherApi* | [**ListWatchprovidersMovies**](overseerr/docs/OtherApi.md#listwatchprovidersmovies) | **Get** /watchproviders/movies | Get watch provider movies
-*OtherApi* | [**ListWatchprovidersRegions**](overseerr/docs/OtherApi.md#listwatchprovidersregions) | **Get** /watchproviders/regions | Get watch provider regions
-*OtherApi* | [**ListWatchprovidersTv**](overseerr/docs/OtherApi.md#listwatchproviderstv) | **Get** /watchproviders/tv | Get watch provider series
-*PersonApi* | [**GetPersonByPersonId**](overseerr/docs/PersonApi.md#getpersonbypersonid) | **Get** /person/{personId} | Get person details
-*PersonApi* | [**GetPersonCombinedCredits**](overseerr/docs/PersonApi.md#getpersoncombinedcredits) | **Get** /person/{personId}/combined_credits | Get combined credits
-*PublicApi* | [**GetStatus**](overseerr/docs/PublicApi.md#getstatus) | **Get** /status | Get Overseerr status
-*PublicApi* | [**GetStatusAppdata**](overseerr/docs/PublicApi.md#getstatusappdata) | **Get** /status/appdata | Get application data volume status
-*RequestApi* | [**CreateRequest**](overseerr/docs/RequestApi.md#createrequest) | **Post** /request | Create new request
-*RequestApi* | [**CreateRequestByStatus**](overseerr/docs/RequestApi.md#createrequestbystatus) | **Post** /request/{requestId}/{status} | Update a request&#39;s status
-*RequestApi* | [**CreateRequestRetry**](overseerr/docs/RequestApi.md#createrequestretry) | **Post** /request/{requestId}/retry | Retry failed request
-*RequestApi* | [**DeleteRequest**](overseerr/docs/RequestApi.md#deleterequest) | **Delete** /request/{requestId} | Delete request
-*RequestApi* | [**GetRequest**](overseerr/docs/RequestApi.md#getrequest) | **Get** /request | Get all requests
-*RequestApi* | [**GetRequestByRequestId**](overseerr/docs/RequestApi.md#getrequestbyrequestid) | **Get** /request/{requestId} | Get MediaRequest
-*RequestApi* | [**GetRequestCount**](overseerr/docs/RequestApi.md#getrequestcount) | **Get** /request/count | Gets request counts
-*RequestApi* | [**UpdateRequest**](overseerr/docs/RequestApi.md#updaterequest) | **Put** /request/{requestId} | Update MediaRequest
-*SearchApi* | [**GetDiscoverKeywordMovies**](overseerr/docs/SearchApi.md#getdiscoverkeywordmovies) | **Get** /discover/keyword/{keywordId}/movies | Get movies from keyword
-*SearchApi* | [**GetDiscoverMovies**](overseerr/docs/SearchApi.md#getdiscovermovies) | **Get** /discover/movies | Discover movies
-*SearchApi* | [**GetDiscoverMoviesGenreByGenreId**](overseerr/docs/SearchApi.md#getdiscovermoviesgenrebygenreid) | **Get** /discover/movies/genre/{genreId} | Discover movies by genre
-*SearchApi* | [**GetDiscoverMoviesLanguageByLanguage**](overseerr/docs/SearchApi.md#getdiscovermovieslanguagebylanguage) | **Get** /discover/movies/language/{language} | Discover movies by original language
-*SearchApi* | [**GetDiscoverMoviesStudioByStudioId**](overseerr/docs/SearchApi.md#getdiscovermoviesstudiobystudioid) | **Get** /discover/movies/studio/{studioId} | Discover movies by studio
-*SearchApi* | [**GetDiscoverMoviesUpcoming**](overseerr/docs/SearchApi.md#getdiscovermoviesupcoming) | **Get** /discover/movies/upcoming | Upcoming movies
-*SearchApi* | [**GetDiscoverTrending**](overseerr/docs/SearchApi.md#getdiscovertrending) | **Get** /discover/trending | Trending movies and TV
-*SearchApi* | [**GetDiscoverTv**](overseerr/docs/SearchApi.md#getdiscovertv) | **Get** /discover/tv | Discover TV shows
-*SearchApi* | [**GetDiscoverTvGenreByGenreId**](overseerr/docs/SearchApi.md#getdiscovertvgenrebygenreid) | **Get** /discover/tv/genre/{genreId} | Discover TV shows by genre
-*SearchApi* | [**GetDiscoverTvLanguageByLanguage**](overseerr/docs/SearchApi.md#getdiscovertvlanguagebylanguage) | **Get** /discover/tv/language/{language} | Discover TV shows by original language
-*SearchApi* | [**GetDiscoverTvNetworkByNetworkId**](overseerr/docs/SearchApi.md#getdiscovertvnetworkbynetworkid) | **Get** /discover/tv/network/{networkId} | Discover TV shows by network
-*SearchApi* | [**GetDiscoverTvUpcoming**](overseerr/docs/SearchApi.md#getdiscovertvupcoming) | **Get** /discover/tv/upcoming | Discover Upcoming TV shows
-*SearchApi* | [**GetDiscoverWatchlist**](overseerr/docs/SearchApi.md#getdiscoverwatchlist) | **Get** /discover/watchlist | Get the Plex watchlist.
-*SearchApi* | [**GetSearch**](overseerr/docs/SearchApi.md#getsearch) | **Get** /search | Search for movies, TV shows, or people
-*SearchApi* | [**GetSearchCompany**](overseerr/docs/SearchApi.md#getsearchcompany) | **Get** /search/company | Search for companies
-*SearchApi* | [**GetSearchKeyword**](overseerr/docs/SearchApi.md#getsearchkeyword) | **Get** /search/keyword | Search for keywords
-*SearchApi* | [**ListDiscoverGenresliderMovie**](overseerr/docs/SearchApi.md#listdiscovergenreslidermovie) | **Get** /discover/genreslider/movie | Get genre slider data for movies
-*SearchApi* | [**ListDiscoverGenresliderTv**](overseerr/docs/SearchApi.md#listdiscovergenreslidertv) | **Get** /discover/genreslider/tv | Get genre slider data for TV series
-*ServiceApi* | [**GetServiceRadarrByRadarrId**](overseerr/docs/ServiceApi.md#getserviceradarrbyradarrid) | **Get** /service/radarr/{radarrId} | Get Radarr server quality profiles and root folders
-*ServiceApi* | [**GetServiceSonarrBySonarrId**](overseerr/docs/ServiceApi.md#getservicesonarrbysonarrid) | **Get** /service/sonarr/{sonarrId} | Get Sonarr server quality profiles and root folders
-*ServiceApi* | [**ListServiceRadarr**](overseerr/docs/ServiceApi.md#listserviceradarr) | **Get** /service/radarr | Get non-sensitive Radarr server list
-*ServiceApi* | [**ListServiceSonarr**](overseerr/docs/ServiceApi.md#listservicesonarr) | **Get** /service/sonarr | Get non-sensitive Sonarr server list
-*ServiceApi* | [**ListServiceSonarrLookupByTmdbId**](overseerr/docs/ServiceApi.md#listservicesonarrlookupbytmdbid) | **Get** /service/sonarr/lookup/{tmdbId} | Get series from Sonarr
-*SettingsApi* | [**CreateCacheFlush**](overseerr/docs/SettingsApi.md#createcacheflush) | **Post** /settings/cache/{cacheId}/flush | Flush a specific cache
-*SettingsApi* | [**CreateDiscover**](overseerr/docs/SettingsApi.md#creatediscover) | **Post** /settings/discover | Batch update all sliders.
-*SettingsApi* | [**CreateDiscoverAdd**](overseerr/docs/SettingsApi.md#creatediscoveradd) | **Post** /settings/discover/add | Add a new slider
-*SettingsApi* | [**CreateInitialize**](overseerr/docs/SettingsApi.md#createinitialize) | **Post** /settings/initialize | Initialize application
-*SettingsApi* | [**CreateJobsCancel**](overseerr/docs/SettingsApi.md#createjobscancel) | **Post** /settings/jobs/{jobId}/cancel | Cancel a specific job
-*SettingsApi* | [**CreateJobsRun**](overseerr/docs/SettingsApi.md#createjobsrun) | **Post** /settings/jobs/{jobId}/run | Invoke a specific job
-*SettingsApi* | [**CreateJobsSchedule**](overseerr/docs/SettingsApi.md#createjobsschedule) | **Post** /settings/jobs/{jobId}/schedule | Modify job schedule
-*SettingsApi* | [**CreateMain**](overseerr/docs/SettingsApi.md#createmain) | **Post** /settings/main | Update main settings
-*SettingsApi* | [**CreateMainRegenerate**](overseerr/docs/SettingsApi.md#createmainregenerate) | **Post** /settings/main/regenerate | Get main settings with newly-generated API key
-*SettingsApi* | [**CreateNotificationsDiscord**](overseerr/docs/SettingsApi.md#createnotificationsdiscord) | **Post** /settings/notifications/discord | Update Discord notification settings
-*SettingsApi* | [**CreateNotificationsEmail**](overseerr/docs/SettingsApi.md#createnotificationsemail) | **Post** /settings/notifications/email | Update email notification settings
-*SettingsApi* | [**CreateNotificationsGotify**](overseerr/docs/SettingsApi.md#createnotificationsgotify) | **Post** /settings/notifications/gotify | Update Gotify notification settings
-*SettingsApi* | [**CreateNotificationsLunasea**](overseerr/docs/SettingsApi.md#createnotificationslunasea) | **Post** /settings/notifications/lunasea | Update LunaSea notification settings
-*SettingsApi* | [**CreateNotificationsPushbullet**](overseerr/docs/SettingsApi.md#createnotificationspushbullet) | **Post** /settings/notifications/pushbullet | Update Pushbullet notification settings
-*SettingsApi* | [**CreateNotificationsPushover**](overseerr/docs/SettingsApi.md#createnotificationspushover) | **Post** /settings/notifications/pushover | Update Pushover notification settings
-*SettingsApi* | [**CreateNotificationsSlack**](overseerr/docs/SettingsApi.md#createnotificationsslack) | **Post** /settings/notifications/slack | Update Slack notification settings
-*SettingsApi* | [**CreateNotificationsTelegram**](overseerr/docs/SettingsApi.md#createnotificationstelegram) | **Post** /settings/notifications/telegram | Update Telegram notification settings
-*SettingsApi* | [**CreateNotificationsWebhook**](overseerr/docs/SettingsApi.md#createnotificationswebhook) | **Post** /settings/notifications/webhook | Update webhook notification settings
-*SettingsApi* | [**CreateNotificationsWebpush**](overseerr/docs/SettingsApi.md#createnotificationswebpush) | **Post** /settings/notifications/webpush | Update Web Push notification settings
-*SettingsApi* | [**CreatePlex**](overseerr/docs/SettingsApi.md#createplex) | **Post** /settings/plex | Update Plex settings
-*SettingsApi* | [**CreatePlexSync**](overseerr/docs/SettingsApi.md#createplexsync) | **Post** /settings/plex/sync | Start full Plex library scan
-*SettingsApi* | [**CreateRadarr**](overseerr/docs/SettingsApi.md#createradarr) | **Post** /settings/radarr | Create Radarr instance
-*SettingsApi* | [**CreateSonarr**](overseerr/docs/SettingsApi.md#createsonarr) | **Post** /settings/sonarr | Create Sonarr instance
-*SettingsApi* | [**CreateTautulli**](overseerr/docs/SettingsApi.md#createtautulli) | **Post** /settings/tautulli | Update Tautulli settings
-*SettingsApi* | [**DeleteDiscover**](overseerr/docs/SettingsApi.md#deletediscover) | **Delete** /settings/discover/{sliderId} | Delete slider by ID
-*SettingsApi* | [**DeleteRadarr**](overseerr/docs/SettingsApi.md#deleteradarr) | **Delete** /settings/radarr/{radarrId} | Delete Radarr instance
-*SettingsApi* | [**DeleteSonarr**](overseerr/docs/SettingsApi.md#deletesonarr) | **Delete** /settings/sonarr/{sonarrId} | Delete Sonarr instance
-*SettingsApi* | [**GetAbout**](overseerr/docs/SettingsApi.md#getabout) | **Get** /settings/about | Get server stats
-*SettingsApi* | [**GetCache**](overseerr/docs/SettingsApi.md#getcache) | **Get** /settings/cache | Get a list of active caches
-*SettingsApi* | [**GetDiscoverReset**](overseerr/docs/SettingsApi.md#getdiscoverreset) | **Get** /settings/discover/reset | Reset all discover sliders
-*SettingsApi* | [**GetMain**](overseerr/docs/SettingsApi.md#getmain) | **Get** /settings/main | Get main settings
-*SettingsApi* | [**GetNotificationsDiscord**](overseerr/docs/SettingsApi.md#getnotificationsdiscord) | **Get** /settings/notifications/discord | Get Discord notification settings
-*SettingsApi* | [**GetNotificationsEmail**](overseerr/docs/SettingsApi.md#getnotificationsemail) | **Get** /settings/notifications/email | Get email notification settings
-*SettingsApi* | [**GetNotificationsGotify**](overseerr/docs/SettingsApi.md#getnotificationsgotify) | **Get** /settings/notifications/gotify | Get Gotify notification settings
-*SettingsApi* | [**GetNotificationsLunasea**](overseerr/docs/SettingsApi.md#getnotificationslunasea) | **Get** /settings/notifications/lunasea | Get LunaSea notification settings
-*SettingsApi* | [**GetNotificationsPushbullet**](overseerr/docs/SettingsApi.md#getnotificationspushbullet) | **Get** /settings/notifications/pushbullet | Get Pushbullet notification settings
-*SettingsApi* | [**GetNotificationsPushover**](overseerr/docs/SettingsApi.md#getnotificationspushover) | **Get** /settings/notifications/pushover | Get Pushover notification settings
-*SettingsApi* | [**GetNotificationsSlack**](overseerr/docs/SettingsApi.md#getnotificationsslack) | **Get** /settings/notifications/slack | Get Slack notification settings
-*SettingsApi* | [**GetNotificationsTelegram**](overseerr/docs/SettingsApi.md#getnotificationstelegram) | **Get** /settings/notifications/telegram | Get Telegram notification settings
-*SettingsApi* | [**GetNotificationsWebhook**](overseerr/docs/SettingsApi.md#getnotificationswebhook) | **Get** /settings/notifications/webhook | Get webhook notification settings
-*SettingsApi* | [**GetNotificationsWebpush**](overseerr/docs/SettingsApi.md#getnotificationswebpush) | **Get** /settings/notifications/webpush | Get Web Push notification settings
-*SettingsApi* | [**GetPlex**](overseerr/docs/SettingsApi.md#getplex) | **Get** /settings/plex | Get Plex settings
-*SettingsApi* | [**GetPlexSync**](overseerr/docs/SettingsApi.md#getplexsync) | **Get** /settings/plex/sync | Get status of full Plex library scan
-*SettingsApi* | [**GetPublic**](overseerr/docs/SettingsApi.md#getpublic) | **Get** /settings/public | Get public settings
-*SettingsApi* | [**GetTautulli**](overseerr/docs/SettingsApi.md#gettautulli) | **Get** /settings/tautulli | Get Tautulli settings
-*SettingsApi* | [**ListDiscover**](overseerr/docs/SettingsApi.md#listdiscover) | **Get** /settings/discover | Get all discover sliders
-*SettingsApi* | [**ListJobs**](overseerr/docs/SettingsApi.md#listjobs) | **Get** /settings/jobs | Get scheduled jobs
-*SettingsApi* | [**ListLogs**](overseerr/docs/SettingsApi.md#listlogs) | **Get** /settings/logs | Returns logs
-*SettingsApi* | [**ListPlexDevicesServers**](overseerr/docs/SettingsApi.md#listplexdevicesservers) | **Get** /settings/plex/devices/servers | Gets the user&#39;s available Plex servers
-*SettingsApi* | [**ListPlexLibrary**](overseerr/docs/SettingsApi.md#listplexlibrary) | **Get** /settings/plex/library | Get Plex libraries
-*SettingsApi* | [**ListPlexUsers**](overseerr/docs/SettingsApi.md#listplexusers) | **Get** /settings/plex/users | Get Plex users
-*SettingsApi* | [**ListRadarr**](overseerr/docs/SettingsApi.md#listradarr) | **Get** /settings/radarr | Get Radarr settings
-*SettingsApi* | [**ListRadarrProfiles**](overseerr/docs/SettingsApi.md#listradarrprofiles) | **Get** /settings/radarr/{radarrId}/profiles | Get available Radarr profiles
-*SettingsApi* | [**ListSonarr**](overseerr/docs/SettingsApi.md#listsonarr) | **Get** /settings/sonarr | Get Sonarr settings
-*SettingsApi* | [**TestNotificationsDiscord**](overseerr/docs/SettingsApi.md#testnotificationsdiscord) | **Post** /settings/notifications/discord/test | Test Discord settings
-*SettingsApi* | [**TestNotificationsEmail**](overseerr/docs/SettingsApi.md#testnotificationsemail) | **Post** /settings/notifications/email/test | Test email settings
-*SettingsApi* | [**TestNotificationsGotify**](overseerr/docs/SettingsApi.md#testnotificationsgotify) | **Post** /settings/notifications/gotify/test | Test Gotify settings
-*SettingsApi* | [**TestNotificationsLunasea**](overseerr/docs/SettingsApi.md#testnotificationslunasea) | **Post** /settings/notifications/lunasea/test | Test LunaSea settings
-*SettingsApi* | [**TestNotificationsPushbullet**](overseerr/docs/SettingsApi.md#testnotificationspushbullet) | **Post** /settings/notifications/pushbullet/test | Test Pushbullet settings
-*SettingsApi* | [**TestNotificationsPushover**](overseerr/docs/SettingsApi.md#testnotificationspushover) | **Post** /settings/notifications/pushover/test | Test Pushover settings
-*SettingsApi* | [**TestNotificationsSlack**](overseerr/docs/SettingsApi.md#testnotificationsslack) | **Post** /settings/notifications/slack/test | Test Slack settings
-*SettingsApi* | [**TestNotificationsTelegram**](overseerr/docs/SettingsApi.md#testnotificationstelegram) | **Post** /settings/notifications/telegram/test | Test Telegram settings
-*SettingsApi* | [**TestNotificationsWebhook**](overseerr/docs/SettingsApi.md#testnotificationswebhook) | **Post** /settings/notifications/webhook/test | Test webhook settings
-*SettingsApi* | [**TestNotificationsWebpush**](overseerr/docs/SettingsApi.md#testnotificationswebpush) | **Post** /settings/notifications/webpush/test | Test Web Push settings
-*SettingsApi* | [**TestRadarr**](overseerr/docs/SettingsApi.md#testradarr) | **Post** /settings/radarr/test | Test Radarr configuration
-*SettingsApi* | [**TestSonarr**](overseerr/docs/SettingsApi.md#testsonarr) | **Post** /settings/sonarr/test | Test Sonarr configuration
-*SettingsApi* | [**UpdateDiscover**](overseerr/docs/SettingsApi.md#updatediscover) | **Put** /settings/discover/{sliderId} | Update a single slider
-*SettingsApi* | [**UpdateRadarr**](overseerr/docs/SettingsApi.md#updateradarr) | **Put** /settings/radarr/{radarrId} | Update Radarr instance
-*SettingsApi* | [**UpdateSonarr**](overseerr/docs/SettingsApi.md#updatesonarr) | **Put** /settings/sonarr/{sonarrId} | Update Sonarr instance
-*TmdbApi* | [**GetNetworkByNetworkId**](overseerr/docs/TmdbApi.md#getnetworkbynetworkid) | **Get** /network/{networkId} | Get TV network details
-*TmdbApi* | [**GetStudioByStudioId**](overseerr/docs/TmdbApi.md#getstudiobystudioid) | **Get** /studio/{studioId} | Get movie studio details
-*TmdbApi* | [**ListBackdrops**](overseerr/docs/TmdbApi.md#listbackdrops) | **Get** /backdrops | Get backdrops of trending items
-*TmdbApi* | [**ListGenresMovie**](overseerr/docs/TmdbApi.md#listgenresmovie) | **Get** /genres/movie | Get list of official TMDB movie genres
-*TmdbApi* | [**ListGenresTv**](overseerr/docs/TmdbApi.md#listgenrestv) | **Get** /genres/tv | Get list of official TMDB movie genres
-*TmdbApi* | [**ListLanguages**](overseerr/docs/TmdbApi.md#listlanguages) | **Get** /languages | Languages supported by TMDB
-*TmdbApi* | [**ListRegions**](overseerr/docs/TmdbApi.md#listregions) | **Get** /regions | Regions supported by TMDB
-*TvApi* | [**GetTvByTvId**](overseerr/docs/TvApi.md#gettvbytvid) | **Get** /tv/{tvId} | Get TV details
-*TvApi* | [**GetTvRatings**](overseerr/docs/TvApi.md#gettvratings) | **Get** /tv/{tvId}/ratings | Get TV ratings
-*TvApi* | [**GetTvRecommendations**](overseerr/docs/TvApi.md#gettvrecommendations) | **Get** /tv/{tvId}/recommendations | Get recommended TV series
-*TvApi* | [**GetTvSeasonBySeasonId**](overseerr/docs/TvApi.md#gettvseasonbyseasonid) | **Get** /tv/{tvId}/season/{seasonId} | Get season details and episode list
-*TvApi* | [**GetTvSimilar**](overseerr/docs/TvApi.md#gettvsimilar) | **Get** /tv/{tvId}/similar | Get similar TV series
-*UsersApi* | [**CreateAuthResetPassword**](overseerr/docs/UsersApi.md#createauthresetpassword) | **Post** /auth/reset-password | Send a reset password email
-*UsersApi* | [**CreateAuthResetPasswordByGuid**](overseerr/docs/UsersApi.md#createauthresetpasswordbyguid) | **Post** /auth/reset-password/{guid} | Reset the password for a user
-*UsersApi* | [**CreateUser**](overseerr/docs/UsersApi.md#createuser) | **Post** /user | Create new user
-*UsersApi* | [**CreateUserImportFromPlex**](overseerr/docs/UsersApi.md#createuserimportfromplex) | **Post** /user/import-from-plex | Import all users from Plex
-*UsersApi* | [**CreateUserRegisterPushSubscription**](overseerr/docs/UsersApi.md#createuserregisterpushsubscription) | **Post** /user/registerPushSubscription | Register a web push /user/registerPushSubscription
-*UsersApi* | [**CreateUserSettingsMain**](overseerr/docs/UsersApi.md#createusersettingsmain) | **Post** /user/{userId}/settings/main | Update general settings for a user
-*UsersApi* | [**CreateUserSettingsNotifications**](overseerr/docs/UsersApi.md#createusersettingsnotifications) | **Post** /user/{userId}/settings/notifications | Update notification settings for a user
-*UsersApi* | [**CreateUserSettingsPassword**](overseerr/docs/UsersApi.md#createusersettingspassword) | **Post** /user/{userId}/settings/password | Update password for a user
-*UsersApi* | [**CreateUserSettingsPermissions**](overseerr/docs/UsersApi.md#createusersettingspermissions) | **Post** /user/{userId}/settings/permissions | Update permission settings for a user
-*UsersApi* | [**DeleteUser**](overseerr/docs/UsersApi.md#deleteuser) | **Delete** /user/{userId} | Delete user by ID
-*UsersApi* | [**GetAuthMe**](overseerr/docs/UsersApi.md#getauthme) | **Get** /auth/me | Get logged-in user
-*UsersApi* | [**GetUser**](overseerr/docs/UsersApi.md#getuser) | **Get** /user | Get all users
-*UsersApi* | [**GetUserByUserId**](overseerr/docs/UsersApi.md#getuserbyuserid) | **Get** /user/{userId} | Get user by ID
-*UsersApi* | [**GetUserQuota**](overseerr/docs/UsersApi.md#getuserquota) | **Get** /user/{userId}/quota | Get quotas for a specific user
-*UsersApi* | [**GetUserRequests**](overseerr/docs/UsersApi.md#getuserrequests) | **Get** /user/{userId}/requests | Get requests for a specific user
-*UsersApi* | [**GetUserSettingsMain**](overseerr/docs/UsersApi.md#getusersettingsmain) | **Get** /user/{userId}/settings/main | Get general settings for a user
-*UsersApi* | [**GetUserSettingsNotifications**](overseerr/docs/UsersApi.md#getusersettingsnotifications) | **Get** /user/{userId}/settings/notifications | Get notification settings for a user
-*UsersApi* | [**GetUserSettingsPassword**](overseerr/docs/UsersApi.md#getusersettingspassword) | **Get** /user/{userId}/settings/password | Get password page informatiom
-*UsersApi* | [**GetUserSettingsPermissions**](overseerr/docs/UsersApi.md#getusersettingspermissions) | **Get** /user/{userId}/settings/permissions | Get permission settings for a user
-*UsersApi* | [**GetUserWatchData**](overseerr/docs/UsersApi.md#getuserwatchdata) | **Get** /user/{userId}/watch_data | Get watch data
-*UsersApi* | [**GetUserWatchlist**](overseerr/docs/UsersApi.md#getuserwatchlist) | **Get** /user/{userId}/watchlist | Get the Plex watchlist for a specific user
-*UsersApi* | [**ListPlexUsers**](overseerr/docs/UsersApi.md#listplexusers) | **Get** /settings/plex/users | Get Plex users
-*UsersApi* | [**PutUser**](overseerr/docs/UsersApi.md#putuser) | **Put** /user | Update batch of users
-*UsersApi* | [**UpdateUser**](overseerr/docs/UsersApi.md#updateuser) | **Put** /user/{userId} | Update a user by user ID
+*AuthAPI* | [**CreateAuthLocal**](overseerr/docs/AuthAPI.md#createauthlocal) | **Post** /auth/local | Sign in using a local account
+*AuthAPI* | [**CreateAuthLogout**](overseerr/docs/AuthAPI.md#createauthlogout) | **Post** /auth/logout | Sign out and clear session cookie
+*AuthAPI* | [**CreateAuthPlex**](overseerr/docs/AuthAPI.md#createauthplex) | **Post** /auth/plex | Sign in using a Plex token
+*AuthAPI* | [**GetAuthMe**](overseerr/docs/AuthAPI.md#getauthme) | **Get** /auth/me | Get logged-in user
+*CollectionAPI* | [**GetCollectionByCollectionId**](overseerr/docs/CollectionAPI.md#getcollectionbycollectionid) | **Get** /collection/{collectionId} | Get collection details
+*IssueAPI* | [**CreateIssue**](overseerr/docs/IssueAPI.md#createissue) | **Post** /issue | Create new issue
+*IssueAPI* | [**CreateIssueByStatus**](overseerr/docs/IssueAPI.md#createissuebystatus) | **Post** /issue/{issueId}/{status} | Update an issue&#39;s status
+*IssueAPI* | [**CreateIssueComment**](overseerr/docs/IssueAPI.md#createissuecomment) | **Post** /issue/{issueId}/comment | Create a comment
+*IssueAPI* | [**DeleteIssue**](overseerr/docs/IssueAPI.md#deleteissue) | **Delete** /issue/{issueId} | Delete issue
+*IssueAPI* | [**DeleteIssueComment**](overseerr/docs/IssueAPI.md#deleteissuecomment) | **Delete** /issueComment/{commentId} | Delete issue comment
+*IssueAPI* | [**GetIssue**](overseerr/docs/IssueAPI.md#getissue) | **Get** /issue | Get all issues
+*IssueAPI* | [**GetIssueByIssueId**](overseerr/docs/IssueAPI.md#getissuebyissueid) | **Get** /issue/{issueId} | Get issue
+*IssueAPI* | [**GetIssueCommentByCommentId**](overseerr/docs/IssueAPI.md#getissuecommentbycommentid) | **Get** /issueComment/{commentId} | Get issue comment
+*IssueAPI* | [**GetIssueCount**](overseerr/docs/IssueAPI.md#getissuecount) | **Get** /issue/count | Gets issue counts
+*IssueAPI* | [**UpdateIssueComment**](overseerr/docs/IssueAPI.md#updateissuecomment) | **Put** /issueComment/{commentId} | Update issue comment
+*MediaAPI* | [**CreateMediaByStatus**](overseerr/docs/MediaAPI.md#createmediabystatus) | **Post** /media/{mediaId}/{status} | Update media status
+*MediaAPI* | [**DeleteMedia**](overseerr/docs/MediaAPI.md#deletemedia) | **Delete** /media/{mediaId} | Delete media item
+*MediaAPI* | [**GetMedia**](overseerr/docs/MediaAPI.md#getmedia) | **Get** /media | Get media
+*MediaAPI* | [**GetMediaWatchData**](overseerr/docs/MediaAPI.md#getmediawatchdata) | **Get** /media/{mediaId}/watch_data | Get watch data
+*MoviesAPI* | [**GetMovieByMovieId**](overseerr/docs/MoviesAPI.md#getmoviebymovieid) | **Get** /movie/{movieId} | Get movie details
+*MoviesAPI* | [**GetMovieRatings**](overseerr/docs/MoviesAPI.md#getmovieratings) | **Get** /movie/{movieId}/ratings | Get movie ratings
+*MoviesAPI* | [**GetMovieRatingscombined**](overseerr/docs/MoviesAPI.md#getmovieratingscombined) | **Get** /movie/{movieId}/ratingscombined | Get RT and IMDB movie ratings combined
+*MoviesAPI* | [**GetMovieRecommendations**](overseerr/docs/MoviesAPI.md#getmovierecommendations) | **Get** /movie/{movieId}/recommendations | Get recommended movies
+*MoviesAPI* | [**GetMovieSimilar**](overseerr/docs/MoviesAPI.md#getmoviesimilar) | **Get** /movie/{movieId}/similar | Get similar movies
+*OtherAPI* | [**GetKeywordByKeywordId**](overseerr/docs/OtherAPI.md#getkeywordbykeywordid) | **Get** /keyword/{keywordId} | Get keyword
+*OtherAPI* | [**ListWatchprovidersMovies**](overseerr/docs/OtherAPI.md#listwatchprovidersmovies) | **Get** /watchproviders/movies | Get watch provider movies
+*OtherAPI* | [**ListWatchprovidersRegions**](overseerr/docs/OtherAPI.md#listwatchprovidersregions) | **Get** /watchproviders/regions | Get watch provider regions
+*OtherAPI* | [**ListWatchprovidersTv**](overseerr/docs/OtherAPI.md#listwatchproviderstv) | **Get** /watchproviders/tv | Get watch provider series
+*PersonAPI* | [**GetPersonByPersonId**](overseerr/docs/PersonAPI.md#getpersonbypersonid) | **Get** /person/{personId} | Get person details
+*PersonAPI* | [**GetPersonCombinedCredits**](overseerr/docs/PersonAPI.md#getpersoncombinedcredits) | **Get** /person/{personId}/combined_credits | Get combined credits
+*PublicAPI* | [**GetStatus**](overseerr/docs/PublicAPI.md#getstatus) | **Get** /status | Get Overseerr status
+*PublicAPI* | [**GetStatusAppdata**](overseerr/docs/PublicAPI.md#getstatusappdata) | **Get** /status/appdata | Get application data volume status
+*RequestAPI* | [**CreateRequest**](overseerr/docs/RequestAPI.md#createrequest) | **Post** /request | Create new request
+*RequestAPI* | [**CreateRequestByStatus**](overseerr/docs/RequestAPI.md#createrequestbystatus) | **Post** /request/{requestId}/{status} | Update a request&#39;s status
+*RequestAPI* | [**CreateRequestRetry**](overseerr/docs/RequestAPI.md#createrequestretry) | **Post** /request/{requestId}/retry | Retry failed request
+*RequestAPI* | [**DeleteRequest**](overseerr/docs/RequestAPI.md#deleterequest) | **Delete** /request/{requestId} | Delete request
+*RequestAPI* | [**GetRequest**](overseerr/docs/RequestAPI.md#getrequest) | **Get** /request | Get all requests
+*RequestAPI* | [**GetRequestByRequestId**](overseerr/docs/RequestAPI.md#getrequestbyrequestid) | **Get** /request/{requestId} | Get MediaRequest
+*RequestAPI* | [**GetRequestCount**](overseerr/docs/RequestAPI.md#getrequestcount) | **Get** /request/count | Gets request counts
+*RequestAPI* | [**UpdateRequest**](overseerr/docs/RequestAPI.md#updaterequest) | **Put** /request/{requestId} | Update MediaRequest
+*SearchAPI* | [**GetDiscoverKeywordMovies**](overseerr/docs/SearchAPI.md#getdiscoverkeywordmovies) | **Get** /discover/keyword/{keywordId}/movies | Get movies from keyword
+*SearchAPI* | [**GetDiscoverMovies**](overseerr/docs/SearchAPI.md#getdiscovermovies) | **Get** /discover/movies | Discover movies
+*SearchAPI* | [**GetDiscoverMoviesGenreByGenreId**](overseerr/docs/SearchAPI.md#getdiscovermoviesgenrebygenreid) | **Get** /discover/movies/genre/{genreId} | Discover movies by genre
+*SearchAPI* | [**GetDiscoverMoviesLanguageByLanguage**](overseerr/docs/SearchAPI.md#getdiscovermovieslanguagebylanguage) | **Get** /discover/movies/language/{language} | Discover movies by original language
+*SearchAPI* | [**GetDiscoverMoviesStudioByStudioId**](overseerr/docs/SearchAPI.md#getdiscovermoviesstudiobystudioid) | **Get** /discover/movies/studio/{studioId} | Discover movies by studio
+*SearchAPI* | [**GetDiscoverMoviesUpcoming**](overseerr/docs/SearchAPI.md#getdiscovermoviesupcoming) | **Get** /discover/movies/upcoming | Upcoming movies
+*SearchAPI* | [**GetDiscoverTrending**](overseerr/docs/SearchAPI.md#getdiscovertrending) | **Get** /discover/trending | Trending movies and TV
+*SearchAPI* | [**GetDiscoverTv**](overseerr/docs/SearchAPI.md#getdiscovertv) | **Get** /discover/tv | Discover TV shows
+*SearchAPI* | [**GetDiscoverTvGenreByGenreId**](overseerr/docs/SearchAPI.md#getdiscovertvgenrebygenreid) | **Get** /discover/tv/genre/{genreId} | Discover TV shows by genre
+*SearchAPI* | [**GetDiscoverTvLanguageByLanguage**](overseerr/docs/SearchAPI.md#getdiscovertvlanguagebylanguage) | **Get** /discover/tv/language/{language} | Discover TV shows by original language
+*SearchAPI* | [**GetDiscoverTvNetworkByNetworkId**](overseerr/docs/SearchAPI.md#getdiscovertvnetworkbynetworkid) | **Get** /discover/tv/network/{networkId} | Discover TV shows by network
+*SearchAPI* | [**GetDiscoverTvUpcoming**](overseerr/docs/SearchAPI.md#getdiscovertvupcoming) | **Get** /discover/tv/upcoming | Discover Upcoming TV shows
+*SearchAPI* | [**GetDiscoverWatchlist**](overseerr/docs/SearchAPI.md#getdiscoverwatchlist) | **Get** /discover/watchlist | Get the Plex watchlist.
+*SearchAPI* | [**GetSearch**](overseerr/docs/SearchAPI.md#getsearch) | **Get** /search | Search for movies, TV shows, or people
+*SearchAPI* | [**GetSearchCompany**](overseerr/docs/SearchAPI.md#getsearchcompany) | **Get** /search/company | Search for companies
+*SearchAPI* | [**GetSearchKeyword**](overseerr/docs/SearchAPI.md#getsearchkeyword) | **Get** /search/keyword | Search for keywords
+*SearchAPI* | [**ListDiscoverGenresliderMovie**](overseerr/docs/SearchAPI.md#listdiscovergenreslidermovie) | **Get** /discover/genreslider/movie | Get genre slider data for movies
+*SearchAPI* | [**ListDiscoverGenresliderTv**](overseerr/docs/SearchAPI.md#listdiscovergenreslidertv) | **Get** /discover/genreslider/tv | Get genre slider data for TV series
+*ServiceAPI* | [**GetServiceRadarrByRadarrId**](overseerr/docs/ServiceAPI.md#getserviceradarrbyradarrid) | **Get** /service/radarr/{radarrId} | Get Radarr server quality profiles and root folders
+*ServiceAPI* | [**GetServiceSonarrBySonarrId**](overseerr/docs/ServiceAPI.md#getservicesonarrbysonarrid) | **Get** /service/sonarr/{sonarrId} | Get Sonarr server quality profiles and root folders
+*ServiceAPI* | [**ListServiceRadarr**](overseerr/docs/ServiceAPI.md#listserviceradarr) | **Get** /service/radarr | Get non-sensitive Radarr server list
+*ServiceAPI* | [**ListServiceSonarr**](overseerr/docs/ServiceAPI.md#listservicesonarr) | **Get** /service/sonarr | Get non-sensitive Sonarr server list
+*ServiceAPI* | [**ListServiceSonarrLookupByTmdbId**](overseerr/docs/ServiceAPI.md#listservicesonarrlookupbytmdbid) | **Get** /service/sonarr/lookup/{tmdbId} | Get series from Sonarr
+*SettingsAPI* | [**CreateCacheFlush**](overseerr/docs/SettingsAPI.md#createcacheflush) | **Post** /settings/cache/{cacheId}/flush | Flush a specific cache
+*SettingsAPI* | [**CreateDiscover**](overseerr/docs/SettingsAPI.md#creatediscover) | **Post** /settings/discover | Batch update all sliders.
+*SettingsAPI* | [**CreateDiscoverAdd**](overseerr/docs/SettingsAPI.md#creatediscoveradd) | **Post** /settings/discover/add | Add a new slider
+*SettingsAPI* | [**CreateInitialize**](overseerr/docs/SettingsAPI.md#createinitialize) | **Post** /settings/initialize | Initialize application
+*SettingsAPI* | [**CreateJobsCancel**](overseerr/docs/SettingsAPI.md#createjobscancel) | **Post** /settings/jobs/{jobId}/cancel | Cancel a specific job
+*SettingsAPI* | [**CreateJobsRun**](overseerr/docs/SettingsAPI.md#createjobsrun) | **Post** /settings/jobs/{jobId}/run | Invoke a specific job
+*SettingsAPI* | [**CreateJobsSchedule**](overseerr/docs/SettingsAPI.md#createjobsschedule) | **Post** /settings/jobs/{jobId}/schedule | Modify job schedule
+*SettingsAPI* | [**CreateMain**](overseerr/docs/SettingsAPI.md#createmain) | **Post** /settings/main | Update main settings
+*SettingsAPI* | [**CreateMainRegenerate**](overseerr/docs/SettingsAPI.md#createmainregenerate) | **Post** /settings/main/regenerate | Get main settings with newly-generated API key
+*SettingsAPI* | [**CreateNotificationsDiscord**](overseerr/docs/SettingsAPI.md#createnotificationsdiscord) | **Post** /settings/notifications/discord | Update Discord notification settings
+*SettingsAPI* | [**CreateNotificationsEmail**](overseerr/docs/SettingsAPI.md#createnotificationsemail) | **Post** /settings/notifications/email | Update email notification settings
+*SettingsAPI* | [**CreateNotificationsGotify**](overseerr/docs/SettingsAPI.md#createnotificationsgotify) | **Post** /settings/notifications/gotify | Update Gotify notification settings
+*SettingsAPI* | [**CreateNotificationsLunasea**](overseerr/docs/SettingsAPI.md#createnotificationslunasea) | **Post** /settings/notifications/lunasea | Update LunaSea notification settings
+*SettingsAPI* | [**CreateNotificationsPushbullet**](overseerr/docs/SettingsAPI.md#createnotificationspushbullet) | **Post** /settings/notifications/pushbullet | Update Pushbullet notification settings
+*SettingsAPI* | [**CreateNotificationsPushover**](overseerr/docs/SettingsAPI.md#createnotificationspushover) | **Post** /settings/notifications/pushover | Update Pushover notification settings
+*SettingsAPI* | [**CreateNotificationsSlack**](overseerr/docs/SettingsAPI.md#createnotificationsslack) | **Post** /settings/notifications/slack | Update Slack notification settings
+*SettingsAPI* | [**CreateNotificationsTelegram**](overseerr/docs/SettingsAPI.md#createnotificationstelegram) | **Post** /settings/notifications/telegram | Update Telegram notification settings
+*SettingsAPI* | [**CreateNotificationsWebhook**](overseerr/docs/SettingsAPI.md#createnotificationswebhook) | **Post** /settings/notifications/webhook | Update webhook notification settings
+*SettingsAPI* | [**CreateNotificationsWebpush**](overseerr/docs/SettingsAPI.md#createnotificationswebpush) | **Post** /settings/notifications/webpush | Update Web Push notification settings
+*SettingsAPI* | [**CreatePlex**](overseerr/docs/SettingsAPI.md#createplex) | **Post** /settings/plex | Update Plex settings
+*SettingsAPI* | [**CreatePlexSync**](overseerr/docs/SettingsAPI.md#createplexsync) | **Post** /settings/plex/sync | Start full Plex library scan
+*SettingsAPI* | [**CreateRadarr**](overseerr/docs/SettingsAPI.md#createradarr) | **Post** /settings/radarr | Create Radarr instance
+*SettingsAPI* | [**CreateSonarr**](overseerr/docs/SettingsAPI.md#createsonarr) | **Post** /settings/sonarr | Create Sonarr instance
+*SettingsAPI* | [**CreateTautulli**](overseerr/docs/SettingsAPI.md#createtautulli) | **Post** /settings/tautulli | Update Tautulli settings
+*SettingsAPI* | [**DeleteDiscover**](overseerr/docs/SettingsAPI.md#deletediscover) | **Delete** /settings/discover/{sliderId} | Delete slider by ID
+*SettingsAPI* | [**DeleteRadarr**](overseerr/docs/SettingsAPI.md#deleteradarr) | **Delete** /settings/radarr/{radarrId} | Delete Radarr instance
+*SettingsAPI* | [**DeleteSonarr**](overseerr/docs/SettingsAPI.md#deletesonarr) | **Delete** /settings/sonarr/{sonarrId} | Delete Sonarr instance
+*SettingsAPI* | [**GetAbout**](overseerr/docs/SettingsAPI.md#getabout) | **Get** /settings/about | Get server stats
+*SettingsAPI* | [**GetCache**](overseerr/docs/SettingsAPI.md#getcache) | **Get** /settings/cache | Get a list of active caches
+*SettingsAPI* | [**GetDiscoverReset**](overseerr/docs/SettingsAPI.md#getdiscoverreset) | **Get** /settings/discover/reset | Reset all discover sliders
+*SettingsAPI* | [**GetMain**](overseerr/docs/SettingsAPI.md#getmain) | **Get** /settings/main | Get main settings
+*SettingsAPI* | [**GetNotificationsDiscord**](overseerr/docs/SettingsAPI.md#getnotificationsdiscord) | **Get** /settings/notifications/discord | Get Discord notification settings
+*SettingsAPI* | [**GetNotificationsEmail**](overseerr/docs/SettingsAPI.md#getnotificationsemail) | **Get** /settings/notifications/email | Get email notification settings
+*SettingsAPI* | [**GetNotificationsGotify**](overseerr/docs/SettingsAPI.md#getnotificationsgotify) | **Get** /settings/notifications/gotify | Get Gotify notification settings
+*SettingsAPI* | [**GetNotificationsLunasea**](overseerr/docs/SettingsAPI.md#getnotificationslunasea) | **Get** /settings/notifications/lunasea | Get LunaSea notification settings
+*SettingsAPI* | [**GetNotificationsPushbullet**](overseerr/docs/SettingsAPI.md#getnotificationspushbullet) | **Get** /settings/notifications/pushbullet | Get Pushbullet notification settings
+*SettingsAPI* | [**GetNotificationsPushover**](overseerr/docs/SettingsAPI.md#getnotificationspushover) | **Get** /settings/notifications/pushover | Get Pushover notification settings
+*SettingsAPI* | [**GetNotificationsSlack**](overseerr/docs/SettingsAPI.md#getnotificationsslack) | **Get** /settings/notifications/slack | Get Slack notification settings
+*SettingsAPI* | [**GetNotificationsTelegram**](overseerr/docs/SettingsAPI.md#getnotificationstelegram) | **Get** /settings/notifications/telegram | Get Telegram notification settings
+*SettingsAPI* | [**GetNotificationsWebhook**](overseerr/docs/SettingsAPI.md#getnotificationswebhook) | **Get** /settings/notifications/webhook | Get webhook notification settings
+*SettingsAPI* | [**GetNotificationsWebpush**](overseerr/docs/SettingsAPI.md#getnotificationswebpush) | **Get** /settings/notifications/webpush | Get Web Push notification settings
+*SettingsAPI* | [**GetPlex**](overseerr/docs/SettingsAPI.md#getplex) | **Get** /settings/plex | Get Plex settings
+*SettingsAPI* | [**GetPlexSync**](overseerr/docs/SettingsAPI.md#getplexsync) | **Get** /settings/plex/sync | Get status of full Plex library scan
+*SettingsAPI* | [**GetPublic**](overseerr/docs/SettingsAPI.md#getpublic) | **Get** /settings/public | Get public settings
+*SettingsAPI* | [**GetTautulli**](overseerr/docs/SettingsAPI.md#gettautulli) | **Get** /settings/tautulli | Get Tautulli settings
+*SettingsAPI* | [**ListDiscover**](overseerr/docs/SettingsAPI.md#listdiscover) | **Get** /settings/discover | Get all discover sliders
+*SettingsAPI* | [**ListJobs**](overseerr/docs/SettingsAPI.md#listjobs) | **Get** /settings/jobs | Get scheduled jobs
+*SettingsAPI* | [**ListLogs**](overseerr/docs/SettingsAPI.md#listlogs) | **Get** /settings/logs | Returns logs
+*SettingsAPI* | [**ListPlexDevicesServers**](overseerr/docs/SettingsAPI.md#listplexdevicesservers) | **Get** /settings/plex/devices/servers | Gets the user&#39;s available Plex servers
+*SettingsAPI* | [**ListPlexLibrary**](overseerr/docs/SettingsAPI.md#listplexlibrary) | **Get** /settings/plex/library | Get Plex libraries
+*SettingsAPI* | [**ListPlexUsers**](overseerr/docs/SettingsAPI.md#listplexusers) | **Get** /settings/plex/users | Get Plex users
+*SettingsAPI* | [**ListRadarr**](overseerr/docs/SettingsAPI.md#listradarr) | **Get** /settings/radarr | Get Radarr settings
+*SettingsAPI* | [**ListRadarrProfiles**](overseerr/docs/SettingsAPI.md#listradarrprofiles) | **Get** /settings/radarr/{radarrId}/profiles | Get available Radarr profiles
+*SettingsAPI* | [**ListSonarr**](overseerr/docs/SettingsAPI.md#listsonarr) | **Get** /settings/sonarr | Get Sonarr settings
+*SettingsAPI* | [**TestNotificationsDiscord**](overseerr/docs/SettingsAPI.md#testnotificationsdiscord) | **Post** /settings/notifications/discord/test | Test Discord settings
+*SettingsAPI* | [**TestNotificationsEmail**](overseerr/docs/SettingsAPI.md#testnotificationsemail) | **Post** /settings/notifications/email/test | Test email settings
+*SettingsAPI* | [**TestNotificationsGotify**](overseerr/docs/SettingsAPI.md#testnotificationsgotify) | **Post** /settings/notifications/gotify/test | Test Gotify settings
+*SettingsAPI* | [**TestNotificationsLunasea**](overseerr/docs/SettingsAPI.md#testnotificationslunasea) | **Post** /settings/notifications/lunasea/test | Test LunaSea settings
+*SettingsAPI* | [**TestNotificationsPushbullet**](overseerr/docs/SettingsAPI.md#testnotificationspushbullet) | **Post** /settings/notifications/pushbullet/test | Test Pushbullet settings
+*SettingsAPI* | [**TestNotificationsPushover**](overseerr/docs/SettingsAPI.md#testnotificationspushover) | **Post** /settings/notifications/pushover/test | Test Pushover settings
+*SettingsAPI* | [**TestNotificationsSlack**](overseerr/docs/SettingsAPI.md#testnotificationsslack) | **Post** /settings/notifications/slack/test | Test Slack settings
+*SettingsAPI* | [**TestNotificationsTelegram**](overseerr/docs/SettingsAPI.md#testnotificationstelegram) | **Post** /settings/notifications/telegram/test | Test Telegram settings
+*SettingsAPI* | [**TestNotificationsWebhook**](overseerr/docs/SettingsAPI.md#testnotificationswebhook) | **Post** /settings/notifications/webhook/test | Test webhook settings
+*SettingsAPI* | [**TestNotificationsWebpush**](overseerr/docs/SettingsAPI.md#testnotificationswebpush) | **Post** /settings/notifications/webpush/test | Test Web Push settings
+*SettingsAPI* | [**TestRadarr**](overseerr/docs/SettingsAPI.md#testradarr) | **Post** /settings/radarr/test | Test Radarr configuration
+*SettingsAPI* | [**TestSonarr**](overseerr/docs/SettingsAPI.md#testsonarr) | **Post** /settings/sonarr/test | Test Sonarr configuration
+*SettingsAPI* | [**UpdateDiscover**](overseerr/docs/SettingsAPI.md#updatediscover) | **Put** /settings/discover/{sliderId} | Update a single slider
+*SettingsAPI* | [**UpdateRadarr**](overseerr/docs/SettingsAPI.md#updateradarr) | **Put** /settings/radarr/{radarrId} | Update Radarr instance
+*SettingsAPI* | [**UpdateSonarr**](overseerr/docs/SettingsAPI.md#updatesonarr) | **Put** /settings/sonarr/{sonarrId} | Update Sonarr instance
+*TmdbAPI* | [**GetNetworkByNetworkId**](overseerr/docs/TmdbAPI.md#getnetworkbynetworkid) | **Get** /network/{networkId} | Get TV network details
+*TmdbAPI* | [**GetStudioByStudioId**](overseerr/docs/TmdbAPI.md#getstudiobystudioid) | **Get** /studio/{studioId} | Get movie studio details
+*TmdbAPI* | [**ListBackdrops**](overseerr/docs/TmdbAPI.md#listbackdrops) | **Get** /backdrops | Get backdrops of trending items
+*TmdbAPI* | [**ListGenresMovie**](overseerr/docs/TmdbAPI.md#listgenresmovie) | **Get** /genres/movie | Get list of official TMDB movie genres
+*TmdbAPI* | [**ListGenresTv**](overseerr/docs/TmdbAPI.md#listgenrestv) | **Get** /genres/tv | Get list of official TMDB movie genres
+*TmdbAPI* | [**ListLanguages**](overseerr/docs/TmdbAPI.md#listlanguages) | **Get** /languages | Languages supported by TMDB
+*TmdbAPI* | [**ListRegions**](overseerr/docs/TmdbAPI.md#listregions) | **Get** /regions | Regions supported by TMDB
+*TvAPI* | [**GetTvByTvId**](overseerr/docs/TvAPI.md#gettvbytvid) | **Get** /tv/{tvId} | Get TV details
+*TvAPI* | [**GetTvRatings**](overseerr/docs/TvAPI.md#gettvratings) | **Get** /tv/{tvId}/ratings | Get TV ratings
+*TvAPI* | [**GetTvRecommendations**](overseerr/docs/TvAPI.md#gettvrecommendations) | **Get** /tv/{tvId}/recommendations | Get recommended TV series
+*TvAPI* | [**GetTvSeasonBySeasonId**](overseerr/docs/TvAPI.md#gettvseasonbyseasonid) | **Get** /tv/{tvId}/season/{seasonId} | Get season details and episode list
+*TvAPI* | [**GetTvSimilar**](overseerr/docs/TvAPI.md#gettvsimilar) | **Get** /tv/{tvId}/similar | Get similar TV series
+*UsersAPI* | [**CreateAuthResetPassword**](overseerr/docs/UsersAPI.md#createauthresetpassword) | **Post** /auth/reset-password | Send a reset password email
+*UsersAPI* | [**CreateAuthResetPasswordByGuid**](overseerr/docs/UsersAPI.md#createauthresetpasswordbyguid) | **Post** /auth/reset-password/{guid} | Reset the password for a user
+*UsersAPI* | [**CreateUser**](overseerr/docs/UsersAPI.md#createuser) | **Post** /user | Create new user
+*UsersAPI* | [**CreateUserImportFromPlex**](overseerr/docs/UsersAPI.md#createuserimportfromplex) | **Post** /user/import-from-plex | Import all users from Plex
+*UsersAPI* | [**CreateUserRegisterPushSubscription**](overseerr/docs/UsersAPI.md#createuserregisterpushsubscription) | **Post** /user/registerPushSubscription | Register a web push /user/registerPushSubscription
+*UsersAPI* | [**CreateUserSettingsMain**](overseerr/docs/UsersAPI.md#createusersettingsmain) | **Post** /user/{userId}/settings/main | Update general settings for a user
+*UsersAPI* | [**CreateUserSettingsNotifications**](overseerr/docs/UsersAPI.md#createusersettingsnotifications) | **Post** /user/{userId}/settings/notifications | Update notification settings for a user
+*UsersAPI* | [**CreateUserSettingsPassword**](overseerr/docs/UsersAPI.md#createusersettingspassword) | **Post** /user/{userId}/settings/password | Update password for a user
+*UsersAPI* | [**CreateUserSettingsPermissions**](overseerr/docs/UsersAPI.md#createusersettingspermissions) | **Post** /user/{userId}/settings/permissions | Update permission settings for a user
+*UsersAPI* | [**DeleteUser**](overseerr/docs/UsersAPI.md#deleteuser) | **Delete** /user/{userId} | Delete user by ID
+*UsersAPI* | [**GetAuthMe**](overseerr/docs/UsersAPI.md#getauthme) | **Get** /auth/me | Get logged-in user
+*UsersAPI* | [**GetUser**](overseerr/docs/UsersAPI.md#getuser) | **Get** /user | Get all users
+*UsersAPI* | [**GetUserByUserId**](overseerr/docs/UsersAPI.md#getuserbyuserid) | **Get** /user/{userId} | Get user by ID
+*UsersAPI* | [**GetUserQuota**](overseerr/docs/UsersAPI.md#getuserquota) | **Get** /user/{userId}/quota | Get quotas for a specific user
+*UsersAPI* | [**GetUserRequests**](overseerr/docs/UsersAPI.md#getuserrequests) | **Get** /user/{userId}/requests | Get requests for a specific user
+*UsersAPI* | [**GetUserSettingsMain**](overseerr/docs/UsersAPI.md#getusersettingsmain) | **Get** /user/{userId}/settings/main | Get general settings for a user
+*UsersAPI* | [**GetUserSettingsNotifications**](overseerr/docs/UsersAPI.md#getusersettingsnotifications) | **Get** /user/{userId}/settings/notifications | Get notification settings for a user
+*UsersAPI* | [**GetUserSettingsPassword**](overseerr/docs/UsersAPI.md#getusersettingspassword) | **Get** /user/{userId}/settings/password | Get password page informatiom
+*UsersAPI* | [**GetUserSettingsPermissions**](overseerr/docs/UsersAPI.md#getusersettingspermissions) | **Get** /user/{userId}/settings/permissions | Get permission settings for a user
+*UsersAPI* | [**GetUserWatchData**](overseerr/docs/UsersAPI.md#getuserwatchdata) | **Get** /user/{userId}/watch_data | Get watch data
+*UsersAPI* | [**GetUserWatchlist**](overseerr/docs/UsersAPI.md#getuserwatchlist) | **Get** /user/{userId}/watchlist | Get the Plex watchlist for a specific user
+*UsersAPI* | [**ListPlexUsers**](overseerr/docs/UsersAPI.md#listplexusers) | **Get** /settings/plex/users | Get Plex users
+*UsersAPI* | [**PutUser**](overseerr/docs/UsersAPI.md#putuser) | **Put** /user | Update batch of users
+*UsersAPI* | [**UpdateUser**](overseerr/docs/UsersAPI.md#updateuser) | **Put** /user/{userId} | Update a user by user ID
 
 
 ## Documentation For Models

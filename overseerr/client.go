@@ -47,21 +47,21 @@ type APIClient struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// API Services
-	AuthApi *AuthApiService
-	CollectionApi *CollectionApiService
-	IssueApi *IssueApiService
-	MediaApi *MediaApiService
-	MoviesApi *MoviesApiService
-	OtherApi *OtherApiService
-	PersonApi *PersonApiService
-	PublicApi *PublicApiService
-	RequestApi *RequestApiService
-	SearchApi *SearchApiService
-	ServiceApi *ServiceApiService
-	SettingsApi *SettingsApiService
-	TmdbApi *TmdbApiService
-	TvApi *TvApiService
-	UsersApi *UsersApiService
+	AuthAPI *AuthAPIService
+	CollectionAPI *CollectionAPIService
+	IssueAPI *IssueAPIService
+	MediaAPI *MediaAPIService
+	MoviesAPI *MoviesAPIService
+	OtherAPI *OtherAPIService
+	PersonAPI *PersonAPIService
+	PublicAPI *PublicAPIService
+	RequestAPI *RequestAPIService
+	SearchAPI *SearchAPIService
+	ServiceAPI *ServiceAPIService
+	SettingsAPI *SettingsAPIService
+	TmdbAPI *TmdbAPIService
+	TvAPI *TvAPIService
+	UsersAPI *UsersAPIService
 }
 
 type service struct {
@@ -80,21 +80,21 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AuthApi = (*AuthApiService)(&c.common)
-	c.CollectionApi = (*CollectionApiService)(&c.common)
-	c.IssueApi = (*IssueApiService)(&c.common)
-	c.MediaApi = (*MediaApiService)(&c.common)
-	c.MoviesApi = (*MoviesApiService)(&c.common)
-	c.OtherApi = (*OtherApiService)(&c.common)
-	c.PersonApi = (*PersonApiService)(&c.common)
-	c.PublicApi = (*PublicApiService)(&c.common)
-	c.RequestApi = (*RequestApiService)(&c.common)
-	c.SearchApi = (*SearchApiService)(&c.common)
-	c.ServiceApi = (*ServiceApiService)(&c.common)
-	c.SettingsApi = (*SettingsApiService)(&c.common)
-	c.TmdbApi = (*TmdbApiService)(&c.common)
-	c.TvApi = (*TvApiService)(&c.common)
-	c.UsersApi = (*UsersApiService)(&c.common)
+	c.AuthAPI = (*AuthAPIService)(&c.common)
+	c.CollectionAPI = (*CollectionAPIService)(&c.common)
+	c.IssueAPI = (*IssueAPIService)(&c.common)
+	c.MediaAPI = (*MediaAPIService)(&c.common)
+	c.MoviesAPI = (*MoviesAPIService)(&c.common)
+	c.OtherAPI = (*OtherAPIService)(&c.common)
+	c.PersonAPI = (*PersonAPIService)(&c.common)
+	c.PublicAPI = (*PublicAPIService)(&c.common)
+	c.RequestAPI = (*RequestAPIService)(&c.common)
+	c.SearchAPI = (*SearchAPIService)(&c.common)
+	c.ServiceAPI = (*ServiceAPIService)(&c.common)
+	c.SettingsAPI = (*SettingsAPIService)(&c.common)
+	c.TmdbAPI = (*TmdbAPIService)(&c.common)
+	c.TvAPI = (*TvAPIService)(&c.common)
+	c.UsersAPI = (*UsersAPIService)(&c.common)
 
 	return c
 }

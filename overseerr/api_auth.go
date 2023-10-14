@@ -19,11 +19,11 @@ import (
 )
 
 
-// AuthApiService AuthApi service
-type AuthApiService service
+// AuthAPIService AuthAPI service
+type AuthAPIService service
 type ApiCreateAuthLocalRequest struct {
 	ctx context.Context
-	ApiService *AuthApiService
+	ApiService *AuthAPIService
 	createAuthLocalRequest *CreateAuthLocalRequest
 }
 
@@ -44,7 +44,7 @@ Takes an `email` and a `password` to log the user in. Generates a session cookie
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateAuthLocalRequest
 */
-func (a *AuthApiService) CreateAuthLocal(ctx context.Context) ApiCreateAuthLocalRequest {
+func (a *AuthAPIService) CreateAuthLocal(ctx context.Context) ApiCreateAuthLocalRequest {
 	return ApiCreateAuthLocalRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,7 +53,7 @@ func (a *AuthApiService) CreateAuthLocal(ctx context.Context) ApiCreateAuthLocal
 
 // Execute executes the request
 //  @return User
-func (a *AuthApiService) CreateAuthLocalExecute(r ApiCreateAuthLocalRequest) (*User, *http.Response, error) {
+func (a *AuthAPIService) CreateAuthLocalExecute(r ApiCreateAuthLocalRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -61,7 +61,7 @@ func (a *AuthApiService) CreateAuthLocalExecute(r ApiCreateAuthLocalRequest) (*U
 		localVarReturnValue  *User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthApiService.CreateAuthLocal")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.CreateAuthLocal")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -132,7 +132,7 @@ func (a *AuthApiService) CreateAuthLocalExecute(r ApiCreateAuthLocalRequest) (*U
 }
 type ApiCreateAuthLogoutRequest struct {
 	ctx context.Context
-	ApiService *AuthApiService
+	ApiService *AuthAPIService
 }
 
 func (r ApiCreateAuthLogoutRequest) Execute() (*CreateAuthLogout200Response, *http.Response, error) {
@@ -147,7 +147,7 @@ Completely clear the session cookie and associated values, effectively signing t
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateAuthLogoutRequest
 */
-func (a *AuthApiService) CreateAuthLogout(ctx context.Context) ApiCreateAuthLogoutRequest {
+func (a *AuthAPIService) CreateAuthLogout(ctx context.Context) ApiCreateAuthLogoutRequest {
 	return ApiCreateAuthLogoutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -156,7 +156,7 @@ func (a *AuthApiService) CreateAuthLogout(ctx context.Context) ApiCreateAuthLogo
 
 // Execute executes the request
 //  @return CreateAuthLogout200Response
-func (a *AuthApiService) CreateAuthLogoutExecute(r ApiCreateAuthLogoutRequest) (*CreateAuthLogout200Response, *http.Response, error) {
+func (a *AuthAPIService) CreateAuthLogoutExecute(r ApiCreateAuthLogoutRequest) (*CreateAuthLogout200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -164,7 +164,7 @@ func (a *AuthApiService) CreateAuthLogoutExecute(r ApiCreateAuthLogoutRequest) (
 		localVarReturnValue  *CreateAuthLogout200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthApiService.CreateAuthLogout")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.CreateAuthLogout")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -244,7 +244,7 @@ func (a *AuthApiService) CreateAuthLogoutExecute(r ApiCreateAuthLogoutRequest) (
 }
 type ApiCreateAuthPlexRequest struct {
 	ctx context.Context
-	ApiService *AuthApiService
+	ApiService *AuthAPIService
 	createAuthPlexRequest *CreateAuthPlexRequest
 }
 
@@ -265,7 +265,7 @@ Takes an `authToken` (Plex token) to log the user in. Generates a session cookie
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateAuthPlexRequest
 */
-func (a *AuthApiService) CreateAuthPlex(ctx context.Context) ApiCreateAuthPlexRequest {
+func (a *AuthAPIService) CreateAuthPlex(ctx context.Context) ApiCreateAuthPlexRequest {
 	return ApiCreateAuthPlexRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -274,7 +274,7 @@ func (a *AuthApiService) CreateAuthPlex(ctx context.Context) ApiCreateAuthPlexRe
 
 // Execute executes the request
 //  @return User
-func (a *AuthApiService) CreateAuthPlexExecute(r ApiCreateAuthPlexRequest) (*User, *http.Response, error) {
+func (a *AuthAPIService) CreateAuthPlexExecute(r ApiCreateAuthPlexRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -282,7 +282,7 @@ func (a *AuthApiService) CreateAuthPlexExecute(r ApiCreateAuthPlexRequest) (*Use
 		localVarReturnValue  *User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthApiService.CreateAuthPlex")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.CreateAuthPlex")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -353,7 +353,7 @@ func (a *AuthApiService) CreateAuthPlexExecute(r ApiCreateAuthPlexRequest) (*Use
 }
 type ApiGetAuthMeRequest struct {
 	ctx context.Context
-	ApiService *AuthApiService
+	ApiService *AuthAPIService
 }
 
 func (r ApiGetAuthMeRequest) Execute() (*User, *http.Response, error) {
@@ -368,7 +368,7 @@ Returns the currently logged-in user.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAuthMeRequest
 */
-func (a *AuthApiService) GetAuthMe(ctx context.Context) ApiGetAuthMeRequest {
+func (a *AuthAPIService) GetAuthMe(ctx context.Context) ApiGetAuthMeRequest {
 	return ApiGetAuthMeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -377,7 +377,7 @@ func (a *AuthApiService) GetAuthMe(ctx context.Context) ApiGetAuthMeRequest {
 
 // Execute executes the request
 //  @return User
-func (a *AuthApiService) GetAuthMeExecute(r ApiGetAuthMeRequest) (*User, *http.Response, error) {
+func (a *AuthAPIService) GetAuthMeExecute(r ApiGetAuthMeRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -385,7 +385,7 @@ func (a *AuthApiService) GetAuthMeExecute(r ApiGetAuthMeRequest) (*User, *http.R
 		localVarReturnValue  *User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthApiService.GetAuthMe")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.GetAuthMe")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

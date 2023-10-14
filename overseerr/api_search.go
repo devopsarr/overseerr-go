@@ -20,11 +20,11 @@ import (
 )
 
 
-// SearchApiService SearchApi service
-type SearchApiService service
+// SearchAPIService SearchAPI service
+type SearchAPIService service
 type ApiGetDiscoverKeywordMoviesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	keywordId float32
 	page *float32
 	language *string
@@ -53,7 +53,7 @@ Returns list of movies based on the provided keyword ID a JSON object.
  @param keywordId
  @return ApiGetDiscoverKeywordMoviesRequest
 */
-func (a *SearchApiService) GetDiscoverKeywordMovies(ctx context.Context, keywordId float32) ApiGetDiscoverKeywordMoviesRequest {
+func (a *SearchAPIService) GetDiscoverKeywordMovies(ctx context.Context, keywordId float32) ApiGetDiscoverKeywordMoviesRequest {
 	return ApiGetDiscoverKeywordMoviesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -63,7 +63,7 @@ func (a *SearchApiService) GetDiscoverKeywordMovies(ctx context.Context, keyword
 
 // Execute executes the request
 //  @return GetDiscoverMovies200Response
-func (a *SearchApiService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywordMoviesRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywordMoviesRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -71,7 +71,7 @@ func (a *SearchApiService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywo
 		localVarReturnValue  *GetDiscoverMovies200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverKeywordMovies")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverKeywordMovies")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -158,7 +158,7 @@ func (a *SearchApiService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywo
 }
 type ApiGetDiscoverMoviesRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	page *float32
 	language *string
 	genre *string
@@ -269,7 +269,7 @@ Returns a list of movies in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDiscoverMoviesRequest
 */
-func (a *SearchApiService) GetDiscoverMovies(ctx context.Context) ApiGetDiscoverMoviesRequest {
+func (a *SearchAPIService) GetDiscoverMovies(ctx context.Context) ApiGetDiscoverMoviesRequest {
 	return ApiGetDiscoverMoviesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -278,7 +278,7 @@ func (a *SearchApiService) GetDiscoverMovies(ctx context.Context) ApiGetDiscover
 
 // Execute executes the request
 //  @return GetDiscoverMovies200Response
-func (a *SearchApiService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *SearchApiService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesReques
 		localVarReturnValue  *GetDiscoverMovies200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverMovies")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMovies")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -414,7 +414,7 @@ func (a *SearchApiService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesReques
 }
 type ApiGetDiscoverMoviesGenreByGenreIdRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	genreId string
 	page *float32
 	language *string
@@ -443,7 +443,7 @@ Returns a list of movies based on the provided genre ID in a JSON object.
  @param genreId
  @return ApiGetDiscoverMoviesGenreByGenreIdRequest
 */
-func (a *SearchApiService) GetDiscoverMoviesGenreByGenreId(ctx context.Context, genreId string) ApiGetDiscoverMoviesGenreByGenreIdRequest {
+func (a *SearchAPIService) GetDiscoverMoviesGenreByGenreId(ctx context.Context, genreId string) ApiGetDiscoverMoviesGenreByGenreIdRequest {
 	return ApiGetDiscoverMoviesGenreByGenreIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -453,7 +453,7 @@ func (a *SearchApiService) GetDiscoverMoviesGenreByGenreId(ctx context.Context, 
 
 // Execute executes the request
 //  @return GetDiscoverMoviesGenreByGenreId200Response
-func (a *SearchApiService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscoverMoviesGenreByGenreIdRequest) (*GetDiscoverMoviesGenreByGenreId200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscoverMoviesGenreByGenreIdRequest) (*GetDiscoverMoviesGenreByGenreId200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -461,7 +461,7 @@ func (a *SearchApiService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscov
 		localVarReturnValue  *GetDiscoverMoviesGenreByGenreId200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverMoviesGenreByGenreId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMoviesGenreByGenreId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -548,7 +548,7 @@ func (a *SearchApiService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscov
 }
 type ApiGetDiscoverMoviesLanguageByLanguageRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	language string
 	page *float32
 	language2 *string
@@ -577,7 +577,7 @@ Returns a list of movies based on the provided ISO 639-1 language code in a JSON
  @param language
  @return ApiGetDiscoverMoviesLanguageByLanguageRequest
 */
-func (a *SearchApiService) GetDiscoverMoviesLanguageByLanguage(ctx context.Context, language string) ApiGetDiscoverMoviesLanguageByLanguageRequest {
+func (a *SearchAPIService) GetDiscoverMoviesLanguageByLanguage(ctx context.Context, language string) ApiGetDiscoverMoviesLanguageByLanguageRequest {
 	return ApiGetDiscoverMoviesLanguageByLanguageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -587,7 +587,7 @@ func (a *SearchApiService) GetDiscoverMoviesLanguageByLanguage(ctx context.Conte
 
 // Execute executes the request
 //  @return GetDiscoverMoviesLanguageByLanguage200Response
-func (a *SearchApiService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDiscoverMoviesLanguageByLanguageRequest) (*GetDiscoverMoviesLanguageByLanguage200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDiscoverMoviesLanguageByLanguageRequest) (*GetDiscoverMoviesLanguageByLanguage200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -595,7 +595,7 @@ func (a *SearchApiService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDi
 		localVarReturnValue  *GetDiscoverMoviesLanguageByLanguage200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverMoviesLanguageByLanguage")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMoviesLanguageByLanguage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -682,7 +682,7 @@ func (a *SearchApiService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDi
 }
 type ApiGetDiscoverMoviesStudioByStudioIdRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	studioId string
 	page *float32
 	language *string
@@ -711,7 +711,7 @@ Returns a list of movies based on the provided studio ID in a JSON object.
  @param studioId
  @return ApiGetDiscoverMoviesStudioByStudioIdRequest
 */
-func (a *SearchApiService) GetDiscoverMoviesStudioByStudioId(ctx context.Context, studioId string) ApiGetDiscoverMoviesStudioByStudioIdRequest {
+func (a *SearchAPIService) GetDiscoverMoviesStudioByStudioId(ctx context.Context, studioId string) ApiGetDiscoverMoviesStudioByStudioIdRequest {
 	return ApiGetDiscoverMoviesStudioByStudioIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -721,7 +721,7 @@ func (a *SearchApiService) GetDiscoverMoviesStudioByStudioId(ctx context.Context
 
 // Execute executes the request
 //  @return GetDiscoverMoviesStudioByStudioId200Response
-func (a *SearchApiService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDiscoverMoviesStudioByStudioIdRequest) (*GetDiscoverMoviesStudioByStudioId200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDiscoverMoviesStudioByStudioIdRequest) (*GetDiscoverMoviesStudioByStudioId200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -729,7 +729,7 @@ func (a *SearchApiService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDisc
 		localVarReturnValue  *GetDiscoverMoviesStudioByStudioId200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverMoviesStudioByStudioId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMoviesStudioByStudioId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -816,7 +816,7 @@ func (a *SearchApiService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDisc
 }
 type ApiGetDiscoverMoviesUpcomingRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	page *float32
 	language *string
 }
@@ -843,7 +843,7 @@ Returns a list of movies in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDiscoverMoviesUpcomingRequest
 */
-func (a *SearchApiService) GetDiscoverMoviesUpcoming(ctx context.Context) ApiGetDiscoverMoviesUpcomingRequest {
+func (a *SearchAPIService) GetDiscoverMoviesUpcoming(ctx context.Context) ApiGetDiscoverMoviesUpcomingRequest {
 	return ApiGetDiscoverMoviesUpcomingRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -852,7 +852,7 @@ func (a *SearchApiService) GetDiscoverMoviesUpcoming(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return GetDiscoverMovies200Response
-func (a *SearchApiService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMoviesUpcomingRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMoviesUpcomingRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -860,7 +860,7 @@ func (a *SearchApiService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMovi
 		localVarReturnValue  *GetDiscoverMovies200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverMoviesUpcoming")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMoviesUpcoming")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -946,7 +946,7 @@ func (a *SearchApiService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMovi
 }
 type ApiGetDiscoverTrendingRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	page *float32
 	language *string
 }
@@ -973,7 +973,7 @@ Returns a list of movies and TV shows in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDiscoverTrendingRequest
 */
-func (a *SearchApiService) GetDiscoverTrending(ctx context.Context) ApiGetDiscoverTrendingRequest {
+func (a *SearchAPIService) GetDiscoverTrending(ctx context.Context) ApiGetDiscoverTrendingRequest {
 	return ApiGetDiscoverTrendingRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -982,7 +982,7 @@ func (a *SearchApiService) GetDiscoverTrending(ctx context.Context) ApiGetDiscov
 
 // Execute executes the request
 //  @return GetSearch200Response
-func (a *SearchApiService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRequest) (*GetSearch200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRequest) (*GetSearch200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -990,7 +990,7 @@ func (a *SearchApiService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRe
 		localVarReturnValue  *GetSearch200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverTrending")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTrending")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1076,7 +1076,7 @@ func (a *SearchApiService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRe
 }
 type ApiGetDiscoverTvRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	page *float32
 	language *string
 	genre *string
@@ -1187,7 +1187,7 @@ Returns a list of TV shows in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDiscoverTvRequest
 */
-func (a *SearchApiService) GetDiscoverTv(ctx context.Context) ApiGetDiscoverTvRequest {
+func (a *SearchAPIService) GetDiscoverTv(ctx context.Context) ApiGetDiscoverTvRequest {
 	return ApiGetDiscoverTvRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1196,7 +1196,7 @@ func (a *SearchApiService) GetDiscoverTv(ctx context.Context) ApiGetDiscoverTvRe
 
 // Execute executes the request
 //  @return GetDiscoverTv200Response
-func (a *SearchApiService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*GetDiscoverTv200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*GetDiscoverTv200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1204,7 +1204,7 @@ func (a *SearchApiService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*Get
 		localVarReturnValue  *GetDiscoverTv200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverTv")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTv")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1332,7 +1332,7 @@ func (a *SearchApiService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*Get
 }
 type ApiGetDiscoverTvGenreByGenreIdRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	genreId string
 	page *float32
 	language *string
@@ -1361,7 +1361,7 @@ Returns a list of TV shows based on the provided genre ID in a JSON object.
  @param genreId
  @return ApiGetDiscoverTvGenreByGenreIdRequest
 */
-func (a *SearchApiService) GetDiscoverTvGenreByGenreId(ctx context.Context, genreId string) ApiGetDiscoverTvGenreByGenreIdRequest {
+func (a *SearchAPIService) GetDiscoverTvGenreByGenreId(ctx context.Context, genreId string) ApiGetDiscoverTvGenreByGenreIdRequest {
 	return ApiGetDiscoverTvGenreByGenreIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1371,7 +1371,7 @@ func (a *SearchApiService) GetDiscoverTvGenreByGenreId(ctx context.Context, genr
 
 // Execute executes the request
 //  @return GetDiscoverTvGenreByGenreId200Response
-func (a *SearchApiService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTvGenreByGenreIdRequest) (*GetDiscoverTvGenreByGenreId200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTvGenreByGenreIdRequest) (*GetDiscoverTvGenreByGenreId200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1379,7 +1379,7 @@ func (a *SearchApiService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTv
 		localVarReturnValue  *GetDiscoverTvGenreByGenreId200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverTvGenreByGenreId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTvGenreByGenreId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1466,7 +1466,7 @@ func (a *SearchApiService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTv
 }
 type ApiGetDiscoverTvLanguageByLanguageRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	language string
 	page *float32
 	language2 *string
@@ -1495,7 +1495,7 @@ Returns a list of TV shows based on the provided ISO 639-1 language code in a JS
  @param language
  @return ApiGetDiscoverTvLanguageByLanguageRequest
 */
-func (a *SearchApiService) GetDiscoverTvLanguageByLanguage(ctx context.Context, language string) ApiGetDiscoverTvLanguageByLanguageRequest {
+func (a *SearchAPIService) GetDiscoverTvLanguageByLanguage(ctx context.Context, language string) ApiGetDiscoverTvLanguageByLanguageRequest {
 	return ApiGetDiscoverTvLanguageByLanguageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1505,7 +1505,7 @@ func (a *SearchApiService) GetDiscoverTvLanguageByLanguage(ctx context.Context, 
 
 // Execute executes the request
 //  @return GetDiscoverTvLanguageByLanguage200Response
-func (a *SearchApiService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscoverTvLanguageByLanguageRequest) (*GetDiscoverTvLanguageByLanguage200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscoverTvLanguageByLanguageRequest) (*GetDiscoverTvLanguageByLanguage200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1513,7 +1513,7 @@ func (a *SearchApiService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscov
 		localVarReturnValue  *GetDiscoverTvLanguageByLanguage200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverTvLanguageByLanguage")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTvLanguageByLanguage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1600,7 +1600,7 @@ func (a *SearchApiService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscov
 }
 type ApiGetDiscoverTvNetworkByNetworkIdRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	networkId string
 	page *float32
 	language *string
@@ -1629,7 +1629,7 @@ Returns a list of TV shows based on the provided network ID in a JSON object.
  @param networkId
  @return ApiGetDiscoverTvNetworkByNetworkIdRequest
 */
-func (a *SearchApiService) GetDiscoverTvNetworkByNetworkId(ctx context.Context, networkId string) ApiGetDiscoverTvNetworkByNetworkIdRequest {
+func (a *SearchAPIService) GetDiscoverTvNetworkByNetworkId(ctx context.Context, networkId string) ApiGetDiscoverTvNetworkByNetworkIdRequest {
 	return ApiGetDiscoverTvNetworkByNetworkIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1639,7 +1639,7 @@ func (a *SearchApiService) GetDiscoverTvNetworkByNetworkId(ctx context.Context, 
 
 // Execute executes the request
 //  @return GetDiscoverTvNetworkByNetworkId200Response
-func (a *SearchApiService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscoverTvNetworkByNetworkIdRequest) (*GetDiscoverTvNetworkByNetworkId200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscoverTvNetworkByNetworkIdRequest) (*GetDiscoverTvNetworkByNetworkId200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1647,7 +1647,7 @@ func (a *SearchApiService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscov
 		localVarReturnValue  *GetDiscoverTvNetworkByNetworkId200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverTvNetworkByNetworkId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTvNetworkByNetworkId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1734,7 +1734,7 @@ func (a *SearchApiService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscov
 }
 type ApiGetDiscoverTvUpcomingRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	page *float32
 	language *string
 }
@@ -1761,7 +1761,7 @@ Returns a list of upcoming TV shows in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDiscoverTvUpcomingRequest
 */
-func (a *SearchApiService) GetDiscoverTvUpcoming(ctx context.Context) ApiGetDiscoverTvUpcomingRequest {
+func (a *SearchAPIService) GetDiscoverTvUpcoming(ctx context.Context) ApiGetDiscoverTvUpcomingRequest {
 	return ApiGetDiscoverTvUpcomingRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1770,7 +1770,7 @@ func (a *SearchApiService) GetDiscoverTvUpcoming(ctx context.Context) ApiGetDisc
 
 // Execute executes the request
 //  @return GetDiscoverTv200Response
-func (a *SearchApiService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomingRequest) (*GetDiscoverTv200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomingRequest) (*GetDiscoverTv200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1778,7 +1778,7 @@ func (a *SearchApiService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomi
 		localVarReturnValue  *GetDiscoverTv200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverTvUpcoming")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTvUpcoming")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1864,7 +1864,7 @@ func (a *SearchApiService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomi
 }
 type ApiGetDiscoverWatchlistRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	page *float32
 }
 
@@ -1883,7 +1883,7 @@ GetDiscoverWatchlist Get the Plex watchlist.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDiscoverWatchlistRequest
 */
-func (a *SearchApiService) GetDiscoverWatchlist(ctx context.Context) ApiGetDiscoverWatchlistRequest {
+func (a *SearchAPIService) GetDiscoverWatchlist(ctx context.Context) ApiGetDiscoverWatchlistRequest {
 	return ApiGetDiscoverWatchlistRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1892,7 +1892,7 @@ func (a *SearchApiService) GetDiscoverWatchlist(ctx context.Context) ApiGetDisco
 
 // Execute executes the request
 //  @return GetUserWatchlist200Response
-func (a *SearchApiService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlistRequest) (*GetUserWatchlist200Response, *http.Response, error) {
+func (a *SearchAPIService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlistRequest) (*GetUserWatchlist200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1900,7 +1900,7 @@ func (a *SearchApiService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlist
 		localVarReturnValue  *GetUserWatchlist200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetDiscoverWatchlist")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverWatchlist")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1983,7 +1983,7 @@ func (a *SearchApiService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlist
 }
 type ApiGetSearchRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	query *string
 	page *float32
 	language *string
@@ -2016,7 +2016,7 @@ Returns a list of movies, TV shows, or people a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetSearchRequest
 */
-func (a *SearchApiService) GetSearch(ctx context.Context) ApiGetSearchRequest {
+func (a *SearchAPIService) GetSearch(ctx context.Context) ApiGetSearchRequest {
 	return ApiGetSearchRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2025,7 +2025,7 @@ func (a *SearchApiService) GetSearch(ctx context.Context) ApiGetSearchRequest {
 
 // Execute executes the request
 //  @return GetSearch200Response
-func (a *SearchApiService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch200Response, *http.Response, error) {
+func (a *SearchAPIService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2033,7 +2033,7 @@ func (a *SearchApiService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch20
 		localVarReturnValue  *GetSearch200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetSearch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetSearch")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2123,7 +2123,7 @@ func (a *SearchApiService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch20
 }
 type ApiGetSearchCompanyRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	query *string
 	page *float32
 }
@@ -2150,7 +2150,7 @@ Returns a list of TMDB companies matching the search query. (Will not return ori
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetSearchCompanyRequest
 */
-func (a *SearchApiService) GetSearchCompany(ctx context.Context) ApiGetSearchCompanyRequest {
+func (a *SearchAPIService) GetSearchCompany(ctx context.Context) ApiGetSearchCompanyRequest {
 	return ApiGetSearchCompanyRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2159,7 +2159,7 @@ func (a *SearchApiService) GetSearchCompany(ctx context.Context) ApiGetSearchCom
 
 // Execute executes the request
 //  @return GetSearchCompany200Response
-func (a *SearchApiService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest) (*GetSearchCompany200Response, *http.Response, error) {
+func (a *SearchAPIService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest) (*GetSearchCompany200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2167,7 +2167,7 @@ func (a *SearchApiService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest)
 		localVarReturnValue  *GetSearchCompany200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetSearchCompany")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetSearchCompany")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2254,7 +2254,7 @@ func (a *SearchApiService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest)
 }
 type ApiGetSearchKeywordRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	query *string
 	page *float32
 }
@@ -2281,7 +2281,7 @@ Returns a list of TMDB keywords matching the search query
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetSearchKeywordRequest
 */
-func (a *SearchApiService) GetSearchKeyword(ctx context.Context) ApiGetSearchKeywordRequest {
+func (a *SearchAPIService) GetSearchKeyword(ctx context.Context) ApiGetSearchKeywordRequest {
 	return ApiGetSearchKeywordRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2290,7 +2290,7 @@ func (a *SearchApiService) GetSearchKeyword(ctx context.Context) ApiGetSearchKey
 
 // Execute executes the request
 //  @return GetSearchKeyword200Response
-func (a *SearchApiService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest) (*GetSearchKeyword200Response, *http.Response, error) {
+func (a *SearchAPIService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest) (*GetSearchKeyword200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2298,7 +2298,7 @@ func (a *SearchApiService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest)
 		localVarReturnValue  *GetSearchKeyword200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.GetSearchKeyword")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetSearchKeyword")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2385,7 +2385,7 @@ func (a *SearchApiService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest)
 }
 type ApiListDiscoverGenresliderMovieRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	language *string
 }
 
@@ -2406,7 +2406,7 @@ Returns a list of genres with backdrops attached
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListDiscoverGenresliderMovieRequest
 */
-func (a *SearchApiService) ListDiscoverGenresliderMovie(ctx context.Context) ApiListDiscoverGenresliderMovieRequest {
+func (a *SearchAPIService) ListDiscoverGenresliderMovie(ctx context.Context) ApiListDiscoverGenresliderMovieRequest {
 	return ApiListDiscoverGenresliderMovieRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2415,7 +2415,7 @@ func (a *SearchApiService) ListDiscoverGenresliderMovie(ctx context.Context) Api
 
 // Execute executes the request
 //  @return []ListDiscoverGenresliderMovie200ResponseInner
-func (a *SearchApiService) ListDiscoverGenresliderMovieExecute(r ApiListDiscoverGenresliderMovieRequest) ([]*ListDiscoverGenresliderMovie200ResponseInner, *http.Response, error) {
+func (a *SearchAPIService) ListDiscoverGenresliderMovieExecute(r ApiListDiscoverGenresliderMovieRequest) ([]*ListDiscoverGenresliderMovie200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2423,7 +2423,7 @@ func (a *SearchApiService) ListDiscoverGenresliderMovieExecute(r ApiListDiscover
 		localVarReturnValue  []*ListDiscoverGenresliderMovie200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.ListDiscoverGenresliderMovie")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.ListDiscoverGenresliderMovie")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2506,7 +2506,7 @@ func (a *SearchApiService) ListDiscoverGenresliderMovieExecute(r ApiListDiscover
 }
 type ApiListDiscoverGenresliderTvRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
+	ApiService *SearchAPIService
 	language *string
 }
 
@@ -2527,7 +2527,7 @@ Returns a list of genres with backdrops attached
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListDiscoverGenresliderTvRequest
 */
-func (a *SearchApiService) ListDiscoverGenresliderTv(ctx context.Context) ApiListDiscoverGenresliderTvRequest {
+func (a *SearchAPIService) ListDiscoverGenresliderTv(ctx context.Context) ApiListDiscoverGenresliderTvRequest {
 	return ApiListDiscoverGenresliderTvRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2536,7 +2536,7 @@ func (a *SearchApiService) ListDiscoverGenresliderTv(ctx context.Context) ApiLis
 
 // Execute executes the request
 //  @return []ListDiscoverGenresliderMovie200ResponseInner
-func (a *SearchApiService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGenresliderTvRequest) ([]*ListDiscoverGenresliderMovie200ResponseInner, *http.Response, error) {
+func (a *SearchAPIService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGenresliderTvRequest) ([]*ListDiscoverGenresliderMovie200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2544,7 +2544,7 @@ func (a *SearchApiService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGen
 		localVarReturnValue  []*ListDiscoverGenresliderMovie200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.ListDiscoverGenresliderTv")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.ListDiscoverGenresliderTv")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -1,17 +1,17 @@
-# \RequestApi
+# \RequestAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateRequest**](RequestApi.md#CreateRequest) | **Post** /request | Create new request
-[**CreateRequestByStatus**](RequestApi.md#CreateRequestByStatus) | **Post** /request/{requestId}/{status} | Update a request&#39;s status
-[**CreateRequestRetry**](RequestApi.md#CreateRequestRetry) | **Post** /request/{requestId}/retry | Retry failed request
-[**DeleteRequest**](RequestApi.md#DeleteRequest) | **Delete** /request/{requestId} | Delete request
-[**GetRequest**](RequestApi.md#GetRequest) | **Get** /request | Get all requests
-[**GetRequestByRequestId**](RequestApi.md#GetRequestByRequestId) | **Get** /request/{requestId} | Get MediaRequest
-[**GetRequestCount**](RequestApi.md#GetRequestCount) | **Get** /request/count | Gets request counts
-[**UpdateRequest**](RequestApi.md#UpdateRequest) | **Put** /request/{requestId} | Update MediaRequest
+[**CreateRequest**](RequestAPI.md#CreateRequest) | **Post** /request | Create new request
+[**CreateRequestByStatus**](RequestAPI.md#CreateRequestByStatus) | **Post** /request/{requestId}/{status} | Update a request&#39;s status
+[**CreateRequestRetry**](RequestAPI.md#CreateRequestRetry) | **Post** /request/{requestId}/retry | Retry failed request
+[**DeleteRequest**](RequestAPI.md#DeleteRequest) | **Delete** /request/{requestId} | Delete request
+[**GetRequest**](RequestAPI.md#GetRequest) | **Get** /request | Get all requests
+[**GetRequestByRequestId**](RequestAPI.md#GetRequestByRequestId) | **Get** /request/{requestId} | Get MediaRequest
+[**GetRequestCount**](RequestAPI.md#GetRequestCount) | **Get** /request/count | Gets request counts
+[**UpdateRequest**](RequestAPI.md#UpdateRequest) | **Put** /request/{requestId} | Update MediaRequest
 
 
 
@@ -40,13 +40,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestApi.CreateRequest(context.Background()).CreateRequestRequest(createRequestRequest).Execute()
+    resp, r, err := apiClient.RequestAPI.CreateRequest(context.Background()).CreateRequestRequest(createRequestRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestApi.CreateRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateRequest`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestApi.CreateRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequest`: %v\n", resp)
 }
 ```
 
@@ -107,13 +107,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestApi.CreateRequestByStatus(context.Background(), requestId, status).Execute()
+    resp, r, err := apiClient.RequestAPI.CreateRequestByStatus(context.Background(), requestId, status).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestApi.CreateRequestByStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequestByStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateRequestByStatus`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestApi.CreateRequestByStatus`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequestByStatus`: %v\n", resp)
 }
 ```
 
@@ -179,13 +179,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestApi.CreateRequestRetry(context.Background(), requestId).Execute()
+    resp, r, err := apiClient.RequestAPI.CreateRequestRetry(context.Background(), requestId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestApi.CreateRequestRetry``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequestRetry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateRequestRetry`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestApi.CreateRequestRetry`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequestRetry`: %v\n", resp)
 }
 ```
 
@@ -249,9 +249,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestApi.DeleteRequest(context.Background(), requestId).Execute()
+    resp, r, err := apiClient.RequestAPI.DeleteRequest(context.Background(), requestId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestApi.DeleteRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.DeleteRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -321,13 +321,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestApi.GetRequest(context.Background()).Take(take).Skip(skip).Filter(filter).Sort(sort).RequestedBy(requestedBy).Execute()
+    resp, r, err := apiClient.RequestAPI.GetRequest(context.Background()).Take(take).Skip(skip).Filter(filter).Sort(sort).RequestedBy(requestedBy).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestApi.GetRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetRequest`: GetUserRequests200Response
-    fmt.Fprintf(os.Stdout, "Response from `RequestApi.GetRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequest`: %v\n", resp)
 }
 ```
 
@@ -391,13 +391,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestApi.GetRequestByRequestId(context.Background(), requestId).Execute()
+    resp, r, err := apiClient.RequestAPI.GetRequestByRequestId(context.Background(), requestId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestApi.GetRequestByRequestId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequestByRequestId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetRequestByRequestId`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestApi.GetRequestByRequestId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequestByRequestId`: %v\n", resp)
 }
 ```
 
@@ -460,13 +460,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestApi.GetRequestCount(context.Background()).Execute()
+    resp, r, err := apiClient.RequestAPI.GetRequestCount(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestApi.GetRequestCount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequestCount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetRequestCount`: GetRequestCount200Response
-    fmt.Fprintf(os.Stdout, "Response from `RequestApi.GetRequestCount`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequestCount`: %v\n", resp)
 }
 ```
 
@@ -523,13 +523,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestApi.UpdateRequest(context.Background(), requestId).UpdateRequestRequest(updateRequestRequest).Execute()
+    resp, r, err := apiClient.RequestAPI.UpdateRequest(context.Background(), requestId).UpdateRequestRequest(updateRequestRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestApi.UpdateRequest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.UpdateRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateRequest`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestApi.UpdateRequest`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.UpdateRequest`: %v\n", resp)
 }
 ```
 

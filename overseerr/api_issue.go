@@ -20,11 +20,11 @@ import (
 )
 
 
-// IssueApiService IssueApi service
-type IssueApiService service
+// IssueAPIService IssueAPI service
+type IssueAPIService service
 type ApiCreateIssueRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	createIssueRequest *CreateIssueRequest
 }
 
@@ -46,7 +46,7 @@ Creates a new issue
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateIssueRequest
 */
-func (a *IssueApiService) CreateIssue(ctx context.Context) ApiCreateIssueRequest {
+func (a *IssueAPIService) CreateIssue(ctx context.Context) ApiCreateIssueRequest {
 	return ApiCreateIssueRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,7 +55,7 @@ func (a *IssueApiService) CreateIssue(ctx context.Context) ApiCreateIssueRequest
 
 // Execute executes the request
 //  @return Issue
-func (a *IssueApiService) CreateIssueExecute(r ApiCreateIssueRequest) (*Issue, *http.Response, error) {
+func (a *IssueAPIService) CreateIssueExecute(r ApiCreateIssueRequest) (*Issue, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -63,7 +63,7 @@ func (a *IssueApiService) CreateIssueExecute(r ApiCreateIssueRequest) (*Issue, *
 		localVarReturnValue  *Issue
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.CreateIssue")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.CreateIssue")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -148,7 +148,7 @@ func (a *IssueApiService) CreateIssueExecute(r ApiCreateIssueRequest) (*Issue, *
 }
 type ApiCreateIssueByStatusRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	issueId string
 	status string
 }
@@ -170,7 +170,7 @@ Requires the `MANAGE_ISSUES` permission or `ADMIN`.
  @param status New status
  @return ApiCreateIssueByStatusRequest
 */
-func (a *IssueApiService) CreateIssueByStatus(ctx context.Context, issueId string, status string) ApiCreateIssueByStatusRequest {
+func (a *IssueAPIService) CreateIssueByStatus(ctx context.Context, issueId string, status string) ApiCreateIssueByStatusRequest {
 	return ApiCreateIssueByStatusRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -181,7 +181,7 @@ func (a *IssueApiService) CreateIssueByStatus(ctx context.Context, issueId strin
 
 // Execute executes the request
 //  @return Issue
-func (a *IssueApiService) CreateIssueByStatusExecute(r ApiCreateIssueByStatusRequest) (*Issue, *http.Response, error) {
+func (a *IssueAPIService) CreateIssueByStatusExecute(r ApiCreateIssueByStatusRequest) (*Issue, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -189,7 +189,7 @@ func (a *IssueApiService) CreateIssueByStatusExecute(r ApiCreateIssueByStatusReq
 		localVarReturnValue  *Issue
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.CreateIssueByStatus")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.CreateIssueByStatus")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -271,7 +271,7 @@ func (a *IssueApiService) CreateIssueByStatusExecute(r ApiCreateIssueByStatusReq
 }
 type ApiCreateIssueCommentRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	issueId float32
 	createIssueCommentRequest *CreateIssueCommentRequest
 }
@@ -295,7 +295,7 @@ Creates a comment and returns associated issue in JSON format.
  @param issueId
  @return ApiCreateIssueCommentRequest
 */
-func (a *IssueApiService) CreateIssueComment(ctx context.Context, issueId float32) ApiCreateIssueCommentRequest {
+func (a *IssueAPIService) CreateIssueComment(ctx context.Context, issueId float32) ApiCreateIssueCommentRequest {
 	return ApiCreateIssueCommentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -305,7 +305,7 @@ func (a *IssueApiService) CreateIssueComment(ctx context.Context, issueId float3
 
 // Execute executes the request
 //  @return Issue
-func (a *IssueApiService) CreateIssueCommentExecute(r ApiCreateIssueCommentRequest) (*Issue, *http.Response, error) {
+func (a *IssueAPIService) CreateIssueCommentExecute(r ApiCreateIssueCommentRequest) (*Issue, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -313,7 +313,7 @@ func (a *IssueApiService) CreateIssueCommentExecute(r ApiCreateIssueCommentReque
 		localVarReturnValue  *Issue
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.CreateIssueComment")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.CreateIssueComment")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -399,7 +399,7 @@ func (a *IssueApiService) CreateIssueCommentExecute(r ApiCreateIssueCommentReque
 }
 type ApiDeleteIssueRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	issueId string
 }
 
@@ -416,7 +416,7 @@ Removes an issue. If the user has the `MANAGE_ISSUES` permission, any issue can 
  @param issueId Issue ID
  @return ApiDeleteIssueRequest
 */
-func (a *IssueApiService) DeleteIssue(ctx context.Context, issueId string) ApiDeleteIssueRequest {
+func (a *IssueAPIService) DeleteIssue(ctx context.Context, issueId string) ApiDeleteIssueRequest {
 	return ApiDeleteIssueRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -425,14 +425,14 @@ func (a *IssueApiService) DeleteIssue(ctx context.Context, issueId string) ApiDe
 }
 
 // Execute executes the request
-func (a *IssueApiService) DeleteIssueExecute(r ApiDeleteIssueRequest) (*http.Response, error) {
+func (a *IssueAPIService) DeleteIssueExecute(r ApiDeleteIssueRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.DeleteIssue")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.DeleteIssue")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -504,7 +504,7 @@ func (a *IssueApiService) DeleteIssueExecute(r ApiDeleteIssueRequest) (*http.Res
 }
 type ApiDeleteIssueCommentRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	commentId string
 }
 
@@ -522,7 +522,7 @@ Deletes an issue comment. Only users with `MANAGE_ISSUES` or the user who create
  @param commentId Issue Comment ID
  @return ApiDeleteIssueCommentRequest
 */
-func (a *IssueApiService) DeleteIssueComment(ctx context.Context, commentId string) ApiDeleteIssueCommentRequest {
+func (a *IssueAPIService) DeleteIssueComment(ctx context.Context, commentId string) ApiDeleteIssueCommentRequest {
 	return ApiDeleteIssueCommentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -531,14 +531,14 @@ func (a *IssueApiService) DeleteIssueComment(ctx context.Context, commentId stri
 }
 
 // Execute executes the request
-func (a *IssueApiService) DeleteIssueCommentExecute(r ApiDeleteIssueCommentRequest) (*http.Response, error) {
+func (a *IssueAPIService) DeleteIssueCommentExecute(r ApiDeleteIssueCommentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.DeleteIssueComment")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.DeleteIssueComment")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -610,7 +610,7 @@ func (a *IssueApiService) DeleteIssueCommentExecute(r ApiDeleteIssueCommentReque
 }
 type ApiGetIssueRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	take *float32
 	skip *float32
 	sort *string
@@ -656,7 +656,7 @@ Returns a list of issues in JSON format.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetIssueRequest
 */
-func (a *IssueApiService) GetIssue(ctx context.Context) ApiGetIssueRequest {
+func (a *IssueAPIService) GetIssue(ctx context.Context) ApiGetIssueRequest {
 	return ApiGetIssueRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -665,7 +665,7 @@ func (a *IssueApiService) GetIssue(ctx context.Context) ApiGetIssueRequest {
 
 // Execute executes the request
 //  @return GetIssue200Response
-func (a *IssueApiService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue200Response, *http.Response, error) {
+func (a *IssueAPIService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -673,7 +673,7 @@ func (a *IssueApiService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue200Res
 		localVarReturnValue  *GetIssue200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.GetIssue")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.GetIssue")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -768,7 +768,7 @@ func (a *IssueApiService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue200Res
 }
 type ApiGetIssueByIssueIdRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	issueId float32
 }
 
@@ -786,7 +786,7 @@ Returns a single issue in JSON format.
  @param issueId
  @return ApiGetIssueByIssueIdRequest
 */
-func (a *IssueApiService) GetIssueByIssueId(ctx context.Context, issueId float32) ApiGetIssueByIssueIdRequest {
+func (a *IssueAPIService) GetIssueByIssueId(ctx context.Context, issueId float32) ApiGetIssueByIssueIdRequest {
 	return ApiGetIssueByIssueIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -796,7 +796,7 @@ func (a *IssueApiService) GetIssueByIssueId(ctx context.Context, issueId float32
 
 // Execute executes the request
 //  @return Issue
-func (a *IssueApiService) GetIssueByIssueIdExecute(r ApiGetIssueByIssueIdRequest) (*Issue, *http.Response, error) {
+func (a *IssueAPIService) GetIssueByIssueIdExecute(r ApiGetIssueByIssueIdRequest) (*Issue, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -804,7 +804,7 @@ func (a *IssueApiService) GetIssueByIssueIdExecute(r ApiGetIssueByIssueIdRequest
 		localVarReturnValue  *Issue
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.GetIssueByIssueId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.GetIssueByIssueId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -885,7 +885,7 @@ func (a *IssueApiService) GetIssueByIssueIdExecute(r ApiGetIssueByIssueIdRequest
 }
 type ApiGetIssueCommentByCommentIdRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	commentId string
 }
 
@@ -903,7 +903,7 @@ Returns a single issue comment in JSON format.
  @param commentId
  @return ApiGetIssueCommentByCommentIdRequest
 */
-func (a *IssueApiService) GetIssueCommentByCommentId(ctx context.Context, commentId string) ApiGetIssueCommentByCommentIdRequest {
+func (a *IssueAPIService) GetIssueCommentByCommentId(ctx context.Context, commentId string) ApiGetIssueCommentByCommentIdRequest {
 	return ApiGetIssueCommentByCommentIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -913,7 +913,7 @@ func (a *IssueApiService) GetIssueCommentByCommentId(ctx context.Context, commen
 
 // Execute executes the request
 //  @return IssueComment
-func (a *IssueApiService) GetIssueCommentByCommentIdExecute(r ApiGetIssueCommentByCommentIdRequest) (*IssueComment, *http.Response, error) {
+func (a *IssueAPIService) GetIssueCommentByCommentIdExecute(r ApiGetIssueCommentByCommentIdRequest) (*IssueComment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -921,7 +921,7 @@ func (a *IssueApiService) GetIssueCommentByCommentIdExecute(r ApiGetIssueComment
 		localVarReturnValue  *IssueComment
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.GetIssueCommentByCommentId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.GetIssueCommentByCommentId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1002,7 +1002,7 @@ func (a *IssueApiService) GetIssueCommentByCommentIdExecute(r ApiGetIssueComment
 }
 type ApiGetIssueCountRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 }
 
 func (r ApiGetIssueCountRequest) Execute() (*GetIssueCount200Response, *http.Response, error) {
@@ -1018,7 +1018,7 @@ Returns the number of open and closed issues, as well as the number of issues of
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetIssueCountRequest
 */
-func (a *IssueApiService) GetIssueCount(ctx context.Context) ApiGetIssueCountRequest {
+func (a *IssueAPIService) GetIssueCount(ctx context.Context) ApiGetIssueCountRequest {
 	return ApiGetIssueCountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1027,7 +1027,7 @@ func (a *IssueApiService) GetIssueCount(ctx context.Context) ApiGetIssueCountReq
 
 // Execute executes the request
 //  @return GetIssueCount200Response
-func (a *IssueApiService) GetIssueCountExecute(r ApiGetIssueCountRequest) (*GetIssueCount200Response, *http.Response, error) {
+func (a *IssueAPIService) GetIssueCountExecute(r ApiGetIssueCountRequest) (*GetIssueCount200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1035,7 +1035,7 @@ func (a *IssueApiService) GetIssueCountExecute(r ApiGetIssueCountRequest) (*GetI
 		localVarReturnValue  *GetIssueCount200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.GetIssueCount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.GetIssueCount")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1115,7 +1115,7 @@ func (a *IssueApiService) GetIssueCountExecute(r ApiGetIssueCountRequest) (*GetI
 }
 type ApiUpdateIssueCommentRequest struct {
 	ctx context.Context
-	ApiService *IssueApiService
+	ApiService *IssueAPIService
 	commentId string
 	updateIssueCommentRequest *UpdateIssueCommentRequest
 }
@@ -1139,7 +1139,7 @@ Updates and returns a single issue comment in JSON format.
  @param commentId
  @return ApiUpdateIssueCommentRequest
 */
-func (a *IssueApiService) UpdateIssueComment(ctx context.Context, commentId string) ApiUpdateIssueCommentRequest {
+func (a *IssueAPIService) UpdateIssueComment(ctx context.Context, commentId string) ApiUpdateIssueCommentRequest {
 	return ApiUpdateIssueCommentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1149,7 +1149,7 @@ func (a *IssueApiService) UpdateIssueComment(ctx context.Context, commentId stri
 
 // Execute executes the request
 //  @return IssueComment
-func (a *IssueApiService) UpdateIssueCommentExecute(r ApiUpdateIssueCommentRequest) (*IssueComment, *http.Response, error) {
+func (a *IssueAPIService) UpdateIssueCommentExecute(r ApiUpdateIssueCommentRequest) (*IssueComment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1157,7 +1157,7 @@ func (a *IssueApiService) UpdateIssueCommentExecute(r ApiUpdateIssueCommentReque
 		localVarReturnValue  *IssueComment
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueApiService.UpdateIssueComment")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.UpdateIssueComment")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

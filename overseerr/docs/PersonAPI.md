@@ -1,11 +1,11 @@
-# \PersonApi
+# \PersonAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetPersonByPersonId**](PersonApi.md#GetPersonByPersonId) | **Get** /person/{personId} | Get person details
-[**GetPersonCombinedCredits**](PersonApi.md#GetPersonCombinedCredits) | **Get** /person/{personId}/combined_credits | Get combined credits
+[**GetPersonByPersonId**](PersonAPI.md#GetPersonByPersonId) | **Get** /person/{personId} | Get person details
+[**GetPersonCombinedCredits**](PersonAPI.md#GetPersonCombinedCredits) | **Get** /person/{personId}/combined_credits | Get combined credits
 
 
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PersonApi.GetPersonByPersonId(context.Background(), personId).Language(language).Execute()
+    resp, r, err := apiClient.PersonAPI.GetPersonByPersonId(context.Background(), personId).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PersonApi.GetPersonByPersonId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PersonAPI.GetPersonByPersonId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetPersonByPersonId`: PersonDetails
-    fmt.Fprintf(os.Stdout, "Response from `PersonApi.GetPersonByPersonId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PersonAPI.GetPersonByPersonId`: %v\n", resp)
 }
 ```
 
@@ -107,13 +107,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PersonApi.GetPersonCombinedCredits(context.Background(), personId).Language(language).Execute()
+    resp, r, err := apiClient.PersonAPI.GetPersonCombinedCredits(context.Background(), personId).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PersonApi.GetPersonCombinedCredits``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PersonAPI.GetPersonCombinedCredits``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetPersonCombinedCredits`: GetPersonCombinedCredits200Response
-    fmt.Fprintf(os.Stdout, "Response from `PersonApi.GetPersonCombinedCredits`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PersonAPI.GetPersonCombinedCredits`: %v\n", resp)
 }
 ```
 

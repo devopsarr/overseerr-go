@@ -1,78 +1,78 @@
-# \SettingsApi
+# \SettingsAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCacheFlush**](SettingsApi.md#CreateCacheFlush) | **Post** /settings/cache/{cacheId}/flush | Flush a specific cache
-[**CreateDiscover**](SettingsApi.md#CreateDiscover) | **Post** /settings/discover | Batch update all sliders.
-[**CreateDiscoverAdd**](SettingsApi.md#CreateDiscoverAdd) | **Post** /settings/discover/add | Add a new slider
-[**CreateInitialize**](SettingsApi.md#CreateInitialize) | **Post** /settings/initialize | Initialize application
-[**CreateJobsCancel**](SettingsApi.md#CreateJobsCancel) | **Post** /settings/jobs/{jobId}/cancel | Cancel a specific job
-[**CreateJobsRun**](SettingsApi.md#CreateJobsRun) | **Post** /settings/jobs/{jobId}/run | Invoke a specific job
-[**CreateJobsSchedule**](SettingsApi.md#CreateJobsSchedule) | **Post** /settings/jobs/{jobId}/schedule | Modify job schedule
-[**CreateMain**](SettingsApi.md#CreateMain) | **Post** /settings/main | Update main settings
-[**CreateMainRegenerate**](SettingsApi.md#CreateMainRegenerate) | **Post** /settings/main/regenerate | Get main settings with newly-generated API key
-[**CreateNotificationsDiscord**](SettingsApi.md#CreateNotificationsDiscord) | **Post** /settings/notifications/discord | Update Discord notification settings
-[**CreateNotificationsEmail**](SettingsApi.md#CreateNotificationsEmail) | **Post** /settings/notifications/email | Update email notification settings
-[**CreateNotificationsGotify**](SettingsApi.md#CreateNotificationsGotify) | **Post** /settings/notifications/gotify | Update Gotify notification settings
-[**CreateNotificationsLunasea**](SettingsApi.md#CreateNotificationsLunasea) | **Post** /settings/notifications/lunasea | Update LunaSea notification settings
-[**CreateNotificationsPushbullet**](SettingsApi.md#CreateNotificationsPushbullet) | **Post** /settings/notifications/pushbullet | Update Pushbullet notification settings
-[**CreateNotificationsPushover**](SettingsApi.md#CreateNotificationsPushover) | **Post** /settings/notifications/pushover | Update Pushover notification settings
-[**CreateNotificationsSlack**](SettingsApi.md#CreateNotificationsSlack) | **Post** /settings/notifications/slack | Update Slack notification settings
-[**CreateNotificationsTelegram**](SettingsApi.md#CreateNotificationsTelegram) | **Post** /settings/notifications/telegram | Update Telegram notification settings
-[**CreateNotificationsWebhook**](SettingsApi.md#CreateNotificationsWebhook) | **Post** /settings/notifications/webhook | Update webhook notification settings
-[**CreateNotificationsWebpush**](SettingsApi.md#CreateNotificationsWebpush) | **Post** /settings/notifications/webpush | Update Web Push notification settings
-[**CreatePlex**](SettingsApi.md#CreatePlex) | **Post** /settings/plex | Update Plex settings
-[**CreatePlexSync**](SettingsApi.md#CreatePlexSync) | **Post** /settings/plex/sync | Start full Plex library scan
-[**CreateRadarr**](SettingsApi.md#CreateRadarr) | **Post** /settings/radarr | Create Radarr instance
-[**CreateSonarr**](SettingsApi.md#CreateSonarr) | **Post** /settings/sonarr | Create Sonarr instance
-[**CreateTautulli**](SettingsApi.md#CreateTautulli) | **Post** /settings/tautulli | Update Tautulli settings
-[**DeleteDiscover**](SettingsApi.md#DeleteDiscover) | **Delete** /settings/discover/{sliderId} | Delete slider by ID
-[**DeleteRadarr**](SettingsApi.md#DeleteRadarr) | **Delete** /settings/radarr/{radarrId} | Delete Radarr instance
-[**DeleteSonarr**](SettingsApi.md#DeleteSonarr) | **Delete** /settings/sonarr/{sonarrId} | Delete Sonarr instance
-[**GetAbout**](SettingsApi.md#GetAbout) | **Get** /settings/about | Get server stats
-[**GetCache**](SettingsApi.md#GetCache) | **Get** /settings/cache | Get a list of active caches
-[**GetDiscoverReset**](SettingsApi.md#GetDiscoverReset) | **Get** /settings/discover/reset | Reset all discover sliders
-[**GetMain**](SettingsApi.md#GetMain) | **Get** /settings/main | Get main settings
-[**GetNotificationsDiscord**](SettingsApi.md#GetNotificationsDiscord) | **Get** /settings/notifications/discord | Get Discord notification settings
-[**GetNotificationsEmail**](SettingsApi.md#GetNotificationsEmail) | **Get** /settings/notifications/email | Get email notification settings
-[**GetNotificationsGotify**](SettingsApi.md#GetNotificationsGotify) | **Get** /settings/notifications/gotify | Get Gotify notification settings
-[**GetNotificationsLunasea**](SettingsApi.md#GetNotificationsLunasea) | **Get** /settings/notifications/lunasea | Get LunaSea notification settings
-[**GetNotificationsPushbullet**](SettingsApi.md#GetNotificationsPushbullet) | **Get** /settings/notifications/pushbullet | Get Pushbullet notification settings
-[**GetNotificationsPushover**](SettingsApi.md#GetNotificationsPushover) | **Get** /settings/notifications/pushover | Get Pushover notification settings
-[**GetNotificationsSlack**](SettingsApi.md#GetNotificationsSlack) | **Get** /settings/notifications/slack | Get Slack notification settings
-[**GetNotificationsTelegram**](SettingsApi.md#GetNotificationsTelegram) | **Get** /settings/notifications/telegram | Get Telegram notification settings
-[**GetNotificationsWebhook**](SettingsApi.md#GetNotificationsWebhook) | **Get** /settings/notifications/webhook | Get webhook notification settings
-[**GetNotificationsWebpush**](SettingsApi.md#GetNotificationsWebpush) | **Get** /settings/notifications/webpush | Get Web Push notification settings
-[**GetPlex**](SettingsApi.md#GetPlex) | **Get** /settings/plex | Get Plex settings
-[**GetPlexSync**](SettingsApi.md#GetPlexSync) | **Get** /settings/plex/sync | Get status of full Plex library scan
-[**GetPublic**](SettingsApi.md#GetPublic) | **Get** /settings/public | Get public settings
-[**GetTautulli**](SettingsApi.md#GetTautulli) | **Get** /settings/tautulli | Get Tautulli settings
-[**ListDiscover**](SettingsApi.md#ListDiscover) | **Get** /settings/discover | Get all discover sliders
-[**ListJobs**](SettingsApi.md#ListJobs) | **Get** /settings/jobs | Get scheduled jobs
-[**ListLogs**](SettingsApi.md#ListLogs) | **Get** /settings/logs | Returns logs
-[**ListPlexDevicesServers**](SettingsApi.md#ListPlexDevicesServers) | **Get** /settings/plex/devices/servers | Gets the user&#39;s available Plex servers
-[**ListPlexLibrary**](SettingsApi.md#ListPlexLibrary) | **Get** /settings/plex/library | Get Plex libraries
-[**ListPlexUsers**](SettingsApi.md#ListPlexUsers) | **Get** /settings/plex/users | Get Plex users
-[**ListRadarr**](SettingsApi.md#ListRadarr) | **Get** /settings/radarr | Get Radarr settings
-[**ListRadarrProfiles**](SettingsApi.md#ListRadarrProfiles) | **Get** /settings/radarr/{radarrId}/profiles | Get available Radarr profiles
-[**ListSonarr**](SettingsApi.md#ListSonarr) | **Get** /settings/sonarr | Get Sonarr settings
-[**TestNotificationsDiscord**](SettingsApi.md#TestNotificationsDiscord) | **Post** /settings/notifications/discord/test | Test Discord settings
-[**TestNotificationsEmail**](SettingsApi.md#TestNotificationsEmail) | **Post** /settings/notifications/email/test | Test email settings
-[**TestNotificationsGotify**](SettingsApi.md#TestNotificationsGotify) | **Post** /settings/notifications/gotify/test | Test Gotify settings
-[**TestNotificationsLunasea**](SettingsApi.md#TestNotificationsLunasea) | **Post** /settings/notifications/lunasea/test | Test LunaSea settings
-[**TestNotificationsPushbullet**](SettingsApi.md#TestNotificationsPushbullet) | **Post** /settings/notifications/pushbullet/test | Test Pushbullet settings
-[**TestNotificationsPushover**](SettingsApi.md#TestNotificationsPushover) | **Post** /settings/notifications/pushover/test | Test Pushover settings
-[**TestNotificationsSlack**](SettingsApi.md#TestNotificationsSlack) | **Post** /settings/notifications/slack/test | Test Slack settings
-[**TestNotificationsTelegram**](SettingsApi.md#TestNotificationsTelegram) | **Post** /settings/notifications/telegram/test | Test Telegram settings
-[**TestNotificationsWebhook**](SettingsApi.md#TestNotificationsWebhook) | **Post** /settings/notifications/webhook/test | Test webhook settings
-[**TestNotificationsWebpush**](SettingsApi.md#TestNotificationsWebpush) | **Post** /settings/notifications/webpush/test | Test Web Push settings
-[**TestRadarr**](SettingsApi.md#TestRadarr) | **Post** /settings/radarr/test | Test Radarr configuration
-[**TestSonarr**](SettingsApi.md#TestSonarr) | **Post** /settings/sonarr/test | Test Sonarr configuration
-[**UpdateDiscover**](SettingsApi.md#UpdateDiscover) | **Put** /settings/discover/{sliderId} | Update a single slider
-[**UpdateRadarr**](SettingsApi.md#UpdateRadarr) | **Put** /settings/radarr/{radarrId} | Update Radarr instance
-[**UpdateSonarr**](SettingsApi.md#UpdateSonarr) | **Put** /settings/sonarr/{sonarrId} | Update Sonarr instance
+[**CreateCacheFlush**](SettingsAPI.md#CreateCacheFlush) | **Post** /settings/cache/{cacheId}/flush | Flush a specific cache
+[**CreateDiscover**](SettingsAPI.md#CreateDiscover) | **Post** /settings/discover | Batch update all sliders.
+[**CreateDiscoverAdd**](SettingsAPI.md#CreateDiscoverAdd) | **Post** /settings/discover/add | Add a new slider
+[**CreateInitialize**](SettingsAPI.md#CreateInitialize) | **Post** /settings/initialize | Initialize application
+[**CreateJobsCancel**](SettingsAPI.md#CreateJobsCancel) | **Post** /settings/jobs/{jobId}/cancel | Cancel a specific job
+[**CreateJobsRun**](SettingsAPI.md#CreateJobsRun) | **Post** /settings/jobs/{jobId}/run | Invoke a specific job
+[**CreateJobsSchedule**](SettingsAPI.md#CreateJobsSchedule) | **Post** /settings/jobs/{jobId}/schedule | Modify job schedule
+[**CreateMain**](SettingsAPI.md#CreateMain) | **Post** /settings/main | Update main settings
+[**CreateMainRegenerate**](SettingsAPI.md#CreateMainRegenerate) | **Post** /settings/main/regenerate | Get main settings with newly-generated API key
+[**CreateNotificationsDiscord**](SettingsAPI.md#CreateNotificationsDiscord) | **Post** /settings/notifications/discord | Update Discord notification settings
+[**CreateNotificationsEmail**](SettingsAPI.md#CreateNotificationsEmail) | **Post** /settings/notifications/email | Update email notification settings
+[**CreateNotificationsGotify**](SettingsAPI.md#CreateNotificationsGotify) | **Post** /settings/notifications/gotify | Update Gotify notification settings
+[**CreateNotificationsLunasea**](SettingsAPI.md#CreateNotificationsLunasea) | **Post** /settings/notifications/lunasea | Update LunaSea notification settings
+[**CreateNotificationsPushbullet**](SettingsAPI.md#CreateNotificationsPushbullet) | **Post** /settings/notifications/pushbullet | Update Pushbullet notification settings
+[**CreateNotificationsPushover**](SettingsAPI.md#CreateNotificationsPushover) | **Post** /settings/notifications/pushover | Update Pushover notification settings
+[**CreateNotificationsSlack**](SettingsAPI.md#CreateNotificationsSlack) | **Post** /settings/notifications/slack | Update Slack notification settings
+[**CreateNotificationsTelegram**](SettingsAPI.md#CreateNotificationsTelegram) | **Post** /settings/notifications/telegram | Update Telegram notification settings
+[**CreateNotificationsWebhook**](SettingsAPI.md#CreateNotificationsWebhook) | **Post** /settings/notifications/webhook | Update webhook notification settings
+[**CreateNotificationsWebpush**](SettingsAPI.md#CreateNotificationsWebpush) | **Post** /settings/notifications/webpush | Update Web Push notification settings
+[**CreatePlex**](SettingsAPI.md#CreatePlex) | **Post** /settings/plex | Update Plex settings
+[**CreatePlexSync**](SettingsAPI.md#CreatePlexSync) | **Post** /settings/plex/sync | Start full Plex library scan
+[**CreateRadarr**](SettingsAPI.md#CreateRadarr) | **Post** /settings/radarr | Create Radarr instance
+[**CreateSonarr**](SettingsAPI.md#CreateSonarr) | **Post** /settings/sonarr | Create Sonarr instance
+[**CreateTautulli**](SettingsAPI.md#CreateTautulli) | **Post** /settings/tautulli | Update Tautulli settings
+[**DeleteDiscover**](SettingsAPI.md#DeleteDiscover) | **Delete** /settings/discover/{sliderId} | Delete slider by ID
+[**DeleteRadarr**](SettingsAPI.md#DeleteRadarr) | **Delete** /settings/radarr/{radarrId} | Delete Radarr instance
+[**DeleteSonarr**](SettingsAPI.md#DeleteSonarr) | **Delete** /settings/sonarr/{sonarrId} | Delete Sonarr instance
+[**GetAbout**](SettingsAPI.md#GetAbout) | **Get** /settings/about | Get server stats
+[**GetCache**](SettingsAPI.md#GetCache) | **Get** /settings/cache | Get a list of active caches
+[**GetDiscoverReset**](SettingsAPI.md#GetDiscoverReset) | **Get** /settings/discover/reset | Reset all discover sliders
+[**GetMain**](SettingsAPI.md#GetMain) | **Get** /settings/main | Get main settings
+[**GetNotificationsDiscord**](SettingsAPI.md#GetNotificationsDiscord) | **Get** /settings/notifications/discord | Get Discord notification settings
+[**GetNotificationsEmail**](SettingsAPI.md#GetNotificationsEmail) | **Get** /settings/notifications/email | Get email notification settings
+[**GetNotificationsGotify**](SettingsAPI.md#GetNotificationsGotify) | **Get** /settings/notifications/gotify | Get Gotify notification settings
+[**GetNotificationsLunasea**](SettingsAPI.md#GetNotificationsLunasea) | **Get** /settings/notifications/lunasea | Get LunaSea notification settings
+[**GetNotificationsPushbullet**](SettingsAPI.md#GetNotificationsPushbullet) | **Get** /settings/notifications/pushbullet | Get Pushbullet notification settings
+[**GetNotificationsPushover**](SettingsAPI.md#GetNotificationsPushover) | **Get** /settings/notifications/pushover | Get Pushover notification settings
+[**GetNotificationsSlack**](SettingsAPI.md#GetNotificationsSlack) | **Get** /settings/notifications/slack | Get Slack notification settings
+[**GetNotificationsTelegram**](SettingsAPI.md#GetNotificationsTelegram) | **Get** /settings/notifications/telegram | Get Telegram notification settings
+[**GetNotificationsWebhook**](SettingsAPI.md#GetNotificationsWebhook) | **Get** /settings/notifications/webhook | Get webhook notification settings
+[**GetNotificationsWebpush**](SettingsAPI.md#GetNotificationsWebpush) | **Get** /settings/notifications/webpush | Get Web Push notification settings
+[**GetPlex**](SettingsAPI.md#GetPlex) | **Get** /settings/plex | Get Plex settings
+[**GetPlexSync**](SettingsAPI.md#GetPlexSync) | **Get** /settings/plex/sync | Get status of full Plex library scan
+[**GetPublic**](SettingsAPI.md#GetPublic) | **Get** /settings/public | Get public settings
+[**GetTautulli**](SettingsAPI.md#GetTautulli) | **Get** /settings/tautulli | Get Tautulli settings
+[**ListDiscover**](SettingsAPI.md#ListDiscover) | **Get** /settings/discover | Get all discover sliders
+[**ListJobs**](SettingsAPI.md#ListJobs) | **Get** /settings/jobs | Get scheduled jobs
+[**ListLogs**](SettingsAPI.md#ListLogs) | **Get** /settings/logs | Returns logs
+[**ListPlexDevicesServers**](SettingsAPI.md#ListPlexDevicesServers) | **Get** /settings/plex/devices/servers | Gets the user&#39;s available Plex servers
+[**ListPlexLibrary**](SettingsAPI.md#ListPlexLibrary) | **Get** /settings/plex/library | Get Plex libraries
+[**ListPlexUsers**](SettingsAPI.md#ListPlexUsers) | **Get** /settings/plex/users | Get Plex users
+[**ListRadarr**](SettingsAPI.md#ListRadarr) | **Get** /settings/radarr | Get Radarr settings
+[**ListRadarrProfiles**](SettingsAPI.md#ListRadarrProfiles) | **Get** /settings/radarr/{radarrId}/profiles | Get available Radarr profiles
+[**ListSonarr**](SettingsAPI.md#ListSonarr) | **Get** /settings/sonarr | Get Sonarr settings
+[**TestNotificationsDiscord**](SettingsAPI.md#TestNotificationsDiscord) | **Post** /settings/notifications/discord/test | Test Discord settings
+[**TestNotificationsEmail**](SettingsAPI.md#TestNotificationsEmail) | **Post** /settings/notifications/email/test | Test email settings
+[**TestNotificationsGotify**](SettingsAPI.md#TestNotificationsGotify) | **Post** /settings/notifications/gotify/test | Test Gotify settings
+[**TestNotificationsLunasea**](SettingsAPI.md#TestNotificationsLunasea) | **Post** /settings/notifications/lunasea/test | Test LunaSea settings
+[**TestNotificationsPushbullet**](SettingsAPI.md#TestNotificationsPushbullet) | **Post** /settings/notifications/pushbullet/test | Test Pushbullet settings
+[**TestNotificationsPushover**](SettingsAPI.md#TestNotificationsPushover) | **Post** /settings/notifications/pushover/test | Test Pushover settings
+[**TestNotificationsSlack**](SettingsAPI.md#TestNotificationsSlack) | **Post** /settings/notifications/slack/test | Test Slack settings
+[**TestNotificationsTelegram**](SettingsAPI.md#TestNotificationsTelegram) | **Post** /settings/notifications/telegram/test | Test Telegram settings
+[**TestNotificationsWebhook**](SettingsAPI.md#TestNotificationsWebhook) | **Post** /settings/notifications/webhook/test | Test webhook settings
+[**TestNotificationsWebpush**](SettingsAPI.md#TestNotificationsWebpush) | **Post** /settings/notifications/webpush/test | Test Web Push settings
+[**TestRadarr**](SettingsAPI.md#TestRadarr) | **Post** /settings/radarr/test | Test Radarr configuration
+[**TestSonarr**](SettingsAPI.md#TestSonarr) | **Post** /settings/sonarr/test | Test Sonarr configuration
+[**UpdateDiscover**](SettingsAPI.md#UpdateDiscover) | **Put** /settings/discover/{sliderId} | Update a single slider
+[**UpdateRadarr**](SettingsAPI.md#UpdateRadarr) | **Put** /settings/radarr/{radarrId} | Update Radarr instance
+[**UpdateSonarr**](SettingsAPI.md#UpdateSonarr) | **Put** /settings/sonarr/{sonarrId} | Update Sonarr instance
 
 
 
@@ -101,9 +101,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateCacheFlush(context.Background(), cacheId).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateCacheFlush(context.Background(), cacheId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateCacheFlush``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateCacheFlush``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -169,13 +169,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateDiscover(context.Background()).DiscoverSlider(discoverSlider).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateDiscover(context.Background()).DiscoverSlider(discoverSlider).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateDiscover``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateDiscover``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateDiscover`: []DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateDiscover`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateDiscover`: %v\n", resp)
 }
 ```
 
@@ -235,13 +235,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateDiscoverAdd(context.Background()).CreateDiscoverAddRequest(createDiscoverAddRequest).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateDiscoverAdd(context.Background()).CreateDiscoverAddRequest(createDiscoverAddRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateDiscoverAdd``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateDiscoverAdd``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateDiscoverAdd`: DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateDiscoverAdd`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateDiscoverAdd`: %v\n", resp)
 }
 ```
 
@@ -300,13 +300,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateInitialize(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateInitialize(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateInitialize``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateInitialize``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateInitialize`: PublicSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateInitialize`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateInitialize`: %v\n", resp)
 }
 ```
 
@@ -362,13 +362,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateJobsCancel(context.Background(), jobId).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateJobsCancel(context.Background(), jobId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateJobsCancel``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsCancel``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateJobsCancel`: Job
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateJobsCancel`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsCancel`: %v\n", resp)
 }
 ```
 
@@ -432,13 +432,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateJobsRun(context.Background(), jobId).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateJobsRun(context.Background(), jobId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateJobsRun``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsRun``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateJobsRun`: Job
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateJobsRun`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsRun`: %v\n", resp)
 }
 ```
 
@@ -503,13 +503,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateJobsSchedule(context.Background(), jobId).CreateJobsScheduleRequest(createJobsScheduleRequest).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateJobsSchedule(context.Background(), jobId).CreateJobsScheduleRequest(createJobsScheduleRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateJobsSchedule``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsSchedule``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateJobsSchedule`: Job
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateJobsSchedule`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsSchedule`: %v\n", resp)
 }
 ```
 
@@ -574,13 +574,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateMain(context.Background()).MainSettings(mainSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateMain(context.Background()).MainSettings(mainSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateMain``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateMain``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateMain`: MainSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateMain`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateMain`: %v\n", resp)
 }
 ```
 
@@ -639,13 +639,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateMainRegenerate(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateMainRegenerate(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateMainRegenerate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateMainRegenerate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateMainRegenerate`: MainSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateMainRegenerate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateMainRegenerate`: %v\n", resp)
 }
 ```
 
@@ -701,13 +701,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsDiscord(context.Background()).DiscordSettings(discordSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsDiscord(context.Background()).DiscordSettings(discordSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsDiscord``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsDiscord``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsDiscord`: DiscordSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsDiscord`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsDiscord`: %v\n", resp)
 }
 ```
 
@@ -767,13 +767,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsEmail(context.Background()).NotificationEmailSettings(notificationEmailSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsEmail(context.Background()).NotificationEmailSettings(notificationEmailSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsEmail``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsEmail``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsEmail`: NotificationEmailSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsEmail`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsEmail`: %v\n", resp)
 }
 ```
 
@@ -833,13 +833,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsGotify(context.Background()).GotifySettings(gotifySettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsGotify(context.Background()).GotifySettings(gotifySettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsGotify``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsGotify``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsGotify`: GotifySettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsGotify`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsGotify`: %v\n", resp)
 }
 ```
 
@@ -899,13 +899,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsLunasea(context.Background()).LunaSeaSettings(lunaSeaSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsLunasea(context.Background()).LunaSeaSettings(lunaSeaSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsLunasea``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsLunasea``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsLunasea`: LunaSeaSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsLunasea`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsLunasea`: %v\n", resp)
 }
 ```
 
@@ -965,13 +965,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsPushbullet(context.Background()).PushbulletSettings(pushbulletSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsPushbullet(context.Background()).PushbulletSettings(pushbulletSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsPushbullet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsPushbullet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsPushbullet`: PushbulletSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsPushbullet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsPushbullet`: %v\n", resp)
 }
 ```
 
@@ -1031,13 +1031,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsPushover(context.Background()).PushoverSettings(pushoverSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsPushover(context.Background()).PushoverSettings(pushoverSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsPushover``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsPushover``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsPushover`: PushoverSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsPushover`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsPushover`: %v\n", resp)
 }
 ```
 
@@ -1097,13 +1097,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsSlack(context.Background()).SlackSettings(slackSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsSlack(context.Background()).SlackSettings(slackSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsSlack``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsSlack``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsSlack`: SlackSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsSlack`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsSlack`: %v\n", resp)
 }
 ```
 
@@ -1163,13 +1163,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsTelegram(context.Background()).TelegramSettings(telegramSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsTelegram(context.Background()).TelegramSettings(telegramSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsTelegram``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsTelegram``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsTelegram`: TelegramSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsTelegram`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsTelegram`: %v\n", resp)
 }
 ```
 
@@ -1229,13 +1229,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsWebhook(context.Background()).WebhookSettings(webhookSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsWebhook(context.Background()).WebhookSettings(webhookSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsWebhook``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsWebhook``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsWebhook`: WebhookSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsWebhook`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsWebhook`: %v\n", resp)
 }
 ```
 
@@ -1295,13 +1295,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateNotificationsWebpush(context.Background()).WebPushSettings(webPushSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateNotificationsWebpush(context.Background()).WebPushSettings(webPushSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateNotificationsWebpush``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsWebpush``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNotificationsWebpush`: WebPushSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateNotificationsWebpush`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsWebpush`: %v\n", resp)
 }
 ```
 
@@ -1361,13 +1361,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreatePlex(context.Background()).PlexSettings(plexSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreatePlex(context.Background()).PlexSettings(plexSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreatePlex``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreatePlex``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreatePlex`: PlexSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreatePlex`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreatePlex`: %v\n", resp)
 }
 ```
 
@@ -1427,13 +1427,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreatePlexSync(context.Background()).CreatePlexSyncRequest(createPlexSyncRequest).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreatePlexSync(context.Background()).CreatePlexSyncRequest(createPlexSyncRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreatePlexSync``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreatePlexSync``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreatePlexSync`: GetPlexSync200Response
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreatePlexSync`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreatePlexSync`: %v\n", resp)
 }
 ```
 
@@ -1493,13 +1493,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateRadarr(context.Background()).RadarrSettings(radarrSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateRadarr(context.Background()).RadarrSettings(radarrSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateRadarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateRadarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateRadarr`: RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateRadarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateRadarr`: %v\n", resp)
 }
 ```
 
@@ -1559,13 +1559,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateSonarr(context.Background()).SonarrSettings(sonarrSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateSonarr(context.Background()).SonarrSettings(sonarrSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateSonarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateSonarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateSonarr`: SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateSonarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateSonarr`: %v\n", resp)
 }
 ```
 
@@ -1625,13 +1625,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.CreateTautulli(context.Background()).TautulliSettings(tautulliSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.CreateTautulli(context.Background()).TautulliSettings(tautulliSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.CreateTautulli``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateTautulli``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateTautulli`: TautulliSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.CreateTautulli`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateTautulli`: %v\n", resp)
 }
 ```
 
@@ -1691,13 +1691,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.DeleteDiscover(context.Background(), sliderId).Execute()
+    resp, r, err := apiClient.SettingsAPI.DeleteDiscover(context.Background(), sliderId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.DeleteDiscover``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteDiscover``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DeleteDiscover`: DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.DeleteDiscover`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteDiscover`: %v\n", resp)
 }
 ```
 
@@ -1761,13 +1761,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.DeleteRadarr(context.Background(), radarrId).Execute()
+    resp, r, err := apiClient.SettingsAPI.DeleteRadarr(context.Background(), radarrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.DeleteRadarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteRadarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DeleteRadarr`: RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.DeleteRadarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteRadarr`: %v\n", resp)
 }
 ```
 
@@ -1831,13 +1831,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.DeleteSonarr(context.Background(), sonarrId).Execute()
+    resp, r, err := apiClient.SettingsAPI.DeleteSonarr(context.Background(), sonarrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.DeleteSonarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteSonarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DeleteSonarr`: SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.DeleteSonarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteSonarr`: %v\n", resp)
 }
 ```
 
@@ -1900,13 +1900,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetAbout(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetAbout(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetAbout``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetAbout``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetAbout`: GetAbout200Response
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetAbout`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetAbout`: %v\n", resp)
 }
 ```
 
@@ -1961,13 +1961,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetCache(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetCache(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetCache``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetCache``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetCache`: GetCache200Response
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetCache`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetCache`: %v\n", resp)
 }
 ```
 
@@ -2022,9 +2022,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetDiscoverReset(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetDiscoverReset(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetDiscoverReset``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetDiscoverReset``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -2081,13 +2081,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetMain(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetMain(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetMain``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetMain``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetMain`: MainSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetMain`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetMain`: %v\n", resp)
 }
 ```
 
@@ -2142,13 +2142,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsDiscord(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsDiscord(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsDiscord``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsDiscord``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsDiscord`: DiscordSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsDiscord`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsDiscord`: %v\n", resp)
 }
 ```
 
@@ -2203,13 +2203,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsEmail(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsEmail(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsEmail``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsEmail``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsEmail`: NotificationEmailSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsEmail`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsEmail`: %v\n", resp)
 }
 ```
 
@@ -2264,13 +2264,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsGotify(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsGotify(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsGotify``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsGotify``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsGotify`: GotifySettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsGotify`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsGotify`: %v\n", resp)
 }
 ```
 
@@ -2325,13 +2325,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsLunasea(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsLunasea(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsLunasea``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsLunasea``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsLunasea`: LunaSeaSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsLunasea`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsLunasea`: %v\n", resp)
 }
 ```
 
@@ -2386,13 +2386,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsPushbullet(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsPushbullet(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsPushbullet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsPushbullet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsPushbullet`: PushbulletSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsPushbullet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsPushbullet`: %v\n", resp)
 }
 ```
 
@@ -2447,13 +2447,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsPushover(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsPushover(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsPushover``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsPushover``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsPushover`: PushoverSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsPushover`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsPushover`: %v\n", resp)
 }
 ```
 
@@ -2508,13 +2508,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsSlack(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsSlack(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsSlack``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsSlack``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsSlack`: SlackSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsSlack`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsSlack`: %v\n", resp)
 }
 ```
 
@@ -2569,13 +2569,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsTelegram(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsTelegram(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsTelegram``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsTelegram``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsTelegram`: TelegramSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsTelegram`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsTelegram`: %v\n", resp)
 }
 ```
 
@@ -2630,13 +2630,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsWebhook(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsWebhook(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsWebhook``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsWebhook``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsWebhook`: WebhookSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsWebhook`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsWebhook`: %v\n", resp)
 }
 ```
 
@@ -2691,13 +2691,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetNotificationsWebpush(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetNotificationsWebpush(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetNotificationsWebpush``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsWebpush``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetNotificationsWebpush`: WebPushSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetNotificationsWebpush`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsWebpush`: %v\n", resp)
 }
 ```
 
@@ -2752,13 +2752,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetPlex(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetPlex(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetPlex``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPlex``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetPlex`: PlexSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetPlex`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPlex`: %v\n", resp)
 }
 ```
 
@@ -2813,13 +2813,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetPlexSync(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetPlexSync(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetPlexSync``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPlexSync``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetPlexSync`: GetPlexSync200Response
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetPlexSync`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPlexSync`: %v\n", resp)
 }
 ```
 
@@ -2874,13 +2874,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetPublic(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetPublic(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetPublic``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPublic``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetPublic`: PublicSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetPublic`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPublic`: %v\n", resp)
 }
 ```
 
@@ -2935,13 +2935,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.GetTautulli(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.GetTautulli(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.GetTautulli``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetTautulli``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetTautulli`: TautulliSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.GetTautulli`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetTautulli`: %v\n", resp)
 }
 ```
 
@@ -2996,13 +2996,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListDiscover(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListDiscover(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListDiscover``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListDiscover``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListDiscover`: []DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListDiscover`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListDiscover`: %v\n", resp)
 }
 ```
 
@@ -3057,13 +3057,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListJobs(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListJobs(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListJobs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListJobs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListJobs`: []Job
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListJobs`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListJobs`: %v\n", resp)
 }
 ```
 
@@ -3122,13 +3122,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListLogs(context.Background()).Take(take).Skip(skip).Filter(filter).Search(search).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListLogs(context.Background()).Take(take).Skip(skip).Filter(filter).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListLogs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListLogs`: []ListLogs200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListLogs`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListLogs`: %v\n", resp)
 }
 ```
 
@@ -3190,13 +3190,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListPlexDevicesServers(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListPlexDevicesServers(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListPlexDevicesServers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexDevicesServers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListPlexDevicesServers`: []PlexDevice
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListPlexDevicesServers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexDevicesServers`: %v\n", resp)
 }
 ```
 
@@ -3253,13 +3253,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListPlexLibrary(context.Background()).Sync(sync).Enable(enable).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListPlexLibrary(context.Background()).Sync(sync).Enable(enable).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListPlexLibrary``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexLibrary``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListPlexLibrary`: []PlexLibrary
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListPlexLibrary`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexLibrary`: %v\n", resp)
 }
 ```
 
@@ -3319,13 +3319,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListPlexUsers(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListPlexUsers(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListPlexUsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexUsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListPlexUsers`: []ListPlexUsers200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListPlexUsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexUsers`: %v\n", resp)
 }
 ```
 
@@ -3380,13 +3380,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListRadarr(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListRadarr(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListRadarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListRadarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListRadarr`: []RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListRadarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListRadarr`: %v\n", resp)
 }
 ```
 
@@ -3442,13 +3442,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListRadarrProfiles(context.Background(), radarrId).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListRadarrProfiles(context.Background(), radarrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListRadarrProfiles``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListRadarrProfiles``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListRadarrProfiles`: []ServiceProfile
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListRadarrProfiles`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListRadarrProfiles`: %v\n", resp)
 }
 ```
 
@@ -3511,13 +3511,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.ListSonarr(context.Background()).Execute()
+    resp, r, err := apiClient.SettingsAPI.ListSonarr(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.ListSonarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListSonarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListSonarr`: []SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.ListSonarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListSonarr`: %v\n", resp)
 }
 ```
 
@@ -3573,9 +3573,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsDiscord(context.Background()).DiscordSettings(discordSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsDiscord(context.Background()).DiscordSettings(discordSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsDiscord``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsDiscord``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -3637,9 +3637,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsEmail(context.Background()).NotificationEmailSettings(notificationEmailSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsEmail(context.Background()).NotificationEmailSettings(notificationEmailSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsEmail``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsEmail``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -3701,9 +3701,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsGotify(context.Background()).GotifySettings(gotifySettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsGotify(context.Background()).GotifySettings(gotifySettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsGotify``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsGotify``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -3765,9 +3765,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsLunasea(context.Background()).LunaSeaSettings(lunaSeaSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsLunasea(context.Background()).LunaSeaSettings(lunaSeaSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsLunasea``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsLunasea``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -3829,9 +3829,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsPushbullet(context.Background()).PushbulletSettings(pushbulletSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsPushbullet(context.Background()).PushbulletSettings(pushbulletSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsPushbullet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsPushbullet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -3893,9 +3893,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsPushover(context.Background()).PushoverSettings(pushoverSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsPushover(context.Background()).PushoverSettings(pushoverSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsPushover``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsPushover``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -3957,9 +3957,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsSlack(context.Background()).SlackSettings(slackSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsSlack(context.Background()).SlackSettings(slackSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsSlack``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsSlack``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -4021,9 +4021,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsTelegram(context.Background()).TelegramSettings(telegramSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsTelegram(context.Background()).TelegramSettings(telegramSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsTelegram``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsTelegram``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -4085,9 +4085,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsWebhook(context.Background()).WebhookSettings(webhookSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsWebhook(context.Background()).WebhookSettings(webhookSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsWebhook``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsWebhook``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -4149,9 +4149,9 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestNotificationsWebpush(context.Background()).WebPushSettings(webPushSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestNotificationsWebpush(context.Background()).WebPushSettings(webPushSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestNotificationsWebpush``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsWebpush``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -4213,13 +4213,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestRadarr(context.Background()).TestRadarrRequest(testRadarrRequest).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestRadarr(context.Background()).TestRadarrRequest(testRadarrRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestRadarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestRadarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `TestRadarr`: TestRadarr200Response
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.TestRadarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestRadarr`: %v\n", resp)
 }
 ```
 
@@ -4279,13 +4279,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.TestSonarr(context.Background()).TestSonarrRequest(testSonarrRequest).Execute()
+    resp, r, err := apiClient.SettingsAPI.TestSonarr(context.Background()).TestSonarrRequest(testSonarrRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.TestSonarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestSonarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `TestSonarr`: TestRadarr200Response
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.TestSonarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestSonarr`: %v\n", resp)
 }
 ```
 
@@ -4346,13 +4346,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.UpdateDiscover(context.Background(), sliderId).UpdateDiscoverRequest(updateDiscoverRequest).Execute()
+    resp, r, err := apiClient.SettingsAPI.UpdateDiscover(context.Background(), sliderId).UpdateDiscoverRequest(updateDiscoverRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.UpdateDiscover``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateDiscover``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateDiscover`: DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.UpdateDiscover`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateDiscover`: %v\n", resp)
 }
 ```
 
@@ -4418,13 +4418,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.UpdateRadarr(context.Background(), radarrId).RadarrSettings(radarrSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.UpdateRadarr(context.Background(), radarrId).RadarrSettings(radarrSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.UpdateRadarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateRadarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateRadarr`: RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.UpdateRadarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateRadarr`: %v\n", resp)
 }
 ```
 
@@ -4490,13 +4490,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsApi.UpdateSonarr(context.Background(), sonarrId).SonarrSettings(sonarrSettings).Execute()
+    resp, r, err := apiClient.SettingsAPI.UpdateSonarr(context.Background(), sonarrId).SonarrSettings(sonarrSettings).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsApi.UpdateSonarr``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateSonarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateSonarr`: SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsApi.UpdateSonarr`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateSonarr`: %v\n", resp)
 }
 ```
 

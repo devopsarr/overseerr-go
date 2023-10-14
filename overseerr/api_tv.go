@@ -20,11 +20,11 @@ import (
 )
 
 
-// TvApiService TvApi service
-type TvApiService service
+// TvAPIService TvAPI service
+type TvAPIService service
 type ApiGetTvByTvIdRequest struct {
 	ctx context.Context
-	ApiService *TvApiService
+	ApiService *TvAPIService
 	tvId float32
 	language *string
 }
@@ -47,7 +47,7 @@ Returns full TV details in a JSON object.
  @param tvId
  @return ApiGetTvByTvIdRequest
 */
-func (a *TvApiService) GetTvByTvId(ctx context.Context, tvId float32) ApiGetTvByTvIdRequest {
+func (a *TvAPIService) GetTvByTvId(ctx context.Context, tvId float32) ApiGetTvByTvIdRequest {
 	return ApiGetTvByTvIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *TvApiService) GetTvByTvId(ctx context.Context, tvId float32) ApiGetTvBy
 
 // Execute executes the request
 //  @return TvDetails
-func (a *TvApiService) GetTvByTvIdExecute(r ApiGetTvByTvIdRequest) (*TvDetails, *http.Response, error) {
+func (a *TvAPIService) GetTvByTvIdExecute(r ApiGetTvByTvIdRequest) (*TvDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *TvApiService) GetTvByTvIdExecute(r ApiGetTvByTvIdRequest) (*TvDetails, 
 		localVarReturnValue  *TvDetails
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvApiService.GetTvByTvId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvAPIService.GetTvByTvId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -149,7 +149,7 @@ func (a *TvApiService) GetTvByTvIdExecute(r ApiGetTvByTvIdRequest) (*TvDetails, 
 }
 type ApiGetTvRatingsRequest struct {
 	ctx context.Context
-	ApiService *TvApiService
+	ApiService *TvAPIService
 	tvId float32
 }
 
@@ -166,7 +166,7 @@ Returns ratings based on provided tvId in a JSON object.
  @param tvId
  @return ApiGetTvRatingsRequest
 */
-func (a *TvApiService) GetTvRatings(ctx context.Context, tvId float32) ApiGetTvRatingsRequest {
+func (a *TvAPIService) GetTvRatings(ctx context.Context, tvId float32) ApiGetTvRatingsRequest {
 	return ApiGetTvRatingsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -176,7 +176,7 @@ func (a *TvApiService) GetTvRatings(ctx context.Context, tvId float32) ApiGetTvR
 
 // Execute executes the request
 //  @return GetTvRatings200Response
-func (a *TvApiService) GetTvRatingsExecute(r ApiGetTvRatingsRequest) (*GetTvRatings200Response, *http.Response, error) {
+func (a *TvAPIService) GetTvRatingsExecute(r ApiGetTvRatingsRequest) (*GetTvRatings200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *TvApiService) GetTvRatingsExecute(r ApiGetTvRatingsRequest) (*GetTvRati
 		localVarReturnValue  *GetTvRatings200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvApiService.GetTvRatings")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvAPIService.GetTvRatings")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -265,7 +265,7 @@ func (a *TvApiService) GetTvRatingsExecute(r ApiGetTvRatingsRequest) (*GetTvRati
 }
 type ApiGetTvRecommendationsRequest struct {
 	ctx context.Context
-	ApiService *TvApiService
+	ApiService *TvAPIService
 	tvId float32
 	page *float32
 	language *string
@@ -294,7 +294,7 @@ Returns list of recommended TV series based on the provided tvId in a JSON objec
  @param tvId
  @return ApiGetTvRecommendationsRequest
 */
-func (a *TvApiService) GetTvRecommendations(ctx context.Context, tvId float32) ApiGetTvRecommendationsRequest {
+func (a *TvAPIService) GetTvRecommendations(ctx context.Context, tvId float32) ApiGetTvRecommendationsRequest {
 	return ApiGetTvRecommendationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -304,7 +304,7 @@ func (a *TvApiService) GetTvRecommendations(ctx context.Context, tvId float32) A
 
 // Execute executes the request
 //  @return GetDiscoverTv200Response
-func (a *TvApiService) GetTvRecommendationsExecute(r ApiGetTvRecommendationsRequest) (*GetDiscoverTv200Response, *http.Response, error) {
+func (a *TvAPIService) GetTvRecommendationsExecute(r ApiGetTvRecommendationsRequest) (*GetDiscoverTv200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -312,7 +312,7 @@ func (a *TvApiService) GetTvRecommendationsExecute(r ApiGetTvRecommendationsRequ
 		localVarReturnValue  *GetDiscoverTv200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvApiService.GetTvRecommendations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvAPIService.GetTvRecommendations")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -399,7 +399,7 @@ func (a *TvApiService) GetTvRecommendationsExecute(r ApiGetTvRecommendationsRequ
 }
 type ApiGetTvSeasonBySeasonIdRequest struct {
 	ctx context.Context
-	ApiService *TvApiService
+	ApiService *TvAPIService
 	tvId float32
 	seasonId float32
 	language *string
@@ -424,7 +424,7 @@ Returns season details with a list of episodes in a JSON object.
  @param seasonId
  @return ApiGetTvSeasonBySeasonIdRequest
 */
-func (a *TvApiService) GetTvSeasonBySeasonId(ctx context.Context, tvId float32, seasonId float32) ApiGetTvSeasonBySeasonIdRequest {
+func (a *TvAPIService) GetTvSeasonBySeasonId(ctx context.Context, tvId float32, seasonId float32) ApiGetTvSeasonBySeasonIdRequest {
 	return ApiGetTvSeasonBySeasonIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -435,7 +435,7 @@ func (a *TvApiService) GetTvSeasonBySeasonId(ctx context.Context, tvId float32, 
 
 // Execute executes the request
 //  @return Season
-func (a *TvApiService) GetTvSeasonBySeasonIdExecute(r ApiGetTvSeasonBySeasonIdRequest) (*Season, *http.Response, error) {
+func (a *TvAPIService) GetTvSeasonBySeasonIdExecute(r ApiGetTvSeasonBySeasonIdRequest) (*Season, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -443,7 +443,7 @@ func (a *TvApiService) GetTvSeasonBySeasonIdExecute(r ApiGetTvSeasonBySeasonIdRe
 		localVarReturnValue  *Season
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvApiService.GetTvSeasonBySeasonId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvAPIService.GetTvSeasonBySeasonId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -528,7 +528,7 @@ func (a *TvApiService) GetTvSeasonBySeasonIdExecute(r ApiGetTvSeasonBySeasonIdRe
 }
 type ApiGetTvSimilarRequest struct {
 	ctx context.Context
-	ApiService *TvApiService
+	ApiService *TvAPIService
 	tvId float32
 	page *float32
 	language *string
@@ -557,7 +557,7 @@ Returns list of similar TV series based on the provided tvId in a JSON object.
  @param tvId
  @return ApiGetTvSimilarRequest
 */
-func (a *TvApiService) GetTvSimilar(ctx context.Context, tvId float32) ApiGetTvSimilarRequest {
+func (a *TvAPIService) GetTvSimilar(ctx context.Context, tvId float32) ApiGetTvSimilarRequest {
 	return ApiGetTvSimilarRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -567,7 +567,7 @@ func (a *TvApiService) GetTvSimilar(ctx context.Context, tvId float32) ApiGetTvS
 
 // Execute executes the request
 //  @return GetDiscoverTv200Response
-func (a *TvApiService) GetTvSimilarExecute(r ApiGetTvSimilarRequest) (*GetDiscoverTv200Response, *http.Response, error) {
+func (a *TvAPIService) GetTvSimilarExecute(r ApiGetTvSimilarRequest) (*GetDiscoverTv200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -575,7 +575,7 @@ func (a *TvApiService) GetTvSimilarExecute(r ApiGetTvSimilarRequest) (*GetDiscov
 		localVarReturnValue  *GetDiscoverTv200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvApiService.GetTvSimilar")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvAPIService.GetTvSimilar")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

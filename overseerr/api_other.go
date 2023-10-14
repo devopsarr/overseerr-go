@@ -20,11 +20,11 @@ import (
 )
 
 
-// OtherApiService OtherApi service
-type OtherApiService service
+// OtherAPIService OtherAPI service
+type OtherAPIService service
 type ApiGetKeywordByKeywordIdRequest struct {
 	ctx context.Context
-	ApiService *OtherApiService
+	ApiService *OtherAPIService
 	keywordId float32
 }
 
@@ -42,7 +42,7 @@ Returns a single keyword in JSON format.
  @param keywordId
  @return ApiGetKeywordByKeywordIdRequest
 */
-func (a *OtherApiService) GetKeywordByKeywordId(ctx context.Context, keywordId float32) ApiGetKeywordByKeywordIdRequest {
+func (a *OtherAPIService) GetKeywordByKeywordId(ctx context.Context, keywordId float32) ApiGetKeywordByKeywordIdRequest {
 	return ApiGetKeywordByKeywordIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -52,7 +52,7 @@ func (a *OtherApiService) GetKeywordByKeywordId(ctx context.Context, keywordId f
 
 // Execute executes the request
 //  @return Keyword
-func (a *OtherApiService) GetKeywordByKeywordIdExecute(r ApiGetKeywordByKeywordIdRequest) (*Keyword, *http.Response, error) {
+func (a *OtherAPIService) GetKeywordByKeywordIdExecute(r ApiGetKeywordByKeywordIdRequest) (*Keyword, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -60,7 +60,7 @@ func (a *OtherApiService) GetKeywordByKeywordIdExecute(r ApiGetKeywordByKeywordI
 		localVarReturnValue  *Keyword
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherApiService.GetKeywordByKeywordId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherAPIService.GetKeywordByKeywordId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,7 +141,7 @@ func (a *OtherApiService) GetKeywordByKeywordIdExecute(r ApiGetKeywordByKeywordI
 }
 type ApiListWatchprovidersMoviesRequest struct {
 	ctx context.Context
-	ApiService *OtherApiService
+	ApiService *OtherAPIService
 	watchRegion *string
 }
 
@@ -163,7 +163,7 @@ Returns a list of all available watch providers for movies.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListWatchprovidersMoviesRequest
 */
-func (a *OtherApiService) ListWatchprovidersMovies(ctx context.Context) ApiListWatchprovidersMoviesRequest {
+func (a *OtherAPIService) ListWatchprovidersMovies(ctx context.Context) ApiListWatchprovidersMoviesRequest {
 	return ApiListWatchprovidersMoviesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -172,7 +172,7 @@ func (a *OtherApiService) ListWatchprovidersMovies(ctx context.Context) ApiListW
 
 // Execute executes the request
 //  @return []WatchProviderDetails
-func (a *OtherApiService) ListWatchprovidersMoviesExecute(r ApiListWatchprovidersMoviesRequest) ([]*WatchProviderDetails, *http.Response, error) {
+func (a *OtherAPIService) ListWatchprovidersMoviesExecute(r ApiListWatchprovidersMoviesRequest) ([]*WatchProviderDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -180,7 +180,7 @@ func (a *OtherApiService) ListWatchprovidersMoviesExecute(r ApiListWatchprovider
 		localVarReturnValue  []*WatchProviderDetails
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherApiService.ListWatchprovidersMovies")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherAPIService.ListWatchprovidersMovies")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -264,7 +264,7 @@ func (a *OtherApiService) ListWatchprovidersMoviesExecute(r ApiListWatchprovider
 }
 type ApiListWatchprovidersRegionsRequest struct {
 	ctx context.Context
-	ApiService *OtherApiService
+	ApiService *OtherAPIService
 }
 
 func (r ApiListWatchprovidersRegionsRequest) Execute() ([]*WatchProviderRegion, *http.Response, error) {
@@ -280,7 +280,7 @@ Returns a list of all available watch provider regions.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListWatchprovidersRegionsRequest
 */
-func (a *OtherApiService) ListWatchprovidersRegions(ctx context.Context) ApiListWatchprovidersRegionsRequest {
+func (a *OtherAPIService) ListWatchprovidersRegions(ctx context.Context) ApiListWatchprovidersRegionsRequest {
 	return ApiListWatchprovidersRegionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -289,7 +289,7 @@ func (a *OtherApiService) ListWatchprovidersRegions(ctx context.Context) ApiList
 
 // Execute executes the request
 //  @return []WatchProviderRegion
-func (a *OtherApiService) ListWatchprovidersRegionsExecute(r ApiListWatchprovidersRegionsRequest) ([]*WatchProviderRegion, *http.Response, error) {
+func (a *OtherAPIService) ListWatchprovidersRegionsExecute(r ApiListWatchprovidersRegionsRequest) ([]*WatchProviderRegion, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -297,7 +297,7 @@ func (a *OtherApiService) ListWatchprovidersRegionsExecute(r ApiListWatchprovide
 		localVarReturnValue  []*WatchProviderRegion
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherApiService.ListWatchprovidersRegions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherAPIService.ListWatchprovidersRegions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -377,7 +377,7 @@ func (a *OtherApiService) ListWatchprovidersRegionsExecute(r ApiListWatchprovide
 }
 type ApiListWatchprovidersTvRequest struct {
 	ctx context.Context
-	ApiService *OtherApiService
+	ApiService *OtherAPIService
 	watchRegion *string
 }
 
@@ -399,7 +399,7 @@ Returns a list of all available watch providers for series.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListWatchprovidersTvRequest
 */
-func (a *OtherApiService) ListWatchprovidersTv(ctx context.Context) ApiListWatchprovidersTvRequest {
+func (a *OtherAPIService) ListWatchprovidersTv(ctx context.Context) ApiListWatchprovidersTvRequest {
 	return ApiListWatchprovidersTvRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -408,7 +408,7 @@ func (a *OtherApiService) ListWatchprovidersTv(ctx context.Context) ApiListWatch
 
 // Execute executes the request
 //  @return []WatchProviderDetails
-func (a *OtherApiService) ListWatchprovidersTvExecute(r ApiListWatchprovidersTvRequest) ([]*WatchProviderDetails, *http.Response, error) {
+func (a *OtherAPIService) ListWatchprovidersTvExecute(r ApiListWatchprovidersTvRequest) ([]*WatchProviderDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -416,7 +416,7 @@ func (a *OtherApiService) ListWatchprovidersTvExecute(r ApiListWatchprovidersTvR
 		localVarReturnValue  []*WatchProviderDetails
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherApiService.ListWatchprovidersTv")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherAPIService.ListWatchprovidersTv")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

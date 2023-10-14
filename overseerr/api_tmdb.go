@@ -20,11 +20,11 @@ import (
 )
 
 
-// TmdbApiService TmdbApi service
-type TmdbApiService service
+// TmdbAPIService TmdbAPI service
+type TmdbAPIService service
 type ApiGetNetworkByNetworkIdRequest struct {
 	ctx context.Context
-	ApiService *TmdbApiService
+	ApiService *TmdbAPIService
 	networkId float32
 }
 
@@ -41,7 +41,7 @@ Returns TV network details in a JSON object.
  @param networkId
  @return ApiGetNetworkByNetworkIdRequest
 */
-func (a *TmdbApiService) GetNetworkByNetworkId(ctx context.Context, networkId float32) ApiGetNetworkByNetworkIdRequest {
+func (a *TmdbAPIService) GetNetworkByNetworkId(ctx context.Context, networkId float32) ApiGetNetworkByNetworkIdRequest {
 	return ApiGetNetworkByNetworkIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -51,7 +51,7 @@ func (a *TmdbApiService) GetNetworkByNetworkId(ctx context.Context, networkId fl
 
 // Execute executes the request
 //  @return ProductionCompany
-func (a *TmdbApiService) GetNetworkByNetworkIdExecute(r ApiGetNetworkByNetworkIdRequest) (*ProductionCompany, *http.Response, error) {
+func (a *TmdbAPIService) GetNetworkByNetworkIdExecute(r ApiGetNetworkByNetworkIdRequest) (*ProductionCompany, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -59,7 +59,7 @@ func (a *TmdbApiService) GetNetworkByNetworkIdExecute(r ApiGetNetworkByNetworkId
 		localVarReturnValue  *ProductionCompany
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbApiService.GetNetworkByNetworkId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.GetNetworkByNetworkId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,7 +140,7 @@ func (a *TmdbApiService) GetNetworkByNetworkIdExecute(r ApiGetNetworkByNetworkId
 }
 type ApiGetStudioByStudioIdRequest struct {
 	ctx context.Context
-	ApiService *TmdbApiService
+	ApiService *TmdbAPIService
 	studioId float32
 }
 
@@ -157,7 +157,7 @@ Returns movie studio details in a JSON object.
  @param studioId
  @return ApiGetStudioByStudioIdRequest
 */
-func (a *TmdbApiService) GetStudioByStudioId(ctx context.Context, studioId float32) ApiGetStudioByStudioIdRequest {
+func (a *TmdbAPIService) GetStudioByStudioId(ctx context.Context, studioId float32) ApiGetStudioByStudioIdRequest {
 	return ApiGetStudioByStudioIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -167,7 +167,7 @@ func (a *TmdbApiService) GetStudioByStudioId(ctx context.Context, studioId float
 
 // Execute executes the request
 //  @return ProductionCompany
-func (a *TmdbApiService) GetStudioByStudioIdExecute(r ApiGetStudioByStudioIdRequest) (*ProductionCompany, *http.Response, error) {
+func (a *TmdbAPIService) GetStudioByStudioIdExecute(r ApiGetStudioByStudioIdRequest) (*ProductionCompany, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -175,7 +175,7 @@ func (a *TmdbApiService) GetStudioByStudioIdExecute(r ApiGetStudioByStudioIdRequ
 		localVarReturnValue  *ProductionCompany
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbApiService.GetStudioByStudioId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.GetStudioByStudioId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -256,7 +256,7 @@ func (a *TmdbApiService) GetStudioByStudioIdExecute(r ApiGetStudioByStudioIdRequ
 }
 type ApiListBackdropsRequest struct {
 	ctx context.Context
-	ApiService *TmdbApiService
+	ApiService *TmdbAPIService
 }
 
 func (r ApiListBackdropsRequest) Execute() ([]string, *http.Response, error) {
@@ -271,7 +271,7 @@ Returns a list of backdrop image paths in a JSON array.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListBackdropsRequest
 */
-func (a *TmdbApiService) ListBackdrops(ctx context.Context) ApiListBackdropsRequest {
+func (a *TmdbAPIService) ListBackdrops(ctx context.Context) ApiListBackdropsRequest {
 	return ApiListBackdropsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -280,7 +280,7 @@ func (a *TmdbApiService) ListBackdrops(ctx context.Context) ApiListBackdropsRequ
 
 // Execute executes the request
 //  @return []string
-func (a *TmdbApiService) ListBackdropsExecute(r ApiListBackdropsRequest) ([]string, *http.Response, error) {
+func (a *TmdbAPIService) ListBackdropsExecute(r ApiListBackdropsRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -288,7 +288,7 @@ func (a *TmdbApiService) ListBackdropsExecute(r ApiListBackdropsRequest) ([]stri
 		localVarReturnValue  []string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbApiService.ListBackdrops")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListBackdrops")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -354,7 +354,7 @@ func (a *TmdbApiService) ListBackdropsExecute(r ApiListBackdropsRequest) ([]stri
 }
 type ApiListGenresMovieRequest struct {
 	ctx context.Context
-	ApiService *TmdbApiService
+	ApiService *TmdbAPIService
 	language *string
 }
 
@@ -375,7 +375,7 @@ Returns a list of genres in a JSON array.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListGenresMovieRequest
 */
-func (a *TmdbApiService) ListGenresMovie(ctx context.Context) ApiListGenresMovieRequest {
+func (a *TmdbAPIService) ListGenresMovie(ctx context.Context) ApiListGenresMovieRequest {
 	return ApiListGenresMovieRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -384,7 +384,7 @@ func (a *TmdbApiService) ListGenresMovie(ctx context.Context) ApiListGenresMovie
 
 // Execute executes the request
 //  @return []ListGenresMovie200ResponseInner
-func (a *TmdbApiService) ListGenresMovieExecute(r ApiListGenresMovieRequest) ([]*ListGenresMovie200ResponseInner, *http.Response, error) {
+func (a *TmdbAPIService) ListGenresMovieExecute(r ApiListGenresMovieRequest) ([]*ListGenresMovie200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -392,7 +392,7 @@ func (a *TmdbApiService) ListGenresMovieExecute(r ApiListGenresMovieRequest) ([]
 		localVarReturnValue  []*ListGenresMovie200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbApiService.ListGenresMovie")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListGenresMovie")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -475,7 +475,7 @@ func (a *TmdbApiService) ListGenresMovieExecute(r ApiListGenresMovieRequest) ([]
 }
 type ApiListGenresTvRequest struct {
 	ctx context.Context
-	ApiService *TmdbApiService
+	ApiService *TmdbAPIService
 	language *string
 }
 
@@ -496,7 +496,7 @@ Returns a list of genres in a JSON array.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListGenresTvRequest
 */
-func (a *TmdbApiService) ListGenresTv(ctx context.Context) ApiListGenresTvRequest {
+func (a *TmdbAPIService) ListGenresTv(ctx context.Context) ApiListGenresTvRequest {
 	return ApiListGenresTvRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -505,7 +505,7 @@ func (a *TmdbApiService) ListGenresTv(ctx context.Context) ApiListGenresTvReques
 
 // Execute executes the request
 //  @return []ListGenresTv200ResponseInner
-func (a *TmdbApiService) ListGenresTvExecute(r ApiListGenresTvRequest) ([]*ListGenresTv200ResponseInner, *http.Response, error) {
+func (a *TmdbAPIService) ListGenresTvExecute(r ApiListGenresTvRequest) ([]*ListGenresTv200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -513,7 +513,7 @@ func (a *TmdbApiService) ListGenresTvExecute(r ApiListGenresTvRequest) ([]*ListG
 		localVarReturnValue  []*ListGenresTv200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbApiService.ListGenresTv")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListGenresTv")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -596,7 +596,7 @@ func (a *TmdbApiService) ListGenresTvExecute(r ApiListGenresTvRequest) ([]*ListG
 }
 type ApiListLanguagesRequest struct {
 	ctx context.Context
-	ApiService *TmdbApiService
+	ApiService *TmdbAPIService
 }
 
 func (r ApiListLanguagesRequest) Execute() ([]*ListLanguages200ResponseInner, *http.Response, error) {
@@ -611,7 +611,7 @@ Returns a list of languages in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListLanguagesRequest
 */
-func (a *TmdbApiService) ListLanguages(ctx context.Context) ApiListLanguagesRequest {
+func (a *TmdbAPIService) ListLanguages(ctx context.Context) ApiListLanguagesRequest {
 	return ApiListLanguagesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -620,7 +620,7 @@ func (a *TmdbApiService) ListLanguages(ctx context.Context) ApiListLanguagesRequ
 
 // Execute executes the request
 //  @return []ListLanguages200ResponseInner
-func (a *TmdbApiService) ListLanguagesExecute(r ApiListLanguagesRequest) ([]*ListLanguages200ResponseInner, *http.Response, error) {
+func (a *TmdbAPIService) ListLanguagesExecute(r ApiListLanguagesRequest) ([]*ListLanguages200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -628,7 +628,7 @@ func (a *TmdbApiService) ListLanguagesExecute(r ApiListLanguagesRequest) ([]*Lis
 		localVarReturnValue  []*ListLanguages200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbApiService.ListLanguages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListLanguages")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -708,7 +708,7 @@ func (a *TmdbApiService) ListLanguagesExecute(r ApiListLanguagesRequest) ([]*Lis
 }
 type ApiListRegionsRequest struct {
 	ctx context.Context
-	ApiService *TmdbApiService
+	ApiService *TmdbAPIService
 }
 
 func (r ApiListRegionsRequest) Execute() ([]*ListRegions200ResponseInner, *http.Response, error) {
@@ -723,7 +723,7 @@ Returns a list of regions in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListRegionsRequest
 */
-func (a *TmdbApiService) ListRegions(ctx context.Context) ApiListRegionsRequest {
+func (a *TmdbAPIService) ListRegions(ctx context.Context) ApiListRegionsRequest {
 	return ApiListRegionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -732,7 +732,7 @@ func (a *TmdbApiService) ListRegions(ctx context.Context) ApiListRegionsRequest 
 
 // Execute executes the request
 //  @return []ListRegions200ResponseInner
-func (a *TmdbApiService) ListRegionsExecute(r ApiListRegionsRequest) ([]*ListRegions200ResponseInner, *http.Response, error) {
+func (a *TmdbAPIService) ListRegionsExecute(r ApiListRegionsRequest) ([]*ListRegions200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -740,7 +740,7 @@ func (a *TmdbApiService) ListRegionsExecute(r ApiListRegionsRequest) ([]*ListReg
 		localVarReturnValue  []*ListRegions200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbApiService.ListRegions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListRegions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

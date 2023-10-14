@@ -1,22 +1,22 @@
-# \MoviesApi
+# \TvAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetMovieByMovieId**](MoviesApi.md#GetMovieByMovieId) | **Get** /movie/{movieId} | Get movie details
-[**GetMovieRatings**](MoviesApi.md#GetMovieRatings) | **Get** /movie/{movieId}/ratings | Get movie ratings
-[**GetMovieRatingscombined**](MoviesApi.md#GetMovieRatingscombined) | **Get** /movie/{movieId}/ratingscombined | Get RT and IMDB movie ratings combined
-[**GetMovieRecommendations**](MoviesApi.md#GetMovieRecommendations) | **Get** /movie/{movieId}/recommendations | Get recommended movies
-[**GetMovieSimilar**](MoviesApi.md#GetMovieSimilar) | **Get** /movie/{movieId}/similar | Get similar movies
+[**GetTvByTvId**](TvAPI.md#GetTvByTvId) | **Get** /tv/{tvId} | Get TV details
+[**GetTvRatings**](TvAPI.md#GetTvRatings) | **Get** /tv/{tvId}/ratings | Get TV ratings
+[**GetTvRecommendations**](TvAPI.md#GetTvRecommendations) | **Get** /tv/{tvId}/recommendations | Get recommended TV series
+[**GetTvSeasonBySeasonId**](TvAPI.md#GetTvSeasonBySeasonId) | **Get** /tv/{tvId}/season/{seasonId} | Get season details and episode list
+[**GetTvSimilar**](TvAPI.md#GetTvSimilar) | **Get** /tv/{tvId}/similar | Get similar TV series
 
 
 
-## GetMovieByMovieId
+## GetTvByTvId
 
-> MovieDetails GetMovieByMovieId(ctx, movieId).Language(language).Execute()
+> TvDetails GetTvByTvId(ctx, tvId).Language(language).Execute()
 
-Get movie details
+Get TV details
 
 
 
@@ -33,18 +33,18 @@ import (
 )
 
 func main() {
-    movieId := float32(337401) // float32 | 
+    tvId := float32(76479) // float32 | 
     language := "en" // string |  (optional)
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesApi.GetMovieByMovieId(context.Background(), movieId).Language(language).Execute()
+    resp, r, err := apiClient.TvAPI.GetTvByTvId(context.Background(), tvId).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieByMovieId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvByTvId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMovieByMovieId`: MovieDetails
-    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieByMovieId`: %v\n", resp)
+    // response from `GetTvByTvId`: TvDetails
+    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvByTvId`: %v\n", resp)
 }
 ```
 
@@ -54,11 +54,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**movieId** | **float32** |  | 
+**tvId** | **float32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetMovieByMovieIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTvByTvIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MovieDetails**](MovieDetails.md)
+[**TvDetails**](TvDetails.md)
 
 ### Authorization
 
@@ -84,11 +84,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetMovieRatings
+## GetTvRatings
 
-> GetMovieRatings200Response GetMovieRatings(ctx, movieId).Execute()
+> GetTvRatings200Response GetTvRatings(ctx, tvId).Execute()
 
-Get movie ratings
+Get TV ratings
 
 
 
@@ -105,17 +105,17 @@ import (
 )
 
 func main() {
-    movieId := float32(337401) // float32 | 
+    tvId := float32(76479) // float32 | 
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesApi.GetMovieRatings(context.Background(), movieId).Execute()
+    resp, r, err := apiClient.TvAPI.GetTvRatings(context.Background(), tvId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieRatings``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvRatings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMovieRatings`: GetMovieRatings200Response
-    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieRatings`: %v\n", resp)
+    // response from `GetTvRatings`: GetTvRatings200Response
+    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvRatings`: %v\n", resp)
 }
 ```
 
@@ -125,11 +125,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**movieId** | **float32** |  | 
+**tvId** | **float32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetMovieRatingsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTvRatingsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetMovieRatings200Response**](GetMovieRatings200Response.md)
+[**GetTvRatings200Response**](GetTvRatings200Response.md)
 
 ### Authorization
 
@@ -154,11 +154,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetMovieRatingscombined
+## GetTvRecommendations
 
-> GetMovieRatingscombined200Response GetMovieRatingscombined(ctx, movieId).Execute()
+> GetDiscoverTv200Response GetTvRecommendations(ctx, tvId).Page(page).Language(language).Execute()
 
-Get RT and IMDB movie ratings combined
+Get recommended TV series
 
 
 
@@ -175,89 +175,19 @@ import (
 )
 
 func main() {
-    movieId := float32(337401) // float32 | 
-
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesApi.GetMovieRatingscombined(context.Background(), movieId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieRatingscombined``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMovieRatingscombined`: GetMovieRatingscombined200Response
-    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieRatingscombined`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**movieId** | **float32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetMovieRatingscombinedRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**GetMovieRatingscombined200Response**](GetMovieRatingscombined200Response.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetMovieRecommendations
-
-> GetDiscoverMovies200Response GetMovieRecommendations(ctx, movieId).Page(page).Language(language).Execute()
-
-Get recommended movies
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
-)
-
-func main() {
-    movieId := float32(337401) // float32 | 
+    tvId := float32(76479) // float32 | 
     page := float32(1) // float32 |  (optional) (default to 1)
     language := "en" // string |  (optional)
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesApi.GetMovieRecommendations(context.Background(), movieId).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.TvAPI.GetTvRecommendations(context.Background(), tvId).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieRecommendations``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvRecommendations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMovieRecommendations`: GetDiscoverMovies200Response
-    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieRecommendations`: %v\n", resp)
+    // response from `GetTvRecommendations`: GetDiscoverTv200Response
+    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvRecommendations`: %v\n", resp)
 }
 ```
 
@@ -267,11 +197,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**movieId** | **float32** |  | 
+**tvId** | **float32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetMovieRecommendationsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTvRecommendationsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -282,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+[**GetDiscoverTv200Response**](GetDiscoverTv200Response.md)
 
 ### Authorization
 
@@ -298,11 +228,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetMovieSimilar
+## GetTvSeasonBySeasonId
 
-> GetDiscoverMovies200Response GetMovieSimilar(ctx, movieId).Page(page).Language(language).Execute()
+> Season GetTvSeasonBySeasonId(ctx, tvId, seasonId).Language(language).Execute()
 
-Get similar movies
+Get season details and episode list
 
 
 
@@ -319,19 +249,19 @@ import (
 )
 
 func main() {
-    movieId := float32(337401) // float32 | 
-    page := float32(1) // float32 |  (optional) (default to 1)
+    tvId := float32(76479) // float32 | 
+    seasonId := float32(1) // float32 | 
     language := "en" // string |  (optional)
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesApi.GetMovieSimilar(context.Background(), movieId).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.TvAPI.GetTvSeasonBySeasonId(context.Background(), tvId, seasonId).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesApi.GetMovieSimilar``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvSeasonBySeasonId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMovieSimilar`: GetDiscoverMovies200Response
-    fmt.Fprintf(os.Stdout, "Response from `MoviesApi.GetMovieSimilar`: %v\n", resp)
+    // response from `GetTvSeasonBySeasonId`: Season
+    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvSeasonBySeasonId`: %v\n", resp)
 }
 ```
 
@@ -341,11 +271,86 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**movieId** | **float32** |  | 
+**tvId** | **float32** |  | 
+**seasonId** | **float32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetMovieSimilarRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTvSeasonBySeasonIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **language** | **string** |  | 
+
+### Return type
+
+[**Season**](Season.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTvSimilar
+
+> GetDiscoverTv200Response GetTvSimilar(ctx, tvId).Page(page).Language(language).Execute()
+
+Get similar TV series
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    overseerrClient "./openapi"
+)
+
+func main() {
+    tvId := float32(76479) // float32 | 
+    page := float32(1) // float32 |  (optional) (default to 1)
+    language := "en" // string |  (optional)
+
+    configuration := overseerrClient.NewConfiguration()
+    apiClient := overseerrClient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TvAPI.GetTvSimilar(context.Background(), tvId).Page(page).Language(language).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvSimilar``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTvSimilar`: GetDiscoverTv200Response
+    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvSimilar`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tvId** | **float32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTvSimilarRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -356,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+[**GetDiscoverTv200Response**](GetDiscoverTv200Response.md)
 
 ### Authorization
 

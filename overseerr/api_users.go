@@ -20,11 +20,11 @@ import (
 )
 
 
-// UsersApiService UsersApi service
-type UsersApiService service
+// UsersAPIService UsersAPI service
+type UsersAPIService service
 type ApiCreateAuthResetPasswordRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	createAuthResetPasswordRequest *CreateAuthResetPasswordRequest
 }
 
@@ -45,7 +45,7 @@ Sends a reset password email to the email if the user exists
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateAuthResetPasswordRequest
 */
-func (a *UsersApiService) CreateAuthResetPassword(ctx context.Context) ApiCreateAuthResetPasswordRequest {
+func (a *UsersAPIService) CreateAuthResetPassword(ctx context.Context) ApiCreateAuthResetPasswordRequest {
 	return ApiCreateAuthResetPasswordRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -54,7 +54,7 @@ func (a *UsersApiService) CreateAuthResetPassword(ctx context.Context) ApiCreate
 
 // Execute executes the request
 //  @return CreateAuthLogout200Response
-func (a *UsersApiService) CreateAuthResetPasswordExecute(r ApiCreateAuthResetPasswordRequest) (*CreateAuthLogout200Response, *http.Response, error) {
+func (a *UsersAPIService) CreateAuthResetPasswordExecute(r ApiCreateAuthResetPasswordRequest) (*CreateAuthLogout200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -62,7 +62,7 @@ func (a *UsersApiService) CreateAuthResetPasswordExecute(r ApiCreateAuthResetPas
 		localVarReturnValue  *CreateAuthLogout200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateAuthResetPassword")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateAuthResetPassword")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -133,7 +133,7 @@ func (a *UsersApiService) CreateAuthResetPasswordExecute(r ApiCreateAuthResetPas
 }
 type ApiCreateAuthResetPasswordByGuidRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	guid string
 	createAuthResetPasswordByGuidRequest *CreateAuthResetPasswordByGuidRequest
 }
@@ -156,7 +156,7 @@ Resets the password for a user if the given guid is connected to a user
  @param guid
  @return ApiCreateAuthResetPasswordByGuidRequest
 */
-func (a *UsersApiService) CreateAuthResetPasswordByGuid(ctx context.Context, guid string) ApiCreateAuthResetPasswordByGuidRequest {
+func (a *UsersAPIService) CreateAuthResetPasswordByGuid(ctx context.Context, guid string) ApiCreateAuthResetPasswordByGuidRequest {
 	return ApiCreateAuthResetPasswordByGuidRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -166,7 +166,7 @@ func (a *UsersApiService) CreateAuthResetPasswordByGuid(ctx context.Context, gui
 
 // Execute executes the request
 //  @return CreateAuthLogout200Response
-func (a *UsersApiService) CreateAuthResetPasswordByGuidExecute(r ApiCreateAuthResetPasswordByGuidRequest) (*CreateAuthLogout200Response, *http.Response, error) {
+func (a *UsersAPIService) CreateAuthResetPasswordByGuidExecute(r ApiCreateAuthResetPasswordByGuidRequest) (*CreateAuthLogout200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -174,7 +174,7 @@ func (a *UsersApiService) CreateAuthResetPasswordByGuidExecute(r ApiCreateAuthRe
 		localVarReturnValue  *CreateAuthLogout200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateAuthResetPasswordByGuid")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateAuthResetPasswordByGuid")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -246,7 +246,7 @@ func (a *UsersApiService) CreateAuthResetPasswordByGuidExecute(r ApiCreateAuthRe
 }
 type ApiCreateUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	createUserRequest *CreateUserRequest
 }
 
@@ -268,7 +268,7 @@ Creates a new user. Requires the `MANAGE_USERS` permission.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateUserRequest
 */
-func (a *UsersApiService) CreateUser(ctx context.Context) ApiCreateUserRequest {
+func (a *UsersAPIService) CreateUser(ctx context.Context) ApiCreateUserRequest {
 	return ApiCreateUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -277,7 +277,7 @@ func (a *UsersApiService) CreateUser(ctx context.Context) ApiCreateUserRequest {
 
 // Execute executes the request
 //  @return User
-func (a *UsersApiService) CreateUserExecute(r ApiCreateUserRequest) (*User, *http.Response, error) {
+func (a *UsersAPIService) CreateUserExecute(r ApiCreateUserRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -285,7 +285,7 @@ func (a *UsersApiService) CreateUserExecute(r ApiCreateUserRequest) (*User, *htt
 		localVarReturnValue  *User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -370,7 +370,7 @@ func (a *UsersApiService) CreateUserExecute(r ApiCreateUserRequest) (*User, *htt
 }
 type ApiCreateUserImportFromPlexRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	createUserImportFromPlexRequest *CreateUserImportFromPlexRequest
 }
 
@@ -394,7 +394,7 @@ Requires the `MANAGE_USERS` permission.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateUserImportFromPlexRequest
 */
-func (a *UsersApiService) CreateUserImportFromPlex(ctx context.Context) ApiCreateUserImportFromPlexRequest {
+func (a *UsersAPIService) CreateUserImportFromPlex(ctx context.Context) ApiCreateUserImportFromPlexRequest {
 	return ApiCreateUserImportFromPlexRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -403,7 +403,7 @@ func (a *UsersApiService) CreateUserImportFromPlex(ctx context.Context) ApiCreat
 
 // Execute executes the request
 //  @return []User
-func (a *UsersApiService) CreateUserImportFromPlexExecute(r ApiCreateUserImportFromPlexRequest) ([]*User, *http.Response, error) {
+func (a *UsersAPIService) CreateUserImportFromPlexExecute(r ApiCreateUserImportFromPlexRequest) ([]*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -411,7 +411,7 @@ func (a *UsersApiService) CreateUserImportFromPlexExecute(r ApiCreateUserImportF
 		localVarReturnValue  []*User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateUserImportFromPlex")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserImportFromPlex")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -493,7 +493,7 @@ func (a *UsersApiService) CreateUserImportFromPlexExecute(r ApiCreateUserImportF
 }
 type ApiCreateUserRegisterPushSubscriptionRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	createUserRegisterPushSubscriptionRequest *CreateUserRegisterPushSubscriptionRequest
 }
 
@@ -514,7 +514,7 @@ Registers a web push subscription for the logged-in user
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateUserRegisterPushSubscriptionRequest
 */
-func (a *UsersApiService) CreateUserRegisterPushSubscription(ctx context.Context) ApiCreateUserRegisterPushSubscriptionRequest {
+func (a *UsersAPIService) CreateUserRegisterPushSubscription(ctx context.Context) ApiCreateUserRegisterPushSubscriptionRequest {
 	return ApiCreateUserRegisterPushSubscriptionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -522,14 +522,14 @@ func (a *UsersApiService) CreateUserRegisterPushSubscription(ctx context.Context
 }
 
 // Execute executes the request
-func (a *UsersApiService) CreateUserRegisterPushSubscriptionExecute(r ApiCreateUserRegisterPushSubscriptionRequest) (*http.Response, error) {
+func (a *UsersAPIService) CreateUserRegisterPushSubscriptionExecute(r ApiCreateUserRegisterPushSubscriptionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateUserRegisterPushSubscription")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserRegisterPushSubscription")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -605,7 +605,7 @@ func (a *UsersApiService) CreateUserRegisterPushSubscriptionExecute(r ApiCreateU
 }
 type ApiCreateUserSettingsMainRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 	createUserSettingsMainRequest *CreateUserSettingsMainRequest
 }
@@ -628,7 +628,7 @@ Updates and returns general settings for a specific user. Requires `MANAGE_USERS
  @param userId
  @return ApiCreateUserSettingsMainRequest
 */
-func (a *UsersApiService) CreateUserSettingsMain(ctx context.Context, userId float32) ApiCreateUserSettingsMainRequest {
+func (a *UsersAPIService) CreateUserSettingsMain(ctx context.Context, userId float32) ApiCreateUserSettingsMainRequest {
 	return ApiCreateUserSettingsMainRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -638,7 +638,7 @@ func (a *UsersApiService) CreateUserSettingsMain(ctx context.Context, userId flo
 
 // Execute executes the request
 //  @return GetUserSettingsMain200Response
-func (a *UsersApiService) CreateUserSettingsMainExecute(r ApiCreateUserSettingsMainRequest) (*GetUserSettingsMain200Response, *http.Response, error) {
+func (a *UsersAPIService) CreateUserSettingsMainExecute(r ApiCreateUserSettingsMainRequest) (*GetUserSettingsMain200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -646,7 +646,7 @@ func (a *UsersApiService) CreateUserSettingsMainExecute(r ApiCreateUserSettingsM
 		localVarReturnValue  *GetUserSettingsMain200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateUserSettingsMain")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserSettingsMain")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -732,7 +732,7 @@ func (a *UsersApiService) CreateUserSettingsMainExecute(r ApiCreateUserSettingsM
 }
 type ApiCreateUserSettingsNotificationsRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 	userSettingsNotifications *UserSettingsNotifications
 }
@@ -755,7 +755,7 @@ Updates and returns notification settings for a specific user. Requires `MANAGE_
  @param userId
  @return ApiCreateUserSettingsNotificationsRequest
 */
-func (a *UsersApiService) CreateUserSettingsNotifications(ctx context.Context, userId float32) ApiCreateUserSettingsNotificationsRequest {
+func (a *UsersAPIService) CreateUserSettingsNotifications(ctx context.Context, userId float32) ApiCreateUserSettingsNotificationsRequest {
 	return ApiCreateUserSettingsNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -765,7 +765,7 @@ func (a *UsersApiService) CreateUserSettingsNotifications(ctx context.Context, u
 
 // Execute executes the request
 //  @return UserSettingsNotifications
-func (a *UsersApiService) CreateUserSettingsNotificationsExecute(r ApiCreateUserSettingsNotificationsRequest) (*UserSettingsNotifications, *http.Response, error) {
+func (a *UsersAPIService) CreateUserSettingsNotificationsExecute(r ApiCreateUserSettingsNotificationsRequest) (*UserSettingsNotifications, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -773,7 +773,7 @@ func (a *UsersApiService) CreateUserSettingsNotificationsExecute(r ApiCreateUser
 		localVarReturnValue  *UserSettingsNotifications
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateUserSettingsNotifications")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserSettingsNotifications")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -859,7 +859,7 @@ func (a *UsersApiService) CreateUserSettingsNotificationsExecute(r ApiCreateUser
 }
 type ApiCreateUserSettingsPasswordRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 	createUserSettingsPasswordRequest *CreateUserSettingsPasswordRequest
 }
@@ -882,7 +882,7 @@ Updates a user's password. Requires `MANAGE_USERS` permission if editing other u
  @param userId
  @return ApiCreateUserSettingsPasswordRequest
 */
-func (a *UsersApiService) CreateUserSettingsPassword(ctx context.Context, userId float32) ApiCreateUserSettingsPasswordRequest {
+func (a *UsersAPIService) CreateUserSettingsPassword(ctx context.Context, userId float32) ApiCreateUserSettingsPasswordRequest {
 	return ApiCreateUserSettingsPasswordRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -891,14 +891,14 @@ func (a *UsersApiService) CreateUserSettingsPassword(ctx context.Context, userId
 }
 
 // Execute executes the request
-func (a *UsersApiService) CreateUserSettingsPasswordExecute(r ApiCreateUserSettingsPasswordRequest) (*http.Response, error) {
+func (a *UsersAPIService) CreateUserSettingsPasswordExecute(r ApiCreateUserSettingsPasswordRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateUserSettingsPassword")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserSettingsPassword")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -975,7 +975,7 @@ func (a *UsersApiService) CreateUserSettingsPasswordExecute(r ApiCreateUserSetti
 }
 type ApiCreateUserSettingsPermissionsRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 	createUserSettingsPermissionsRequest *CreateUserSettingsPermissionsRequest
 }
@@ -998,7 +998,7 @@ Updates and returns permission settings for a specific user. Requires `MANAGE_US
  @param userId
  @return ApiCreateUserSettingsPermissionsRequest
 */
-func (a *UsersApiService) CreateUserSettingsPermissions(ctx context.Context, userId float32) ApiCreateUserSettingsPermissionsRequest {
+func (a *UsersAPIService) CreateUserSettingsPermissions(ctx context.Context, userId float32) ApiCreateUserSettingsPermissionsRequest {
 	return ApiCreateUserSettingsPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1008,7 +1008,7 @@ func (a *UsersApiService) CreateUserSettingsPermissions(ctx context.Context, use
 
 // Execute executes the request
 //  @return GetUserSettingsPermissions200Response
-func (a *UsersApiService) CreateUserSettingsPermissionsExecute(r ApiCreateUserSettingsPermissionsRequest) (*GetUserSettingsPermissions200Response, *http.Response, error) {
+func (a *UsersAPIService) CreateUserSettingsPermissionsExecute(r ApiCreateUserSettingsPermissionsRequest) (*GetUserSettingsPermissions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1016,7 +1016,7 @@ func (a *UsersApiService) CreateUserSettingsPermissionsExecute(r ApiCreateUserSe
 		localVarReturnValue  *GetUserSettingsPermissions200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateUserSettingsPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserSettingsPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1102,7 +1102,7 @@ func (a *UsersApiService) CreateUserSettingsPermissionsExecute(r ApiCreateUserSe
 }
 type ApiDeleteUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 }
 
@@ -1119,7 +1119,7 @@ Deletes the user with the provided userId. Requires the `MANAGE_USERS` permissio
  @param userId
  @return ApiDeleteUserRequest
 */
-func (a *UsersApiService) DeleteUser(ctx context.Context, userId float32) ApiDeleteUserRequest {
+func (a *UsersAPIService) DeleteUser(ctx context.Context, userId float32) ApiDeleteUserRequest {
 	return ApiDeleteUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1129,7 +1129,7 @@ func (a *UsersApiService) DeleteUser(ctx context.Context, userId float32) ApiDel
 
 // Execute executes the request
 //  @return User
-func (a *UsersApiService) DeleteUserExecute(r ApiDeleteUserRequest) (*User, *http.Response, error) {
+func (a *UsersAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -1137,7 +1137,7 @@ func (a *UsersApiService) DeleteUserExecute(r ApiDeleteUserRequest) (*User, *htt
 		localVarReturnValue  *User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.DeleteUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.DeleteUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1218,7 +1218,7 @@ func (a *UsersApiService) DeleteUserExecute(r ApiDeleteUserRequest) (*User, *htt
 }
 type ApiGetAuthMeRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 }
 
 func (r ApiGetAuthMeRequest) Execute() (*User, *http.Response, error) {
@@ -1233,7 +1233,7 @@ Returns the currently logged-in user.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAuthMeRequest
 */
-func (a *UsersApiService) GetAuthMe(ctx context.Context) ApiGetAuthMeRequest {
+func (a *UsersAPIService) GetAuthMe(ctx context.Context) ApiGetAuthMeRequest {
 	return ApiGetAuthMeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1242,7 +1242,7 @@ func (a *UsersApiService) GetAuthMe(ctx context.Context) ApiGetAuthMeRequest {
 
 // Execute executes the request
 //  @return User
-func (a *UsersApiService) GetAuthMeExecute(r ApiGetAuthMeRequest) (*User, *http.Response, error) {
+func (a *UsersAPIService) GetAuthMeExecute(r ApiGetAuthMeRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1250,7 +1250,7 @@ func (a *UsersApiService) GetAuthMeExecute(r ApiGetAuthMeRequest) (*User, *http.
 		localVarReturnValue  *User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetAuthMe")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetAuthMe")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1330,7 +1330,7 @@ func (a *UsersApiService) GetAuthMeExecute(r ApiGetAuthMeRequest) (*User, *http.
 }
 type ApiGetUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	take *float32
 	skip *float32
 	sort *string
@@ -1363,7 +1363,7 @@ Returns all users in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetUserRequest
 */
-func (a *UsersApiService) GetUser(ctx context.Context) ApiGetUserRequest {
+func (a *UsersAPIService) GetUser(ctx context.Context) ApiGetUserRequest {
 	return ApiGetUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1372,7 +1372,7 @@ func (a *UsersApiService) GetUser(ctx context.Context) ApiGetUserRequest {
 
 // Execute executes the request
 //  @return GetUser200Response
-func (a *UsersApiService) GetUserExecute(r ApiGetUserRequest) (*GetUser200Response, *http.Response, error) {
+func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUser200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1380,7 +1380,7 @@ func (a *UsersApiService) GetUserExecute(r ApiGetUserRequest) (*GetUser200Respon
 		localVarReturnValue  *GetUser200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1469,7 +1469,7 @@ func (a *UsersApiService) GetUserExecute(r ApiGetUserRequest) (*GetUser200Respon
 }
 type ApiGetUserByUserIdRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 }
 
@@ -1487,7 +1487,7 @@ Retrieves user details in a JSON object. Requires the `MANAGE_USERS` permission.
  @param userId
  @return ApiGetUserByUserIdRequest
 */
-func (a *UsersApiService) GetUserByUserId(ctx context.Context, userId float32) ApiGetUserByUserIdRequest {
+func (a *UsersAPIService) GetUserByUserId(ctx context.Context, userId float32) ApiGetUserByUserIdRequest {
 	return ApiGetUserByUserIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1497,7 +1497,7 @@ func (a *UsersApiService) GetUserByUserId(ctx context.Context, userId float32) A
 
 // Execute executes the request
 //  @return User
-func (a *UsersApiService) GetUserByUserIdExecute(r ApiGetUserByUserIdRequest) (*User, *http.Response, error) {
+func (a *UsersAPIService) GetUserByUserIdExecute(r ApiGetUserByUserIdRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1505,7 +1505,7 @@ func (a *UsersApiService) GetUserByUserIdExecute(r ApiGetUserByUserIdRequest) (*
 		localVarReturnValue  *User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserByUserId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserByUserId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1586,7 +1586,7 @@ func (a *UsersApiService) GetUserByUserIdExecute(r ApiGetUserByUserIdRequest) (*
 }
 type ApiGetUserQuotaRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 }
 
@@ -1604,7 +1604,7 @@ Returns quota details for a user in a JSON object. Requires `MANAGE_USERS` permi
  @param userId
  @return ApiGetUserQuotaRequest
 */
-func (a *UsersApiService) GetUserQuota(ctx context.Context, userId float32) ApiGetUserQuotaRequest {
+func (a *UsersAPIService) GetUserQuota(ctx context.Context, userId float32) ApiGetUserQuotaRequest {
 	return ApiGetUserQuotaRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1614,7 +1614,7 @@ func (a *UsersApiService) GetUserQuota(ctx context.Context, userId float32) ApiG
 
 // Execute executes the request
 //  @return GetUserQuota200Response
-func (a *UsersApiService) GetUserQuotaExecute(r ApiGetUserQuotaRequest) (*GetUserQuota200Response, *http.Response, error) {
+func (a *UsersAPIService) GetUserQuotaExecute(r ApiGetUserQuotaRequest) (*GetUserQuota200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1622,7 +1622,7 @@ func (a *UsersApiService) GetUserQuotaExecute(r ApiGetUserQuotaRequest) (*GetUse
 		localVarReturnValue  *GetUserQuota200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserQuota")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserQuota")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1703,7 +1703,7 @@ func (a *UsersApiService) GetUserQuotaExecute(r ApiGetUserQuotaRequest) (*GetUse
 }
 type ApiGetUserRequestsRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 	take *float32
 	skip *float32
@@ -1733,7 +1733,7 @@ Retrieves a user's requests in a JSON object.
  @param userId
  @return ApiGetUserRequestsRequest
 */
-func (a *UsersApiService) GetUserRequests(ctx context.Context, userId float32) ApiGetUserRequestsRequest {
+func (a *UsersAPIService) GetUserRequests(ctx context.Context, userId float32) ApiGetUserRequestsRequest {
 	return ApiGetUserRequestsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1743,7 +1743,7 @@ func (a *UsersApiService) GetUserRequests(ctx context.Context, userId float32) A
 
 // Execute executes the request
 //  @return GetUserRequests200Response
-func (a *UsersApiService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*GetUserRequests200Response, *http.Response, error) {
+func (a *UsersAPIService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*GetUserRequests200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1751,7 +1751,7 @@ func (a *UsersApiService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*
 		localVarReturnValue  *GetUserRequests200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserRequests")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserRequests")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1838,7 +1838,7 @@ func (a *UsersApiService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*
 }
 type ApiGetUserSettingsMainRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 }
 
@@ -1855,7 +1855,7 @@ Returns general settings for a specific user. Requires `MANAGE_USERS` permission
  @param userId
  @return ApiGetUserSettingsMainRequest
 */
-func (a *UsersApiService) GetUserSettingsMain(ctx context.Context, userId float32) ApiGetUserSettingsMainRequest {
+func (a *UsersAPIService) GetUserSettingsMain(ctx context.Context, userId float32) ApiGetUserSettingsMainRequest {
 	return ApiGetUserSettingsMainRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1865,7 +1865,7 @@ func (a *UsersApiService) GetUserSettingsMain(ctx context.Context, userId float3
 
 // Execute executes the request
 //  @return GetUserSettingsMain200Response
-func (a *UsersApiService) GetUserSettingsMainExecute(r ApiGetUserSettingsMainRequest) (*GetUserSettingsMain200Response, *http.Response, error) {
+func (a *UsersAPIService) GetUserSettingsMainExecute(r ApiGetUserSettingsMainRequest) (*GetUserSettingsMain200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1873,7 +1873,7 @@ func (a *UsersApiService) GetUserSettingsMainExecute(r ApiGetUserSettingsMainReq
 		localVarReturnValue  *GetUserSettingsMain200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserSettingsMain")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserSettingsMain")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1954,7 +1954,7 @@ func (a *UsersApiService) GetUserSettingsMainExecute(r ApiGetUserSettingsMainReq
 }
 type ApiGetUserSettingsNotificationsRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 }
 
@@ -1971,7 +1971,7 @@ Returns notification settings for a specific user. Requires `MANAGE_USERS` permi
  @param userId
  @return ApiGetUserSettingsNotificationsRequest
 */
-func (a *UsersApiService) GetUserSettingsNotifications(ctx context.Context, userId float32) ApiGetUserSettingsNotificationsRequest {
+func (a *UsersAPIService) GetUserSettingsNotifications(ctx context.Context, userId float32) ApiGetUserSettingsNotificationsRequest {
 	return ApiGetUserSettingsNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1981,7 +1981,7 @@ func (a *UsersApiService) GetUserSettingsNotifications(ctx context.Context, user
 
 // Execute executes the request
 //  @return UserSettingsNotifications
-func (a *UsersApiService) GetUserSettingsNotificationsExecute(r ApiGetUserSettingsNotificationsRequest) (*UserSettingsNotifications, *http.Response, error) {
+func (a *UsersAPIService) GetUserSettingsNotificationsExecute(r ApiGetUserSettingsNotificationsRequest) (*UserSettingsNotifications, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1989,7 +1989,7 @@ func (a *UsersApiService) GetUserSettingsNotificationsExecute(r ApiGetUserSettin
 		localVarReturnValue  *UserSettingsNotifications
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserSettingsNotifications")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserSettingsNotifications")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2070,7 +2070,7 @@ func (a *UsersApiService) GetUserSettingsNotificationsExecute(r ApiGetUserSettin
 }
 type ApiGetUserSettingsPasswordRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 }
 
@@ -2087,7 +2087,7 @@ Returns important data for the password page to function correctly. Requires `MA
  @param userId
  @return ApiGetUserSettingsPasswordRequest
 */
-func (a *UsersApiService) GetUserSettingsPassword(ctx context.Context, userId float32) ApiGetUserSettingsPasswordRequest {
+func (a *UsersAPIService) GetUserSettingsPassword(ctx context.Context, userId float32) ApiGetUserSettingsPasswordRequest {
 	return ApiGetUserSettingsPasswordRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2097,7 +2097,7 @@ func (a *UsersApiService) GetUserSettingsPassword(ctx context.Context, userId fl
 
 // Execute executes the request
 //  @return GetUserSettingsPassword200Response
-func (a *UsersApiService) GetUserSettingsPasswordExecute(r ApiGetUserSettingsPasswordRequest) (*GetUserSettingsPassword200Response, *http.Response, error) {
+func (a *UsersAPIService) GetUserSettingsPasswordExecute(r ApiGetUserSettingsPasswordRequest) (*GetUserSettingsPassword200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2105,7 +2105,7 @@ func (a *UsersApiService) GetUserSettingsPasswordExecute(r ApiGetUserSettingsPas
 		localVarReturnValue  *GetUserSettingsPassword200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserSettingsPassword")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserSettingsPassword")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2186,7 +2186,7 @@ func (a *UsersApiService) GetUserSettingsPasswordExecute(r ApiGetUserSettingsPas
 }
 type ApiGetUserSettingsPermissionsRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 }
 
@@ -2203,7 +2203,7 @@ Returns permission settings for a specific user. Requires `MANAGE_USERS` permiss
  @param userId
  @return ApiGetUserSettingsPermissionsRequest
 */
-func (a *UsersApiService) GetUserSettingsPermissions(ctx context.Context, userId float32) ApiGetUserSettingsPermissionsRequest {
+func (a *UsersAPIService) GetUserSettingsPermissions(ctx context.Context, userId float32) ApiGetUserSettingsPermissionsRequest {
 	return ApiGetUserSettingsPermissionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2213,7 +2213,7 @@ func (a *UsersApiService) GetUserSettingsPermissions(ctx context.Context, userId
 
 // Execute executes the request
 //  @return GetUserSettingsPermissions200Response
-func (a *UsersApiService) GetUserSettingsPermissionsExecute(r ApiGetUserSettingsPermissionsRequest) (*GetUserSettingsPermissions200Response, *http.Response, error) {
+func (a *UsersAPIService) GetUserSettingsPermissionsExecute(r ApiGetUserSettingsPermissionsRequest) (*GetUserSettingsPermissions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2221,7 +2221,7 @@ func (a *UsersApiService) GetUserSettingsPermissionsExecute(r ApiGetUserSettings
 		localVarReturnValue  *GetUserSettingsPermissions200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserSettingsPermissions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserSettingsPermissions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2302,7 +2302,7 @@ func (a *UsersApiService) GetUserSettingsPermissionsExecute(r ApiGetUserSettings
 }
 type ApiGetUserWatchDataRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 }
 
@@ -2322,7 +2322,7 @@ Requires the `ADMIN` permission to fetch results for other users.
  @param userId
  @return ApiGetUserWatchDataRequest
 */
-func (a *UsersApiService) GetUserWatchData(ctx context.Context, userId float32) ApiGetUserWatchDataRequest {
+func (a *UsersAPIService) GetUserWatchData(ctx context.Context, userId float32) ApiGetUserWatchDataRequest {
 	return ApiGetUserWatchDataRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2332,7 +2332,7 @@ func (a *UsersApiService) GetUserWatchData(ctx context.Context, userId float32) 
 
 // Execute executes the request
 //  @return GetUserWatchData200Response
-func (a *UsersApiService) GetUserWatchDataExecute(r ApiGetUserWatchDataRequest) (*GetUserWatchData200Response, *http.Response, error) {
+func (a *UsersAPIService) GetUserWatchDataExecute(r ApiGetUserWatchDataRequest) (*GetUserWatchData200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2340,7 +2340,7 @@ func (a *UsersApiService) GetUserWatchDataExecute(r ApiGetUserWatchDataRequest) 
 		localVarReturnValue  *GetUserWatchData200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserWatchData")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserWatchData")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2421,7 +2421,7 @@ func (a *UsersApiService) GetUserWatchDataExecute(r ApiGetUserWatchDataRequest) 
 }
 type ApiGetUserWatchlistRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 	page *float32
 }
@@ -2445,7 +2445,7 @@ Retrieves a user's Plex Watchlist in a JSON object.
  @param userId
  @return ApiGetUserWatchlistRequest
 */
-func (a *UsersApiService) GetUserWatchlist(ctx context.Context, userId float32) ApiGetUserWatchlistRequest {
+func (a *UsersAPIService) GetUserWatchlist(ctx context.Context, userId float32) ApiGetUserWatchlistRequest {
 	return ApiGetUserWatchlistRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2455,7 +2455,7 @@ func (a *UsersApiService) GetUserWatchlist(ctx context.Context, userId float32) 
 
 // Execute executes the request
 //  @return GetUserWatchlist200Response
-func (a *UsersApiService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) (*GetUserWatchlist200Response, *http.Response, error) {
+func (a *UsersAPIService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) (*GetUserWatchlist200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2463,7 +2463,7 @@ func (a *UsersApiService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) 
 		localVarReturnValue  *GetUserWatchlist200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserWatchlist")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserWatchlist")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2547,7 +2547,7 @@ func (a *UsersApiService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) 
 }
 type ApiListPlexUsersRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 }
 
 func (r ApiListPlexUsersRequest) Execute() ([]*ListPlexUsers200ResponseInner, *http.Response, error) {
@@ -2565,7 +2565,7 @@ Requires the `MANAGE_USERS` permission.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListPlexUsersRequest
 */
-func (a *UsersApiService) ListPlexUsers(ctx context.Context) ApiListPlexUsersRequest {
+func (a *UsersAPIService) ListPlexUsers(ctx context.Context) ApiListPlexUsersRequest {
 	return ApiListPlexUsersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2574,7 +2574,7 @@ func (a *UsersApiService) ListPlexUsers(ctx context.Context) ApiListPlexUsersReq
 
 // Execute executes the request
 //  @return []ListPlexUsers200ResponseInner
-func (a *UsersApiService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*ListPlexUsers200ResponseInner, *http.Response, error) {
+func (a *UsersAPIService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*ListPlexUsers200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2582,7 +2582,7 @@ func (a *UsersApiService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*Li
 		localVarReturnValue  []*ListPlexUsers200ResponseInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.ListPlexUsers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.ListPlexUsers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2662,7 +2662,7 @@ func (a *UsersApiService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*Li
 }
 type ApiPutUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	putUserRequest *PutUserRequest
 }
 
@@ -2686,7 +2686,7 @@ Requires the `MANAGE_USERS` permission.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPutUserRequest
 */
-func (a *UsersApiService) PutUser(ctx context.Context) ApiPutUserRequest {
+func (a *UsersAPIService) PutUser(ctx context.Context) ApiPutUserRequest {
 	return ApiPutUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2695,7 +2695,7 @@ func (a *UsersApiService) PutUser(ctx context.Context) ApiPutUserRequest {
 
 // Execute executes the request
 //  @return []User
-func (a *UsersApiService) PutUserExecute(r ApiPutUserRequest) ([]*User, *http.Response, error) {
+func (a *UsersAPIService) PutUserExecute(r ApiPutUserRequest) ([]*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -2703,7 +2703,7 @@ func (a *UsersApiService) PutUserExecute(r ApiPutUserRequest) ([]*User, *http.Re
 		localVarReturnValue  []*User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.PutUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.PutUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2788,7 +2788,7 @@ func (a *UsersApiService) PutUserExecute(r ApiPutUserRequest) ([]*User, *http.Re
 }
 type ApiUpdateUserRequest struct {
 	ctx context.Context
-	ApiService *UsersApiService
+	ApiService *UsersAPIService
 	userId float32
 	user *User
 }
@@ -2814,7 +2814,7 @@ Requires the `MANAGE_USERS` permission.
  @param userId
  @return ApiUpdateUserRequest
 */
-func (a *UsersApiService) UpdateUser(ctx context.Context, userId float32) ApiUpdateUserRequest {
+func (a *UsersAPIService) UpdateUser(ctx context.Context, userId float32) ApiUpdateUserRequest {
 	return ApiUpdateUserRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2824,7 +2824,7 @@ func (a *UsersApiService) UpdateUser(ctx context.Context, userId float32) ApiUpd
 
 // Execute executes the request
 //  @return User
-func (a *UsersApiService) UpdateUserExecute(r ApiUpdateUserRequest) (*User, *http.Response, error) {
+func (a *UsersAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -2832,7 +2832,7 @@ func (a *UsersApiService) UpdateUserExecute(r ApiUpdateUserRequest) (*User, *htt
 		localVarReturnValue  *User
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UpdateUser")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.UpdateUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

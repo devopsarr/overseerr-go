@@ -1,27 +1,27 @@
-# \SearchApi
+# \SearchAPI
 
 All URIs are relative to *http://localhost:5055/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDiscoverKeywordMovies**](SearchApi.md#GetDiscoverKeywordMovies) | **Get** /discover/keyword/{keywordId}/movies | Get movies from keyword
-[**GetDiscoverMovies**](SearchApi.md#GetDiscoverMovies) | **Get** /discover/movies | Discover movies
-[**GetDiscoverMoviesGenreByGenreId**](SearchApi.md#GetDiscoverMoviesGenreByGenreId) | **Get** /discover/movies/genre/{genreId} | Discover movies by genre
-[**GetDiscoverMoviesLanguageByLanguage**](SearchApi.md#GetDiscoverMoviesLanguageByLanguage) | **Get** /discover/movies/language/{language} | Discover movies by original language
-[**GetDiscoverMoviesStudioByStudioId**](SearchApi.md#GetDiscoverMoviesStudioByStudioId) | **Get** /discover/movies/studio/{studioId} | Discover movies by studio
-[**GetDiscoverMoviesUpcoming**](SearchApi.md#GetDiscoverMoviesUpcoming) | **Get** /discover/movies/upcoming | Upcoming movies
-[**GetDiscoverTrending**](SearchApi.md#GetDiscoverTrending) | **Get** /discover/trending | Trending movies and TV
-[**GetDiscoverTv**](SearchApi.md#GetDiscoverTv) | **Get** /discover/tv | Discover TV shows
-[**GetDiscoverTvGenreByGenreId**](SearchApi.md#GetDiscoverTvGenreByGenreId) | **Get** /discover/tv/genre/{genreId} | Discover TV shows by genre
-[**GetDiscoverTvLanguageByLanguage**](SearchApi.md#GetDiscoverTvLanguageByLanguage) | **Get** /discover/tv/language/{language} | Discover TV shows by original language
-[**GetDiscoverTvNetworkByNetworkId**](SearchApi.md#GetDiscoverTvNetworkByNetworkId) | **Get** /discover/tv/network/{networkId} | Discover TV shows by network
-[**GetDiscoverTvUpcoming**](SearchApi.md#GetDiscoverTvUpcoming) | **Get** /discover/tv/upcoming | Discover Upcoming TV shows
-[**GetDiscoverWatchlist**](SearchApi.md#GetDiscoverWatchlist) | **Get** /discover/watchlist | Get the Plex watchlist.
-[**GetSearch**](SearchApi.md#GetSearch) | **Get** /search | Search for movies, TV shows, or people
-[**GetSearchCompany**](SearchApi.md#GetSearchCompany) | **Get** /search/company | Search for companies
-[**GetSearchKeyword**](SearchApi.md#GetSearchKeyword) | **Get** /search/keyword | Search for keywords
-[**ListDiscoverGenresliderMovie**](SearchApi.md#ListDiscoverGenresliderMovie) | **Get** /discover/genreslider/movie | Get genre slider data for movies
-[**ListDiscoverGenresliderTv**](SearchApi.md#ListDiscoverGenresliderTv) | **Get** /discover/genreslider/tv | Get genre slider data for TV series
+[**GetDiscoverKeywordMovies**](SearchAPI.md#GetDiscoverKeywordMovies) | **Get** /discover/keyword/{keywordId}/movies | Get movies from keyword
+[**GetDiscoverMovies**](SearchAPI.md#GetDiscoverMovies) | **Get** /discover/movies | Discover movies
+[**GetDiscoverMoviesGenreByGenreId**](SearchAPI.md#GetDiscoverMoviesGenreByGenreId) | **Get** /discover/movies/genre/{genreId} | Discover movies by genre
+[**GetDiscoverMoviesLanguageByLanguage**](SearchAPI.md#GetDiscoverMoviesLanguageByLanguage) | **Get** /discover/movies/language/{language} | Discover movies by original language
+[**GetDiscoverMoviesStudioByStudioId**](SearchAPI.md#GetDiscoverMoviesStudioByStudioId) | **Get** /discover/movies/studio/{studioId} | Discover movies by studio
+[**GetDiscoverMoviesUpcoming**](SearchAPI.md#GetDiscoverMoviesUpcoming) | **Get** /discover/movies/upcoming | Upcoming movies
+[**GetDiscoverTrending**](SearchAPI.md#GetDiscoverTrending) | **Get** /discover/trending | Trending movies and TV
+[**GetDiscoverTv**](SearchAPI.md#GetDiscoverTv) | **Get** /discover/tv | Discover TV shows
+[**GetDiscoverTvGenreByGenreId**](SearchAPI.md#GetDiscoverTvGenreByGenreId) | **Get** /discover/tv/genre/{genreId} | Discover TV shows by genre
+[**GetDiscoverTvLanguageByLanguage**](SearchAPI.md#GetDiscoverTvLanguageByLanguage) | **Get** /discover/tv/language/{language} | Discover TV shows by original language
+[**GetDiscoverTvNetworkByNetworkId**](SearchAPI.md#GetDiscoverTvNetworkByNetworkId) | **Get** /discover/tv/network/{networkId} | Discover TV shows by network
+[**GetDiscoverTvUpcoming**](SearchAPI.md#GetDiscoverTvUpcoming) | **Get** /discover/tv/upcoming | Discover Upcoming TV shows
+[**GetDiscoverWatchlist**](SearchAPI.md#GetDiscoverWatchlist) | **Get** /discover/watchlist | Get the Plex watchlist.
+[**GetSearch**](SearchAPI.md#GetSearch) | **Get** /search | Search for movies, TV shows, or people
+[**GetSearchCompany**](SearchAPI.md#GetSearchCompany) | **Get** /search/company | Search for companies
+[**GetSearchKeyword**](SearchAPI.md#GetSearchKeyword) | **Get** /search/keyword | Search for keywords
+[**ListDiscoverGenresliderMovie**](SearchAPI.md#ListDiscoverGenresliderMovie) | **Get** /discover/genreslider/movie | Get genre slider data for movies
+[**ListDiscoverGenresliderTv**](SearchAPI.md#ListDiscoverGenresliderTv) | **Get** /discover/genreslider/tv | Get genre slider data for TV series
 
 
 
@@ -52,13 +52,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverKeywordMovies(context.Background(), keywordId).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverKeywordMovies(context.Background(), keywordId).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverKeywordMovies``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverKeywordMovies``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverKeywordMovies`: GetDiscoverMovies200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverKeywordMovies`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverKeywordMovies`: %v\n", resp)
 }
 ```
 
@@ -139,13 +139,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverMovies(context.Background()).Page(page).Language(language).Genre(genre).Studio(studio).Keywords(keywords).SortBy(sortBy).PrimaryReleaseDateGte(primaryReleaseDateGte).PrimaryReleaseDateLte(primaryReleaseDateLte).WithRuntimeGte(withRuntimeGte).WithRuntimeLte(withRuntimeLte).VoteAverageGte(voteAverageGte).VoteAverageLte(voteAverageLte).VoteCountGte(voteCountGte).VoteCountLte(voteCountLte).WatchRegion(watchRegion).WatchProviders(watchProviders).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverMovies(context.Background()).Page(page).Language(language).Genre(genre).Studio(studio).Keywords(keywords).SortBy(sortBy).PrimaryReleaseDateGte(primaryReleaseDateGte).PrimaryReleaseDateLte(primaryReleaseDateLte).WithRuntimeGte(withRuntimeGte).WithRuntimeLte(withRuntimeLte).VoteAverageGte(voteAverageGte).VoteAverageLte(voteAverageLte).VoteCountGte(voteCountGte).VoteCountLte(voteCountLte).WatchRegion(watchRegion).WatchProviders(watchProviders).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverMovies``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMovies``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverMovies`: GetDiscoverMovies200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverMovies`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMovies`: %v\n", resp)
 }
 ```
 
@@ -222,13 +222,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverMoviesGenreByGenreId(context.Background(), genreId).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverMoviesGenreByGenreId(context.Background(), genreId).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverMoviesGenreByGenreId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMoviesGenreByGenreId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverMoviesGenreByGenreId`: GetDiscoverMoviesGenreByGenreId200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverMoviesGenreByGenreId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMoviesGenreByGenreId`: %v\n", resp)
 }
 ```
 
@@ -296,13 +296,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverMoviesLanguageByLanguage(context.Background(), language).Page(page).Language2(language2).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverMoviesLanguageByLanguage(context.Background(), language).Page(page).Language2(language2).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverMoviesLanguageByLanguage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMoviesLanguageByLanguage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverMoviesLanguageByLanguage`: GetDiscoverMoviesLanguageByLanguage200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverMoviesLanguageByLanguage`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMoviesLanguageByLanguage`: %v\n", resp)
 }
 ```
 
@@ -370,13 +370,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverMoviesStudioByStudioId(context.Background(), studioId).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverMoviesStudioByStudioId(context.Background(), studioId).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverMoviesStudioByStudioId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMoviesStudioByStudioId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverMoviesStudioByStudioId`: GetDiscoverMoviesStudioByStudioId200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverMoviesStudioByStudioId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMoviesStudioByStudioId`: %v\n", resp)
 }
 ```
 
@@ -443,13 +443,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverMoviesUpcoming(context.Background()).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverMoviesUpcoming(context.Background()).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverMoviesUpcoming``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMoviesUpcoming``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverMoviesUpcoming`: GetDiscoverMovies200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverMoviesUpcoming`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMoviesUpcoming`: %v\n", resp)
 }
 ```
 
@@ -511,13 +511,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverTrending(context.Background()).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverTrending(context.Background()).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverTrending``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTrending``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverTrending`: GetSearch200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverTrending`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTrending`: %v\n", resp)
 }
 ```
 
@@ -593,13 +593,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverTv(context.Background()).Page(page).Language(language).Genre(genre).Network(network).Keywords(keywords).SortBy(sortBy).FirstAirDateGte(firstAirDateGte).FirstAirDateLte(firstAirDateLte).WithRuntimeGte(withRuntimeGte).WithRuntimeLte(withRuntimeLte).VoteAverageGte(voteAverageGte).VoteAverageLte(voteAverageLte).VoteCountGte(voteCountGte).VoteCountLte(voteCountLte).WatchRegion(watchRegion).WatchProviders(watchProviders).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverTv(context.Background()).Page(page).Language(language).Genre(genre).Network(network).Keywords(keywords).SortBy(sortBy).FirstAirDateGte(firstAirDateGte).FirstAirDateLte(firstAirDateLte).WithRuntimeGte(withRuntimeGte).WithRuntimeLte(withRuntimeLte).VoteAverageGte(voteAverageGte).VoteAverageLte(voteAverageLte).VoteCountGte(voteCountGte).VoteCountLte(voteCountLte).WatchRegion(watchRegion).WatchProviders(watchProviders).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverTv``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverTv`: GetDiscoverTv200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverTv`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTv`: %v\n", resp)
 }
 ```
 
@@ -676,13 +676,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverTvGenreByGenreId(context.Background(), genreId).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverTvGenreByGenreId(context.Background(), genreId).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverTvGenreByGenreId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTvGenreByGenreId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverTvGenreByGenreId`: GetDiscoverTvGenreByGenreId200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverTvGenreByGenreId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTvGenreByGenreId`: %v\n", resp)
 }
 ```
 
@@ -750,13 +750,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverTvLanguageByLanguage(context.Background(), language).Page(page).Language2(language2).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverTvLanguageByLanguage(context.Background(), language).Page(page).Language2(language2).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverTvLanguageByLanguage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTvLanguageByLanguage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverTvLanguageByLanguage`: GetDiscoverTvLanguageByLanguage200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverTvLanguageByLanguage`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTvLanguageByLanguage`: %v\n", resp)
 }
 ```
 
@@ -824,13 +824,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverTvNetworkByNetworkId(context.Background(), networkId).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverTvNetworkByNetworkId(context.Background(), networkId).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverTvNetworkByNetworkId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTvNetworkByNetworkId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverTvNetworkByNetworkId`: GetDiscoverTvNetworkByNetworkId200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverTvNetworkByNetworkId`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTvNetworkByNetworkId`: %v\n", resp)
 }
 ```
 
@@ -897,13 +897,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverTvUpcoming(context.Background()).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverTvUpcoming(context.Background()).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverTvUpcoming``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTvUpcoming``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverTvUpcoming`: GetDiscoverTv200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverTvUpcoming`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTvUpcoming`: %v\n", resp)
 }
 ```
 
@@ -962,13 +962,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetDiscoverWatchlist(context.Background()).Page(page).Execute()
+    resp, r, err := apiClient.SearchAPI.GetDiscoverWatchlist(context.Background()).Page(page).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetDiscoverWatchlist``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverWatchlist``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetDiscoverWatchlist`: GetUserWatchlist200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetDiscoverWatchlist`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverWatchlist`: %v\n", resp)
 }
 ```
 
@@ -1030,13 +1030,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetSearch(context.Background()).Query(query).Page(page).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.GetSearch(context.Background()).Query(query).Page(page).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetSearch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetSearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSearch`: GetSearch200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetSearch`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetSearch`: %v\n", resp)
 }
 ```
 
@@ -1099,13 +1099,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetSearchCompany(context.Background()).Query(query).Page(page).Execute()
+    resp, r, err := apiClient.SearchAPI.GetSearchCompany(context.Background()).Query(query).Page(page).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetSearchCompany``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetSearchCompany``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSearchCompany`: GetSearchCompany200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetSearchCompany`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetSearchCompany`: %v\n", resp)
 }
 ```
 
@@ -1167,13 +1167,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.GetSearchKeyword(context.Background()).Query(query).Page(page).Execute()
+    resp, r, err := apiClient.SearchAPI.GetSearchKeyword(context.Background()).Query(query).Page(page).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.GetSearchKeyword``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetSearchKeyword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSearchKeyword`: GetSearchKeyword200Response
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.GetSearchKeyword`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetSearchKeyword`: %v\n", resp)
 }
 ```
 
@@ -1234,13 +1234,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.ListDiscoverGenresliderMovie(context.Background()).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.ListDiscoverGenresliderMovie(context.Background()).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.ListDiscoverGenresliderMovie``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.ListDiscoverGenresliderMovie``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListDiscoverGenresliderMovie`: []ListDiscoverGenresliderMovie200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.ListDiscoverGenresliderMovie`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.ListDiscoverGenresliderMovie`: %v\n", resp)
 }
 ```
 
@@ -1300,13 +1300,13 @@ func main() {
 
     configuration := overseerrClient.NewConfiguration()
     apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SearchApi.ListDiscoverGenresliderTv(context.Background()).Language(language).Execute()
+    resp, r, err := apiClient.SearchAPI.ListDiscoverGenresliderTv(context.Background()).Language(language).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SearchApi.ListDiscoverGenresliderTv``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.ListDiscoverGenresliderTv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListDiscoverGenresliderTv`: []ListDiscoverGenresliderMovie200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `SearchApi.ListDiscoverGenresliderTv`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SearchAPI.ListDiscoverGenresliderTv`: %v\n", resp)
 }
 ```
 

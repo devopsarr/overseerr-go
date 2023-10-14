@@ -20,11 +20,11 @@ import (
 )
 
 
-// ServiceApiService ServiceApi service
-type ServiceApiService service
+// ServiceAPIService ServiceAPI service
+type ServiceAPIService service
 type ApiGetServiceRadarrByRadarrIdRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiService
+	ApiService *ServiceAPIService
 	radarrId float32
 }
 
@@ -41,7 +41,7 @@ Returns a Radarr server's quality profile and root folder details in a JSON obje
  @param radarrId
  @return ApiGetServiceRadarrByRadarrIdRequest
 */
-func (a *ServiceApiService) GetServiceRadarrByRadarrId(ctx context.Context, radarrId float32) ApiGetServiceRadarrByRadarrIdRequest {
+func (a *ServiceAPIService) GetServiceRadarrByRadarrId(ctx context.Context, radarrId float32) ApiGetServiceRadarrByRadarrIdRequest {
 	return ApiGetServiceRadarrByRadarrIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -51,7 +51,7 @@ func (a *ServiceApiService) GetServiceRadarrByRadarrId(ctx context.Context, rada
 
 // Execute executes the request
 //  @return GetServiceRadarrByRadarrId200Response
-func (a *ServiceApiService) GetServiceRadarrByRadarrIdExecute(r ApiGetServiceRadarrByRadarrIdRequest) (*GetServiceRadarrByRadarrId200Response, *http.Response, error) {
+func (a *ServiceAPIService) GetServiceRadarrByRadarrIdExecute(r ApiGetServiceRadarrByRadarrIdRequest) (*GetServiceRadarrByRadarrId200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -59,7 +59,7 @@ func (a *ServiceApiService) GetServiceRadarrByRadarrIdExecute(r ApiGetServiceRad
 		localVarReturnValue  *GetServiceRadarrByRadarrId200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceApiService.GetServiceRadarrByRadarrId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.GetServiceRadarrByRadarrId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,7 +140,7 @@ func (a *ServiceApiService) GetServiceRadarrByRadarrIdExecute(r ApiGetServiceRad
 }
 type ApiGetServiceSonarrBySonarrIdRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiService
+	ApiService *ServiceAPIService
 	sonarrId float32
 }
 
@@ -157,7 +157,7 @@ Returns a Sonarr server's quality profile and root folder details in a JSON obje
  @param sonarrId
  @return ApiGetServiceSonarrBySonarrIdRequest
 */
-func (a *ServiceApiService) GetServiceSonarrBySonarrId(ctx context.Context, sonarrId float32) ApiGetServiceSonarrBySonarrIdRequest {
+func (a *ServiceAPIService) GetServiceSonarrBySonarrId(ctx context.Context, sonarrId float32) ApiGetServiceSonarrBySonarrIdRequest {
 	return ApiGetServiceSonarrBySonarrIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -167,7 +167,7 @@ func (a *ServiceApiService) GetServiceSonarrBySonarrId(ctx context.Context, sona
 
 // Execute executes the request
 //  @return GetServiceSonarrBySonarrId200Response
-func (a *ServiceApiService) GetServiceSonarrBySonarrIdExecute(r ApiGetServiceSonarrBySonarrIdRequest) (*GetServiceSonarrBySonarrId200Response, *http.Response, error) {
+func (a *ServiceAPIService) GetServiceSonarrBySonarrIdExecute(r ApiGetServiceSonarrBySonarrIdRequest) (*GetServiceSonarrBySonarrId200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -175,7 +175,7 @@ func (a *ServiceApiService) GetServiceSonarrBySonarrIdExecute(r ApiGetServiceSon
 		localVarReturnValue  *GetServiceSonarrBySonarrId200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceApiService.GetServiceSonarrBySonarrId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.GetServiceSonarrBySonarrId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -256,7 +256,7 @@ func (a *ServiceApiService) GetServiceSonarrBySonarrIdExecute(r ApiGetServiceSon
 }
 type ApiListServiceRadarrRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiService
+	ApiService *ServiceAPIService
 }
 
 func (r ApiListServiceRadarrRequest) Execute() ([]*RadarrSettings, *http.Response, error) {
@@ -271,7 +271,7 @@ Returns a list of Radarr server IDs and names in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListServiceRadarrRequest
 */
-func (a *ServiceApiService) ListServiceRadarr(ctx context.Context) ApiListServiceRadarrRequest {
+func (a *ServiceAPIService) ListServiceRadarr(ctx context.Context) ApiListServiceRadarrRequest {
 	return ApiListServiceRadarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -280,7 +280,7 @@ func (a *ServiceApiService) ListServiceRadarr(ctx context.Context) ApiListServic
 
 // Execute executes the request
 //  @return []RadarrSettings
-func (a *ServiceApiService) ListServiceRadarrExecute(r ApiListServiceRadarrRequest) ([]*RadarrSettings, *http.Response, error) {
+func (a *ServiceAPIService) ListServiceRadarrExecute(r ApiListServiceRadarrRequest) ([]*RadarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -288,7 +288,7 @@ func (a *ServiceApiService) ListServiceRadarrExecute(r ApiListServiceRadarrReque
 		localVarReturnValue  []*RadarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceApiService.ListServiceRadarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.ListServiceRadarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -368,7 +368,7 @@ func (a *ServiceApiService) ListServiceRadarrExecute(r ApiListServiceRadarrReque
 }
 type ApiListServiceSonarrRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiService
+	ApiService *ServiceAPIService
 }
 
 func (r ApiListServiceSonarrRequest) Execute() ([]*SonarrSettings, *http.Response, error) {
@@ -383,7 +383,7 @@ Returns a list of Sonarr server IDs and names in a JSON object.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListServiceSonarrRequest
 */
-func (a *ServiceApiService) ListServiceSonarr(ctx context.Context) ApiListServiceSonarrRequest {
+func (a *ServiceAPIService) ListServiceSonarr(ctx context.Context) ApiListServiceSonarrRequest {
 	return ApiListServiceSonarrRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -392,7 +392,7 @@ func (a *ServiceApiService) ListServiceSonarr(ctx context.Context) ApiListServic
 
 // Execute executes the request
 //  @return []SonarrSettings
-func (a *ServiceApiService) ListServiceSonarrExecute(r ApiListServiceSonarrRequest) ([]*SonarrSettings, *http.Response, error) {
+func (a *ServiceAPIService) ListServiceSonarrExecute(r ApiListServiceSonarrRequest) ([]*SonarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -400,7 +400,7 @@ func (a *ServiceApiService) ListServiceSonarrExecute(r ApiListServiceSonarrReque
 		localVarReturnValue  []*SonarrSettings
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceApiService.ListServiceSonarr")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.ListServiceSonarr")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -480,7 +480,7 @@ func (a *ServiceApiService) ListServiceSonarrExecute(r ApiListServiceSonarrReque
 }
 type ApiListServiceSonarrLookupByTmdbIdRequest struct {
 	ctx context.Context
-	ApiService *ServiceApiService
+	ApiService *ServiceAPIService
 	tmdbId float32
 }
 
@@ -497,7 +497,7 @@ Returns a list of series returned by searching for the name in Sonarr.
  @param tmdbId
  @return ApiListServiceSonarrLookupByTmdbIdRequest
 */
-func (a *ServiceApiService) ListServiceSonarrLookupByTmdbId(ctx context.Context, tmdbId float32) ApiListServiceSonarrLookupByTmdbIdRequest {
+func (a *ServiceAPIService) ListServiceSonarrLookupByTmdbId(ctx context.Context, tmdbId float32) ApiListServiceSonarrLookupByTmdbIdRequest {
 	return ApiListServiceSonarrLookupByTmdbIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -507,7 +507,7 @@ func (a *ServiceApiService) ListServiceSonarrLookupByTmdbId(ctx context.Context,
 
 // Execute executes the request
 //  @return []SonarrSeries
-func (a *ServiceApiService) ListServiceSonarrLookupByTmdbIdExecute(r ApiListServiceSonarrLookupByTmdbIdRequest) ([]*SonarrSeries, *http.Response, error) {
+func (a *ServiceAPIService) ListServiceSonarrLookupByTmdbIdExecute(r ApiListServiceSonarrLookupByTmdbIdRequest) ([]*SonarrSeries, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -515,7 +515,7 @@ func (a *ServiceApiService) ListServiceSonarrLookupByTmdbIdExecute(r ApiListServ
 		localVarReturnValue  []*SonarrSeries
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceApiService.ListServiceSonarrLookupByTmdbId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.ListServiceSonarrLookupByTmdbId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
