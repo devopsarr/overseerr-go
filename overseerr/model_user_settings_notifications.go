@@ -25,6 +25,7 @@ type UserSettingsNotifications struct {
 	PushbulletAccessToken NullableString `json:"pushbulletAccessToken,omitempty"`
 	PushoverApplicationToken NullableString `json:"pushoverApplicationToken,omitempty"`
 	PushoverUserKey NullableString `json:"pushoverUserKey,omitempty"`
+	PushoverSound NullableString `json:"pushoverSound,omitempty"`
 	TelegramEnabled *bool `json:"telegramEnabled,omitempty"`
 	TelegramBotUsername NullableString `json:"telegramBotUsername,omitempty"`
 	TelegramChatId NullableString `json:"telegramChatId,omitempty"`
@@ -399,6 +400,48 @@ func (o *UserSettingsNotifications) UnsetPushoverUserKey() {
 	o.PushoverUserKey.Unset()
 }
 
+// GetPushoverSound returns the PushoverSound field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UserSettingsNotifications) GetPushoverSound() string {
+	if o == nil || isNil(o.PushoverSound.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.PushoverSound.Get()
+}
+
+// GetPushoverSoundOk returns a tuple with the PushoverSound field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UserSettingsNotifications) GetPushoverSoundOk() (*string, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return o.PushoverSound.Get(), o.PushoverSound.IsSet()
+}
+
+// HasPushoverSound returns a boolean if a field has been set.
+func (o *UserSettingsNotifications) HasPushoverSound() bool {
+	if o != nil && o.PushoverSound.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPushoverSound gets a reference to the given NullableString and assigns it to the PushoverSound field.
+func (o *UserSettingsNotifications) SetPushoverSound(v string) {
+	o.PushoverSound.Set(&v)
+}
+// SetPushoverSoundNil sets the value for PushoverSound to be an explicit nil
+func (o *UserSettingsNotifications) SetPushoverSoundNil() {
+	o.PushoverSound.Set(nil)
+}
+
+// UnsetPushoverSound ensures that no value is present for PushoverSound, not even an explicit nil
+func (o *UserSettingsNotifications) UnsetPushoverSound() {
+	o.PushoverSound.Unset()
+}
+
 // GetTelegramEnabled returns the TelegramEnabled field value if set, zero value otherwise.
 func (o *UserSettingsNotifications) GetTelegramEnabled() bool {
 	if o == nil || isNil(o.TelegramEnabled) {
@@ -586,6 +629,9 @@ func (o UserSettingsNotifications) MarshalJSON() ([]byte, error) {
 	if o.PushoverUserKey.IsSet() {
 		toSerialize["pushoverUserKey"] = o.PushoverUserKey.Get()
 	}
+	if o.PushoverSound.IsSet() {
+		toSerialize["pushoverSound"] = o.PushoverSound.Get()
+	}
 	if !isNil(o.TelegramEnabled) {
 		toSerialize["telegramEnabled"] = o.TelegramEnabled
 	}
@@ -625,6 +671,7 @@ func (o *UserSettingsNotifications) UnmarshalJSON(bytes []byte) (err error) {
 		delete(additionalProperties, "pushbulletAccessToken")
 		delete(additionalProperties, "pushoverApplicationToken")
 		delete(additionalProperties, "pushoverUserKey")
+		delete(additionalProperties, "pushoverSound")
 		delete(additionalProperties, "telegramEnabled")
 		delete(additionalProperties, "telegramBotUsername")
 		delete(additionalProperties, "telegramChatId")

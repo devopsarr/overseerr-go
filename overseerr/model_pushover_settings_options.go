@@ -18,6 +18,7 @@ import (
 type PushoverSettingsOptions struct {
 	AccessToken *string `json:"accessToken,omitempty"`
 	UserToken *string `json:"userToken,omitempty"`
+	Sound *string `json:"sound,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -104,6 +105,38 @@ func (o *PushoverSettingsOptions) SetUserToken(v string) {
 	o.UserToken = &v
 }
 
+// GetSound returns the Sound field value if set, zero value otherwise.
+func (o *PushoverSettingsOptions) GetSound() string {
+	if o == nil || isNil(o.Sound) {
+		var ret string
+		return ret
+	}
+	return *o.Sound
+}
+
+// GetSoundOk returns a tuple with the Sound field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PushoverSettingsOptions) GetSoundOk() (*string, bool) {
+	if o == nil || isNil(o.Sound) {
+    return nil, false
+	}
+	return o.Sound, true
+}
+
+// HasSound returns a boolean if a field has been set.
+func (o *PushoverSettingsOptions) HasSound() bool {
+	if o != nil && !isNil(o.Sound) {
+		return true
+	}
+
+	return false
+}
+
+// SetSound gets a reference to the given string and assigns it to the Sound field.
+func (o *PushoverSettingsOptions) SetSound(v string) {
+	o.Sound = &v
+}
+
 func (o PushoverSettingsOptions) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.AccessToken) {
@@ -111,6 +144,9 @@ func (o PushoverSettingsOptions) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.UserToken) {
 		toSerialize["userToken"] = o.UserToken
+	}
+	if !isNil(o.Sound) {
+		toSerialize["sound"] = o.Sound
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -132,6 +168,7 @@ func (o *PushoverSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
 	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
 		delete(additionalProperties, "accessToken")
 		delete(additionalProperties, "userToken")
+		delete(additionalProperties, "sound")
 		o.AdditionalProperties = additionalProperties
 	}
 

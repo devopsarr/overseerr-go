@@ -199,6 +199,7 @@ Class | Method | HTTP request | Description
 *SettingsAPI* | [**ListDiscover**](overseerr/docs/SettingsAPI.md#listdiscover) | **Get** /settings/discover | Get all discover sliders
 *SettingsAPI* | [**ListJobs**](overseerr/docs/SettingsAPI.md#listjobs) | **Get** /settings/jobs | Get scheduled jobs
 *SettingsAPI* | [**ListLogs**](overseerr/docs/SettingsAPI.md#listlogs) | **Get** /settings/logs | Returns logs
+*SettingsAPI* | [**ListNotificationsPushoverSounds**](overseerr/docs/SettingsAPI.md#listnotificationspushoversounds) | **Get** /settings/notifications/pushover/sounds | Get Pushover sounds
 *SettingsAPI* | [**ListPlexDevicesServers**](overseerr/docs/SettingsAPI.md#listplexdevicesservers) | **Get** /settings/plex/devices/servers | Gets the user&#39;s available Plex servers
 *SettingsAPI* | [**ListPlexLibrary**](overseerr/docs/SettingsAPI.md#listplexlibrary) | **Get** /settings/plex/library | Get Plex libraries
 *SettingsAPI* | [**ListPlexUsers**](overseerr/docs/SettingsAPI.md#listplexusers) | **Get** /settings/plex/users | Get Plex users
@@ -346,6 +347,7 @@ Class | Method | HTTP request | Description
  - [ListGenresTv200ResponseInner](docs/ListGenresTv200ResponseInner.md)
  - [ListLanguages200ResponseInner](docs/ListLanguages200ResponseInner.md)
  - [ListLogs200ResponseInner](docs/ListLogs200ResponseInner.md)
+ - [ListNotificationsPushoverSounds200ResponseInner](docs/ListNotificationsPushoverSounds200ResponseInner.md)
  - [ListPlexUsers200ResponseInner](docs/ListPlexUsers200ResponseInner.md)
  - [ListRegions200ResponseInner](docs/ListRegions200ResponseInner.md)
  - [LunaSeaSettings](docs/LunaSeaSettings.md)

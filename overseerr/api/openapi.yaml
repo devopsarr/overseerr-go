@@ -995,6 +995,31 @@ paths:
       summary: Test Pushover settings
       tags:
       - settings
+  /settings/notifications/pushover/sounds:
+    get:
+      description: Returns valid Pushover sound options in a JSON array.
+      operationId: ListNotificationsPushoverSounds
+      parameters:
+      - explode: true
+        in: query
+        name: token
+        required: true
+        schema:
+          nullable: false
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ListNotificationsPushoverSounds_200_response_inner'
+                type: array
+          description: Returned Pushover settings
+      summary: Get Pushover sounds
+      tags:
+      - settings
   /settings/notifications/gotify:
     get:
       description: Returns current Gotify notification settings in a JSON object.
@@ -6178,6 +6203,7 @@ components:
         types: 2
         options:
           userToken: userToken
+          sound: sound
           accessToken: accessToken
         enabled: false
       properties:
@@ -6791,6 +6817,7 @@ components:
         discordEnabledTypes: 3.616076749251911
         telegramChatId: telegramChatId
         pushbulletAccessToken: pushbulletAccessToken
+        pushoverSound: pushoverSound
         pgpKey: pgpKey
         discordEnabled: true
         telegramEnabled: true
@@ -6830,6 +6857,9 @@ components:
           nullable: true
           type: string
         pushoverUserKey:
+          nullable: true
+          type: string
+        pushoverSound:
           nullable: true
           type: string
         telegramEnabled:
@@ -7319,6 +7349,16 @@ components:
           type: string
         timestamp:
           example: 2020-12-15T16:20:00.069Z
+          type: string
+      type: object
+    ListNotificationsPushoverSounds_200_response_inner:
+      example:
+        name: name
+        description: description
+      properties:
+        name:
+          type: string
+        description:
           type: string
       type: object
     UpdateDiscover_request:
@@ -9550,11 +9590,14 @@ components:
     PushoverSettings_options:
       example:
         userToken: userToken
+        sound: sound
         accessToken: accessToken
       properties:
         accessToken:
           type: string
         userToken:
+          type: string
+        sound:
           type: string
       type: object
     GotifySettings_options:
