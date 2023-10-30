@@ -243,7 +243,6 @@ Class | Method | HTTP request | Description
 *UsersAPI* | [**CreateUserSettingsPassword**](overseerr/docs/UsersAPI.md#createusersettingspassword) | **Post** /user/{userId}/settings/password | Update password for a user
 *UsersAPI* | [**CreateUserSettingsPermissions**](overseerr/docs/UsersAPI.md#createusersettingspermissions) | **Post** /user/{userId}/settings/permissions | Update permission settings for a user
 *UsersAPI* | [**DeleteUser**](overseerr/docs/UsersAPI.md#deleteuser) | **Delete** /user/{userId} | Delete user by ID
-*UsersAPI* | [**GetAuthMe**](overseerr/docs/UsersAPI.md#getauthme) | **Get** /auth/me | Get logged-in user
 *UsersAPI* | [**GetUser**](overseerr/docs/UsersAPI.md#getuser) | **Get** /user | Get all users
 *UsersAPI* | [**GetUserByUserId**](overseerr/docs/UsersAPI.md#getuserbyuserid) | **Get** /user/{userId} | Get user by ID
 *UsersAPI* | [**GetUserQuota**](overseerr/docs/UsersAPI.md#getuserquota) | **Get** /user/{userId}/quota | Get quotas for a specific user
@@ -254,7 +253,6 @@ Class | Method | HTTP request | Description
 *UsersAPI* | [**GetUserSettingsPermissions**](overseerr/docs/UsersAPI.md#getusersettingspermissions) | **Get** /user/{userId}/settings/permissions | Get permission settings for a user
 *UsersAPI* | [**GetUserWatchData**](overseerr/docs/UsersAPI.md#getuserwatchdata) | **Get** /user/{userId}/watch_data | Get watch data
 *UsersAPI* | [**GetUserWatchlist**](overseerr/docs/UsersAPI.md#getuserwatchlist) | **Get** /user/{userId}/watchlist | Get the Plex watchlist for a specific user
-*UsersAPI* | [**ListPlexUsers**](overseerr/docs/UsersAPI.md#listplexusers) | **Get** /settings/plex/users | Get Plex users
 *UsersAPI* | [**PutUser**](overseerr/docs/UsersAPI.md#putuser) | **Put** /user | Update batch of users
 *UsersAPI* | [**UpdateUser**](overseerr/docs/UsersAPI.md#updateuser) | **Put** /user/{userId} | Update a user by user ID
 
