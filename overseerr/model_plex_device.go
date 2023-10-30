@@ -49,7 +49,7 @@ type _PlexDevice PlexDevice
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlexDevice(name string, product string, productVersion string, platform string, device string, clientIdentifier string, createdAt string, lastSeenAt string, provides []string, owned bool, connection []PlexConnection) *PlexDevice {
+func NewPlexDevice(name string, product string, productVersion string, platform string, device string, clientIdentifier string, createdAt string, lastSeenAt string, provides []*string, owned bool, connection []*PlexConnection) *PlexDevice {
 	this := PlexDevice{}
 	this.Name = name
 	this.Product = product

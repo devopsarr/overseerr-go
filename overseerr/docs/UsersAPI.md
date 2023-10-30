@@ -14,7 +14,6 @@ Method | HTTP request | Description
 [**CreateUserSettingsPassword**](UsersAPI.md#CreateUserSettingsPassword) | **Post** /user/{userId}/settings/password | Update password for a user
 [**CreateUserSettingsPermissions**](UsersAPI.md#CreateUserSettingsPermissions) | **Post** /user/{userId}/settings/permissions | Update permission settings for a user
 [**DeleteUser**](UsersAPI.md#DeleteUser) | **Delete** /user/{userId} | Delete user by ID
-[**GetAuthMe**](UsersAPI.md#GetAuthMe) | **Get** /auth/me | Get logged-in user
 [**GetUser**](UsersAPI.md#GetUser) | **Get** /user | Get all users
 [**GetUserByUserId**](UsersAPI.md#GetUserByUserId) | **Get** /user/{userId} | Get user by ID
 [**GetUserQuota**](UsersAPI.md#GetUserQuota) | **Get** /user/{userId}/quota | Get quotas for a specific user
@@ -25,7 +24,6 @@ Method | HTTP request | Description
 [**GetUserSettingsPermissions**](UsersAPI.md#GetUserSettingsPermissions) | **Get** /user/{userId}/settings/permissions | Get permission settings for a user
 [**GetUserWatchData**](UsersAPI.md#GetUserWatchData) | **Get** /user/{userId}/watch_data | Get watch data
 [**GetUserWatchlist**](UsersAPI.md#GetUserWatchlist) | **Get** /user/{userId}/watchlist | Get the Plex watchlist for a specific user
-[**ListPlexUsers**](UsersAPI.md#ListPlexUsers) | **Get** /settings/plex/users | Get Plex users
 [**PutUser**](UsersAPI.md#PutUser) | **Put** /user | Update batch of users
 [**UpdateUser**](UsersAPI.md#UpdateUser) | **Put** /user/{userId} | Update a user by user ID
 
@@ -701,67 +699,6 @@ Other parameters are passed through a pointer to a apiDeleteUserRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**User**](User.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetAuthMe
-
-> User GetAuthMe(ctx).Execute()
-
-Get logged-in user
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
-)
-
-func main() {
-
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetAuthMe(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetAuthMe``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAuthMe`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetAuthMe`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetAuthMeRequest struct via the builder pattern
 
 
 ### Return type
@@ -1473,67 +1410,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetUserWatchlist200Response**](GetUserWatchlist200Response.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ListPlexUsers
-
-> []ListPlexUsers200ResponseInner ListPlexUsers(ctx).Execute()
-
-Get Plex users
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
-)
-
-func main() {
-
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.ListPlexUsers(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.ListPlexUsers``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListPlexUsers`: []ListPlexUsers200ResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.ListPlexUsers`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListPlexUsersRequest struct via the builder pattern
-
-
-### Return type
-
-[**[]ListPlexUsers200ResponseInner**](ListPlexUsers200ResponseInner.md)
 
 ### Authorization
 
