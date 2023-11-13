@@ -12,6 +12,7 @@ package overseerr
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // RadarrSettings struct for RadarrSettings

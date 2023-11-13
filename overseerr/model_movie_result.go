@@ -12,6 +12,7 @@ package overseerr
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // MovieResult struct for MovieResult

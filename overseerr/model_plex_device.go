@@ -12,6 +12,7 @@ package overseerr
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // PlexDevice struct for PlexDevice
