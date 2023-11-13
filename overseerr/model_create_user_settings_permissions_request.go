@@ -12,6 +12,7 @@ package overseerr
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // CreateUserSettingsPermissionsRequest struct for CreateUserSettingsPermissionsRequest
