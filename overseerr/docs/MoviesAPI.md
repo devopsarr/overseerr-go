@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetMovieByMovieId**](MoviesAPI.md#GetMovieByMovieId) | **Get** /movie/{movieId} | Get movie details
 [**GetMovieRatings**](MoviesAPI.md#GetMovieRatings) | **Get** /movie/{movieId}/ratings | Get movie ratings
-[**GetMovieRatingscombined**](MoviesAPI.md#GetMovieRatingscombined) | **Get** /movie/{movieId}/ratingscombined | Get RT and IMDB movie ratings combined
 [**GetMovieRecommendations**](MoviesAPI.md#GetMovieRecommendations) | **Get** /movie/{movieId}/recommendations | Get recommended movies
 [**GetMovieSimilar**](MoviesAPI.md#GetMovieSimilar) | **Get** /movie/{movieId}/similar | Get similar movies
 
@@ -139,76 +138,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetMovieRatings200Response**](GetMovieRatings200Response.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetMovieRatingscombined
-
-> GetMovieRatingscombined200Response GetMovieRatingscombined(ctx, movieId).Execute()
-
-Get RT and IMDB movie ratings combined
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
-)
-
-func main() {
-    movieId := float32(337401) // float32 | 
-
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesAPI.GetMovieRatingscombined(context.Background(), movieId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieRatingscombined``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMovieRatingscombined`: GetMovieRatingscombined200Response
-    fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieRatingscombined`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**movieId** | **float32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetMovieRatingscombinedRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**GetMovieRatingscombined200Response**](GetMovieRatingscombined200Response.md)
 
 ### Authorization
 
