@@ -71,8 +71,6 @@ docs/GetMedia200Response.md
 docs/GetMediaWatchData200Response.md
 docs/GetMediaWatchData200ResponseData.md
 docs/GetMovieRatings200Response.md
-docs/GetMovieRatingscombined200Response.md
-docs/GetMovieRatingscombined200ResponseImdb.md
 docs/GetPersonCombinedCredits200Response.md
 docs/GetPlexSync200Response.md
 docs/GetRequestCount200Response.md
@@ -107,7 +105,6 @@ docs/ListGenresMovie200ResponseInner.md
 docs/ListGenresTv200ResponseInner.md
 docs/ListLanguages200ResponseInner.md
 docs/ListLogs200ResponseInner.md
-docs/ListNotificationsPushoverSounds200ResponseInner.md
 docs/ListPlexUsers200ResponseInner.md
 docs/ListRegions200ResponseInner.md
 docs/LunaSeaSettings.md
@@ -244,8 +241,6 @@ model_get_media_200_response.go
 model_get_media_watch_data_200_response.go
 model_get_media_watch_data_200_response_data.go
 model_get_movie_ratings_200_response.go
-model_get_movie_ratingscombined_200_response.go
-model_get_movie_ratingscombined_200_response_imdb.go
 model_get_person_combined_credits_200_response.go
 model_get_plex_sync_200_response.go
 model_get_request_count_200_response.go
@@ -279,7 +274,6 @@ model_list_genres_movie_200_response_inner.go
 model_list_genres_tv_200_response_inner.go
 model_list_languages_200_response_inner.go
 model_list_logs_200_response_inner.go
-model_list_notifications_pushover_sounds_200_response_inner.go
 model_list_plex_users_200_response_inner.go
 model_list_regions_200_response_inner.go
 model_luna_sea_settings.go

@@ -994,31 +994,6 @@ paths:
       summary: Test Pushover settings
       tags:
       - settings
-  /settings/notifications/pushover/sounds:
-    get:
-      description: Returns valid Pushover sound options in a JSON array.
-      operationId: ListNotificationsPushoverSounds
-      parameters:
-      - explode: true
-        in: query
-        name: token
-        required: true
-        schema:
-          nullable: false
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ListNotificationsPushoverSounds_200_response_inner'
-                type: array
-          description: Returned Pushover settings
-      summary: Get Pushover sounds
-      tags:
-      - settings
   /settings/notifications/gotify:
     get:
       description: Returns current Gotify notification settings in a JSON object.
@@ -3289,30 +3264,6 @@ paths:
                 $ref: '#/components/schemas/GetMovieRatings_200_response'
           description: Ratings returned
       summary: Get movie ratings
-      tags:
-      - movies
-  /movie/{movieId}/ratingscombined:
-    get:
-      description: Returns ratings from RottenTomatoes and IMDB based on the provided
-        movieId in a JSON object.
-      operationId: GetMovieRatingscombined
-      parameters:
-      - explode: false
-        in: path
-        name: movieId
-        required: true
-        schema:
-          example: 337401
-          type: number
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetMovieRatingscombined_200_response'
-          description: Ratings returned
-      summary: Get RT and IMDB movie ratings combined
       tags:
       - movies
   /tv/{tvId}:
@@ -6201,7 +6152,6 @@ components:
         types: 2
         options:
           userToken: userToken
-          sound: sound
           accessToken: accessToken
         enabled: false
       properties:
@@ -6815,7 +6765,6 @@ components:
         discordEnabledTypes: 3.616076749251911
         telegramChatId: telegramChatId
         pushbulletAccessToken: pushbulletAccessToken
-        pushoverSound: pushoverSound
         pgpKey: pgpKey
         discordEnabled: true
         telegramEnabled: true
@@ -6855,9 +6804,6 @@ components:
           nullable: true
           type: string
         pushoverUserKey:
-          nullable: true
-          type: string
-        pushoverSound:
           nullable: true
           type: string
         telegramEnabled:
@@ -7347,16 +7293,6 @@ components:
           type: string
         timestamp:
           example: 2020-12-15T16:20:00.069Z
-          type: string
-      type: object
-    ListNotificationsPushoverSounds_200_response_inner:
-      example:
-        name: name
-        description: description
-      properties:
-        name:
-          type: string
-        description:
           type: string
       type: object
     UpdateDiscover_request:
@@ -8642,42 +8578,6 @@ components:
           - Upright
           type: string
       type: object
-    GetMovieRatingscombined_200_response_imdb:
-      example:
-        title: I am Legend
-        criticsScore: 6.5
-        url: https://www.imdb.com/title/tt0480249
-      properties:
-        title:
-          example: I am Legend
-          type: string
-        url:
-          example: https://www.imdb.com/title/tt0480249
-          type: string
-        criticsScore:
-          example: 6.5
-          type: number
-      type: object
-    GetMovieRatingscombined_200_response:
-      example:
-        rt:
-          audienceScore: 65
-          audienceRating: Spilled
-          criticsRating: Rotten
-          year: 2020
-          title: Mulan
-          criticsScore: 85
-          url: http://www.rottentomatoes.com/m/mulan_2020/
-        imdb:
-          title: I am Legend
-          criticsScore: 6.5
-          url: https://www.imdb.com/title/tt0480249
-      properties:
-        rt:
-          $ref: '#/components/schemas/GetMovieRatings_200_response'
-        imdb:
-          $ref: '#/components/schemas/GetMovieRatingscombined_200_response_imdb'
-      type: object
     GetTvRatings_200_response:
       example:
         criticsRating: Rotten
@@ -9588,14 +9488,11 @@ components:
     PushoverSettings_options:
       example:
         userToken: userToken
-        sound: sound
         accessToken: accessToken
       properties:
         accessToken:
           type: string
         userToken:
-          type: string
-        sound:
           type: string
       type: object
     GotifySettings_options:
