@@ -5827,7 +5827,18 @@ components:
           updatedAt: 2020-09-02T05:02:23.000Z
         profileId: 5.637376656633329
         rootFolder: rootFolder
-        modifiedBy: null
+        modifiedBy:
+          plexUsername: plexUsername
+          createdAt: 2020-09-02T05:02:23.000Z
+          requestCount: 5
+          plexToken: plexToken
+          permissions: 0
+          id: 1
+          userType: 1
+          avatar: avatar
+          email: hey@itsme.com
+          username: username
+          updatedAt: 2020-09-02T05:02:23.000Z
         id: 123
         media:
           createdAt: 2020-09-12T10:00:27.000Z
@@ -7480,7 +7491,18 @@ components:
             updatedAt: 2020-09-02T05:02:23.000Z
           profileId: 5.637376656633329
           rootFolder: rootFolder
-          modifiedBy: null
+          modifiedBy:
+            plexUsername: plexUsername
+            createdAt: 2020-09-02T05:02:23.000Z
+            requestCount: 5
+            plexToken: plexToken
+            permissions: 0
+            id: 1
+            userType: 1
+            avatar: avatar
+            email: hey@itsme.com
+            username: username
+            updatedAt: 2020-09-02T05:02:23.000Z
           id: 123
           media:
             createdAt: 2020-09-12T10:00:27.000Z
@@ -7511,7 +7533,18 @@ components:
             updatedAt: 2020-09-02T05:02:23.000Z
           profileId: 5.637376656633329
           rootFolder: rootFolder
-          modifiedBy: null
+          modifiedBy:
+            plexUsername: plexUsername
+            createdAt: 2020-09-02T05:02:23.000Z
+            requestCount: 5
+            plexToken: plexToken
+            permissions: 0
+            id: 1
+            userType: 1
+            avatar: avatar
+            email: hey@itsme.com
+            username: username
+            updatedAt: 2020-09-02T05:02:23.000Z
           id: 123
           media:
             createdAt: 2020-09-12T10:00:27.000Z
@@ -7709,8 +7742,60 @@ components:
         totalPages: 20
         page: 1
         results:
-        - null
-        - null
+        - overview: Overview of the movie
+          voteAverage: 6.027456183070403
+          releaseDate: releaseDate
+          mediaType: mediaType
+          video: false
+          genreIds:
+          - 1.4658129805029452
+          - 1.4658129805029452
+          originalLanguage: en
+          title: Movie Title
+          originalTitle: Original Movie Title
+          popularity: 10
+          id: 1234
+          backdropPath: backdropPath
+          voteCount: 0.8008281904610115
+          adult: false
+          mediaInfo:
+            createdAt: 2020-09-12T10:00:27.000Z
+            tmdbId: 6.027456183070403
+            tvdbId: 1.4658129805029452
+            id: 0.8008281904610115
+            requests:
+            - null
+            - null
+            status: 0
+            updatedAt: 2020-09-12T10:00:27.000Z
+          posterPath: posterPath
+        - overview: Overview of the movie
+          voteAverage: 6.027456183070403
+          releaseDate: releaseDate
+          mediaType: mediaType
+          video: false
+          genreIds:
+          - 1.4658129805029452
+          - 1.4658129805029452
+          originalLanguage: en
+          title: Movie Title
+          originalTitle: Original Movie Title
+          popularity: 10
+          id: 1234
+          backdropPath: backdropPath
+          voteCount: 0.8008281904610115
+          adult: false
+          mediaInfo:
+            createdAt: 2020-09-12T10:00:27.000Z
+            tmdbId: 6.027456183070403
+            tvdbId: 1.4658129805029452
+            id: 0.8008281904610115
+            requests:
+            - null
+            - null
+            status: 0
+            updatedAt: 2020-09-12T10:00:27.000Z
+          posterPath: posterPath
       properties:
         page:
           example: 1
