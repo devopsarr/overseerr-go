@@ -363,7 +363,7 @@ func (r ApiListGenresMovieRequest) Language(language string) ApiListGenresMovieR
 	return r
 }
 
-func (r ApiListGenresMovieRequest) Execute() ([]*ListGenresMovie200ResponseInner, *http.Response, error) {
+func (r ApiListGenresMovieRequest) Execute() ([]*ListGenresMovie2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListGenresMovieExecute(r)
 }
 
@@ -383,13 +383,13 @@ func (a *TmdbAPIService) ListGenresMovie(ctx context.Context) ApiListGenresMovie
 }
 
 // Execute executes the request
-//  @return []ListGenresMovie200ResponseInner
-func (a *TmdbAPIService) ListGenresMovieExecute(r ApiListGenresMovieRequest) ([]*ListGenresMovie200ResponseInner, *http.Response, error) {
+//  @return []ListGenresMovie2XXResponseInner
+func (a *TmdbAPIService) ListGenresMovieExecute(r ApiListGenresMovieRequest) ([]*ListGenresMovie2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListGenresMovie200ResponseInner
+		localVarReturnValue  []*ListGenresMovie2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListGenresMovie")
@@ -484,7 +484,7 @@ func (r ApiListGenresTvRequest) Language(language string) ApiListGenresTvRequest
 	return r
 }
 
-func (r ApiListGenresTvRequest) Execute() ([]*ListGenresTv200ResponseInner, *http.Response, error) {
+func (r ApiListGenresTvRequest) Execute() ([]*ListGenresTv2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListGenresTvExecute(r)
 }
 
@@ -504,13 +504,13 @@ func (a *TmdbAPIService) ListGenresTv(ctx context.Context) ApiListGenresTvReques
 }
 
 // Execute executes the request
-//  @return []ListGenresTv200ResponseInner
-func (a *TmdbAPIService) ListGenresTvExecute(r ApiListGenresTvRequest) ([]*ListGenresTv200ResponseInner, *http.Response, error) {
+//  @return []ListGenresTv2XXResponseInner
+func (a *TmdbAPIService) ListGenresTvExecute(r ApiListGenresTvRequest) ([]*ListGenresTv2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListGenresTv200ResponseInner
+		localVarReturnValue  []*ListGenresTv2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListGenresTv")
@@ -599,7 +599,7 @@ type ApiListLanguagesRequest struct {
 	ApiService *TmdbAPIService
 }
 
-func (r ApiListLanguagesRequest) Execute() ([]*ListLanguages200ResponseInner, *http.Response, error) {
+func (r ApiListLanguagesRequest) Execute() ([]*ListLanguages2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListLanguagesExecute(r)
 }
 
@@ -619,13 +619,13 @@ func (a *TmdbAPIService) ListLanguages(ctx context.Context) ApiListLanguagesRequ
 }
 
 // Execute executes the request
-//  @return []ListLanguages200ResponseInner
-func (a *TmdbAPIService) ListLanguagesExecute(r ApiListLanguagesRequest) ([]*ListLanguages200ResponseInner, *http.Response, error) {
+//  @return []ListLanguages2XXResponseInner
+func (a *TmdbAPIService) ListLanguagesExecute(r ApiListLanguagesRequest) ([]*ListLanguages2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListLanguages200ResponseInner
+		localVarReturnValue  []*ListLanguages2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListLanguages")
@@ -711,7 +711,7 @@ type ApiListRegionsRequest struct {
 	ApiService *TmdbAPIService
 }
 
-func (r ApiListRegionsRequest) Execute() ([]*ListRegions200ResponseInner, *http.Response, error) {
+func (r ApiListRegionsRequest) Execute() ([]*ListRegions2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListRegionsExecute(r)
 }
 
@@ -731,13 +731,13 @@ func (a *TmdbAPIService) ListRegions(ctx context.Context) ApiListRegionsRequest 
 }
 
 // Execute executes the request
-//  @return []ListRegions200ResponseInner
-func (a *TmdbAPIService) ListRegionsExecute(r ApiListRegionsRequest) ([]*ListRegions200ResponseInner, *http.Response, error) {
+//  @return []ListRegions2XXResponseInner
+func (a *TmdbAPIService) ListRegionsExecute(r ApiListRegionsRequest) ([]*ListRegions2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListRegions200ResponseInner
+		localVarReturnValue  []*ListRegions2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListRegions")

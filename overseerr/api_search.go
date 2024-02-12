@@ -40,7 +40,7 @@ func (r ApiGetDiscoverKeywordMoviesRequest) Language(language string) ApiGetDisc
 	return r
 }
 
-func (r ApiGetDiscoverKeywordMoviesRequest) Execute() (*GetDiscoverMovies200Response, *http.Response, error) {
+func (r ApiGetDiscoverKeywordMoviesRequest) Execute() (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverKeywordMoviesExecute(r)
 }
 
@@ -62,13 +62,13 @@ func (a *SearchAPIService) GetDiscoverKeywordMovies(ctx context.Context, keyword
 }
 
 // Execute executes the request
-//  @return GetDiscoverMovies200Response
-func (a *SearchAPIService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywordMoviesRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+//  @return GetDiscoverMovies2XXResponse
+func (a *SearchAPIService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywordMoviesRequest) (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverMovies200Response
+		localVarReturnValue  *GetDiscoverMovies2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverKeywordMovies")
@@ -257,7 +257,7 @@ func (r ApiGetDiscoverMoviesRequest) WatchProviders(watchProviders string) ApiGe
 	return r
 }
 
-func (r ApiGetDiscoverMoviesRequest) Execute() (*GetDiscoverMovies200Response, *http.Response, error) {
+func (r ApiGetDiscoverMoviesRequest) Execute() (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverMoviesExecute(r)
 }
 
@@ -277,13 +277,13 @@ func (a *SearchAPIService) GetDiscoverMovies(ctx context.Context) ApiGetDiscover
 }
 
 // Execute executes the request
-//  @return GetDiscoverMovies200Response
-func (a *SearchAPIService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+//  @return GetDiscoverMovies2XXResponse
+func (a *SearchAPIService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesRequest) (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverMovies200Response
+		localVarReturnValue  *GetDiscoverMovies2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMovies")
@@ -430,7 +430,7 @@ func (r ApiGetDiscoverMoviesGenreByGenreIdRequest) Language(language string) Api
 	return r
 }
 
-func (r ApiGetDiscoverMoviesGenreByGenreIdRequest) Execute() (*GetDiscoverMoviesGenreByGenreId200Response, *http.Response, error) {
+func (r ApiGetDiscoverMoviesGenreByGenreIdRequest) Execute() (*GetDiscoverMoviesGenreByGenreId2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverMoviesGenreByGenreIdExecute(r)
 }
 
@@ -452,13 +452,13 @@ func (a *SearchAPIService) GetDiscoverMoviesGenreByGenreId(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return GetDiscoverMoviesGenreByGenreId200Response
-func (a *SearchAPIService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscoverMoviesGenreByGenreIdRequest) (*GetDiscoverMoviesGenreByGenreId200Response, *http.Response, error) {
+//  @return GetDiscoverMoviesGenreByGenreId2XXResponse
+func (a *SearchAPIService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscoverMoviesGenreByGenreIdRequest) (*GetDiscoverMoviesGenreByGenreId2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverMoviesGenreByGenreId200Response
+		localVarReturnValue  *GetDiscoverMoviesGenreByGenreId2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMoviesGenreByGenreId")
@@ -564,7 +564,7 @@ func (r ApiGetDiscoverMoviesLanguageByLanguageRequest) Language2(language2 strin
 	return r
 }
 
-func (r ApiGetDiscoverMoviesLanguageByLanguageRequest) Execute() (*GetDiscoverMoviesLanguageByLanguage200Response, *http.Response, error) {
+func (r ApiGetDiscoverMoviesLanguageByLanguageRequest) Execute() (*GetDiscoverMoviesLanguageByLanguage2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverMoviesLanguageByLanguageExecute(r)
 }
 
@@ -586,13 +586,13 @@ func (a *SearchAPIService) GetDiscoverMoviesLanguageByLanguage(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return GetDiscoverMoviesLanguageByLanguage200Response
-func (a *SearchAPIService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDiscoverMoviesLanguageByLanguageRequest) (*GetDiscoverMoviesLanguageByLanguage200Response, *http.Response, error) {
+//  @return GetDiscoverMoviesLanguageByLanguage2XXResponse
+func (a *SearchAPIService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDiscoverMoviesLanguageByLanguageRequest) (*GetDiscoverMoviesLanguageByLanguage2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverMoviesLanguageByLanguage200Response
+		localVarReturnValue  *GetDiscoverMoviesLanguageByLanguage2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMoviesLanguageByLanguage")
@@ -698,7 +698,7 @@ func (r ApiGetDiscoverMoviesStudioByStudioIdRequest) Language(language string) A
 	return r
 }
 
-func (r ApiGetDiscoverMoviesStudioByStudioIdRequest) Execute() (*GetDiscoverMoviesStudioByStudioId200Response, *http.Response, error) {
+func (r ApiGetDiscoverMoviesStudioByStudioIdRequest) Execute() (*GetDiscoverMoviesStudioByStudioId2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverMoviesStudioByStudioIdExecute(r)
 }
 
@@ -720,13 +720,13 @@ func (a *SearchAPIService) GetDiscoverMoviesStudioByStudioId(ctx context.Context
 }
 
 // Execute executes the request
-//  @return GetDiscoverMoviesStudioByStudioId200Response
-func (a *SearchAPIService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDiscoverMoviesStudioByStudioIdRequest) (*GetDiscoverMoviesStudioByStudioId200Response, *http.Response, error) {
+//  @return GetDiscoverMoviesStudioByStudioId2XXResponse
+func (a *SearchAPIService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDiscoverMoviesStudioByStudioIdRequest) (*GetDiscoverMoviesStudioByStudioId2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverMoviesStudioByStudioId200Response
+		localVarReturnValue  *GetDiscoverMoviesStudioByStudioId2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMoviesStudioByStudioId")
@@ -831,7 +831,7 @@ func (r ApiGetDiscoverMoviesUpcomingRequest) Language(language string) ApiGetDis
 	return r
 }
 
-func (r ApiGetDiscoverMoviesUpcomingRequest) Execute() (*GetDiscoverMovies200Response, *http.Response, error) {
+func (r ApiGetDiscoverMoviesUpcomingRequest) Execute() (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverMoviesUpcomingExecute(r)
 }
 
@@ -851,13 +851,13 @@ func (a *SearchAPIService) GetDiscoverMoviesUpcoming(ctx context.Context) ApiGet
 }
 
 // Execute executes the request
-//  @return GetDiscoverMovies200Response
-func (a *SearchAPIService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMoviesUpcomingRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+//  @return GetDiscoverMovies2XXResponse
+func (a *SearchAPIService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMoviesUpcomingRequest) (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverMovies200Response
+		localVarReturnValue  *GetDiscoverMovies2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverMoviesUpcoming")
@@ -961,7 +961,7 @@ func (r ApiGetDiscoverTrendingRequest) Language(language string) ApiGetDiscoverT
 	return r
 }
 
-func (r ApiGetDiscoverTrendingRequest) Execute() (*GetSearch200Response, *http.Response, error) {
+func (r ApiGetDiscoverTrendingRequest) Execute() (*GetSearch2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverTrendingExecute(r)
 }
 
@@ -981,13 +981,13 @@ func (a *SearchAPIService) GetDiscoverTrending(ctx context.Context) ApiGetDiscov
 }
 
 // Execute executes the request
-//  @return GetSearch200Response
-func (a *SearchAPIService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRequest) (*GetSearch200Response, *http.Response, error) {
+//  @return GetSearch2XXResponse
+func (a *SearchAPIService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRequest) (*GetSearch2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetSearch200Response
+		localVarReturnValue  *GetSearch2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTrending")
@@ -1175,7 +1175,7 @@ func (r ApiGetDiscoverTvRequest) WatchProviders(watchProviders string) ApiGetDis
 	return r
 }
 
-func (r ApiGetDiscoverTvRequest) Execute() (*GetDiscoverTv200Response, *http.Response, error) {
+func (r ApiGetDiscoverTvRequest) Execute() (*GetDiscoverTv2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverTvExecute(r)
 }
 
@@ -1195,13 +1195,13 @@ func (a *SearchAPIService) GetDiscoverTv(ctx context.Context) ApiGetDiscoverTvRe
 }
 
 // Execute executes the request
-//  @return GetDiscoverTv200Response
-func (a *SearchAPIService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*GetDiscoverTv200Response, *http.Response, error) {
+//  @return GetDiscoverTv2XXResponse
+func (a *SearchAPIService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*GetDiscoverTv2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverTv200Response
+		localVarReturnValue  *GetDiscoverTv2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTv")
@@ -1348,7 +1348,7 @@ func (r ApiGetDiscoverTvGenreByGenreIdRequest) Language(language string) ApiGetD
 	return r
 }
 
-func (r ApiGetDiscoverTvGenreByGenreIdRequest) Execute() (*GetDiscoverTvGenreByGenreId200Response, *http.Response, error) {
+func (r ApiGetDiscoverTvGenreByGenreIdRequest) Execute() (*GetDiscoverTvGenreByGenreId2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverTvGenreByGenreIdExecute(r)
 }
 
@@ -1370,13 +1370,13 @@ func (a *SearchAPIService) GetDiscoverTvGenreByGenreId(ctx context.Context, genr
 }
 
 // Execute executes the request
-//  @return GetDiscoverTvGenreByGenreId200Response
-func (a *SearchAPIService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTvGenreByGenreIdRequest) (*GetDiscoverTvGenreByGenreId200Response, *http.Response, error) {
+//  @return GetDiscoverTvGenreByGenreId2XXResponse
+func (a *SearchAPIService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTvGenreByGenreIdRequest) (*GetDiscoverTvGenreByGenreId2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverTvGenreByGenreId200Response
+		localVarReturnValue  *GetDiscoverTvGenreByGenreId2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTvGenreByGenreId")
@@ -1482,7 +1482,7 @@ func (r ApiGetDiscoverTvLanguageByLanguageRequest) Language2(language2 string) A
 	return r
 }
 
-func (r ApiGetDiscoverTvLanguageByLanguageRequest) Execute() (*GetDiscoverTvLanguageByLanguage200Response, *http.Response, error) {
+func (r ApiGetDiscoverTvLanguageByLanguageRequest) Execute() (*GetDiscoverTvLanguageByLanguage2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverTvLanguageByLanguageExecute(r)
 }
 
@@ -1504,13 +1504,13 @@ func (a *SearchAPIService) GetDiscoverTvLanguageByLanguage(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return GetDiscoverTvLanguageByLanguage200Response
-func (a *SearchAPIService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscoverTvLanguageByLanguageRequest) (*GetDiscoverTvLanguageByLanguage200Response, *http.Response, error) {
+//  @return GetDiscoverTvLanguageByLanguage2XXResponse
+func (a *SearchAPIService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscoverTvLanguageByLanguageRequest) (*GetDiscoverTvLanguageByLanguage2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverTvLanguageByLanguage200Response
+		localVarReturnValue  *GetDiscoverTvLanguageByLanguage2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTvLanguageByLanguage")
@@ -1616,7 +1616,7 @@ func (r ApiGetDiscoverTvNetworkByNetworkIdRequest) Language(language string) Api
 	return r
 }
 
-func (r ApiGetDiscoverTvNetworkByNetworkIdRequest) Execute() (*GetDiscoverTvNetworkByNetworkId200Response, *http.Response, error) {
+func (r ApiGetDiscoverTvNetworkByNetworkIdRequest) Execute() (*GetDiscoverTvNetworkByNetworkId2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverTvNetworkByNetworkIdExecute(r)
 }
 
@@ -1638,13 +1638,13 @@ func (a *SearchAPIService) GetDiscoverTvNetworkByNetworkId(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return GetDiscoverTvNetworkByNetworkId200Response
-func (a *SearchAPIService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscoverTvNetworkByNetworkIdRequest) (*GetDiscoverTvNetworkByNetworkId200Response, *http.Response, error) {
+//  @return GetDiscoverTvNetworkByNetworkId2XXResponse
+func (a *SearchAPIService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscoverTvNetworkByNetworkIdRequest) (*GetDiscoverTvNetworkByNetworkId2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverTvNetworkByNetworkId200Response
+		localVarReturnValue  *GetDiscoverTvNetworkByNetworkId2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTvNetworkByNetworkId")
@@ -1749,7 +1749,7 @@ func (r ApiGetDiscoverTvUpcomingRequest) Language(language string) ApiGetDiscove
 	return r
 }
 
-func (r ApiGetDiscoverTvUpcomingRequest) Execute() (*GetDiscoverTv200Response, *http.Response, error) {
+func (r ApiGetDiscoverTvUpcomingRequest) Execute() (*GetDiscoverTv2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverTvUpcomingExecute(r)
 }
 
@@ -1769,13 +1769,13 @@ func (a *SearchAPIService) GetDiscoverTvUpcoming(ctx context.Context) ApiGetDisc
 }
 
 // Execute executes the request
-//  @return GetDiscoverTv200Response
-func (a *SearchAPIService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomingRequest) (*GetDiscoverTv200Response, *http.Response, error) {
+//  @return GetDiscoverTv2XXResponse
+func (a *SearchAPIService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomingRequest) (*GetDiscoverTv2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverTv200Response
+		localVarReturnValue  *GetDiscoverTv2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverTvUpcoming")
@@ -1873,7 +1873,7 @@ func (r ApiGetDiscoverWatchlistRequest) Page(page float32) ApiGetDiscoverWatchli
 	return r
 }
 
-func (r ApiGetDiscoverWatchlistRequest) Execute() (*GetUserWatchlist200Response, *http.Response, error) {
+func (r ApiGetDiscoverWatchlistRequest) Execute() (*GetUserWatchlist2XXResponse, *http.Response, error) {
 	return r.ApiService.GetDiscoverWatchlistExecute(r)
 }
 
@@ -1891,13 +1891,13 @@ func (a *SearchAPIService) GetDiscoverWatchlist(ctx context.Context) ApiGetDisco
 }
 
 // Execute executes the request
-//  @return GetUserWatchlist200Response
-func (a *SearchAPIService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlistRequest) (*GetUserWatchlist200Response, *http.Response, error) {
+//  @return GetUserWatchlist2XXResponse
+func (a *SearchAPIService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlistRequest) (*GetUserWatchlist2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserWatchlist200Response
+		localVarReturnValue  *GetUserWatchlist2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetDiscoverWatchlist")
@@ -2004,7 +2004,7 @@ func (r ApiGetSearchRequest) Language(language string) ApiGetSearchRequest {
 	return r
 }
 
-func (r ApiGetSearchRequest) Execute() (*GetSearch200Response, *http.Response, error) {
+func (r ApiGetSearchRequest) Execute() (*GetSearch2XXResponse, *http.Response, error) {
 	return r.ApiService.GetSearchExecute(r)
 }
 
@@ -2024,13 +2024,13 @@ func (a *SearchAPIService) GetSearch(ctx context.Context) ApiGetSearchRequest {
 }
 
 // Execute executes the request
-//  @return GetSearch200Response
-func (a *SearchAPIService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch200Response, *http.Response, error) {
+//  @return GetSearch2XXResponse
+func (a *SearchAPIService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetSearch200Response
+		localVarReturnValue  *GetSearch2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetSearch")
@@ -2138,7 +2138,7 @@ func (r ApiGetSearchCompanyRequest) Page(page float32) ApiGetSearchCompanyReques
 	return r
 }
 
-func (r ApiGetSearchCompanyRequest) Execute() (*GetSearchCompany200Response, *http.Response, error) {
+func (r ApiGetSearchCompanyRequest) Execute() (*GetSearchCompany2XXResponse, *http.Response, error) {
 	return r.ApiService.GetSearchCompanyExecute(r)
 }
 
@@ -2158,13 +2158,13 @@ func (a *SearchAPIService) GetSearchCompany(ctx context.Context) ApiGetSearchCom
 }
 
 // Execute executes the request
-//  @return GetSearchCompany200Response
-func (a *SearchAPIService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest) (*GetSearchCompany200Response, *http.Response, error) {
+//  @return GetSearchCompany2XXResponse
+func (a *SearchAPIService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest) (*GetSearchCompany2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetSearchCompany200Response
+		localVarReturnValue  *GetSearchCompany2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetSearchCompany")
@@ -2269,7 +2269,7 @@ func (r ApiGetSearchKeywordRequest) Page(page float32) ApiGetSearchKeywordReques
 	return r
 }
 
-func (r ApiGetSearchKeywordRequest) Execute() (*GetSearchKeyword200Response, *http.Response, error) {
+func (r ApiGetSearchKeywordRequest) Execute() (*GetSearchKeyword2XXResponse, *http.Response, error) {
 	return r.ApiService.GetSearchKeywordExecute(r)
 }
 
@@ -2289,13 +2289,13 @@ func (a *SearchAPIService) GetSearchKeyword(ctx context.Context) ApiGetSearchKey
 }
 
 // Execute executes the request
-//  @return GetSearchKeyword200Response
-func (a *SearchAPIService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest) (*GetSearchKeyword200Response, *http.Response, error) {
+//  @return GetSearchKeyword2XXResponse
+func (a *SearchAPIService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest) (*GetSearchKeyword2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetSearchKeyword200Response
+		localVarReturnValue  *GetSearchKeyword2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.GetSearchKeyword")
@@ -2394,7 +2394,7 @@ func (r ApiListDiscoverGenresliderMovieRequest) Language(language string) ApiLis
 	return r
 }
 
-func (r ApiListDiscoverGenresliderMovieRequest) Execute() ([]*ListDiscoverGenresliderMovie200ResponseInner, *http.Response, error) {
+func (r ApiListDiscoverGenresliderMovieRequest) Execute() ([]*ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListDiscoverGenresliderMovieExecute(r)
 }
 
@@ -2414,13 +2414,13 @@ func (a *SearchAPIService) ListDiscoverGenresliderMovie(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return []ListDiscoverGenresliderMovie200ResponseInner
-func (a *SearchAPIService) ListDiscoverGenresliderMovieExecute(r ApiListDiscoverGenresliderMovieRequest) ([]*ListDiscoverGenresliderMovie200ResponseInner, *http.Response, error) {
+//  @return []ListDiscoverGenresliderMovie2XXResponseInner
+func (a *SearchAPIService) ListDiscoverGenresliderMovieExecute(r ApiListDiscoverGenresliderMovieRequest) ([]*ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListDiscoverGenresliderMovie200ResponseInner
+		localVarReturnValue  []*ListDiscoverGenresliderMovie2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.ListDiscoverGenresliderMovie")
@@ -2515,7 +2515,7 @@ func (r ApiListDiscoverGenresliderTvRequest) Language(language string) ApiListDi
 	return r
 }
 
-func (r ApiListDiscoverGenresliderTvRequest) Execute() ([]*ListDiscoverGenresliderMovie200ResponseInner, *http.Response, error) {
+func (r ApiListDiscoverGenresliderTvRequest) Execute() ([]*ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListDiscoverGenresliderTvExecute(r)
 }
 
@@ -2535,13 +2535,13 @@ func (a *SearchAPIService) ListDiscoverGenresliderTv(ctx context.Context) ApiLis
 }
 
 // Execute executes the request
-//  @return []ListDiscoverGenresliderMovie200ResponseInner
-func (a *SearchAPIService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGenresliderTvRequest) ([]*ListDiscoverGenresliderMovie200ResponseInner, *http.Response, error) {
+//  @return []ListDiscoverGenresliderMovie2XXResponseInner
+func (a *SearchAPIService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGenresliderTvRequest) ([]*ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListDiscoverGenresliderMovie200ResponseInner
+		localVarReturnValue  []*ListDiscoverGenresliderMovie2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.ListDiscoverGenresliderTv")

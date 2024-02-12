@@ -51,11 +51,11 @@ paths:
       description: Returns the current Overseerr status in a JSON object.
       operationId: GetStatus
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetStatus_200_response'
+                $ref: '#/components/schemas/GetStatus_2XX_response'
           description: Returned status
       security: []
       summary: Get Overseerr status
@@ -67,11 +67,11 @@ paths:
         \ configured properly. Always returns true for non-Docker installs."
       operationId: GetStatusAppdata
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetStatusAppdata_200_response'
+                $ref: '#/components/schemas/GetStatusAppdata_2XX_response'
           description: Application data volume status and path
       security: []
       summary: Get application data volume status
@@ -82,7 +82,7 @@ paths:
       description: Retrieves all main settings in a JSON object.
       operationId: GetMain
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -101,7 +101,7 @@ paths:
               $ref: '#/components/schemas/MainSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -115,7 +115,7 @@ paths:
       description: "Returns main settings in a JSON object, using the new API key."
       operationId: CreateMainRegenerate
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -129,7 +129,7 @@ paths:
       description: Retrieves current Plex settings.
       operationId: GetPlex
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -148,7 +148,7 @@ paths:
               $ref: '#/components/schemas/PlexSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -183,7 +183,7 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -199,11 +199,11 @@ paths:
       description: Returns scan progress in a JSON array.
       operationId: GetPlexSync
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPlexSync_200_response'
+                $ref: '#/components/schemas/GetPlexSync_2XX_response'
           description: Status of Plex scan
       summary: Get status of full Plex library scan
       tags:
@@ -218,11 +218,11 @@ paths:
             schema:
               $ref: '#/components/schemas/CreatePlexSync_request'
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPlexSync_200_response'
+                $ref: '#/components/schemas/GetPlexSync_2XX_response'
           description: Status of Plex scan
       summary: Start full Plex library scan
       tags:
@@ -233,7 +233,7 @@ paths:
         state
       operationId: ListPlexDevicesServers
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -252,12 +252,12 @@ paths:
         Requires the `MANAGE_USERS` permission.
       operationId: ListPlexUsers
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ListPlexUsers_200_response_inner'
+                  $ref: '#/components/schemas/ListPlexUsers_2XX_response_inner'
                 type: array
           description: Plex users
       summary: Get Plex users
@@ -268,7 +268,7 @@ paths:
       description: Retrieves current Tautulli settings.
       operationId: GetTautulli
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -287,7 +287,7 @@ paths:
               $ref: '#/components/schemas/TautulliSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -301,7 +301,7 @@ paths:
       description: Returns all Radarr settings in a JSON array.
       operationId: ListRadarr
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -343,11 +343,11 @@ paths:
               $ref: '#/components/schemas/TestRadarr_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TestRadarr_200_response'
+                $ref: '#/components/schemas/TestRadarr_2XX_response'
           description: Succesfully connected to Radarr instance
       summary: Test Radarr configuration
       tags:
@@ -366,7 +366,7 @@ paths:
           type: integer
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -394,7 +394,7 @@ paths:
               $ref: '#/components/schemas/RadarrSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -418,7 +418,7 @@ paths:
           type: integer
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -434,7 +434,7 @@ paths:
       description: Returns all Sonarr settings in a JSON array.
       operationId: ListSonarr
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -476,11 +476,11 @@ paths:
               $ref: '#/components/schemas/TestSonarr_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TestRadarr_200_response'
+                $ref: '#/components/schemas/TestRadarr_2XX_response'
           description: Succesfully connected to Sonarr instance
       summary: Test Sonarr configuration
       tags:
@@ -499,7 +499,7 @@ paths:
           type: integer
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -527,7 +527,7 @@ paths:
               $ref: '#/components/schemas/SonarrSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -542,7 +542,7 @@ paths:
         to determine if the application has been configured for the first time.
       operationId: GetPublic
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -558,7 +558,7 @@ paths:
         \ pages other than the setup page."
       operationId: CreateInitialize
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -573,7 +573,7 @@ paths:
         execution time in a JSON array.
       operationId: ListJobs
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -598,7 +598,7 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -621,7 +621,7 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -650,7 +650,7 @@ paths:
               $ref: '#/components/schemas/CreateJobsSchedule_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -664,11 +664,11 @@ paths:
       description: Retrieves a list of all active caches and their current stats.
       operationId: GetCache
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCache_200_response'
+                $ref: '#/components/schemas/GetCache_2XX_response'
           description: Caches returned
       summary: Get a list of active caches
       tags:
@@ -738,12 +738,12 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ListLogs_200_response_inner'
+                  $ref: '#/components/schemas/ListLogs_2XX_response_inner'
                 type: array
           description: Server log returned
       summary: Returns logs
@@ -754,7 +754,7 @@ paths:
       description: Returns current email notification settings in a JSON object.
       operationId: GetNotificationsEmail
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -773,7 +773,7 @@ paths:
               $ref: '#/components/schemas/NotificationEmailSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -803,7 +803,7 @@ paths:
       description: Returns current Discord notification settings in a JSON object.
       operationId: GetNotificationsDiscord
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -822,7 +822,7 @@ paths:
               $ref: '#/components/schemas/DiscordSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -852,7 +852,7 @@ paths:
       description: Returns current LunaSea notification settings in a JSON object.
       operationId: GetNotificationsLunasea
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -871,7 +871,7 @@ paths:
               $ref: '#/components/schemas/LunaSeaSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -901,7 +901,7 @@ paths:
       description: Returns current Pushbullet notification settings in a JSON object.
       operationId: GetNotificationsPushbullet
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -920,7 +920,7 @@ paths:
               $ref: '#/components/schemas/PushbulletSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -950,7 +950,7 @@ paths:
       description: Returns current Pushover notification settings in a JSON object.
       operationId: GetNotificationsPushover
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -969,7 +969,7 @@ paths:
               $ref: '#/components/schemas/PushoverSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -999,7 +999,7 @@ paths:
       description: Returns current Gotify notification settings in a JSON object.
       operationId: GetNotificationsGotify
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1018,7 +1018,7 @@ paths:
               $ref: '#/components/schemas/GotifySettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1048,7 +1048,7 @@ paths:
       description: Returns current Slack notification settings in a JSON object.
       operationId: GetNotificationsSlack
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1067,7 +1067,7 @@ paths:
               $ref: '#/components/schemas/SlackSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1097,7 +1097,7 @@ paths:
       description: Returns current Telegram notification settings in a JSON object.
       operationId: GetNotificationsTelegram
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1116,7 +1116,7 @@ paths:
               $ref: '#/components/schemas/TelegramSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1146,7 +1146,7 @@ paths:
       description: Returns current Web Push notification settings in a JSON object.
       operationId: GetNotificationsWebpush
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1165,7 +1165,7 @@ paths:
               $ref: '#/components/schemas/WebPushSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1195,7 +1195,7 @@ paths:
       description: Returns current webhook notification settings in a JSON object.
       operationId: GetNotificationsWebhook
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1214,7 +1214,7 @@ paths:
               $ref: '#/components/schemas/WebhookSettings'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1244,7 +1244,7 @@ paths:
       description: Returns all discovery sliders. Built-in and custom made.
       operationId: ListDiscover
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1270,7 +1270,7 @@ paths:
               type: array
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1295,7 +1295,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1323,7 +1323,7 @@ paths:
               $ref: '#/components/schemas/UpdateDiscover_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1344,7 +1344,7 @@ paths:
               $ref: '#/components/schemas/CreateDiscoverAdd_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1369,11 +1369,11 @@ paths:
       description: Returns current server stats in a JSON object.
       operationId: GetAbout
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetAbout_200_response'
+                $ref: '#/components/schemas/GetAbout_2XX_response'
           description: Returned about settings
       summary: Get server stats
       tags:
@@ -1383,7 +1383,7 @@ paths:
       description: Returns the currently logged-in user.
       operationId: GetAuthMe
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1407,7 +1407,7 @@ paths:
               $ref: '#/components/schemas/CreateAuthPlex_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1429,7 +1429,7 @@ paths:
               $ref: '#/components/schemas/CreateAuthLocal_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1445,11 +1445,11 @@ paths:
         \ signing the user out."
       operationId: CreateAuthLogout
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateAuthLogout_200_response'
+                $ref: '#/components/schemas/CreateAuthLogout_2XX_response'
           description: OK
       summary: Sign out and clear session cookie
       tags:
@@ -1465,11 +1465,11 @@ paths:
               $ref: '#/components/schemas/CreateAuthResetPassword_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateAuthLogout_200_response'
+                $ref: '#/components/schemas/CreateAuthLogout_2XX_response'
           description: OK
       security: []
       summary: Send a reset password email
@@ -1496,11 +1496,11 @@ paths:
               $ref: '#/components/schemas/CreateAuthResetPasswordByGuid_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateAuthLogout_200_response'
+                $ref: '#/components/schemas/CreateAuthLogout_2XX_response'
           description: OK
       security: []
       summary: Reset the password for a user
@@ -1543,11 +1543,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUser_200_response'
+                $ref: '#/components/schemas/GetUser_2XX_response'
           description: A JSON array of all users
       summary: Get all users
       tags:
@@ -1585,7 +1585,7 @@ paths:
               $ref: '#/components/schemas/PutUser_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1651,7 +1651,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1673,7 +1673,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1703,7 +1703,7 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1744,11 +1744,11 @@ paths:
           type: number
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserRequests_200_response'
+                $ref: '#/components/schemas/GetUserRequests_2XX_response'
           description: User's requests returned
       summary: Get requests for a specific user
       tags:
@@ -1767,11 +1767,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserQuota_200_response'
+                $ref: '#/components/schemas/GetUserQuota_2XX_response'
           description: User quota details in JSON
       summary: Get quotas for a specific user
       tags:
@@ -1799,11 +1799,11 @@ paths:
           type: number
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserWatchlist_200_response'
+                $ref: '#/components/schemas/GetUserWatchlist_2XX_response'
           description: Watchlist data returned
       summary: Get the Plex watchlist for a specific user
       tags:
@@ -1822,11 +1822,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserSettingsMain_200_response'
+                $ref: '#/components/schemas/GetUserSettingsMain_2XX_response'
           description: User general settings returned
       summary: Get general settings for a user
       tags:
@@ -1850,11 +1850,11 @@ paths:
               $ref: '#/components/schemas/CreateUserSettingsMain_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserSettingsMain_200_response'
+                $ref: '#/components/schemas/GetUserSettingsMain_2XX_response'
           description: Updated user general settings returned
       summary: Update general settings for a user
       tags:
@@ -1873,11 +1873,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserSettingsPassword_200_response'
+                $ref: '#/components/schemas/GetUserSettingsPassword_2XX_response'
           description: User password page information returned
       summary: Get password page informatiom
       tags:
@@ -1920,7 +1920,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1948,7 +1948,7 @@ paths:
               $ref: '#/components/schemas/UserSettingsNotifications'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -1971,11 +1971,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserSettingsPermissions_200_response'
+                $ref: '#/components/schemas/GetUserSettingsPermissions_2XX_response'
           description: User permission settings returned
       summary: Get permission settings for a user
       tags:
@@ -1999,11 +1999,11 @@ paths:
               $ref: '#/components/schemas/CreateUserSettingsPermissions_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserSettingsPermissions_200_response'
+                $ref: '#/components/schemas/GetUserSettingsPermissions_2XX_response'
           description: Updated user general settings returned
       summary: Update permission settings for a user
       tags:
@@ -2024,11 +2024,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserWatch_data_200_response'
+                $ref: '#/components/schemas/GetUserWatch_data_2XX_response'
           description: Users
       summary: Get watch data
       tags:
@@ -2064,11 +2064,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSearch_200_response'
+                $ref: '#/components/schemas/GetSearch_2XX_response'
           description: Results
       summary: "Search for movies, TV shows, or people"
       tags:
@@ -2096,11 +2096,11 @@ paths:
           type: number
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSearchKeyword_200_response'
+                $ref: '#/components/schemas/GetSearchKeyword_2XX_response'
           description: Results
       summary: Search for keywords
       tags:
@@ -2129,11 +2129,11 @@ paths:
           type: number
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSearchCompany_200_response'
+                $ref: '#/components/schemas/GetSearchCompany_2XX_response'
           description: Results
       summary: Search for companies
       tags:
@@ -2273,11 +2273,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverMovies_200_response'
+                $ref: '#/components/schemas/GetDiscoverMovies_2XX_response'
           description: Results
       summary: Discover movies
       tags:
@@ -2314,11 +2314,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverMoviesGenreByGenreId_200_response'
+                $ref: '#/components/schemas/GetDiscoverMoviesGenreByGenreId_2XX_response'
           description: Results
       summary: Discover movies by genre
       tags:
@@ -2355,11 +2355,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverMoviesLanguageByLanguage_200_response'
+                $ref: '#/components/schemas/GetDiscoverMoviesLanguageByLanguage_2XX_response'
           description: Results
       summary: Discover movies by original language
       tags:
@@ -2396,11 +2396,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverMoviesStudioByStudioId_200_response'
+                $ref: '#/components/schemas/GetDiscoverMoviesStudioByStudioId_2XX_response'
           description: Results
       summary: Discover movies by studio
       tags:
@@ -2428,11 +2428,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverMovies_200_response'
+                $ref: '#/components/schemas/GetDiscoverMovies_2XX_response'
           description: Results
       summary: Upcoming movies
       tags:
@@ -2572,11 +2572,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverTv_200_response'
+                $ref: '#/components/schemas/GetDiscoverTv_2XX_response'
           description: Results
       summary: Discover TV shows
       tags:
@@ -2613,11 +2613,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverTvLanguageByLanguage_200_response'
+                $ref: '#/components/schemas/GetDiscoverTvLanguageByLanguage_2XX_response'
           description: Results
       summary: Discover TV shows by original language
       tags:
@@ -2654,11 +2654,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverTvGenreByGenreId_200_response'
+                $ref: '#/components/schemas/GetDiscoverTvGenreByGenreId_2XX_response'
           description: Results
       summary: Discover TV shows by genre
       tags:
@@ -2695,11 +2695,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverTvNetworkByNetworkId_200_response'
+                $ref: '#/components/schemas/GetDiscoverTvNetworkByNetworkId_2XX_response'
           description: Results
       summary: Discover TV shows by network
       tags:
@@ -2727,11 +2727,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverTv_200_response'
+                $ref: '#/components/schemas/GetDiscoverTv_2XX_response'
           description: Results
       summary: Discover Upcoming TV shows
       tags:
@@ -2759,11 +2759,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSearch_200_response'
+                $ref: '#/components/schemas/GetSearch_2XX_response'
           description: Results
       summary: Trending movies and TV
       tags:
@@ -2800,11 +2800,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverMovies_200_response'
+                $ref: '#/components/schemas/GetDiscoverMovies_2XX_response'
           description: List of movies
       summary: Get movies from keyword
       tags:
@@ -2823,12 +2823,12 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ListDiscoverGenresliderMovie_200_response_inner'
+                  $ref: '#/components/schemas/ListDiscoverGenresliderMovie_2XX_response_inner'
                 type: array
           description: Genre slider data returned
       summary: Get genre slider data for movies
@@ -2848,12 +2848,12 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ListDiscoverGenresliderMovie_200_response_inner'
+                  $ref: '#/components/schemas/ListDiscoverGenresliderMovie_2XX_response_inner'
                 type: array
           description: Genre slider data returned
       summary: Get genre slider data for TV series
@@ -2873,11 +2873,11 @@ paths:
           type: number
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserWatchlist_200_response'
+                $ref: '#/components/schemas/GetUserWatchlist_2XX_response'
           description: Watchlist data returned
       summary: Get the Plex watchlist.
       tags:
@@ -2945,11 +2945,11 @@ paths:
           type: number
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserRequests_200_response'
+                $ref: '#/components/schemas/GetUserRequests_2XX_response'
           description: Requests returned
       summary: Get all requests
       tags:
@@ -2982,11 +2982,11 @@ paths:
         Returns the number of pending and approved requests.
       operationId: GetRequestCount
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetRequestCount_200_response'
+                $ref: '#/components/schemas/GetRequestCount_2XX_response'
           description: Request counts returned
       summary: Gets request counts
       tags:
@@ -3026,7 +3026,7 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3056,7 +3056,7 @@ paths:
               $ref: '#/components/schemas/UpdateRequest_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3083,7 +3083,7 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3121,7 +3121,7 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3152,7 +3152,7 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3193,11 +3193,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverMovies_200_response'
+                $ref: '#/components/schemas/GetDiscoverMovies_2XX_response'
           description: List of movies
       summary: Get recommended movies
       tags:
@@ -3234,11 +3234,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverMovies_200_response'
+                $ref: '#/components/schemas/GetDiscoverMovies_2XX_response'
           description: List of movies
       summary: Get similar movies
       tags:
@@ -3257,11 +3257,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetMovieRatings_200_response'
+                $ref: '#/components/schemas/GetMovieRatings_2XX_response'
           description: Ratings returned
       summary: Get movie ratings
       tags:
@@ -3288,7 +3288,7 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3327,7 +3327,7 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3368,11 +3368,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverTv_200_response'
+                $ref: '#/components/schemas/GetDiscoverTv_2XX_response'
           description: List of TV series
       summary: Get recommended TV series
       tags:
@@ -3409,11 +3409,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDiscoverTv_200_response'
+                $ref: '#/components/schemas/GetDiscoverTv_2XX_response'
           description: List of TV series
       summary: Get similar TV series
       tags:
@@ -3432,11 +3432,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTvRatings_200_response'
+                $ref: '#/components/schemas/GetTvRatings_2XX_response'
           description: Ratings returned
       summary: Get TV ratings
       tags:
@@ -3463,7 +3463,7 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3495,11 +3495,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPersonCombined_credits_200_response'
+                $ref: '#/components/schemas/GetPersonCombined_credits_2XX_response'
           description: Returned combined credits
       summary: Get combined credits
       tags:
@@ -3555,11 +3555,11 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetMedia_200_response'
+                $ref: '#/components/schemas/GetMedia_2XX_response'
           description: Returned media
       summary: Get media
       tags:
@@ -3620,7 +3620,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateMediaByStatus_request'
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3647,11 +3647,11 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetMediaWatch_data_200_response'
+                $ref: '#/components/schemas/GetMediaWatch_data_2XX_response'
           description: Users
       summary: Get watch data
       tags:
@@ -3678,7 +3678,7 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3692,7 +3692,7 @@ paths:
       description: Returns a list of Radarr server IDs and names in a JSON object.
       operationId: ListServiceRadarr
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3718,11 +3718,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetServiceRadarrByRadarrId_200_response'
+                $ref: '#/components/schemas/GetServiceRadarrByRadarrId_2XX_response'
           description: Request successful
       summary: Get Radarr server quality profiles and root folders
       tags:
@@ -3732,7 +3732,7 @@ paths:
       description: Returns a list of Sonarr server IDs and names in a JSON object.
       operationId: ListServiceSonarr
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3758,11 +3758,11 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetServiceSonarrBySonarrId_200_response'
+                $ref: '#/components/schemas/GetServiceSonarrBySonarrId_2XX_response'
           description: Request successful
       summary: Get Sonarr server quality profiles and root folders
       tags:
@@ -3782,7 +3782,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3798,12 +3798,12 @@ paths:
       description: Returns a list of regions in a JSON object.
       operationId: ListRegions
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ListRegions_200_response_inner'
+                  $ref: '#/components/schemas/ListRegions_2XX_response_inner'
                 type: array
           description: Results
       summary: Regions supported by TMDB
@@ -3814,12 +3814,12 @@ paths:
       description: Returns a list of languages in a JSON object.
       operationId: ListLanguages
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ListLanguages_200_response_inner'
+                  $ref: '#/components/schemas/ListLanguages_2XX_response_inner'
                 type: array
           description: Results
       summary: Languages supported by TMDB
@@ -3839,7 +3839,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3862,7 +3862,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3885,12 +3885,12 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ListGenresMovie_200_response_inner'
+                  $ref: '#/components/schemas/ListGenresMovie_2XX_response_inner'
                 type: array
           description: Results
       summary: Get list of official TMDB movie genres
@@ -3910,12 +3910,12 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/ListGenresTv_200_response_inner'
+                  $ref: '#/components/schemas/ListGenresTv_2XX_response_inner'
                 type: array
           description: Results
       summary: Get list of official TMDB movie genres
@@ -3926,7 +3926,7 @@ paths:
       description: Returns a list of backdrop image paths in a JSON array.
       operationId: ListBackdrops
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -3995,11 +3995,11 @@ paths:
           type: number
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetIssue_200_response'
+                $ref: '#/components/schemas/GetIssue_2XX_response'
           description: Issues returned
       summary: Get all issues
       tags:
@@ -4030,11 +4030,11 @@ paths:
         Returns the number of open and closed issues, as well as the number of issues of each type.
       operationId: GetIssueCount
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetIssueCount_200_response'
+                $ref: '#/components/schemas/GetIssueCount_2XX_response'
           description: Issue counts returned
       summary: Gets issue counts
       tags:
@@ -4074,7 +4074,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -4104,7 +4104,7 @@ paths:
               $ref: '#/components/schemas/CreateIssueComment_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -4148,7 +4148,7 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -4177,7 +4177,7 @@ paths:
               $ref: '#/components/schemas/UpdateIssueComment_request'
         required: true
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -4215,7 +4215,7 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -4239,7 +4239,7 @@ paths:
           type: number
         style: simple
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -4254,7 +4254,7 @@ paths:
         Returns a list of all available watch provider regions.
       operationId: ListWatchprovidersRegions
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -4280,7 +4280,7 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -4306,7 +4306,7 @@ paths:
           type: string
         style: form
       responses:
-        "200":
+        "2XX":
           content:
             application/json:
               schema:
@@ -7039,7 +7039,7 @@ components:
       type: string
     Version:
       type: string
-    GetStatus_200_response:
+    GetStatus_2XX_response:
       example:
         restartRequired: true
         commitsBehind: 0.8008281904610115
@@ -7059,7 +7059,7 @@ components:
         restartRequired:
           type: boolean
       type: object
-    GetStatusAppdata_200_response:
+    GetStatusAppdata_2XX_response:
       example:
         appDataPath: /app/config
         appData: true
@@ -7071,7 +7071,7 @@ components:
           example: /app/config
           type: string
       type: object
-    GetPlexSync_200_response:
+    GetPlexSync_2XX_response:
       example:
         running: false
         total: 100
@@ -7113,7 +7113,7 @@ components:
           example: false
           type: boolean
       type: object
-    ListPlexUsers_200_response_inner:
+    ListPlexUsers_2XX_response_inner:
       example:
         thumb: thumb
         id: id
@@ -7154,7 +7154,7 @@ components:
       - port
       - useSsl
       type: object
-    TestRadarr_200_response:
+    TestRadarr_2XX_response:
       example:
         profiles:
         - name: 720p/1080p
@@ -7195,7 +7195,7 @@ components:
           example: 0 */5 * * * *
           type: string
       type: object
-    GetCache_200_response_imageCache_tmdb:
+    GetCache_2XX_response_imageCache_tmdb:
       example:
         imageCount: 123
         size: 123456
@@ -7207,16 +7207,16 @@ components:
           example: 123
           type: number
       type: object
-    GetCache_200_response_imageCache:
+    GetCache_2XX_response_imageCache:
       example:
         tmdb:
           imageCount: 123
           size: 123456
       properties:
         tmdb:
-          $ref: '#/components/schemas/GetCache_200_response_imageCache_tmdb'
+          $ref: '#/components/schemas/GetCache_2XX_response_imageCache_tmdb'
       type: object
-    GetCache_200_response_apiCaches_inner_stats:
+    GetCache_2XX_response_apiCaches_inner_stats:
       example:
         hits: 0.8008281904610115
         vsize: 5.637376656633329
@@ -7235,7 +7235,7 @@ components:
         vsize:
           type: number
       type: object
-    GetCache_200_response_apiCaches_inner:
+    GetCache_2XX_response_apiCaches_inner:
       example:
         stats:
           hits: 0.8008281904610115
@@ -7253,9 +7253,9 @@ components:
           example: cache name
           type: string
         stats:
-          $ref: '#/components/schemas/GetCache_200_response_apiCaches_inner_stats'
+          $ref: '#/components/schemas/GetCache_2XX_response_apiCaches_inner_stats'
       type: object
-    GetCache_200_response:
+    GetCache_2XX_response:
       example:
         apiCaches:
         - stats:
@@ -7280,13 +7280,13 @@ components:
             size: 123456
       properties:
         imageCache:
-          $ref: '#/components/schemas/GetCache_200_response_imageCache'
+          $ref: '#/components/schemas/GetCache_2XX_response_imageCache'
         apiCaches:
           items:
-            $ref: '#/components/schemas/GetCache_200_response_apiCaches_inner'
+            $ref: '#/components/schemas/GetCache_2XX_response_apiCaches_inner'
           type: array
       type: object
-    ListLogs_200_response_inner:
+    ListLogs_2XX_response_inner:
       example:
         level: info
         label: server
@@ -7330,7 +7330,7 @@ components:
           example: "1"
           type: string
       type: object
-    GetAbout_200_response:
+    GetAbout_2XX_response:
       example:
         appDataPath: /app/config
         tz: Asia/Tokyo
@@ -7372,7 +7372,7 @@ components:
       - email
       - password
       type: object
-    CreateAuthLogout_200_response:
+    CreateAuthLogout_2XX_response:
       example:
         status: ok
       properties:
@@ -7394,7 +7394,7 @@ components:
       required:
       - password
       type: object
-    GetUser_200_response:
+    GetUser_2XX_response:
       example:
         pageInfo:
           pages: 10
@@ -7468,7 +7468,7 @@ components:
       - endpoint
       - p256dh
       type: object
-    GetUserRequests_200_response:
+    GetUserRequests_2XX_response:
       example:
         pageInfo:
           pages: 10
@@ -7567,7 +7567,7 @@ components:
             $ref: '#/components/schemas/MediaRequest'
           type: array
       type: object
-    GetUserQuota_200_response_movie:
+    GetUserQuota_2XX_response_movie:
       example:
         restricted: false
         limit: 10
@@ -7591,7 +7591,7 @@ components:
           example: false
           type: boolean
       type: object
-    GetUserQuota_200_response:
+    GetUserQuota_2XX_response:
       example:
         tv:
           restricted: false
@@ -7607,11 +7607,11 @@ components:
           remaining: 4
       properties:
         movie:
-          $ref: '#/components/schemas/GetUserQuota_200_response_movie'
+          $ref: '#/components/schemas/GetUserQuota_2XX_response_movie'
         tv:
-          $ref: '#/components/schemas/GetUserQuota_200_response_movie'
+          $ref: '#/components/schemas/GetUserQuota_2XX_response_movie'
       type: object
-    GetUserWatchlist_200_response_results_inner:
+    GetUserWatchlist_2XX_response_results_inner:
       example:
         tmdbId: 1
         ratingKey: ratingKey
@@ -7628,7 +7628,7 @@ components:
         title:
           type: string
       type: object
-    GetUserWatchlist_200_response:
+    GetUserWatchlist_2XX_response:
       example:
         totalResults: 1.4658129805029452
         totalPages: 6.027456183070403
@@ -7651,10 +7651,10 @@ components:
           type: number
         results:
           items:
-            $ref: '#/components/schemas/GetUserWatchlist_200_response_results_inner'
+            $ref: '#/components/schemas/GetUserWatchlist_2XX_response_results_inner'
           type: array
       type: object
-    GetUserSettingsMain_200_response:
+    GetUserSettingsMain_2XX_response:
       example:
         username: Mr User
       properties:
@@ -7668,7 +7668,7 @@ components:
           nullable: true
           type: string
       type: object
-    GetUserSettingsPassword_200_response:
+    GetUserSettingsPassword_2XX_response:
       example:
         hasPassword: true
       properties:
@@ -7686,7 +7686,7 @@ components:
       required:
       - newPassword
       type: object
-    GetUserSettingsPermissions_200_response:
+    GetUserSettingsPermissions_2XX_response:
       example:
         permissions: 2
       properties:
@@ -7701,7 +7701,7 @@ components:
       required:
       - permissions
       type: object
-    GetUserWatch_data_200_response:
+    GetUserWatch_data_2XX_response:
       example:
         recentlyWatched:
         - createdAt: 2020-09-12T10:00:27.000Z
@@ -7731,12 +7731,12 @@ components:
         playCount:
           type: number
       type: object
-    GetSearch_200_response_results_inner:
+    GetSearch_2XX_response_results_inner:
       anyOf:
       - $ref: '#/components/schemas/MovieResult'
       - $ref: '#/components/schemas/TvResult'
       - $ref: '#/components/schemas/PersonResult'
-    GetSearch_200_response:
+    GetSearch_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -7808,10 +7808,10 @@ components:
           type: number
         results:
           items:
-            $ref: '#/components/schemas/GetSearch_200_response_results_inner'
+            $ref: '#/components/schemas/GetSearch_2XX_response_results_inner'
           type: array
       type: object
-    GetSearchKeyword_200_response:
+    GetSearchKeyword_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -7836,7 +7836,7 @@ components:
             $ref: '#/components/schemas/Keyword'
           type: array
       type: object
-    GetSearchCompany_200_response:
+    GetSearchCompany_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -7863,7 +7863,7 @@ components:
             $ref: '#/components/schemas/Company'
           type: array
       type: object
-    GetDiscoverMovies_200_response:
+    GetDiscoverMovies_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -7938,7 +7938,7 @@ components:
             $ref: '#/components/schemas/MovieResult'
           type: array
       type: object
-    GetDiscoverMoviesGenreByGenreId_200_response:
+    GetDiscoverMoviesGenreByGenreId_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -8018,7 +8018,7 @@ components:
             $ref: '#/components/schemas/MovieResult'
           type: array
       type: object
-    GetDiscoverMoviesLanguageByLanguage_200_response:
+    GetDiscoverMoviesLanguageByLanguage_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -8099,7 +8099,7 @@ components:
             $ref: '#/components/schemas/MovieResult'
           type: array
       type: object
-    GetDiscoverMoviesStudioByStudioId_200_response:
+    GetDiscoverMoviesStudioByStudioId_2XX_response:
       example:
         studio:
           logoPath: logoPath
@@ -8181,7 +8181,7 @@ components:
             $ref: '#/components/schemas/MovieResult'
           type: array
       type: object
-    GetDiscoverTv_200_response:
+    GetDiscoverTv_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -8258,7 +8258,7 @@ components:
             $ref: '#/components/schemas/TvResult'
           type: array
       type: object
-    GetDiscoverTvLanguageByLanguage_200_response:
+    GetDiscoverTvLanguageByLanguage_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -8341,7 +8341,7 @@ components:
             $ref: '#/components/schemas/TvResult'
           type: array
       type: object
-    GetDiscoverTvGenreByGenreId_200_response:
+    GetDiscoverTvGenreByGenreId_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -8423,7 +8423,7 @@ components:
             $ref: '#/components/schemas/TvResult'
           type: array
       type: object
-    GetDiscoverTvNetworkByNetworkId_200_response:
+    GetDiscoverTvNetworkByNetworkId_2XX_response:
       example:
         totalResults: 200
         totalPages: 20
@@ -8507,7 +8507,7 @@ components:
             $ref: '#/components/schemas/TvResult'
           type: array
       type: object
-    ListDiscoverGenresliderMovie_200_response_inner:
+    ListDiscoverGenresliderMovie_2XX_response_inner:
       example:
         backdrops:
         - backdrops
@@ -8569,7 +8569,7 @@ components:
       - mediaId
       - mediaType
       type: object
-    GetRequestCount_200_response:
+    GetRequestCount_2XX_response:
       example:
         total: 0.8008281904610115
         tv: 1.4658129805029452
@@ -8626,7 +8626,7 @@ components:
       required:
       - mediaType
       type: object
-    GetMovieRatings_200_response:
+    GetMovieRatings_2XX_response:
       example:
         audienceScore: 65
         audienceRating: Spilled
@@ -8663,7 +8663,7 @@ components:
           - Upright
           type: string
       type: object
-    GetTvRatings_200_response:
+    GetTvRatings_2XX_response:
       example:
         criticsRating: Rotten
         year: 2019
@@ -8689,7 +8689,7 @@ components:
           - Fresh
           type: string
       type: object
-    GetPersonCombined_credits_200_response:
+    GetPersonCombined_credits_2XX_response:
       example:
         cast:
         - overview: overview
@@ -8852,7 +8852,7 @@ components:
         id:
           type: number
       type: object
-    GetMedia_200_response:
+    GetMedia_2XX_response:
       example:
         pageInfo:
           pages: 10
@@ -8891,7 +8891,7 @@ components:
           example: false
           type: boolean
       type: object
-    GetMediaWatch_data_200_response_data:
+    GetMediaWatch_data_2XX_response_data:
       example:
         playCount: 1.4658129805029452
         playCount30Days: 6.027456183070403
@@ -8931,7 +8931,7 @@ components:
             $ref: '#/components/schemas/User'
           type: array
       type: object
-    GetMediaWatch_data_200_response:
+    GetMediaWatch_data_2XX_response:
       example:
         data4k:
           playCount: 1.4658129805029452
@@ -8989,11 +8989,11 @@ components:
           playCount7Days: 0.8008281904610115
       properties:
         data:
-          $ref: '#/components/schemas/GetMediaWatch_data_200_response_data'
+          $ref: '#/components/schemas/GetMediaWatch_data_2XX_response_data'
         data4k:
-          $ref: '#/components/schemas/GetMediaWatch_data_200_response_data'
+          $ref: '#/components/schemas/GetMediaWatch_data_2XX_response_data'
       type: object
-    GetServiceRadarrByRadarrId_200_response:
+    GetServiceRadarrByRadarrId_2XX_response:
       example:
         server:
           externalUrl: http://radarr.example.com
@@ -9021,7 +9021,7 @@ components:
         profiles:
           $ref: '#/components/schemas/ServiceProfile'
       type: object
-    GetServiceSonarrBySonarrId_200_response:
+    GetServiceSonarrBySonarrId_2XX_response:
       example:
         server:
           externalUrl: http://radarr.example.com
@@ -9054,7 +9054,7 @@ components:
         profiles:
           $ref: '#/components/schemas/ServiceProfile'
       type: object
-    ListRegions_200_response_inner:
+    ListRegions_2XX_response_inner:
       example:
         iso_3166_1: US
         english_name: United States of America
@@ -9066,7 +9066,7 @@ components:
           example: United States of America
           type: string
       type: object
-    ListLanguages_200_response_inner:
+    ListLanguages_2XX_response_inner:
       example:
         name: English
         iso_639_1: en
@@ -9082,7 +9082,7 @@ components:
           example: English
           type: string
       type: object
-    ListGenresMovie_200_response_inner:
+    ListGenresMovie_2XX_response_inner:
       example:
         name: Family
         id: 10751
@@ -9094,7 +9094,7 @@ components:
           example: Family
           type: string
       type: object
-    ListGenresTv_200_response_inner:
+    ListGenresTv_2XX_response_inner:
       example:
         name: Drama
         id: 18
@@ -9106,7 +9106,7 @@ components:
           example: Drama
           type: string
       type: object
-    GetIssue_200_response:
+    GetIssue_2XX_response:
       example:
         pageInfo:
           pages: 10
@@ -9260,7 +9260,7 @@ components:
         mediaId:
           type: number
       type: object
-    GetIssueCount_200_response:
+    GetIssueCount_2XX_response:
       example:
         subtitles: 5.962133916683182
         total: 0.8008281904610115

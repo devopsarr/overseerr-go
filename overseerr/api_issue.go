@@ -643,7 +643,7 @@ func (r ApiGetIssueRequest) RequestedBy(requestedBy float32) ApiGetIssueRequest 
 	return r
 }
 
-func (r ApiGetIssueRequest) Execute() (*GetIssue200Response, *http.Response, error) {
+func (r ApiGetIssueRequest) Execute() (*GetIssue2XXResponse, *http.Response, error) {
 	return r.ApiService.GetIssueExecute(r)
 }
 
@@ -664,13 +664,13 @@ func (a *IssueAPIService) GetIssue(ctx context.Context) ApiGetIssueRequest {
 }
 
 // Execute executes the request
-//  @return GetIssue200Response
-func (a *IssueAPIService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue200Response, *http.Response, error) {
+//  @return GetIssue2XXResponse
+func (a *IssueAPIService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetIssue200Response
+		localVarReturnValue  *GetIssue2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.GetIssue")
@@ -1005,7 +1005,7 @@ type ApiGetIssueCountRequest struct {
 	ApiService *IssueAPIService
 }
 
-func (r ApiGetIssueCountRequest) Execute() (*GetIssueCount200Response, *http.Response, error) {
+func (r ApiGetIssueCountRequest) Execute() (*GetIssueCount2XXResponse, *http.Response, error) {
 	return r.ApiService.GetIssueCountExecute(r)
 }
 
@@ -1026,13 +1026,13 @@ func (a *IssueAPIService) GetIssueCount(ctx context.Context) ApiGetIssueCountReq
 }
 
 // Execute executes the request
-//  @return GetIssueCount200Response
-func (a *IssueAPIService) GetIssueCountExecute(r ApiGetIssueCountRequest) (*GetIssueCount200Response, *http.Response, error) {
+//  @return GetIssueCount2XXResponse
+func (a *IssueAPIService) GetIssueCountExecute(r ApiGetIssueCountRequest) (*GetIssueCount2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetIssueCount200Response
+		localVarReturnValue  *GetIssueCount2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IssueAPIService.GetIssueCount")

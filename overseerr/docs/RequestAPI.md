@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## GetRequest
 
-> GetUserRequests200Response GetRequest(ctx).Take(take).Skip(skip).Filter(filter).Sort(sort).RequestedBy(requestedBy).Execute()
+> GetUserRequests2XXResponse GetRequest(ctx).Take(take).Skip(skip).Filter(filter).Sort(sort).RequestedBy(requestedBy).Execute()
 
 Get all requests
 
@@ -326,7 +326,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetRequest`: GetUserRequests200Response
+    // response from `GetRequest`: GetUserRequests2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequest`: %v\n", resp)
 }
 ```
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserRequests200Response**](GetUserRequests200Response.md)
+[**GetUserRequests2XXResponse**](GetUserRequests2XXResponse.md)
 
 ### Authorization
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 ## GetRequestCount
 
-> GetRequestCount200Response GetRequestCount(ctx).Execute()
+> GetRequestCount2XXResponse GetRequestCount(ctx).Execute()
 
 Gets request counts
 
@@ -465,7 +465,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequestCount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetRequestCount`: GetRequestCount200Response
+    // response from `GetRequestCount`: GetRequestCount2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequestCount`: %v\n", resp)
 }
 ```
@@ -481,7 +481,7 @@ Other parameters are passed through a pointer to a apiGetRequestCountRequest str
 
 ### Return type
 
-[**GetRequestCount200Response**](GetRequestCount200Response.md)
+[**GetRequestCount2XXResponse**](GetRequestCount2XXResponse.md)
 
 ### Authorization
 

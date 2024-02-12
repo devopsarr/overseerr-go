@@ -31,7 +31,7 @@ Method | HTTP request | Description
 
 ## CreateAuthResetPassword
 
-> CreateAuthLogout200Response CreateAuthResetPassword(ctx).CreateAuthResetPasswordRequest(createAuthResetPasswordRequest).Execute()
+> CreateAuthLogout2XXResponse CreateAuthResetPassword(ctx).CreateAuthResetPasswordRequest(createAuthResetPasswordRequest).Execute()
 
 Send a reset password email
 
@@ -59,7 +59,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateAuthResetPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAuthResetPassword`: CreateAuthLogout200Response
+    // response from `CreateAuthResetPassword`: CreateAuthLogout2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateAuthResetPassword`: %v\n", resp)
 }
 ```
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateAuthLogout200Response**](CreateAuthLogout200Response.md)
+[**CreateAuthLogout2XXResponse**](CreateAuthLogout2XXResponse.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ No authorization required
 
 ## CreateAuthResetPasswordByGuid
 
-> CreateAuthLogout200Response CreateAuthResetPasswordByGuid(ctx, guid).CreateAuthResetPasswordByGuidRequest(createAuthResetPasswordByGuidRequest).Execute()
+> CreateAuthLogout2XXResponse CreateAuthResetPasswordByGuid(ctx, guid).CreateAuthResetPasswordByGuidRequest(createAuthResetPasswordByGuidRequest).Execute()
 
 Reset the password for a user
 
@@ -126,7 +126,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateAuthResetPasswordByGuid``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAuthResetPasswordByGuid`: CreateAuthLogout200Response
+    // response from `CreateAuthResetPasswordByGuid`: CreateAuthLogout2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateAuthResetPasswordByGuid`: %v\n", resp)
 }
 ```
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateAuthLogout200Response**](CreateAuthLogout200Response.md)
+[**CreateAuthLogout2XXResponse**](CreateAuthLogout2XXResponse.md)
 
 ### Authorization
 
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ## CreateUserSettingsMain
 
-> GetUserSettingsMain200Response CreateUserSettingsMain(ctx, userId).CreateUserSettingsMainRequest(createUserSettingsMainRequest).Execute()
+> GetUserSettingsMain2XXResponse CreateUserSettingsMain(ctx, userId).CreateUserSettingsMainRequest(createUserSettingsMainRequest).Execute()
 
 Update general settings for a user
 
@@ -394,7 +394,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsMain``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateUserSettingsMain`: GetUserSettingsMain200Response
+    // response from `CreateUserSettingsMain`: GetUserSettingsMain2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsMain`: %v\n", resp)
 }
 ```
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserSettingsMain200Response**](GetUserSettingsMain200Response.md)
+[**GetUserSettingsMain2XXResponse**](GetUserSettingsMain2XXResponse.md)
 
 ### Authorization
 
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 
 ## CreateUserSettingsPermissions
 
-> GetUserSettingsPermissions200Response CreateUserSettingsPermissions(ctx, userId).CreateUserSettingsPermissionsRequest(createUserSettingsPermissionsRequest).Execute()
+> GetUserSettingsPermissions2XXResponse CreateUserSettingsPermissions(ctx, userId).CreateUserSettingsPermissionsRequest(createUserSettingsPermissionsRequest).Execute()
 
 Update permission settings for a user
 
@@ -608,7 +608,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsPermissions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateUserSettingsPermissions`: GetUserSettingsPermissions200Response
+    // response from `CreateUserSettingsPermissions`: GetUserSettingsPermissions2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsPermissions`: %v\n", resp)
 }
 ```
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserSettingsPermissions200Response**](GetUserSettingsPermissions200Response.md)
+[**GetUserSettingsPermissions2XXResponse**](GetUserSettingsPermissions2XXResponse.md)
 
 ### Authorization
 
@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 
 ## GetUser
 
-> GetUser200Response GetUser(ctx).Take(take).Skip(skip).Sort(sort).Execute()
+> GetUser2XXResponse GetUser(ctx).Take(take).Skip(skip).Sort(sort).Execute()
 
 Get all users
 
@@ -751,7 +751,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUser`: GetUser200Response
+    // response from `GetUser`: GetUser2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUser`: %v\n", resp)
 }
 ```
@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUser200Response**](GetUser200Response.md)
+[**GetUser2XXResponse**](GetUser2XXResponse.md)
 
 ### Authorization
 
@@ -861,7 +861,7 @@ Name | Type | Description  | Notes
 
 ## GetUserQuota
 
-> GetUserQuota200Response GetUserQuota(ctx, userId).Execute()
+> GetUserQuota2XXResponse GetUserQuota(ctx, userId).Execute()
 
 Get quotas for a specific user
 
@@ -889,7 +889,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserQuota``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserQuota`: GetUserQuota200Response
+    // response from `GetUserQuota`: GetUserQuota2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserQuota`: %v\n", resp)
 }
 ```
@@ -913,7 +913,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserQuota200Response**](GetUserQuota200Response.md)
+[**GetUserQuota2XXResponse**](GetUserQuota2XXResponse.md)
 
 ### Authorization
 
@@ -931,7 +931,7 @@ Name | Type | Description  | Notes
 
 ## GetUserRequests
 
-> GetUserRequests200Response GetUserRequests(ctx, userId).Take(take).Skip(skip).Execute()
+> GetUserRequests2XXResponse GetUserRequests(ctx, userId).Take(take).Skip(skip).Execute()
 
 Get requests for a specific user
 
@@ -961,7 +961,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserRequests``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserRequests`: GetUserRequests200Response
+    // response from `GetUserRequests`: GetUserRequests2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserRequests`: %v\n", resp)
 }
 ```
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserRequests200Response**](GetUserRequests200Response.md)
+[**GetUserRequests2XXResponse**](GetUserRequests2XXResponse.md)
 
 ### Authorization
 
@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 
 ## GetUserSettingsMain
 
-> GetUserSettingsMain200Response GetUserSettingsMain(ctx, userId).Execute()
+> GetUserSettingsMain2XXResponse GetUserSettingsMain(ctx, userId).Execute()
 
 Get general settings for a user
 
@@ -1033,7 +1033,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsMain``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserSettingsMain`: GetUserSettingsMain200Response
+    // response from `GetUserSettingsMain`: GetUserSettingsMain2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsMain`: %v\n", resp)
 }
 ```
@@ -1057,7 +1057,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserSettingsMain200Response**](GetUserSettingsMain200Response.md)
+[**GetUserSettingsMain2XXResponse**](GetUserSettingsMain2XXResponse.md)
 
 ### Authorization
 
@@ -1145,7 +1145,7 @@ Name | Type | Description  | Notes
 
 ## GetUserSettingsPassword
 
-> GetUserSettingsPassword200Response GetUserSettingsPassword(ctx, userId).Execute()
+> GetUserSettingsPassword2XXResponse GetUserSettingsPassword(ctx, userId).Execute()
 
 Get password page informatiom
 
@@ -1173,7 +1173,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsPassword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserSettingsPassword`: GetUserSettingsPassword200Response
+    // response from `GetUserSettingsPassword`: GetUserSettingsPassword2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsPassword`: %v\n", resp)
 }
 ```
@@ -1197,7 +1197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserSettingsPassword200Response**](GetUserSettingsPassword200Response.md)
+[**GetUserSettingsPassword2XXResponse**](GetUserSettingsPassword2XXResponse.md)
 
 ### Authorization
 
@@ -1215,7 +1215,7 @@ Name | Type | Description  | Notes
 
 ## GetUserSettingsPermissions
 
-> GetUserSettingsPermissions200Response GetUserSettingsPermissions(ctx, userId).Execute()
+> GetUserSettingsPermissions2XXResponse GetUserSettingsPermissions(ctx, userId).Execute()
 
 Get permission settings for a user
 
@@ -1243,7 +1243,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsPermissions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserSettingsPermissions`: GetUserSettingsPermissions200Response
+    // response from `GetUserSettingsPermissions`: GetUserSettingsPermissions2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsPermissions`: %v\n", resp)
 }
 ```
@@ -1267,7 +1267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserSettingsPermissions200Response**](GetUserSettingsPermissions200Response.md)
+[**GetUserSettingsPermissions2XXResponse**](GetUserSettingsPermissions2XXResponse.md)
 
 ### Authorization
 
@@ -1285,7 +1285,7 @@ Name | Type | Description  | Notes
 
 ## GetUserWatchData
 
-> GetUserWatchData200Response GetUserWatchData(ctx, userId).Execute()
+> GetUserWatchData2XXResponse GetUserWatchData(ctx, userId).Execute()
 
 Get watch data
 
@@ -1313,7 +1313,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserWatchData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserWatchData`: GetUserWatchData200Response
+    // response from `GetUserWatchData`: GetUserWatchData2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserWatchData`: %v\n", resp)
 }
 ```
@@ -1337,7 +1337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserWatchData200Response**](GetUserWatchData200Response.md)
+[**GetUserWatchData2XXResponse**](GetUserWatchData2XXResponse.md)
 
 ### Authorization
 
@@ -1355,7 +1355,7 @@ Name | Type | Description  | Notes
 
 ## GetUserWatchlist
 
-> GetUserWatchlist200Response GetUserWatchlist(ctx, userId).Page(page).Execute()
+> GetUserWatchlist2XXResponse GetUserWatchlist(ctx, userId).Page(page).Execute()
 
 Get the Plex watchlist for a specific user
 
@@ -1384,7 +1384,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserWatchlist``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUserWatchlist`: GetUserWatchlist200Response
+    // response from `GetUserWatchlist`: GetUserWatchlist2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserWatchlist`: %v\n", resp)
 }
 ```
@@ -1409,7 +1409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserWatchlist200Response**](GetUserWatchlist200Response.md)
+[**GetUserWatchlist2XXResponse**](GetUserWatchlist2XXResponse.md)
 
 ### Authorization
 

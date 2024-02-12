@@ -79,7 +79,7 @@ No authorization required
 
 ## CreateAuthLogout
 
-> CreateAuthLogout200Response CreateAuthLogout(ctx).Execute()
+> CreateAuthLogout2XXResponse CreateAuthLogout(ctx).Execute()
 
 Sign out and clear session cookie
 
@@ -106,7 +106,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthLogout``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAuthLogout`: CreateAuthLogout200Response
+    // response from `CreateAuthLogout`: CreateAuthLogout2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthLogout`: %v\n", resp)
 }
 ```
@@ -122,7 +122,7 @@ Other parameters are passed through a pointer to a apiCreateAuthLogoutRequest st
 
 ### Return type
 
-[**CreateAuthLogout200Response**](CreateAuthLogout200Response.md)
+[**CreateAuthLogout2XXResponse**](CreateAuthLogout2XXResponse.md)
 
 ### Authorization
 

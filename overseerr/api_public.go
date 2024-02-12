@@ -26,7 +26,7 @@ type ApiGetStatusRequest struct {
 	ApiService *PublicAPIService
 }
 
-func (r ApiGetStatusRequest) Execute() (*GetStatus200Response, *http.Response, error) {
+func (r ApiGetStatusRequest) Execute() (*GetStatus2XXResponse, *http.Response, error) {
 	return r.ApiService.GetStatusExecute(r)
 }
 
@@ -46,13 +46,13 @@ func (a *PublicAPIService) GetStatus(ctx context.Context) ApiGetStatusRequest {
 }
 
 // Execute executes the request
-//  @return GetStatus200Response
-func (a *PublicAPIService) GetStatusExecute(r ApiGetStatusRequest) (*GetStatus200Response, *http.Response, error) {
+//  @return GetStatus2XXResponse
+func (a *PublicAPIService) GetStatusExecute(r ApiGetStatusRequest) (*GetStatus2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetStatus200Response
+		localVarReturnValue  *GetStatus2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetStatus")
@@ -124,7 +124,7 @@ type ApiGetStatusAppdataRequest struct {
 	ApiService *PublicAPIService
 }
 
-func (r ApiGetStatusAppdataRequest) Execute() (*GetStatusAppdata200Response, *http.Response, error) {
+func (r ApiGetStatusAppdataRequest) Execute() (*GetStatusAppdata2XXResponse, *http.Response, error) {
 	return r.ApiService.GetStatusAppdataExecute(r)
 }
 
@@ -144,13 +144,13 @@ func (a *PublicAPIService) GetStatusAppdata(ctx context.Context) ApiGetStatusApp
 }
 
 // Execute executes the request
-//  @return GetStatusAppdata200Response
-func (a *PublicAPIService) GetStatusAppdataExecute(r ApiGetStatusAppdataRequest) (*GetStatusAppdata200Response, *http.Response, error) {
+//  @return GetStatusAppdata2XXResponse
+func (a *PublicAPIService) GetStatusAppdataExecute(r ApiGetStatusAppdataRequest) (*GetStatusAppdata2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetStatusAppdata200Response
+		localVarReturnValue  *GetStatusAppdata2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PublicAPIService.GetStatusAppdata")

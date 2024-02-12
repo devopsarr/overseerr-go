@@ -2447,7 +2447,7 @@ func (r ApiCreatePlexSyncRequest) CreatePlexSyncRequest(createPlexSyncRequest Cr
 	return r
 }
 
-func (r ApiCreatePlexSyncRequest) Execute() (*GetPlexSync200Response, *http.Response, error) {
+func (r ApiCreatePlexSyncRequest) Execute() (*GetPlexSync2XXResponse, *http.Response, error) {
 	return r.ApiService.CreatePlexSyncExecute(r)
 }
 
@@ -2467,13 +2467,13 @@ func (a *SettingsAPIService) CreatePlexSync(ctx context.Context) ApiCreatePlexSy
 }
 
 // Execute executes the request
-//  @return GetPlexSync200Response
-func (a *SettingsAPIService) CreatePlexSyncExecute(r ApiCreatePlexSyncRequest) (*GetPlexSync200Response, *http.Response, error) {
+//  @return GetPlexSync2XXResponse
+func (a *SettingsAPIService) CreatePlexSyncExecute(r ApiCreatePlexSyncRequest) (*GetPlexSync2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetPlexSync200Response
+		localVarReturnValue  *GetPlexSync2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreatePlexSync")
@@ -3278,7 +3278,7 @@ type ApiGetAboutRequest struct {
 	ApiService *SettingsAPIService
 }
 
-func (r ApiGetAboutRequest) Execute() (*GetAbout200Response, *http.Response, error) {
+func (r ApiGetAboutRequest) Execute() (*GetAbout2XXResponse, *http.Response, error) {
 	return r.ApiService.GetAboutExecute(r)
 }
 
@@ -3298,13 +3298,13 @@ func (a *SettingsAPIService) GetAbout(ctx context.Context) ApiGetAboutRequest {
 }
 
 // Execute executes the request
-//  @return GetAbout200Response
-func (a *SettingsAPIService) GetAboutExecute(r ApiGetAboutRequest) (*GetAbout200Response, *http.Response, error) {
+//  @return GetAbout2XXResponse
+func (a *SettingsAPIService) GetAboutExecute(r ApiGetAboutRequest) (*GetAbout2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetAbout200Response
+		localVarReturnValue  *GetAbout2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetAbout")
@@ -3390,7 +3390,7 @@ type ApiGetCacheRequest struct {
 	ApiService *SettingsAPIService
 }
 
-func (r ApiGetCacheRequest) Execute() (*GetCache200Response, *http.Response, error) {
+func (r ApiGetCacheRequest) Execute() (*GetCache2XXResponse, *http.Response, error) {
 	return r.ApiService.GetCacheExecute(r)
 }
 
@@ -3410,13 +3410,13 @@ func (a *SettingsAPIService) GetCache(ctx context.Context) ApiGetCacheRequest {
 }
 
 // Execute executes the request
-//  @return GetCache200Response
-func (a *SettingsAPIService) GetCacheExecute(r ApiGetCacheRequest) (*GetCache200Response, *http.Response, error) {
+//  @return GetCache2XXResponse
+func (a *SettingsAPIService) GetCacheExecute(r ApiGetCacheRequest) (*GetCache2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCache200Response
+		localVarReturnValue  *GetCache2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetCache")
@@ -4947,7 +4947,7 @@ type ApiGetPlexSyncRequest struct {
 	ApiService *SettingsAPIService
 }
 
-func (r ApiGetPlexSyncRequest) Execute() (*GetPlexSync200Response, *http.Response, error) {
+func (r ApiGetPlexSyncRequest) Execute() (*GetPlexSync2XXResponse, *http.Response, error) {
 	return r.ApiService.GetPlexSyncExecute(r)
 }
 
@@ -4967,13 +4967,13 @@ func (a *SettingsAPIService) GetPlexSync(ctx context.Context) ApiGetPlexSyncRequ
 }
 
 // Execute executes the request
-//  @return GetPlexSync200Response
-func (a *SettingsAPIService) GetPlexSyncExecute(r ApiGetPlexSyncRequest) (*GetPlexSync200Response, *http.Response, error) {
+//  @return GetPlexSync2XXResponse
+func (a *SettingsAPIService) GetPlexSyncExecute(r ApiGetPlexSyncRequest) (*GetPlexSync2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetPlexSync200Response
+		localVarReturnValue  *GetPlexSync2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.GetPlexSync")
@@ -5517,7 +5517,7 @@ func (r ApiListLogsRequest) Search(search string) ApiListLogsRequest {
 	return r
 }
 
-func (r ApiListLogsRequest) Execute() ([]*ListLogs200ResponseInner, *http.Response, error) {
+func (r ApiListLogsRequest) Execute() ([]*ListLogs2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListLogsExecute(r)
 }
 
@@ -5537,13 +5537,13 @@ func (a *SettingsAPIService) ListLogs(ctx context.Context) ApiListLogsRequest {
 }
 
 // Execute executes the request
-//  @return []ListLogs200ResponseInner
-func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs200ResponseInner, *http.Response, error) {
+//  @return []ListLogs2XXResponseInner
+func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListLogs200ResponseInner
+		localVarReturnValue  []*ListLogs2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListLogs")
@@ -5885,7 +5885,7 @@ type ApiListPlexUsersRequest struct {
 	ApiService *SettingsAPIService
 }
 
-func (r ApiListPlexUsersRequest) Execute() ([]*ListPlexUsers200ResponseInner, *http.Response, error) {
+func (r ApiListPlexUsersRequest) Execute() ([]*ListPlexUsers2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListPlexUsersExecute(r)
 }
 
@@ -5908,13 +5908,13 @@ func (a *SettingsAPIService) ListPlexUsers(ctx context.Context) ApiListPlexUsers
 }
 
 // Execute executes the request
-//  @return []ListPlexUsers200ResponseInner
-func (a *SettingsAPIService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*ListPlexUsers200ResponseInner, *http.Response, error) {
+//  @return []ListPlexUsers2XXResponseInner
+func (a *SettingsAPIService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*ListPlexUsers2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListPlexUsers200ResponseInner
+		localVarReturnValue  []*ListPlexUsers2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListPlexUsers")
@@ -7466,7 +7466,7 @@ func (r ApiTestRadarrRequest) TestRadarrRequest(testRadarrRequest TestRadarrRequ
 	return r
 }
 
-func (r ApiTestRadarrRequest) Execute() (*TestRadarr200Response, *http.Response, error) {
+func (r ApiTestRadarrRequest) Execute() (*TestRadarr2XXResponse, *http.Response, error) {
 	return r.ApiService.TestRadarrExecute(r)
 }
 
@@ -7486,13 +7486,13 @@ func (a *SettingsAPIService) TestRadarr(ctx context.Context) ApiTestRadarrReques
 }
 
 // Execute executes the request
-//  @return TestRadarr200Response
-func (a *SettingsAPIService) TestRadarrExecute(r ApiTestRadarrRequest) (*TestRadarr200Response, *http.Response, error) {
+//  @return TestRadarr2XXResponse
+func (a *SettingsAPIService) TestRadarrExecute(r ApiTestRadarrRequest) (*TestRadarr2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestRadarr200Response
+		localVarReturnValue  *TestRadarr2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestRadarr")
@@ -7589,7 +7589,7 @@ func (r ApiTestSonarrRequest) TestSonarrRequest(testSonarrRequest TestSonarrRequ
 	return r
 }
 
-func (r ApiTestSonarrRequest) Execute() (*TestRadarr200Response, *http.Response, error) {
+func (r ApiTestSonarrRequest) Execute() (*TestRadarr2XXResponse, *http.Response, error) {
 	return r.ApiService.TestSonarrExecute(r)
 }
 
@@ -7609,13 +7609,13 @@ func (a *SettingsAPIService) TestSonarr(ctx context.Context) ApiTestSonarrReques
 }
 
 // Execute executes the request
-//  @return TestRadarr200Response
-func (a *SettingsAPIService) TestSonarrExecute(r ApiTestSonarrRequest) (*TestRadarr200Response, *http.Response, error) {
+//  @return TestRadarr2XXResponse
+func (a *SettingsAPIService) TestSonarrExecute(r ApiTestSonarrRequest) (*TestRadarr2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestRadarr200Response
+		localVarReturnValue  *TestRadarr2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.TestSonarr")

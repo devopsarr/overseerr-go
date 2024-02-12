@@ -530,7 +530,7 @@ func (r ApiGetRequestRequest) RequestedBy(requestedBy float32) ApiGetRequestRequ
 	return r
 }
 
-func (r ApiGetRequestRequest) Execute() (*GetUserRequests200Response, *http.Response, error) {
+func (r ApiGetRequestRequest) Execute() (*GetUserRequests2XXResponse, *http.Response, error) {
 	return r.ApiService.GetRequestExecute(r)
 }
 
@@ -553,13 +553,13 @@ func (a *RequestAPIService) GetRequest(ctx context.Context) ApiGetRequestRequest
 }
 
 // Execute executes the request
-//  @return GetUserRequests200Response
-func (a *RequestAPIService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserRequests200Response, *http.Response, error) {
+//  @return GetUserRequests2XXResponse
+func (a *RequestAPIService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserRequests2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserRequests200Response
+		localVarReturnValue  *GetUserRequests2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.GetRequest")
@@ -776,7 +776,7 @@ type ApiGetRequestCountRequest struct {
 	ApiService *RequestAPIService
 }
 
-func (r ApiGetRequestCountRequest) Execute() (*GetRequestCount200Response, *http.Response, error) {
+func (r ApiGetRequestCountRequest) Execute() (*GetRequestCount2XXResponse, *http.Response, error) {
 	return r.ApiService.GetRequestCountExecute(r)
 }
 
@@ -797,13 +797,13 @@ func (a *RequestAPIService) GetRequestCount(ctx context.Context) ApiGetRequestCo
 }
 
 // Execute executes the request
-//  @return GetRequestCount200Response
-func (a *RequestAPIService) GetRequestCountExecute(r ApiGetRequestCountRequest) (*GetRequestCount200Response, *http.Response, error) {
+//  @return GetRequestCount2XXResponse
+func (a *RequestAPIService) GetRequestCountExecute(r ApiGetRequestCountRequest) (*GetRequestCount2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetRequestCount200Response
+		localVarReturnValue  *GetRequestCount2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RequestAPIService.GetRequestCount")

@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## GetMedia
 
-> GetMedia200Response GetMedia(ctx).Take(take).Skip(skip).Filter(filter).Sort(sort).Execute()
+> GetMedia2XXResponse GetMedia(ctx).Take(take).Skip(skip).Filter(filter).Sort(sort).Execute()
 
 Get media
 
@@ -187,7 +187,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.GetMedia``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMedia`: GetMedia200Response
+    // response from `GetMedia`: GetMedia2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `MediaAPI.GetMedia`: %v\n", resp)
 }
 ```
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetMedia200Response**](GetMedia200Response.md)
+[**GetMedia2XXResponse**](GetMedia2XXResponse.md)
 
 ### Authorization
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ## GetMediaWatchData
 
-> GetMediaWatchData200Response GetMediaWatchData(ctx, mediaId).Execute()
+> GetMediaWatchData2XXResponse GetMediaWatchData(ctx, mediaId).Execute()
 
 Get watch data
 
@@ -256,7 +256,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.GetMediaWatchData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMediaWatchData`: GetMediaWatchData200Response
+    // response from `GetMediaWatchData`: GetMediaWatchData2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `MediaAPI.GetMediaWatchData`: %v\n", resp)
 }
 ```
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetMediaWatchData200Response**](GetMediaWatchData200Response.md)
+[**GetMediaWatchData2XXResponse**](GetMediaWatchData2XXResponse.md)
 
 ### Authorization
 

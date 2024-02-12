@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## GetMovieRatings
 
-> GetMovieRatings200Response GetMovieRatings(ctx, movieId).Execute()
+> GetMovieRatings2XXResponse GetMovieRatings(ctx, movieId).Execute()
 
 Get movie ratings
 
@@ -113,7 +113,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieRatings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMovieRatings`: GetMovieRatings200Response
+    // response from `GetMovieRatings`: GetMovieRatings2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieRatings`: %v\n", resp)
 }
 ```
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetMovieRatings200Response**](GetMovieRatings200Response.md)
+[**GetMovieRatings2XXResponse**](GetMovieRatings2XXResponse.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## GetMovieRecommendations
 
-> GetDiscoverMovies200Response GetMovieRecommendations(ctx, movieId).Page(page).Language(language).Execute()
+> GetDiscoverMovies2XXResponse GetMovieRecommendations(ctx, movieId).Page(page).Language(language).Execute()
 
 Get recommended movies
 
@@ -185,7 +185,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieRecommendations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMovieRecommendations`: GetDiscoverMovies200Response
+    // response from `GetMovieRecommendations`: GetDiscoverMovies2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieRecommendations`: %v\n", resp)
 }
 ```
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+[**GetDiscoverMovies2XXResponse**](GetDiscoverMovies2XXResponse.md)
 
 ### Authorization
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ## GetMovieSimilar
 
-> GetDiscoverMovies200Response GetMovieSimilar(ctx, movieId).Page(page).Language(language).Execute()
+> GetDiscoverMovies2XXResponse GetMovieSimilar(ctx, movieId).Page(page).Language(language).Execute()
 
 Get similar movies
 
@@ -259,7 +259,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieSimilar``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMovieSimilar`: GetDiscoverMovies200Response
+    // response from `GetMovieSimilar`: GetDiscoverMovies2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieSimilar`: %v\n", resp)
 }
 ```
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+[**GetDiscoverMovies2XXResponse**](GetDiscoverMovies2XXResponse.md)
 
 ### Authorization
 

@@ -28,7 +28,7 @@ type ApiGetServiceRadarrByRadarrIdRequest struct {
 	radarrId float32
 }
 
-func (r ApiGetServiceRadarrByRadarrIdRequest) Execute() (*GetServiceRadarrByRadarrId200Response, *http.Response, error) {
+func (r ApiGetServiceRadarrByRadarrIdRequest) Execute() (*GetServiceRadarrByRadarrId2XXResponse, *http.Response, error) {
 	return r.ApiService.GetServiceRadarrByRadarrIdExecute(r)
 }
 
@@ -50,13 +50,13 @@ func (a *ServiceAPIService) GetServiceRadarrByRadarrId(ctx context.Context, rada
 }
 
 // Execute executes the request
-//  @return GetServiceRadarrByRadarrId200Response
-func (a *ServiceAPIService) GetServiceRadarrByRadarrIdExecute(r ApiGetServiceRadarrByRadarrIdRequest) (*GetServiceRadarrByRadarrId200Response, *http.Response, error) {
+//  @return GetServiceRadarrByRadarrId2XXResponse
+func (a *ServiceAPIService) GetServiceRadarrByRadarrIdExecute(r ApiGetServiceRadarrByRadarrIdRequest) (*GetServiceRadarrByRadarrId2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetServiceRadarrByRadarrId200Response
+		localVarReturnValue  *GetServiceRadarrByRadarrId2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.GetServiceRadarrByRadarrId")
@@ -144,7 +144,7 @@ type ApiGetServiceSonarrBySonarrIdRequest struct {
 	sonarrId float32
 }
 
-func (r ApiGetServiceSonarrBySonarrIdRequest) Execute() (*GetServiceSonarrBySonarrId200Response, *http.Response, error) {
+func (r ApiGetServiceSonarrBySonarrIdRequest) Execute() (*GetServiceSonarrBySonarrId2XXResponse, *http.Response, error) {
 	return r.ApiService.GetServiceSonarrBySonarrIdExecute(r)
 }
 
@@ -166,13 +166,13 @@ func (a *ServiceAPIService) GetServiceSonarrBySonarrId(ctx context.Context, sona
 }
 
 // Execute executes the request
-//  @return GetServiceSonarrBySonarrId200Response
-func (a *ServiceAPIService) GetServiceSonarrBySonarrIdExecute(r ApiGetServiceSonarrBySonarrIdRequest) (*GetServiceSonarrBySonarrId200Response, *http.Response, error) {
+//  @return GetServiceSonarrBySonarrId2XXResponse
+func (a *ServiceAPIService) GetServiceSonarrBySonarrIdExecute(r ApiGetServiceSonarrBySonarrIdRequest) (*GetServiceSonarrBySonarrId2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetServiceSonarrBySonarrId200Response
+		localVarReturnValue  *GetServiceSonarrBySonarrId2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.GetServiceSonarrBySonarrId")
