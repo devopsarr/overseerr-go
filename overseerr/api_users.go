@@ -33,7 +33,7 @@ func (r ApiCreateAuthResetPasswordRequest) CreateAuthResetPasswordRequest(create
 	return r
 }
 
-func (r ApiCreateAuthResetPasswordRequest) Execute() (*CreateAuthLogout200Response, *http.Response, error) {
+func (r ApiCreateAuthResetPasswordRequest) Execute() (*CreateAuthLogout2XXResponse, *http.Response, error) {
 	return r.ApiService.CreateAuthResetPasswordExecute(r)
 }
 
@@ -53,13 +53,13 @@ func (a *UsersAPIService) CreateAuthResetPassword(ctx context.Context) ApiCreate
 }
 
 // Execute executes the request
-//  @return CreateAuthLogout200Response
-func (a *UsersAPIService) CreateAuthResetPasswordExecute(r ApiCreateAuthResetPasswordRequest) (*CreateAuthLogout200Response, *http.Response, error) {
+//  @return CreateAuthLogout2XXResponse
+func (a *UsersAPIService) CreateAuthResetPasswordExecute(r ApiCreateAuthResetPasswordRequest) (*CreateAuthLogout2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateAuthLogout200Response
+		localVarReturnValue  *CreateAuthLogout2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateAuthResetPassword")
@@ -143,7 +143,7 @@ func (r ApiCreateAuthResetPasswordByGuidRequest) CreateAuthResetPasswordByGuidRe
 	return r
 }
 
-func (r ApiCreateAuthResetPasswordByGuidRequest) Execute() (*CreateAuthLogout200Response, *http.Response, error) {
+func (r ApiCreateAuthResetPasswordByGuidRequest) Execute() (*CreateAuthLogout2XXResponse, *http.Response, error) {
 	return r.ApiService.CreateAuthResetPasswordByGuidExecute(r)
 }
 
@@ -165,13 +165,13 @@ func (a *UsersAPIService) CreateAuthResetPasswordByGuid(ctx context.Context, gui
 }
 
 // Execute executes the request
-//  @return CreateAuthLogout200Response
-func (a *UsersAPIService) CreateAuthResetPasswordByGuidExecute(r ApiCreateAuthResetPasswordByGuidRequest) (*CreateAuthLogout200Response, *http.Response, error) {
+//  @return CreateAuthLogout2XXResponse
+func (a *UsersAPIService) CreateAuthResetPasswordByGuidExecute(r ApiCreateAuthResetPasswordByGuidRequest) (*CreateAuthLogout2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateAuthLogout200Response
+		localVarReturnValue  *CreateAuthLogout2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateAuthResetPasswordByGuid")
@@ -615,7 +615,7 @@ func (r ApiCreateUserSettingsMainRequest) CreateUserSettingsMainRequest(createUs
 	return r
 }
 
-func (r ApiCreateUserSettingsMainRequest) Execute() (*GetUserSettingsMain200Response, *http.Response, error) {
+func (r ApiCreateUserSettingsMainRequest) Execute() (*GetUserSettingsMain2XXResponse, *http.Response, error) {
 	return r.ApiService.CreateUserSettingsMainExecute(r)
 }
 
@@ -637,13 +637,13 @@ func (a *UsersAPIService) CreateUserSettingsMain(ctx context.Context, userId flo
 }
 
 // Execute executes the request
-//  @return GetUserSettingsMain200Response
-func (a *UsersAPIService) CreateUserSettingsMainExecute(r ApiCreateUserSettingsMainRequest) (*GetUserSettingsMain200Response, *http.Response, error) {
+//  @return GetUserSettingsMain2XXResponse
+func (a *UsersAPIService) CreateUserSettingsMainExecute(r ApiCreateUserSettingsMainRequest) (*GetUserSettingsMain2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserSettingsMain200Response
+		localVarReturnValue  *GetUserSettingsMain2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserSettingsMain")
@@ -985,7 +985,7 @@ func (r ApiCreateUserSettingsPermissionsRequest) CreateUserSettingsPermissionsRe
 	return r
 }
 
-func (r ApiCreateUserSettingsPermissionsRequest) Execute() (*GetUserSettingsPermissions200Response, *http.Response, error) {
+func (r ApiCreateUserSettingsPermissionsRequest) Execute() (*GetUserSettingsPermissions2XXResponse, *http.Response, error) {
 	return r.ApiService.CreateUserSettingsPermissionsExecute(r)
 }
 
@@ -1007,13 +1007,13 @@ func (a *UsersAPIService) CreateUserSettingsPermissions(ctx context.Context, use
 }
 
 // Execute executes the request
-//  @return GetUserSettingsPermissions200Response
-func (a *UsersAPIService) CreateUserSettingsPermissionsExecute(r ApiCreateUserSettingsPermissionsRequest) (*GetUserSettingsPermissions200Response, *http.Response, error) {
+//  @return GetUserSettingsPermissions2XXResponse
+func (a *UsersAPIService) CreateUserSettingsPermissionsExecute(r ApiCreateUserSettingsPermissionsRequest) (*GetUserSettingsPermissions2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserSettingsPermissions200Response
+		localVarReturnValue  *GetUserSettingsPermissions2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserSettingsPermissions")
@@ -1239,7 +1239,7 @@ func (r ApiGetUserRequest) Sort(sort string) ApiGetUserRequest {
 	return r
 }
 
-func (r ApiGetUserRequest) Execute() (*GetUser200Response, *http.Response, error) {
+func (r ApiGetUserRequest) Execute() (*GetUser2XXResponse, *http.Response, error) {
 	return r.ApiService.GetUserExecute(r)
 }
 
@@ -1259,13 +1259,13 @@ func (a *UsersAPIService) GetUser(ctx context.Context) ApiGetUserRequest {
 }
 
 // Execute executes the request
-//  @return GetUser200Response
-func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUser200Response, *http.Response, error) {
+//  @return GetUser2XXResponse
+func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUser2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUser200Response
+		localVarReturnValue  *GetUser2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUser")
@@ -1478,7 +1478,7 @@ type ApiGetUserQuotaRequest struct {
 	userId float32
 }
 
-func (r ApiGetUserQuotaRequest) Execute() (*GetUserQuota200Response, *http.Response, error) {
+func (r ApiGetUserQuotaRequest) Execute() (*GetUserQuota2XXResponse, *http.Response, error) {
 	return r.ApiService.GetUserQuotaExecute(r)
 }
 
@@ -1501,13 +1501,13 @@ func (a *UsersAPIService) GetUserQuota(ctx context.Context, userId float32) ApiG
 }
 
 // Execute executes the request
-//  @return GetUserQuota200Response
-func (a *UsersAPIService) GetUserQuotaExecute(r ApiGetUserQuotaRequest) (*GetUserQuota200Response, *http.Response, error) {
+//  @return GetUserQuota2XXResponse
+func (a *UsersAPIService) GetUserQuotaExecute(r ApiGetUserQuotaRequest) (*GetUserQuota2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserQuota200Response
+		localVarReturnValue  *GetUserQuota2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserQuota")
@@ -1607,7 +1607,7 @@ func (r ApiGetUserRequestsRequest) Skip(skip float32) ApiGetUserRequestsRequest 
 	return r
 }
 
-func (r ApiGetUserRequestsRequest) Execute() (*GetUserRequests200Response, *http.Response, error) {
+func (r ApiGetUserRequestsRequest) Execute() (*GetUserRequests2XXResponse, *http.Response, error) {
 	return r.ApiService.GetUserRequestsExecute(r)
 }
 
@@ -1630,13 +1630,13 @@ func (a *UsersAPIService) GetUserRequests(ctx context.Context, userId float32) A
 }
 
 // Execute executes the request
-//  @return GetUserRequests200Response
-func (a *UsersAPIService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*GetUserRequests200Response, *http.Response, error) {
+//  @return GetUserRequests2XXResponse
+func (a *UsersAPIService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*GetUserRequests2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserRequests200Response
+		localVarReturnValue  *GetUserRequests2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserRequests")
@@ -1730,7 +1730,7 @@ type ApiGetUserSettingsMainRequest struct {
 	userId float32
 }
 
-func (r ApiGetUserSettingsMainRequest) Execute() (*GetUserSettingsMain200Response, *http.Response, error) {
+func (r ApiGetUserSettingsMainRequest) Execute() (*GetUserSettingsMain2XXResponse, *http.Response, error) {
 	return r.ApiService.GetUserSettingsMainExecute(r)
 }
 
@@ -1752,13 +1752,13 @@ func (a *UsersAPIService) GetUserSettingsMain(ctx context.Context, userId float3
 }
 
 // Execute executes the request
-//  @return GetUserSettingsMain200Response
-func (a *UsersAPIService) GetUserSettingsMainExecute(r ApiGetUserSettingsMainRequest) (*GetUserSettingsMain200Response, *http.Response, error) {
+//  @return GetUserSettingsMain2XXResponse
+func (a *UsersAPIService) GetUserSettingsMainExecute(r ApiGetUserSettingsMainRequest) (*GetUserSettingsMain2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserSettingsMain200Response
+		localVarReturnValue  *GetUserSettingsMain2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserSettingsMain")
@@ -1962,7 +1962,7 @@ type ApiGetUserSettingsPasswordRequest struct {
 	userId float32
 }
 
-func (r ApiGetUserSettingsPasswordRequest) Execute() (*GetUserSettingsPassword200Response, *http.Response, error) {
+func (r ApiGetUserSettingsPasswordRequest) Execute() (*GetUserSettingsPassword2XXResponse, *http.Response, error) {
 	return r.ApiService.GetUserSettingsPasswordExecute(r)
 }
 
@@ -1984,13 +1984,13 @@ func (a *UsersAPIService) GetUserSettingsPassword(ctx context.Context, userId fl
 }
 
 // Execute executes the request
-//  @return GetUserSettingsPassword200Response
-func (a *UsersAPIService) GetUserSettingsPasswordExecute(r ApiGetUserSettingsPasswordRequest) (*GetUserSettingsPassword200Response, *http.Response, error) {
+//  @return GetUserSettingsPassword2XXResponse
+func (a *UsersAPIService) GetUserSettingsPasswordExecute(r ApiGetUserSettingsPasswordRequest) (*GetUserSettingsPassword2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserSettingsPassword200Response
+		localVarReturnValue  *GetUserSettingsPassword2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserSettingsPassword")
@@ -2078,7 +2078,7 @@ type ApiGetUserSettingsPermissionsRequest struct {
 	userId float32
 }
 
-func (r ApiGetUserSettingsPermissionsRequest) Execute() (*GetUserSettingsPermissions200Response, *http.Response, error) {
+func (r ApiGetUserSettingsPermissionsRequest) Execute() (*GetUserSettingsPermissions2XXResponse, *http.Response, error) {
 	return r.ApiService.GetUserSettingsPermissionsExecute(r)
 }
 
@@ -2100,13 +2100,13 @@ func (a *UsersAPIService) GetUserSettingsPermissions(ctx context.Context, userId
 }
 
 // Execute executes the request
-//  @return GetUserSettingsPermissions200Response
-func (a *UsersAPIService) GetUserSettingsPermissionsExecute(r ApiGetUserSettingsPermissionsRequest) (*GetUserSettingsPermissions200Response, *http.Response, error) {
+//  @return GetUserSettingsPermissions2XXResponse
+func (a *UsersAPIService) GetUserSettingsPermissionsExecute(r ApiGetUserSettingsPermissionsRequest) (*GetUserSettingsPermissions2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserSettingsPermissions200Response
+		localVarReturnValue  *GetUserSettingsPermissions2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserSettingsPermissions")
@@ -2194,7 +2194,7 @@ type ApiGetUserWatchDataRequest struct {
 	userId float32
 }
 
-func (r ApiGetUserWatchDataRequest) Execute() (*GetUserWatchData200Response, *http.Response, error) {
+func (r ApiGetUserWatchDataRequest) Execute() (*GetUserWatchData2XXResponse, *http.Response, error) {
 	return r.ApiService.GetUserWatchDataExecute(r)
 }
 
@@ -2219,13 +2219,13 @@ func (a *UsersAPIService) GetUserWatchData(ctx context.Context, userId float32) 
 }
 
 // Execute executes the request
-//  @return GetUserWatchData200Response
-func (a *UsersAPIService) GetUserWatchDataExecute(r ApiGetUserWatchDataRequest) (*GetUserWatchData200Response, *http.Response, error) {
+//  @return GetUserWatchData2XXResponse
+func (a *UsersAPIService) GetUserWatchDataExecute(r ApiGetUserWatchDataRequest) (*GetUserWatchData2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserWatchData200Response
+		localVarReturnValue  *GetUserWatchData2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserWatchData")
@@ -2319,7 +2319,7 @@ func (r ApiGetUserWatchlistRequest) Page(page float32) ApiGetUserWatchlistReques
 	return r
 }
 
-func (r ApiGetUserWatchlistRequest) Execute() (*GetUserWatchlist200Response, *http.Response, error) {
+func (r ApiGetUserWatchlistRequest) Execute() (*GetUserWatchlist2XXResponse, *http.Response, error) {
 	return r.ApiService.GetUserWatchlistExecute(r)
 }
 
@@ -2342,13 +2342,13 @@ func (a *UsersAPIService) GetUserWatchlist(ctx context.Context, userId float32) 
 }
 
 // Execute executes the request
-//  @return GetUserWatchlist200Response
-func (a *UsersAPIService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) (*GetUserWatchlist200Response, *http.Response, error) {
+//  @return GetUserWatchlist2XXResponse
+func (a *UsersAPIService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) (*GetUserWatchlist2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetUserWatchlist200Response
+		localVarReturnValue  *GetUserWatchlist2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserWatchlist")

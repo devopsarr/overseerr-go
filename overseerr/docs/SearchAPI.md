@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ## GetDiscoverKeywordMovies
 
-> GetDiscoverMovies200Response GetDiscoverKeywordMovies(ctx, keywordId).Page(page).Language(language).Execute()
+> GetDiscoverMovies2XXResponse GetDiscoverKeywordMovies(ctx, keywordId).Page(page).Language(language).Execute()
 
 Get movies from keyword
 
@@ -57,7 +57,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverKeywordMovies``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverKeywordMovies`: GetDiscoverMovies200Response
+    // response from `GetDiscoverKeywordMovies`: GetDiscoverMovies2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverKeywordMovies`: %v\n", resp)
 }
 ```
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+[**GetDiscoverMovies2XXResponse**](GetDiscoverMovies2XXResponse.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverMovies
 
-> GetDiscoverMovies200Response GetDiscoverMovies(ctx).Page(page).Language(language).Genre(genre).Studio(studio).Keywords(keywords).SortBy(sortBy).PrimaryReleaseDateGte(primaryReleaseDateGte).PrimaryReleaseDateLte(primaryReleaseDateLte).WithRuntimeGte(withRuntimeGte).WithRuntimeLte(withRuntimeLte).VoteAverageGte(voteAverageGte).VoteAverageLte(voteAverageLte).VoteCountGte(voteCountGte).VoteCountLte(voteCountLte).WatchRegion(watchRegion).WatchProviders(watchProviders).Execute()
+> GetDiscoverMovies2XXResponse GetDiscoverMovies(ctx).Page(page).Language(language).Genre(genre).Studio(studio).Keywords(keywords).SortBy(sortBy).PrimaryReleaseDateGte(primaryReleaseDateGte).PrimaryReleaseDateLte(primaryReleaseDateLte).WithRuntimeGte(withRuntimeGte).WithRuntimeLte(withRuntimeLte).VoteAverageGte(voteAverageGte).VoteAverageLte(voteAverageLte).VoteCountGte(voteCountGte).VoteCountLte(voteCountLte).WatchRegion(watchRegion).WatchProviders(watchProviders).Execute()
 
 Discover movies
 
@@ -144,7 +144,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMovies``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverMovies`: GetDiscoverMovies200Response
+    // response from `GetDiscoverMovies`: GetDiscoverMovies2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMovies`: %v\n", resp)
 }
 ```
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+[**GetDiscoverMovies2XXResponse**](GetDiscoverMovies2XXResponse.md)
 
 ### Authorization
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverMoviesGenreByGenreId
 
-> GetDiscoverMoviesGenreByGenreId200Response GetDiscoverMoviesGenreByGenreId(ctx, genreId).Page(page).Language(language).Execute()
+> GetDiscoverMoviesGenreByGenreId2XXResponse GetDiscoverMoviesGenreByGenreId(ctx, genreId).Page(page).Language(language).Execute()
 
 Discover movies by genre
 
@@ -227,7 +227,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMoviesGenreByGenreId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverMoviesGenreByGenreId`: GetDiscoverMoviesGenreByGenreId200Response
+    // response from `GetDiscoverMoviesGenreByGenreId`: GetDiscoverMoviesGenreByGenreId2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMoviesGenreByGenreId`: %v\n", resp)
 }
 ```
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMoviesGenreByGenreId200Response**](GetDiscoverMoviesGenreByGenreId200Response.md)
+[**GetDiscoverMoviesGenreByGenreId2XXResponse**](GetDiscoverMoviesGenreByGenreId2XXResponse.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverMoviesLanguageByLanguage
 
-> GetDiscoverMoviesLanguageByLanguage200Response GetDiscoverMoviesLanguageByLanguage(ctx, language).Page(page).Language2(language2).Execute()
+> GetDiscoverMoviesLanguageByLanguage2XXResponse GetDiscoverMoviesLanguageByLanguage(ctx, language).Page(page).Language2(language2).Execute()
 
 Discover movies by original language
 
@@ -301,7 +301,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMoviesLanguageByLanguage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverMoviesLanguageByLanguage`: GetDiscoverMoviesLanguageByLanguage200Response
+    // response from `GetDiscoverMoviesLanguageByLanguage`: GetDiscoverMoviesLanguageByLanguage2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMoviesLanguageByLanguage`: %v\n", resp)
 }
 ```
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMoviesLanguageByLanguage200Response**](GetDiscoverMoviesLanguageByLanguage200Response.md)
+[**GetDiscoverMoviesLanguageByLanguage2XXResponse**](GetDiscoverMoviesLanguageByLanguage2XXResponse.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverMoviesStudioByStudioId
 
-> GetDiscoverMoviesStudioByStudioId200Response GetDiscoverMoviesStudioByStudioId(ctx, studioId).Page(page).Language(language).Execute()
+> GetDiscoverMoviesStudioByStudioId2XXResponse GetDiscoverMoviesStudioByStudioId(ctx, studioId).Page(page).Language(language).Execute()
 
 Discover movies by studio
 
@@ -375,7 +375,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMoviesStudioByStudioId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverMoviesStudioByStudioId`: GetDiscoverMoviesStudioByStudioId200Response
+    // response from `GetDiscoverMoviesStudioByStudioId`: GetDiscoverMoviesStudioByStudioId2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMoviesStudioByStudioId`: %v\n", resp)
 }
 ```
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMoviesStudioByStudioId200Response**](GetDiscoverMoviesStudioByStudioId200Response.md)
+[**GetDiscoverMoviesStudioByStudioId2XXResponse**](GetDiscoverMoviesStudioByStudioId2XXResponse.md)
 
 ### Authorization
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverMoviesUpcoming
 
-> GetDiscoverMovies200Response GetDiscoverMoviesUpcoming(ctx).Page(page).Language(language).Execute()
+> GetDiscoverMovies2XXResponse GetDiscoverMoviesUpcoming(ctx).Page(page).Language(language).Execute()
 
 Upcoming movies
 
@@ -448,7 +448,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverMoviesUpcoming``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverMoviesUpcoming`: GetDiscoverMovies200Response
+    // response from `GetDiscoverMoviesUpcoming`: GetDiscoverMovies2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverMoviesUpcoming`: %v\n", resp)
 }
 ```
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverMovies200Response**](GetDiscoverMovies200Response.md)
+[**GetDiscoverMovies2XXResponse**](GetDiscoverMovies2XXResponse.md)
 
 ### Authorization
 
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverTrending
 
-> GetSearch200Response GetDiscoverTrending(ctx).Page(page).Language(language).Execute()
+> GetSearch2XXResponse GetDiscoverTrending(ctx).Page(page).Language(language).Execute()
 
 Trending movies and TV
 
@@ -516,7 +516,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTrending``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverTrending`: GetSearch200Response
+    // response from `GetDiscoverTrending`: GetSearch2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTrending`: %v\n", resp)
 }
 ```
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearch200Response**](GetSearch200Response.md)
+[**GetSearch2XXResponse**](GetSearch2XXResponse.md)
 
 ### Authorization
 
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverTv
 
-> GetDiscoverTv200Response GetDiscoverTv(ctx).Page(page).Language(language).Genre(genre).Network(network).Keywords(keywords).SortBy(sortBy).FirstAirDateGte(firstAirDateGte).FirstAirDateLte(firstAirDateLte).WithRuntimeGte(withRuntimeGte).WithRuntimeLte(withRuntimeLte).VoteAverageGte(voteAverageGte).VoteAverageLte(voteAverageLte).VoteCountGte(voteCountGte).VoteCountLte(voteCountLte).WatchRegion(watchRegion).WatchProviders(watchProviders).Execute()
+> GetDiscoverTv2XXResponse GetDiscoverTv(ctx).Page(page).Language(language).Genre(genre).Network(network).Keywords(keywords).SortBy(sortBy).FirstAirDateGte(firstAirDateGte).FirstAirDateLte(firstAirDateLte).WithRuntimeGte(withRuntimeGte).WithRuntimeLte(withRuntimeLte).VoteAverageGte(voteAverageGte).VoteAverageLte(voteAverageLte).VoteCountGte(voteCountGte).VoteCountLte(voteCountLte).WatchRegion(watchRegion).WatchProviders(watchProviders).Execute()
 
 Discover TV shows
 
@@ -598,7 +598,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverTv`: GetDiscoverTv200Response
+    // response from `GetDiscoverTv`: GetDiscoverTv2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTv`: %v\n", resp)
 }
 ```
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverTv200Response**](GetDiscoverTv200Response.md)
+[**GetDiscoverTv2XXResponse**](GetDiscoverTv2XXResponse.md)
 
 ### Authorization
 
@@ -651,7 +651,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverTvGenreByGenreId
 
-> GetDiscoverTvGenreByGenreId200Response GetDiscoverTvGenreByGenreId(ctx, genreId).Page(page).Language(language).Execute()
+> GetDiscoverTvGenreByGenreId2XXResponse GetDiscoverTvGenreByGenreId(ctx, genreId).Page(page).Language(language).Execute()
 
 Discover TV shows by genre
 
@@ -681,7 +681,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTvGenreByGenreId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverTvGenreByGenreId`: GetDiscoverTvGenreByGenreId200Response
+    // response from `GetDiscoverTvGenreByGenreId`: GetDiscoverTvGenreByGenreId2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTvGenreByGenreId`: %v\n", resp)
 }
 ```
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverTvGenreByGenreId200Response**](GetDiscoverTvGenreByGenreId200Response.md)
+[**GetDiscoverTvGenreByGenreId2XXResponse**](GetDiscoverTvGenreByGenreId2XXResponse.md)
 
 ### Authorization
 
@@ -725,7 +725,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverTvLanguageByLanguage
 
-> GetDiscoverTvLanguageByLanguage200Response GetDiscoverTvLanguageByLanguage(ctx, language).Page(page).Language2(language2).Execute()
+> GetDiscoverTvLanguageByLanguage2XXResponse GetDiscoverTvLanguageByLanguage(ctx, language).Page(page).Language2(language2).Execute()
 
 Discover TV shows by original language
 
@@ -755,7 +755,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTvLanguageByLanguage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverTvLanguageByLanguage`: GetDiscoverTvLanguageByLanguage200Response
+    // response from `GetDiscoverTvLanguageByLanguage`: GetDiscoverTvLanguageByLanguage2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTvLanguageByLanguage`: %v\n", resp)
 }
 ```
@@ -781,7 +781,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverTvLanguageByLanguage200Response**](GetDiscoverTvLanguageByLanguage200Response.md)
+[**GetDiscoverTvLanguageByLanguage2XXResponse**](GetDiscoverTvLanguageByLanguage2XXResponse.md)
 
 ### Authorization
 
@@ -799,7 +799,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverTvNetworkByNetworkId
 
-> GetDiscoverTvNetworkByNetworkId200Response GetDiscoverTvNetworkByNetworkId(ctx, networkId).Page(page).Language(language).Execute()
+> GetDiscoverTvNetworkByNetworkId2XXResponse GetDiscoverTvNetworkByNetworkId(ctx, networkId).Page(page).Language(language).Execute()
 
 Discover TV shows by network
 
@@ -829,7 +829,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTvNetworkByNetworkId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverTvNetworkByNetworkId`: GetDiscoverTvNetworkByNetworkId200Response
+    // response from `GetDiscoverTvNetworkByNetworkId`: GetDiscoverTvNetworkByNetworkId2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTvNetworkByNetworkId`: %v\n", resp)
 }
 ```
@@ -855,7 +855,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverTvNetworkByNetworkId200Response**](GetDiscoverTvNetworkByNetworkId200Response.md)
+[**GetDiscoverTvNetworkByNetworkId2XXResponse**](GetDiscoverTvNetworkByNetworkId2XXResponse.md)
 
 ### Authorization
 
@@ -873,7 +873,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverTvUpcoming
 
-> GetDiscoverTv200Response GetDiscoverTvUpcoming(ctx).Page(page).Language(language).Execute()
+> GetDiscoverTv2XXResponse GetDiscoverTvUpcoming(ctx).Page(page).Language(language).Execute()
 
 Discover Upcoming TV shows
 
@@ -902,7 +902,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverTvUpcoming``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverTvUpcoming`: GetDiscoverTv200Response
+    // response from `GetDiscoverTvUpcoming`: GetDiscoverTv2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverTvUpcoming`: %v\n", resp)
 }
 ```
@@ -923,7 +923,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverTv200Response**](GetDiscoverTv200Response.md)
+[**GetDiscoverTv2XXResponse**](GetDiscoverTv2XXResponse.md)
 
 ### Authorization
 
@@ -941,7 +941,7 @@ Name | Type | Description  | Notes
 
 ## GetDiscoverWatchlist
 
-> GetUserWatchlist200Response GetDiscoverWatchlist(ctx).Page(page).Execute()
+> GetUserWatchlist2XXResponse GetDiscoverWatchlist(ctx).Page(page).Execute()
 
 Get the Plex watchlist.
 
@@ -967,7 +967,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetDiscoverWatchlist``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDiscoverWatchlist`: GetUserWatchlist200Response
+    // response from `GetDiscoverWatchlist`: GetUserWatchlist2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetDiscoverWatchlist`: %v\n", resp)
 }
 ```
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserWatchlist200Response**](GetUserWatchlist200Response.md)
+[**GetUserWatchlist2XXResponse**](GetUserWatchlist2XXResponse.md)
 
 ### Authorization
 
@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 
 ## GetSearch
 
-> GetSearch200Response GetSearch(ctx).Query(query).Page(page).Language(language).Execute()
+> GetSearch2XXResponse GetSearch(ctx).Query(query).Page(page).Language(language).Execute()
 
 Search for movies, TV shows, or people
 
@@ -1035,7 +1035,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetSearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSearch`: GetSearch200Response
+    // response from `GetSearch`: GetSearch2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetSearch`: %v\n", resp)
 }
 ```
@@ -1057,7 +1057,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearch200Response**](GetSearch200Response.md)
+[**GetSearch2XXResponse**](GetSearch2XXResponse.md)
 
 ### Authorization
 
@@ -1075,7 +1075,7 @@ Name | Type | Description  | Notes
 
 ## GetSearchCompany
 
-> GetSearchCompany200Response GetSearchCompany(ctx).Query(query).Page(page).Execute()
+> GetSearchCompany2XXResponse GetSearchCompany(ctx).Query(query).Page(page).Execute()
 
 Search for companies
 
@@ -1104,7 +1104,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetSearchCompany``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSearchCompany`: GetSearchCompany200Response
+    // response from `GetSearchCompany`: GetSearchCompany2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetSearchCompany`: %v\n", resp)
 }
 ```
@@ -1125,7 +1125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchCompany200Response**](GetSearchCompany200Response.md)
+[**GetSearchCompany2XXResponse**](GetSearchCompany2XXResponse.md)
 
 ### Authorization
 
@@ -1143,7 +1143,7 @@ Name | Type | Description  | Notes
 
 ## GetSearchKeyword
 
-> GetSearchKeyword200Response GetSearchKeyword(ctx).Query(query).Page(page).Execute()
+> GetSearchKeyword2XXResponse GetSearchKeyword(ctx).Query(query).Page(page).Execute()
 
 Search for keywords
 
@@ -1172,7 +1172,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.GetSearchKeyword``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSearchKeyword`: GetSearchKeyword200Response
+    // response from `GetSearchKeyword`: GetSearchKeyword2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.GetSearchKeyword`: %v\n", resp)
 }
 ```
@@ -1193,7 +1193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchKeyword200Response**](GetSearchKeyword200Response.md)
+[**GetSearchKeyword2XXResponse**](GetSearchKeyword2XXResponse.md)
 
 ### Authorization
 
@@ -1211,7 +1211,7 @@ Name | Type | Description  | Notes
 
 ## ListDiscoverGenresliderMovie
 
-> []ListDiscoverGenresliderMovie200ResponseInner ListDiscoverGenresliderMovie(ctx).Language(language).Execute()
+> []ListDiscoverGenresliderMovie2XXResponseInner ListDiscoverGenresliderMovie(ctx).Language(language).Execute()
 
 Get genre slider data for movies
 
@@ -1239,7 +1239,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.ListDiscoverGenresliderMovie``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListDiscoverGenresliderMovie`: []ListDiscoverGenresliderMovie200ResponseInner
+    // response from `ListDiscoverGenresliderMovie`: []ListDiscoverGenresliderMovie2XXResponseInner
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.ListDiscoverGenresliderMovie`: %v\n", resp)
 }
 ```
@@ -1259,7 +1259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ListDiscoverGenresliderMovie200ResponseInner**](ListDiscoverGenresliderMovie200ResponseInner.md)
+[**[]ListDiscoverGenresliderMovie2XXResponseInner**](ListDiscoverGenresliderMovie2XXResponseInner.md)
 
 ### Authorization
 
@@ -1277,7 +1277,7 @@ Name | Type | Description  | Notes
 
 ## ListDiscoverGenresliderTv
 
-> []ListDiscoverGenresliderMovie200ResponseInner ListDiscoverGenresliderTv(ctx).Language(language).Execute()
+> []ListDiscoverGenresliderMovie2XXResponseInner ListDiscoverGenresliderTv(ctx).Language(language).Execute()
 
 Get genre slider data for TV series
 
@@ -1305,7 +1305,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.ListDiscoverGenresliderTv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListDiscoverGenresliderTv`: []ListDiscoverGenresliderMovie200ResponseInner
+    // response from `ListDiscoverGenresliderTv`: []ListDiscoverGenresliderMovie2XXResponseInner
     fmt.Fprintf(os.Stdout, "Response from `SearchAPI.ListDiscoverGenresliderTv`: %v\n", resp)
 }
 ```
@@ -1325,7 +1325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ListDiscoverGenresliderMovie200ResponseInner**](ListDiscoverGenresliderMovie200ResponseInner.md)
+[**[]ListDiscoverGenresliderMovie2XXResponseInner**](ListDiscoverGenresliderMovie2XXResponseInner.md)
 
 ### Authorization
 

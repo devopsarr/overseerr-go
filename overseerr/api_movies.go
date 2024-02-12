@@ -153,7 +153,7 @@ type ApiGetMovieRatingsRequest struct {
 	movieId float32
 }
 
-func (r ApiGetMovieRatingsRequest) Execute() (*GetMovieRatings200Response, *http.Response, error) {
+func (r ApiGetMovieRatingsRequest) Execute() (*GetMovieRatings2XXResponse, *http.Response, error) {
 	return r.ApiService.GetMovieRatingsExecute(r)
 }
 
@@ -175,13 +175,13 @@ func (a *MoviesAPIService) GetMovieRatings(ctx context.Context, movieId float32)
 }
 
 // Execute executes the request
-//  @return GetMovieRatings200Response
-func (a *MoviesAPIService) GetMovieRatingsExecute(r ApiGetMovieRatingsRequest) (*GetMovieRatings200Response, *http.Response, error) {
+//  @return GetMovieRatings2XXResponse
+func (a *MoviesAPIService) GetMovieRatingsExecute(r ApiGetMovieRatingsRequest) (*GetMovieRatings2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetMovieRatings200Response
+		localVarReturnValue  *GetMovieRatings2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesAPIService.GetMovieRatings")
@@ -281,7 +281,7 @@ func (r ApiGetMovieRecommendationsRequest) Language(language string) ApiGetMovie
 	return r
 }
 
-func (r ApiGetMovieRecommendationsRequest) Execute() (*GetDiscoverMovies200Response, *http.Response, error) {
+func (r ApiGetMovieRecommendationsRequest) Execute() (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	return r.ApiService.GetMovieRecommendationsExecute(r)
 }
 
@@ -303,13 +303,13 @@ func (a *MoviesAPIService) GetMovieRecommendations(ctx context.Context, movieId 
 }
 
 // Execute executes the request
-//  @return GetDiscoverMovies200Response
-func (a *MoviesAPIService) GetMovieRecommendationsExecute(r ApiGetMovieRecommendationsRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+//  @return GetDiscoverMovies2XXResponse
+func (a *MoviesAPIService) GetMovieRecommendationsExecute(r ApiGetMovieRecommendationsRequest) (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverMovies200Response
+		localVarReturnValue  *GetDiscoverMovies2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesAPIService.GetMovieRecommendations")
@@ -415,7 +415,7 @@ func (r ApiGetMovieSimilarRequest) Language(language string) ApiGetMovieSimilarR
 	return r
 }
 
-func (r ApiGetMovieSimilarRequest) Execute() (*GetDiscoverMovies200Response, *http.Response, error) {
+func (r ApiGetMovieSimilarRequest) Execute() (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	return r.ApiService.GetMovieSimilarExecute(r)
 }
 
@@ -437,13 +437,13 @@ func (a *MoviesAPIService) GetMovieSimilar(ctx context.Context, movieId float32)
 }
 
 // Execute executes the request
-//  @return GetDiscoverMovies200Response
-func (a *MoviesAPIService) GetMovieSimilarExecute(r ApiGetMovieSimilarRequest) (*GetDiscoverMovies200Response, *http.Response, error) {
+//  @return GetDiscoverMovies2XXResponse
+func (a *MoviesAPIService) GetMovieSimilarExecute(r ApiGetMovieSimilarRequest) (*GetDiscoverMovies2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverMovies200Response
+		localVarReturnValue  *GetDiscoverMovies2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoviesAPIService.GetMovieSimilar")

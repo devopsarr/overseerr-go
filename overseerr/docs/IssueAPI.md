@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## GetIssue
 
-> GetIssue200Response GetIssue(ctx).Take(take).Skip(skip).Sort(sort).Filter(filter).RequestedBy(requestedBy).Execute()
+> GetIssue2XXResponse GetIssue(ctx).Take(take).Skip(skip).Sort(sort).Filter(filter).RequestedBy(requestedBy).Execute()
 
 Get all issues
 
@@ -398,7 +398,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssue``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIssue`: GetIssue200Response
+    // response from `GetIssue`: GetIssue2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssue`: %v\n", resp)
 }
 ```
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetIssue200Response**](GetIssue200Response.md)
+[**GetIssue2XXResponse**](GetIssue2XXResponse.md)
 
 ### Authorization
 
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 ## GetIssueCount
 
-> GetIssueCount200Response GetIssueCount(ctx).Execute()
+> GetIssueCount2XXResponse GetIssueCount(ctx).Execute()
 
 Gets issue counts
 
@@ -607,7 +607,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueCount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIssueCount`: GetIssueCount200Response
+    // response from `GetIssueCount`: GetIssueCount2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueCount`: %v\n", resp)
 }
 ```
@@ -623,7 +623,7 @@ Other parameters are passed through a pointer to a apiGetIssueCountRequest struc
 
 ### Return type
 
-[**GetIssueCount200Response**](GetIssueCount200Response.md)
+[**GetIssueCount2XXResponse**](GetIssueCount2XXResponse.md)
 
 ### Authorization
 

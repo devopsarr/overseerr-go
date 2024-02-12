@@ -159,7 +159,7 @@ func (r ApiGetPersonCombinedCreditsRequest) Language(language string) ApiGetPers
 	return r
 }
 
-func (r ApiGetPersonCombinedCreditsRequest) Execute() (*GetPersonCombinedCredits200Response, *http.Response, error) {
+func (r ApiGetPersonCombinedCreditsRequest) Execute() (*GetPersonCombinedCredits2XXResponse, *http.Response, error) {
 	return r.ApiService.GetPersonCombinedCreditsExecute(r)
 }
 
@@ -181,13 +181,13 @@ func (a *PersonAPIService) GetPersonCombinedCredits(ctx context.Context, personI
 }
 
 // Execute executes the request
-//  @return GetPersonCombinedCredits200Response
-func (a *PersonAPIService) GetPersonCombinedCreditsExecute(r ApiGetPersonCombinedCreditsRequest) (*GetPersonCombinedCredits200Response, *http.Response, error) {
+//  @return GetPersonCombinedCredits2XXResponse
+func (a *PersonAPIService) GetPersonCombinedCreditsExecute(r ApiGetPersonCombinedCreditsRequest) (*GetPersonCombinedCredits2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetPersonCombinedCredits200Response
+		localVarReturnValue  *GetPersonCombinedCredits2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonAPIService.GetPersonCombinedCredits")

@@ -217,7 +217,7 @@ No authorization required
 
 ## ListGenresMovie
 
-> []ListGenresMovie200ResponseInner ListGenresMovie(ctx).Language(language).Execute()
+> []ListGenresMovie2XXResponseInner ListGenresMovie(ctx).Language(language).Execute()
 
 Get list of official TMDB movie genres
 
@@ -245,7 +245,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListGenresMovie``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListGenresMovie`: []ListGenresMovie200ResponseInner
+    // response from `ListGenresMovie`: []ListGenresMovie2XXResponseInner
     fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListGenresMovie`: %v\n", resp)
 }
 ```
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ListGenresMovie200ResponseInner**](ListGenresMovie200ResponseInner.md)
+[**[]ListGenresMovie2XXResponseInner**](ListGenresMovie2XXResponseInner.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ## ListGenresTv
 
-> []ListGenresTv200ResponseInner ListGenresTv(ctx).Language(language).Execute()
+> []ListGenresTv2XXResponseInner ListGenresTv(ctx).Language(language).Execute()
 
 Get list of official TMDB movie genres
 
@@ -311,7 +311,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListGenresTv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListGenresTv`: []ListGenresTv200ResponseInner
+    // response from `ListGenresTv`: []ListGenresTv2XXResponseInner
     fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListGenresTv`: %v\n", resp)
 }
 ```
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ListGenresTv200ResponseInner**](ListGenresTv200ResponseInner.md)
+[**[]ListGenresTv2XXResponseInner**](ListGenresTv2XXResponseInner.md)
 
 ### Authorization
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ## ListLanguages
 
-> []ListLanguages200ResponseInner ListLanguages(ctx).Execute()
+> []ListLanguages2XXResponseInner ListLanguages(ctx).Execute()
 
 Languages supported by TMDB
 
@@ -376,7 +376,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListLanguages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListLanguages`: []ListLanguages200ResponseInner
+    // response from `ListLanguages`: []ListLanguages2XXResponseInner
     fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListLanguages`: %v\n", resp)
 }
 ```
@@ -392,7 +392,7 @@ Other parameters are passed through a pointer to a apiListLanguagesRequest struc
 
 ### Return type
 
-[**[]ListLanguages200ResponseInner**](ListLanguages200ResponseInner.md)
+[**[]ListLanguages2XXResponseInner**](ListLanguages2XXResponseInner.md)
 
 ### Authorization
 
@@ -410,7 +410,7 @@ Other parameters are passed through a pointer to a apiListLanguagesRequest struc
 
 ## ListRegions
 
-> []ListRegions200ResponseInner ListRegions(ctx).Execute()
+> []ListRegions2XXResponseInner ListRegions(ctx).Execute()
 
 Regions supported by TMDB
 
@@ -437,7 +437,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListRegions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListRegions`: []ListRegions200ResponseInner
+    // response from `ListRegions`: []ListRegions2XXResponseInner
     fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListRegions`: %v\n", resp)
 }
 ```
@@ -453,7 +453,7 @@ Other parameters are passed through a pointer to a apiListRegionsRequest struct 
 
 ### Return type
 
-[**[]ListRegions200ResponseInner**](ListRegions200ResponseInner.md)
+[**[]ListRegions2XXResponseInner**](ListRegions2XXResponseInner.md)
 
 ### Authorization
 

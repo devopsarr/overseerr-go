@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## GetPersonCombinedCredits
 
-> GetPersonCombinedCredits200Response GetPersonCombinedCredits(ctx, personId).Language(language).Execute()
+> GetPersonCombinedCredits2XXResponse GetPersonCombinedCredits(ctx, personId).Language(language).Execute()
 
 Get combined credits
 
@@ -112,7 +112,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PersonAPI.GetPersonCombinedCredits``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetPersonCombinedCredits`: GetPersonCombinedCredits200Response
+    // response from `GetPersonCombinedCredits`: GetPersonCombinedCredits2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `PersonAPI.GetPersonCombinedCredits`: %v\n", resp)
 }
 ```
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPersonCombinedCredits200Response**](GetPersonCombinedCredits200Response.md)
+[**GetPersonCombinedCredits2XXResponse**](GetPersonCombinedCredits2XXResponse.md)
 
 ### Authorization
 

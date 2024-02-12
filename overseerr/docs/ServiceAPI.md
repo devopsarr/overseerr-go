@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## GetServiceRadarrByRadarrId
 
-> GetServiceRadarrByRadarrId200Response GetServiceRadarrByRadarrId(ctx, radarrId).Execute()
+> GetServiceRadarrByRadarrId2XXResponse GetServiceRadarrByRadarrId(ctx, radarrId).Execute()
 
 Get Radarr server quality profiles and root folders
 
@@ -42,7 +42,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.GetServiceRadarrByRadarrId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetServiceRadarrByRadarrId`: GetServiceRadarrByRadarrId200Response
+    // response from `GetServiceRadarrByRadarrId`: GetServiceRadarrByRadarrId2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.GetServiceRadarrByRadarrId`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetServiceRadarrByRadarrId200Response**](GetServiceRadarrByRadarrId200Response.md)
+[**GetServiceRadarrByRadarrId2XXResponse**](GetServiceRadarrByRadarrId2XXResponse.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## GetServiceSonarrBySonarrId
 
-> GetServiceSonarrBySonarrId200Response GetServiceSonarrBySonarrId(ctx, sonarrId).Execute()
+> GetServiceSonarrBySonarrId2XXResponse GetServiceSonarrBySonarrId(ctx, sonarrId).Execute()
 
 Get Sonarr server quality profiles and root folders
 
@@ -112,7 +112,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.GetServiceSonarrBySonarrId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetServiceSonarrBySonarrId`: GetServiceSonarrBySonarrId200Response
+    // response from `GetServiceSonarrBySonarrId`: GetServiceSonarrBySonarrId2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.GetServiceSonarrBySonarrId`: %v\n", resp)
 }
 ```
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetServiceSonarrBySonarrId200Response**](GetServiceSonarrBySonarrId200Response.md)
+[**GetServiceSonarrBySonarrId2XXResponse**](GetServiceSonarrBySonarrId2XXResponse.md)
 
 ### Authorization
 

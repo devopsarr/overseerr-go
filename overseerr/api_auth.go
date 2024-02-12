@@ -135,7 +135,7 @@ type ApiCreateAuthLogoutRequest struct {
 	ApiService *AuthAPIService
 }
 
-func (r ApiCreateAuthLogoutRequest) Execute() (*CreateAuthLogout200Response, *http.Response, error) {
+func (r ApiCreateAuthLogoutRequest) Execute() (*CreateAuthLogout2XXResponse, *http.Response, error) {
 	return r.ApiService.CreateAuthLogoutExecute(r)
 }
 
@@ -155,13 +155,13 @@ func (a *AuthAPIService) CreateAuthLogout(ctx context.Context) ApiCreateAuthLogo
 }
 
 // Execute executes the request
-//  @return CreateAuthLogout200Response
-func (a *AuthAPIService) CreateAuthLogoutExecute(r ApiCreateAuthLogoutRequest) (*CreateAuthLogout200Response, *http.Response, error) {
+//  @return CreateAuthLogout2XXResponse
+func (a *AuthAPIService) CreateAuthLogoutExecute(r ApiCreateAuthLogoutRequest) (*CreateAuthLogout2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreateAuthLogout200Response
+		localVarReturnValue  *CreateAuthLogout2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.CreateAuthLogout")

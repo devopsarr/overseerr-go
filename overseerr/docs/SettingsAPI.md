@@ -1404,7 +1404,7 @@ Name | Type | Description  | Notes
 
 ## CreatePlexSync
 
-> GetPlexSync200Response CreatePlexSync(ctx).CreatePlexSyncRequest(createPlexSyncRequest).Execute()
+> GetPlexSync2XXResponse CreatePlexSync(ctx).CreatePlexSyncRequest(createPlexSyncRequest).Execute()
 
 Start full Plex library scan
 
@@ -1432,7 +1432,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreatePlexSync``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreatePlexSync`: GetPlexSync200Response
+    // response from `CreatePlexSync`: GetPlexSync2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreatePlexSync`: %v\n", resp)
 }
 ```
@@ -1452,7 +1452,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPlexSync200Response**](GetPlexSync200Response.md)
+[**GetPlexSync2XXResponse**](GetPlexSync2XXResponse.md)
 
 ### Authorization
 
@@ -1878,7 +1878,7 @@ Name | Type | Description  | Notes
 
 ## GetAbout
 
-> GetAbout200Response GetAbout(ctx).Execute()
+> GetAbout2XXResponse GetAbout(ctx).Execute()
 
 Get server stats
 
@@ -1905,7 +1905,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetAbout``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAbout`: GetAbout200Response
+    // response from `GetAbout`: GetAbout2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetAbout`: %v\n", resp)
 }
 ```
@@ -1921,7 +1921,7 @@ Other parameters are passed through a pointer to a apiGetAboutRequest struct via
 
 ### Return type
 
-[**GetAbout200Response**](GetAbout200Response.md)
+[**GetAbout2XXResponse**](GetAbout2XXResponse.md)
 
 ### Authorization
 
@@ -1939,7 +1939,7 @@ Other parameters are passed through a pointer to a apiGetAboutRequest struct via
 
 ## GetCache
 
-> GetCache200Response GetCache(ctx).Execute()
+> GetCache2XXResponse GetCache(ctx).Execute()
 
 Get a list of active caches
 
@@ -1966,7 +1966,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetCache``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetCache`: GetCache200Response
+    // response from `GetCache`: GetCache2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetCache`: %v\n", resp)
 }
 ```
@@ -1982,7 +1982,7 @@ Other parameters are passed through a pointer to a apiGetCacheRequest struct via
 
 ### Return type
 
-[**GetCache200Response**](GetCache200Response.md)
+[**GetCache2XXResponse**](GetCache2XXResponse.md)
 
 ### Authorization
 
@@ -2791,7 +2791,7 @@ Other parameters are passed through a pointer to a apiGetPlexRequest struct via 
 
 ## GetPlexSync
 
-> GetPlexSync200Response GetPlexSync(ctx).Execute()
+> GetPlexSync2XXResponse GetPlexSync(ctx).Execute()
 
 Get status of full Plex library scan
 
@@ -2818,7 +2818,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPlexSync``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetPlexSync`: GetPlexSync200Response
+    // response from `GetPlexSync`: GetPlexSync2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPlexSync`: %v\n", resp)
 }
 ```
@@ -2834,7 +2834,7 @@ Other parameters are passed through a pointer to a apiGetPlexSyncRequest struct 
 
 ### Return type
 
-[**GetPlexSync200Response**](GetPlexSync200Response.md)
+[**GetPlexSync2XXResponse**](GetPlexSync2XXResponse.md)
 
 ### Authorization
 
@@ -3096,7 +3096,7 @@ Other parameters are passed through a pointer to a apiListJobsRequest struct via
 
 ## ListLogs
 
-> []ListLogs200ResponseInner ListLogs(ctx).Take(take).Skip(skip).Filter(filter).Search(search).Execute()
+> []ListLogs2XXResponseInner ListLogs(ctx).Take(take).Skip(skip).Filter(filter).Search(search).Execute()
 
 Returns logs
 
@@ -3127,7 +3127,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListLogs`: []ListLogs200ResponseInner
+    // response from `ListLogs`: []ListLogs2XXResponseInner
     fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListLogs`: %v\n", resp)
 }
 ```
@@ -3150,7 +3150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ListLogs200ResponseInner**](ListLogs200ResponseInner.md)
+[**[]ListLogs2XXResponseInner**](ListLogs2XXResponseInner.md)
 
 ### Authorization
 
@@ -3297,7 +3297,7 @@ Name | Type | Description  | Notes
 
 ## ListPlexUsers
 
-> []ListPlexUsers200ResponseInner ListPlexUsers(ctx).Execute()
+> []ListPlexUsers2XXResponseInner ListPlexUsers(ctx).Execute()
 
 Get Plex users
 
@@ -3324,7 +3324,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexUsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListPlexUsers`: []ListPlexUsers200ResponseInner
+    // response from `ListPlexUsers`: []ListPlexUsers2XXResponseInner
     fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexUsers`: %v\n", resp)
 }
 ```
@@ -3340,7 +3340,7 @@ Other parameters are passed through a pointer to a apiListPlexUsersRequest struc
 
 ### Return type
 
-[**[]ListPlexUsers200ResponseInner**](ListPlexUsers200ResponseInner.md)
+[**[]ListPlexUsers2XXResponseInner**](ListPlexUsers2XXResponseInner.md)
 
 ### Authorization
 
@@ -4190,7 +4190,7 @@ Name | Type | Description  | Notes
 
 ## TestRadarr
 
-> TestRadarr200Response TestRadarr(ctx).TestRadarrRequest(testRadarrRequest).Execute()
+> TestRadarr2XXResponse TestRadarr(ctx).TestRadarrRequest(testRadarrRequest).Execute()
 
 Test Radarr configuration
 
@@ -4218,7 +4218,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestRadarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `TestRadarr`: TestRadarr200Response
+    // response from `TestRadarr`: TestRadarr2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestRadarr`: %v\n", resp)
 }
 ```
@@ -4238,7 +4238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestRadarr200Response**](TestRadarr200Response.md)
+[**TestRadarr2XXResponse**](TestRadarr2XXResponse.md)
 
 ### Authorization
 
@@ -4256,7 +4256,7 @@ Name | Type | Description  | Notes
 
 ## TestSonarr
 
-> TestRadarr200Response TestSonarr(ctx).TestSonarrRequest(testSonarrRequest).Execute()
+> TestRadarr2XXResponse TestSonarr(ctx).TestSonarrRequest(testSonarrRequest).Execute()
 
 Test Sonarr configuration
 
@@ -4284,7 +4284,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestSonarr``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `TestSonarr`: TestRadarr200Response
+    // response from `TestSonarr`: TestRadarr2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestSonarr`: %v\n", resp)
 }
 ```
@@ -4304,7 +4304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestRadarr200Response**](TestRadarr200Response.md)
+[**TestRadarr2XXResponse**](TestRadarr2XXResponse.md)
 
 ### Authorization
 

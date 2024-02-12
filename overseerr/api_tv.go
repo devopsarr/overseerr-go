@@ -153,7 +153,7 @@ type ApiGetTvRatingsRequest struct {
 	tvId float32
 }
 
-func (r ApiGetTvRatingsRequest) Execute() (*GetTvRatings200Response, *http.Response, error) {
+func (r ApiGetTvRatingsRequest) Execute() (*GetTvRatings2XXResponse, *http.Response, error) {
 	return r.ApiService.GetTvRatingsExecute(r)
 }
 
@@ -175,13 +175,13 @@ func (a *TvAPIService) GetTvRatings(ctx context.Context, tvId float32) ApiGetTvR
 }
 
 // Execute executes the request
-//  @return GetTvRatings200Response
-func (a *TvAPIService) GetTvRatingsExecute(r ApiGetTvRatingsRequest) (*GetTvRatings200Response, *http.Response, error) {
+//  @return GetTvRatings2XXResponse
+func (a *TvAPIService) GetTvRatingsExecute(r ApiGetTvRatingsRequest) (*GetTvRatings2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetTvRatings200Response
+		localVarReturnValue  *GetTvRatings2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvAPIService.GetTvRatings")
@@ -281,7 +281,7 @@ func (r ApiGetTvRecommendationsRequest) Language(language string) ApiGetTvRecomm
 	return r
 }
 
-func (r ApiGetTvRecommendationsRequest) Execute() (*GetDiscoverTv200Response, *http.Response, error) {
+func (r ApiGetTvRecommendationsRequest) Execute() (*GetDiscoverTv2XXResponse, *http.Response, error) {
 	return r.ApiService.GetTvRecommendationsExecute(r)
 }
 
@@ -303,13 +303,13 @@ func (a *TvAPIService) GetTvRecommendations(ctx context.Context, tvId float32) A
 }
 
 // Execute executes the request
-//  @return GetDiscoverTv200Response
-func (a *TvAPIService) GetTvRecommendationsExecute(r ApiGetTvRecommendationsRequest) (*GetDiscoverTv200Response, *http.Response, error) {
+//  @return GetDiscoverTv2XXResponse
+func (a *TvAPIService) GetTvRecommendationsExecute(r ApiGetTvRecommendationsRequest) (*GetDiscoverTv2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverTv200Response
+		localVarReturnValue  *GetDiscoverTv2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvAPIService.GetTvRecommendations")
@@ -544,7 +544,7 @@ func (r ApiGetTvSimilarRequest) Language(language string) ApiGetTvSimilarRequest
 	return r
 }
 
-func (r ApiGetTvSimilarRequest) Execute() (*GetDiscoverTv200Response, *http.Response, error) {
+func (r ApiGetTvSimilarRequest) Execute() (*GetDiscoverTv2XXResponse, *http.Response, error) {
 	return r.ApiService.GetTvSimilarExecute(r)
 }
 
@@ -566,13 +566,13 @@ func (a *TvAPIService) GetTvSimilar(ctx context.Context, tvId float32) ApiGetTvS
 }
 
 // Execute executes the request
-//  @return GetDiscoverTv200Response
-func (a *TvAPIService) GetTvSimilarExecute(r ApiGetTvSimilarRequest) (*GetDiscoverTv200Response, *http.Response, error) {
+//  @return GetDiscoverTv2XXResponse
+func (a *TvAPIService) GetTvSimilarExecute(r ApiGetTvSimilarRequest) (*GetDiscoverTv2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetDiscoverTv200Response
+		localVarReturnValue  *GetDiscoverTv2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TvAPIService.GetTvSimilar")

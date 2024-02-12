@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetStatus
 
-> GetStatus200Response GetStatus(ctx).Execute()
+> GetStatus2XXResponse GetStatus(ctx).Execute()
 
 Get Overseerr status
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetStatus``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetStatus`: GetStatus200Response
+    // response from `GetStatus`: GetStatus2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetStatus`: %v\n", resp)
 }
 ```
@@ -54,7 +54,7 @@ Other parameters are passed through a pointer to a apiGetStatusRequest struct vi
 
 ### Return type
 
-[**GetStatus200Response**](GetStatus200Response.md)
+[**GetStatus2XXResponse**](GetStatus2XXResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 
 ## GetStatusAppdata
 
-> GetStatusAppdata200Response GetStatusAppdata(ctx).Execute()
+> GetStatusAppdata2XXResponse GetStatusAppdata(ctx).Execute()
 
 Get application data volume status
 
@@ -99,7 +99,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetStatusAppdata``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetStatusAppdata`: GetStatusAppdata200Response
+    // response from `GetStatusAppdata`: GetStatusAppdata2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetStatusAppdata`: %v\n", resp)
 }
 ```
@@ -115,7 +115,7 @@ Other parameters are passed through a pointer to a apiGetStatusAppdataRequest st
 
 ### Return type
 
-[**GetStatusAppdata200Response**](GetStatusAppdata200Response.md)
+[**GetStatusAppdata2XXResponse**](GetStatusAppdata2XXResponse.md)
 
 ### Authorization
 

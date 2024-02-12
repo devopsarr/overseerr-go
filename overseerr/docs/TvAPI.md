@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## GetTvRatings
 
-> GetTvRatings200Response GetTvRatings(ctx, tvId).Execute()
+> GetTvRatings2XXResponse GetTvRatings(ctx, tvId).Execute()
 
 Get TV ratings
 
@@ -114,7 +114,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvRatings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetTvRatings`: GetTvRatings200Response
+    // response from `GetTvRatings`: GetTvRatings2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvRatings`: %v\n", resp)
 }
 ```
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTvRatings200Response**](GetTvRatings200Response.md)
+[**GetTvRatings2XXResponse**](GetTvRatings2XXResponse.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## GetTvRecommendations
 
-> GetDiscoverTv200Response GetTvRecommendations(ctx, tvId).Page(page).Language(language).Execute()
+> GetDiscoverTv2XXResponse GetTvRecommendations(ctx, tvId).Page(page).Language(language).Execute()
 
 Get recommended TV series
 
@@ -186,7 +186,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvRecommendations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetTvRecommendations`: GetDiscoverTv200Response
+    // response from `GetTvRecommendations`: GetDiscoverTv2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvRecommendations`: %v\n", resp)
 }
 ```
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverTv200Response**](GetDiscoverTv200Response.md)
+[**GetDiscoverTv2XXResponse**](GetDiscoverTv2XXResponse.md)
 
 ### Authorization
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ## GetTvSimilar
 
-> GetDiscoverTv200Response GetTvSimilar(ctx, tvId).Page(page).Language(language).Execute()
+> GetDiscoverTv2XXResponse GetTvSimilar(ctx, tvId).Page(page).Language(language).Execute()
 
 Get similar TV series
 
@@ -335,7 +335,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvSimilar``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetTvSimilar`: GetDiscoverTv200Response
+    // response from `GetTvSimilar`: GetDiscoverTv2XXResponse
     fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvSimilar`: %v\n", resp)
 }
 ```
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetDiscoverTv200Response**](GetDiscoverTv200Response.md)
+[**GetDiscoverTv2XXResponse**](GetDiscoverTv2XXResponse.md)
 
 ### Authorization
 

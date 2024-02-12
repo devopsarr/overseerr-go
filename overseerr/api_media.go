@@ -284,7 +284,7 @@ func (r ApiGetMediaRequest) Sort(sort string) ApiGetMediaRequest {
 	return r
 }
 
-func (r ApiGetMediaRequest) Execute() (*GetMedia200Response, *http.Response, error) {
+func (r ApiGetMediaRequest) Execute() (*GetMedia2XXResponse, *http.Response, error) {
 	return r.ApiService.GetMediaExecute(r)
 }
 
@@ -304,13 +304,13 @@ func (a *MediaAPIService) GetMedia(ctx context.Context) ApiGetMediaRequest {
 }
 
 // Execute executes the request
-//  @return GetMedia200Response
-func (a *MediaAPIService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia200Response, *http.Response, error) {
+//  @return GetMedia2XXResponse
+func (a *MediaAPIService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetMedia200Response
+		localVarReturnValue  *GetMedia2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaAPIService.GetMedia")
@@ -409,7 +409,7 @@ type ApiGetMediaWatchDataRequest struct {
 	mediaId string
 }
 
-func (r ApiGetMediaWatchDataRequest) Execute() (*GetMediaWatchData200Response, *http.Response, error) {
+func (r ApiGetMediaWatchDataRequest) Execute() (*GetMediaWatchData2XXResponse, *http.Response, error) {
 	return r.ApiService.GetMediaWatchDataExecute(r)
 }
 
@@ -434,13 +434,13 @@ func (a *MediaAPIService) GetMediaWatchData(ctx context.Context, mediaId string)
 }
 
 // Execute executes the request
-//  @return GetMediaWatchData200Response
-func (a *MediaAPIService) GetMediaWatchDataExecute(r ApiGetMediaWatchDataRequest) (*GetMediaWatchData200Response, *http.Response, error) {
+//  @return GetMediaWatchData2XXResponse
+func (a *MediaAPIService) GetMediaWatchDataExecute(r ApiGetMediaWatchDataRequest) (*GetMediaWatchData2XXResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetMediaWatchData200Response
+		localVarReturnValue  *GetMediaWatchData2XXResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MediaAPIService.GetMediaWatchData")
