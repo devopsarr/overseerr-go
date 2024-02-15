@@ -25,24 +25,24 @@ Get keyword
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    keywordId := float32(1) // float32 | 
+	keywordId := float32(1) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OtherAPI.GetKeywordByKeywordId(context.Background(), keywordId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.GetKeywordByKeywordId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetKeywordByKeywordId`: Keyword
-    fmt.Fprintf(os.Stdout, "Response from `OtherAPI.GetKeywordByKeywordId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OtherAPI.GetKeywordByKeywordId(context.Background(), keywordId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.GetKeywordByKeywordId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetKeywordByKeywordId`: Keyword
+	fmt.Fprintf(os.Stdout, "Response from `OtherAPI.GetKeywordByKeywordId`: %v\n", resp)
 }
 ```
 
@@ -95,24 +95,24 @@ Get watch provider movies
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    watchRegion := "US" // string | 
+	watchRegion := "US" // string | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OtherAPI.ListWatchprovidersMovies(context.Background()).WatchRegion(watchRegion).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersMovies``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListWatchprovidersMovies`: []WatchProviderDetails
-    fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersMovies`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OtherAPI.ListWatchprovidersMovies(context.Background()).WatchRegion(watchRegion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersMovies``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListWatchprovidersMovies`: []WatchProviderDetails
+	fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersMovies`: %v\n", resp)
 }
 ```
 
@@ -161,23 +161,23 @@ Get watch provider regions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OtherAPI.ListWatchprovidersRegions(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersRegions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListWatchprovidersRegions`: []WatchProviderRegion
-    fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersRegions`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OtherAPI.ListWatchprovidersRegions(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersRegions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListWatchprovidersRegions`: []WatchProviderRegion
+	fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersRegions`: %v\n", resp)
 }
 ```
 
@@ -222,24 +222,24 @@ Get watch provider series
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    watchRegion := "US" // string | 
+	watchRegion := "US" // string | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OtherAPI.ListWatchprovidersTv(context.Background()).WatchRegion(watchRegion).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersTv``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListWatchprovidersTv`: []WatchProviderDetails
-    fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersTv`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OtherAPI.ListWatchprovidersTv(context.Background()).WatchRegion(watchRegion).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OtherAPI.ListWatchprovidersTv``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListWatchprovidersTv`: []WatchProviderDetails
+	fmt.Fprintf(os.Stdout, "Response from `OtherAPI.ListWatchprovidersTv`: %v\n", resp)
 }
 ```
 

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the WatchProviderDetails type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WatchProviderDetails{}
+
 // WatchProviderDetails struct for WatchProviderDetails
 type WatchProviderDetails struct {
 	DisplayPriority *float32 `json:"displayPriority,omitempty"`
@@ -44,7 +47,7 @@ func NewWatchProviderDetailsWithDefaults() *WatchProviderDetails {
 
 // GetDisplayPriority returns the DisplayPriority field value if set, zero value otherwise.
 func (o *WatchProviderDetails) GetDisplayPriority() float32 {
-	if o == nil || isNil(o.DisplayPriority) {
+	if o == nil || IsNil(o.DisplayPriority) {
 		var ret float32
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *WatchProviderDetails) GetDisplayPriority() float32 {
 // GetDisplayPriorityOk returns a tuple with the DisplayPriority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WatchProviderDetails) GetDisplayPriorityOk() (*float32, bool) {
-	if o == nil || isNil(o.DisplayPriority) {
-    return nil, false
+	if o == nil || IsNil(o.DisplayPriority) {
+		return nil, false
 	}
 	return o.DisplayPriority, true
 }
 
 // HasDisplayPriority returns a boolean if a field has been set.
 func (o *WatchProviderDetails) HasDisplayPriority() bool {
-	if o != nil && !isNil(o.DisplayPriority) {
+	if o != nil && !IsNil(o.DisplayPriority) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *WatchProviderDetails) SetDisplayPriority(v float32) {
 
 // GetLogoPath returns the LogoPath field value if set, zero value otherwise.
 func (o *WatchProviderDetails) GetLogoPath() string {
-	if o == nil || isNil(o.LogoPath) {
+	if o == nil || IsNil(o.LogoPath) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *WatchProviderDetails) GetLogoPath() string {
 // GetLogoPathOk returns a tuple with the LogoPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WatchProviderDetails) GetLogoPathOk() (*string, bool) {
-	if o == nil || isNil(o.LogoPath) {
-    return nil, false
+	if o == nil || IsNil(o.LogoPath) {
+		return nil, false
 	}
 	return o.LogoPath, true
 }
 
 // HasLogoPath returns a boolean if a field has been set.
 func (o *WatchProviderDetails) HasLogoPath() bool {
-	if o != nil && !isNil(o.LogoPath) {
+	if o != nil && !IsNil(o.LogoPath) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *WatchProviderDetails) SetLogoPath(v string) {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *WatchProviderDetails) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *WatchProviderDetails) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WatchProviderDetails) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *WatchProviderDetails) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *WatchProviderDetails) SetId(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *WatchProviderDetails) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *WatchProviderDetails) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WatchProviderDetails) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *WatchProviderDetails) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -171,17 +174,25 @@ func (o *WatchProviderDetails) SetName(v string) {
 }
 
 func (o WatchProviderDetails) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o WatchProviderDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.DisplayPriority) {
+	if !IsNil(o.DisplayPriority) {
 		toSerialize["displayPriority"] = o.DisplayPriority
 	}
-	if !isNil(o.LogoPath) {
+	if !IsNil(o.LogoPath) {
 		toSerialize["logoPath"] = o.LogoPath
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 
@@ -189,19 +200,23 @@ func (o WatchProviderDetails) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *WatchProviderDetails) UnmarshalJSON(bytes []byte) (err error) {
+func (o *WatchProviderDetails) UnmarshalJSON(data []byte) (err error) {
 	varWatchProviderDetails := _WatchProviderDetails{}
 
-	if err = json.Unmarshal(bytes, &varWatchProviderDetails); err == nil {
-		*o = WatchProviderDetails(varWatchProviderDetails)
+	err = json.Unmarshal(data, &varWatchProviderDetails)
+
+	if err != nil {
+		return err
 	}
+
+	*o = WatchProviderDetails(varWatchProviderDetails)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "displayPriority")
 		delete(additionalProperties, "logoPath")
 		delete(additionalProperties, "id")

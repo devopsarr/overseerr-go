@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MovieDetailsCollection type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieDetailsCollection{}
+
 // MovieDetailsCollection struct for MovieDetailsCollection
 type MovieDetailsCollection struct {
 	Id *float32 `json:"id,omitempty"`
@@ -44,7 +47,7 @@ func NewMovieDetailsCollectionWithDefaults() *MovieDetailsCollection {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *MovieDetailsCollection) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *MovieDetailsCollection) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsCollection) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *MovieDetailsCollection) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *MovieDetailsCollection) SetId(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *MovieDetailsCollection) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *MovieDetailsCollection) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsCollection) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *MovieDetailsCollection) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *MovieDetailsCollection) SetName(v string) {
 
 // GetPosterPath returns the PosterPath field value if set, zero value otherwise.
 func (o *MovieDetailsCollection) GetPosterPath() string {
-	if o == nil || isNil(o.PosterPath) {
+	if o == nil || IsNil(o.PosterPath) {
 		var ret string
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *MovieDetailsCollection) GetPosterPath() string {
 // GetPosterPathOk returns a tuple with the PosterPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsCollection) GetPosterPathOk() (*string, bool) {
-	if o == nil || isNil(o.PosterPath) {
-    return nil, false
+	if o == nil || IsNil(o.PosterPath) {
+		return nil, false
 	}
 	return o.PosterPath, true
 }
 
 // HasPosterPath returns a boolean if a field has been set.
 func (o *MovieDetailsCollection) HasPosterPath() bool {
-	if o != nil && !isNil(o.PosterPath) {
+	if o != nil && !IsNil(o.PosterPath) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *MovieDetailsCollection) SetPosterPath(v string) {
 
 // GetBackdropPath returns the BackdropPath field value if set, zero value otherwise.
 func (o *MovieDetailsCollection) GetBackdropPath() string {
-	if o == nil || isNil(o.BackdropPath) {
+	if o == nil || IsNil(o.BackdropPath) {
 		var ret string
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *MovieDetailsCollection) GetBackdropPath() string {
 // GetBackdropPathOk returns a tuple with the BackdropPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsCollection) GetBackdropPathOk() (*string, bool) {
-	if o == nil || isNil(o.BackdropPath) {
-    return nil, false
+	if o == nil || IsNil(o.BackdropPath) {
+		return nil, false
 	}
 	return o.BackdropPath, true
 }
 
 // HasBackdropPath returns a boolean if a field has been set.
 func (o *MovieDetailsCollection) HasBackdropPath() bool {
-	if o != nil && !isNil(o.BackdropPath) {
+	if o != nil && !IsNil(o.BackdropPath) {
 		return true
 	}
 
@@ -171,17 +174,25 @@ func (o *MovieDetailsCollection) SetBackdropPath(v string) {
 }
 
 func (o MovieDetailsCollection) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieDetailsCollection) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.PosterPath) {
+	if !IsNil(o.PosterPath) {
 		toSerialize["posterPath"] = o.PosterPath
 	}
-	if !isNil(o.BackdropPath) {
+	if !IsNil(o.BackdropPath) {
 		toSerialize["backdropPath"] = o.BackdropPath
 	}
 
@@ -189,19 +200,23 @@ func (o MovieDetailsCollection) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MovieDetailsCollection) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MovieDetailsCollection) UnmarshalJSON(data []byte) (err error) {
 	varMovieDetailsCollection := _MovieDetailsCollection{}
 
-	if err = json.Unmarshal(bytes, &varMovieDetailsCollection); err == nil {
-		*o = MovieDetailsCollection(varMovieDetailsCollection)
+	err = json.Unmarshal(data, &varMovieDetailsCollection)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MovieDetailsCollection(varMovieDetailsCollection)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "posterPath")

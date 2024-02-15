@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PageInfo type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PageInfo{}
+
 // PageInfo struct for PageInfo
 type PageInfo struct {
 	Page *float32 `json:"page,omitempty"`
@@ -43,7 +46,7 @@ func NewPageInfoWithDefaults() *PageInfo {
 
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *PageInfo) GetPage() float32 {
-	if o == nil || isNil(o.Page) {
+	if o == nil || IsNil(o.Page) {
 		var ret float32
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *PageInfo) GetPage() float32 {
 // GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PageInfo) GetPageOk() (*float32, bool) {
-	if o == nil || isNil(o.Page) {
-    return nil, false
+	if o == nil || IsNil(o.Page) {
+		return nil, false
 	}
 	return o.Page, true
 }
 
 // HasPage returns a boolean if a field has been set.
 func (o *PageInfo) HasPage() bool {
-	if o != nil && !isNil(o.Page) {
+	if o != nil && !IsNil(o.Page) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *PageInfo) SetPage(v float32) {
 
 // GetPages returns the Pages field value if set, zero value otherwise.
 func (o *PageInfo) GetPages() float32 {
-	if o == nil || isNil(o.Pages) {
+	if o == nil || IsNil(o.Pages) {
 		var ret float32
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *PageInfo) GetPages() float32 {
 // GetPagesOk returns a tuple with the Pages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PageInfo) GetPagesOk() (*float32, bool) {
-	if o == nil || isNil(o.Pages) {
-    return nil, false
+	if o == nil || IsNil(o.Pages) {
+		return nil, false
 	}
 	return o.Pages, true
 }
 
 // HasPages returns a boolean if a field has been set.
 func (o *PageInfo) HasPages() bool {
-	if o != nil && !isNil(o.Pages) {
+	if o != nil && !IsNil(o.Pages) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *PageInfo) SetPages(v float32) {
 
 // GetResults returns the Results field value if set, zero value otherwise.
 func (o *PageInfo) GetResults() float32 {
-	if o == nil || isNil(o.Results) {
+	if o == nil || IsNil(o.Results) {
 		var ret float32
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *PageInfo) GetResults() float32 {
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PageInfo) GetResultsOk() (*float32, bool) {
-	if o == nil || isNil(o.Results) {
-    return nil, false
+	if o == nil || IsNil(o.Results) {
+		return nil, false
 	}
 	return o.Results, true
 }
 
 // HasResults returns a boolean if a field has been set.
 func (o *PageInfo) HasResults() bool {
-	if o != nil && !isNil(o.Results) {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *PageInfo) SetResults(v float32) {
 }
 
 func (o PageInfo) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PageInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Page) {
+	if !IsNil(o.Page) {
 		toSerialize["page"] = o.Page
 	}
-	if !isNil(o.Pages) {
+	if !IsNil(o.Pages) {
 		toSerialize["pages"] = o.Pages
 	}
-	if !isNil(o.Results) {
+	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
 
@@ -153,19 +164,23 @@ func (o PageInfo) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PageInfo) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PageInfo) UnmarshalJSON(data []byte) (err error) {
 	varPageInfo := _PageInfo{}
 
-	if err = json.Unmarshal(bytes, &varPageInfo); err == nil {
-		*o = PageInfo(varPageInfo)
+	err = json.Unmarshal(data, &varPageInfo)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PageInfo(varPageInfo)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "page")
 		delete(additionalProperties, "pages")
 		delete(additionalProperties, "results")

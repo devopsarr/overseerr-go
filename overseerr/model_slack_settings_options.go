@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SlackSettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SlackSettingsOptions{}
+
 // SlackSettingsOptions struct for SlackSettingsOptions
 type SlackSettingsOptions struct {
 	WebhookUrl *string `json:"webhookUrl,omitempty"`
@@ -41,7 +44,7 @@ func NewSlackSettingsOptionsWithDefaults() *SlackSettingsOptions {
 
 // GetWebhookUrl returns the WebhookUrl field value if set, zero value otherwise.
 func (o *SlackSettingsOptions) GetWebhookUrl() string {
-	if o == nil || isNil(o.WebhookUrl) {
+	if o == nil || IsNil(o.WebhookUrl) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *SlackSettingsOptions) GetWebhookUrl() string {
 // GetWebhookUrlOk returns a tuple with the WebhookUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SlackSettingsOptions) GetWebhookUrlOk() (*string, bool) {
-	if o == nil || isNil(o.WebhookUrl) {
-    return nil, false
+	if o == nil || IsNil(o.WebhookUrl) {
+		return nil, false
 	}
 	return o.WebhookUrl, true
 }
 
 // HasWebhookUrl returns a boolean if a field has been set.
 func (o *SlackSettingsOptions) HasWebhookUrl() bool {
-	if o != nil && !isNil(o.WebhookUrl) {
+	if o != nil && !IsNil(o.WebhookUrl) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *SlackSettingsOptions) SetWebhookUrl(v string) {
 }
 
 func (o SlackSettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o SlackSettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.WebhookUrl) {
+	if !IsNil(o.WebhookUrl) {
 		toSerialize["webhookUrl"] = o.WebhookUrl
 	}
 
@@ -81,19 +92,23 @@ func (o SlackSettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *SlackSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *SlackSettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varSlackSettingsOptions := _SlackSettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varSlackSettingsOptions); err == nil {
-		*o = SlackSettingsOptions(varSlackSettingsOptions)
+	err = json.Unmarshal(data, &varSlackSettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = SlackSettingsOptions(varSlackSettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "webhookUrl")
 		o.AdditionalProperties = additionalProperties
 	}

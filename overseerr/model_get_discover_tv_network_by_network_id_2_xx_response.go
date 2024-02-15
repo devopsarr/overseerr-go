@@ -14,13 +14,16 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetDiscoverTvNetworkByNetworkId2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetDiscoverTvNetworkByNetworkId2XXResponse{}
+
 // GetDiscoverTvNetworkByNetworkId2XXResponse struct for GetDiscoverTvNetworkByNetworkId2XXResponse
 type GetDiscoverTvNetworkByNetworkId2XXResponse struct {
 	Page *float32 `json:"page,omitempty"`
 	TotalPages *float32 `json:"totalPages,omitempty"`
 	TotalResults *float32 `json:"totalResults,omitempty"`
 	Network *Network `json:"network,omitempty"`
-	Results []*TvResult `json:"results,omitempty"`
+	Results []TvResult `json:"results,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -45,7 +48,7 @@ func NewGetDiscoverTvNetworkByNetworkId2XXResponseWithDefaults() *GetDiscoverTvN
 
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetPage() float32 {
-	if o == nil || isNil(o.Page) {
+	if o == nil || IsNil(o.Page) {
 		var ret float32
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetPage() float32 {
 // GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetPageOk() (*float32, bool) {
-	if o == nil || isNil(o.Page) {
-    return nil, false
+	if o == nil || IsNil(o.Page) {
+		return nil, false
 	}
 	return o.Page, true
 }
 
 // HasPage returns a boolean if a field has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) HasPage() bool {
-	if o != nil && !isNil(o.Page) {
+	if o != nil && !IsNil(o.Page) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) SetPage(v float32) {
 
 // GetTotalPages returns the TotalPages field value if set, zero value otherwise.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetTotalPages() float32 {
-	if o == nil || isNil(o.TotalPages) {
+	if o == nil || IsNil(o.TotalPages) {
 		var ret float32
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetTotalPages() float32 {
 // GetTotalPagesOk returns a tuple with the TotalPages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetTotalPagesOk() (*float32, bool) {
-	if o == nil || isNil(o.TotalPages) {
-    return nil, false
+	if o == nil || IsNil(o.TotalPages) {
+		return nil, false
 	}
 	return o.TotalPages, true
 }
 
 // HasTotalPages returns a boolean if a field has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) HasTotalPages() bool {
-	if o != nil && !isNil(o.TotalPages) {
+	if o != nil && !IsNil(o.TotalPages) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) SetTotalPages(v float32) {
 
 // GetTotalResults returns the TotalResults field value if set, zero value otherwise.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetTotalResults() float32 {
-	if o == nil || isNil(o.TotalResults) {
+	if o == nil || IsNil(o.TotalResults) {
 		var ret float32
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetTotalResults() float32 {
 // GetTotalResultsOk returns a tuple with the TotalResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetTotalResultsOk() (*float32, bool) {
-	if o == nil || isNil(o.TotalResults) {
-    return nil, false
+	if o == nil || IsNil(o.TotalResults) {
+		return nil, false
 	}
 	return o.TotalResults, true
 }
 
 // HasTotalResults returns a boolean if a field has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) HasTotalResults() bool {
-	if o != nil && !isNil(o.TotalResults) {
+	if o != nil && !IsNil(o.TotalResults) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) SetTotalResults(v float32) 
 
 // GetNetwork returns the Network field value if set, zero value otherwise.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetNetwork() Network {
-	if o == nil || isNil(o.Network) {
+	if o == nil || IsNil(o.Network) {
 		var ret Network
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetNetwork() Network {
 // GetNetworkOk returns a tuple with the Network field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetNetworkOk() (*Network, bool) {
-	if o == nil || isNil(o.Network) {
-    return nil, false
+	if o == nil || IsNil(o.Network) {
+		return nil, false
 	}
 	return o.Network, true
 }
 
 // HasNetwork returns a boolean if a field has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) HasNetwork() bool {
-	if o != nil && !isNil(o.Network) {
+	if o != nil && !IsNil(o.Network) {
 		return true
 	}
 
@@ -172,9 +175,9 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) SetNetwork(v Network) {
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetResults() []*TvResult {
-	if o == nil || isNil(o.Results) {
-		var ret []*TvResult
+func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetResults() []TvResult {
+	if o == nil || IsNil(o.Results) {
+		var ret []TvResult
 		return ret
 	}
 	return o.Results
@@ -182,16 +185,16 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetResults() []*TvResult {
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetResultsOk() ([]*TvResult, bool) {
-	if o == nil || isNil(o.Results) {
-    return nil, false
+func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) GetResultsOk() ([]TvResult, bool) {
+	if o == nil || IsNil(o.Results) {
+		return nil, false
 	}
 	return o.Results, true
 }
 
 // HasResults returns a boolean if a field has been set.
 func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) HasResults() bool {
-	if o != nil && !isNil(o.Results) {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
@@ -199,25 +202,33 @@ func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) HasResults() bool {
 }
 
 // SetResults gets a reference to the given []TvResult and assigns it to the Results field.
-func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) SetResults(v []*TvResult) {
+func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) SetResults(v []TvResult) {
 	o.Results = v
 }
 
 func (o GetDiscoverTvNetworkByNetworkId2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetDiscoverTvNetworkByNetworkId2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Page) {
+	if !IsNil(o.Page) {
 		toSerialize["page"] = o.Page
 	}
-	if !isNil(o.TotalPages) {
+	if !IsNil(o.TotalPages) {
 		toSerialize["totalPages"] = o.TotalPages
 	}
-	if !isNil(o.TotalResults) {
+	if !IsNil(o.TotalResults) {
 		toSerialize["totalResults"] = o.TotalResults
 	}
-	if !isNil(o.Network) {
+	if !IsNil(o.Network) {
 		toSerialize["network"] = o.Network
 	}
-	if !isNil(o.Results) {
+	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
 
@@ -225,19 +236,23 @@ func (o GetDiscoverTvNetworkByNetworkId2XXResponse) MarshalJSON() ([]byte, error
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetDiscoverTvNetworkByNetworkId2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetDiscoverTvNetworkByNetworkId2XXResponse := _GetDiscoverTvNetworkByNetworkId2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetDiscoverTvNetworkByNetworkId2XXResponse); err == nil {
-		*o = GetDiscoverTvNetworkByNetworkId2XXResponse(varGetDiscoverTvNetworkByNetworkId2XXResponse)
+	err = json.Unmarshal(data, &varGetDiscoverTvNetworkByNetworkId2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetDiscoverTvNetworkByNetworkId2XXResponse(varGetDiscoverTvNetworkByNetworkId2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "page")
 		delete(additionalProperties, "totalPages")
 		delete(additionalProperties, "totalResults")

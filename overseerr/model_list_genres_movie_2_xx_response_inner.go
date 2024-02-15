@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListGenresMovie2XXResponseInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListGenresMovie2XXResponseInner{}
+
 // ListGenresMovie2XXResponseInner struct for ListGenresMovie2XXResponseInner
 type ListGenresMovie2XXResponseInner struct {
 	Id *float32 `json:"id,omitempty"`
@@ -42,7 +45,7 @@ func NewListGenresMovie2XXResponseInnerWithDefaults() *ListGenresMovie2XXRespons
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ListGenresMovie2XXResponseInner) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *ListGenresMovie2XXResponseInner) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListGenresMovie2XXResponseInner) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *ListGenresMovie2XXResponseInner) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *ListGenresMovie2XXResponseInner) SetId(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ListGenresMovie2XXResponseInner) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *ListGenresMovie2XXResponseInner) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListGenresMovie2XXResponseInner) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ListGenresMovie2XXResponseInner) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *ListGenresMovie2XXResponseInner) SetName(v string) {
 }
 
 func (o ListGenresMovie2XXResponseInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ListGenresMovie2XXResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 
@@ -117,19 +128,23 @@ func (o ListGenresMovie2XXResponseInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *ListGenresMovie2XXResponseInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *ListGenresMovie2XXResponseInner) UnmarshalJSON(data []byte) (err error) {
 	varListGenresMovie2XXResponseInner := _ListGenresMovie2XXResponseInner{}
 
-	if err = json.Unmarshal(bytes, &varListGenresMovie2XXResponseInner); err == nil {
-		*o = ListGenresMovie2XXResponseInner(varListGenresMovie2XXResponseInner)
+	err = json.Unmarshal(data, &varListGenresMovie2XXResponseInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = ListGenresMovie2XXResponseInner(varListGenresMovie2XXResponseInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		o.AdditionalProperties = additionalProperties

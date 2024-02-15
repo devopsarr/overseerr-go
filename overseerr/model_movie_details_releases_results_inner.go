@@ -14,11 +14,14 @@ import (
 	"encoding/json"
 )
 
+// checks if the MovieDetailsReleasesResultsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieDetailsReleasesResultsInner{}
+
 // MovieDetailsReleasesResultsInner struct for MovieDetailsReleasesResultsInner
 type MovieDetailsReleasesResultsInner struct {
 	Iso31661 *string `json:"iso_3166_1,omitempty"`
 	Rating NullableString `json:"rating,omitempty"`
-	ReleaseDates []*MovieDetailsReleasesResultsInnerReleaseDatesInner `json:"release_dates,omitempty"`
+	ReleaseDates []MovieDetailsReleasesResultsInnerReleaseDatesInner `json:"release_dates,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -43,7 +46,7 @@ func NewMovieDetailsReleasesResultsInnerWithDefaults() *MovieDetailsReleasesResu
 
 // GetIso31661 returns the Iso31661 field value if set, zero value otherwise.
 func (o *MovieDetailsReleasesResultsInner) GetIso31661() string {
-	if o == nil || isNil(o.Iso31661) {
+	if o == nil || IsNil(o.Iso31661) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *MovieDetailsReleasesResultsInner) GetIso31661() string {
 // GetIso31661Ok returns a tuple with the Iso31661 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsReleasesResultsInner) GetIso31661Ok() (*string, bool) {
-	if o == nil || isNil(o.Iso31661) {
-    return nil, false
+	if o == nil || IsNil(o.Iso31661) {
+		return nil, false
 	}
 	return o.Iso31661, true
 }
 
 // HasIso31661 returns a boolean if a field has been set.
 func (o *MovieDetailsReleasesResultsInner) HasIso31661() bool {
-	if o != nil && !isNil(o.Iso31661) {
+	if o != nil && !IsNil(o.Iso31661) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *MovieDetailsReleasesResultsInner) SetIso31661(v string) {
 
 // GetRating returns the Rating field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MovieDetailsReleasesResultsInner) GetRating() string {
-	if o == nil || isNil(o.Rating.Get()) {
+	if o == nil || IsNil(o.Rating.Get()) {
 		var ret string
 		return ret
 	}
@@ -87,7 +90,7 @@ func (o *MovieDetailsReleasesResultsInner) GetRating() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MovieDetailsReleasesResultsInner) GetRatingOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Rating.Get(), o.Rating.IsSet()
 }
@@ -116,9 +119,9 @@ func (o *MovieDetailsReleasesResultsInner) UnsetRating() {
 }
 
 // GetReleaseDates returns the ReleaseDates field value if set, zero value otherwise.
-func (o *MovieDetailsReleasesResultsInner) GetReleaseDates() []*MovieDetailsReleasesResultsInnerReleaseDatesInner {
-	if o == nil || isNil(o.ReleaseDates) {
-		var ret []*MovieDetailsReleasesResultsInnerReleaseDatesInner
+func (o *MovieDetailsReleasesResultsInner) GetReleaseDates() []MovieDetailsReleasesResultsInnerReleaseDatesInner {
+	if o == nil || IsNil(o.ReleaseDates) {
+		var ret []MovieDetailsReleasesResultsInnerReleaseDatesInner
 		return ret
 	}
 	return o.ReleaseDates
@@ -126,16 +129,16 @@ func (o *MovieDetailsReleasesResultsInner) GetReleaseDates() []*MovieDetailsRele
 
 // GetReleaseDatesOk returns a tuple with the ReleaseDates field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MovieDetailsReleasesResultsInner) GetReleaseDatesOk() ([]*MovieDetailsReleasesResultsInnerReleaseDatesInner, bool) {
-	if o == nil || isNil(o.ReleaseDates) {
-    return nil, false
+func (o *MovieDetailsReleasesResultsInner) GetReleaseDatesOk() ([]MovieDetailsReleasesResultsInnerReleaseDatesInner, bool) {
+	if o == nil || IsNil(o.ReleaseDates) {
+		return nil, false
 	}
 	return o.ReleaseDates, true
 }
 
 // HasReleaseDates returns a boolean if a field has been set.
 func (o *MovieDetailsReleasesResultsInner) HasReleaseDates() bool {
-	if o != nil && !isNil(o.ReleaseDates) {
+	if o != nil && !IsNil(o.ReleaseDates) {
 		return true
 	}
 
@@ -143,19 +146,27 @@ func (o *MovieDetailsReleasesResultsInner) HasReleaseDates() bool {
 }
 
 // SetReleaseDates gets a reference to the given []MovieDetailsReleasesResultsInnerReleaseDatesInner and assigns it to the ReleaseDates field.
-func (o *MovieDetailsReleasesResultsInner) SetReleaseDates(v []*MovieDetailsReleasesResultsInnerReleaseDatesInner) {
+func (o *MovieDetailsReleasesResultsInner) SetReleaseDates(v []MovieDetailsReleasesResultsInnerReleaseDatesInner) {
 	o.ReleaseDates = v
 }
 
 func (o MovieDetailsReleasesResultsInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieDetailsReleasesResultsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Iso31661) {
+	if !IsNil(o.Iso31661) {
 		toSerialize["iso_3166_1"] = o.Iso31661
 	}
 	if o.Rating.IsSet() {
 		toSerialize["rating"] = o.Rating.Get()
 	}
-	if !isNil(o.ReleaseDates) {
+	if !IsNil(o.ReleaseDates) {
 		toSerialize["release_dates"] = o.ReleaseDates
 	}
 
@@ -163,19 +174,23 @@ func (o MovieDetailsReleasesResultsInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MovieDetailsReleasesResultsInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MovieDetailsReleasesResultsInner) UnmarshalJSON(data []byte) (err error) {
 	varMovieDetailsReleasesResultsInner := _MovieDetailsReleasesResultsInner{}
 
-	if err = json.Unmarshal(bytes, &varMovieDetailsReleasesResultsInner); err == nil {
-		*o = MovieDetailsReleasesResultsInner(varMovieDetailsReleasesResultsInner)
+	err = json.Unmarshal(data, &varMovieDetailsReleasesResultsInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MovieDetailsReleasesResultsInner(varMovieDetailsReleasesResultsInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "iso_3166_1")
 		delete(additionalProperties, "rating")
 		delete(additionalProperties, "release_dates")

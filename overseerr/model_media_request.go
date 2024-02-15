@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the MediaRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MediaRequest{}
+
 // MediaRequest struct for MediaRequest
 type MediaRequest struct {
 	Id float32 `json:"id"`
@@ -67,7 +70,7 @@ func (o *MediaRequest) GetId() float32 {
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Id, true
 }
@@ -91,7 +94,7 @@ func (o *MediaRequest) GetStatus() float32 {
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetStatusOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Status, true
 }
@@ -103,7 +106,7 @@ func (o *MediaRequest) SetStatus(v float32) {
 
 // GetMedia returns the Media field value if set, zero value otherwise.
 func (o *MediaRequest) GetMedia() MediaInfo {
-	if o == nil || isNil(o.Media) {
+	if o == nil || IsNil(o.Media) {
 		var ret MediaInfo
 		return ret
 	}
@@ -113,15 +116,15 @@ func (o *MediaRequest) GetMedia() MediaInfo {
 // GetMediaOk returns a tuple with the Media field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetMediaOk() (*MediaInfo, bool) {
-	if o == nil || isNil(o.Media) {
-    return nil, false
+	if o == nil || IsNil(o.Media) {
+		return nil, false
 	}
 	return o.Media, true
 }
 
 // HasMedia returns a boolean if a field has been set.
 func (o *MediaRequest) HasMedia() bool {
-	if o != nil && !isNil(o.Media) {
+	if o != nil && !IsNil(o.Media) {
 		return true
 	}
 
@@ -135,7 +138,7 @@ func (o *MediaRequest) SetMedia(v MediaInfo) {
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *MediaRequest) GetCreatedAt() string {
-	if o == nil || isNil(o.CreatedAt) {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
@@ -145,15 +148,15 @@ func (o *MediaRequest) GetCreatedAt() string {
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetCreatedAtOk() (*string, bool) {
-	if o == nil || isNil(o.CreatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.CreatedAt) {
+		return nil, false
 	}
 	return o.CreatedAt, true
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
 func (o *MediaRequest) HasCreatedAt() bool {
-	if o != nil && !isNil(o.CreatedAt) {
+	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
 
@@ -167,7 +170,7 @@ func (o *MediaRequest) SetCreatedAt(v string) {
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *MediaRequest) GetUpdatedAt() string {
-	if o == nil || isNil(o.UpdatedAt) {
+	if o == nil || IsNil(o.UpdatedAt) {
 		var ret string
 		return ret
 	}
@@ -177,15 +180,15 @@ func (o *MediaRequest) GetUpdatedAt() string {
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetUpdatedAtOk() (*string, bool) {
-	if o == nil || isNil(o.UpdatedAt) {
-    return nil, false
+	if o == nil || IsNil(o.UpdatedAt) {
+		return nil, false
 	}
 	return o.UpdatedAt, true
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
 func (o *MediaRequest) HasUpdatedAt() bool {
-	if o != nil && !isNil(o.UpdatedAt) {
+	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
 
@@ -199,7 +202,7 @@ func (o *MediaRequest) SetUpdatedAt(v string) {
 
 // GetRequestedBy returns the RequestedBy field value if set, zero value otherwise.
 func (o *MediaRequest) GetRequestedBy() User {
-	if o == nil || isNil(o.RequestedBy) {
+	if o == nil || IsNil(o.RequestedBy) {
 		var ret User
 		return ret
 	}
@@ -209,15 +212,15 @@ func (o *MediaRequest) GetRequestedBy() User {
 // GetRequestedByOk returns a tuple with the RequestedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetRequestedByOk() (*User, bool) {
-	if o == nil || isNil(o.RequestedBy) {
-    return nil, false
+	if o == nil || IsNil(o.RequestedBy) {
+		return nil, false
 	}
 	return o.RequestedBy, true
 }
 
 // HasRequestedBy returns a boolean if a field has been set.
 func (o *MediaRequest) HasRequestedBy() bool {
-	if o != nil && !isNil(o.RequestedBy) {
+	if o != nil && !IsNil(o.RequestedBy) {
 		return true
 	}
 
@@ -231,7 +234,7 @@ func (o *MediaRequest) SetRequestedBy(v User) {
 
 // GetModifiedBy returns the ModifiedBy field value if set, zero value otherwise.
 func (o *MediaRequest) GetModifiedBy() MediaRequestModifiedBy {
-	if o == nil || isNil(o.ModifiedBy) {
+	if o == nil || IsNil(o.ModifiedBy) {
 		var ret MediaRequestModifiedBy
 		return ret
 	}
@@ -241,15 +244,15 @@ func (o *MediaRequest) GetModifiedBy() MediaRequestModifiedBy {
 // GetModifiedByOk returns a tuple with the ModifiedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetModifiedByOk() (*MediaRequestModifiedBy, bool) {
-	if o == nil || isNil(o.ModifiedBy) {
-    return nil, false
+	if o == nil || IsNil(o.ModifiedBy) {
+		return nil, false
 	}
 	return o.ModifiedBy, true
 }
 
 // HasModifiedBy returns a boolean if a field has been set.
 func (o *MediaRequest) HasModifiedBy() bool {
-	if o != nil && !isNil(o.ModifiedBy) {
+	if o != nil && !IsNil(o.ModifiedBy) {
 		return true
 	}
 
@@ -263,7 +266,7 @@ func (o *MediaRequest) SetModifiedBy(v MediaRequestModifiedBy) {
 
 // GetIs4k returns the Is4k field value if set, zero value otherwise.
 func (o *MediaRequest) GetIs4k() bool {
-	if o == nil || isNil(o.Is4k) {
+	if o == nil || IsNil(o.Is4k) {
 		var ret bool
 		return ret
 	}
@@ -273,15 +276,15 @@ func (o *MediaRequest) GetIs4k() bool {
 // GetIs4kOk returns a tuple with the Is4k field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetIs4kOk() (*bool, bool) {
-	if o == nil || isNil(o.Is4k) {
-    return nil, false
+	if o == nil || IsNil(o.Is4k) {
+		return nil, false
 	}
 	return o.Is4k, true
 }
 
 // HasIs4k returns a boolean if a field has been set.
 func (o *MediaRequest) HasIs4k() bool {
-	if o != nil && !isNil(o.Is4k) {
+	if o != nil && !IsNil(o.Is4k) {
 		return true
 	}
 
@@ -295,7 +298,7 @@ func (o *MediaRequest) SetIs4k(v bool) {
 
 // GetServerId returns the ServerId field value if set, zero value otherwise.
 func (o *MediaRequest) GetServerId() float32 {
-	if o == nil || isNil(o.ServerId) {
+	if o == nil || IsNil(o.ServerId) {
 		var ret float32
 		return ret
 	}
@@ -305,15 +308,15 @@ func (o *MediaRequest) GetServerId() float32 {
 // GetServerIdOk returns a tuple with the ServerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetServerIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ServerId) {
-    return nil, false
+	if o == nil || IsNil(o.ServerId) {
+		return nil, false
 	}
 	return o.ServerId, true
 }
 
 // HasServerId returns a boolean if a field has been set.
 func (o *MediaRequest) HasServerId() bool {
-	if o != nil && !isNil(o.ServerId) {
+	if o != nil && !IsNil(o.ServerId) {
 		return true
 	}
 
@@ -327,7 +330,7 @@ func (o *MediaRequest) SetServerId(v float32) {
 
 // GetProfileId returns the ProfileId field value if set, zero value otherwise.
 func (o *MediaRequest) GetProfileId() float32 {
-	if o == nil || isNil(o.ProfileId) {
+	if o == nil || IsNil(o.ProfileId) {
 		var ret float32
 		return ret
 	}
@@ -337,15 +340,15 @@ func (o *MediaRequest) GetProfileId() float32 {
 // GetProfileIdOk returns a tuple with the ProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.ProfileId) {
+		return nil, false
 	}
 	return o.ProfileId, true
 }
 
 // HasProfileId returns a boolean if a field has been set.
 func (o *MediaRequest) HasProfileId() bool {
-	if o != nil && !isNil(o.ProfileId) {
+	if o != nil && !IsNil(o.ProfileId) {
 		return true
 	}
 
@@ -359,7 +362,7 @@ func (o *MediaRequest) SetProfileId(v float32) {
 
 // GetRootFolder returns the RootFolder field value if set, zero value otherwise.
 func (o *MediaRequest) GetRootFolder() string {
-	if o == nil || isNil(o.RootFolder) {
+	if o == nil || IsNil(o.RootFolder) {
 		var ret string
 		return ret
 	}
@@ -369,15 +372,15 @@ func (o *MediaRequest) GetRootFolder() string {
 // GetRootFolderOk returns a tuple with the RootFolder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MediaRequest) GetRootFolderOk() (*string, bool) {
-	if o == nil || isNil(o.RootFolder) {
-    return nil, false
+	if o == nil || IsNil(o.RootFolder) {
+		return nil, false
 	}
 	return o.RootFolder, true
 }
 
 // HasRootFolder returns a boolean if a field has been set.
 func (o *MediaRequest) HasRootFolder() bool {
-	if o != nil && !isNil(o.RootFolder) {
+	if o != nil && !IsNil(o.RootFolder) {
 		return true
 	}
 
@@ -390,38 +393,42 @@ func (o *MediaRequest) SetRootFolder(v string) {
 }
 
 func (o MediaRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MediaRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["status"] = o.Status
-	}
-	if !isNil(o.Media) {
+	toSerialize["id"] = o.Id
+	toSerialize["status"] = o.Status
+	if !IsNil(o.Media) {
 		toSerialize["media"] = o.Media
 	}
-	if !isNil(o.CreatedAt) {
+	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
-	if !isNil(o.UpdatedAt) {
+	if !IsNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
-	if !isNil(o.RequestedBy) {
+	if !IsNil(o.RequestedBy) {
 		toSerialize["requestedBy"] = o.RequestedBy
 	}
-	if !isNil(o.ModifiedBy) {
+	if !IsNil(o.ModifiedBy) {
 		toSerialize["modifiedBy"] = o.ModifiedBy
 	}
-	if !isNil(o.Is4k) {
+	if !IsNil(o.Is4k) {
 		toSerialize["is4k"] = o.Is4k
 	}
-	if !isNil(o.ServerId) {
+	if !IsNil(o.ServerId) {
 		toSerialize["serverId"] = o.ServerId
 	}
-	if !isNil(o.ProfileId) {
+	if !IsNil(o.ProfileId) {
 		toSerialize["profileId"] = o.ProfileId
 	}
-	if !isNil(o.RootFolder) {
+	if !IsNil(o.RootFolder) {
 		toSerialize["rootFolder"] = o.RootFolder
 	}
 
@@ -429,19 +436,45 @@ func (o MediaRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MediaRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MediaRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"status",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varMediaRequest := _MediaRequest{}
 
-	if err = json.Unmarshal(bytes, &varMediaRequest); err == nil {
-		*o = MediaRequest(varMediaRequest)
+	err = json.Unmarshal(data, &varMediaRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MediaRequest(varMediaRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "media")

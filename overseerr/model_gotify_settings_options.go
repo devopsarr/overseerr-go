@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GotifySettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GotifySettingsOptions{}
+
 // GotifySettingsOptions struct for GotifySettingsOptions
 type GotifySettingsOptions struct {
 	Url *string `json:"url,omitempty"`
@@ -42,7 +45,7 @@ func NewGotifySettingsOptionsWithDefaults() *GotifySettingsOptions {
 
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *GotifySettingsOptions) GetUrl() string {
-	if o == nil || isNil(o.Url) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GotifySettingsOptions) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GotifySettingsOptions) GetUrlOk() (*string, bool) {
-	if o == nil || isNil(o.Url) {
-    return nil, false
+	if o == nil || IsNil(o.Url) {
+		return nil, false
 	}
 	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *GotifySettingsOptions) HasUrl() bool {
-	if o != nil && !isNil(o.Url) {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *GotifySettingsOptions) SetUrl(v string) {
 
 // GetToken returns the Token field value if set, zero value otherwise.
 func (o *GotifySettingsOptions) GetToken() string {
-	if o == nil || isNil(o.Token) {
+	if o == nil || IsNil(o.Token) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *GotifySettingsOptions) GetToken() string {
 // GetTokenOk returns a tuple with the Token field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GotifySettingsOptions) GetTokenOk() (*string, bool) {
-	if o == nil || isNil(o.Token) {
-    return nil, false
+	if o == nil || IsNil(o.Token) {
+		return nil, false
 	}
 	return o.Token, true
 }
 
 // HasToken returns a boolean if a field has been set.
 func (o *GotifySettingsOptions) HasToken() bool {
-	if o != nil && !isNil(o.Token) {
+	if o != nil && !IsNil(o.Token) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *GotifySettingsOptions) SetToken(v string) {
 }
 
 func (o GotifySettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GotifySettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Url) {
+	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
 	}
-	if !isNil(o.Token) {
+	if !IsNil(o.Token) {
 		toSerialize["token"] = o.Token
 	}
 
@@ -117,19 +128,23 @@ func (o GotifySettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GotifySettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GotifySettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varGotifySettingsOptions := _GotifySettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varGotifySettingsOptions); err == nil {
-		*o = GotifySettingsOptions(varGotifySettingsOptions)
+	err = json.Unmarshal(data, &varGotifySettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GotifySettingsOptions(varGotifySettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "url")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties

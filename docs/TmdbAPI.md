@@ -28,24 +28,24 @@ Get TV network details
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    networkId := float32(1) // float32 | 
+	networkId := float32(1) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TmdbAPI.GetNetworkByNetworkId(context.Background(), networkId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.GetNetworkByNetworkId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNetworkByNetworkId`: ProductionCompany
-    fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.GetNetworkByNetworkId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TmdbAPI.GetNetworkByNetworkId(context.Background(), networkId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.GetNetworkByNetworkId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNetworkByNetworkId`: ProductionCompany
+	fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.GetNetworkByNetworkId`: %v\n", resp)
 }
 ```
 
@@ -98,24 +98,24 @@ Get movie studio details
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    studioId := float32(2) // float32 | 
+	studioId := float32(2) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TmdbAPI.GetStudioByStudioId(context.Background(), studioId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.GetStudioByStudioId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetStudioByStudioId`: ProductionCompany
-    fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.GetStudioByStudioId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TmdbAPI.GetStudioByStudioId(context.Background(), studioId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.GetStudioByStudioId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetStudioByStudioId`: ProductionCompany
+	fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.GetStudioByStudioId`: %v\n", resp)
 }
 ```
 
@@ -168,23 +168,23 @@ Get backdrops of trending items
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TmdbAPI.ListBackdrops(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListBackdrops``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListBackdrops`: []string
-    fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListBackdrops`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TmdbAPI.ListBackdrops(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListBackdrops``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListBackdrops`: []string
+	fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListBackdrops`: %v\n", resp)
 }
 ```
 
@@ -229,24 +229,24 @@ Get list of official TMDB movie genres
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    language := "en" // string |  (optional)
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TmdbAPI.ListGenresMovie(context.Background()).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListGenresMovie``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListGenresMovie`: []ListGenresMovie2XXResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListGenresMovie`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TmdbAPI.ListGenresMovie(context.Background()).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListGenresMovie``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListGenresMovie`: []ListGenresMovie2XXResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListGenresMovie`: %v\n", resp)
 }
 ```
 
@@ -295,24 +295,24 @@ Get list of official TMDB movie genres
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    language := "en" // string |  (optional)
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TmdbAPI.ListGenresTv(context.Background()).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListGenresTv``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListGenresTv`: []ListGenresTv2XXResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListGenresTv`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TmdbAPI.ListGenresTv(context.Background()).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListGenresTv``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListGenresTv`: []ListGenresTv2XXResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListGenresTv`: %v\n", resp)
 }
 ```
 
@@ -361,23 +361,23 @@ Languages supported by TMDB
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TmdbAPI.ListLanguages(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListLanguages``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListLanguages`: []ListLanguages2XXResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListLanguages`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TmdbAPI.ListLanguages(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListLanguages``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListLanguages`: []ListLanguages2XXResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListLanguages`: %v\n", resp)
 }
 ```
 
@@ -422,23 +422,23 @@ Regions supported by TMDB
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TmdbAPI.ListRegions(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListRegions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListRegions`: []ListRegions2XXResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListRegions`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TmdbAPI.ListRegions(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListRegions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListRegions`: []ListRegions2XXResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListRegions`: %v\n", resp)
 }
 ```
 

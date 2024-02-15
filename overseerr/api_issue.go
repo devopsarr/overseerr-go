@@ -22,6 +22,7 @@ import (
 
 // IssueAPIService IssueAPI service
 type IssueAPIService service
+
 type ApiCreateIssueRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -146,6 +147,7 @@ func (a *IssueAPIService) CreateIssueExecute(r ApiCreateIssueRequest) (*Issue, *
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateIssueByStatusRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -195,8 +197,8 @@ func (a *IssueAPIService) CreateIssueByStatusExecute(r ApiCreateIssueByStatusReq
 	}
 
 	localVarPath := localBasePath + "/issue/{issueId}/{status}"
-	localVarPath = strings.Replace(localVarPath, "{"+"issueId"+"}", url.PathEscape(parameterToString(r.issueId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"status"+"}", url.PathEscape(parameterToString(r.status, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"issueId"+"}", url.PathEscape(parameterValueToString(r.issueId, "issueId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"status"+"}", url.PathEscape(parameterValueToString(r.status, "status")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -269,6 +271,7 @@ func (a *IssueAPIService) CreateIssueByStatusExecute(r ApiCreateIssueByStatusReq
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateIssueCommentRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -319,7 +322,7 @@ func (a *IssueAPIService) CreateIssueCommentExecute(r ApiCreateIssueCommentReque
 	}
 
 	localVarPath := localBasePath + "/issue/{issueId}/comment"
-	localVarPath = strings.Replace(localVarPath, "{"+"issueId"+"}", url.PathEscape(parameterToString(r.issueId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"issueId"+"}", url.PathEscape(parameterValueToString(r.issueId, "issueId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -397,6 +400,7 @@ func (a *IssueAPIService) CreateIssueCommentExecute(r ApiCreateIssueCommentReque
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiDeleteIssueRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -438,7 +442,7 @@ func (a *IssueAPIService) DeleteIssueExecute(r ApiDeleteIssueRequest) (*http.Res
 	}
 
 	localVarPath := localBasePath + "/issue/{issueId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"issueId"+"}", url.PathEscape(parameterToString(r.issueId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"issueId"+"}", url.PathEscape(parameterValueToString(r.issueId, "issueId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -502,6 +506,7 @@ func (a *IssueAPIService) DeleteIssueExecute(r ApiDeleteIssueRequest) (*http.Res
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiDeleteIssueCommentRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -544,7 +549,7 @@ func (a *IssueAPIService) DeleteIssueCommentExecute(r ApiDeleteIssueCommentReque
 	}
 
 	localVarPath := localBasePath + "/issueComment/{commentId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterToString(r.commentId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -608,6 +613,7 @@ func (a *IssueAPIService) DeleteIssueCommentExecute(r ApiDeleteIssueCommentReque
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiGetIssueRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -685,19 +691,25 @@ func (a *IssueAPIService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue2XXRes
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		localVarQueryParams.Add("take", parameterToString(*r.take, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
 	}
 	if r.skip != nil {
-		localVarQueryParams.Add("skip", parameterToString(*r.skip, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
 	}
 	if r.sort != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "")
+	} else {
+		var defaultValue string = "added"
+		r.sort = &defaultValue
 	}
 	if r.filter != nil {
-		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "")
+	} else {
+		var defaultValue string = "open"
+		r.filter = &defaultValue
 	}
 	if r.requestedBy != nil {
-		localVarQueryParams.Add("requestedBy", parameterToString(*r.requestedBy, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "requestedBy", r.requestedBy, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -766,6 +778,7 @@ func (a *IssueAPIService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue2XXRes
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetIssueByIssueIdRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -810,7 +823,7 @@ func (a *IssueAPIService) GetIssueByIssueIdExecute(r ApiGetIssueByIssueIdRequest
 	}
 
 	localVarPath := localBasePath + "/issue/{issueId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"issueId"+"}", url.PathEscape(parameterToString(r.issueId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"issueId"+"}", url.PathEscape(parameterValueToString(r.issueId, "issueId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -883,6 +896,7 @@ func (a *IssueAPIService) GetIssueByIssueIdExecute(r ApiGetIssueByIssueIdRequest
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetIssueCommentByCommentIdRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -927,7 +941,7 @@ func (a *IssueAPIService) GetIssueCommentByCommentIdExecute(r ApiGetIssueComment
 	}
 
 	localVarPath := localBasePath + "/issueComment/{commentId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterToString(r.commentId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1000,6 +1014,7 @@ func (a *IssueAPIService) GetIssueCommentByCommentIdExecute(r ApiGetIssueComment
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetIssueCountRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -1113,6 +1128,7 @@ func (a *IssueAPIService) GetIssueCountExecute(r ApiGetIssueCountRequest) (*GetI
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiUpdateIssueCommentRequest struct {
 	ctx context.Context
 	ApiService *IssueAPIService
@@ -1163,7 +1179,7 @@ func (a *IssueAPIService) UpdateIssueCommentExecute(r ApiUpdateIssueCommentReque
 	}
 
 	localVarPath := localBasePath + "/issueComment/{commentId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterToString(r.commentId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"commentId"+"}", url.PathEscape(parameterValueToString(r.commentId, "commentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

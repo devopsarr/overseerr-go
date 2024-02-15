@@ -22,6 +22,7 @@ import (
 
 // TvAPIService TvAPI service
 type TvAPIService service
+
 type ApiGetTvByTvIdRequest struct {
 	ctx context.Context
 	ApiService *TvAPIService
@@ -71,14 +72,14 @@ func (a *TvAPIService) GetTvByTvIdExecute(r ApiGetTvByTvIdRequest) (*TvDetails, 
 	}
 
 	localVarPath := localBasePath + "/tv/{tvId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterToString(r.tvId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterValueToString(r.tvId, "tvId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -147,6 +148,7 @@ func (a *TvAPIService) GetTvByTvIdExecute(r ApiGetTvByTvIdRequest) (*TvDetails, 
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetTvRatingsRequest struct {
 	ctx context.Context
 	ApiService *TvAPIService
@@ -190,7 +192,7 @@ func (a *TvAPIService) GetTvRatingsExecute(r ApiGetTvRatingsRequest) (*GetTvRati
 	}
 
 	localVarPath := localBasePath + "/tv/{tvId}/ratings"
-	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterToString(r.tvId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterValueToString(r.tvId, "tvId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -263,6 +265,7 @@ func (a *TvAPIService) GetTvRatingsExecute(r ApiGetTvRatingsRequest) (*GetTvRati
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetTvRecommendationsRequest struct {
 	ctx context.Context
 	ApiService *TvAPIService
@@ -318,17 +321,20 @@ func (a *TvAPIService) GetTvRecommendationsExecute(r ApiGetTvRecommendationsRequ
 	}
 
 	localVarPath := localBasePath + "/tv/{tvId}/recommendations"
-	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterToString(r.tvId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterValueToString(r.tvId, "tvId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -397,6 +403,7 @@ func (a *TvAPIService) GetTvRecommendationsExecute(r ApiGetTvRecommendationsRequ
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetTvSeasonBySeasonIdRequest struct {
 	ctx context.Context
 	ApiService *TvAPIService
@@ -449,15 +456,15 @@ func (a *TvAPIService) GetTvSeasonBySeasonIdExecute(r ApiGetTvSeasonBySeasonIdRe
 	}
 
 	localVarPath := localBasePath + "/tv/{tvId}/season/{seasonId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterToString(r.tvId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"seasonId"+"}", url.PathEscape(parameterToString(r.seasonId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterValueToString(r.tvId, "tvId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"seasonId"+"}", url.PathEscape(parameterValueToString(r.seasonId, "seasonId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -526,6 +533,7 @@ func (a *TvAPIService) GetTvSeasonBySeasonIdExecute(r ApiGetTvSeasonBySeasonIdRe
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetTvSimilarRequest struct {
 	ctx context.Context
 	ApiService *TvAPIService
@@ -581,17 +589,20 @@ func (a *TvAPIService) GetTvSimilarExecute(r ApiGetTvSimilarRequest) (*GetDiscov
 	}
 
 	localVarPath := localBasePath + "/tv/{tvId}/similar"
-	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterToString(r.tvId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tvId"+"}", url.PathEscape(parameterValueToString(r.tvId, "tvId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

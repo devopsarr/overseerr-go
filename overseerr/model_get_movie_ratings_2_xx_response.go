@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetMovieRatings2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetMovieRatings2XXResponse{}
+
 // GetMovieRatings2XXResponse struct for GetMovieRatings2XXResponse
 type GetMovieRatings2XXResponse struct {
 	Title *string `json:"title,omitempty"`
@@ -47,7 +50,7 @@ func NewGetMovieRatings2XXResponseWithDefaults() *GetMovieRatings2XXResponse {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *GetMovieRatings2XXResponse) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *GetMovieRatings2XXResponse) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMovieRatings2XXResponse) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *GetMovieRatings2XXResponse) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *GetMovieRatings2XXResponse) SetTitle(v string) {
 
 // GetYear returns the Year field value if set, zero value otherwise.
 func (o *GetMovieRatings2XXResponse) GetYear() float32 {
-	if o == nil || isNil(o.Year) {
+	if o == nil || IsNil(o.Year) {
 		var ret float32
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *GetMovieRatings2XXResponse) GetYear() float32 {
 // GetYearOk returns a tuple with the Year field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMovieRatings2XXResponse) GetYearOk() (*float32, bool) {
-	if o == nil || isNil(o.Year) {
-    return nil, false
+	if o == nil || IsNil(o.Year) {
+		return nil, false
 	}
 	return o.Year, true
 }
 
 // HasYear returns a boolean if a field has been set.
 func (o *GetMovieRatings2XXResponse) HasYear() bool {
-	if o != nil && !isNil(o.Year) {
+	if o != nil && !IsNil(o.Year) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *GetMovieRatings2XXResponse) SetYear(v float32) {
 
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *GetMovieRatings2XXResponse) GetUrl() string {
-	if o == nil || isNil(o.Url) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *GetMovieRatings2XXResponse) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMovieRatings2XXResponse) GetUrlOk() (*string, bool) {
-	if o == nil || isNil(o.Url) {
-    return nil, false
+	if o == nil || IsNil(o.Url) {
+		return nil, false
 	}
 	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *GetMovieRatings2XXResponse) HasUrl() bool {
-	if o != nil && !isNil(o.Url) {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *GetMovieRatings2XXResponse) SetUrl(v string) {
 
 // GetCriticsScore returns the CriticsScore field value if set, zero value otherwise.
 func (o *GetMovieRatings2XXResponse) GetCriticsScore() float32 {
-	if o == nil || isNil(o.CriticsScore) {
+	if o == nil || IsNil(o.CriticsScore) {
 		var ret float32
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *GetMovieRatings2XXResponse) GetCriticsScore() float32 {
 // GetCriticsScoreOk returns a tuple with the CriticsScore field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMovieRatings2XXResponse) GetCriticsScoreOk() (*float32, bool) {
-	if o == nil || isNil(o.CriticsScore) {
-    return nil, false
+	if o == nil || IsNil(o.CriticsScore) {
+		return nil, false
 	}
 	return o.CriticsScore, true
 }
 
 // HasCriticsScore returns a boolean if a field has been set.
 func (o *GetMovieRatings2XXResponse) HasCriticsScore() bool {
-	if o != nil && !isNil(o.CriticsScore) {
+	if o != nil && !IsNil(o.CriticsScore) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *GetMovieRatings2XXResponse) SetCriticsScore(v float32) {
 
 // GetCriticsRating returns the CriticsRating field value if set, zero value otherwise.
 func (o *GetMovieRatings2XXResponse) GetCriticsRating() string {
-	if o == nil || isNil(o.CriticsRating) {
+	if o == nil || IsNil(o.CriticsRating) {
 		var ret string
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *GetMovieRatings2XXResponse) GetCriticsRating() string {
 // GetCriticsRatingOk returns a tuple with the CriticsRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMovieRatings2XXResponse) GetCriticsRatingOk() (*string, bool) {
-	if o == nil || isNil(o.CriticsRating) {
-    return nil, false
+	if o == nil || IsNil(o.CriticsRating) {
+		return nil, false
 	}
 	return o.CriticsRating, true
 }
 
 // HasCriticsRating returns a boolean if a field has been set.
 func (o *GetMovieRatings2XXResponse) HasCriticsRating() bool {
-	if o != nil && !isNil(o.CriticsRating) {
+	if o != nil && !IsNil(o.CriticsRating) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *GetMovieRatings2XXResponse) SetCriticsRating(v string) {
 
 // GetAudienceScore returns the AudienceScore field value if set, zero value otherwise.
 func (o *GetMovieRatings2XXResponse) GetAudienceScore() float32 {
-	if o == nil || isNil(o.AudienceScore) {
+	if o == nil || IsNil(o.AudienceScore) {
 		var ret float32
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *GetMovieRatings2XXResponse) GetAudienceScore() float32 {
 // GetAudienceScoreOk returns a tuple with the AudienceScore field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMovieRatings2XXResponse) GetAudienceScoreOk() (*float32, bool) {
-	if o == nil || isNil(o.AudienceScore) {
-    return nil, false
+	if o == nil || IsNil(o.AudienceScore) {
+		return nil, false
 	}
 	return o.AudienceScore, true
 }
 
 // HasAudienceScore returns a boolean if a field has been set.
 func (o *GetMovieRatings2XXResponse) HasAudienceScore() bool {
-	if o != nil && !isNil(o.AudienceScore) {
+	if o != nil && !IsNil(o.AudienceScore) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *GetMovieRatings2XXResponse) SetAudienceScore(v float32) {
 
 // GetAudienceRating returns the AudienceRating field value if set, zero value otherwise.
 func (o *GetMovieRatings2XXResponse) GetAudienceRating() string {
-	if o == nil || isNil(o.AudienceRating) {
+	if o == nil || IsNil(o.AudienceRating) {
 		var ret string
 		return ret
 	}
@@ -249,15 +252,15 @@ func (o *GetMovieRatings2XXResponse) GetAudienceRating() string {
 // GetAudienceRatingOk returns a tuple with the AudienceRating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMovieRatings2XXResponse) GetAudienceRatingOk() (*string, bool) {
-	if o == nil || isNil(o.AudienceRating) {
-    return nil, false
+	if o == nil || IsNil(o.AudienceRating) {
+		return nil, false
 	}
 	return o.AudienceRating, true
 }
 
 // HasAudienceRating returns a boolean if a field has been set.
 func (o *GetMovieRatings2XXResponse) HasAudienceRating() bool {
-	if o != nil && !isNil(o.AudienceRating) {
+	if o != nil && !IsNil(o.AudienceRating) {
 		return true
 	}
 
@@ -270,26 +273,34 @@ func (o *GetMovieRatings2XXResponse) SetAudienceRating(v string) {
 }
 
 func (o GetMovieRatings2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetMovieRatings2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Title) {
+	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if !isNil(o.Year) {
+	if !IsNil(o.Year) {
 		toSerialize["year"] = o.Year
 	}
-	if !isNil(o.Url) {
+	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
 	}
-	if !isNil(o.CriticsScore) {
+	if !IsNil(o.CriticsScore) {
 		toSerialize["criticsScore"] = o.CriticsScore
 	}
-	if !isNil(o.CriticsRating) {
+	if !IsNil(o.CriticsRating) {
 		toSerialize["criticsRating"] = o.CriticsRating
 	}
-	if !isNil(o.AudienceScore) {
+	if !IsNil(o.AudienceScore) {
 		toSerialize["audienceScore"] = o.AudienceScore
 	}
-	if !isNil(o.AudienceRating) {
+	if !IsNil(o.AudienceRating) {
 		toSerialize["audienceRating"] = o.AudienceRating
 	}
 
@@ -297,19 +308,23 @@ func (o GetMovieRatings2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetMovieRatings2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetMovieRatings2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetMovieRatings2XXResponse := _GetMovieRatings2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetMovieRatings2XXResponse); err == nil {
-		*o = GetMovieRatings2XXResponse(varGetMovieRatings2XXResponse)
+	err = json.Unmarshal(data, &varGetMovieRatings2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetMovieRatings2XXResponse(varGetMovieRatings2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "title")
 		delete(additionalProperties, "year")
 		delete(additionalProperties, "url")

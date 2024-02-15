@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SonarrSeriesAddOptionsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SonarrSeriesAddOptionsInner{}
+
 // SonarrSeriesAddOptionsInner struct for SonarrSeriesAddOptionsInner
 type SonarrSeriesAddOptionsInner struct {
 	IgnoreEpisodesWithFiles NullableBool `json:"ignoreEpisodesWithFiles,omitempty"`
@@ -43,7 +46,7 @@ func NewSonarrSeriesAddOptionsInnerWithDefaults() *SonarrSeriesAddOptionsInner {
 
 // GetIgnoreEpisodesWithFiles returns the IgnoreEpisodesWithFiles field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSeriesAddOptionsInner) GetIgnoreEpisodesWithFiles() bool {
-	if o == nil || isNil(o.IgnoreEpisodesWithFiles.Get()) {
+	if o == nil || IsNil(o.IgnoreEpisodesWithFiles.Get()) {
 		var ret bool
 		return ret
 	}
@@ -55,7 +58,7 @@ func (o *SonarrSeriesAddOptionsInner) GetIgnoreEpisodesWithFiles() bool {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSeriesAddOptionsInner) GetIgnoreEpisodesWithFilesOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.IgnoreEpisodesWithFiles.Get(), o.IgnoreEpisodesWithFiles.IsSet()
 }
@@ -85,7 +88,7 @@ func (o *SonarrSeriesAddOptionsInner) UnsetIgnoreEpisodesWithFiles() {
 
 // GetIgnoreEpisodesWithoutFiles returns the IgnoreEpisodesWithoutFiles field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSeriesAddOptionsInner) GetIgnoreEpisodesWithoutFiles() bool {
-	if o == nil || isNil(o.IgnoreEpisodesWithoutFiles.Get()) {
+	if o == nil || IsNil(o.IgnoreEpisodesWithoutFiles.Get()) {
 		var ret bool
 		return ret
 	}
@@ -97,7 +100,7 @@ func (o *SonarrSeriesAddOptionsInner) GetIgnoreEpisodesWithoutFiles() bool {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSeriesAddOptionsInner) GetIgnoreEpisodesWithoutFilesOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.IgnoreEpisodesWithoutFiles.Get(), o.IgnoreEpisodesWithoutFiles.IsSet()
 }
@@ -127,7 +130,7 @@ func (o *SonarrSeriesAddOptionsInner) UnsetIgnoreEpisodesWithoutFiles() {
 
 // GetSearchForMissingEpisodes returns the SearchForMissingEpisodes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSeriesAddOptionsInner) GetSearchForMissingEpisodes() bool {
-	if o == nil || isNil(o.SearchForMissingEpisodes.Get()) {
+	if o == nil || IsNil(o.SearchForMissingEpisodes.Get()) {
 		var ret bool
 		return ret
 	}
@@ -139,7 +142,7 @@ func (o *SonarrSeriesAddOptionsInner) GetSearchForMissingEpisodes() bool {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSeriesAddOptionsInner) GetSearchForMissingEpisodesOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.SearchForMissingEpisodes.Get(), o.SearchForMissingEpisodes.IsSet()
 }
@@ -168,6 +171,14 @@ func (o *SonarrSeriesAddOptionsInner) UnsetSearchForMissingEpisodes() {
 }
 
 func (o SonarrSeriesAddOptionsInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o SonarrSeriesAddOptionsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.IgnoreEpisodesWithFiles.IsSet() {
 		toSerialize["ignoreEpisodesWithFiles"] = o.IgnoreEpisodesWithFiles.Get()
@@ -183,19 +194,23 @@ func (o SonarrSeriesAddOptionsInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *SonarrSeriesAddOptionsInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *SonarrSeriesAddOptionsInner) UnmarshalJSON(data []byte) (err error) {
 	varSonarrSeriesAddOptionsInner := _SonarrSeriesAddOptionsInner{}
 
-	if err = json.Unmarshal(bytes, &varSonarrSeriesAddOptionsInner); err == nil {
-		*o = SonarrSeriesAddOptionsInner(varSonarrSeriesAddOptionsInner)
+	err = json.Unmarshal(data, &varSonarrSeriesAddOptionsInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = SonarrSeriesAddOptionsInner(varSonarrSeriesAddOptionsInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "ignoreEpisodesWithFiles")
 		delete(additionalProperties, "ignoreEpisodesWithoutFiles")
 		delete(additionalProperties, "searchForMissingEpisodes")

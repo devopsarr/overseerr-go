@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PublicSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PublicSettings{}
+
 // PublicSettings struct for PublicSettings
 type PublicSettings struct {
 	Initialized *bool `json:"initialized,omitempty"`
@@ -41,7 +44,7 @@ func NewPublicSettingsWithDefaults() *PublicSettings {
 
 // GetInitialized returns the Initialized field value if set, zero value otherwise.
 func (o *PublicSettings) GetInitialized() bool {
-	if o == nil || isNil(o.Initialized) {
+	if o == nil || IsNil(o.Initialized) {
 		var ret bool
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *PublicSettings) GetInitialized() bool {
 // GetInitializedOk returns a tuple with the Initialized field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PublicSettings) GetInitializedOk() (*bool, bool) {
-	if o == nil || isNil(o.Initialized) {
-    return nil, false
+	if o == nil || IsNil(o.Initialized) {
+		return nil, false
 	}
 	return o.Initialized, true
 }
 
 // HasInitialized returns a boolean if a field has been set.
 func (o *PublicSettings) HasInitialized() bool {
-	if o != nil && !isNil(o.Initialized) {
+	if o != nil && !IsNil(o.Initialized) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *PublicSettings) SetInitialized(v bool) {
 }
 
 func (o PublicSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PublicSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Initialized) {
+	if !IsNil(o.Initialized) {
 		toSerialize["initialized"] = o.Initialized
 	}
 
@@ -81,19 +92,23 @@ func (o PublicSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PublicSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PublicSettings) UnmarshalJSON(data []byte) (err error) {
 	varPublicSettings := _PublicSettings{}
 
-	if err = json.Unmarshal(bytes, &varPublicSettings); err == nil {
-		*o = PublicSettings(varPublicSettings)
+	err = json.Unmarshal(data, &varPublicSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PublicSettings(varPublicSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "initialized")
 		o.AdditionalProperties = additionalProperties
 	}

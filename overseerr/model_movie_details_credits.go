@@ -14,10 +14,13 @@ import (
 	"encoding/json"
 )
 
+// checks if the MovieDetailsCredits type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieDetailsCredits{}
+
 // MovieDetailsCredits struct for MovieDetailsCredits
 type MovieDetailsCredits struct {
-	Cast []*Cast `json:"cast,omitempty"`
-	Crew []*Crew `json:"crew,omitempty"`
+	Cast []Cast `json:"cast,omitempty"`
+	Crew []Crew `json:"crew,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -41,9 +44,9 @@ func NewMovieDetailsCreditsWithDefaults() *MovieDetailsCredits {
 }
 
 // GetCast returns the Cast field value if set, zero value otherwise.
-func (o *MovieDetailsCredits) GetCast() []*Cast {
-	if o == nil || isNil(o.Cast) {
-		var ret []*Cast
+func (o *MovieDetailsCredits) GetCast() []Cast {
+	if o == nil || IsNil(o.Cast) {
+		var ret []Cast
 		return ret
 	}
 	return o.Cast
@@ -51,16 +54,16 @@ func (o *MovieDetailsCredits) GetCast() []*Cast {
 
 // GetCastOk returns a tuple with the Cast field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MovieDetailsCredits) GetCastOk() ([]*Cast, bool) {
-	if o == nil || isNil(o.Cast) {
-    return nil, false
+func (o *MovieDetailsCredits) GetCastOk() ([]Cast, bool) {
+	if o == nil || IsNil(o.Cast) {
+		return nil, false
 	}
 	return o.Cast, true
 }
 
 // HasCast returns a boolean if a field has been set.
 func (o *MovieDetailsCredits) HasCast() bool {
-	if o != nil && !isNil(o.Cast) {
+	if o != nil && !IsNil(o.Cast) {
 		return true
 	}
 
@@ -68,14 +71,14 @@ func (o *MovieDetailsCredits) HasCast() bool {
 }
 
 // SetCast gets a reference to the given []Cast and assigns it to the Cast field.
-func (o *MovieDetailsCredits) SetCast(v []*Cast) {
+func (o *MovieDetailsCredits) SetCast(v []Cast) {
 	o.Cast = v
 }
 
 // GetCrew returns the Crew field value if set, zero value otherwise.
-func (o *MovieDetailsCredits) GetCrew() []*Crew {
-	if o == nil || isNil(o.Crew) {
-		var ret []*Crew
+func (o *MovieDetailsCredits) GetCrew() []Crew {
+	if o == nil || IsNil(o.Crew) {
+		var ret []Crew
 		return ret
 	}
 	return o.Crew
@@ -83,16 +86,16 @@ func (o *MovieDetailsCredits) GetCrew() []*Crew {
 
 // GetCrewOk returns a tuple with the Crew field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MovieDetailsCredits) GetCrewOk() ([]*Crew, bool) {
-	if o == nil || isNil(o.Crew) {
-    return nil, false
+func (o *MovieDetailsCredits) GetCrewOk() ([]Crew, bool) {
+	if o == nil || IsNil(o.Crew) {
+		return nil, false
 	}
 	return o.Crew, true
 }
 
 // HasCrew returns a boolean if a field has been set.
 func (o *MovieDetailsCredits) HasCrew() bool {
-	if o != nil && !isNil(o.Crew) {
+	if o != nil && !IsNil(o.Crew) {
 		return true
 	}
 
@@ -100,16 +103,24 @@ func (o *MovieDetailsCredits) HasCrew() bool {
 }
 
 // SetCrew gets a reference to the given []Crew and assigns it to the Crew field.
-func (o *MovieDetailsCredits) SetCrew(v []*Crew) {
+func (o *MovieDetailsCredits) SetCrew(v []Crew) {
 	o.Crew = v
 }
 
 func (o MovieDetailsCredits) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieDetailsCredits) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Cast) {
+	if !IsNil(o.Cast) {
 		toSerialize["cast"] = o.Cast
 	}
-	if !isNil(o.Crew) {
+	if !IsNil(o.Crew) {
 		toSerialize["crew"] = o.Crew
 	}
 
@@ -117,19 +128,23 @@ func (o MovieDetailsCredits) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MovieDetailsCredits) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MovieDetailsCredits) UnmarshalJSON(data []byte) (err error) {
 	varMovieDetailsCredits := _MovieDetailsCredits{}
 
-	if err = json.Unmarshal(bytes, &varMovieDetailsCredits); err == nil {
-		*o = MovieDetailsCredits(varMovieDetailsCredits)
+	err = json.Unmarshal(data, &varMovieDetailsCredits)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MovieDetailsCredits(varMovieDetailsCredits)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cast")
 		delete(additionalProperties, "crew")
 		o.AdditionalProperties = additionalProperties

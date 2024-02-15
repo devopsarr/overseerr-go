@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the User type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &User{}
+
 // User struct for User
 type User struct {
 	Id int32 `json:"id"`
@@ -68,7 +71,7 @@ func (o *User) GetId() int32 {
 // and a boolean to check if the value has been set.
 func (o *User) GetIdOk() (*int32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Id, true
 }
@@ -92,7 +95,7 @@ func (o *User) GetEmail() string {
 // and a boolean to check if the value has been set.
 func (o *User) GetEmailOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Email, true
 }
@@ -104,7 +107,7 @@ func (o *User) SetEmail(v string) {
 
 // GetUsername returns the Username field value if set, zero value otherwise.
 func (o *User) GetUsername() string {
-	if o == nil || isNil(o.Username) {
+	if o == nil || IsNil(o.Username) {
 		var ret string
 		return ret
 	}
@@ -114,15 +117,15 @@ func (o *User) GetUsername() string {
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetUsernameOk() (*string, bool) {
-	if o == nil || isNil(o.Username) {
-    return nil, false
+	if o == nil || IsNil(o.Username) {
+		return nil, false
 	}
 	return o.Username, true
 }
 
 // HasUsername returns a boolean if a field has been set.
 func (o *User) HasUsername() bool {
-	if o != nil && !isNil(o.Username) {
+	if o != nil && !IsNil(o.Username) {
 		return true
 	}
 
@@ -136,7 +139,7 @@ func (o *User) SetUsername(v string) {
 
 // GetPlexToken returns the PlexToken field value if set, zero value otherwise.
 func (o *User) GetPlexToken() string {
-	if o == nil || isNil(o.PlexToken) {
+	if o == nil || IsNil(o.PlexToken) {
 		var ret string
 		return ret
 	}
@@ -146,15 +149,15 @@ func (o *User) GetPlexToken() string {
 // GetPlexTokenOk returns a tuple with the PlexToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetPlexTokenOk() (*string, bool) {
-	if o == nil || isNil(o.PlexToken) {
-    return nil, false
+	if o == nil || IsNil(o.PlexToken) {
+		return nil, false
 	}
 	return o.PlexToken, true
 }
 
 // HasPlexToken returns a boolean if a field has been set.
 func (o *User) HasPlexToken() bool {
-	if o != nil && !isNil(o.PlexToken) {
+	if o != nil && !IsNil(o.PlexToken) {
 		return true
 	}
 
@@ -168,7 +171,7 @@ func (o *User) SetPlexToken(v string) {
 
 // GetPlexUsername returns the PlexUsername field value if set, zero value otherwise.
 func (o *User) GetPlexUsername() string {
-	if o == nil || isNil(o.PlexUsername) {
+	if o == nil || IsNil(o.PlexUsername) {
 		var ret string
 		return ret
 	}
@@ -178,15 +181,15 @@ func (o *User) GetPlexUsername() string {
 // GetPlexUsernameOk returns a tuple with the PlexUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetPlexUsernameOk() (*string, bool) {
-	if o == nil || isNil(o.PlexUsername) {
-    return nil, false
+	if o == nil || IsNil(o.PlexUsername) {
+		return nil, false
 	}
 	return o.PlexUsername, true
 }
 
 // HasPlexUsername returns a boolean if a field has been set.
 func (o *User) HasPlexUsername() bool {
-	if o != nil && !isNil(o.PlexUsername) {
+	if o != nil && !IsNil(o.PlexUsername) {
 		return true
 	}
 
@@ -200,7 +203,7 @@ func (o *User) SetPlexUsername(v string) {
 
 // GetUserType returns the UserType field value if set, zero value otherwise.
 func (o *User) GetUserType() int32 {
-	if o == nil || isNil(o.UserType) {
+	if o == nil || IsNil(o.UserType) {
 		var ret int32
 		return ret
 	}
@@ -210,15 +213,15 @@ func (o *User) GetUserType() int32 {
 // GetUserTypeOk returns a tuple with the UserType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetUserTypeOk() (*int32, bool) {
-	if o == nil || isNil(o.UserType) {
-    return nil, false
+	if o == nil || IsNil(o.UserType) {
+		return nil, false
 	}
 	return o.UserType, true
 }
 
 // HasUserType returns a boolean if a field has been set.
 func (o *User) HasUserType() bool {
-	if o != nil && !isNil(o.UserType) {
+	if o != nil && !IsNil(o.UserType) {
 		return true
 	}
 
@@ -232,7 +235,7 @@ func (o *User) SetUserType(v int32) {
 
 // GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *User) GetPermissions() float32 {
-	if o == nil || isNil(o.Permissions) {
+	if o == nil || IsNil(o.Permissions) {
 		var ret float32
 		return ret
 	}
@@ -242,15 +245,15 @@ func (o *User) GetPermissions() float32 {
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetPermissionsOk() (*float32, bool) {
-	if o == nil || isNil(o.Permissions) {
-    return nil, false
+	if o == nil || IsNil(o.Permissions) {
+		return nil, false
 	}
 	return o.Permissions, true
 }
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *User) HasPermissions() bool {
-	if o != nil && !isNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
@@ -264,7 +267,7 @@ func (o *User) SetPermissions(v float32) {
 
 // GetAvatar returns the Avatar field value if set, zero value otherwise.
 func (o *User) GetAvatar() string {
-	if o == nil || isNil(o.Avatar) {
+	if o == nil || IsNil(o.Avatar) {
 		var ret string
 		return ret
 	}
@@ -274,15 +277,15 @@ func (o *User) GetAvatar() string {
 // GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetAvatarOk() (*string, bool) {
-	if o == nil || isNil(o.Avatar) {
-    return nil, false
+	if o == nil || IsNil(o.Avatar) {
+		return nil, false
 	}
 	return o.Avatar, true
 }
 
 // HasAvatar returns a boolean if a field has been set.
 func (o *User) HasAvatar() bool {
-	if o != nil && !isNil(o.Avatar) {
+	if o != nil && !IsNil(o.Avatar) {
 		return true
 	}
 
@@ -308,7 +311,7 @@ func (o *User) GetCreatedAt() string {
 // and a boolean to check if the value has been set.
 func (o *User) GetCreatedAtOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.CreatedAt, true
 }
@@ -332,7 +335,7 @@ func (o *User) GetUpdatedAt() string {
 // and a boolean to check if the value has been set.
 func (o *User) GetUpdatedAtOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.UpdatedAt, true
 }
@@ -344,7 +347,7 @@ func (o *User) SetUpdatedAt(v string) {
 
 // GetRequestCount returns the RequestCount field value if set, zero value otherwise.
 func (o *User) GetRequestCount() float32 {
-	if o == nil || isNil(o.RequestCount) {
+	if o == nil || IsNil(o.RequestCount) {
 		var ret float32
 		return ret
 	}
@@ -354,15 +357,15 @@ func (o *User) GetRequestCount() float32 {
 // GetRequestCountOk returns a tuple with the RequestCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetRequestCountOk() (*float32, bool) {
-	if o == nil || isNil(o.RequestCount) {
-    return nil, false
+	if o == nil || IsNil(o.RequestCount) {
+		return nil, false
 	}
 	return o.RequestCount, true
 }
 
 // HasRequestCount returns a boolean if a field has been set.
 func (o *User) HasRequestCount() bool {
-	if o != nil && !isNil(o.RequestCount) {
+	if o != nil && !IsNil(o.RequestCount) {
 		return true
 	}
 
@@ -375,38 +378,38 @@ func (o *User) SetRequestCount(v float32) {
 }
 
 func (o User) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o User) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["email"] = o.Email
-	}
-	if !isNil(o.Username) {
+	toSerialize["id"] = o.Id
+	toSerialize["email"] = o.Email
+	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
-	if !isNil(o.PlexToken) {
+	if !IsNil(o.PlexToken) {
 		toSerialize["plexToken"] = o.PlexToken
 	}
-	if !isNil(o.PlexUsername) {
+	if !IsNil(o.PlexUsername) {
 		toSerialize["plexUsername"] = o.PlexUsername
 	}
-	if !isNil(o.UserType) {
+	if !IsNil(o.UserType) {
 		toSerialize["userType"] = o.UserType
 	}
-	if !isNil(o.Permissions) {
+	if !IsNil(o.Permissions) {
 		toSerialize["permissions"] = o.Permissions
 	}
-	if !isNil(o.Avatar) {
+	if !IsNil(o.Avatar) {
 		toSerialize["avatar"] = o.Avatar
 	}
-	if true {
-		toSerialize["createdAt"] = o.CreatedAt
-	}
-	if true {
-		toSerialize["updatedAt"] = o.UpdatedAt
-	}
-	if !isNil(o.RequestCount) {
+	toSerialize["createdAt"] = o.CreatedAt
+	toSerialize["updatedAt"] = o.UpdatedAt
+	if !IsNil(o.RequestCount) {
 		toSerialize["requestCount"] = o.RequestCount
 	}
 
@@ -414,19 +417,47 @@ func (o User) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *User) UnmarshalJSON(bytes []byte) (err error) {
+func (o *User) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"email",
+		"createdAt",
+		"updatedAt",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varUser := _User{}
 
-	if err = json.Unmarshal(bytes, &varUser); err == nil {
-		*o = User(varUser)
+	err = json.Unmarshal(data, &varUser)
+
+	if err != nil {
+		return err
 	}
+
+	*o = User(varUser)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "email")
 		delete(additionalProperties, "username")

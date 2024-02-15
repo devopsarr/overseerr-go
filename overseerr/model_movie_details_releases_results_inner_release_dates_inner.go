@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MovieDetailsReleasesResultsInnerReleaseDatesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieDetailsReleasesResultsInnerReleaseDatesInner{}
+
 // MovieDetailsReleasesResultsInnerReleaseDatesInner struct for MovieDetailsReleasesResultsInnerReleaseDatesInner
 type MovieDetailsReleasesResultsInnerReleaseDatesInner struct {
 	Certification *string `json:"certification,omitempty"`
@@ -45,7 +48,7 @@ func NewMovieDetailsReleasesResultsInnerReleaseDatesInnerWithDefaults() *MovieDe
 
 // GetCertification returns the Certification field value if set, zero value otherwise.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetCertification() string {
-	if o == nil || isNil(o.Certification) {
+	if o == nil || IsNil(o.Certification) {
 		var ret string
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetCertification() s
 // GetCertificationOk returns a tuple with the Certification field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetCertificationOk() (*string, bool) {
-	if o == nil || isNil(o.Certification) {
-    return nil, false
+	if o == nil || IsNil(o.Certification) {
+		return nil, false
 	}
 	return o.Certification, true
 }
 
 // HasCertification returns a boolean if a field has been set.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) HasCertification() bool {
-	if o != nil && !isNil(o.Certification) {
+	if o != nil && !IsNil(o.Certification) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) SetCertification(v s
 
 // GetIso6391 returns the Iso6391 field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetIso6391() string {
-	if o == nil || isNil(o.Iso6391.Get()) {
+	if o == nil || IsNil(o.Iso6391.Get()) {
 		var ret string
 		return ret
 	}
@@ -89,7 +92,7 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetIso6391() string 
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetIso6391Ok() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Iso6391.Get(), o.Iso6391.IsSet()
 }
@@ -119,7 +122,7 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) UnsetIso6391() {
 
 // GetNote returns the Note field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetNote() string {
-	if o == nil || isNil(o.Note.Get()) {
+	if o == nil || IsNil(o.Note.Get()) {
 		var ret string
 		return ret
 	}
@@ -131,7 +134,7 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetNote() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetNoteOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Note.Get(), o.Note.IsSet()
 }
@@ -161,7 +164,7 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) UnsetNote() {
 
 // GetReleaseDate returns the ReleaseDate field value if set, zero value otherwise.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetReleaseDate() string {
-	if o == nil || isNil(o.ReleaseDate) {
+	if o == nil || IsNil(o.ReleaseDate) {
 		var ret string
 		return ret
 	}
@@ -171,15 +174,15 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetReleaseDate() str
 // GetReleaseDateOk returns a tuple with the ReleaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetReleaseDateOk() (*string, bool) {
-	if o == nil || isNil(o.ReleaseDate) {
-    return nil, false
+	if o == nil || IsNil(o.ReleaseDate) {
+		return nil, false
 	}
 	return o.ReleaseDate, true
 }
 
 // HasReleaseDate returns a boolean if a field has been set.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) HasReleaseDate() bool {
-	if o != nil && !isNil(o.ReleaseDate) {
+	if o != nil && !IsNil(o.ReleaseDate) {
 		return true
 	}
 
@@ -193,7 +196,7 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) SetReleaseDate(v str
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetType() float32 {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret float32
 		return ret
 	}
@@ -203,15 +206,15 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetType() float32 {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) GetTypeOk() (*float32, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -224,8 +227,16 @@ func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) SetType(v float32) {
 }
 
 func (o MovieDetailsReleasesResultsInnerReleaseDatesInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieDetailsReleasesResultsInnerReleaseDatesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Certification) {
+	if !IsNil(o.Certification) {
 		toSerialize["certification"] = o.Certification
 	}
 	if o.Iso6391.IsSet() {
@@ -234,10 +245,10 @@ func (o MovieDetailsReleasesResultsInnerReleaseDatesInner) MarshalJSON() ([]byte
 	if o.Note.IsSet() {
 		toSerialize["note"] = o.Note.Get()
 	}
-	if !isNil(o.ReleaseDate) {
+	if !IsNil(o.ReleaseDate) {
 		toSerialize["release_date"] = o.ReleaseDate
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
 
@@ -245,19 +256,23 @@ func (o MovieDetailsReleasesResultsInnerReleaseDatesInner) MarshalJSON() ([]byte
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MovieDetailsReleasesResultsInnerReleaseDatesInner) UnmarshalJSON(data []byte) (err error) {
 	varMovieDetailsReleasesResultsInnerReleaseDatesInner := _MovieDetailsReleasesResultsInnerReleaseDatesInner{}
 
-	if err = json.Unmarshal(bytes, &varMovieDetailsReleasesResultsInnerReleaseDatesInner); err == nil {
-		*o = MovieDetailsReleasesResultsInnerReleaseDatesInner(varMovieDetailsReleasesResultsInnerReleaseDatesInner)
+	err = json.Unmarshal(data, &varMovieDetailsReleasesResultsInnerReleaseDatesInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MovieDetailsReleasesResultsInnerReleaseDatesInner(varMovieDetailsReleasesResultsInnerReleaseDatesInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "certification")
 		delete(additionalProperties, "iso_639_1")
 		delete(additionalProperties, "note")

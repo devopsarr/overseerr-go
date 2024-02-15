@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the CreateUserSettingsPasswordRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateUserSettingsPasswordRequest{}
+
 // CreateUserSettingsPasswordRequest struct for CreateUserSettingsPasswordRequest
 type CreateUserSettingsPasswordRequest struct {
 	CurrentPassword NullableString `json:"currentPassword,omitempty"`
@@ -44,7 +47,7 @@ func NewCreateUserSettingsPasswordRequestWithDefaults() *CreateUserSettingsPassw
 
 // GetCurrentPassword returns the CurrentPassword field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateUserSettingsPasswordRequest) GetCurrentPassword() string {
-	if o == nil || isNil(o.CurrentPassword.Get()) {
+	if o == nil || IsNil(o.CurrentPassword.Get()) {
 		var ret string
 		return ret
 	}
@@ -56,7 +59,7 @@ func (o *CreateUserSettingsPasswordRequest) GetCurrentPassword() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUserSettingsPasswordRequest) GetCurrentPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.CurrentPassword.Get(), o.CurrentPassword.IsSet()
 }
@@ -98,7 +101,7 @@ func (o *CreateUserSettingsPasswordRequest) GetNewPassword() string {
 // and a boolean to check if the value has been set.
 func (o *CreateUserSettingsPasswordRequest) GetNewPasswordOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.NewPassword, true
 }
@@ -109,31 +112,62 @@ func (o *CreateUserSettingsPasswordRequest) SetNewPassword(v string) {
 }
 
 func (o CreateUserSettingsPasswordRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateUserSettingsPasswordRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CurrentPassword.IsSet() {
 		toSerialize["currentPassword"] = o.CurrentPassword.Get()
 	}
-	if true {
-		toSerialize["newPassword"] = o.NewPassword
-	}
+	toSerialize["newPassword"] = o.NewPassword
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateUserSettingsPasswordRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateUserSettingsPasswordRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"newPassword",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varCreateUserSettingsPasswordRequest := _CreateUserSettingsPasswordRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateUserSettingsPasswordRequest); err == nil {
-		*o = CreateUserSettingsPasswordRequest(varCreateUserSettingsPasswordRequest)
+	err = json.Unmarshal(data, &varCreateUserSettingsPasswordRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateUserSettingsPasswordRequest(varCreateUserSettingsPasswordRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "currentPassword")
 		delete(additionalProperties, "newPassword")
 		o.AdditionalProperties = additionalProperties

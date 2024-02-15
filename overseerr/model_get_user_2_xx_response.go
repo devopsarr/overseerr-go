@@ -14,10 +14,13 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetUser2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUser2XXResponse{}
+
 // GetUser2XXResponse struct for GetUser2XXResponse
 type GetUser2XXResponse struct {
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
-	Results []*User `json:"results,omitempty"`
+	Results []User `json:"results,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -42,7 +45,7 @@ func NewGetUser2XXResponseWithDefaults() *GetUser2XXResponse {
 
 // GetPageInfo returns the PageInfo field value if set, zero value otherwise.
 func (o *GetUser2XXResponse) GetPageInfo() PageInfo {
-	if o == nil || isNil(o.PageInfo) {
+	if o == nil || IsNil(o.PageInfo) {
 		var ret PageInfo
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GetUser2XXResponse) GetPageInfo() PageInfo {
 // GetPageInfoOk returns a tuple with the PageInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUser2XXResponse) GetPageInfoOk() (*PageInfo, bool) {
-	if o == nil || isNil(o.PageInfo) {
-    return nil, false
+	if o == nil || IsNil(o.PageInfo) {
+		return nil, false
 	}
 	return o.PageInfo, true
 }
 
 // HasPageInfo returns a boolean if a field has been set.
 func (o *GetUser2XXResponse) HasPageInfo() bool {
-	if o != nil && !isNil(o.PageInfo) {
+	if o != nil && !IsNil(o.PageInfo) {
 		return true
 	}
 
@@ -73,9 +76,9 @@ func (o *GetUser2XXResponse) SetPageInfo(v PageInfo) {
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *GetUser2XXResponse) GetResults() []*User {
-	if o == nil || isNil(o.Results) {
-		var ret []*User
+func (o *GetUser2XXResponse) GetResults() []User {
+	if o == nil || IsNil(o.Results) {
+		var ret []User
 		return ret
 	}
 	return o.Results
@@ -83,16 +86,16 @@ func (o *GetUser2XXResponse) GetResults() []*User {
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetUser2XXResponse) GetResultsOk() ([]*User, bool) {
-	if o == nil || isNil(o.Results) {
-    return nil, false
+func (o *GetUser2XXResponse) GetResultsOk() ([]User, bool) {
+	if o == nil || IsNil(o.Results) {
+		return nil, false
 	}
 	return o.Results, true
 }
 
 // HasResults returns a boolean if a field has been set.
 func (o *GetUser2XXResponse) HasResults() bool {
-	if o != nil && !isNil(o.Results) {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
@@ -100,16 +103,24 @@ func (o *GetUser2XXResponse) HasResults() bool {
 }
 
 // SetResults gets a reference to the given []User and assigns it to the Results field.
-func (o *GetUser2XXResponse) SetResults(v []*User) {
+func (o *GetUser2XXResponse) SetResults(v []User) {
 	o.Results = v
 }
 
 func (o GetUser2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetUser2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.PageInfo) {
+	if !IsNil(o.PageInfo) {
 		toSerialize["pageInfo"] = o.PageInfo
 	}
-	if !isNil(o.Results) {
+	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
 
@@ -117,19 +128,23 @@ func (o GetUser2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetUser2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetUser2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetUser2XXResponse := _GetUser2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetUser2XXResponse); err == nil {
-		*o = GetUser2XXResponse(varGetUser2XXResponse)
+	err = json.Unmarshal(data, &varGetUser2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetUser2XXResponse(varGetUser2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "pageInfo")
 		delete(additionalProperties, "results")
 		o.AdditionalProperties = additionalProperties

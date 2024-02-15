@@ -14,10 +14,13 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetPersonCombinedCredits2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetPersonCombinedCredits2XXResponse{}
+
 // GetPersonCombinedCredits2XXResponse struct for GetPersonCombinedCredits2XXResponse
 type GetPersonCombinedCredits2XXResponse struct {
-	Cast []*CreditCast `json:"cast,omitempty"`
-	Crew []*CreditCrew `json:"crew,omitempty"`
+	Cast []CreditCast `json:"cast,omitempty"`
+	Crew []CreditCrew `json:"crew,omitempty"`
 	Id *float32 `json:"id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -42,9 +45,9 @@ func NewGetPersonCombinedCredits2XXResponseWithDefaults() *GetPersonCombinedCred
 }
 
 // GetCast returns the Cast field value if set, zero value otherwise.
-func (o *GetPersonCombinedCredits2XXResponse) GetCast() []*CreditCast {
-	if o == nil || isNil(o.Cast) {
-		var ret []*CreditCast
+func (o *GetPersonCombinedCredits2XXResponse) GetCast() []CreditCast {
+	if o == nil || IsNil(o.Cast) {
+		var ret []CreditCast
 		return ret
 	}
 	return o.Cast
@@ -52,16 +55,16 @@ func (o *GetPersonCombinedCredits2XXResponse) GetCast() []*CreditCast {
 
 // GetCastOk returns a tuple with the Cast field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetPersonCombinedCredits2XXResponse) GetCastOk() ([]*CreditCast, bool) {
-	if o == nil || isNil(o.Cast) {
-    return nil, false
+func (o *GetPersonCombinedCredits2XXResponse) GetCastOk() ([]CreditCast, bool) {
+	if o == nil || IsNil(o.Cast) {
+		return nil, false
 	}
 	return o.Cast, true
 }
 
 // HasCast returns a boolean if a field has been set.
 func (o *GetPersonCombinedCredits2XXResponse) HasCast() bool {
-	if o != nil && !isNil(o.Cast) {
+	if o != nil && !IsNil(o.Cast) {
 		return true
 	}
 
@@ -69,14 +72,14 @@ func (o *GetPersonCombinedCredits2XXResponse) HasCast() bool {
 }
 
 // SetCast gets a reference to the given []CreditCast and assigns it to the Cast field.
-func (o *GetPersonCombinedCredits2XXResponse) SetCast(v []*CreditCast) {
+func (o *GetPersonCombinedCredits2XXResponse) SetCast(v []CreditCast) {
 	o.Cast = v
 }
 
 // GetCrew returns the Crew field value if set, zero value otherwise.
-func (o *GetPersonCombinedCredits2XXResponse) GetCrew() []*CreditCrew {
-	if o == nil || isNil(o.Crew) {
-		var ret []*CreditCrew
+func (o *GetPersonCombinedCredits2XXResponse) GetCrew() []CreditCrew {
+	if o == nil || IsNil(o.Crew) {
+		var ret []CreditCrew
 		return ret
 	}
 	return o.Crew
@@ -84,16 +87,16 @@ func (o *GetPersonCombinedCredits2XXResponse) GetCrew() []*CreditCrew {
 
 // GetCrewOk returns a tuple with the Crew field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetPersonCombinedCredits2XXResponse) GetCrewOk() ([]*CreditCrew, bool) {
-	if o == nil || isNil(o.Crew) {
-    return nil, false
+func (o *GetPersonCombinedCredits2XXResponse) GetCrewOk() ([]CreditCrew, bool) {
+	if o == nil || IsNil(o.Crew) {
+		return nil, false
 	}
 	return o.Crew, true
 }
 
 // HasCrew returns a boolean if a field has been set.
 func (o *GetPersonCombinedCredits2XXResponse) HasCrew() bool {
-	if o != nil && !isNil(o.Crew) {
+	if o != nil && !IsNil(o.Crew) {
 		return true
 	}
 
@@ -101,13 +104,13 @@ func (o *GetPersonCombinedCredits2XXResponse) HasCrew() bool {
 }
 
 // SetCrew gets a reference to the given []CreditCrew and assigns it to the Crew field.
-func (o *GetPersonCombinedCredits2XXResponse) SetCrew(v []*CreditCrew) {
+func (o *GetPersonCombinedCredits2XXResponse) SetCrew(v []CreditCrew) {
 	o.Crew = v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *GetPersonCombinedCredits2XXResponse) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *GetPersonCombinedCredits2XXResponse) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetPersonCombinedCredits2XXResponse) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *GetPersonCombinedCredits2XXResponse) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *GetPersonCombinedCredits2XXResponse) SetId(v float32) {
 }
 
 func (o GetPersonCombinedCredits2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetPersonCombinedCredits2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Cast) {
+	if !IsNil(o.Cast) {
 		toSerialize["cast"] = o.Cast
 	}
-	if !isNil(o.Crew) {
+	if !IsNil(o.Crew) {
 		toSerialize["crew"] = o.Crew
 	}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 
@@ -153,19 +164,23 @@ func (o GetPersonCombinedCredits2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetPersonCombinedCredits2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetPersonCombinedCredits2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetPersonCombinedCredits2XXResponse := _GetPersonCombinedCredits2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetPersonCombinedCredits2XXResponse); err == nil {
-		*o = GetPersonCombinedCredits2XXResponse(varGetPersonCombinedCredits2XXResponse)
+	err = json.Unmarshal(data, &varGetPersonCombinedCredits2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetPersonCombinedCredits2XXResponse(varGetPersonCombinedCredits2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cast")
 		delete(additionalProperties, "crew")
 		delete(additionalProperties, "id")

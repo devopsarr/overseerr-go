@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateUserSettingsMainRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateUserSettingsMainRequest{}
+
 // CreateUserSettingsMainRequest struct for CreateUserSettingsMainRequest
 type CreateUserSettingsMainRequest struct {
 	Username NullableString `json:"username,omitempty"`
@@ -41,7 +44,7 @@ func NewCreateUserSettingsMainRequestWithDefaults() *CreateUserSettingsMainReque
 
 // GetUsername returns the Username field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateUserSettingsMainRequest) GetUsername() string {
-	if o == nil || isNil(o.Username.Get()) {
+	if o == nil || IsNil(o.Username.Get()) {
 		var ret string
 		return ret
 	}
@@ -53,7 +56,7 @@ func (o *CreateUserSettingsMainRequest) GetUsername() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateUserSettingsMainRequest) GetUsernameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Username.Get(), o.Username.IsSet()
 }
@@ -82,6 +85,14 @@ func (o *CreateUserSettingsMainRequest) UnsetUsername() {
 }
 
 func (o CreateUserSettingsMainRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateUserSettingsMainRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Username.IsSet() {
 		toSerialize["username"] = o.Username.Get()
@@ -91,19 +102,23 @@ func (o CreateUserSettingsMainRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateUserSettingsMainRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateUserSettingsMainRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateUserSettingsMainRequest := _CreateUserSettingsMainRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateUserSettingsMainRequest); err == nil {
-		*o = CreateUserSettingsMainRequest(varCreateUserSettingsMainRequest)
+	err = json.Unmarshal(data, &varCreateUserSettingsMainRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateUserSettingsMainRequest(varCreateUserSettingsMainRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties
 	}

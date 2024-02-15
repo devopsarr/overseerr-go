@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetCache2XXResponseImageCache type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetCache2XXResponseImageCache{}
+
 // GetCache2XXResponseImageCache struct for GetCache2XXResponseImageCache
 type GetCache2XXResponseImageCache struct {
 	Tmdb *GetCache2XXResponseImageCacheTmdb `json:"tmdb,omitempty"`
@@ -41,7 +44,7 @@ func NewGetCache2XXResponseImageCacheWithDefaults() *GetCache2XXResponseImageCac
 
 // GetTmdb returns the Tmdb field value if set, zero value otherwise.
 func (o *GetCache2XXResponseImageCache) GetTmdb() GetCache2XXResponseImageCacheTmdb {
-	if o == nil || isNil(o.Tmdb) {
+	if o == nil || IsNil(o.Tmdb) {
 		var ret GetCache2XXResponseImageCacheTmdb
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *GetCache2XXResponseImageCache) GetTmdb() GetCache2XXResponseImageCacheT
 // GetTmdbOk returns a tuple with the Tmdb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseImageCache) GetTmdbOk() (*GetCache2XXResponseImageCacheTmdb, bool) {
-	if o == nil || isNil(o.Tmdb) {
-    return nil, false
+	if o == nil || IsNil(o.Tmdb) {
+		return nil, false
 	}
 	return o.Tmdb, true
 }
 
 // HasTmdb returns a boolean if a field has been set.
 func (o *GetCache2XXResponseImageCache) HasTmdb() bool {
-	if o != nil && !isNil(o.Tmdb) {
+	if o != nil && !IsNil(o.Tmdb) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *GetCache2XXResponseImageCache) SetTmdb(v GetCache2XXResponseImageCacheT
 }
 
 func (o GetCache2XXResponseImageCache) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetCache2XXResponseImageCache) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Tmdb) {
+	if !IsNil(o.Tmdb) {
 		toSerialize["tmdb"] = o.Tmdb
 	}
 
@@ -81,19 +92,23 @@ func (o GetCache2XXResponseImageCache) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetCache2XXResponseImageCache) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetCache2XXResponseImageCache) UnmarshalJSON(data []byte) (err error) {
 	varGetCache2XXResponseImageCache := _GetCache2XXResponseImageCache{}
 
-	if err = json.Unmarshal(bytes, &varGetCache2XXResponseImageCache); err == nil {
-		*o = GetCache2XXResponseImageCache(varGetCache2XXResponseImageCache)
+	err = json.Unmarshal(data, &varGetCache2XXResponseImageCache)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetCache2XXResponseImageCache(varGetCache2XXResponseImageCache)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "tmdb")
 		o.AdditionalProperties = additionalProperties
 	}

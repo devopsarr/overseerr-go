@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Crew type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Crew{}
+
 // Crew struct for Crew
 type Crew struct {
 	Id *float32 `json:"id,omitempty"`
@@ -47,7 +50,7 @@ func NewCrewWithDefaults() *Crew {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Crew) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *Crew) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Crew) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Crew) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *Crew) SetId(v float32) {
 
 // GetCreditId returns the CreditId field value if set, zero value otherwise.
 func (o *Crew) GetCreditId() string {
-	if o == nil || isNil(o.CreditId) {
+	if o == nil || IsNil(o.CreditId) {
 		var ret string
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *Crew) GetCreditId() string {
 // GetCreditIdOk returns a tuple with the CreditId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Crew) GetCreditIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreditId) {
-    return nil, false
+	if o == nil || IsNil(o.CreditId) {
+		return nil, false
 	}
 	return o.CreditId, true
 }
 
 // HasCreditId returns a boolean if a field has been set.
 func (o *Crew) HasCreditId() bool {
-	if o != nil && !isNil(o.CreditId) {
+	if o != nil && !IsNil(o.CreditId) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *Crew) SetCreditId(v string) {
 
 // GetGender returns the Gender field value if set, zero value otherwise.
 func (o *Crew) GetGender() float32 {
-	if o == nil || isNil(o.Gender) {
+	if o == nil || IsNil(o.Gender) {
 		var ret float32
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *Crew) GetGender() float32 {
 // GetGenderOk returns a tuple with the Gender field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Crew) GetGenderOk() (*float32, bool) {
-	if o == nil || isNil(o.Gender) {
-    return nil, false
+	if o == nil || IsNil(o.Gender) {
+		return nil, false
 	}
 	return o.Gender, true
 }
 
 // HasGender returns a boolean if a field has been set.
 func (o *Crew) HasGender() bool {
-	if o != nil && !isNil(o.Gender) {
+	if o != nil && !IsNil(o.Gender) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *Crew) SetGender(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Crew) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *Crew) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Crew) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Crew) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *Crew) SetName(v string) {
 
 // GetJob returns the Job field value if set, zero value otherwise.
 func (o *Crew) GetJob() string {
-	if o == nil || isNil(o.Job) {
+	if o == nil || IsNil(o.Job) {
 		var ret string
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *Crew) GetJob() string {
 // GetJobOk returns a tuple with the Job field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Crew) GetJobOk() (*string, bool) {
-	if o == nil || isNil(o.Job) {
-    return nil, false
+	if o == nil || IsNil(o.Job) {
+		return nil, false
 	}
 	return o.Job, true
 }
 
 // HasJob returns a boolean if a field has been set.
 func (o *Crew) HasJob() bool {
-	if o != nil && !isNil(o.Job) {
+	if o != nil && !IsNil(o.Job) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *Crew) SetJob(v string) {
 
 // GetDepartment returns the Department field value if set, zero value otherwise.
 func (o *Crew) GetDepartment() string {
-	if o == nil || isNil(o.Department) {
+	if o == nil || IsNil(o.Department) {
 		var ret string
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *Crew) GetDepartment() string {
 // GetDepartmentOk returns a tuple with the Department field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Crew) GetDepartmentOk() (*string, bool) {
-	if o == nil || isNil(o.Department) {
-    return nil, false
+	if o == nil || IsNil(o.Department) {
+		return nil, false
 	}
 	return o.Department, true
 }
 
 // HasDepartment returns a boolean if a field has been set.
 func (o *Crew) HasDepartment() bool {
-	if o != nil && !isNil(o.Department) {
+	if o != nil && !IsNil(o.Department) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *Crew) SetDepartment(v string) {
 
 // GetProfilePath returns the ProfilePath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Crew) GetProfilePath() string {
-	if o == nil || isNil(o.ProfilePath.Get()) {
+	if o == nil || IsNil(o.ProfilePath.Get()) {
 		var ret string
 		return ret
 	}
@@ -251,7 +254,7 @@ func (o *Crew) GetProfilePath() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Crew) GetProfilePathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ProfilePath.Get(), o.ProfilePath.IsSet()
 }
@@ -280,23 +283,31 @@ func (o *Crew) UnsetProfilePath() {
 }
 
 func (o Crew) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Crew) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.CreditId) {
+	if !IsNil(o.CreditId) {
 		toSerialize["creditId"] = o.CreditId
 	}
-	if !isNil(o.Gender) {
+	if !IsNil(o.Gender) {
 		toSerialize["gender"] = o.Gender
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Job) {
+	if !IsNil(o.Job) {
 		toSerialize["job"] = o.Job
 	}
-	if !isNil(o.Department) {
+	if !IsNil(o.Department) {
 		toSerialize["department"] = o.Department
 	}
 	if o.ProfilePath.IsSet() {
@@ -307,19 +318,23 @@ func (o Crew) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Crew) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Crew) UnmarshalJSON(data []byte) (err error) {
 	varCrew := _Crew{}
 
-	if err = json.Unmarshal(bytes, &varCrew); err == nil {
-		*o = Crew(varCrew)
+	err = json.Unmarshal(data, &varCrew)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Crew(varCrew)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "creditId")
 		delete(additionalProperties, "gender")

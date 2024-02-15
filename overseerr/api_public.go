@@ -21,6 +21,7 @@ import (
 
 // PublicAPIService PublicAPI service
 type PublicAPIService service
+
 type ApiGetStatusRequest struct {
 	ctx context.Context
 	ApiService *PublicAPIService
@@ -119,6 +120,7 @@ func (a *PublicAPIService) GetStatusExecute(r ApiGetStatusRequest) (*GetStatus2X
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetStatusAppdataRequest struct {
 	ctx context.Context
 	ApiService *PublicAPIService

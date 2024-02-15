@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetStatusAppdata2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetStatusAppdata2XXResponse{}
+
 // GetStatusAppdata2XXResponse struct for GetStatusAppdata2XXResponse
 type GetStatusAppdata2XXResponse struct {
 	AppData *bool `json:"appData,omitempty"`
@@ -42,7 +45,7 @@ func NewGetStatusAppdata2XXResponseWithDefaults() *GetStatusAppdata2XXResponse {
 
 // GetAppData returns the AppData field value if set, zero value otherwise.
 func (o *GetStatusAppdata2XXResponse) GetAppData() bool {
-	if o == nil || isNil(o.AppData) {
+	if o == nil || IsNil(o.AppData) {
 		var ret bool
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GetStatusAppdata2XXResponse) GetAppData() bool {
 // GetAppDataOk returns a tuple with the AppData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetStatusAppdata2XXResponse) GetAppDataOk() (*bool, bool) {
-	if o == nil || isNil(o.AppData) {
-    return nil, false
+	if o == nil || IsNil(o.AppData) {
+		return nil, false
 	}
 	return o.AppData, true
 }
 
 // HasAppData returns a boolean if a field has been set.
 func (o *GetStatusAppdata2XXResponse) HasAppData() bool {
-	if o != nil && !isNil(o.AppData) {
+	if o != nil && !IsNil(o.AppData) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *GetStatusAppdata2XXResponse) SetAppData(v bool) {
 
 // GetAppDataPath returns the AppDataPath field value if set, zero value otherwise.
 func (o *GetStatusAppdata2XXResponse) GetAppDataPath() string {
-	if o == nil || isNil(o.AppDataPath) {
+	if o == nil || IsNil(o.AppDataPath) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *GetStatusAppdata2XXResponse) GetAppDataPath() string {
 // GetAppDataPathOk returns a tuple with the AppDataPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetStatusAppdata2XXResponse) GetAppDataPathOk() (*string, bool) {
-	if o == nil || isNil(o.AppDataPath) {
-    return nil, false
+	if o == nil || IsNil(o.AppDataPath) {
+		return nil, false
 	}
 	return o.AppDataPath, true
 }
 
 // HasAppDataPath returns a boolean if a field has been set.
 func (o *GetStatusAppdata2XXResponse) HasAppDataPath() bool {
-	if o != nil && !isNil(o.AppDataPath) {
+	if o != nil && !IsNil(o.AppDataPath) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *GetStatusAppdata2XXResponse) SetAppDataPath(v string) {
 }
 
 func (o GetStatusAppdata2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetStatusAppdata2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.AppData) {
+	if !IsNil(o.AppData) {
 		toSerialize["appData"] = o.AppData
 	}
-	if !isNil(o.AppDataPath) {
+	if !IsNil(o.AppDataPath) {
 		toSerialize["appDataPath"] = o.AppDataPath
 	}
 
@@ -117,19 +128,23 @@ func (o GetStatusAppdata2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetStatusAppdata2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetStatusAppdata2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetStatusAppdata2XXResponse := _GetStatusAppdata2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetStatusAppdata2XXResponse); err == nil {
-		*o = GetStatusAppdata2XXResponse(varGetStatusAppdata2XXResponse)
+	err = json.Unmarshal(data, &varGetStatusAppdata2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetStatusAppdata2XXResponse(varGetStatusAppdata2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "appData")
 		delete(additionalProperties, "appDataPath")
 		o.AdditionalProperties = additionalProperties

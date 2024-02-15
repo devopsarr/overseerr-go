@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateMediaByStatusRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateMediaByStatusRequest{}
+
 // CreateMediaByStatusRequest struct for CreateMediaByStatusRequest
 type CreateMediaByStatusRequest struct {
 	Is4k *bool `json:"is4k,omitempty"`
@@ -41,7 +44,7 @@ func NewCreateMediaByStatusRequestWithDefaults() *CreateMediaByStatusRequest {
 
 // GetIs4k returns the Is4k field value if set, zero value otherwise.
 func (o *CreateMediaByStatusRequest) GetIs4k() bool {
-	if o == nil || isNil(o.Is4k) {
+	if o == nil || IsNil(o.Is4k) {
 		var ret bool
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *CreateMediaByStatusRequest) GetIs4k() bool {
 // GetIs4kOk returns a tuple with the Is4k field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateMediaByStatusRequest) GetIs4kOk() (*bool, bool) {
-	if o == nil || isNil(o.Is4k) {
-    return nil, false
+	if o == nil || IsNil(o.Is4k) {
+		return nil, false
 	}
 	return o.Is4k, true
 }
 
 // HasIs4k returns a boolean if a field has been set.
 func (o *CreateMediaByStatusRequest) HasIs4k() bool {
-	if o != nil && !isNil(o.Is4k) {
+	if o != nil && !IsNil(o.Is4k) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *CreateMediaByStatusRequest) SetIs4k(v bool) {
 }
 
 func (o CreateMediaByStatusRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateMediaByStatusRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Is4k) {
+	if !IsNil(o.Is4k) {
 		toSerialize["is4k"] = o.Is4k
 	}
 
@@ -81,19 +92,23 @@ func (o CreateMediaByStatusRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateMediaByStatusRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateMediaByStatusRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateMediaByStatusRequest := _CreateMediaByStatusRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateMediaByStatusRequest); err == nil {
-		*o = CreateMediaByStatusRequest(varCreateMediaByStatusRequest)
+	err = json.Unmarshal(data, &varCreateMediaByStatusRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateMediaByStatusRequest(varCreateMediaByStatusRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "is4k")
 		o.AdditionalProperties = additionalProperties
 	}

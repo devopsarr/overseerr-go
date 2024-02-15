@@ -22,6 +22,7 @@ import (
 
 // CollectionAPIService CollectionAPI service
 type CollectionAPIService service
+
 type ApiGetCollectionByCollectionIdRequest struct {
 	ctx context.Context
 	ApiService *CollectionAPIService
@@ -71,14 +72,14 @@ func (a *CollectionAPIService) GetCollectionByCollectionIdExecute(r ApiGetCollec
 	}
 
 	localVarPath := localBasePath + "/collection/{collectionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"collectionId"+"}", url.PathEscape(parameterToString(r.collectionId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"collectionId"+"}", url.PathEscape(parameterValueToString(r.collectionId, "collectionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -22,6 +22,7 @@ import (
 
 // SearchAPIService SearchAPI service
 type SearchAPIService service
+
 type ApiGetDiscoverKeywordMoviesRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -77,17 +78,20 @@ func (a *SearchAPIService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywo
 	}
 
 	localVarPath := localBasePath + "/discover/keyword/{keywordId}/movies"
-	localVarPath = strings.Replace(localVarPath, "{"+"keywordId"+"}", url.PathEscape(parameterToString(r.keywordId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"keywordId"+"}", url.PathEscape(parameterValueToString(r.keywordId, "keywordId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -156,6 +160,7 @@ func (a *SearchAPIService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywo
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverMoviesRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -298,52 +303,55 @@ func (a *SearchAPIService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesReques
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.genre != nil {
-		localVarQueryParams.Add("genre", parameterToString(*r.genre, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "genre", r.genre, "")
 	}
 	if r.studio != nil {
-		localVarQueryParams.Add("studio", parameterToString(*r.studio, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "studio", r.studio, "")
 	}
 	if r.keywords != nil {
-		localVarQueryParams.Add("keywords", parameterToString(*r.keywords, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "keywords", r.keywords, "")
 	}
 	if r.sortBy != nil {
-		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortBy", r.sortBy, "")
 	}
 	if r.primaryReleaseDateGte != nil {
-		localVarQueryParams.Add("primaryReleaseDateGte", parameterToString(*r.primaryReleaseDateGte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "primaryReleaseDateGte", r.primaryReleaseDateGte, "")
 	}
 	if r.primaryReleaseDateLte != nil {
-		localVarQueryParams.Add("primaryReleaseDateLte", parameterToString(*r.primaryReleaseDateLte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "primaryReleaseDateLte", r.primaryReleaseDateLte, "")
 	}
 	if r.withRuntimeGte != nil {
-		localVarQueryParams.Add("withRuntimeGte", parameterToString(*r.withRuntimeGte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeGte", r.withRuntimeGte, "")
 	}
 	if r.withRuntimeLte != nil {
-		localVarQueryParams.Add("withRuntimeLte", parameterToString(*r.withRuntimeLte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeLte", r.withRuntimeLte, "")
 	}
 	if r.voteAverageGte != nil {
-		localVarQueryParams.Add("voteAverageGte", parameterToString(*r.voteAverageGte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageGte", r.voteAverageGte, "")
 	}
 	if r.voteAverageLte != nil {
-		localVarQueryParams.Add("voteAverageLte", parameterToString(*r.voteAverageLte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageLte", r.voteAverageLte, "")
 	}
 	if r.voteCountGte != nil {
-		localVarQueryParams.Add("voteCountGte", parameterToString(*r.voteCountGte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountGte", r.voteCountGte, "")
 	}
 	if r.voteCountLte != nil {
-		localVarQueryParams.Add("voteCountLte", parameterToString(*r.voteCountLte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountLte", r.voteCountLte, "")
 	}
 	if r.watchRegion != nil {
-		localVarQueryParams.Add("watchRegion", parameterToString(*r.watchRegion, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "")
 	}
 	if r.watchProviders != nil {
-		localVarQueryParams.Add("watchProviders", parameterToString(*r.watchProviders, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "watchProviders", r.watchProviders, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -412,6 +420,7 @@ func (a *SearchAPIService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesReques
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverMoviesGenreByGenreIdRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -467,17 +476,20 @@ func (a *SearchAPIService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscov
 	}
 
 	localVarPath := localBasePath + "/discover/movies/genre/{genreId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"genreId"+"}", url.PathEscape(parameterToString(r.genreId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"genreId"+"}", url.PathEscape(parameterValueToString(r.genreId, "genreId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -546,6 +558,7 @@ func (a *SearchAPIService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscov
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverMoviesLanguageByLanguageRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -601,17 +614,20 @@ func (a *SearchAPIService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDi
 	}
 
 	localVarPath := localBasePath + "/discover/movies/language/{language}"
-	localVarPath = strings.Replace(localVarPath, "{"+"language"+"}", url.PathEscape(parameterToString(r.language, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"language"+"}", url.PathEscape(parameterValueToString(r.language, "language")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language2 != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language2, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language2, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -680,6 +696,7 @@ func (a *SearchAPIService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDi
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverMoviesStudioByStudioIdRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -735,17 +752,20 @@ func (a *SearchAPIService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDisc
 	}
 
 	localVarPath := localBasePath + "/discover/movies/studio/{studioId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"studioId"+"}", url.PathEscape(parameterToString(r.studioId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"studioId"+"}", url.PathEscape(parameterValueToString(r.studioId, "studioId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -814,6 +834,7 @@ func (a *SearchAPIService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDisc
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverMoviesUpcomingRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -872,10 +893,13 @@ func (a *SearchAPIService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMovi
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -944,6 +968,7 @@ func (a *SearchAPIService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMovi
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverTrendingRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -1002,10 +1027,13 @@ func (a *SearchAPIService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRe
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1074,6 +1102,7 @@ func (a *SearchAPIService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRe
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverTvRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -1216,52 +1245,55 @@ func (a *SearchAPIService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*Get
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	if r.genre != nil {
-		localVarQueryParams.Add("genre", parameterToString(*r.genre, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "genre", r.genre, "")
 	}
 	if r.network != nil {
-		localVarQueryParams.Add("network", parameterToString(*r.network, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "network", r.network, "")
 	}
 	if r.keywords != nil {
-		localVarQueryParams.Add("keywords", parameterToString(*r.keywords, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "keywords", r.keywords, "")
 	}
 	if r.sortBy != nil {
-		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortBy", r.sortBy, "")
 	}
 	if r.firstAirDateGte != nil {
-		localVarQueryParams.Add("firstAirDateGte", parameterToString(*r.firstAirDateGte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "firstAirDateGte", r.firstAirDateGte, "")
 	}
 	if r.firstAirDateLte != nil {
-		localVarQueryParams.Add("firstAirDateLte", parameterToString(*r.firstAirDateLte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "firstAirDateLte", r.firstAirDateLte, "")
 	}
 	if r.withRuntimeGte != nil {
-		localVarQueryParams.Add("withRuntimeGte", parameterToString(*r.withRuntimeGte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeGte", r.withRuntimeGte, "")
 	}
 	if r.withRuntimeLte != nil {
-		localVarQueryParams.Add("withRuntimeLte", parameterToString(*r.withRuntimeLte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeLte", r.withRuntimeLte, "")
 	}
 	if r.voteAverageGte != nil {
-		localVarQueryParams.Add("voteAverageGte", parameterToString(*r.voteAverageGte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageGte", r.voteAverageGte, "")
 	}
 	if r.voteAverageLte != nil {
-		localVarQueryParams.Add("voteAverageLte", parameterToString(*r.voteAverageLte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageLte", r.voteAverageLte, "")
 	}
 	if r.voteCountGte != nil {
-		localVarQueryParams.Add("voteCountGte", parameterToString(*r.voteCountGte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountGte", r.voteCountGte, "")
 	}
 	if r.voteCountLte != nil {
-		localVarQueryParams.Add("voteCountLte", parameterToString(*r.voteCountLte, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountLte", r.voteCountLte, "")
 	}
 	if r.watchRegion != nil {
-		localVarQueryParams.Add("watchRegion", parameterToString(*r.watchRegion, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "")
 	}
 	if r.watchProviders != nil {
-		localVarQueryParams.Add("watchProviders", parameterToString(*r.watchProviders, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "watchProviders", r.watchProviders, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1330,6 +1362,7 @@ func (a *SearchAPIService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*Get
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverTvGenreByGenreIdRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -1385,17 +1418,20 @@ func (a *SearchAPIService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTv
 	}
 
 	localVarPath := localBasePath + "/discover/tv/genre/{genreId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"genreId"+"}", url.PathEscape(parameterToString(r.genreId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"genreId"+"}", url.PathEscape(parameterValueToString(r.genreId, "genreId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1464,6 +1500,7 @@ func (a *SearchAPIService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTv
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverTvLanguageByLanguageRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -1519,17 +1556,20 @@ func (a *SearchAPIService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscov
 	}
 
 	localVarPath := localBasePath + "/discover/tv/language/{language}"
-	localVarPath = strings.Replace(localVarPath, "{"+"language"+"}", url.PathEscape(parameterToString(r.language, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"language"+"}", url.PathEscape(parameterValueToString(r.language, "language")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language2 != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language2, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language2, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1598,6 +1638,7 @@ func (a *SearchAPIService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscov
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverTvNetworkByNetworkIdRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -1653,17 +1694,20 @@ func (a *SearchAPIService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscov
 	}
 
 	localVarPath := localBasePath + "/discover/tv/network/{networkId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"networkId"+"}", url.PathEscape(parameterToString(r.networkId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"networkId"+"}", url.PathEscape(parameterValueToString(r.networkId, "networkId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1732,6 +1776,7 @@ func (a *SearchAPIService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscov
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverTvUpcomingRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -1790,10 +1835,13 @@ func (a *SearchAPIService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomi
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1862,6 +1910,7 @@ func (a *SearchAPIService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomi
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverWatchlistRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -1912,7 +1961,10 @@ func (a *SearchAPIService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlist
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1981,6 +2033,7 @@ func (a *SearchAPIService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlist
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetSearchRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -2047,12 +2100,15 @@ func (a *SearchAPIService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch2X
 		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
 
-	localVarQueryParams.Add("query", parameterToString(*r.query, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2121,6 +2177,7 @@ func (a *SearchAPIService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch2X
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetSearchCompanyRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -2181,9 +2238,12 @@ func (a *SearchAPIService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest)
 		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
 
-	localVarQueryParams.Add("query", parameterToString(*r.query, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2252,6 +2312,7 @@ func (a *SearchAPIService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest)
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetSearchKeywordRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -2312,9 +2373,12 @@ func (a *SearchAPIService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest)
 		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
 
-	localVarQueryParams.Add("query", parameterToString(*r.query, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2383,6 +2447,7 @@ func (a *SearchAPIService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest)
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListDiscoverGenresliderMovieRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -2394,7 +2459,7 @@ func (r ApiListDiscoverGenresliderMovieRequest) Language(language string) ApiLis
 	return r
 }
 
-func (r ApiListDiscoverGenresliderMovieRequest) Execute() ([]*ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
+func (r ApiListDiscoverGenresliderMovieRequest) Execute() ([]ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListDiscoverGenresliderMovieExecute(r)
 }
 
@@ -2415,12 +2480,12 @@ func (a *SearchAPIService) ListDiscoverGenresliderMovie(ctx context.Context) Api
 
 // Execute executes the request
 //  @return []ListDiscoverGenresliderMovie2XXResponseInner
-func (a *SearchAPIService) ListDiscoverGenresliderMovieExecute(r ApiListDiscoverGenresliderMovieRequest) ([]*ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
+func (a *SearchAPIService) ListDiscoverGenresliderMovieExecute(r ApiListDiscoverGenresliderMovieRequest) ([]ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListDiscoverGenresliderMovie2XXResponseInner
+		localVarReturnValue  []ListDiscoverGenresliderMovie2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.ListDiscoverGenresliderMovie")
@@ -2435,7 +2500,7 @@ func (a *SearchAPIService) ListDiscoverGenresliderMovieExecute(r ApiListDiscover
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2504,6 +2569,7 @@ func (a *SearchAPIService) ListDiscoverGenresliderMovieExecute(r ApiListDiscover
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListDiscoverGenresliderTvRequest struct {
 	ctx context.Context
 	ApiService *SearchAPIService
@@ -2515,7 +2581,7 @@ func (r ApiListDiscoverGenresliderTvRequest) Language(language string) ApiListDi
 	return r
 }
 
-func (r ApiListDiscoverGenresliderTvRequest) Execute() ([]*ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
+func (r ApiListDiscoverGenresliderTvRequest) Execute() ([]ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListDiscoverGenresliderTvExecute(r)
 }
 
@@ -2536,12 +2602,12 @@ func (a *SearchAPIService) ListDiscoverGenresliderTv(ctx context.Context) ApiLis
 
 // Execute executes the request
 //  @return []ListDiscoverGenresliderMovie2XXResponseInner
-func (a *SearchAPIService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGenresliderTvRequest) ([]*ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
+func (a *SearchAPIService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGenresliderTvRequest) ([]ListDiscoverGenresliderMovie2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListDiscoverGenresliderMovie2XXResponseInner
+		localVarReturnValue  []ListDiscoverGenresliderMovie2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.ListDiscoverGenresliderTv")
@@ -2556,7 +2622,7 @@ func (a *SearchAPIService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGen
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

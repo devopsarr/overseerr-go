@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreatePlexSyncRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreatePlexSyncRequest{}
+
 // CreatePlexSyncRequest struct for CreatePlexSyncRequest
 type CreatePlexSyncRequest struct {
 	Cancel *bool `json:"cancel,omitempty"`
@@ -42,7 +45,7 @@ func NewCreatePlexSyncRequestWithDefaults() *CreatePlexSyncRequest {
 
 // GetCancel returns the Cancel field value if set, zero value otherwise.
 func (o *CreatePlexSyncRequest) GetCancel() bool {
-	if o == nil || isNil(o.Cancel) {
+	if o == nil || IsNil(o.Cancel) {
 		var ret bool
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *CreatePlexSyncRequest) GetCancel() bool {
 // GetCancelOk returns a tuple with the Cancel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreatePlexSyncRequest) GetCancelOk() (*bool, bool) {
-	if o == nil || isNil(o.Cancel) {
-    return nil, false
+	if o == nil || IsNil(o.Cancel) {
+		return nil, false
 	}
 	return o.Cancel, true
 }
 
 // HasCancel returns a boolean if a field has been set.
 func (o *CreatePlexSyncRequest) HasCancel() bool {
-	if o != nil && !isNil(o.Cancel) {
+	if o != nil && !IsNil(o.Cancel) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *CreatePlexSyncRequest) SetCancel(v bool) {
 
 // GetStart returns the Start field value if set, zero value otherwise.
 func (o *CreatePlexSyncRequest) GetStart() bool {
-	if o == nil || isNil(o.Start) {
+	if o == nil || IsNil(o.Start) {
 		var ret bool
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *CreatePlexSyncRequest) GetStart() bool {
 // GetStartOk returns a tuple with the Start field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreatePlexSyncRequest) GetStartOk() (*bool, bool) {
-	if o == nil || isNil(o.Start) {
-    return nil, false
+	if o == nil || IsNil(o.Start) {
+		return nil, false
 	}
 	return o.Start, true
 }
 
 // HasStart returns a boolean if a field has been set.
 func (o *CreatePlexSyncRequest) HasStart() bool {
-	if o != nil && !isNil(o.Start) {
+	if o != nil && !IsNil(o.Start) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *CreatePlexSyncRequest) SetStart(v bool) {
 }
 
 func (o CreatePlexSyncRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreatePlexSyncRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Cancel) {
+	if !IsNil(o.Cancel) {
 		toSerialize["cancel"] = o.Cancel
 	}
-	if !isNil(o.Start) {
+	if !IsNil(o.Start) {
 		toSerialize["start"] = o.Start
 	}
 
@@ -117,19 +128,23 @@ func (o CreatePlexSyncRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreatePlexSyncRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreatePlexSyncRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreatePlexSyncRequest := _CreatePlexSyncRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreatePlexSyncRequest); err == nil {
-		*o = CreatePlexSyncRequest(varCreatePlexSyncRequest)
+	err = json.Unmarshal(data, &varCreatePlexSyncRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreatePlexSyncRequest(varCreatePlexSyncRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "cancel")
 		delete(additionalProperties, "start")
 		o.AdditionalProperties = additionalProperties

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the WebPushSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WebPushSettings{}
+
 // WebPushSettings struct for WebPushSettings
 type WebPushSettings struct {
 	Enabled *bool `json:"enabled,omitempty"`
@@ -42,7 +45,7 @@ func NewWebPushSettingsWithDefaults() *WebPushSettings {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *WebPushSettings) GetEnabled() bool {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *WebPushSettings) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WebPushSettings) GetEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.Enabled) {
-    return nil, false
+	if o == nil || IsNil(o.Enabled) {
+		return nil, false
 	}
 	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *WebPushSettings) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *WebPushSettings) SetEnabled(v bool) {
 
 // GetTypes returns the Types field value if set, zero value otherwise.
 func (o *WebPushSettings) GetTypes() float32 {
-	if o == nil || isNil(o.Types) {
+	if o == nil || IsNil(o.Types) {
 		var ret float32
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *WebPushSettings) GetTypes() float32 {
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WebPushSettings) GetTypesOk() (*float32, bool) {
-	if o == nil || isNil(o.Types) {
-    return nil, false
+	if o == nil || IsNil(o.Types) {
+		return nil, false
 	}
 	return o.Types, true
 }
 
 // HasTypes returns a boolean if a field has been set.
 func (o *WebPushSettings) HasTypes() bool {
-	if o != nil && !isNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *WebPushSettings) SetTypes(v float32) {
 }
 
 func (o WebPushSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o WebPushSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Enabled) {
+	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
-	if !isNil(o.Types) {
+	if !IsNil(o.Types) {
 		toSerialize["types"] = o.Types
 	}
 
@@ -117,19 +128,23 @@ func (o WebPushSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *WebPushSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *WebPushSettings) UnmarshalJSON(data []byte) (err error) {
 	varWebPushSettings := _WebPushSettings{}
 
-	if err = json.Unmarshal(bytes, &varWebPushSettings); err == nil {
-		*o = WebPushSettings(varWebPushSettings)
+	err = json.Unmarshal(data, &varWebPushSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = WebPushSettings(varWebPushSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "enabled")
 		delete(additionalProperties, "types")
 		o.AdditionalProperties = additionalProperties

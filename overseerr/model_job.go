@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Job type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Job{}
+
 // Job struct for Job
 type Job struct {
 	Id *string `json:"id,omitempty"`
@@ -46,7 +49,7 @@ func NewJobWithDefaults() *Job {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Job) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *Job) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Job) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Job) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *Job) SetId(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *Job) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *Job) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Job) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *Job) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *Job) SetType(v string) {
 
 // GetInterval returns the Interval field value if set, zero value otherwise.
 func (o *Job) GetInterval() string {
-	if o == nil || isNil(o.Interval) {
+	if o == nil || IsNil(o.Interval) {
 		var ret string
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *Job) GetInterval() string {
 // GetIntervalOk returns a tuple with the Interval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Job) GetIntervalOk() (*string, bool) {
-	if o == nil || isNil(o.Interval) {
-    return nil, false
+	if o == nil || IsNil(o.Interval) {
+		return nil, false
 	}
 	return o.Interval, true
 }
 
 // HasInterval returns a boolean if a field has been set.
 func (o *Job) HasInterval() bool {
-	if o != nil && !isNil(o.Interval) {
+	if o != nil && !IsNil(o.Interval) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *Job) SetInterval(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Job) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *Job) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Job) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Job) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *Job) SetName(v string) {
 
 // GetNextExecutionTime returns the NextExecutionTime field value if set, zero value otherwise.
 func (o *Job) GetNextExecutionTime() string {
-	if o == nil || isNil(o.NextExecutionTime) {
+	if o == nil || IsNil(o.NextExecutionTime) {
 		var ret string
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *Job) GetNextExecutionTime() string {
 // GetNextExecutionTimeOk returns a tuple with the NextExecutionTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Job) GetNextExecutionTimeOk() (*string, bool) {
-	if o == nil || isNil(o.NextExecutionTime) {
-    return nil, false
+	if o == nil || IsNil(o.NextExecutionTime) {
+		return nil, false
 	}
 	return o.NextExecutionTime, true
 }
 
 // HasNextExecutionTime returns a boolean if a field has been set.
 func (o *Job) HasNextExecutionTime() bool {
-	if o != nil && !isNil(o.NextExecutionTime) {
+	if o != nil && !IsNil(o.NextExecutionTime) {
 		return true
 	}
 
@@ -206,7 +209,7 @@ func (o *Job) SetNextExecutionTime(v string) {
 
 // GetRunning returns the Running field value if set, zero value otherwise.
 func (o *Job) GetRunning() bool {
-	if o == nil || isNil(o.Running) {
+	if o == nil || IsNil(o.Running) {
 		var ret bool
 		return ret
 	}
@@ -216,15 +219,15 @@ func (o *Job) GetRunning() bool {
 // GetRunningOk returns a tuple with the Running field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Job) GetRunningOk() (*bool, bool) {
-	if o == nil || isNil(o.Running) {
-    return nil, false
+	if o == nil || IsNil(o.Running) {
+		return nil, false
 	}
 	return o.Running, true
 }
 
 // HasRunning returns a boolean if a field has been set.
 func (o *Job) HasRunning() bool {
-	if o != nil && !isNil(o.Running) {
+	if o != nil && !IsNil(o.Running) {
 		return true
 	}
 
@@ -237,23 +240,31 @@ func (o *Job) SetRunning(v bool) {
 }
 
 func (o Job) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Job) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !isNil(o.Interval) {
+	if !IsNil(o.Interval) {
 		toSerialize["interval"] = o.Interval
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.NextExecutionTime) {
+	if !IsNil(o.NextExecutionTime) {
 		toSerialize["nextExecutionTime"] = o.NextExecutionTime
 	}
-	if !isNil(o.Running) {
+	if !IsNil(o.Running) {
 		toSerialize["running"] = o.Running
 	}
 
@@ -261,19 +272,23 @@ func (o Job) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Job) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Job) UnmarshalJSON(data []byte) (err error) {
 	varJob := _Job{}
 
-	if err = json.Unmarshal(bytes, &varJob); err == nil {
-		*o = Job(varJob)
+	err = json.Unmarshal(data, &varJob)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Job(varJob)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "type")
 		delete(additionalProperties, "interval")

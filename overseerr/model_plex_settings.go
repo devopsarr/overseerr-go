@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the PlexSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PlexSettings{}
+
 // PlexSettings struct for PlexSettings
 type PlexSettings struct {
 	Name string `json:"name"`
@@ -22,7 +25,7 @@ type PlexSettings struct {
 	Ip string `json:"ip"`
 	Port float32 `json:"port"`
 	UseSsl NullableBool `json:"useSsl,omitempty"`
-	Libraries []*PlexLibrary `json:"libraries,omitempty"`
+	Libraries []PlexLibrary `json:"libraries,omitempty"`
 	WebAppUrl NullableString `json:"webAppUrl,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -64,7 +67,7 @@ func (o *PlexSettings) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *PlexSettings) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -88,7 +91,7 @@ func (o *PlexSettings) GetMachineId() string {
 // and a boolean to check if the value has been set.
 func (o *PlexSettings) GetMachineIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MachineId, true
 }
@@ -112,7 +115,7 @@ func (o *PlexSettings) GetIp() string {
 // and a boolean to check if the value has been set.
 func (o *PlexSettings) GetIpOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Ip, true
 }
@@ -136,7 +139,7 @@ func (o *PlexSettings) GetPort() float32 {
 // and a boolean to check if the value has been set.
 func (o *PlexSettings) GetPortOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Port, true
 }
@@ -148,7 +151,7 @@ func (o *PlexSettings) SetPort(v float32) {
 
 // GetUseSsl returns the UseSsl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PlexSettings) GetUseSsl() bool {
-	if o == nil || isNil(o.UseSsl.Get()) {
+	if o == nil || IsNil(o.UseSsl.Get()) {
 		var ret bool
 		return ret
 	}
@@ -160,7 +163,7 @@ func (o *PlexSettings) GetUseSsl() bool {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PlexSettings) GetUseSslOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.UseSsl.Get(), o.UseSsl.IsSet()
 }
@@ -189,9 +192,9 @@ func (o *PlexSettings) UnsetUseSsl() {
 }
 
 // GetLibraries returns the Libraries field value if set, zero value otherwise.
-func (o *PlexSettings) GetLibraries() []*PlexLibrary {
-	if o == nil || isNil(o.Libraries) {
-		var ret []*PlexLibrary
+func (o *PlexSettings) GetLibraries() []PlexLibrary {
+	if o == nil || IsNil(o.Libraries) {
+		var ret []PlexLibrary
 		return ret
 	}
 	return o.Libraries
@@ -199,16 +202,16 @@ func (o *PlexSettings) GetLibraries() []*PlexLibrary {
 
 // GetLibrariesOk returns a tuple with the Libraries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PlexSettings) GetLibrariesOk() ([]*PlexLibrary, bool) {
-	if o == nil || isNil(o.Libraries) {
-    return nil, false
+func (o *PlexSettings) GetLibrariesOk() ([]PlexLibrary, bool) {
+	if o == nil || IsNil(o.Libraries) {
+		return nil, false
 	}
 	return o.Libraries, true
 }
 
 // HasLibraries returns a boolean if a field has been set.
 func (o *PlexSettings) HasLibraries() bool {
-	if o != nil && !isNil(o.Libraries) {
+	if o != nil && !IsNil(o.Libraries) {
 		return true
 	}
 
@@ -216,13 +219,13 @@ func (o *PlexSettings) HasLibraries() bool {
 }
 
 // SetLibraries gets a reference to the given []PlexLibrary and assigns it to the Libraries field.
-func (o *PlexSettings) SetLibraries(v []*PlexLibrary) {
+func (o *PlexSettings) SetLibraries(v []PlexLibrary) {
 	o.Libraries = v
 }
 
 // GetWebAppUrl returns the WebAppUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PlexSettings) GetWebAppUrl() string {
-	if o == nil || isNil(o.WebAppUrl.Get()) {
+	if o == nil || IsNil(o.WebAppUrl.Get()) {
 		var ret string
 		return ret
 	}
@@ -234,7 +237,7 @@ func (o *PlexSettings) GetWebAppUrl() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PlexSettings) GetWebAppUrlOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.WebAppUrl.Get(), o.WebAppUrl.IsSet()
 }
@@ -263,23 +266,23 @@ func (o *PlexSettings) UnsetWebAppUrl() {
 }
 
 func (o PlexSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PlexSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["machineId"] = o.MachineId
-	}
-	if true {
-		toSerialize["ip"] = o.Ip
-	}
-	if true {
-		toSerialize["port"] = o.Port
-	}
+	toSerialize["name"] = o.Name
+	toSerialize["machineId"] = o.MachineId
+	toSerialize["ip"] = o.Ip
+	toSerialize["port"] = o.Port
 	if o.UseSsl.IsSet() {
 		toSerialize["useSsl"] = o.UseSsl.Get()
 	}
-	if !isNil(o.Libraries) {
+	if !IsNil(o.Libraries) {
 		toSerialize["libraries"] = o.Libraries
 	}
 	if o.WebAppUrl.IsSet() {
@@ -290,19 +293,47 @@ func (o PlexSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PlexSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PlexSettings) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"name",
+		"machineId",
+		"ip",
+		"port",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varPlexSettings := _PlexSettings{}
 
-	if err = json.Unmarshal(bytes, &varPlexSettings); err == nil {
-		*o = PlexSettings(varPlexSettings)
+	err = json.Unmarshal(data, &varPlexSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PlexSettings(varPlexSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "machineId")
 		delete(additionalProperties, "ip")

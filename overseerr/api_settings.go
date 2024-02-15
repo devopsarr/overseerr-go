@@ -22,6 +22,7 @@ import (
 
 // SettingsAPIService SettingsAPI service
 type SettingsAPIService service
+
 type ApiCreateCacheFlushRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -63,7 +64,7 @@ func (a *SettingsAPIService) CreateCacheFlushExecute(r ApiCreateCacheFlushReques
 	}
 
 	localVarPath := localBasePath + "/settings/cache/{cacheId}/flush"
-	localVarPath = strings.Replace(localVarPath, "{"+"cacheId"+"}", url.PathEscape(parameterToString(r.cacheId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"cacheId"+"}", url.PathEscape(parameterValueToString(r.cacheId, "cacheId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -127,6 +128,7 @@ func (a *SettingsAPIService) CreateCacheFlushExecute(r ApiCreateCacheFlushReques
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiCreateDiscoverRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -138,7 +140,7 @@ func (r ApiCreateDiscoverRequest) DiscoverSlider(discoverSlider []DiscoverSlider
 	return r
 }
 
-func (r ApiCreateDiscoverRequest) Execute() ([]*DiscoverSlider, *http.Response, error) {
+func (r ApiCreateDiscoverRequest) Execute() ([]DiscoverSlider, *http.Response, error) {
 	return r.ApiService.CreateDiscoverExecute(r)
 }
 
@@ -162,12 +164,12 @@ func (a *SettingsAPIService) CreateDiscover(ctx context.Context) ApiCreateDiscov
 
 // Execute executes the request
 //  @return []DiscoverSlider
-func (a *SettingsAPIService) CreateDiscoverExecute(r ApiCreateDiscoverRequest) ([]*DiscoverSlider, *http.Response, error) {
+func (a *SettingsAPIService) CreateDiscoverExecute(r ApiCreateDiscoverRequest) ([]DiscoverSlider, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*DiscoverSlider
+		localVarReturnValue  []DiscoverSlider
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.CreateDiscover")
@@ -253,6 +255,7 @@ func (a *SettingsAPIService) CreateDiscoverExecute(r ApiCreateDiscoverRequest) (
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateDiscoverAddRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -377,6 +380,7 @@ func (a *SettingsAPIService) CreateDiscoverAddExecute(r ApiCreateDiscoverAddRequ
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateInitializeRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -489,6 +493,7 @@ func (a *SettingsAPIService) CreateInitializeExecute(r ApiCreateInitializeReques
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateJobsCancelRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -532,7 +537,7 @@ func (a *SettingsAPIService) CreateJobsCancelExecute(r ApiCreateJobsCancelReques
 	}
 
 	localVarPath := localBasePath + "/settings/jobs/{jobId}/cancel"
-	localVarPath = strings.Replace(localVarPath, "{"+"jobId"+"}", url.PathEscape(parameterToString(r.jobId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"jobId"+"}", url.PathEscape(parameterValueToString(r.jobId, "jobId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -605,6 +610,7 @@ func (a *SettingsAPIService) CreateJobsCancelExecute(r ApiCreateJobsCancelReques
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateJobsRunRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -648,7 +654,7 @@ func (a *SettingsAPIService) CreateJobsRunExecute(r ApiCreateJobsRunRequest) (*J
 	}
 
 	localVarPath := localBasePath + "/settings/jobs/{jobId}/run"
-	localVarPath = strings.Replace(localVarPath, "{"+"jobId"+"}", url.PathEscape(parameterToString(r.jobId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"jobId"+"}", url.PathEscape(parameterValueToString(r.jobId, "jobId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -721,6 +727,7 @@ func (a *SettingsAPIService) CreateJobsRunExecute(r ApiCreateJobsRunRequest) (*J
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateJobsScheduleRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -770,7 +777,7 @@ func (a *SettingsAPIService) CreateJobsScheduleExecute(r ApiCreateJobsScheduleRe
 	}
 
 	localVarPath := localBasePath + "/settings/jobs/{jobId}/schedule"
-	localVarPath = strings.Replace(localVarPath, "{"+"jobId"+"}", url.PathEscape(parameterToString(r.jobId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"jobId"+"}", url.PathEscape(parameterValueToString(r.jobId, "jobId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -848,6 +855,7 @@ func (a *SettingsAPIService) CreateJobsScheduleExecute(r ApiCreateJobsScheduleRe
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateMainRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -971,6 +979,7 @@ func (a *SettingsAPIService) CreateMainExecute(r ApiCreateMainRequest) (*MainSet
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateMainRegenerateRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -1083,6 +1092,7 @@ func (a *SettingsAPIService) CreateMainRegenerateExecute(r ApiCreateMainRegenera
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsDiscordRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -1206,6 +1216,7 @@ func (a *SettingsAPIService) CreateNotificationsDiscordExecute(r ApiCreateNotifi
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsEmailRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -1329,6 +1340,7 @@ func (a *SettingsAPIService) CreateNotificationsEmailExecute(r ApiCreateNotifica
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsGotifyRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -1452,6 +1464,7 @@ func (a *SettingsAPIService) CreateNotificationsGotifyExecute(r ApiCreateNotific
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsLunaseaRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -1575,6 +1588,7 @@ func (a *SettingsAPIService) CreateNotificationsLunaseaExecute(r ApiCreateNotifi
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsPushbulletRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -1698,6 +1712,7 @@ func (a *SettingsAPIService) CreateNotificationsPushbulletExecute(r ApiCreateNot
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsPushoverRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -1821,6 +1836,7 @@ func (a *SettingsAPIService) CreateNotificationsPushoverExecute(r ApiCreateNotif
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsSlackRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -1944,6 +1960,7 @@ func (a *SettingsAPIService) CreateNotificationsSlackExecute(r ApiCreateNotifica
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsTelegramRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2067,6 +2084,7 @@ func (a *SettingsAPIService) CreateNotificationsTelegramExecute(r ApiCreateNotif
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsWebhookRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2190,6 +2208,7 @@ func (a *SettingsAPIService) CreateNotificationsWebhookExecute(r ApiCreateNotifi
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateNotificationsWebpushRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2313,6 +2332,7 @@ func (a *SettingsAPIService) CreateNotificationsWebpushExecute(r ApiCreateNotifi
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreatePlexRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2436,6 +2456,7 @@ func (a *SettingsAPIService) CreatePlexExecute(r ApiCreatePlexRequest) (*PlexSet
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreatePlexSyncRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2556,6 +2577,7 @@ func (a *SettingsAPIService) CreatePlexSyncExecute(r ApiCreatePlexSyncRequest) (
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateRadarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2679,6 +2701,7 @@ func (a *SettingsAPIService) CreateRadarrExecute(r ApiCreateRadarrRequest) (*Rad
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateSonarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2802,6 +2825,7 @@ func (a *SettingsAPIService) CreateSonarrExecute(r ApiCreateSonarrRequest) (*Son
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateTautulliRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2925,6 +2949,7 @@ func (a *SettingsAPIService) CreateTautulliExecute(r ApiCreateTautulliRequest) (
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiDeleteDiscoverRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -2968,7 +2993,7 @@ func (a *SettingsAPIService) DeleteDiscoverExecute(r ApiDeleteDiscoverRequest) (
 	}
 
 	localVarPath := localBasePath + "/settings/discover/{sliderId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"sliderId"+"}", url.PathEscape(parameterToString(r.sliderId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"sliderId"+"}", url.PathEscape(parameterValueToString(r.sliderId, "sliderId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3041,6 +3066,7 @@ func (a *SettingsAPIService) DeleteDiscoverExecute(r ApiDeleteDiscoverRequest) (
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiDeleteRadarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -3084,7 +3110,7 @@ func (a *SettingsAPIService) DeleteRadarrExecute(r ApiDeleteRadarrRequest) (*Rad
 	}
 
 	localVarPath := localBasePath + "/settings/radarr/{radarrId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"radarrId"+"}", url.PathEscape(parameterToString(r.radarrId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"radarrId"+"}", url.PathEscape(parameterValueToString(r.radarrId, "radarrId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3157,6 +3183,7 @@ func (a *SettingsAPIService) DeleteRadarrExecute(r ApiDeleteRadarrRequest) (*Rad
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiDeleteSonarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -3200,7 +3227,7 @@ func (a *SettingsAPIService) DeleteSonarrExecute(r ApiDeleteSonarrRequest) (*Son
 	}
 
 	localVarPath := localBasePath + "/settings/sonarr/{sonarrId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"sonarrId"+"}", url.PathEscape(parameterToString(r.sonarrId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"sonarrId"+"}", url.PathEscape(parameterValueToString(r.sonarrId, "sonarrId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3273,6 +3300,7 @@ func (a *SettingsAPIService) DeleteSonarrExecute(r ApiDeleteSonarrRequest) (*Son
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetAboutRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -3385,6 +3413,7 @@ func (a *SettingsAPIService) GetAboutExecute(r ApiGetAboutRequest) (*GetAbout2XX
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetCacheRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -3497,6 +3526,7 @@ func (a *SettingsAPIService) GetCacheExecute(r ApiGetCacheRequest) (*GetCache2XX
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetDiscoverResetRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -3598,6 +3628,7 @@ func (a *SettingsAPIService) GetDiscoverResetExecute(r ApiGetDiscoverResetReques
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiGetMainRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -3710,6 +3741,7 @@ func (a *SettingsAPIService) GetMainExecute(r ApiGetMainRequest) (*MainSettings,
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsDiscordRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -3822,6 +3854,7 @@ func (a *SettingsAPIService) GetNotificationsDiscordExecute(r ApiGetNotification
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsEmailRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -3934,6 +3967,7 @@ func (a *SettingsAPIService) GetNotificationsEmailExecute(r ApiGetNotificationsE
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsGotifyRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4046,6 +4080,7 @@ func (a *SettingsAPIService) GetNotificationsGotifyExecute(r ApiGetNotifications
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsLunaseaRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4158,6 +4193,7 @@ func (a *SettingsAPIService) GetNotificationsLunaseaExecute(r ApiGetNotification
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsPushbulletRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4270,6 +4306,7 @@ func (a *SettingsAPIService) GetNotificationsPushbulletExecute(r ApiGetNotificat
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsPushoverRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4382,6 +4419,7 @@ func (a *SettingsAPIService) GetNotificationsPushoverExecute(r ApiGetNotificatio
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsSlackRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4494,6 +4532,7 @@ func (a *SettingsAPIService) GetNotificationsSlackExecute(r ApiGetNotificationsS
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsTelegramRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4606,6 +4645,7 @@ func (a *SettingsAPIService) GetNotificationsTelegramExecute(r ApiGetNotificatio
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsWebhookRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4718,6 +4758,7 @@ func (a *SettingsAPIService) GetNotificationsWebhookExecute(r ApiGetNotification
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetNotificationsWebpushRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4830,6 +4871,7 @@ func (a *SettingsAPIService) GetNotificationsWebpushExecute(r ApiGetNotification
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetPlexRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -4942,6 +4984,7 @@ func (a *SettingsAPIService) GetPlexExecute(r ApiGetPlexRequest) (*PlexSettings,
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetPlexSyncRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -5054,6 +5097,7 @@ func (a *SettingsAPIService) GetPlexSyncExecute(r ApiGetPlexSyncRequest) (*GetPl
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetPublicRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -5152,6 +5196,7 @@ func (a *SettingsAPIService) GetPublicExecute(r ApiGetPublicRequest) (*PublicSet
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetTautulliRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -5264,12 +5309,13 @@ func (a *SettingsAPIService) GetTautulliExecute(r ApiGetTautulliRequest) (*Tautu
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListDiscoverRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
 }
 
-func (r ApiListDiscoverRequest) Execute() ([]*DiscoverSlider, *http.Response, error) {
+func (r ApiListDiscoverRequest) Execute() ([]DiscoverSlider, *http.Response, error) {
 	return r.ApiService.ListDiscoverExecute(r)
 }
 
@@ -5290,12 +5336,12 @@ func (a *SettingsAPIService) ListDiscover(ctx context.Context) ApiListDiscoverRe
 
 // Execute executes the request
 //  @return []DiscoverSlider
-func (a *SettingsAPIService) ListDiscoverExecute(r ApiListDiscoverRequest) ([]*DiscoverSlider, *http.Response, error) {
+func (a *SettingsAPIService) ListDiscoverExecute(r ApiListDiscoverRequest) ([]DiscoverSlider, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*DiscoverSlider
+		localVarReturnValue  []DiscoverSlider
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListDiscover")
@@ -5376,12 +5422,13 @@ func (a *SettingsAPIService) ListDiscoverExecute(r ApiListDiscoverRequest) ([]*D
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListJobsRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
 }
 
-func (r ApiListJobsRequest) Execute() ([]*Job, *http.Response, error) {
+func (r ApiListJobsRequest) Execute() ([]Job, *http.Response, error) {
 	return r.ApiService.ListJobsExecute(r)
 }
 
@@ -5402,12 +5449,12 @@ func (a *SettingsAPIService) ListJobs(ctx context.Context) ApiListJobsRequest {
 
 // Execute executes the request
 //  @return []Job
-func (a *SettingsAPIService) ListJobsExecute(r ApiListJobsRequest) ([]*Job, *http.Response, error) {
+func (a *SettingsAPIService) ListJobsExecute(r ApiListJobsRequest) ([]Job, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*Job
+		localVarReturnValue  []Job
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListJobs")
@@ -5488,6 +5535,7 @@ func (a *SettingsAPIService) ListJobsExecute(r ApiListJobsRequest) ([]*Job, *htt
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListLogsRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -5517,7 +5565,7 @@ func (r ApiListLogsRequest) Search(search string) ApiListLogsRequest {
 	return r
 }
 
-func (r ApiListLogsRequest) Execute() ([]*ListLogs2XXResponseInner, *http.Response, error) {
+func (r ApiListLogsRequest) Execute() ([]ListLogs2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListLogsExecute(r)
 }
 
@@ -5538,12 +5586,12 @@ func (a *SettingsAPIService) ListLogs(ctx context.Context) ApiListLogsRequest {
 
 // Execute executes the request
 //  @return []ListLogs2XXResponseInner
-func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs2XXResponseInner, *http.Response, error) {
+func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]ListLogs2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListLogs2XXResponseInner
+		localVarReturnValue  []ListLogs2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListLogs")
@@ -5558,16 +5606,19 @@ func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs2
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		localVarQueryParams.Add("take", parameterToString(*r.take, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
 	}
 	if r.skip != nil {
-		localVarQueryParams.Add("skip", parameterToString(*r.skip, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
 	}
 	if r.filter != nil {
-		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "")
+	} else {
+		var defaultValue string = "debug"
+		r.filter = &defaultValue
 	}
 	if r.search != nil {
-		localVarQueryParams.Add("search", parameterToString(*r.search, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -5636,12 +5687,13 @@ func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]*ListLogs2
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListPlexDevicesServersRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
 }
 
-func (r ApiListPlexDevicesServersRequest) Execute() ([]*PlexDevice, *http.Response, error) {
+func (r ApiListPlexDevicesServersRequest) Execute() ([]PlexDevice, *http.Response, error) {
 	return r.ApiService.ListPlexDevicesServersExecute(r)
 }
 
@@ -5662,12 +5714,12 @@ func (a *SettingsAPIService) ListPlexDevicesServers(ctx context.Context) ApiList
 
 // Execute executes the request
 //  @return []PlexDevice
-func (a *SettingsAPIService) ListPlexDevicesServersExecute(r ApiListPlexDevicesServersRequest) ([]*PlexDevice, *http.Response, error) {
+func (a *SettingsAPIService) ListPlexDevicesServersExecute(r ApiListPlexDevicesServersRequest) ([]PlexDevice, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*PlexDevice
+		localVarReturnValue  []PlexDevice
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListPlexDevicesServers")
@@ -5748,6 +5800,7 @@ func (a *SettingsAPIService) ListPlexDevicesServersExecute(r ApiListPlexDevicesS
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListPlexLibraryRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -5767,7 +5820,7 @@ func (r ApiListPlexLibraryRequest) Enable(enable string) ApiListPlexLibraryReque
 	return r
 }
 
-func (r ApiListPlexLibraryRequest) Execute() ([]*PlexLibrary, *http.Response, error) {
+func (r ApiListPlexLibraryRequest) Execute() ([]PlexLibrary, *http.Response, error) {
 	return r.ApiService.ListPlexLibraryExecute(r)
 }
 
@@ -5788,12 +5841,12 @@ func (a *SettingsAPIService) ListPlexLibrary(ctx context.Context) ApiListPlexLib
 
 // Execute executes the request
 //  @return []PlexLibrary
-func (a *SettingsAPIService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest) ([]*PlexLibrary, *http.Response, error) {
+func (a *SettingsAPIService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest) ([]PlexLibrary, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*PlexLibrary
+		localVarReturnValue  []PlexLibrary
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListPlexLibrary")
@@ -5808,10 +5861,10 @@ func (a *SettingsAPIService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest)
 	localVarFormParams := url.Values{}
 
 	if r.sync != nil {
-		localVarQueryParams.Add("sync", parameterToString(*r.sync, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sync", r.sync, "")
 	}
 	if r.enable != nil {
-		localVarQueryParams.Add("enable", parameterToString(*r.enable, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "enable", r.enable, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -5880,12 +5933,13 @@ func (a *SettingsAPIService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest)
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListPlexUsersRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
 }
 
-func (r ApiListPlexUsersRequest) Execute() ([]*ListPlexUsers2XXResponseInner, *http.Response, error) {
+func (r ApiListPlexUsersRequest) Execute() ([]ListPlexUsers2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListPlexUsersExecute(r)
 }
 
@@ -5909,12 +5963,12 @@ func (a *SettingsAPIService) ListPlexUsers(ctx context.Context) ApiListPlexUsers
 
 // Execute executes the request
 //  @return []ListPlexUsers2XXResponseInner
-func (a *SettingsAPIService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]*ListPlexUsers2XXResponseInner, *http.Response, error) {
+func (a *SettingsAPIService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]ListPlexUsers2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ListPlexUsers2XXResponseInner
+		localVarReturnValue  []ListPlexUsers2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListPlexUsers")
@@ -5995,12 +6049,13 @@ func (a *SettingsAPIService) ListPlexUsersExecute(r ApiListPlexUsersRequest) ([]
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListRadarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
 }
 
-func (r ApiListRadarrRequest) Execute() ([]*RadarrSettings, *http.Response, error) {
+func (r ApiListRadarrRequest) Execute() ([]RadarrSettings, *http.Response, error) {
 	return r.ApiService.ListRadarrExecute(r)
 }
 
@@ -6021,12 +6076,12 @@ func (a *SettingsAPIService) ListRadarr(ctx context.Context) ApiListRadarrReques
 
 // Execute executes the request
 //  @return []RadarrSettings
-func (a *SettingsAPIService) ListRadarrExecute(r ApiListRadarrRequest) ([]*RadarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) ListRadarrExecute(r ApiListRadarrRequest) ([]RadarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*RadarrSettings
+		localVarReturnValue  []RadarrSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListRadarr")
@@ -6107,13 +6162,14 @@ func (a *SettingsAPIService) ListRadarrExecute(r ApiListRadarrRequest) ([]*Radar
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListRadarrProfilesRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
 	radarrId int32
 }
 
-func (r ApiListRadarrProfilesRequest) Execute() ([]*ServiceProfile, *http.Response, error) {
+func (r ApiListRadarrProfilesRequest) Execute() ([]ServiceProfile, *http.Response, error) {
 	return r.ApiService.ListRadarrProfilesExecute(r)
 }
 
@@ -6136,12 +6192,12 @@ func (a *SettingsAPIService) ListRadarrProfiles(ctx context.Context, radarrId in
 
 // Execute executes the request
 //  @return []ServiceProfile
-func (a *SettingsAPIService) ListRadarrProfilesExecute(r ApiListRadarrProfilesRequest) ([]*ServiceProfile, *http.Response, error) {
+func (a *SettingsAPIService) ListRadarrProfilesExecute(r ApiListRadarrProfilesRequest) ([]ServiceProfile, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*ServiceProfile
+		localVarReturnValue  []ServiceProfile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListRadarrProfiles")
@@ -6150,7 +6206,7 @@ func (a *SettingsAPIService) ListRadarrProfilesExecute(r ApiListRadarrProfilesRe
 	}
 
 	localVarPath := localBasePath + "/settings/radarr/{radarrId}/profiles"
-	localVarPath = strings.Replace(localVarPath, "{"+"radarrId"+"}", url.PathEscape(parameterToString(r.radarrId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"radarrId"+"}", url.PathEscape(parameterValueToString(r.radarrId, "radarrId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6223,12 +6279,13 @@ func (a *SettingsAPIService) ListRadarrProfilesExecute(r ApiListRadarrProfilesRe
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListSonarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
 }
 
-func (r ApiListSonarrRequest) Execute() ([]*SonarrSettings, *http.Response, error) {
+func (r ApiListSonarrRequest) Execute() ([]SonarrSettings, *http.Response, error) {
 	return r.ApiService.ListSonarrExecute(r)
 }
 
@@ -6249,12 +6306,12 @@ func (a *SettingsAPIService) ListSonarr(ctx context.Context) ApiListSonarrReques
 
 // Execute executes the request
 //  @return []SonarrSettings
-func (a *SettingsAPIService) ListSonarrExecute(r ApiListSonarrRequest) ([]*SonarrSettings, *http.Response, error) {
+func (a *SettingsAPIService) ListSonarrExecute(r ApiListSonarrRequest) ([]SonarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*SonarrSettings
+		localVarReturnValue  []SonarrSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SettingsAPIService.ListSonarr")
@@ -6335,6 +6392,7 @@ func (a *SettingsAPIService) ListSonarrExecute(r ApiListSonarrRequest) ([]*Sonar
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsDiscordRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -6447,6 +6505,7 @@ func (a *SettingsAPIService) TestNotificationsDiscordExecute(r ApiTestNotificati
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsEmailRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -6559,6 +6618,7 @@ func (a *SettingsAPIService) TestNotificationsEmailExecute(r ApiTestNotification
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsGotifyRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -6671,6 +6731,7 @@ func (a *SettingsAPIService) TestNotificationsGotifyExecute(r ApiTestNotificatio
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsLunaseaRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -6783,6 +6844,7 @@ func (a *SettingsAPIService) TestNotificationsLunaseaExecute(r ApiTestNotificati
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsPushbulletRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -6895,6 +6957,7 @@ func (a *SettingsAPIService) TestNotificationsPushbulletExecute(r ApiTestNotific
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsPushoverRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7007,6 +7070,7 @@ func (a *SettingsAPIService) TestNotificationsPushoverExecute(r ApiTestNotificat
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsSlackRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7119,6 +7183,7 @@ func (a *SettingsAPIService) TestNotificationsSlackExecute(r ApiTestNotification
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsTelegramRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7231,6 +7296,7 @@ func (a *SettingsAPIService) TestNotificationsTelegramExecute(r ApiTestNotificat
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsWebhookRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7343,6 +7409,7 @@ func (a *SettingsAPIService) TestNotificationsWebhookExecute(r ApiTestNotificati
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestNotificationsWebpushRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7455,6 +7522,7 @@ func (a *SettingsAPIService) TestNotificationsWebpushExecute(r ApiTestNotificati
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiTestRadarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7578,6 +7646,7 @@ func (a *SettingsAPIService) TestRadarrExecute(r ApiTestRadarrRequest) (*TestRad
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiTestSonarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7701,6 +7770,7 @@ func (a *SettingsAPIService) TestSonarrExecute(r ApiTestSonarrRequest) (*TestRad
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiUpdateDiscoverRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7751,7 +7821,7 @@ func (a *SettingsAPIService) UpdateDiscoverExecute(r ApiUpdateDiscoverRequest) (
 	}
 
 	localVarPath := localBasePath + "/settings/discover/{sliderId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"sliderId"+"}", url.PathEscape(parameterToString(r.sliderId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"sliderId"+"}", url.PathEscape(parameterValueToString(r.sliderId, "sliderId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7829,6 +7899,7 @@ func (a *SettingsAPIService) UpdateDiscoverExecute(r ApiUpdateDiscoverRequest) (
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiUpdateRadarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -7878,7 +7949,7 @@ func (a *SettingsAPIService) UpdateRadarrExecute(r ApiUpdateRadarrRequest) (*Rad
 	}
 
 	localVarPath := localBasePath + "/settings/radarr/{radarrId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"radarrId"+"}", url.PathEscape(parameterToString(r.radarrId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"radarrId"+"}", url.PathEscape(parameterValueToString(r.radarrId, "radarrId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7956,6 +8027,7 @@ func (a *SettingsAPIService) UpdateRadarrExecute(r ApiUpdateRadarrRequest) (*Rad
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiUpdateSonarrRequest struct {
 	ctx context.Context
 	ApiService *SettingsAPIService
@@ -8005,7 +8077,7 @@ func (a *SettingsAPIService) UpdateSonarrExecute(r ApiUpdateSonarrRequest) (*Son
 	}
 
 	localVarPath := localBasePath + "/settings/sonarr/{sonarrId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"sonarrId"+"}", url.PathEscape(parameterToString(r.sonarrId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"sonarrId"+"}", url.PathEscape(parameterValueToString(r.sonarrId, "sonarrId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetUserSettingsPermissions2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUserSettingsPermissions2XXResponse{}
+
 // GetUserSettingsPermissions2XXResponse struct for GetUserSettingsPermissions2XXResponse
 type GetUserSettingsPermissions2XXResponse struct {
 	Permissions *float32 `json:"permissions,omitempty"`
@@ -41,7 +44,7 @@ func NewGetUserSettingsPermissions2XXResponseWithDefaults() *GetUserSettingsPerm
 
 // GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *GetUserSettingsPermissions2XXResponse) GetPermissions() float32 {
-	if o == nil || isNil(o.Permissions) {
+	if o == nil || IsNil(o.Permissions) {
 		var ret float32
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *GetUserSettingsPermissions2XXResponse) GetPermissions() float32 {
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserSettingsPermissions2XXResponse) GetPermissionsOk() (*float32, bool) {
-	if o == nil || isNil(o.Permissions) {
-    return nil, false
+	if o == nil || IsNil(o.Permissions) {
+		return nil, false
 	}
 	return o.Permissions, true
 }
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *GetUserSettingsPermissions2XXResponse) HasPermissions() bool {
-	if o != nil && !isNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *GetUserSettingsPermissions2XXResponse) SetPermissions(v float32) {
 }
 
 func (o GetUserSettingsPermissions2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetUserSettingsPermissions2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Permissions) {
+	if !IsNil(o.Permissions) {
 		toSerialize["permissions"] = o.Permissions
 	}
 
@@ -81,19 +92,23 @@ func (o GetUserSettingsPermissions2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetUserSettingsPermissions2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetUserSettingsPermissions2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetUserSettingsPermissions2XXResponse := _GetUserSettingsPermissions2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetUserSettingsPermissions2XXResponse); err == nil {
-		*o = GetUserSettingsPermissions2XXResponse(varGetUserSettingsPermissions2XXResponse)
+	err = json.Unmarshal(data, &varGetUserSettingsPermissions2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetUserSettingsPermissions2XXResponse(varGetUserSettingsPermissions2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "permissions")
 		o.AdditionalProperties = additionalProperties
 	}

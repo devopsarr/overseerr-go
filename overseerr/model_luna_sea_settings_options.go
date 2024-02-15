@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the LunaSeaSettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &LunaSeaSettingsOptions{}
+
 // LunaSeaSettingsOptions struct for LunaSeaSettingsOptions
 type LunaSeaSettingsOptions struct {
 	WebhookUrl *string `json:"webhookUrl,omitempty"`
@@ -42,7 +45,7 @@ func NewLunaSeaSettingsOptionsWithDefaults() *LunaSeaSettingsOptions {
 
 // GetWebhookUrl returns the WebhookUrl field value if set, zero value otherwise.
 func (o *LunaSeaSettingsOptions) GetWebhookUrl() string {
-	if o == nil || isNil(o.WebhookUrl) {
+	if o == nil || IsNil(o.WebhookUrl) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *LunaSeaSettingsOptions) GetWebhookUrl() string {
 // GetWebhookUrlOk returns a tuple with the WebhookUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LunaSeaSettingsOptions) GetWebhookUrlOk() (*string, bool) {
-	if o == nil || isNil(o.WebhookUrl) {
-    return nil, false
+	if o == nil || IsNil(o.WebhookUrl) {
+		return nil, false
 	}
 	return o.WebhookUrl, true
 }
 
 // HasWebhookUrl returns a boolean if a field has been set.
 func (o *LunaSeaSettingsOptions) HasWebhookUrl() bool {
-	if o != nil && !isNil(o.WebhookUrl) {
+	if o != nil && !IsNil(o.WebhookUrl) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *LunaSeaSettingsOptions) SetWebhookUrl(v string) {
 
 // GetProfileName returns the ProfileName field value if set, zero value otherwise.
 func (o *LunaSeaSettingsOptions) GetProfileName() string {
-	if o == nil || isNil(o.ProfileName) {
+	if o == nil || IsNil(o.ProfileName) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *LunaSeaSettingsOptions) GetProfileName() string {
 // GetProfileNameOk returns a tuple with the ProfileName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LunaSeaSettingsOptions) GetProfileNameOk() (*string, bool) {
-	if o == nil || isNil(o.ProfileName) {
-    return nil, false
+	if o == nil || IsNil(o.ProfileName) {
+		return nil, false
 	}
 	return o.ProfileName, true
 }
 
 // HasProfileName returns a boolean if a field has been set.
 func (o *LunaSeaSettingsOptions) HasProfileName() bool {
-	if o != nil && !isNil(o.ProfileName) {
+	if o != nil && !IsNil(o.ProfileName) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *LunaSeaSettingsOptions) SetProfileName(v string) {
 }
 
 func (o LunaSeaSettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o LunaSeaSettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.WebhookUrl) {
+	if !IsNil(o.WebhookUrl) {
 		toSerialize["webhookUrl"] = o.WebhookUrl
 	}
-	if !isNil(o.ProfileName) {
+	if !IsNil(o.ProfileName) {
 		toSerialize["profileName"] = o.ProfileName
 	}
 
@@ -117,19 +128,23 @@ func (o LunaSeaSettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *LunaSeaSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *LunaSeaSettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varLunaSeaSettingsOptions := _LunaSeaSettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varLunaSeaSettingsOptions); err == nil {
-		*o = LunaSeaSettingsOptions(varLunaSeaSettingsOptions)
+	err = json.Unmarshal(data, &varLunaSeaSettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = LunaSeaSettingsOptions(varLunaSeaSettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "webhookUrl")
 		delete(additionalProperties, "profileName")
 		o.AdditionalProperties = additionalProperties

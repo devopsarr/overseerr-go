@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UserSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserSettings{}
+
 // UserSettings struct for UserSettings
 type UserSettings struct {
 	Locale *string `json:"locale,omitempty"`
@@ -43,7 +46,7 @@ func NewUserSettingsWithDefaults() *UserSettings {
 
 // GetLocale returns the Locale field value if set, zero value otherwise.
 func (o *UserSettings) GetLocale() string {
-	if o == nil || isNil(o.Locale) {
+	if o == nil || IsNil(o.Locale) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *UserSettings) GetLocale() string {
 // GetLocaleOk returns a tuple with the Locale field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSettings) GetLocaleOk() (*string, bool) {
-	if o == nil || isNil(o.Locale) {
-    return nil, false
+	if o == nil || IsNil(o.Locale) {
+		return nil, false
 	}
 	return o.Locale, true
 }
 
 // HasLocale returns a boolean if a field has been set.
 func (o *UserSettings) HasLocale() bool {
-	if o != nil && !isNil(o.Locale) {
+	if o != nil && !IsNil(o.Locale) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *UserSettings) SetLocale(v string) {
 
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *UserSettings) GetRegion() string {
-	if o == nil || isNil(o.Region) {
+	if o == nil || IsNil(o.Region) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *UserSettings) GetRegion() string {
 // GetRegionOk returns a tuple with the Region field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSettings) GetRegionOk() (*string, bool) {
-	if o == nil || isNil(o.Region) {
-    return nil, false
+	if o == nil || IsNil(o.Region) {
+		return nil, false
 	}
 	return o.Region, true
 }
 
 // HasRegion returns a boolean if a field has been set.
 func (o *UserSettings) HasRegion() bool {
-	if o != nil && !isNil(o.Region) {
+	if o != nil && !IsNil(o.Region) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *UserSettings) SetRegion(v string) {
 
 // GetOriginalLanguage returns the OriginalLanguage field value if set, zero value otherwise.
 func (o *UserSettings) GetOriginalLanguage() string {
-	if o == nil || isNil(o.OriginalLanguage) {
+	if o == nil || IsNil(o.OriginalLanguage) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *UserSettings) GetOriginalLanguage() string {
 // GetOriginalLanguageOk returns a tuple with the OriginalLanguage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSettings) GetOriginalLanguageOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalLanguage) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalLanguage) {
+		return nil, false
 	}
 	return o.OriginalLanguage, true
 }
 
 // HasOriginalLanguage returns a boolean if a field has been set.
 func (o *UserSettings) HasOriginalLanguage() bool {
-	if o != nil && !isNil(o.OriginalLanguage) {
+	if o != nil && !IsNil(o.OriginalLanguage) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *UserSettings) SetOriginalLanguage(v string) {
 }
 
 func (o UserSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o UserSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Locale) {
+	if !IsNil(o.Locale) {
 		toSerialize["locale"] = o.Locale
 	}
-	if !isNil(o.Region) {
+	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
 	}
-	if !isNil(o.OriginalLanguage) {
+	if !IsNil(o.OriginalLanguage) {
 		toSerialize["originalLanguage"] = o.OriginalLanguage
 	}
 
@@ -153,19 +164,23 @@ func (o UserSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *UserSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *UserSettings) UnmarshalJSON(data []byte) (err error) {
 	varUserSettings := _UserSettings{}
 
-	if err = json.Unmarshal(bytes, &varUserSettings); err == nil {
-		*o = UserSettings(varUserSettings)
+	err = json.Unmarshal(data, &varUserSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = UserSettings(varUserSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "locale")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "originalLanguage")

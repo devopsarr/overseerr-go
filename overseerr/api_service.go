@@ -22,6 +22,7 @@ import (
 
 // ServiceAPIService ServiceAPI service
 type ServiceAPIService service
+
 type ApiGetServiceRadarrByRadarrIdRequest struct {
 	ctx context.Context
 	ApiService *ServiceAPIService
@@ -65,7 +66,7 @@ func (a *ServiceAPIService) GetServiceRadarrByRadarrIdExecute(r ApiGetServiceRad
 	}
 
 	localVarPath := localBasePath + "/service/radarr/{radarrId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"radarrId"+"}", url.PathEscape(parameterToString(r.radarrId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"radarrId"+"}", url.PathEscape(parameterValueToString(r.radarrId, "radarrId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -138,6 +139,7 @@ func (a *ServiceAPIService) GetServiceRadarrByRadarrIdExecute(r ApiGetServiceRad
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetServiceSonarrBySonarrIdRequest struct {
 	ctx context.Context
 	ApiService *ServiceAPIService
@@ -181,7 +183,7 @@ func (a *ServiceAPIService) GetServiceSonarrBySonarrIdExecute(r ApiGetServiceSon
 	}
 
 	localVarPath := localBasePath + "/service/sonarr/{sonarrId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"sonarrId"+"}", url.PathEscape(parameterToString(r.sonarrId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"sonarrId"+"}", url.PathEscape(parameterValueToString(r.sonarrId, "sonarrId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -254,12 +256,13 @@ func (a *ServiceAPIService) GetServiceSonarrBySonarrIdExecute(r ApiGetServiceSon
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListServiceRadarrRequest struct {
 	ctx context.Context
 	ApiService *ServiceAPIService
 }
 
-func (r ApiListServiceRadarrRequest) Execute() ([]*RadarrSettings, *http.Response, error) {
+func (r ApiListServiceRadarrRequest) Execute() ([]RadarrSettings, *http.Response, error) {
 	return r.ApiService.ListServiceRadarrExecute(r)
 }
 
@@ -280,12 +283,12 @@ func (a *ServiceAPIService) ListServiceRadarr(ctx context.Context) ApiListServic
 
 // Execute executes the request
 //  @return []RadarrSettings
-func (a *ServiceAPIService) ListServiceRadarrExecute(r ApiListServiceRadarrRequest) ([]*RadarrSettings, *http.Response, error) {
+func (a *ServiceAPIService) ListServiceRadarrExecute(r ApiListServiceRadarrRequest) ([]RadarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*RadarrSettings
+		localVarReturnValue  []RadarrSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.ListServiceRadarr")
@@ -366,12 +369,13 @@ func (a *ServiceAPIService) ListServiceRadarrExecute(r ApiListServiceRadarrReque
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListServiceSonarrRequest struct {
 	ctx context.Context
 	ApiService *ServiceAPIService
 }
 
-func (r ApiListServiceSonarrRequest) Execute() ([]*SonarrSettings, *http.Response, error) {
+func (r ApiListServiceSonarrRequest) Execute() ([]SonarrSettings, *http.Response, error) {
 	return r.ApiService.ListServiceSonarrExecute(r)
 }
 
@@ -392,12 +396,12 @@ func (a *ServiceAPIService) ListServiceSonarr(ctx context.Context) ApiListServic
 
 // Execute executes the request
 //  @return []SonarrSettings
-func (a *ServiceAPIService) ListServiceSonarrExecute(r ApiListServiceSonarrRequest) ([]*SonarrSettings, *http.Response, error) {
+func (a *ServiceAPIService) ListServiceSonarrExecute(r ApiListServiceSonarrRequest) ([]SonarrSettings, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*SonarrSettings
+		localVarReturnValue  []SonarrSettings
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.ListServiceSonarr")
@@ -478,13 +482,14 @@ func (a *ServiceAPIService) ListServiceSonarrExecute(r ApiListServiceSonarrReque
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListServiceSonarrLookupByTmdbIdRequest struct {
 	ctx context.Context
 	ApiService *ServiceAPIService
 	tmdbId float32
 }
 
-func (r ApiListServiceSonarrLookupByTmdbIdRequest) Execute() ([]*SonarrSeries, *http.Response, error) {
+func (r ApiListServiceSonarrLookupByTmdbIdRequest) Execute() ([]SonarrSeries, *http.Response, error) {
 	return r.ApiService.ListServiceSonarrLookupByTmdbIdExecute(r)
 }
 
@@ -507,12 +512,12 @@ func (a *ServiceAPIService) ListServiceSonarrLookupByTmdbId(ctx context.Context,
 
 // Execute executes the request
 //  @return []SonarrSeries
-func (a *ServiceAPIService) ListServiceSonarrLookupByTmdbIdExecute(r ApiListServiceSonarrLookupByTmdbIdRequest) ([]*SonarrSeries, *http.Response, error) {
+func (a *ServiceAPIService) ListServiceSonarrLookupByTmdbIdExecute(r ApiListServiceSonarrLookupByTmdbIdRequest) ([]SonarrSeries, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*SonarrSeries
+		localVarReturnValue  []SonarrSeries
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAPIService.ListServiceSonarrLookupByTmdbId")
@@ -521,7 +526,7 @@ func (a *ServiceAPIService) ListServiceSonarrLookupByTmdbIdExecute(r ApiListServ
 	}
 
 	localVarPath := localBasePath + "/service/sonarr/lookup/{tmdbId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"tmdbId"+"}", url.PathEscape(parameterToString(r.tmdbId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tmdbId"+"}", url.PathEscape(parameterValueToString(r.tmdbId, "tmdbId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

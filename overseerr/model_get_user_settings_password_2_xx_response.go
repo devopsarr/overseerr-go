@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetUserSettingsPassword2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUserSettingsPassword2XXResponse{}
+
 // GetUserSettingsPassword2XXResponse struct for GetUserSettingsPassword2XXResponse
 type GetUserSettingsPassword2XXResponse struct {
 	HasPassword *bool `json:"hasPassword,omitempty"`
@@ -41,7 +44,7 @@ func NewGetUserSettingsPassword2XXResponseWithDefaults() *GetUserSettingsPasswor
 
 // GetHasPassword returns the HasPassword field value if set, zero value otherwise.
 func (o *GetUserSettingsPassword2XXResponse) GetHasPassword() bool {
-	if o == nil || isNil(o.HasPassword) {
+	if o == nil || IsNil(o.HasPassword) {
 		var ret bool
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *GetUserSettingsPassword2XXResponse) GetHasPassword() bool {
 // GetHasPasswordOk returns a tuple with the HasPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserSettingsPassword2XXResponse) GetHasPasswordOk() (*bool, bool) {
-	if o == nil || isNil(o.HasPassword) {
-    return nil, false
+	if o == nil || IsNil(o.HasPassword) {
+		return nil, false
 	}
 	return o.HasPassword, true
 }
 
 // HasHasPassword returns a boolean if a field has been set.
 func (o *GetUserSettingsPassword2XXResponse) HasHasPassword() bool {
-	if o != nil && !isNil(o.HasPassword) {
+	if o != nil && !IsNil(o.HasPassword) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *GetUserSettingsPassword2XXResponse) SetHasPassword(v bool) {
 }
 
 func (o GetUserSettingsPassword2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetUserSettingsPassword2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.HasPassword) {
+	if !IsNil(o.HasPassword) {
 		toSerialize["hasPassword"] = o.HasPassword
 	}
 
@@ -81,19 +92,23 @@ func (o GetUserSettingsPassword2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetUserSettingsPassword2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetUserSettingsPassword2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetUserSettingsPassword2XXResponse := _GetUserSettingsPassword2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetUserSettingsPassword2XXResponse); err == nil {
-		*o = GetUserSettingsPassword2XXResponse(varGetUserSettingsPassword2XXResponse)
+	err = json.Unmarshal(data, &varGetUserSettingsPassword2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetUserSettingsPassword2XXResponse(varGetUserSettingsPassword2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "hasPassword")
 		o.AdditionalProperties = additionalProperties
 	}

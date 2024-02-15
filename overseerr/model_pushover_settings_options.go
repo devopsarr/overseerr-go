@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PushoverSettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PushoverSettingsOptions{}
+
 // PushoverSettingsOptions struct for PushoverSettingsOptions
 type PushoverSettingsOptions struct {
 	AccessToken *string `json:"accessToken,omitempty"`
@@ -42,7 +45,7 @@ func NewPushoverSettingsOptionsWithDefaults() *PushoverSettingsOptions {
 
 // GetAccessToken returns the AccessToken field value if set, zero value otherwise.
 func (o *PushoverSettingsOptions) GetAccessToken() string {
-	if o == nil || isNil(o.AccessToken) {
+	if o == nil || IsNil(o.AccessToken) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *PushoverSettingsOptions) GetAccessToken() string {
 // GetAccessTokenOk returns a tuple with the AccessToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PushoverSettingsOptions) GetAccessTokenOk() (*string, bool) {
-	if o == nil || isNil(o.AccessToken) {
-    return nil, false
+	if o == nil || IsNil(o.AccessToken) {
+		return nil, false
 	}
 	return o.AccessToken, true
 }
 
 // HasAccessToken returns a boolean if a field has been set.
 func (o *PushoverSettingsOptions) HasAccessToken() bool {
-	if o != nil && !isNil(o.AccessToken) {
+	if o != nil && !IsNil(o.AccessToken) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *PushoverSettingsOptions) SetAccessToken(v string) {
 
 // GetUserToken returns the UserToken field value if set, zero value otherwise.
 func (o *PushoverSettingsOptions) GetUserToken() string {
-	if o == nil || isNil(o.UserToken) {
+	if o == nil || IsNil(o.UserToken) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *PushoverSettingsOptions) GetUserToken() string {
 // GetUserTokenOk returns a tuple with the UserToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PushoverSettingsOptions) GetUserTokenOk() (*string, bool) {
-	if o == nil || isNil(o.UserToken) {
-    return nil, false
+	if o == nil || IsNil(o.UserToken) {
+		return nil, false
 	}
 	return o.UserToken, true
 }
 
 // HasUserToken returns a boolean if a field has been set.
 func (o *PushoverSettingsOptions) HasUserToken() bool {
-	if o != nil && !isNil(o.UserToken) {
+	if o != nil && !IsNil(o.UserToken) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *PushoverSettingsOptions) SetUserToken(v string) {
 }
 
 func (o PushoverSettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PushoverSettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.AccessToken) {
+	if !IsNil(o.AccessToken) {
 		toSerialize["accessToken"] = o.AccessToken
 	}
-	if !isNil(o.UserToken) {
+	if !IsNil(o.UserToken) {
 		toSerialize["userToken"] = o.UserToken
 	}
 
@@ -117,19 +128,23 @@ func (o PushoverSettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PushoverSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PushoverSettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varPushoverSettingsOptions := _PushoverSettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varPushoverSettingsOptions); err == nil {
-		*o = PushoverSettingsOptions(varPushoverSettingsOptions)
+	err = json.Unmarshal(data, &varPushoverSettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PushoverSettingsOptions(varPushoverSettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "accessToken")
 		delete(additionalProperties, "userToken")
 		o.AdditionalProperties = additionalProperties

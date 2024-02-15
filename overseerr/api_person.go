@@ -22,6 +22,7 @@ import (
 
 // PersonAPIService PersonAPI service
 type PersonAPIService service
+
 type ApiGetPersonByPersonIdRequest struct {
 	ctx context.Context
 	ApiService *PersonAPIService
@@ -71,14 +72,14 @@ func (a *PersonAPIService) GetPersonByPersonIdExecute(r ApiGetPersonByPersonIdRe
 	}
 
 	localVarPath := localBasePath + "/person/{personId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"personId"+"}", url.PathEscape(parameterToString(r.personId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"personId"+"}", url.PathEscape(parameterValueToString(r.personId, "personId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -147,6 +148,7 @@ func (a *PersonAPIService) GetPersonByPersonIdExecute(r ApiGetPersonByPersonIdRe
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetPersonCombinedCreditsRequest struct {
 	ctx context.Context
 	ApiService *PersonAPIService
@@ -196,14 +198,14 @@ func (a *PersonAPIService) GetPersonCombinedCreditsExecute(r ApiGetPersonCombine
 	}
 
 	localVarPath := localBasePath + "/person/{personId}/combined_credits"
-	localVarPath = strings.Replace(localVarPath, "{"+"personId"+"}", url.PathEscape(parameterToString(r.personId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"personId"+"}", url.PathEscape(parameterValueToString(r.personId, "personId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

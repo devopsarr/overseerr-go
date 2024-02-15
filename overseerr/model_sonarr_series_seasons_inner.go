@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SonarrSeriesSeasonsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SonarrSeriesSeasonsInner{}
+
 // SonarrSeriesSeasonsInner struct for SonarrSeriesSeasonsInner
 type SonarrSeriesSeasonsInner struct {
 	SeasonNumber *float32 `json:"seasonNumber,omitempty"`
@@ -42,7 +45,7 @@ func NewSonarrSeriesSeasonsInnerWithDefaults() *SonarrSeriesSeasonsInner {
 
 // GetSeasonNumber returns the SeasonNumber field value if set, zero value otherwise.
 func (o *SonarrSeriesSeasonsInner) GetSeasonNumber() float32 {
-	if o == nil || isNil(o.SeasonNumber) {
+	if o == nil || IsNil(o.SeasonNumber) {
 		var ret float32
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *SonarrSeriesSeasonsInner) GetSeasonNumber() float32 {
 // GetSeasonNumberOk returns a tuple with the SeasonNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeriesSeasonsInner) GetSeasonNumberOk() (*float32, bool) {
-	if o == nil || isNil(o.SeasonNumber) {
-    return nil, false
+	if o == nil || IsNil(o.SeasonNumber) {
+		return nil, false
 	}
 	return o.SeasonNumber, true
 }
 
 // HasSeasonNumber returns a boolean if a field has been set.
 func (o *SonarrSeriesSeasonsInner) HasSeasonNumber() bool {
-	if o != nil && !isNil(o.SeasonNumber) {
+	if o != nil && !IsNil(o.SeasonNumber) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *SonarrSeriesSeasonsInner) SetSeasonNumber(v float32) {
 
 // GetMonitored returns the Monitored field value if set, zero value otherwise.
 func (o *SonarrSeriesSeasonsInner) GetMonitored() bool {
-	if o == nil || isNil(o.Monitored) {
+	if o == nil || IsNil(o.Monitored) {
 		var ret bool
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *SonarrSeriesSeasonsInner) GetMonitored() bool {
 // GetMonitoredOk returns a tuple with the Monitored field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeriesSeasonsInner) GetMonitoredOk() (*bool, bool) {
-	if o == nil || isNil(o.Monitored) {
-    return nil, false
+	if o == nil || IsNil(o.Monitored) {
+		return nil, false
 	}
 	return o.Monitored, true
 }
 
 // HasMonitored returns a boolean if a field has been set.
 func (o *SonarrSeriesSeasonsInner) HasMonitored() bool {
-	if o != nil && !isNil(o.Monitored) {
+	if o != nil && !IsNil(o.Monitored) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *SonarrSeriesSeasonsInner) SetMonitored(v bool) {
 }
 
 func (o SonarrSeriesSeasonsInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o SonarrSeriesSeasonsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.SeasonNumber) {
+	if !IsNil(o.SeasonNumber) {
 		toSerialize["seasonNumber"] = o.SeasonNumber
 	}
-	if !isNil(o.Monitored) {
+	if !IsNil(o.Monitored) {
 		toSerialize["monitored"] = o.Monitored
 	}
 
@@ -117,19 +128,23 @@ func (o SonarrSeriesSeasonsInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *SonarrSeriesSeasonsInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *SonarrSeriesSeasonsInner) UnmarshalJSON(data []byte) (err error) {
 	varSonarrSeriesSeasonsInner := _SonarrSeriesSeasonsInner{}
 
-	if err = json.Unmarshal(bytes, &varSonarrSeriesSeasonsInner); err == nil {
-		*o = SonarrSeriesSeasonsInner(varSonarrSeriesSeasonsInner)
+	err = json.Unmarshal(data, &varSonarrSeriesSeasonsInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = SonarrSeriesSeasonsInner(varSonarrSeriesSeasonsInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "seasonNumber")
 		delete(additionalProperties, "monitored")
 		o.AdditionalProperties = additionalProperties

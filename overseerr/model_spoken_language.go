@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SpokenLanguage type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SpokenLanguage{}
+
 // SpokenLanguage struct for SpokenLanguage
 type SpokenLanguage struct {
 	EnglishName NullableString `json:"englishName,omitempty"`
@@ -43,7 +46,7 @@ func NewSpokenLanguageWithDefaults() *SpokenLanguage {
 
 // GetEnglishName returns the EnglishName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SpokenLanguage) GetEnglishName() string {
-	if o == nil || isNil(o.EnglishName.Get()) {
+	if o == nil || IsNil(o.EnglishName.Get()) {
 		var ret string
 		return ret
 	}
@@ -55,7 +58,7 @@ func (o *SpokenLanguage) GetEnglishName() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SpokenLanguage) GetEnglishNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.EnglishName.Get(), o.EnglishName.IsSet()
 }
@@ -85,7 +88,7 @@ func (o *SpokenLanguage) UnsetEnglishName() {
 
 // GetIso6391 returns the Iso6391 field value if set, zero value otherwise.
 func (o *SpokenLanguage) GetIso6391() string {
-	if o == nil || isNil(o.Iso6391) {
+	if o == nil || IsNil(o.Iso6391) {
 		var ret string
 		return ret
 	}
@@ -95,15 +98,15 @@ func (o *SpokenLanguage) GetIso6391() string {
 // GetIso6391Ok returns a tuple with the Iso6391 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SpokenLanguage) GetIso6391Ok() (*string, bool) {
-	if o == nil || isNil(o.Iso6391) {
-    return nil, false
+	if o == nil || IsNil(o.Iso6391) {
+		return nil, false
 	}
 	return o.Iso6391, true
 }
 
 // HasIso6391 returns a boolean if a field has been set.
 func (o *SpokenLanguage) HasIso6391() bool {
-	if o != nil && !isNil(o.Iso6391) {
+	if o != nil && !IsNil(o.Iso6391) {
 		return true
 	}
 
@@ -117,7 +120,7 @@ func (o *SpokenLanguage) SetIso6391(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *SpokenLanguage) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -127,15 +130,15 @@ func (o *SpokenLanguage) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SpokenLanguage) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *SpokenLanguage) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -148,14 +151,22 @@ func (o *SpokenLanguage) SetName(v string) {
 }
 
 func (o SpokenLanguage) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o SpokenLanguage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.EnglishName.IsSet() {
 		toSerialize["englishName"] = o.EnglishName.Get()
 	}
-	if !isNil(o.Iso6391) {
+	if !IsNil(o.Iso6391) {
 		toSerialize["iso_639_1"] = o.Iso6391
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 
@@ -163,19 +174,23 @@ func (o SpokenLanguage) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *SpokenLanguage) UnmarshalJSON(bytes []byte) (err error) {
+func (o *SpokenLanguage) UnmarshalJSON(data []byte) (err error) {
 	varSpokenLanguage := _SpokenLanguage{}
 
-	if err = json.Unmarshal(bytes, &varSpokenLanguage); err == nil {
-		*o = SpokenLanguage(varSpokenLanguage)
+	err = json.Unmarshal(data, &varSpokenLanguage)
+
+	if err != nil {
+		return err
 	}
+
+	*o = SpokenLanguage(varSpokenLanguage)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "englishName")
 		delete(additionalProperties, "iso_639_1")
 		delete(additionalProperties, "name")

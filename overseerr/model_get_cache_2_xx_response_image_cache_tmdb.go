@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetCache2XXResponseImageCacheTmdb type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetCache2XXResponseImageCacheTmdb{}
+
 // GetCache2XXResponseImageCacheTmdb struct for GetCache2XXResponseImageCacheTmdb
 type GetCache2XXResponseImageCacheTmdb struct {
 	Size *float32 `json:"size,omitempty"`
@@ -42,7 +45,7 @@ func NewGetCache2XXResponseImageCacheTmdbWithDefaults() *GetCache2XXResponseImag
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *GetCache2XXResponseImageCacheTmdb) GetSize() float32 {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		var ret float32
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GetCache2XXResponseImageCacheTmdb) GetSize() float32 {
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseImageCacheTmdb) GetSizeOk() (*float32, bool) {
-	if o == nil || isNil(o.Size) {
-    return nil, false
+	if o == nil || IsNil(o.Size) {
+		return nil, false
 	}
 	return o.Size, true
 }
 
 // HasSize returns a boolean if a field has been set.
 func (o *GetCache2XXResponseImageCacheTmdb) HasSize() bool {
-	if o != nil && !isNil(o.Size) {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *GetCache2XXResponseImageCacheTmdb) SetSize(v float32) {
 
 // GetImageCount returns the ImageCount field value if set, zero value otherwise.
 func (o *GetCache2XXResponseImageCacheTmdb) GetImageCount() float32 {
-	if o == nil || isNil(o.ImageCount) {
+	if o == nil || IsNil(o.ImageCount) {
 		var ret float32
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *GetCache2XXResponseImageCacheTmdb) GetImageCount() float32 {
 // GetImageCountOk returns a tuple with the ImageCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseImageCacheTmdb) GetImageCountOk() (*float32, bool) {
-	if o == nil || isNil(o.ImageCount) {
-    return nil, false
+	if o == nil || IsNil(o.ImageCount) {
+		return nil, false
 	}
 	return o.ImageCount, true
 }
 
 // HasImageCount returns a boolean if a field has been set.
 func (o *GetCache2XXResponseImageCacheTmdb) HasImageCount() bool {
-	if o != nil && !isNil(o.ImageCount) {
+	if o != nil && !IsNil(o.ImageCount) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *GetCache2XXResponseImageCacheTmdb) SetImageCount(v float32) {
 }
 
 func (o GetCache2XXResponseImageCacheTmdb) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetCache2XXResponseImageCacheTmdb) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Size) {
+	if !IsNil(o.Size) {
 		toSerialize["size"] = o.Size
 	}
-	if !isNil(o.ImageCount) {
+	if !IsNil(o.ImageCount) {
 		toSerialize["imageCount"] = o.ImageCount
 	}
 
@@ -117,19 +128,23 @@ func (o GetCache2XXResponseImageCacheTmdb) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetCache2XXResponseImageCacheTmdb) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetCache2XXResponseImageCacheTmdb) UnmarshalJSON(data []byte) (err error) {
 	varGetCache2XXResponseImageCacheTmdb := _GetCache2XXResponseImageCacheTmdb{}
 
-	if err = json.Unmarshal(bytes, &varGetCache2XXResponseImageCacheTmdb); err == nil {
-		*o = GetCache2XXResponseImageCacheTmdb(varGetCache2XXResponseImageCacheTmdb)
+	err = json.Unmarshal(data, &varGetCache2XXResponseImageCacheTmdb)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetCache2XXResponseImageCacheTmdb(varGetCache2XXResponseImageCacheTmdb)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "size")
 		delete(additionalProperties, "imageCount")
 		o.AdditionalProperties = additionalProperties

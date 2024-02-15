@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Network type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Network{}
+
 // Network struct for Network
 type Network struct {
 	Id *float32 `json:"id,omitempty"`
@@ -44,7 +47,7 @@ func NewNetworkWithDefaults() *Network {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Network) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *Network) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Network) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Network) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *Network) SetId(v float32) {
 
 // GetLogoPath returns the LogoPath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Network) GetLogoPath() string {
-	if o == nil || isNil(o.LogoPath.Get()) {
+	if o == nil || IsNil(o.LogoPath.Get()) {
 		var ret string
 		return ret
 	}
@@ -88,7 +91,7 @@ func (o *Network) GetLogoPath() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Network) GetLogoPathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.LogoPath.Get(), o.LogoPath.IsSet()
 }
@@ -118,7 +121,7 @@ func (o *Network) UnsetLogoPath() {
 
 // GetOriginCountry returns the OriginCountry field value if set, zero value otherwise.
 func (o *Network) GetOriginCountry() string {
-	if o == nil || isNil(o.OriginCountry) {
+	if o == nil || IsNil(o.OriginCountry) {
 		var ret string
 		return ret
 	}
@@ -128,15 +131,15 @@ func (o *Network) GetOriginCountry() string {
 // GetOriginCountryOk returns a tuple with the OriginCountry field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Network) GetOriginCountryOk() (*string, bool) {
-	if o == nil || isNil(o.OriginCountry) {
-    return nil, false
+	if o == nil || IsNil(o.OriginCountry) {
+		return nil, false
 	}
 	return o.OriginCountry, true
 }
 
 // HasOriginCountry returns a boolean if a field has been set.
 func (o *Network) HasOriginCountry() bool {
-	if o != nil && !isNil(o.OriginCountry) {
+	if o != nil && !IsNil(o.OriginCountry) {
 		return true
 	}
 
@@ -150,7 +153,7 @@ func (o *Network) SetOriginCountry(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Network) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -160,15 +163,15 @@ func (o *Network) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Network) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Network) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -181,17 +184,25 @@ func (o *Network) SetName(v string) {
 }
 
 func (o Network) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Network) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	if o.LogoPath.IsSet() {
 		toSerialize["logoPath"] = o.LogoPath.Get()
 	}
-	if !isNil(o.OriginCountry) {
+	if !IsNil(o.OriginCountry) {
 		toSerialize["originCountry"] = o.OriginCountry
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 
@@ -199,19 +210,23 @@ func (o Network) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Network) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Network) UnmarshalJSON(data []byte) (err error) {
 	varNetwork := _Network{}
 
-	if err = json.Unmarshal(bytes, &varNetwork); err == nil {
-		*o = Network(varNetwork)
+	err = json.Unmarshal(data, &varNetwork)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Network(varNetwork)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "logoPath")
 		delete(additionalProperties, "originCountry")

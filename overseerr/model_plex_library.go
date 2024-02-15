@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the PlexLibrary type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PlexLibrary{}
+
 // PlexLibrary struct for PlexLibrary
 type PlexLibrary struct {
 	Id string `json:"id"`
@@ -59,7 +62,7 @@ func (o *PlexLibrary) GetId() string {
 // and a boolean to check if the value has been set.
 func (o *PlexLibrary) GetIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Id, true
 }
@@ -83,7 +86,7 @@ func (o *PlexLibrary) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *PlexLibrary) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -107,7 +110,7 @@ func (o *PlexLibrary) GetEnabled() bool {
 // and a boolean to check if the value has been set.
 func (o *PlexLibrary) GetEnabledOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Enabled, true
 }
@@ -118,34 +121,63 @@ func (o *PlexLibrary) SetEnabled(v bool) {
 }
 
 func (o PlexLibrary) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PlexLibrary) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["enabled"] = o.Enabled
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["name"] = o.Name
+	toSerialize["enabled"] = o.Enabled
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PlexLibrary) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PlexLibrary) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"name",
+		"enabled",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varPlexLibrary := _PlexLibrary{}
 
-	if err = json.Unmarshal(bytes, &varPlexLibrary); err == nil {
-		*o = PlexLibrary(varPlexLibrary)
+	err = json.Unmarshal(data, &varPlexLibrary)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PlexLibrary(varPlexLibrary)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "enabled")

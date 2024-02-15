@@ -22,6 +22,7 @@ import (
 
 // OtherAPIService OtherAPI service
 type OtherAPIService service
+
 type ApiGetKeywordByKeywordIdRequest struct {
 	ctx context.Context
 	ApiService *OtherAPIService
@@ -66,7 +67,7 @@ func (a *OtherAPIService) GetKeywordByKeywordIdExecute(r ApiGetKeywordByKeywordI
 	}
 
 	localVarPath := localBasePath + "/keyword/{keywordId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"keywordId"+"}", url.PathEscape(parameterToString(r.keywordId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"keywordId"+"}", url.PathEscape(parameterValueToString(r.keywordId, "keywordId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -139,6 +140,7 @@ func (a *OtherAPIService) GetKeywordByKeywordIdExecute(r ApiGetKeywordByKeywordI
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListWatchprovidersMoviesRequest struct {
 	ctx context.Context
 	ApiService *OtherAPIService
@@ -150,7 +152,7 @@ func (r ApiListWatchprovidersMoviesRequest) WatchRegion(watchRegion string) ApiL
 	return r
 }
 
-func (r ApiListWatchprovidersMoviesRequest) Execute() ([]*WatchProviderDetails, *http.Response, error) {
+func (r ApiListWatchprovidersMoviesRequest) Execute() ([]WatchProviderDetails, *http.Response, error) {
 	return r.ApiService.ListWatchprovidersMoviesExecute(r)
 }
 
@@ -172,12 +174,12 @@ func (a *OtherAPIService) ListWatchprovidersMovies(ctx context.Context) ApiListW
 
 // Execute executes the request
 //  @return []WatchProviderDetails
-func (a *OtherAPIService) ListWatchprovidersMoviesExecute(r ApiListWatchprovidersMoviesRequest) ([]*WatchProviderDetails, *http.Response, error) {
+func (a *OtherAPIService) ListWatchprovidersMoviesExecute(r ApiListWatchprovidersMoviesRequest) ([]WatchProviderDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*WatchProviderDetails
+		localVarReturnValue  []WatchProviderDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherAPIService.ListWatchprovidersMovies")
@@ -194,7 +196,7 @@ func (a *OtherAPIService) ListWatchprovidersMoviesExecute(r ApiListWatchprovider
 		return localVarReturnValue, nil, reportError("watchRegion is required and must be specified")
 	}
 
-	localVarQueryParams.Add("watchRegion", parameterToString(*r.watchRegion, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -262,12 +264,13 @@ func (a *OtherAPIService) ListWatchprovidersMoviesExecute(r ApiListWatchprovider
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListWatchprovidersRegionsRequest struct {
 	ctx context.Context
 	ApiService *OtherAPIService
 }
 
-func (r ApiListWatchprovidersRegionsRequest) Execute() ([]*WatchProviderRegion, *http.Response, error) {
+func (r ApiListWatchprovidersRegionsRequest) Execute() ([]WatchProviderRegion, *http.Response, error) {
 	return r.ApiService.ListWatchprovidersRegionsExecute(r)
 }
 
@@ -289,12 +292,12 @@ func (a *OtherAPIService) ListWatchprovidersRegions(ctx context.Context) ApiList
 
 // Execute executes the request
 //  @return []WatchProviderRegion
-func (a *OtherAPIService) ListWatchprovidersRegionsExecute(r ApiListWatchprovidersRegionsRequest) ([]*WatchProviderRegion, *http.Response, error) {
+func (a *OtherAPIService) ListWatchprovidersRegionsExecute(r ApiListWatchprovidersRegionsRequest) ([]WatchProviderRegion, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*WatchProviderRegion
+		localVarReturnValue  []WatchProviderRegion
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherAPIService.ListWatchprovidersRegions")
@@ -375,6 +378,7 @@ func (a *OtherAPIService) ListWatchprovidersRegionsExecute(r ApiListWatchprovide
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiListWatchprovidersTvRequest struct {
 	ctx context.Context
 	ApiService *OtherAPIService
@@ -386,7 +390,7 @@ func (r ApiListWatchprovidersTvRequest) WatchRegion(watchRegion string) ApiListW
 	return r
 }
 
-func (r ApiListWatchprovidersTvRequest) Execute() ([]*WatchProviderDetails, *http.Response, error) {
+func (r ApiListWatchprovidersTvRequest) Execute() ([]WatchProviderDetails, *http.Response, error) {
 	return r.ApiService.ListWatchprovidersTvExecute(r)
 }
 
@@ -408,12 +412,12 @@ func (a *OtherAPIService) ListWatchprovidersTv(ctx context.Context) ApiListWatch
 
 // Execute executes the request
 //  @return []WatchProviderDetails
-func (a *OtherAPIService) ListWatchprovidersTvExecute(r ApiListWatchprovidersTvRequest) ([]*WatchProviderDetails, *http.Response, error) {
+func (a *OtherAPIService) ListWatchprovidersTvExecute(r ApiListWatchprovidersTvRequest) ([]WatchProviderDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*WatchProviderDetails
+		localVarReturnValue  []WatchProviderDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OtherAPIService.ListWatchprovidersTv")
@@ -430,7 +434,7 @@ func (a *OtherAPIService) ListWatchprovidersTvExecute(r ApiListWatchprovidersTvR
 		return localVarReturnValue, nil, reportError("watchRegion is required and must be specified")
 	}
 
-	localVarQueryParams.Add("watchRegion", parameterToString(*r.watchRegion, ""))
+	parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

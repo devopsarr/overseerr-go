@@ -14,9 +14,12 @@ import (
 	"encoding/json"
 )
 
+// checks if the TvDetailsContentRatings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TvDetailsContentRatings{}
+
 // TvDetailsContentRatings struct for TvDetailsContentRatings
 type TvDetailsContentRatings struct {
-	Results []*TvDetailsContentRatingsResultsInner `json:"results,omitempty"`
+	Results []TvDetailsContentRatingsResultsInner `json:"results,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -40,9 +43,9 @@ func NewTvDetailsContentRatingsWithDefaults() *TvDetailsContentRatings {
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *TvDetailsContentRatings) GetResults() []*TvDetailsContentRatingsResultsInner {
-	if o == nil || isNil(o.Results) {
-		var ret []*TvDetailsContentRatingsResultsInner
+func (o *TvDetailsContentRatings) GetResults() []TvDetailsContentRatingsResultsInner {
+	if o == nil || IsNil(o.Results) {
+		var ret []TvDetailsContentRatingsResultsInner
 		return ret
 	}
 	return o.Results
@@ -50,16 +53,16 @@ func (o *TvDetailsContentRatings) GetResults() []*TvDetailsContentRatingsResults
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TvDetailsContentRatings) GetResultsOk() ([]*TvDetailsContentRatingsResultsInner, bool) {
-	if o == nil || isNil(o.Results) {
-    return nil, false
+func (o *TvDetailsContentRatings) GetResultsOk() ([]TvDetailsContentRatingsResultsInner, bool) {
+	if o == nil || IsNil(o.Results) {
+		return nil, false
 	}
 	return o.Results, true
 }
 
 // HasResults returns a boolean if a field has been set.
 func (o *TvDetailsContentRatings) HasResults() bool {
-	if o != nil && !isNil(o.Results) {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
@@ -67,13 +70,21 @@ func (o *TvDetailsContentRatings) HasResults() bool {
 }
 
 // SetResults gets a reference to the given []TvDetailsContentRatingsResultsInner and assigns it to the Results field.
-func (o *TvDetailsContentRatings) SetResults(v []*TvDetailsContentRatingsResultsInner) {
+func (o *TvDetailsContentRatings) SetResults(v []TvDetailsContentRatingsResultsInner) {
 	o.Results = v
 }
 
 func (o TvDetailsContentRatings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TvDetailsContentRatings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Results) {
+	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
 
@@ -81,19 +92,23 @@ func (o TvDetailsContentRatings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *TvDetailsContentRatings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *TvDetailsContentRatings) UnmarshalJSON(data []byte) (err error) {
 	varTvDetailsContentRatings := _TvDetailsContentRatings{}
 
-	if err = json.Unmarshal(bytes, &varTvDetailsContentRatings); err == nil {
-		*o = TvDetailsContentRatings(varTvDetailsContentRatings)
+	err = json.Unmarshal(data, &varTvDetailsContentRatings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = TvDetailsContentRatings(varTvDetailsContentRatings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "results")
 		o.AdditionalProperties = additionalProperties
 	}

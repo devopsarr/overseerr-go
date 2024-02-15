@@ -14,10 +14,13 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetMedia2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetMedia2XXResponse{}
+
 // GetMedia2XXResponse struct for GetMedia2XXResponse
 type GetMedia2XXResponse struct {
 	PageInfo *PageInfo `json:"pageInfo,omitempty"`
-	Results []*MediaInfo `json:"results,omitempty"`
+	Results []MediaInfo `json:"results,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -42,7 +45,7 @@ func NewGetMedia2XXResponseWithDefaults() *GetMedia2XXResponse {
 
 // GetPageInfo returns the PageInfo field value if set, zero value otherwise.
 func (o *GetMedia2XXResponse) GetPageInfo() PageInfo {
-	if o == nil || isNil(o.PageInfo) {
+	if o == nil || IsNil(o.PageInfo) {
 		var ret PageInfo
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GetMedia2XXResponse) GetPageInfo() PageInfo {
 // GetPageInfoOk returns a tuple with the PageInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMedia2XXResponse) GetPageInfoOk() (*PageInfo, bool) {
-	if o == nil || isNil(o.PageInfo) {
-    return nil, false
+	if o == nil || IsNil(o.PageInfo) {
+		return nil, false
 	}
 	return o.PageInfo, true
 }
 
 // HasPageInfo returns a boolean if a field has been set.
 func (o *GetMedia2XXResponse) HasPageInfo() bool {
-	if o != nil && !isNil(o.PageInfo) {
+	if o != nil && !IsNil(o.PageInfo) {
 		return true
 	}
 
@@ -73,9 +76,9 @@ func (o *GetMedia2XXResponse) SetPageInfo(v PageInfo) {
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *GetMedia2XXResponse) GetResults() []*MediaInfo {
-	if o == nil || isNil(o.Results) {
-		var ret []*MediaInfo
+func (o *GetMedia2XXResponse) GetResults() []MediaInfo {
+	if o == nil || IsNil(o.Results) {
+		var ret []MediaInfo
 		return ret
 	}
 	return o.Results
@@ -83,16 +86,16 @@ func (o *GetMedia2XXResponse) GetResults() []*MediaInfo {
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMedia2XXResponse) GetResultsOk() ([]*MediaInfo, bool) {
-	if o == nil || isNil(o.Results) {
-    return nil, false
+func (o *GetMedia2XXResponse) GetResultsOk() ([]MediaInfo, bool) {
+	if o == nil || IsNil(o.Results) {
+		return nil, false
 	}
 	return o.Results, true
 }
 
 // HasResults returns a boolean if a field has been set.
 func (o *GetMedia2XXResponse) HasResults() bool {
-	if o != nil && !isNil(o.Results) {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
@@ -100,16 +103,24 @@ func (o *GetMedia2XXResponse) HasResults() bool {
 }
 
 // SetResults gets a reference to the given []MediaInfo and assigns it to the Results field.
-func (o *GetMedia2XXResponse) SetResults(v []*MediaInfo) {
+func (o *GetMedia2XXResponse) SetResults(v []MediaInfo) {
 	o.Results = v
 }
 
 func (o GetMedia2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetMedia2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.PageInfo) {
+	if !IsNil(o.PageInfo) {
 		toSerialize["pageInfo"] = o.PageInfo
 	}
-	if !isNil(o.Results) {
+	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
 
@@ -117,19 +128,23 @@ func (o GetMedia2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetMedia2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetMedia2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetMedia2XXResponse := _GetMedia2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetMedia2XXResponse); err == nil {
-		*o = GetMedia2XXResponse(varGetMedia2XXResponse)
+	err = json.Unmarshal(data, &varGetMedia2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetMedia2XXResponse(varGetMedia2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "pageInfo")
 		delete(additionalProperties, "results")
 		o.AdditionalProperties = additionalProperties

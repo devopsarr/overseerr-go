@@ -22,6 +22,7 @@ import (
 
 // MoviesAPIService MoviesAPI service
 type MoviesAPIService service
+
 type ApiGetMovieByMovieIdRequest struct {
 	ctx context.Context
 	ApiService *MoviesAPIService
@@ -71,14 +72,14 @@ func (a *MoviesAPIService) GetMovieByMovieIdExecute(r ApiGetMovieByMovieIdReques
 	}
 
 	localVarPath := localBasePath + "/movie/{movieId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterToString(r.movieId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterValueToString(r.movieId, "movieId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -147,6 +148,7 @@ func (a *MoviesAPIService) GetMovieByMovieIdExecute(r ApiGetMovieByMovieIdReques
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetMovieRatingsRequest struct {
 	ctx context.Context
 	ApiService *MoviesAPIService
@@ -190,7 +192,7 @@ func (a *MoviesAPIService) GetMovieRatingsExecute(r ApiGetMovieRatingsRequest) (
 	}
 
 	localVarPath := localBasePath + "/movie/{movieId}/ratings"
-	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterToString(r.movieId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterValueToString(r.movieId, "movieId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -263,6 +265,7 @@ func (a *MoviesAPIService) GetMovieRatingsExecute(r ApiGetMovieRatingsRequest) (
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetMovieRecommendationsRequest struct {
 	ctx context.Context
 	ApiService *MoviesAPIService
@@ -318,17 +321,20 @@ func (a *MoviesAPIService) GetMovieRecommendationsExecute(r ApiGetMovieRecommend
 	}
 
 	localVarPath := localBasePath + "/movie/{movieId}/recommendations"
-	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterToString(r.movieId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterValueToString(r.movieId, "movieId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -397,6 +403,7 @@ func (a *MoviesAPIService) GetMovieRecommendationsExecute(r ApiGetMovieRecommend
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetMovieSimilarRequest struct {
 	ctx context.Context
 	ApiService *MoviesAPIService
@@ -452,17 +459,20 @@ func (a *MoviesAPIService) GetMovieSimilarExecute(r ApiGetMovieSimilarRequest) (
 	}
 
 	localVarPath := localBasePath + "/movie/{movieId}/similar"
-	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterToString(r.movieId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"movieId"+"}", url.PathEscape(parameterValueToString(r.movieId, "movieId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	if r.language != nil {
-		localVarQueryParams.Add("language", parameterToString(*r.language, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

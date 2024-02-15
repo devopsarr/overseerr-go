@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the WebhookSettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WebhookSettingsOptions{}
+
 // WebhookSettingsOptions struct for WebhookSettingsOptions
 type WebhookSettingsOptions struct {
 	WebhookUrl *string `json:"webhookUrl,omitempty"`
@@ -43,7 +46,7 @@ func NewWebhookSettingsOptionsWithDefaults() *WebhookSettingsOptions {
 
 // GetWebhookUrl returns the WebhookUrl field value if set, zero value otherwise.
 func (o *WebhookSettingsOptions) GetWebhookUrl() string {
-	if o == nil || isNil(o.WebhookUrl) {
+	if o == nil || IsNil(o.WebhookUrl) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *WebhookSettingsOptions) GetWebhookUrl() string {
 // GetWebhookUrlOk returns a tuple with the WebhookUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WebhookSettingsOptions) GetWebhookUrlOk() (*string, bool) {
-	if o == nil || isNil(o.WebhookUrl) {
-    return nil, false
+	if o == nil || IsNil(o.WebhookUrl) {
+		return nil, false
 	}
 	return o.WebhookUrl, true
 }
 
 // HasWebhookUrl returns a boolean if a field has been set.
 func (o *WebhookSettingsOptions) HasWebhookUrl() bool {
-	if o != nil && !isNil(o.WebhookUrl) {
+	if o != nil && !IsNil(o.WebhookUrl) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *WebhookSettingsOptions) SetWebhookUrl(v string) {
 
 // GetAuthHeader returns the AuthHeader field value if set, zero value otherwise.
 func (o *WebhookSettingsOptions) GetAuthHeader() string {
-	if o == nil || isNil(o.AuthHeader) {
+	if o == nil || IsNil(o.AuthHeader) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *WebhookSettingsOptions) GetAuthHeader() string {
 // GetAuthHeaderOk returns a tuple with the AuthHeader field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WebhookSettingsOptions) GetAuthHeaderOk() (*string, bool) {
-	if o == nil || isNil(o.AuthHeader) {
-    return nil, false
+	if o == nil || IsNil(o.AuthHeader) {
+		return nil, false
 	}
 	return o.AuthHeader, true
 }
 
 // HasAuthHeader returns a boolean if a field has been set.
 func (o *WebhookSettingsOptions) HasAuthHeader() bool {
-	if o != nil && !isNil(o.AuthHeader) {
+	if o != nil && !IsNil(o.AuthHeader) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *WebhookSettingsOptions) SetAuthHeader(v string) {
 
 // GetJsonPayload returns the JsonPayload field value if set, zero value otherwise.
 func (o *WebhookSettingsOptions) GetJsonPayload() string {
-	if o == nil || isNil(o.JsonPayload) {
+	if o == nil || IsNil(o.JsonPayload) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *WebhookSettingsOptions) GetJsonPayload() string {
 // GetJsonPayloadOk returns a tuple with the JsonPayload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WebhookSettingsOptions) GetJsonPayloadOk() (*string, bool) {
-	if o == nil || isNil(o.JsonPayload) {
-    return nil, false
+	if o == nil || IsNil(o.JsonPayload) {
+		return nil, false
 	}
 	return o.JsonPayload, true
 }
 
 // HasJsonPayload returns a boolean if a field has been set.
 func (o *WebhookSettingsOptions) HasJsonPayload() bool {
-	if o != nil && !isNil(o.JsonPayload) {
+	if o != nil && !IsNil(o.JsonPayload) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *WebhookSettingsOptions) SetJsonPayload(v string) {
 }
 
 func (o WebhookSettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o WebhookSettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.WebhookUrl) {
+	if !IsNil(o.WebhookUrl) {
 		toSerialize["webhookUrl"] = o.WebhookUrl
 	}
-	if !isNil(o.AuthHeader) {
+	if !IsNil(o.AuthHeader) {
 		toSerialize["authHeader"] = o.AuthHeader
 	}
-	if !isNil(o.JsonPayload) {
+	if !IsNil(o.JsonPayload) {
 		toSerialize["jsonPayload"] = o.JsonPayload
 	}
 
@@ -153,19 +164,23 @@ func (o WebhookSettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *WebhookSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *WebhookSettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varWebhookSettingsOptions := _WebhookSettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varWebhookSettingsOptions); err == nil {
-		*o = WebhookSettingsOptions(varWebhookSettingsOptions)
+	err = json.Unmarshal(data, &varWebhookSettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = WebhookSettingsOptions(varWebhookSettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "webhookUrl")
 		delete(additionalProperties, "authHeader")
 		delete(additionalProperties, "jsonPayload")

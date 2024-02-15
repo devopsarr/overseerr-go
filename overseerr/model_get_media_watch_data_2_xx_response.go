@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetMediaWatchData2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetMediaWatchData2XXResponse{}
+
 // GetMediaWatchData2XXResponse struct for GetMediaWatchData2XXResponse
 type GetMediaWatchData2XXResponse struct {
 	Data *GetMediaWatchData2XXResponseData `json:"data,omitempty"`
@@ -42,7 +45,7 @@ func NewGetMediaWatchData2XXResponseWithDefaults() *GetMediaWatchData2XXResponse
 
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *GetMediaWatchData2XXResponse) GetData() GetMediaWatchData2XXResponseData {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		var ret GetMediaWatchData2XXResponseData
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GetMediaWatchData2XXResponse) GetData() GetMediaWatchData2XXResponseDat
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMediaWatchData2XXResponse) GetDataOk() (*GetMediaWatchData2XXResponseData, bool) {
-	if o == nil || isNil(o.Data) {
-    return nil, false
+	if o == nil || IsNil(o.Data) {
+		return nil, false
 	}
 	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
 func (o *GetMediaWatchData2XXResponse) HasData() bool {
-	if o != nil && !isNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *GetMediaWatchData2XXResponse) SetData(v GetMediaWatchData2XXResponseDat
 
 // GetData4k returns the Data4k field value if set, zero value otherwise.
 func (o *GetMediaWatchData2XXResponse) GetData4k() GetMediaWatchData2XXResponseData {
-	if o == nil || isNil(o.Data4k) {
+	if o == nil || IsNil(o.Data4k) {
 		var ret GetMediaWatchData2XXResponseData
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *GetMediaWatchData2XXResponse) GetData4k() GetMediaWatchData2XXResponseD
 // GetData4kOk returns a tuple with the Data4k field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetMediaWatchData2XXResponse) GetData4kOk() (*GetMediaWatchData2XXResponseData, bool) {
-	if o == nil || isNil(o.Data4k) {
-    return nil, false
+	if o == nil || IsNil(o.Data4k) {
+		return nil, false
 	}
 	return o.Data4k, true
 }
 
 // HasData4k returns a boolean if a field has been set.
 func (o *GetMediaWatchData2XXResponse) HasData4k() bool {
-	if o != nil && !isNil(o.Data4k) {
+	if o != nil && !IsNil(o.Data4k) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *GetMediaWatchData2XXResponse) SetData4k(v GetMediaWatchData2XXResponseD
 }
 
 func (o GetMediaWatchData2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetMediaWatchData2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Data) {
+	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
-	if !isNil(o.Data4k) {
+	if !IsNil(o.Data4k) {
 		toSerialize["data4k"] = o.Data4k
 	}
 
@@ -117,19 +128,23 @@ func (o GetMediaWatchData2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetMediaWatchData2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetMediaWatchData2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetMediaWatchData2XXResponse := _GetMediaWatchData2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetMediaWatchData2XXResponse); err == nil {
-		*o = GetMediaWatchData2XXResponse(varGetMediaWatchData2XXResponse)
+	err = json.Unmarshal(data, &varGetMediaWatchData2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetMediaWatchData2XXResponse(varGetMediaWatchData2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "data")
 		delete(additionalProperties, "data4k")
 		o.AdditionalProperties = additionalProperties

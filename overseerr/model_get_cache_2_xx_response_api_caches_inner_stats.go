@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetCache2XXResponseApiCachesInnerStats type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetCache2XXResponseApiCachesInnerStats{}
+
 // GetCache2XXResponseApiCachesInnerStats struct for GetCache2XXResponseApiCachesInnerStats
 type GetCache2XXResponseApiCachesInnerStats struct {
 	Hits *float32 `json:"hits,omitempty"`
@@ -45,7 +48,7 @@ func NewGetCache2XXResponseApiCachesInnerStatsWithDefaults() *GetCache2XXRespons
 
 // GetHits returns the Hits field value if set, zero value otherwise.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetHits() float32 {
-	if o == nil || isNil(o.Hits) {
+	if o == nil || IsNil(o.Hits) {
 		var ret float32
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *GetCache2XXResponseApiCachesInnerStats) GetHits() float32 {
 // GetHitsOk returns a tuple with the Hits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetHitsOk() (*float32, bool) {
-	if o == nil || isNil(o.Hits) {
-    return nil, false
+	if o == nil || IsNil(o.Hits) {
+		return nil, false
 	}
 	return o.Hits, true
 }
 
 // HasHits returns a boolean if a field has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) HasHits() bool {
-	if o != nil && !isNil(o.Hits) {
+	if o != nil && !IsNil(o.Hits) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *GetCache2XXResponseApiCachesInnerStats) SetHits(v float32) {
 
 // GetMisses returns the Misses field value if set, zero value otherwise.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetMisses() float32 {
-	if o == nil || isNil(o.Misses) {
+	if o == nil || IsNil(o.Misses) {
 		var ret float32
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *GetCache2XXResponseApiCachesInnerStats) GetMisses() float32 {
 // GetMissesOk returns a tuple with the Misses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetMissesOk() (*float32, bool) {
-	if o == nil || isNil(o.Misses) {
-    return nil, false
+	if o == nil || IsNil(o.Misses) {
+		return nil, false
 	}
 	return o.Misses, true
 }
 
 // HasMisses returns a boolean if a field has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) HasMisses() bool {
-	if o != nil && !isNil(o.Misses) {
+	if o != nil && !IsNil(o.Misses) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *GetCache2XXResponseApiCachesInnerStats) SetMisses(v float32) {
 
 // GetKeys returns the Keys field value if set, zero value otherwise.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetKeys() float32 {
-	if o == nil || isNil(o.Keys) {
+	if o == nil || IsNil(o.Keys) {
 		var ret float32
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *GetCache2XXResponseApiCachesInnerStats) GetKeys() float32 {
 // GetKeysOk returns a tuple with the Keys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetKeysOk() (*float32, bool) {
-	if o == nil || isNil(o.Keys) {
-    return nil, false
+	if o == nil || IsNil(o.Keys) {
+		return nil, false
 	}
 	return o.Keys, true
 }
 
 // HasKeys returns a boolean if a field has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) HasKeys() bool {
-	if o != nil && !isNil(o.Keys) {
+	if o != nil && !IsNil(o.Keys) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *GetCache2XXResponseApiCachesInnerStats) SetKeys(v float32) {
 
 // GetKsize returns the Ksize field value if set, zero value otherwise.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetKsize() float32 {
-	if o == nil || isNil(o.Ksize) {
+	if o == nil || IsNil(o.Ksize) {
 		var ret float32
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *GetCache2XXResponseApiCachesInnerStats) GetKsize() float32 {
 // GetKsizeOk returns a tuple with the Ksize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetKsizeOk() (*float32, bool) {
-	if o == nil || isNil(o.Ksize) {
-    return nil, false
+	if o == nil || IsNil(o.Ksize) {
+		return nil, false
 	}
 	return o.Ksize, true
 }
 
 // HasKsize returns a boolean if a field has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) HasKsize() bool {
-	if o != nil && !isNil(o.Ksize) {
+	if o != nil && !IsNil(o.Ksize) {
 		return true
 	}
 
@@ -173,7 +176,7 @@ func (o *GetCache2XXResponseApiCachesInnerStats) SetKsize(v float32) {
 
 // GetVsize returns the Vsize field value if set, zero value otherwise.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetVsize() float32 {
-	if o == nil || isNil(o.Vsize) {
+	if o == nil || IsNil(o.Vsize) {
 		var ret float32
 		return ret
 	}
@@ -183,15 +186,15 @@ func (o *GetCache2XXResponseApiCachesInnerStats) GetVsize() float32 {
 // GetVsizeOk returns a tuple with the Vsize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) GetVsizeOk() (*float32, bool) {
-	if o == nil || isNil(o.Vsize) {
-    return nil, false
+	if o == nil || IsNil(o.Vsize) {
+		return nil, false
 	}
 	return o.Vsize, true
 }
 
 // HasVsize returns a boolean if a field has been set.
 func (o *GetCache2XXResponseApiCachesInnerStats) HasVsize() bool {
-	if o != nil && !isNil(o.Vsize) {
+	if o != nil && !IsNil(o.Vsize) {
 		return true
 	}
 
@@ -204,20 +207,28 @@ func (o *GetCache2XXResponseApiCachesInnerStats) SetVsize(v float32) {
 }
 
 func (o GetCache2XXResponseApiCachesInnerStats) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetCache2XXResponseApiCachesInnerStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Hits) {
+	if !IsNil(o.Hits) {
 		toSerialize["hits"] = o.Hits
 	}
-	if !isNil(o.Misses) {
+	if !IsNil(o.Misses) {
 		toSerialize["misses"] = o.Misses
 	}
-	if !isNil(o.Keys) {
+	if !IsNil(o.Keys) {
 		toSerialize["keys"] = o.Keys
 	}
-	if !isNil(o.Ksize) {
+	if !IsNil(o.Ksize) {
 		toSerialize["ksize"] = o.Ksize
 	}
-	if !isNil(o.Vsize) {
+	if !IsNil(o.Vsize) {
 		toSerialize["vsize"] = o.Vsize
 	}
 
@@ -225,19 +236,23 @@ func (o GetCache2XXResponseApiCachesInnerStats) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetCache2XXResponseApiCachesInnerStats) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetCache2XXResponseApiCachesInnerStats) UnmarshalJSON(data []byte) (err error) {
 	varGetCache2XXResponseApiCachesInnerStats := _GetCache2XXResponseApiCachesInnerStats{}
 
-	if err = json.Unmarshal(bytes, &varGetCache2XXResponseApiCachesInnerStats); err == nil {
-		*o = GetCache2XXResponseApiCachesInnerStats(varGetCache2XXResponseApiCachesInnerStats)
+	err = json.Unmarshal(data, &varGetCache2XXResponseApiCachesInnerStats)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetCache2XXResponseApiCachesInnerStats(varGetCache2XXResponseApiCachesInnerStats)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "hits")
 		delete(additionalProperties, "misses")
 		delete(additionalProperties, "keys")

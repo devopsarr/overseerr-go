@@ -14,9 +14,12 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateUserImportFromPlexRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateUserImportFromPlexRequest{}
+
 // CreateUserImportFromPlexRequest struct for CreateUserImportFromPlexRequest
 type CreateUserImportFromPlexRequest struct {
-	PlexIds []*string `json:"plexIds,omitempty"`
+	PlexIds []string `json:"plexIds,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -40,9 +43,9 @@ func NewCreateUserImportFromPlexRequestWithDefaults() *CreateUserImportFromPlexR
 }
 
 // GetPlexIds returns the PlexIds field value if set, zero value otherwise.
-func (o *CreateUserImportFromPlexRequest) GetPlexIds() []*string {
-	if o == nil || isNil(o.PlexIds) {
-		var ret []*string
+func (o *CreateUserImportFromPlexRequest) GetPlexIds() []string {
+	if o == nil || IsNil(o.PlexIds) {
+		var ret []string
 		return ret
 	}
 	return o.PlexIds
@@ -50,16 +53,16 @@ func (o *CreateUserImportFromPlexRequest) GetPlexIds() []*string {
 
 // GetPlexIdsOk returns a tuple with the PlexIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateUserImportFromPlexRequest) GetPlexIdsOk() ([]*string, bool) {
-	if o == nil || isNil(o.PlexIds) {
-    return nil, false
+func (o *CreateUserImportFromPlexRequest) GetPlexIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.PlexIds) {
+		return nil, false
 	}
 	return o.PlexIds, true
 }
 
 // HasPlexIds returns a boolean if a field has been set.
 func (o *CreateUserImportFromPlexRequest) HasPlexIds() bool {
-	if o != nil && !isNil(o.PlexIds) {
+	if o != nil && !IsNil(o.PlexIds) {
 		return true
 	}
 
@@ -67,13 +70,21 @@ func (o *CreateUserImportFromPlexRequest) HasPlexIds() bool {
 }
 
 // SetPlexIds gets a reference to the given []string and assigns it to the PlexIds field.
-func (o *CreateUserImportFromPlexRequest) SetPlexIds(v []*string) {
+func (o *CreateUserImportFromPlexRequest) SetPlexIds(v []string) {
 	o.PlexIds = v
 }
 
 func (o CreateUserImportFromPlexRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateUserImportFromPlexRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.PlexIds) {
+	if !IsNil(o.PlexIds) {
 		toSerialize["plexIds"] = o.PlexIds
 	}
 
@@ -81,19 +92,23 @@ func (o CreateUserImportFromPlexRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateUserImportFromPlexRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateUserImportFromPlexRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateUserImportFromPlexRequest := _CreateUserImportFromPlexRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateUserImportFromPlexRequest); err == nil {
-		*o = CreateUserImportFromPlexRequest(varCreateUserImportFromPlexRequest)
+	err = json.Unmarshal(data, &varCreateUserImportFromPlexRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateUserImportFromPlexRequest(varCreateUserImportFromPlexRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "plexIds")
 		o.AdditionalProperties = additionalProperties
 	}

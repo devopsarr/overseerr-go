@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateIssueRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateIssueRequest{}
+
 // CreateIssueRequest struct for CreateIssueRequest
 type CreateIssueRequest struct {
 	IssueType *float32 `json:"issueType,omitempty"`
@@ -43,7 +46,7 @@ func NewCreateIssueRequestWithDefaults() *CreateIssueRequest {
 
 // GetIssueType returns the IssueType field value if set, zero value otherwise.
 func (o *CreateIssueRequest) GetIssueType() float32 {
-	if o == nil || isNil(o.IssueType) {
+	if o == nil || IsNil(o.IssueType) {
 		var ret float32
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *CreateIssueRequest) GetIssueType() float32 {
 // GetIssueTypeOk returns a tuple with the IssueType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateIssueRequest) GetIssueTypeOk() (*float32, bool) {
-	if o == nil || isNil(o.IssueType) {
-    return nil, false
+	if o == nil || IsNil(o.IssueType) {
+		return nil, false
 	}
 	return o.IssueType, true
 }
 
 // HasIssueType returns a boolean if a field has been set.
 func (o *CreateIssueRequest) HasIssueType() bool {
-	if o != nil && !isNil(o.IssueType) {
+	if o != nil && !IsNil(o.IssueType) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *CreateIssueRequest) SetIssueType(v float32) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *CreateIssueRequest) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *CreateIssueRequest) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateIssueRequest) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *CreateIssueRequest) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *CreateIssueRequest) SetMessage(v string) {
 
 // GetMediaId returns the MediaId field value if set, zero value otherwise.
 func (o *CreateIssueRequest) GetMediaId() float32 {
-	if o == nil || isNil(o.MediaId) {
+	if o == nil || IsNil(o.MediaId) {
 		var ret float32
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *CreateIssueRequest) GetMediaId() float32 {
 // GetMediaIdOk returns a tuple with the MediaId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateIssueRequest) GetMediaIdOk() (*float32, bool) {
-	if o == nil || isNil(o.MediaId) {
-    return nil, false
+	if o == nil || IsNil(o.MediaId) {
+		return nil, false
 	}
 	return o.MediaId, true
 }
 
 // HasMediaId returns a boolean if a field has been set.
 func (o *CreateIssueRequest) HasMediaId() bool {
-	if o != nil && !isNil(o.MediaId) {
+	if o != nil && !IsNil(o.MediaId) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *CreateIssueRequest) SetMediaId(v float32) {
 }
 
 func (o CreateIssueRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateIssueRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.IssueType) {
+	if !IsNil(o.IssueType) {
 		toSerialize["issueType"] = o.IssueType
 	}
-	if !isNil(o.Message) {
+	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if !isNil(o.MediaId) {
+	if !IsNil(o.MediaId) {
 		toSerialize["mediaId"] = o.MediaId
 	}
 
@@ -153,19 +164,23 @@ func (o CreateIssueRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateIssueRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateIssueRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateIssueRequest := _CreateIssueRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateIssueRequest); err == nil {
-		*o = CreateIssueRequest(varCreateIssueRequest)
+	err = json.Unmarshal(data, &varCreateIssueRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateIssueRequest(varCreateIssueRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "issueType")
 		delete(additionalProperties, "message")
 		delete(additionalProperties, "mediaId")

@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the CreateUserSettingsPermissionsRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateUserSettingsPermissionsRequest{}
+
 // CreateUserSettingsPermissionsRequest struct for CreateUserSettingsPermissionsRequest
 type CreateUserSettingsPermissionsRequest struct {
 	Permissions float32 `json:"permissions"`
@@ -55,7 +58,7 @@ func (o *CreateUserSettingsPermissionsRequest) GetPermissions() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateUserSettingsPermissionsRequest) GetPermissionsOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Permissions, true
 }
@@ -66,28 +69,59 @@ func (o *CreateUserSettingsPermissionsRequest) SetPermissions(v float32) {
 }
 
 func (o CreateUserSettingsPermissionsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["permissions"] = o.Permissions
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateUserSettingsPermissionsRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["permissions"] = o.Permissions
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateUserSettingsPermissionsRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateUserSettingsPermissionsRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"permissions",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varCreateUserSettingsPermissionsRequest := _CreateUserSettingsPermissionsRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateUserSettingsPermissionsRequest); err == nil {
-		*o = CreateUserSettingsPermissionsRequest(varCreateUserSettingsPermissionsRequest)
+	err = json.Unmarshal(data, &varCreateUserSettingsPermissionsRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateUserSettingsPermissionsRequest(varCreateUserSettingsPermissionsRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "permissions")
 		o.AdditionalProperties = additionalProperties
 	}

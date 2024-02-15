@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MainSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MainSettings{}
+
 // MainSettings struct for MainSettings
 type MainSettings struct {
 	ApiKey *string `json:"apiKey,omitempty"`
@@ -51,7 +54,7 @@ func NewMainSettingsWithDefaults() *MainSettings {
 
 // GetApiKey returns the ApiKey field value if set, zero value otherwise.
 func (o *MainSettings) GetApiKey() string {
-	if o == nil || isNil(o.ApiKey) {
+	if o == nil || IsNil(o.ApiKey) {
 		var ret string
 		return ret
 	}
@@ -61,15 +64,15 @@ func (o *MainSettings) GetApiKey() string {
 // GetApiKeyOk returns a tuple with the ApiKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetApiKeyOk() (*string, bool) {
-	if o == nil || isNil(o.ApiKey) {
-    return nil, false
+	if o == nil || IsNil(o.ApiKey) {
+		return nil, false
 	}
 	return o.ApiKey, true
 }
 
 // HasApiKey returns a boolean if a field has been set.
 func (o *MainSettings) HasApiKey() bool {
-	if o != nil && !isNil(o.ApiKey) {
+	if o != nil && !IsNil(o.ApiKey) {
 		return true
 	}
 
@@ -83,7 +86,7 @@ func (o *MainSettings) SetApiKey(v string) {
 
 // GetAppLanguage returns the AppLanguage field value if set, zero value otherwise.
 func (o *MainSettings) GetAppLanguage() string {
-	if o == nil || isNil(o.AppLanguage) {
+	if o == nil || IsNil(o.AppLanguage) {
 		var ret string
 		return ret
 	}
@@ -93,15 +96,15 @@ func (o *MainSettings) GetAppLanguage() string {
 // GetAppLanguageOk returns a tuple with the AppLanguage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetAppLanguageOk() (*string, bool) {
-	if o == nil || isNil(o.AppLanguage) {
-    return nil, false
+	if o == nil || IsNil(o.AppLanguage) {
+		return nil, false
 	}
 	return o.AppLanguage, true
 }
 
 // HasAppLanguage returns a boolean if a field has been set.
 func (o *MainSettings) HasAppLanguage() bool {
-	if o != nil && !isNil(o.AppLanguage) {
+	if o != nil && !IsNil(o.AppLanguage) {
 		return true
 	}
 
@@ -115,7 +118,7 @@ func (o *MainSettings) SetAppLanguage(v string) {
 
 // GetApplicationTitle returns the ApplicationTitle field value if set, zero value otherwise.
 func (o *MainSettings) GetApplicationTitle() string {
-	if o == nil || isNil(o.ApplicationTitle) {
+	if o == nil || IsNil(o.ApplicationTitle) {
 		var ret string
 		return ret
 	}
@@ -125,15 +128,15 @@ func (o *MainSettings) GetApplicationTitle() string {
 // GetApplicationTitleOk returns a tuple with the ApplicationTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetApplicationTitleOk() (*string, bool) {
-	if o == nil || isNil(o.ApplicationTitle) {
-    return nil, false
+	if o == nil || IsNil(o.ApplicationTitle) {
+		return nil, false
 	}
 	return o.ApplicationTitle, true
 }
 
 // HasApplicationTitle returns a boolean if a field has been set.
 func (o *MainSettings) HasApplicationTitle() bool {
-	if o != nil && !isNil(o.ApplicationTitle) {
+	if o != nil && !IsNil(o.ApplicationTitle) {
 		return true
 	}
 
@@ -147,7 +150,7 @@ func (o *MainSettings) SetApplicationTitle(v string) {
 
 // GetApplicationUrl returns the ApplicationUrl field value if set, zero value otherwise.
 func (o *MainSettings) GetApplicationUrl() string {
-	if o == nil || isNil(o.ApplicationUrl) {
+	if o == nil || IsNil(o.ApplicationUrl) {
 		var ret string
 		return ret
 	}
@@ -157,15 +160,15 @@ func (o *MainSettings) GetApplicationUrl() string {
 // GetApplicationUrlOk returns a tuple with the ApplicationUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetApplicationUrlOk() (*string, bool) {
-	if o == nil || isNil(o.ApplicationUrl) {
-    return nil, false
+	if o == nil || IsNil(o.ApplicationUrl) {
+		return nil, false
 	}
 	return o.ApplicationUrl, true
 }
 
 // HasApplicationUrl returns a boolean if a field has been set.
 func (o *MainSettings) HasApplicationUrl() bool {
-	if o != nil && !isNil(o.ApplicationUrl) {
+	if o != nil && !IsNil(o.ApplicationUrl) {
 		return true
 	}
 
@@ -179,7 +182,7 @@ func (o *MainSettings) SetApplicationUrl(v string) {
 
 // GetTrustProxy returns the TrustProxy field value if set, zero value otherwise.
 func (o *MainSettings) GetTrustProxy() bool {
-	if o == nil || isNil(o.TrustProxy) {
+	if o == nil || IsNil(o.TrustProxy) {
 		var ret bool
 		return ret
 	}
@@ -189,15 +192,15 @@ func (o *MainSettings) GetTrustProxy() bool {
 // GetTrustProxyOk returns a tuple with the TrustProxy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetTrustProxyOk() (*bool, bool) {
-	if o == nil || isNil(o.TrustProxy) {
-    return nil, false
+	if o == nil || IsNil(o.TrustProxy) {
+		return nil, false
 	}
 	return o.TrustProxy, true
 }
 
 // HasTrustProxy returns a boolean if a field has been set.
 func (o *MainSettings) HasTrustProxy() bool {
-	if o != nil && !isNil(o.TrustProxy) {
+	if o != nil && !IsNil(o.TrustProxy) {
 		return true
 	}
 
@@ -211,7 +214,7 @@ func (o *MainSettings) SetTrustProxy(v bool) {
 
 // GetCsrfProtection returns the CsrfProtection field value if set, zero value otherwise.
 func (o *MainSettings) GetCsrfProtection() bool {
-	if o == nil || isNil(o.CsrfProtection) {
+	if o == nil || IsNil(o.CsrfProtection) {
 		var ret bool
 		return ret
 	}
@@ -221,15 +224,15 @@ func (o *MainSettings) GetCsrfProtection() bool {
 // GetCsrfProtectionOk returns a tuple with the CsrfProtection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetCsrfProtectionOk() (*bool, bool) {
-	if o == nil || isNil(o.CsrfProtection) {
-    return nil, false
+	if o == nil || IsNil(o.CsrfProtection) {
+		return nil, false
 	}
 	return o.CsrfProtection, true
 }
 
 // HasCsrfProtection returns a boolean if a field has been set.
 func (o *MainSettings) HasCsrfProtection() bool {
-	if o != nil && !isNil(o.CsrfProtection) {
+	if o != nil && !IsNil(o.CsrfProtection) {
 		return true
 	}
 
@@ -243,7 +246,7 @@ func (o *MainSettings) SetCsrfProtection(v bool) {
 
 // GetHideAvailable returns the HideAvailable field value if set, zero value otherwise.
 func (o *MainSettings) GetHideAvailable() bool {
-	if o == nil || isNil(o.HideAvailable) {
+	if o == nil || IsNil(o.HideAvailable) {
 		var ret bool
 		return ret
 	}
@@ -253,15 +256,15 @@ func (o *MainSettings) GetHideAvailable() bool {
 // GetHideAvailableOk returns a tuple with the HideAvailable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetHideAvailableOk() (*bool, bool) {
-	if o == nil || isNil(o.HideAvailable) {
-    return nil, false
+	if o == nil || IsNil(o.HideAvailable) {
+		return nil, false
 	}
 	return o.HideAvailable, true
 }
 
 // HasHideAvailable returns a boolean if a field has been set.
 func (o *MainSettings) HasHideAvailable() bool {
-	if o != nil && !isNil(o.HideAvailable) {
+	if o != nil && !IsNil(o.HideAvailable) {
 		return true
 	}
 
@@ -275,7 +278,7 @@ func (o *MainSettings) SetHideAvailable(v bool) {
 
 // GetPartialRequestsEnabled returns the PartialRequestsEnabled field value if set, zero value otherwise.
 func (o *MainSettings) GetPartialRequestsEnabled() bool {
-	if o == nil || isNil(o.PartialRequestsEnabled) {
+	if o == nil || IsNil(o.PartialRequestsEnabled) {
 		var ret bool
 		return ret
 	}
@@ -285,15 +288,15 @@ func (o *MainSettings) GetPartialRequestsEnabled() bool {
 // GetPartialRequestsEnabledOk returns a tuple with the PartialRequestsEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetPartialRequestsEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.PartialRequestsEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.PartialRequestsEnabled) {
+		return nil, false
 	}
 	return o.PartialRequestsEnabled, true
 }
 
 // HasPartialRequestsEnabled returns a boolean if a field has been set.
 func (o *MainSettings) HasPartialRequestsEnabled() bool {
-	if o != nil && !isNil(o.PartialRequestsEnabled) {
+	if o != nil && !IsNil(o.PartialRequestsEnabled) {
 		return true
 	}
 
@@ -307,7 +310,7 @@ func (o *MainSettings) SetPartialRequestsEnabled(v bool) {
 
 // GetLocalLogin returns the LocalLogin field value if set, zero value otherwise.
 func (o *MainSettings) GetLocalLogin() bool {
-	if o == nil || isNil(o.LocalLogin) {
+	if o == nil || IsNil(o.LocalLogin) {
 		var ret bool
 		return ret
 	}
@@ -317,15 +320,15 @@ func (o *MainSettings) GetLocalLogin() bool {
 // GetLocalLoginOk returns a tuple with the LocalLogin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetLocalLoginOk() (*bool, bool) {
-	if o == nil || isNil(o.LocalLogin) {
-    return nil, false
+	if o == nil || IsNil(o.LocalLogin) {
+		return nil, false
 	}
 	return o.LocalLogin, true
 }
 
 // HasLocalLogin returns a boolean if a field has been set.
 func (o *MainSettings) HasLocalLogin() bool {
-	if o != nil && !isNil(o.LocalLogin) {
+	if o != nil && !IsNil(o.LocalLogin) {
 		return true
 	}
 
@@ -339,7 +342,7 @@ func (o *MainSettings) SetLocalLogin(v bool) {
 
 // GetNewPlexLogin returns the NewPlexLogin field value if set, zero value otherwise.
 func (o *MainSettings) GetNewPlexLogin() bool {
-	if o == nil || isNil(o.NewPlexLogin) {
+	if o == nil || IsNil(o.NewPlexLogin) {
 		var ret bool
 		return ret
 	}
@@ -349,15 +352,15 @@ func (o *MainSettings) GetNewPlexLogin() bool {
 // GetNewPlexLoginOk returns a tuple with the NewPlexLogin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetNewPlexLoginOk() (*bool, bool) {
-	if o == nil || isNil(o.NewPlexLogin) {
-    return nil, false
+	if o == nil || IsNil(o.NewPlexLogin) {
+		return nil, false
 	}
 	return o.NewPlexLogin, true
 }
 
 // HasNewPlexLogin returns a boolean if a field has been set.
 func (o *MainSettings) HasNewPlexLogin() bool {
-	if o != nil && !isNil(o.NewPlexLogin) {
+	if o != nil && !IsNil(o.NewPlexLogin) {
 		return true
 	}
 
@@ -371,7 +374,7 @@ func (o *MainSettings) SetNewPlexLogin(v bool) {
 
 // GetDefaultPermissions returns the DefaultPermissions field value if set, zero value otherwise.
 func (o *MainSettings) GetDefaultPermissions() float32 {
-	if o == nil || isNil(o.DefaultPermissions) {
+	if o == nil || IsNil(o.DefaultPermissions) {
 		var ret float32
 		return ret
 	}
@@ -381,15 +384,15 @@ func (o *MainSettings) GetDefaultPermissions() float32 {
 // GetDefaultPermissionsOk returns a tuple with the DefaultPermissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MainSettings) GetDefaultPermissionsOk() (*float32, bool) {
-	if o == nil || isNil(o.DefaultPermissions) {
-    return nil, false
+	if o == nil || IsNil(o.DefaultPermissions) {
+		return nil, false
 	}
 	return o.DefaultPermissions, true
 }
 
 // HasDefaultPermissions returns a boolean if a field has been set.
 func (o *MainSettings) HasDefaultPermissions() bool {
-	if o != nil && !isNil(o.DefaultPermissions) {
+	if o != nil && !IsNil(o.DefaultPermissions) {
 		return true
 	}
 
@@ -402,38 +405,46 @@ func (o *MainSettings) SetDefaultPermissions(v float32) {
 }
 
 func (o MainSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MainSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.ApiKey) {
+	if !IsNil(o.ApiKey) {
 		toSerialize["apiKey"] = o.ApiKey
 	}
-	if !isNil(o.AppLanguage) {
+	if !IsNil(o.AppLanguage) {
 		toSerialize["appLanguage"] = o.AppLanguage
 	}
-	if !isNil(o.ApplicationTitle) {
+	if !IsNil(o.ApplicationTitle) {
 		toSerialize["applicationTitle"] = o.ApplicationTitle
 	}
-	if !isNil(o.ApplicationUrl) {
+	if !IsNil(o.ApplicationUrl) {
 		toSerialize["applicationUrl"] = o.ApplicationUrl
 	}
-	if !isNil(o.TrustProxy) {
+	if !IsNil(o.TrustProxy) {
 		toSerialize["trustProxy"] = o.TrustProxy
 	}
-	if !isNil(o.CsrfProtection) {
+	if !IsNil(o.CsrfProtection) {
 		toSerialize["csrfProtection"] = o.CsrfProtection
 	}
-	if !isNil(o.HideAvailable) {
+	if !IsNil(o.HideAvailable) {
 		toSerialize["hideAvailable"] = o.HideAvailable
 	}
-	if !isNil(o.PartialRequestsEnabled) {
+	if !IsNil(o.PartialRequestsEnabled) {
 		toSerialize["partialRequestsEnabled"] = o.PartialRequestsEnabled
 	}
-	if !isNil(o.LocalLogin) {
+	if !IsNil(o.LocalLogin) {
 		toSerialize["localLogin"] = o.LocalLogin
 	}
-	if !isNil(o.NewPlexLogin) {
+	if !IsNil(o.NewPlexLogin) {
 		toSerialize["newPlexLogin"] = o.NewPlexLogin
 	}
-	if !isNil(o.DefaultPermissions) {
+	if !IsNil(o.DefaultPermissions) {
 		toSerialize["defaultPermissions"] = o.DefaultPermissions
 	}
 
@@ -441,19 +452,23 @@ func (o MainSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MainSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MainSettings) UnmarshalJSON(data []byte) (err error) {
 	varMainSettings := _MainSettings{}
 
-	if err = json.Unmarshal(bytes, &varMainSettings); err == nil {
-		*o = MainSettings(varMainSettings)
+	err = json.Unmarshal(data, &varMainSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MainSettings(varMainSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "apiKey")
 		delete(additionalProperties, "appLanguage")
 		delete(additionalProperties, "applicationTitle")

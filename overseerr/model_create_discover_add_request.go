@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateDiscoverAddRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateDiscoverAddRequest{}
+
 // CreateDiscoverAddRequest struct for CreateDiscoverAddRequest
 type CreateDiscoverAddRequest struct {
 	Title *string `json:"title,omitempty"`
@@ -43,7 +46,7 @@ func NewCreateDiscoverAddRequestWithDefaults() *CreateDiscoverAddRequest {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *CreateDiscoverAddRequest) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *CreateDiscoverAddRequest) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateDiscoverAddRequest) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *CreateDiscoverAddRequest) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *CreateDiscoverAddRequest) SetTitle(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *CreateDiscoverAddRequest) GetType() float32 {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret float32
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *CreateDiscoverAddRequest) GetType() float32 {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateDiscoverAddRequest) GetTypeOk() (*float32, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *CreateDiscoverAddRequest) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *CreateDiscoverAddRequest) SetType(v float32) {
 
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *CreateDiscoverAddRequest) GetData() string {
-	if o == nil || isNil(o.Data) {
+	if o == nil || IsNil(o.Data) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *CreateDiscoverAddRequest) GetData() string {
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateDiscoverAddRequest) GetDataOk() (*string, bool) {
-	if o == nil || isNil(o.Data) {
-    return nil, false
+	if o == nil || IsNil(o.Data) {
+		return nil, false
 	}
 	return o.Data, true
 }
 
 // HasData returns a boolean if a field has been set.
 func (o *CreateDiscoverAddRequest) HasData() bool {
-	if o != nil && !isNil(o.Data) {
+	if o != nil && !IsNil(o.Data) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *CreateDiscoverAddRequest) SetData(v string) {
 }
 
 func (o CreateDiscoverAddRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateDiscoverAddRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Title) {
+	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !isNil(o.Data) {
+	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}
 
@@ -153,19 +164,23 @@ func (o CreateDiscoverAddRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateDiscoverAddRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateDiscoverAddRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateDiscoverAddRequest := _CreateDiscoverAddRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateDiscoverAddRequest); err == nil {
-		*o = CreateDiscoverAddRequest(varCreateDiscoverAddRequest)
+	err = json.Unmarshal(data, &varCreateDiscoverAddRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateDiscoverAddRequest(varCreateDiscoverAddRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "title")
 		delete(additionalProperties, "type")
 		delete(additionalProperties, "data")

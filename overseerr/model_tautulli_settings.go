@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TautulliSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TautulliSettings{}
+
 // TautulliSettings struct for TautulliSettings
 type TautulliSettings struct {
 	Hostname NullableString `json:"hostname,omitempty"`
@@ -45,7 +48,7 @@ func NewTautulliSettingsWithDefaults() *TautulliSettings {
 
 // GetHostname returns the Hostname field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TautulliSettings) GetHostname() string {
-	if o == nil || isNil(o.Hostname.Get()) {
+	if o == nil || IsNil(o.Hostname.Get()) {
 		var ret string
 		return ret
 	}
@@ -57,7 +60,7 @@ func (o *TautulliSettings) GetHostname() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TautulliSettings) GetHostnameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Hostname.Get(), o.Hostname.IsSet()
 }
@@ -87,7 +90,7 @@ func (o *TautulliSettings) UnsetHostname() {
 
 // GetPort returns the Port field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TautulliSettings) GetPort() float32 {
-	if o == nil || isNil(o.Port.Get()) {
+	if o == nil || IsNil(o.Port.Get()) {
 		var ret float32
 		return ret
 	}
@@ -99,7 +102,7 @@ func (o *TautulliSettings) GetPort() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TautulliSettings) GetPortOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Port.Get(), o.Port.IsSet()
 }
@@ -129,7 +132,7 @@ func (o *TautulliSettings) UnsetPort() {
 
 // GetUseSsl returns the UseSsl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TautulliSettings) GetUseSsl() bool {
-	if o == nil || isNil(o.UseSsl.Get()) {
+	if o == nil || IsNil(o.UseSsl.Get()) {
 		var ret bool
 		return ret
 	}
@@ -141,7 +144,7 @@ func (o *TautulliSettings) GetUseSsl() bool {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TautulliSettings) GetUseSslOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.UseSsl.Get(), o.UseSsl.IsSet()
 }
@@ -171,7 +174,7 @@ func (o *TautulliSettings) UnsetUseSsl() {
 
 // GetApiKey returns the ApiKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TautulliSettings) GetApiKey() string {
-	if o == nil || isNil(o.ApiKey.Get()) {
+	if o == nil || IsNil(o.ApiKey.Get()) {
 		var ret string
 		return ret
 	}
@@ -183,7 +186,7 @@ func (o *TautulliSettings) GetApiKey() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TautulliSettings) GetApiKeyOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ApiKey.Get(), o.ApiKey.IsSet()
 }
@@ -213,7 +216,7 @@ func (o *TautulliSettings) UnsetApiKey() {
 
 // GetExternalUrl returns the ExternalUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TautulliSettings) GetExternalUrl() string {
-	if o == nil || isNil(o.ExternalUrl.Get()) {
+	if o == nil || IsNil(o.ExternalUrl.Get()) {
 		var ret string
 		return ret
 	}
@@ -225,7 +228,7 @@ func (o *TautulliSettings) GetExternalUrl() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TautulliSettings) GetExternalUrlOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ExternalUrl.Get(), o.ExternalUrl.IsSet()
 }
@@ -254,6 +257,14 @@ func (o *TautulliSettings) UnsetExternalUrl() {
 }
 
 func (o TautulliSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TautulliSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Hostname.IsSet() {
 		toSerialize["hostname"] = o.Hostname.Get()
@@ -275,19 +286,23 @@ func (o TautulliSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *TautulliSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *TautulliSettings) UnmarshalJSON(data []byte) (err error) {
 	varTautulliSettings := _TautulliSettings{}
 
-	if err = json.Unmarshal(bytes, &varTautulliSettings); err == nil {
-		*o = TautulliSettings(varTautulliSettings)
+	err = json.Unmarshal(data, &varTautulliSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = TautulliSettings(varTautulliSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "hostname")
 		delete(additionalProperties, "port")
 		delete(additionalProperties, "useSsl")

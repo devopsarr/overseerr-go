@@ -22,25 +22,25 @@ Get collection details
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    collectionId := float32(537982) // float32 | 
-    language := "en" // string |  (optional)
+	collectionId := float32(537982) // float32 | 
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CollectionAPI.GetCollectionByCollectionId(context.Background(), collectionId).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CollectionAPI.GetCollectionByCollectionId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCollectionByCollectionId`: Collection
-    fmt.Fprintf(os.Stdout, "Response from `CollectionAPI.GetCollectionByCollectionId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CollectionAPI.GetCollectionByCollectionId(context.Background(), collectionId).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CollectionAPI.GetCollectionByCollectionId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCollectionByCollectionId`: Collection
+	fmt.Fprintf(os.Stdout, "Response from `CollectionAPI.GetCollectionByCollectionId`: %v\n", resp)
 }
 ```
 

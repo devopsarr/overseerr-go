@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateJobsScheduleRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateJobsScheduleRequest{}
+
 // CreateJobsScheduleRequest struct for CreateJobsScheduleRequest
 type CreateJobsScheduleRequest struct {
 	Schedule *string `json:"schedule,omitempty"`
@@ -41,7 +44,7 @@ func NewCreateJobsScheduleRequestWithDefaults() *CreateJobsScheduleRequest {
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
 func (o *CreateJobsScheduleRequest) GetSchedule() string {
-	if o == nil || isNil(o.Schedule) {
+	if o == nil || IsNil(o.Schedule) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *CreateJobsScheduleRequest) GetSchedule() string {
 // GetScheduleOk returns a tuple with the Schedule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateJobsScheduleRequest) GetScheduleOk() (*string, bool) {
-	if o == nil || isNil(o.Schedule) {
-    return nil, false
+	if o == nil || IsNil(o.Schedule) {
+		return nil, false
 	}
 	return o.Schedule, true
 }
 
 // HasSchedule returns a boolean if a field has been set.
 func (o *CreateJobsScheduleRequest) HasSchedule() bool {
-	if o != nil && !isNil(o.Schedule) {
+	if o != nil && !IsNil(o.Schedule) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *CreateJobsScheduleRequest) SetSchedule(v string) {
 }
 
 func (o CreateJobsScheduleRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateJobsScheduleRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Schedule) {
+	if !IsNil(o.Schedule) {
 		toSerialize["schedule"] = o.Schedule
 	}
 
@@ -81,19 +92,23 @@ func (o CreateJobsScheduleRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateJobsScheduleRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateJobsScheduleRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateJobsScheduleRequest := _CreateJobsScheduleRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateJobsScheduleRequest); err == nil {
-		*o = CreateJobsScheduleRequest(varCreateJobsScheduleRequest)
+	err = json.Unmarshal(data, &varCreateJobsScheduleRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateJobsScheduleRequest(varCreateJobsScheduleRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "schedule")
 		o.AdditionalProperties = additionalProperties
 	}

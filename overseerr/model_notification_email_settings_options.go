@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NotificationEmailSettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NotificationEmailSettingsOptions{}
+
 // NotificationEmailSettingsOptions struct for NotificationEmailSettingsOptions
 type NotificationEmailSettingsOptions struct {
 	EmailFrom *string `json:"emailFrom,omitempty"`
@@ -50,7 +53,7 @@ func NewNotificationEmailSettingsOptionsWithDefaults() *NotificationEmailSetting
 
 // GetEmailFrom returns the EmailFrom field value if set, zero value otherwise.
 func (o *NotificationEmailSettingsOptions) GetEmailFrom() string {
-	if o == nil || isNil(o.EmailFrom) {
+	if o == nil || IsNil(o.EmailFrom) {
 		var ret string
 		return ret
 	}
@@ -60,15 +63,15 @@ func (o *NotificationEmailSettingsOptions) GetEmailFrom() string {
 // GetEmailFromOk returns a tuple with the EmailFrom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationEmailSettingsOptions) GetEmailFromOk() (*string, bool) {
-	if o == nil || isNil(o.EmailFrom) {
-    return nil, false
+	if o == nil || IsNil(o.EmailFrom) {
+		return nil, false
 	}
 	return o.EmailFrom, true
 }
 
 // HasEmailFrom returns a boolean if a field has been set.
 func (o *NotificationEmailSettingsOptions) HasEmailFrom() bool {
-	if o != nil && !isNil(o.EmailFrom) {
+	if o != nil && !IsNil(o.EmailFrom) {
 		return true
 	}
 
@@ -82,7 +85,7 @@ func (o *NotificationEmailSettingsOptions) SetEmailFrom(v string) {
 
 // GetSenderName returns the SenderName field value if set, zero value otherwise.
 func (o *NotificationEmailSettingsOptions) GetSenderName() string {
-	if o == nil || isNil(o.SenderName) {
+	if o == nil || IsNil(o.SenderName) {
 		var ret string
 		return ret
 	}
@@ -92,15 +95,15 @@ func (o *NotificationEmailSettingsOptions) GetSenderName() string {
 // GetSenderNameOk returns a tuple with the SenderName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationEmailSettingsOptions) GetSenderNameOk() (*string, bool) {
-	if o == nil || isNil(o.SenderName) {
-    return nil, false
+	if o == nil || IsNil(o.SenderName) {
+		return nil, false
 	}
 	return o.SenderName, true
 }
 
 // HasSenderName returns a boolean if a field has been set.
 func (o *NotificationEmailSettingsOptions) HasSenderName() bool {
-	if o != nil && !isNil(o.SenderName) {
+	if o != nil && !IsNil(o.SenderName) {
 		return true
 	}
 
@@ -114,7 +117,7 @@ func (o *NotificationEmailSettingsOptions) SetSenderName(v string) {
 
 // GetSmtpHost returns the SmtpHost field value if set, zero value otherwise.
 func (o *NotificationEmailSettingsOptions) GetSmtpHost() string {
-	if o == nil || isNil(o.SmtpHost) {
+	if o == nil || IsNil(o.SmtpHost) {
 		var ret string
 		return ret
 	}
@@ -124,15 +127,15 @@ func (o *NotificationEmailSettingsOptions) GetSmtpHost() string {
 // GetSmtpHostOk returns a tuple with the SmtpHost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationEmailSettingsOptions) GetSmtpHostOk() (*string, bool) {
-	if o == nil || isNil(o.SmtpHost) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpHost) {
+		return nil, false
 	}
 	return o.SmtpHost, true
 }
 
 // HasSmtpHost returns a boolean if a field has been set.
 func (o *NotificationEmailSettingsOptions) HasSmtpHost() bool {
-	if o != nil && !isNil(o.SmtpHost) {
+	if o != nil && !IsNil(o.SmtpHost) {
 		return true
 	}
 
@@ -146,7 +149,7 @@ func (o *NotificationEmailSettingsOptions) SetSmtpHost(v string) {
 
 // GetSmtpPort returns the SmtpPort field value if set, zero value otherwise.
 func (o *NotificationEmailSettingsOptions) GetSmtpPort() float32 {
-	if o == nil || isNil(o.SmtpPort) {
+	if o == nil || IsNil(o.SmtpPort) {
 		var ret float32
 		return ret
 	}
@@ -156,15 +159,15 @@ func (o *NotificationEmailSettingsOptions) GetSmtpPort() float32 {
 // GetSmtpPortOk returns a tuple with the SmtpPort field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationEmailSettingsOptions) GetSmtpPortOk() (*float32, bool) {
-	if o == nil || isNil(o.SmtpPort) {
-    return nil, false
+	if o == nil || IsNil(o.SmtpPort) {
+		return nil, false
 	}
 	return o.SmtpPort, true
 }
 
 // HasSmtpPort returns a boolean if a field has been set.
 func (o *NotificationEmailSettingsOptions) HasSmtpPort() bool {
-	if o != nil && !isNil(o.SmtpPort) {
+	if o != nil && !IsNil(o.SmtpPort) {
 		return true
 	}
 
@@ -178,7 +181,7 @@ func (o *NotificationEmailSettingsOptions) SetSmtpPort(v float32) {
 
 // GetSecure returns the Secure field value if set, zero value otherwise.
 func (o *NotificationEmailSettingsOptions) GetSecure() bool {
-	if o == nil || isNil(o.Secure) {
+	if o == nil || IsNil(o.Secure) {
 		var ret bool
 		return ret
 	}
@@ -188,15 +191,15 @@ func (o *NotificationEmailSettingsOptions) GetSecure() bool {
 // GetSecureOk returns a tuple with the Secure field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationEmailSettingsOptions) GetSecureOk() (*bool, bool) {
-	if o == nil || isNil(o.Secure) {
-    return nil, false
+	if o == nil || IsNil(o.Secure) {
+		return nil, false
 	}
 	return o.Secure, true
 }
 
 // HasSecure returns a boolean if a field has been set.
 func (o *NotificationEmailSettingsOptions) HasSecure() bool {
-	if o != nil && !isNil(o.Secure) {
+	if o != nil && !IsNil(o.Secure) {
 		return true
 	}
 
@@ -210,7 +213,7 @@ func (o *NotificationEmailSettingsOptions) SetSecure(v bool) {
 
 // GetIgnoreTls returns the IgnoreTls field value if set, zero value otherwise.
 func (o *NotificationEmailSettingsOptions) GetIgnoreTls() bool {
-	if o == nil || isNil(o.IgnoreTls) {
+	if o == nil || IsNil(o.IgnoreTls) {
 		var ret bool
 		return ret
 	}
@@ -220,15 +223,15 @@ func (o *NotificationEmailSettingsOptions) GetIgnoreTls() bool {
 // GetIgnoreTlsOk returns a tuple with the IgnoreTls field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationEmailSettingsOptions) GetIgnoreTlsOk() (*bool, bool) {
-	if o == nil || isNil(o.IgnoreTls) {
-    return nil, false
+	if o == nil || IsNil(o.IgnoreTls) {
+		return nil, false
 	}
 	return o.IgnoreTls, true
 }
 
 // HasIgnoreTls returns a boolean if a field has been set.
 func (o *NotificationEmailSettingsOptions) HasIgnoreTls() bool {
-	if o != nil && !isNil(o.IgnoreTls) {
+	if o != nil && !IsNil(o.IgnoreTls) {
 		return true
 	}
 
@@ -242,7 +245,7 @@ func (o *NotificationEmailSettingsOptions) SetIgnoreTls(v bool) {
 
 // GetRequireTls returns the RequireTls field value if set, zero value otherwise.
 func (o *NotificationEmailSettingsOptions) GetRequireTls() bool {
-	if o == nil || isNil(o.RequireTls) {
+	if o == nil || IsNil(o.RequireTls) {
 		var ret bool
 		return ret
 	}
@@ -252,15 +255,15 @@ func (o *NotificationEmailSettingsOptions) GetRequireTls() bool {
 // GetRequireTlsOk returns a tuple with the RequireTls field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationEmailSettingsOptions) GetRequireTlsOk() (*bool, bool) {
-	if o == nil || isNil(o.RequireTls) {
-    return nil, false
+	if o == nil || IsNil(o.RequireTls) {
+		return nil, false
 	}
 	return o.RequireTls, true
 }
 
 // HasRequireTls returns a boolean if a field has been set.
 func (o *NotificationEmailSettingsOptions) HasRequireTls() bool {
-	if o != nil && !isNil(o.RequireTls) {
+	if o != nil && !IsNil(o.RequireTls) {
 		return true
 	}
 
@@ -274,7 +277,7 @@ func (o *NotificationEmailSettingsOptions) SetRequireTls(v bool) {
 
 // GetAuthUser returns the AuthUser field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NotificationEmailSettingsOptions) GetAuthUser() string {
-	if o == nil || isNil(o.AuthUser.Get()) {
+	if o == nil || IsNil(o.AuthUser.Get()) {
 		var ret string
 		return ret
 	}
@@ -286,7 +289,7 @@ func (o *NotificationEmailSettingsOptions) GetAuthUser() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NotificationEmailSettingsOptions) GetAuthUserOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.AuthUser.Get(), o.AuthUser.IsSet()
 }
@@ -316,7 +319,7 @@ func (o *NotificationEmailSettingsOptions) UnsetAuthUser() {
 
 // GetAuthPass returns the AuthPass field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NotificationEmailSettingsOptions) GetAuthPass() string {
-	if o == nil || isNil(o.AuthPass.Get()) {
+	if o == nil || IsNil(o.AuthPass.Get()) {
 		var ret string
 		return ret
 	}
@@ -328,7 +331,7 @@ func (o *NotificationEmailSettingsOptions) GetAuthPass() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NotificationEmailSettingsOptions) GetAuthPassOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.AuthPass.Get(), o.AuthPass.IsSet()
 }
@@ -358,7 +361,7 @@ func (o *NotificationEmailSettingsOptions) UnsetAuthPass() {
 
 // GetAllowSelfSigned returns the AllowSelfSigned field value if set, zero value otherwise.
 func (o *NotificationEmailSettingsOptions) GetAllowSelfSigned() bool {
-	if o == nil || isNil(o.AllowSelfSigned) {
+	if o == nil || IsNil(o.AllowSelfSigned) {
 		var ret bool
 		return ret
 	}
@@ -368,15 +371,15 @@ func (o *NotificationEmailSettingsOptions) GetAllowSelfSigned() bool {
 // GetAllowSelfSignedOk returns a tuple with the AllowSelfSigned field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationEmailSettingsOptions) GetAllowSelfSignedOk() (*bool, bool) {
-	if o == nil || isNil(o.AllowSelfSigned) {
-    return nil, false
+	if o == nil || IsNil(o.AllowSelfSigned) {
+		return nil, false
 	}
 	return o.AllowSelfSigned, true
 }
 
 // HasAllowSelfSigned returns a boolean if a field has been set.
 func (o *NotificationEmailSettingsOptions) HasAllowSelfSigned() bool {
-	if o != nil && !isNil(o.AllowSelfSigned) {
+	if o != nil && !IsNil(o.AllowSelfSigned) {
 		return true
 	}
 
@@ -389,26 +392,34 @@ func (o *NotificationEmailSettingsOptions) SetAllowSelfSigned(v bool) {
 }
 
 func (o NotificationEmailSettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o NotificationEmailSettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.EmailFrom) {
+	if !IsNil(o.EmailFrom) {
 		toSerialize["emailFrom"] = o.EmailFrom
 	}
-	if !isNil(o.SenderName) {
+	if !IsNil(o.SenderName) {
 		toSerialize["senderName"] = o.SenderName
 	}
-	if !isNil(o.SmtpHost) {
+	if !IsNil(o.SmtpHost) {
 		toSerialize["smtpHost"] = o.SmtpHost
 	}
-	if !isNil(o.SmtpPort) {
+	if !IsNil(o.SmtpPort) {
 		toSerialize["smtpPort"] = o.SmtpPort
 	}
-	if !isNil(o.Secure) {
+	if !IsNil(o.Secure) {
 		toSerialize["secure"] = o.Secure
 	}
-	if !isNil(o.IgnoreTls) {
+	if !IsNil(o.IgnoreTls) {
 		toSerialize["ignoreTls"] = o.IgnoreTls
 	}
-	if !isNil(o.RequireTls) {
+	if !IsNil(o.RequireTls) {
 		toSerialize["requireTls"] = o.RequireTls
 	}
 	if o.AuthUser.IsSet() {
@@ -417,7 +428,7 @@ func (o NotificationEmailSettingsOptions) MarshalJSON() ([]byte, error) {
 	if o.AuthPass.IsSet() {
 		toSerialize["authPass"] = o.AuthPass.Get()
 	}
-	if !isNil(o.AllowSelfSigned) {
+	if !IsNil(o.AllowSelfSigned) {
 		toSerialize["allowSelfSigned"] = o.AllowSelfSigned
 	}
 
@@ -425,19 +436,23 @@ func (o NotificationEmailSettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *NotificationEmailSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *NotificationEmailSettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varNotificationEmailSettingsOptions := _NotificationEmailSettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varNotificationEmailSettingsOptions); err == nil {
-		*o = NotificationEmailSettingsOptions(varNotificationEmailSettingsOptions)
+	err = json.Unmarshal(data, &varNotificationEmailSettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = NotificationEmailSettingsOptions(varNotificationEmailSettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "emailFrom")
 		delete(additionalProperties, "senderName")
 		delete(additionalProperties, "smtpHost")

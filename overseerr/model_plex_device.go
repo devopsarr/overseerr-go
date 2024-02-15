@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the PlexDevice type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PlexDevice{}
+
 // PlexDevice struct for PlexDevice
 type PlexDevice struct {
 	Name string `json:"name"`
@@ -26,7 +29,7 @@ type PlexDevice struct {
 	ClientIdentifier string `json:"clientIdentifier"`
 	CreatedAt string `json:"createdAt"`
 	LastSeenAt string `json:"lastSeenAt"`
-	Provides []*string `json:"provides"`
+	Provides []string `json:"provides"`
 	Owned bool `json:"owned"`
 	OwnerID *string `json:"ownerID,omitempty"`
 	Home *bool `json:"home,omitempty"`
@@ -40,7 +43,7 @@ type PlexDevice struct {
 	NatLoopbackSupported *bool `json:"natLoopbackSupported,omitempty"`
 	PublicAddressMatches *bool `json:"publicAddressMatches,omitempty"`
 	Presence *bool `json:"presence,omitempty"`
-	Connection []*PlexConnection `json:"connection"`
+	Connection []PlexConnection `json:"connection"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -50,7 +53,7 @@ type _PlexDevice PlexDevice
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlexDevice(name string, product string, productVersion string, platform string, device string, clientIdentifier string, createdAt string, lastSeenAt string, provides []*string, owned bool, connection []*PlexConnection) *PlexDevice {
+func NewPlexDevice(name string, product string, productVersion string, platform string, device string, clientIdentifier string, createdAt string, lastSeenAt string, provides []string, owned bool, connection []PlexConnection) *PlexDevice {
 	this := PlexDevice{}
 	this.Name = name
 	this.Product = product
@@ -88,7 +91,7 @@ func (o *PlexDevice) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -112,7 +115,7 @@ func (o *PlexDevice) GetProduct() string {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetProductOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Product, true
 }
@@ -136,7 +139,7 @@ func (o *PlexDevice) GetProductVersion() string {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetProductVersionOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ProductVersion, true
 }
@@ -160,7 +163,7 @@ func (o *PlexDevice) GetPlatform() string {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetPlatformOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Platform, true
 }
@@ -172,7 +175,7 @@ func (o *PlexDevice) SetPlatform(v string) {
 
 // GetPlatformVersion returns the PlatformVersion field value if set, zero value otherwise.
 func (o *PlexDevice) GetPlatformVersion() string {
-	if o == nil || isNil(o.PlatformVersion) {
+	if o == nil || IsNil(o.PlatformVersion) {
 		var ret string
 		return ret
 	}
@@ -182,15 +185,15 @@ func (o *PlexDevice) GetPlatformVersion() string {
 // GetPlatformVersionOk returns a tuple with the PlatformVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetPlatformVersionOk() (*string, bool) {
-	if o == nil || isNil(o.PlatformVersion) {
-    return nil, false
+	if o == nil || IsNil(o.PlatformVersion) {
+		return nil, false
 	}
 	return o.PlatformVersion, true
 }
 
 // HasPlatformVersion returns a boolean if a field has been set.
 func (o *PlexDevice) HasPlatformVersion() bool {
-	if o != nil && !isNil(o.PlatformVersion) {
+	if o != nil && !IsNil(o.PlatformVersion) {
 		return true
 	}
 
@@ -216,7 +219,7 @@ func (o *PlexDevice) GetDevice() string {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetDeviceOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Device, true
 }
@@ -240,7 +243,7 @@ func (o *PlexDevice) GetClientIdentifier() string {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetClientIdentifierOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ClientIdentifier, true
 }
@@ -264,7 +267,7 @@ func (o *PlexDevice) GetCreatedAt() string {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetCreatedAtOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.CreatedAt, true
 }
@@ -288,7 +291,7 @@ func (o *PlexDevice) GetLastSeenAt() string {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetLastSeenAtOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.LastSeenAt, true
 }
@@ -299,9 +302,9 @@ func (o *PlexDevice) SetLastSeenAt(v string) {
 }
 
 // GetProvides returns the Provides field value
-func (o *PlexDevice) GetProvides() []*string {
+func (o *PlexDevice) GetProvides() []string {
 	if o == nil {
-		var ret []*string
+		var ret []string
 		return ret
 	}
 
@@ -310,15 +313,15 @@ func (o *PlexDevice) GetProvides() []*string {
 
 // GetProvidesOk returns a tuple with the Provides field value
 // and a boolean to check if the value has been set.
-func (o *PlexDevice) GetProvidesOk() ([]*string, bool) {
+func (o *PlexDevice) GetProvidesOk() ([]string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Provides, true
 }
 
 // SetProvides sets field value
-func (o *PlexDevice) SetProvides(v []*string) {
+func (o *PlexDevice) SetProvides(v []string) {
 	o.Provides = v
 }
 
@@ -336,7 +339,7 @@ func (o *PlexDevice) GetOwned() bool {
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetOwnedOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Owned, true
 }
@@ -348,7 +351,7 @@ func (o *PlexDevice) SetOwned(v bool) {
 
 // GetOwnerID returns the OwnerID field value if set, zero value otherwise.
 func (o *PlexDevice) GetOwnerID() string {
-	if o == nil || isNil(o.OwnerID) {
+	if o == nil || IsNil(o.OwnerID) {
 		var ret string
 		return ret
 	}
@@ -358,15 +361,15 @@ func (o *PlexDevice) GetOwnerID() string {
 // GetOwnerIDOk returns a tuple with the OwnerID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetOwnerIDOk() (*string, bool) {
-	if o == nil || isNil(o.OwnerID) {
-    return nil, false
+	if o == nil || IsNil(o.OwnerID) {
+		return nil, false
 	}
 	return o.OwnerID, true
 }
 
 // HasOwnerID returns a boolean if a field has been set.
 func (o *PlexDevice) HasOwnerID() bool {
-	if o != nil && !isNil(o.OwnerID) {
+	if o != nil && !IsNil(o.OwnerID) {
 		return true
 	}
 
@@ -380,7 +383,7 @@ func (o *PlexDevice) SetOwnerID(v string) {
 
 // GetHome returns the Home field value if set, zero value otherwise.
 func (o *PlexDevice) GetHome() bool {
-	if o == nil || isNil(o.Home) {
+	if o == nil || IsNil(o.Home) {
 		var ret bool
 		return ret
 	}
@@ -390,15 +393,15 @@ func (o *PlexDevice) GetHome() bool {
 // GetHomeOk returns a tuple with the Home field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetHomeOk() (*bool, bool) {
-	if o == nil || isNil(o.Home) {
-    return nil, false
+	if o == nil || IsNil(o.Home) {
+		return nil, false
 	}
 	return o.Home, true
 }
 
 // HasHome returns a boolean if a field has been set.
 func (o *PlexDevice) HasHome() bool {
-	if o != nil && !isNil(o.Home) {
+	if o != nil && !IsNil(o.Home) {
 		return true
 	}
 
@@ -412,7 +415,7 @@ func (o *PlexDevice) SetHome(v bool) {
 
 // GetSourceTitle returns the SourceTitle field value if set, zero value otherwise.
 func (o *PlexDevice) GetSourceTitle() string {
-	if o == nil || isNil(o.SourceTitle) {
+	if o == nil || IsNil(o.SourceTitle) {
 		var ret string
 		return ret
 	}
@@ -422,15 +425,15 @@ func (o *PlexDevice) GetSourceTitle() string {
 // GetSourceTitleOk returns a tuple with the SourceTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetSourceTitleOk() (*string, bool) {
-	if o == nil || isNil(o.SourceTitle) {
-    return nil, false
+	if o == nil || IsNil(o.SourceTitle) {
+		return nil, false
 	}
 	return o.SourceTitle, true
 }
 
 // HasSourceTitle returns a boolean if a field has been set.
 func (o *PlexDevice) HasSourceTitle() bool {
-	if o != nil && !isNil(o.SourceTitle) {
+	if o != nil && !IsNil(o.SourceTitle) {
 		return true
 	}
 
@@ -444,7 +447,7 @@ func (o *PlexDevice) SetSourceTitle(v string) {
 
 // GetAccessToken returns the AccessToken field value if set, zero value otherwise.
 func (o *PlexDevice) GetAccessToken() string {
-	if o == nil || isNil(o.AccessToken) {
+	if o == nil || IsNil(o.AccessToken) {
 		var ret string
 		return ret
 	}
@@ -454,15 +457,15 @@ func (o *PlexDevice) GetAccessToken() string {
 // GetAccessTokenOk returns a tuple with the AccessToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetAccessTokenOk() (*string, bool) {
-	if o == nil || isNil(o.AccessToken) {
-    return nil, false
+	if o == nil || IsNil(o.AccessToken) {
+		return nil, false
 	}
 	return o.AccessToken, true
 }
 
 // HasAccessToken returns a boolean if a field has been set.
 func (o *PlexDevice) HasAccessToken() bool {
-	if o != nil && !isNil(o.AccessToken) {
+	if o != nil && !IsNil(o.AccessToken) {
 		return true
 	}
 
@@ -476,7 +479,7 @@ func (o *PlexDevice) SetAccessToken(v string) {
 
 // GetPublicAddress returns the PublicAddress field value if set, zero value otherwise.
 func (o *PlexDevice) GetPublicAddress() string {
-	if o == nil || isNil(o.PublicAddress) {
+	if o == nil || IsNil(o.PublicAddress) {
 		var ret string
 		return ret
 	}
@@ -486,15 +489,15 @@ func (o *PlexDevice) GetPublicAddress() string {
 // GetPublicAddressOk returns a tuple with the PublicAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetPublicAddressOk() (*string, bool) {
-	if o == nil || isNil(o.PublicAddress) {
-    return nil, false
+	if o == nil || IsNil(o.PublicAddress) {
+		return nil, false
 	}
 	return o.PublicAddress, true
 }
 
 // HasPublicAddress returns a boolean if a field has been set.
 func (o *PlexDevice) HasPublicAddress() bool {
-	if o != nil && !isNil(o.PublicAddress) {
+	if o != nil && !IsNil(o.PublicAddress) {
 		return true
 	}
 
@@ -508,7 +511,7 @@ func (o *PlexDevice) SetPublicAddress(v string) {
 
 // GetHttpsRequired returns the HttpsRequired field value if set, zero value otherwise.
 func (o *PlexDevice) GetHttpsRequired() bool {
-	if o == nil || isNil(o.HttpsRequired) {
+	if o == nil || IsNil(o.HttpsRequired) {
 		var ret bool
 		return ret
 	}
@@ -518,15 +521,15 @@ func (o *PlexDevice) GetHttpsRequired() bool {
 // GetHttpsRequiredOk returns a tuple with the HttpsRequired field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetHttpsRequiredOk() (*bool, bool) {
-	if o == nil || isNil(o.HttpsRequired) {
-    return nil, false
+	if o == nil || IsNil(o.HttpsRequired) {
+		return nil, false
 	}
 	return o.HttpsRequired, true
 }
 
 // HasHttpsRequired returns a boolean if a field has been set.
 func (o *PlexDevice) HasHttpsRequired() bool {
-	if o != nil && !isNil(o.HttpsRequired) {
+	if o != nil && !IsNil(o.HttpsRequired) {
 		return true
 	}
 
@@ -540,7 +543,7 @@ func (o *PlexDevice) SetHttpsRequired(v bool) {
 
 // GetSynced returns the Synced field value if set, zero value otherwise.
 func (o *PlexDevice) GetSynced() bool {
-	if o == nil || isNil(o.Synced) {
+	if o == nil || IsNil(o.Synced) {
 		var ret bool
 		return ret
 	}
@@ -550,15 +553,15 @@ func (o *PlexDevice) GetSynced() bool {
 // GetSyncedOk returns a tuple with the Synced field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetSyncedOk() (*bool, bool) {
-	if o == nil || isNil(o.Synced) {
-    return nil, false
+	if o == nil || IsNil(o.Synced) {
+		return nil, false
 	}
 	return o.Synced, true
 }
 
 // HasSynced returns a boolean if a field has been set.
 func (o *PlexDevice) HasSynced() bool {
-	if o != nil && !isNil(o.Synced) {
+	if o != nil && !IsNil(o.Synced) {
 		return true
 	}
 
@@ -572,7 +575,7 @@ func (o *PlexDevice) SetSynced(v bool) {
 
 // GetRelay returns the Relay field value if set, zero value otherwise.
 func (o *PlexDevice) GetRelay() bool {
-	if o == nil || isNil(o.Relay) {
+	if o == nil || IsNil(o.Relay) {
 		var ret bool
 		return ret
 	}
@@ -582,15 +585,15 @@ func (o *PlexDevice) GetRelay() bool {
 // GetRelayOk returns a tuple with the Relay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetRelayOk() (*bool, bool) {
-	if o == nil || isNil(o.Relay) {
-    return nil, false
+	if o == nil || IsNil(o.Relay) {
+		return nil, false
 	}
 	return o.Relay, true
 }
 
 // HasRelay returns a boolean if a field has been set.
 func (o *PlexDevice) HasRelay() bool {
-	if o != nil && !isNil(o.Relay) {
+	if o != nil && !IsNil(o.Relay) {
 		return true
 	}
 
@@ -604,7 +607,7 @@ func (o *PlexDevice) SetRelay(v bool) {
 
 // GetDnsRebindingProtection returns the DnsRebindingProtection field value if set, zero value otherwise.
 func (o *PlexDevice) GetDnsRebindingProtection() bool {
-	if o == nil || isNil(o.DnsRebindingProtection) {
+	if o == nil || IsNil(o.DnsRebindingProtection) {
 		var ret bool
 		return ret
 	}
@@ -614,15 +617,15 @@ func (o *PlexDevice) GetDnsRebindingProtection() bool {
 // GetDnsRebindingProtectionOk returns a tuple with the DnsRebindingProtection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetDnsRebindingProtectionOk() (*bool, bool) {
-	if o == nil || isNil(o.DnsRebindingProtection) {
-    return nil, false
+	if o == nil || IsNil(o.DnsRebindingProtection) {
+		return nil, false
 	}
 	return o.DnsRebindingProtection, true
 }
 
 // HasDnsRebindingProtection returns a boolean if a field has been set.
 func (o *PlexDevice) HasDnsRebindingProtection() bool {
-	if o != nil && !isNil(o.DnsRebindingProtection) {
+	if o != nil && !IsNil(o.DnsRebindingProtection) {
 		return true
 	}
 
@@ -636,7 +639,7 @@ func (o *PlexDevice) SetDnsRebindingProtection(v bool) {
 
 // GetNatLoopbackSupported returns the NatLoopbackSupported field value if set, zero value otherwise.
 func (o *PlexDevice) GetNatLoopbackSupported() bool {
-	if o == nil || isNil(o.NatLoopbackSupported) {
+	if o == nil || IsNil(o.NatLoopbackSupported) {
 		var ret bool
 		return ret
 	}
@@ -646,15 +649,15 @@ func (o *PlexDevice) GetNatLoopbackSupported() bool {
 // GetNatLoopbackSupportedOk returns a tuple with the NatLoopbackSupported field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetNatLoopbackSupportedOk() (*bool, bool) {
-	if o == nil || isNil(o.NatLoopbackSupported) {
-    return nil, false
+	if o == nil || IsNil(o.NatLoopbackSupported) {
+		return nil, false
 	}
 	return o.NatLoopbackSupported, true
 }
 
 // HasNatLoopbackSupported returns a boolean if a field has been set.
 func (o *PlexDevice) HasNatLoopbackSupported() bool {
-	if o != nil && !isNil(o.NatLoopbackSupported) {
+	if o != nil && !IsNil(o.NatLoopbackSupported) {
 		return true
 	}
 
@@ -668,7 +671,7 @@ func (o *PlexDevice) SetNatLoopbackSupported(v bool) {
 
 // GetPublicAddressMatches returns the PublicAddressMatches field value if set, zero value otherwise.
 func (o *PlexDevice) GetPublicAddressMatches() bool {
-	if o == nil || isNil(o.PublicAddressMatches) {
+	if o == nil || IsNil(o.PublicAddressMatches) {
 		var ret bool
 		return ret
 	}
@@ -678,15 +681,15 @@ func (o *PlexDevice) GetPublicAddressMatches() bool {
 // GetPublicAddressMatchesOk returns a tuple with the PublicAddressMatches field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetPublicAddressMatchesOk() (*bool, bool) {
-	if o == nil || isNil(o.PublicAddressMatches) {
-    return nil, false
+	if o == nil || IsNil(o.PublicAddressMatches) {
+		return nil, false
 	}
 	return o.PublicAddressMatches, true
 }
 
 // HasPublicAddressMatches returns a boolean if a field has been set.
 func (o *PlexDevice) HasPublicAddressMatches() bool {
-	if o != nil && !isNil(o.PublicAddressMatches) {
+	if o != nil && !IsNil(o.PublicAddressMatches) {
 		return true
 	}
 
@@ -700,7 +703,7 @@ func (o *PlexDevice) SetPublicAddressMatches(v bool) {
 
 // GetPresence returns the Presence field value if set, zero value otherwise.
 func (o *PlexDevice) GetPresence() bool {
-	if o == nil || isNil(o.Presence) {
+	if o == nil || IsNil(o.Presence) {
 		var ret bool
 		return ret
 	}
@@ -710,15 +713,15 @@ func (o *PlexDevice) GetPresence() bool {
 // GetPresenceOk returns a tuple with the Presence field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexDevice) GetPresenceOk() (*bool, bool) {
-	if o == nil || isNil(o.Presence) {
-    return nil, false
+	if o == nil || IsNil(o.Presence) {
+		return nil, false
 	}
 	return o.Presence, true
 }
 
 // HasPresence returns a boolean if a field has been set.
 func (o *PlexDevice) HasPresence() bool {
-	if o != nil && !isNil(o.Presence) {
+	if o != nil && !IsNil(o.Presence) {
 		return true
 	}
 
@@ -731,9 +734,9 @@ func (o *PlexDevice) SetPresence(v bool) {
 }
 
 // GetConnection returns the Connection field value
-func (o *PlexDevice) GetConnection() []*PlexConnection {
+func (o *PlexDevice) GetConnection() []PlexConnection {
 	if o == nil {
-		var ret []*PlexConnection
+		var ret []PlexConnection
 		return ret
 	}
 
@@ -742,110 +745,131 @@ func (o *PlexDevice) GetConnection() []*PlexConnection {
 
 // GetConnectionOk returns a tuple with the Connection field value
 // and a boolean to check if the value has been set.
-func (o *PlexDevice) GetConnectionOk() ([]*PlexConnection, bool) {
+func (o *PlexDevice) GetConnectionOk() ([]PlexConnection, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Connection, true
 }
 
 // SetConnection sets field value
-func (o *PlexDevice) SetConnection(v []*PlexConnection) {
+func (o *PlexDevice) SetConnection(v []PlexConnection) {
 	o.Connection = v
 }
 
 func (o PlexDevice) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PlexDevice) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["product"] = o.Product
-	}
-	if true {
-		toSerialize["productVersion"] = o.ProductVersion
-	}
-	if true {
-		toSerialize["platform"] = o.Platform
-	}
-	if !isNil(o.PlatformVersion) {
+	toSerialize["name"] = o.Name
+	toSerialize["product"] = o.Product
+	toSerialize["productVersion"] = o.ProductVersion
+	toSerialize["platform"] = o.Platform
+	if !IsNil(o.PlatformVersion) {
 		toSerialize["platformVersion"] = o.PlatformVersion
 	}
-	if true {
-		toSerialize["device"] = o.Device
-	}
-	if true {
-		toSerialize["clientIdentifier"] = o.ClientIdentifier
-	}
-	if true {
-		toSerialize["createdAt"] = o.CreatedAt
-	}
-	if true {
-		toSerialize["lastSeenAt"] = o.LastSeenAt
-	}
-	if true {
-		toSerialize["provides"] = o.Provides
-	}
-	if true {
-		toSerialize["owned"] = o.Owned
-	}
-	if !isNil(o.OwnerID) {
+	toSerialize["device"] = o.Device
+	toSerialize["clientIdentifier"] = o.ClientIdentifier
+	toSerialize["createdAt"] = o.CreatedAt
+	toSerialize["lastSeenAt"] = o.LastSeenAt
+	toSerialize["provides"] = o.Provides
+	toSerialize["owned"] = o.Owned
+	if !IsNil(o.OwnerID) {
 		toSerialize["ownerID"] = o.OwnerID
 	}
-	if !isNil(o.Home) {
+	if !IsNil(o.Home) {
 		toSerialize["home"] = o.Home
 	}
-	if !isNil(o.SourceTitle) {
+	if !IsNil(o.SourceTitle) {
 		toSerialize["sourceTitle"] = o.SourceTitle
 	}
-	if !isNil(o.AccessToken) {
+	if !IsNil(o.AccessToken) {
 		toSerialize["accessToken"] = o.AccessToken
 	}
-	if !isNil(o.PublicAddress) {
+	if !IsNil(o.PublicAddress) {
 		toSerialize["publicAddress"] = o.PublicAddress
 	}
-	if !isNil(o.HttpsRequired) {
+	if !IsNil(o.HttpsRequired) {
 		toSerialize["httpsRequired"] = o.HttpsRequired
 	}
-	if !isNil(o.Synced) {
+	if !IsNil(o.Synced) {
 		toSerialize["synced"] = o.Synced
 	}
-	if !isNil(o.Relay) {
+	if !IsNil(o.Relay) {
 		toSerialize["relay"] = o.Relay
 	}
-	if !isNil(o.DnsRebindingProtection) {
+	if !IsNil(o.DnsRebindingProtection) {
 		toSerialize["dnsRebindingProtection"] = o.DnsRebindingProtection
 	}
-	if !isNil(o.NatLoopbackSupported) {
+	if !IsNil(o.NatLoopbackSupported) {
 		toSerialize["natLoopbackSupported"] = o.NatLoopbackSupported
 	}
-	if !isNil(o.PublicAddressMatches) {
+	if !IsNil(o.PublicAddressMatches) {
 		toSerialize["publicAddressMatches"] = o.PublicAddressMatches
 	}
-	if !isNil(o.Presence) {
+	if !IsNil(o.Presence) {
 		toSerialize["presence"] = o.Presence
 	}
-	if true {
-		toSerialize["connection"] = o.Connection
-	}
+	toSerialize["connection"] = o.Connection
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PlexDevice) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PlexDevice) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"name",
+		"product",
+		"productVersion",
+		"platform",
+		"device",
+		"clientIdentifier",
+		"createdAt",
+		"lastSeenAt",
+		"provides",
+		"owned",
+		"connection",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varPlexDevice := _PlexDevice{}
 
-	if err = json.Unmarshal(bytes, &varPlexDevice); err == nil {
-		*o = PlexDevice(varPlexDevice)
+	err = json.Unmarshal(data, &varPlexDevice)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PlexDevice(varPlexDevice)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "product")
 		delete(additionalProperties, "productVersion")

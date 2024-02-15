@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UserSettingsNotifications type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserSettingsNotifications{}
+
 // UserSettingsNotifications struct for UserSettingsNotifications
 type UserSettingsNotifications struct {
 	NotificationTypes *NotificationAgentTypes `json:"notificationTypes,omitempty"`
@@ -53,7 +56,7 @@ func NewUserSettingsNotificationsWithDefaults() *UserSettingsNotifications {
 
 // GetNotificationTypes returns the NotificationTypes field value if set, zero value otherwise.
 func (o *UserSettingsNotifications) GetNotificationTypes() NotificationAgentTypes {
-	if o == nil || isNil(o.NotificationTypes) {
+	if o == nil || IsNil(o.NotificationTypes) {
 		var ret NotificationAgentTypes
 		return ret
 	}
@@ -63,15 +66,15 @@ func (o *UserSettingsNotifications) GetNotificationTypes() NotificationAgentType
 // GetNotificationTypesOk returns a tuple with the NotificationTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSettingsNotifications) GetNotificationTypesOk() (*NotificationAgentTypes, bool) {
-	if o == nil || isNil(o.NotificationTypes) {
-    return nil, false
+	if o == nil || IsNil(o.NotificationTypes) {
+		return nil, false
 	}
 	return o.NotificationTypes, true
 }
 
 // HasNotificationTypes returns a boolean if a field has been set.
 func (o *UserSettingsNotifications) HasNotificationTypes() bool {
-	if o != nil && !isNil(o.NotificationTypes) {
+	if o != nil && !IsNil(o.NotificationTypes) {
 		return true
 	}
 
@@ -85,7 +88,7 @@ func (o *UserSettingsNotifications) SetNotificationTypes(v NotificationAgentType
 
 // GetEmailEnabled returns the EmailEnabled field value if set, zero value otherwise.
 func (o *UserSettingsNotifications) GetEmailEnabled() bool {
-	if o == nil || isNil(o.EmailEnabled) {
+	if o == nil || IsNil(o.EmailEnabled) {
 		var ret bool
 		return ret
 	}
@@ -95,15 +98,15 @@ func (o *UserSettingsNotifications) GetEmailEnabled() bool {
 // GetEmailEnabledOk returns a tuple with the EmailEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSettingsNotifications) GetEmailEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.EmailEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.EmailEnabled) {
+		return nil, false
 	}
 	return o.EmailEnabled, true
 }
 
 // HasEmailEnabled returns a boolean if a field has been set.
 func (o *UserSettingsNotifications) HasEmailEnabled() bool {
-	if o != nil && !isNil(o.EmailEnabled) {
+	if o != nil && !IsNil(o.EmailEnabled) {
 		return true
 	}
 
@@ -117,7 +120,7 @@ func (o *UserSettingsNotifications) SetEmailEnabled(v bool) {
 
 // GetPgpKey returns the PgpKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetPgpKey() string {
-	if o == nil || isNil(o.PgpKey.Get()) {
+	if o == nil || IsNil(o.PgpKey.Get()) {
 		var ret string
 		return ret
 	}
@@ -129,7 +132,7 @@ func (o *UserSettingsNotifications) GetPgpKey() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetPgpKeyOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.PgpKey.Get(), o.PgpKey.IsSet()
 }
@@ -159,7 +162,7 @@ func (o *UserSettingsNotifications) UnsetPgpKey() {
 
 // GetDiscordEnabled returns the DiscordEnabled field value if set, zero value otherwise.
 func (o *UserSettingsNotifications) GetDiscordEnabled() bool {
-	if o == nil || isNil(o.DiscordEnabled) {
+	if o == nil || IsNil(o.DiscordEnabled) {
 		var ret bool
 		return ret
 	}
@@ -169,15 +172,15 @@ func (o *UserSettingsNotifications) GetDiscordEnabled() bool {
 // GetDiscordEnabledOk returns a tuple with the DiscordEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSettingsNotifications) GetDiscordEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.DiscordEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.DiscordEnabled) {
+		return nil, false
 	}
 	return o.DiscordEnabled, true
 }
 
 // HasDiscordEnabled returns a boolean if a field has been set.
 func (o *UserSettingsNotifications) HasDiscordEnabled() bool {
-	if o != nil && !isNil(o.DiscordEnabled) {
+	if o != nil && !IsNil(o.DiscordEnabled) {
 		return true
 	}
 
@@ -191,7 +194,7 @@ func (o *UserSettingsNotifications) SetDiscordEnabled(v bool) {
 
 // GetDiscordEnabledTypes returns the DiscordEnabledTypes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetDiscordEnabledTypes() float32 {
-	if o == nil || isNil(o.DiscordEnabledTypes.Get()) {
+	if o == nil || IsNil(o.DiscordEnabledTypes.Get()) {
 		var ret float32
 		return ret
 	}
@@ -203,7 +206,7 @@ func (o *UserSettingsNotifications) GetDiscordEnabledTypes() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetDiscordEnabledTypesOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.DiscordEnabledTypes.Get(), o.DiscordEnabledTypes.IsSet()
 }
@@ -233,7 +236,7 @@ func (o *UserSettingsNotifications) UnsetDiscordEnabledTypes() {
 
 // GetDiscordId returns the DiscordId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetDiscordId() string {
-	if o == nil || isNil(o.DiscordId.Get()) {
+	if o == nil || IsNil(o.DiscordId.Get()) {
 		var ret string
 		return ret
 	}
@@ -245,7 +248,7 @@ func (o *UserSettingsNotifications) GetDiscordId() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetDiscordIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.DiscordId.Get(), o.DiscordId.IsSet()
 }
@@ -275,7 +278,7 @@ func (o *UserSettingsNotifications) UnsetDiscordId() {
 
 // GetPushbulletAccessToken returns the PushbulletAccessToken field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetPushbulletAccessToken() string {
-	if o == nil || isNil(o.PushbulletAccessToken.Get()) {
+	if o == nil || IsNil(o.PushbulletAccessToken.Get()) {
 		var ret string
 		return ret
 	}
@@ -287,7 +290,7 @@ func (o *UserSettingsNotifications) GetPushbulletAccessToken() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetPushbulletAccessTokenOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.PushbulletAccessToken.Get(), o.PushbulletAccessToken.IsSet()
 }
@@ -317,7 +320,7 @@ func (o *UserSettingsNotifications) UnsetPushbulletAccessToken() {
 
 // GetPushoverApplicationToken returns the PushoverApplicationToken field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetPushoverApplicationToken() string {
-	if o == nil || isNil(o.PushoverApplicationToken.Get()) {
+	if o == nil || IsNil(o.PushoverApplicationToken.Get()) {
 		var ret string
 		return ret
 	}
@@ -329,7 +332,7 @@ func (o *UserSettingsNotifications) GetPushoverApplicationToken() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetPushoverApplicationTokenOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.PushoverApplicationToken.Get(), o.PushoverApplicationToken.IsSet()
 }
@@ -359,7 +362,7 @@ func (o *UserSettingsNotifications) UnsetPushoverApplicationToken() {
 
 // GetPushoverUserKey returns the PushoverUserKey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetPushoverUserKey() string {
-	if o == nil || isNil(o.PushoverUserKey.Get()) {
+	if o == nil || IsNil(o.PushoverUserKey.Get()) {
 		var ret string
 		return ret
 	}
@@ -371,7 +374,7 @@ func (o *UserSettingsNotifications) GetPushoverUserKey() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetPushoverUserKeyOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.PushoverUserKey.Get(), o.PushoverUserKey.IsSet()
 }
@@ -401,7 +404,7 @@ func (o *UserSettingsNotifications) UnsetPushoverUserKey() {
 
 // GetTelegramEnabled returns the TelegramEnabled field value if set, zero value otherwise.
 func (o *UserSettingsNotifications) GetTelegramEnabled() bool {
-	if o == nil || isNil(o.TelegramEnabled) {
+	if o == nil || IsNil(o.TelegramEnabled) {
 		var ret bool
 		return ret
 	}
@@ -411,15 +414,15 @@ func (o *UserSettingsNotifications) GetTelegramEnabled() bool {
 // GetTelegramEnabledOk returns a tuple with the TelegramEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserSettingsNotifications) GetTelegramEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.TelegramEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.TelegramEnabled) {
+		return nil, false
 	}
 	return o.TelegramEnabled, true
 }
 
 // HasTelegramEnabled returns a boolean if a field has been set.
 func (o *UserSettingsNotifications) HasTelegramEnabled() bool {
-	if o != nil && !isNil(o.TelegramEnabled) {
+	if o != nil && !IsNil(o.TelegramEnabled) {
 		return true
 	}
 
@@ -433,7 +436,7 @@ func (o *UserSettingsNotifications) SetTelegramEnabled(v bool) {
 
 // GetTelegramBotUsername returns the TelegramBotUsername field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetTelegramBotUsername() string {
-	if o == nil || isNil(o.TelegramBotUsername.Get()) {
+	if o == nil || IsNil(o.TelegramBotUsername.Get()) {
 		var ret string
 		return ret
 	}
@@ -445,7 +448,7 @@ func (o *UserSettingsNotifications) GetTelegramBotUsername() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetTelegramBotUsernameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.TelegramBotUsername.Get(), o.TelegramBotUsername.IsSet()
 }
@@ -475,7 +478,7 @@ func (o *UserSettingsNotifications) UnsetTelegramBotUsername() {
 
 // GetTelegramChatId returns the TelegramChatId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetTelegramChatId() string {
-	if o == nil || isNil(o.TelegramChatId.Get()) {
+	if o == nil || IsNil(o.TelegramChatId.Get()) {
 		var ret string
 		return ret
 	}
@@ -487,7 +490,7 @@ func (o *UserSettingsNotifications) GetTelegramChatId() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetTelegramChatIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.TelegramChatId.Get(), o.TelegramChatId.IsSet()
 }
@@ -517,7 +520,7 @@ func (o *UserSettingsNotifications) UnsetTelegramChatId() {
 
 // GetTelegramSendSilently returns the TelegramSendSilently field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UserSettingsNotifications) GetTelegramSendSilently() bool {
-	if o == nil || isNil(o.TelegramSendSilently.Get()) {
+	if o == nil || IsNil(o.TelegramSendSilently.Get()) {
 		var ret bool
 		return ret
 	}
@@ -529,7 +532,7 @@ func (o *UserSettingsNotifications) GetTelegramSendSilently() bool {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserSettingsNotifications) GetTelegramSendSilentlyOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.TelegramSendSilently.Get(), o.TelegramSendSilently.IsSet()
 }
@@ -558,17 +561,25 @@ func (o *UserSettingsNotifications) UnsetTelegramSendSilently() {
 }
 
 func (o UserSettingsNotifications) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o UserSettingsNotifications) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.NotificationTypes) {
+	if !IsNil(o.NotificationTypes) {
 		toSerialize["notificationTypes"] = o.NotificationTypes
 	}
-	if !isNil(o.EmailEnabled) {
+	if !IsNil(o.EmailEnabled) {
 		toSerialize["emailEnabled"] = o.EmailEnabled
 	}
 	if o.PgpKey.IsSet() {
 		toSerialize["pgpKey"] = o.PgpKey.Get()
 	}
-	if !isNil(o.DiscordEnabled) {
+	if !IsNil(o.DiscordEnabled) {
 		toSerialize["discordEnabled"] = o.DiscordEnabled
 	}
 	if o.DiscordEnabledTypes.IsSet() {
@@ -586,7 +597,7 @@ func (o UserSettingsNotifications) MarshalJSON() ([]byte, error) {
 	if o.PushoverUserKey.IsSet() {
 		toSerialize["pushoverUserKey"] = o.PushoverUserKey.Get()
 	}
-	if !isNil(o.TelegramEnabled) {
+	if !IsNil(o.TelegramEnabled) {
 		toSerialize["telegramEnabled"] = o.TelegramEnabled
 	}
 	if o.TelegramBotUsername.IsSet() {
@@ -603,19 +614,23 @@ func (o UserSettingsNotifications) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *UserSettingsNotifications) UnmarshalJSON(bytes []byte) (err error) {
+func (o *UserSettingsNotifications) UnmarshalJSON(data []byte) (err error) {
 	varUserSettingsNotifications := _UserSettingsNotifications{}
 
-	if err = json.Unmarshal(bytes, &varUserSettingsNotifications); err == nil {
-		*o = UserSettingsNotifications(varUserSettingsNotifications)
+	err = json.Unmarshal(data, &varUserSettingsNotifications)
+
+	if err != nil {
+		return err
 	}
+
+	*o = UserSettingsNotifications(varUserSettingsNotifications)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "notificationTypes")
 		delete(additionalProperties, "emailEnabled")
 		delete(additionalProperties, "pgpKey")

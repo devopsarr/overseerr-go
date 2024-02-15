@@ -14,9 +14,12 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetUserWatchData2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUserWatchData2XXResponse{}
+
 // GetUserWatchData2XXResponse struct for GetUserWatchData2XXResponse
 type GetUserWatchData2XXResponse struct {
-	RecentlyWatched []*MediaInfo `json:"recentlyWatched,omitempty"`
+	RecentlyWatched []MediaInfo `json:"recentlyWatched,omitempty"`
 	PlayCount *float32 `json:"playCount,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -41,9 +44,9 @@ func NewGetUserWatchData2XXResponseWithDefaults() *GetUserWatchData2XXResponse {
 }
 
 // GetRecentlyWatched returns the RecentlyWatched field value if set, zero value otherwise.
-func (o *GetUserWatchData2XXResponse) GetRecentlyWatched() []*MediaInfo {
-	if o == nil || isNil(o.RecentlyWatched) {
-		var ret []*MediaInfo
+func (o *GetUserWatchData2XXResponse) GetRecentlyWatched() []MediaInfo {
+	if o == nil || IsNil(o.RecentlyWatched) {
+		var ret []MediaInfo
 		return ret
 	}
 	return o.RecentlyWatched
@@ -51,16 +54,16 @@ func (o *GetUserWatchData2XXResponse) GetRecentlyWatched() []*MediaInfo {
 
 // GetRecentlyWatchedOk returns a tuple with the RecentlyWatched field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetUserWatchData2XXResponse) GetRecentlyWatchedOk() ([]*MediaInfo, bool) {
-	if o == nil || isNil(o.RecentlyWatched) {
-    return nil, false
+func (o *GetUserWatchData2XXResponse) GetRecentlyWatchedOk() ([]MediaInfo, bool) {
+	if o == nil || IsNil(o.RecentlyWatched) {
+		return nil, false
 	}
 	return o.RecentlyWatched, true
 }
 
 // HasRecentlyWatched returns a boolean if a field has been set.
 func (o *GetUserWatchData2XXResponse) HasRecentlyWatched() bool {
-	if o != nil && !isNil(o.RecentlyWatched) {
+	if o != nil && !IsNil(o.RecentlyWatched) {
 		return true
 	}
 
@@ -68,13 +71,13 @@ func (o *GetUserWatchData2XXResponse) HasRecentlyWatched() bool {
 }
 
 // SetRecentlyWatched gets a reference to the given []MediaInfo and assigns it to the RecentlyWatched field.
-func (o *GetUserWatchData2XXResponse) SetRecentlyWatched(v []*MediaInfo) {
+func (o *GetUserWatchData2XXResponse) SetRecentlyWatched(v []MediaInfo) {
 	o.RecentlyWatched = v
 }
 
 // GetPlayCount returns the PlayCount field value if set, zero value otherwise.
 func (o *GetUserWatchData2XXResponse) GetPlayCount() float32 {
-	if o == nil || isNil(o.PlayCount) {
+	if o == nil || IsNil(o.PlayCount) {
 		var ret float32
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *GetUserWatchData2XXResponse) GetPlayCount() float32 {
 // GetPlayCountOk returns a tuple with the PlayCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserWatchData2XXResponse) GetPlayCountOk() (*float32, bool) {
-	if o == nil || isNil(o.PlayCount) {
-    return nil, false
+	if o == nil || IsNil(o.PlayCount) {
+		return nil, false
 	}
 	return o.PlayCount, true
 }
 
 // HasPlayCount returns a boolean if a field has been set.
 func (o *GetUserWatchData2XXResponse) HasPlayCount() bool {
-	if o != nil && !isNil(o.PlayCount) {
+	if o != nil && !IsNil(o.PlayCount) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *GetUserWatchData2XXResponse) SetPlayCount(v float32) {
 }
 
 func (o GetUserWatchData2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetUserWatchData2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.RecentlyWatched) {
+	if !IsNil(o.RecentlyWatched) {
 		toSerialize["recentlyWatched"] = o.RecentlyWatched
 	}
-	if !isNil(o.PlayCount) {
+	if !IsNil(o.PlayCount) {
 		toSerialize["playCount"] = o.PlayCount
 	}
 
@@ -117,19 +128,23 @@ func (o GetUserWatchData2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetUserWatchData2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetUserWatchData2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetUserWatchData2XXResponse := _GetUserWatchData2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetUserWatchData2XXResponse); err == nil {
-		*o = GetUserWatchData2XXResponse(varGetUserWatchData2XXResponse)
+	err = json.Unmarshal(data, &varGetUserWatchData2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetUserWatchData2XXResponse(varGetUserWatchData2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "recentlyWatched")
 		delete(additionalProperties, "playCount")
 		o.AdditionalProperties = additionalProperties

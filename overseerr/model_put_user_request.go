@@ -14,9 +14,12 @@ import (
 	"encoding/json"
 )
 
+// checks if the PutUserRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PutUserRequest{}
+
 // PutUserRequest struct for PutUserRequest
 type PutUserRequest struct {
-	Ids []*int32 `json:"ids,omitempty"`
+	Ids []int32 `json:"ids,omitempty"`
 	Permissions *int32 `json:"permissions,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -41,9 +44,9 @@ func NewPutUserRequestWithDefaults() *PutUserRequest {
 }
 
 // GetIds returns the Ids field value if set, zero value otherwise.
-func (o *PutUserRequest) GetIds() []*int32 {
-	if o == nil || isNil(o.Ids) {
-		var ret []*int32
+func (o *PutUserRequest) GetIds() []int32 {
+	if o == nil || IsNil(o.Ids) {
+		var ret []int32
 		return ret
 	}
 	return o.Ids
@@ -51,16 +54,16 @@ func (o *PutUserRequest) GetIds() []*int32 {
 
 // GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PutUserRequest) GetIdsOk() ([]*int32, bool) {
-	if o == nil || isNil(o.Ids) {
-    return nil, false
+func (o *PutUserRequest) GetIdsOk() ([]int32, bool) {
+	if o == nil || IsNil(o.Ids) {
+		return nil, false
 	}
 	return o.Ids, true
 }
 
 // HasIds returns a boolean if a field has been set.
 func (o *PutUserRequest) HasIds() bool {
-	if o != nil && !isNil(o.Ids) {
+	if o != nil && !IsNil(o.Ids) {
 		return true
 	}
 
@@ -68,13 +71,13 @@ func (o *PutUserRequest) HasIds() bool {
 }
 
 // SetIds gets a reference to the given []int32 and assigns it to the Ids field.
-func (o *PutUserRequest) SetIds(v []*int32) {
+func (o *PutUserRequest) SetIds(v []int32) {
 	o.Ids = v
 }
 
 // GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *PutUserRequest) GetPermissions() int32 {
-	if o == nil || isNil(o.Permissions) {
+	if o == nil || IsNil(o.Permissions) {
 		var ret int32
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *PutUserRequest) GetPermissions() int32 {
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PutUserRequest) GetPermissionsOk() (*int32, bool) {
-	if o == nil || isNil(o.Permissions) {
-    return nil, false
+	if o == nil || IsNil(o.Permissions) {
+		return nil, false
 	}
 	return o.Permissions, true
 }
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *PutUserRequest) HasPermissions() bool {
-	if o != nil && !isNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *PutUserRequest) SetPermissions(v int32) {
 }
 
 func (o PutUserRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PutUserRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Ids) {
+	if !IsNil(o.Ids) {
 		toSerialize["ids"] = o.Ids
 	}
-	if !isNil(o.Permissions) {
+	if !IsNil(o.Permissions) {
 		toSerialize["permissions"] = o.Permissions
 	}
 
@@ -117,19 +128,23 @@ func (o PutUserRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PutUserRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PutUserRequest) UnmarshalJSON(data []byte) (err error) {
 	varPutUserRequest := _PutUserRequest{}
 
-	if err = json.Unmarshal(bytes, &varPutUserRequest); err == nil {
-		*o = PutUserRequest(varPutUserRequest)
+	err = json.Unmarshal(data, &varPutUserRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PutUserRequest(varPutUserRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "ids")
 		delete(additionalProperties, "permissions")
 		o.AdditionalProperties = additionalProperties

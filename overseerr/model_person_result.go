@@ -14,13 +14,16 @@ import (
 	"encoding/json"
 )
 
+// checks if the PersonResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PersonResult{}
+
 // PersonResult struct for PersonResult
 type PersonResult struct {
 	Id *float32 `json:"id,omitempty"`
 	ProfilePath *string `json:"profilePath,omitempty"`
 	Adult *bool `json:"adult,omitempty"`
 	MediaType *string `json:"mediaType,omitempty"`
-	KnownFor []*PersonResultKnownForInner `json:"knownFor,omitempty"`
+	KnownFor []PersonResultKnownForInner `json:"knownFor,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -49,7 +52,7 @@ func NewPersonResultWithDefaults() *PersonResult {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *PersonResult) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -59,15 +62,15 @@ func (o *PersonResult) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonResult) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *PersonResult) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -81,7 +84,7 @@ func (o *PersonResult) SetId(v float32) {
 
 // GetProfilePath returns the ProfilePath field value if set, zero value otherwise.
 func (o *PersonResult) GetProfilePath() string {
-	if o == nil || isNil(o.ProfilePath) {
+	if o == nil || IsNil(o.ProfilePath) {
 		var ret string
 		return ret
 	}
@@ -91,15 +94,15 @@ func (o *PersonResult) GetProfilePath() string {
 // GetProfilePathOk returns a tuple with the ProfilePath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonResult) GetProfilePathOk() (*string, bool) {
-	if o == nil || isNil(o.ProfilePath) {
-    return nil, false
+	if o == nil || IsNil(o.ProfilePath) {
+		return nil, false
 	}
 	return o.ProfilePath, true
 }
 
 // HasProfilePath returns a boolean if a field has been set.
 func (o *PersonResult) HasProfilePath() bool {
-	if o != nil && !isNil(o.ProfilePath) {
+	if o != nil && !IsNil(o.ProfilePath) {
 		return true
 	}
 
@@ -113,7 +116,7 @@ func (o *PersonResult) SetProfilePath(v string) {
 
 // GetAdult returns the Adult field value if set, zero value otherwise.
 func (o *PersonResult) GetAdult() bool {
-	if o == nil || isNil(o.Adult) {
+	if o == nil || IsNil(o.Adult) {
 		var ret bool
 		return ret
 	}
@@ -123,15 +126,15 @@ func (o *PersonResult) GetAdult() bool {
 // GetAdultOk returns a tuple with the Adult field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonResult) GetAdultOk() (*bool, bool) {
-	if o == nil || isNil(o.Adult) {
-    return nil, false
+	if o == nil || IsNil(o.Adult) {
+		return nil, false
 	}
 	return o.Adult, true
 }
 
 // HasAdult returns a boolean if a field has been set.
 func (o *PersonResult) HasAdult() bool {
-	if o != nil && !isNil(o.Adult) {
+	if o != nil && !IsNil(o.Adult) {
 		return true
 	}
 
@@ -145,7 +148,7 @@ func (o *PersonResult) SetAdult(v bool) {
 
 // GetMediaType returns the MediaType field value if set, zero value otherwise.
 func (o *PersonResult) GetMediaType() string {
-	if o == nil || isNil(o.MediaType) {
+	if o == nil || IsNil(o.MediaType) {
 		var ret string
 		return ret
 	}
@@ -155,15 +158,15 @@ func (o *PersonResult) GetMediaType() string {
 // GetMediaTypeOk returns a tuple with the MediaType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonResult) GetMediaTypeOk() (*string, bool) {
-	if o == nil || isNil(o.MediaType) {
-    return nil, false
+	if o == nil || IsNil(o.MediaType) {
+		return nil, false
 	}
 	return o.MediaType, true
 }
 
 // HasMediaType returns a boolean if a field has been set.
 func (o *PersonResult) HasMediaType() bool {
-	if o != nil && !isNil(o.MediaType) {
+	if o != nil && !IsNil(o.MediaType) {
 		return true
 	}
 
@@ -176,9 +179,9 @@ func (o *PersonResult) SetMediaType(v string) {
 }
 
 // GetKnownFor returns the KnownFor field value if set, zero value otherwise.
-func (o *PersonResult) GetKnownFor() []*PersonResultKnownForInner {
-	if o == nil || isNil(o.KnownFor) {
-		var ret []*PersonResultKnownForInner
+func (o *PersonResult) GetKnownFor() []PersonResultKnownForInner {
+	if o == nil || IsNil(o.KnownFor) {
+		var ret []PersonResultKnownForInner
 		return ret
 	}
 	return o.KnownFor
@@ -186,16 +189,16 @@ func (o *PersonResult) GetKnownFor() []*PersonResultKnownForInner {
 
 // GetKnownForOk returns a tuple with the KnownFor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PersonResult) GetKnownForOk() ([]*PersonResultKnownForInner, bool) {
-	if o == nil || isNil(o.KnownFor) {
-    return nil, false
+func (o *PersonResult) GetKnownForOk() ([]PersonResultKnownForInner, bool) {
+	if o == nil || IsNil(o.KnownFor) {
+		return nil, false
 	}
 	return o.KnownFor, true
 }
 
 // HasKnownFor returns a boolean if a field has been set.
 func (o *PersonResult) HasKnownFor() bool {
-	if o != nil && !isNil(o.KnownFor) {
+	if o != nil && !IsNil(o.KnownFor) {
 		return true
 	}
 
@@ -203,25 +206,33 @@ func (o *PersonResult) HasKnownFor() bool {
 }
 
 // SetKnownFor gets a reference to the given []PersonResultKnownForInner and assigns it to the KnownFor field.
-func (o *PersonResult) SetKnownFor(v []*PersonResultKnownForInner) {
+func (o *PersonResult) SetKnownFor(v []PersonResultKnownForInner) {
 	o.KnownFor = v
 }
 
 func (o PersonResult) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PersonResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.ProfilePath) {
+	if !IsNil(o.ProfilePath) {
 		toSerialize["profilePath"] = o.ProfilePath
 	}
-	if !isNil(o.Adult) {
+	if !IsNil(o.Adult) {
 		toSerialize["adult"] = o.Adult
 	}
-	if !isNil(o.MediaType) {
+	if !IsNil(o.MediaType) {
 		toSerialize["mediaType"] = o.MediaType
 	}
-	if !isNil(o.KnownFor) {
+	if !IsNil(o.KnownFor) {
 		toSerialize["knownFor"] = o.KnownFor
 	}
 
@@ -229,19 +240,23 @@ func (o PersonResult) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PersonResult) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PersonResult) UnmarshalJSON(data []byte) (err error) {
 	varPersonResult := _PersonResult{}
 
-	if err = json.Unmarshal(bytes, &varPersonResult); err == nil {
-		*o = PersonResult(varPersonResult)
+	err = json.Unmarshal(data, &varPersonResult)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PersonResult(varPersonResult)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "profilePath")
 		delete(additionalProperties, "adult")

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetUserQuota2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUserQuota2XXResponse{}
+
 // GetUserQuota2XXResponse struct for GetUserQuota2XXResponse
 type GetUserQuota2XXResponse struct {
 	Movie *GetUserQuota2XXResponseMovie `json:"movie,omitempty"`
@@ -42,7 +45,7 @@ func NewGetUserQuota2XXResponseWithDefaults() *GetUserQuota2XXResponse {
 
 // GetMovie returns the Movie field value if set, zero value otherwise.
 func (o *GetUserQuota2XXResponse) GetMovie() GetUserQuota2XXResponseMovie {
-	if o == nil || isNil(o.Movie) {
+	if o == nil || IsNil(o.Movie) {
 		var ret GetUserQuota2XXResponseMovie
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GetUserQuota2XXResponse) GetMovie() GetUserQuota2XXResponseMovie {
 // GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserQuota2XXResponse) GetMovieOk() (*GetUserQuota2XXResponseMovie, bool) {
-	if o == nil || isNil(o.Movie) {
-    return nil, false
+	if o == nil || IsNil(o.Movie) {
+		return nil, false
 	}
 	return o.Movie, true
 }
 
 // HasMovie returns a boolean if a field has been set.
 func (o *GetUserQuota2XXResponse) HasMovie() bool {
-	if o != nil && !isNil(o.Movie) {
+	if o != nil && !IsNil(o.Movie) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *GetUserQuota2XXResponse) SetMovie(v GetUserQuota2XXResponseMovie) {
 
 // GetTv returns the Tv field value if set, zero value otherwise.
 func (o *GetUserQuota2XXResponse) GetTv() GetUserQuota2XXResponseMovie {
-	if o == nil || isNil(o.Tv) {
+	if o == nil || IsNil(o.Tv) {
 		var ret GetUserQuota2XXResponseMovie
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *GetUserQuota2XXResponse) GetTv() GetUserQuota2XXResponseMovie {
 // GetTvOk returns a tuple with the Tv field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserQuota2XXResponse) GetTvOk() (*GetUserQuota2XXResponseMovie, bool) {
-	if o == nil || isNil(o.Tv) {
-    return nil, false
+	if o == nil || IsNil(o.Tv) {
+		return nil, false
 	}
 	return o.Tv, true
 }
 
 // HasTv returns a boolean if a field has been set.
 func (o *GetUserQuota2XXResponse) HasTv() bool {
-	if o != nil && !isNil(o.Tv) {
+	if o != nil && !IsNil(o.Tv) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *GetUserQuota2XXResponse) SetTv(v GetUserQuota2XXResponseMovie) {
 }
 
 func (o GetUserQuota2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetUserQuota2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Movie) {
+	if !IsNil(o.Movie) {
 		toSerialize["movie"] = o.Movie
 	}
-	if !isNil(o.Tv) {
+	if !IsNil(o.Tv) {
 		toSerialize["tv"] = o.Tv
 	}
 
@@ -117,19 +128,23 @@ func (o GetUserQuota2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetUserQuota2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetUserQuota2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetUserQuota2XXResponse := _GetUserQuota2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetUserQuota2XXResponse); err == nil {
-		*o = GetUserQuota2XXResponse(varGetUserQuota2XXResponse)
+	err = json.Unmarshal(data, &varGetUserQuota2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetUserQuota2XXResponse(varGetUserQuota2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "movie")
 		delete(additionalProperties, "tv")
 		o.AdditionalProperties = additionalProperties

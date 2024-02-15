@@ -25,24 +25,24 @@ Sign in using a local account
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createAuthLocalRequest := *overseerrClient.NewCreateAuthLocalRequest("Email_example", "Password_example") // CreateAuthLocalRequest | 
+	createAuthLocalRequest := *overseerrClient.NewCreateAuthLocalRequest("Email_example", "Password_example") // CreateAuthLocalRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthAPI.CreateAuthLocal(context.Background()).CreateAuthLocalRequest(createAuthLocalRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthLocal``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAuthLocal`: User
-    fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthLocal`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthAPI.CreateAuthLocal(context.Background()).CreateAuthLocalRequest(createAuthLocalRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthLocal``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAuthLocal`: User
+	fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthLocal`: %v\n", resp)
 }
 ```
 
@@ -91,23 +91,23 @@ Sign out and clear session cookie
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthAPI.CreateAuthLogout(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthLogout``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAuthLogout`: CreateAuthLogout2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthLogout`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthAPI.CreateAuthLogout(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthLogout``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAuthLogout`: CreateAuthLogout2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthLogout`: %v\n", resp)
 }
 ```
 
@@ -152,24 +152,24 @@ Sign in using a Plex token
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createAuthPlexRequest := *overseerrClient.NewCreateAuthPlexRequest("AuthToken_example") // CreateAuthPlexRequest | 
+	createAuthPlexRequest := *overseerrClient.NewCreateAuthPlexRequest("AuthToken_example") // CreateAuthPlexRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthAPI.CreateAuthPlex(context.Background()).CreateAuthPlexRequest(createAuthPlexRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthPlex``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAuthPlex`: User
-    fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthPlex`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthAPI.CreateAuthPlex(context.Background()).CreateAuthPlexRequest(createAuthPlexRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.CreateAuthPlex``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAuthPlex`: User
+	fmt.Fprintf(os.Stdout, "Response from `AuthAPI.CreateAuthPlex`: %v\n", resp)
 }
 ```
 
@@ -218,23 +218,23 @@ Get logged-in user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AuthAPI.GetAuthMe(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.GetAuthMe``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAuthMe`: User
-    fmt.Fprintf(os.Stdout, "Response from `AuthAPI.GetAuthMe`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthAPI.GetAuthMe(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.GetAuthMe``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAuthMe`: User
+	fmt.Fprintf(os.Stdout, "Response from `AuthAPI.GetAuthMe`: %v\n", resp)
 }
 ```
 

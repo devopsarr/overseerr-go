@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the IssueComment type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &IssueComment{}
+
 // IssueComment struct for IssueComment
 type IssueComment struct {
 	Id *float32 `json:"id,omitempty"`
@@ -43,7 +46,7 @@ func NewIssueCommentWithDefaults() *IssueComment {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *IssueComment) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *IssueComment) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IssueComment) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *IssueComment) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *IssueComment) SetId(v float32) {
 
 // GetUser returns the User field value if set, zero value otherwise.
 func (o *IssueComment) GetUser() User {
-	if o == nil || isNil(o.User) {
+	if o == nil || IsNil(o.User) {
 		var ret User
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *IssueComment) GetUser() User {
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IssueComment) GetUserOk() (*User, bool) {
-	if o == nil || isNil(o.User) {
-    return nil, false
+	if o == nil || IsNil(o.User) {
+		return nil, false
 	}
 	return o.User, true
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *IssueComment) HasUser() bool {
-	if o != nil && !isNil(o.User) {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *IssueComment) SetUser(v User) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *IssueComment) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *IssueComment) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *IssueComment) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *IssueComment) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *IssueComment) SetMessage(v string) {
 }
 
 func (o IssueComment) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o IssueComment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.User) {
+	if !IsNil(o.User) {
 		toSerialize["user"] = o.User
 	}
-	if !isNil(o.Message) {
+	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
 
@@ -153,19 +164,23 @@ func (o IssueComment) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *IssueComment) UnmarshalJSON(bytes []byte) (err error) {
+func (o *IssueComment) UnmarshalJSON(data []byte) (err error) {
 	varIssueComment := _IssueComment{}
 
-	if err = json.Unmarshal(bytes, &varIssueComment); err == nil {
-		*o = IssueComment(varIssueComment)
+	err = json.Unmarshal(data, &varIssueComment)
+
+	if err != nil {
+		return err
 	}
+
+	*o = IssueComment(varIssueComment)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "user")
 		delete(additionalProperties, "message")

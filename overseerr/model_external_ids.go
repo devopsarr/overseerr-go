@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ExternalIds type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ExternalIds{}
+
 // ExternalIds struct for ExternalIds
 type ExternalIds struct {
 	FacebookId NullableString `json:"facebookId,omitempty"`
@@ -48,7 +51,7 @@ func NewExternalIdsWithDefaults() *ExternalIds {
 
 // GetFacebookId returns the FacebookId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalIds) GetFacebookId() string {
-	if o == nil || isNil(o.FacebookId.Get()) {
+	if o == nil || IsNil(o.FacebookId.Get()) {
 		var ret string
 		return ret
 	}
@@ -60,7 +63,7 @@ func (o *ExternalIds) GetFacebookId() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalIds) GetFacebookIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.FacebookId.Get(), o.FacebookId.IsSet()
 }
@@ -90,7 +93,7 @@ func (o *ExternalIds) UnsetFacebookId() {
 
 // GetFreebaseId returns the FreebaseId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalIds) GetFreebaseId() string {
-	if o == nil || isNil(o.FreebaseId.Get()) {
+	if o == nil || IsNil(o.FreebaseId.Get()) {
 		var ret string
 		return ret
 	}
@@ -102,7 +105,7 @@ func (o *ExternalIds) GetFreebaseId() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalIds) GetFreebaseIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.FreebaseId.Get(), o.FreebaseId.IsSet()
 }
@@ -132,7 +135,7 @@ func (o *ExternalIds) UnsetFreebaseId() {
 
 // GetFreebaseMid returns the FreebaseMid field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalIds) GetFreebaseMid() string {
-	if o == nil || isNil(o.FreebaseMid.Get()) {
+	if o == nil || IsNil(o.FreebaseMid.Get()) {
 		var ret string
 		return ret
 	}
@@ -144,7 +147,7 @@ func (o *ExternalIds) GetFreebaseMid() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalIds) GetFreebaseMidOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.FreebaseMid.Get(), o.FreebaseMid.IsSet()
 }
@@ -174,7 +177,7 @@ func (o *ExternalIds) UnsetFreebaseMid() {
 
 // GetImdbId returns the ImdbId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalIds) GetImdbId() string {
-	if o == nil || isNil(o.ImdbId.Get()) {
+	if o == nil || IsNil(o.ImdbId.Get()) {
 		var ret string
 		return ret
 	}
@@ -186,7 +189,7 @@ func (o *ExternalIds) GetImdbId() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalIds) GetImdbIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ImdbId.Get(), o.ImdbId.IsSet()
 }
@@ -216,7 +219,7 @@ func (o *ExternalIds) UnsetImdbId() {
 
 // GetInstagramId returns the InstagramId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalIds) GetInstagramId() string {
-	if o == nil || isNil(o.InstagramId.Get()) {
+	if o == nil || IsNil(o.InstagramId.Get()) {
 		var ret string
 		return ret
 	}
@@ -228,7 +231,7 @@ func (o *ExternalIds) GetInstagramId() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalIds) GetInstagramIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.InstagramId.Get(), o.InstagramId.IsSet()
 }
@@ -258,7 +261,7 @@ func (o *ExternalIds) UnsetInstagramId() {
 
 // GetTvdbId returns the TvdbId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalIds) GetTvdbId() float32 {
-	if o == nil || isNil(o.TvdbId.Get()) {
+	if o == nil || IsNil(o.TvdbId.Get()) {
 		var ret float32
 		return ret
 	}
@@ -270,7 +273,7 @@ func (o *ExternalIds) GetTvdbId() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalIds) GetTvdbIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.TvdbId.Get(), o.TvdbId.IsSet()
 }
@@ -300,7 +303,7 @@ func (o *ExternalIds) UnsetTvdbId() {
 
 // GetTvrageId returns the TvrageId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalIds) GetTvrageId() float32 {
-	if o == nil || isNil(o.TvrageId.Get()) {
+	if o == nil || IsNil(o.TvrageId.Get()) {
 		var ret float32
 		return ret
 	}
@@ -312,7 +315,7 @@ func (o *ExternalIds) GetTvrageId() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalIds) GetTvrageIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.TvrageId.Get(), o.TvrageId.IsSet()
 }
@@ -342,7 +345,7 @@ func (o *ExternalIds) UnsetTvrageId() {
 
 // GetTwitterId returns the TwitterId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ExternalIds) GetTwitterId() string {
-	if o == nil || isNil(o.TwitterId.Get()) {
+	if o == nil || IsNil(o.TwitterId.Get()) {
 		var ret string
 		return ret
 	}
@@ -354,7 +357,7 @@ func (o *ExternalIds) GetTwitterId() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalIds) GetTwitterIdOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.TwitterId.Get(), o.TwitterId.IsSet()
 }
@@ -383,6 +386,14 @@ func (o *ExternalIds) UnsetTwitterId() {
 }
 
 func (o ExternalIds) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ExternalIds) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.FacebookId.IsSet() {
 		toSerialize["facebookId"] = o.FacebookId.Get()
@@ -413,19 +424,23 @@ func (o ExternalIds) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *ExternalIds) UnmarshalJSON(bytes []byte) (err error) {
+func (o *ExternalIds) UnmarshalJSON(data []byte) (err error) {
 	varExternalIds := _ExternalIds{}
 
-	if err = json.Unmarshal(bytes, &varExternalIds); err == nil {
-		*o = ExternalIds(varExternalIds)
+	err = json.Unmarshal(data, &varExternalIds)
+
+	if err != nil {
+		return err
 	}
+
+	*o = ExternalIds(varExternalIds)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "facebookId")
 		delete(additionalProperties, "freebaseId")
 		delete(additionalProperties, "freebaseMid")

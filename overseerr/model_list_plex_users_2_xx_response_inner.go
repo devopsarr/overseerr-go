@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListPlexUsers2XXResponseInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListPlexUsers2XXResponseInner{}
+
 // ListPlexUsers2XXResponseInner struct for ListPlexUsers2XXResponseInner
 type ListPlexUsers2XXResponseInner struct {
 	Id *string `json:"id,omitempty"`
@@ -45,7 +48,7 @@ func NewListPlexUsers2XXResponseInnerWithDefaults() *ListPlexUsers2XXResponseInn
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ListPlexUsers2XXResponseInner) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *ListPlexUsers2XXResponseInner) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListPlexUsers2XXResponseInner) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *ListPlexUsers2XXResponseInner) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *ListPlexUsers2XXResponseInner) SetId(v string) {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *ListPlexUsers2XXResponseInner) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *ListPlexUsers2XXResponseInner) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListPlexUsers2XXResponseInner) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *ListPlexUsers2XXResponseInner) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *ListPlexUsers2XXResponseInner) SetTitle(v string) {
 
 // GetUsername returns the Username field value if set, zero value otherwise.
 func (o *ListPlexUsers2XXResponseInner) GetUsername() string {
-	if o == nil || isNil(o.Username) {
+	if o == nil || IsNil(o.Username) {
 		var ret string
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *ListPlexUsers2XXResponseInner) GetUsername() string {
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListPlexUsers2XXResponseInner) GetUsernameOk() (*string, bool) {
-	if o == nil || isNil(o.Username) {
-    return nil, false
+	if o == nil || IsNil(o.Username) {
+		return nil, false
 	}
 	return o.Username, true
 }
 
 // HasUsername returns a boolean if a field has been set.
 func (o *ListPlexUsers2XXResponseInner) HasUsername() bool {
-	if o != nil && !isNil(o.Username) {
+	if o != nil && !IsNil(o.Username) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *ListPlexUsers2XXResponseInner) SetUsername(v string) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *ListPlexUsers2XXResponseInner) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *ListPlexUsers2XXResponseInner) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListPlexUsers2XXResponseInner) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
-    return nil, false
+	if o == nil || IsNil(o.Email) {
+		return nil, false
 	}
 	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *ListPlexUsers2XXResponseInner) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -173,7 +176,7 @@ func (o *ListPlexUsers2XXResponseInner) SetEmail(v string) {
 
 // GetThumb returns the Thumb field value if set, zero value otherwise.
 func (o *ListPlexUsers2XXResponseInner) GetThumb() string {
-	if o == nil || isNil(o.Thumb) {
+	if o == nil || IsNil(o.Thumb) {
 		var ret string
 		return ret
 	}
@@ -183,15 +186,15 @@ func (o *ListPlexUsers2XXResponseInner) GetThumb() string {
 // GetThumbOk returns a tuple with the Thumb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListPlexUsers2XXResponseInner) GetThumbOk() (*string, bool) {
-	if o == nil || isNil(o.Thumb) {
-    return nil, false
+	if o == nil || IsNil(o.Thumb) {
+		return nil, false
 	}
 	return o.Thumb, true
 }
 
 // HasThumb returns a boolean if a field has been set.
 func (o *ListPlexUsers2XXResponseInner) HasThumb() bool {
-	if o != nil && !isNil(o.Thumb) {
+	if o != nil && !IsNil(o.Thumb) {
 		return true
 	}
 
@@ -204,20 +207,28 @@ func (o *ListPlexUsers2XXResponseInner) SetThumb(v string) {
 }
 
 func (o ListPlexUsers2XXResponseInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ListPlexUsers2XXResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Title) {
+	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if !isNil(o.Username) {
+	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
-	if !isNil(o.Email) {
+	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
-	if !isNil(o.Thumb) {
+	if !IsNil(o.Thumb) {
 		toSerialize["thumb"] = o.Thumb
 	}
 
@@ -225,19 +236,23 @@ func (o ListPlexUsers2XXResponseInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *ListPlexUsers2XXResponseInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *ListPlexUsers2XXResponseInner) UnmarshalJSON(data []byte) (err error) {
 	varListPlexUsers2XXResponseInner := _ListPlexUsers2XXResponseInner{}
 
-	if err = json.Unmarshal(bytes, &varListPlexUsers2XXResponseInner); err == nil {
-		*o = ListPlexUsers2XXResponseInner(varListPlexUsers2XXResponseInner)
+	err = json.Unmarshal(data, &varListPlexUsers2XXResponseInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = ListPlexUsers2XXResponseInner(varListPlexUsers2XXResponseInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "title")
 		delete(additionalProperties, "username")

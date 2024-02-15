@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the DiscoverSlider type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DiscoverSlider{}
+
 // DiscoverSlider struct for DiscoverSlider
 type DiscoverSlider struct {
 	Id *float32 `json:"id,omitempty"`
@@ -51,7 +54,7 @@ func NewDiscoverSliderWithDefaults() *DiscoverSlider {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *DiscoverSlider) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -61,15 +64,15 @@ func (o *DiscoverSlider) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoverSlider) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *DiscoverSlider) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -95,7 +98,7 @@ func (o *DiscoverSlider) GetType() float32 {
 // and a boolean to check if the value has been set.
 func (o *DiscoverSlider) GetTypeOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Type, true
 }
@@ -121,7 +124,7 @@ func (o *DiscoverSlider) GetTitle() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiscoverSlider) GetTitleOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Title.Get(), o.Title.IsSet()
 }
@@ -133,7 +136,7 @@ func (o *DiscoverSlider) SetTitle(v string) {
 
 // GetIsBuiltIn returns the IsBuiltIn field value if set, zero value otherwise.
 func (o *DiscoverSlider) GetIsBuiltIn() bool {
-	if o == nil || isNil(o.IsBuiltIn) {
+	if o == nil || IsNil(o.IsBuiltIn) {
 		var ret bool
 		return ret
 	}
@@ -143,15 +146,15 @@ func (o *DiscoverSlider) GetIsBuiltIn() bool {
 // GetIsBuiltInOk returns a tuple with the IsBuiltIn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscoverSlider) GetIsBuiltInOk() (*bool, bool) {
-	if o == nil || isNil(o.IsBuiltIn) {
-    return nil, false
+	if o == nil || IsNil(o.IsBuiltIn) {
+		return nil, false
 	}
 	return o.IsBuiltIn, true
 }
 
 // HasIsBuiltIn returns a boolean if a field has been set.
 func (o *DiscoverSlider) HasIsBuiltIn() bool {
-	if o != nil && !isNil(o.IsBuiltIn) {
+	if o != nil && !IsNil(o.IsBuiltIn) {
 		return true
 	}
 
@@ -177,7 +180,7 @@ func (o *DiscoverSlider) GetEnabled() bool {
 // and a boolean to check if the value has been set.
 func (o *DiscoverSlider) GetEnabledOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Enabled, true
 }
@@ -203,7 +206,7 @@ func (o *DiscoverSlider) GetData() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DiscoverSlider) GetDataOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Data.Get(), o.Data.IsSet()
 }
@@ -214,43 +217,71 @@ func (o *DiscoverSlider) SetData(v string) {
 }
 
 func (o DiscoverSlider) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o DiscoverSlider) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if true {
-		toSerialize["type"] = o.Type
-	}
-	if true {
-		toSerialize["title"] = o.Title.Get()
-	}
-	if !isNil(o.IsBuiltIn) {
+	toSerialize["type"] = o.Type
+	toSerialize["title"] = o.Title.Get()
+	if !IsNil(o.IsBuiltIn) {
 		toSerialize["isBuiltIn"] = o.IsBuiltIn
 	}
-	if true {
-		toSerialize["enabled"] = o.Enabled
-	}
-	if true {
-		toSerialize["data"] = o.Data.Get()
-	}
+	toSerialize["enabled"] = o.Enabled
+	toSerialize["data"] = o.Data.Get()
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *DiscoverSlider) UnmarshalJSON(bytes []byte) (err error) {
+func (o *DiscoverSlider) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"type",
+		"title",
+		"enabled",
+		"data",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varDiscoverSlider := _DiscoverSlider{}
 
-	if err = json.Unmarshal(bytes, &varDiscoverSlider); err == nil {
-		*o = DiscoverSlider(varDiscoverSlider)
+	err = json.Unmarshal(data, &varDiscoverSlider)
+
+	if err != nil {
+		return err
 	}
+
+	*o = DiscoverSlider(varDiscoverSlider)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "type")
 		delete(additionalProperties, "title")

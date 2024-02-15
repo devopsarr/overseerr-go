@@ -22,6 +22,7 @@ import (
 
 // MediaAPIService MediaAPI service
 type MediaAPIService service
+
 type ApiCreateMediaByStatusRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
@@ -74,8 +75,8 @@ func (a *MediaAPIService) CreateMediaByStatusExecute(r ApiCreateMediaByStatusReq
 	}
 
 	localVarPath := localBasePath + "/media/{mediaId}/{status}"
-	localVarPath = strings.Replace(localVarPath, "{"+"mediaId"+"}", url.PathEscape(parameterToString(r.mediaId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"status"+"}", url.PathEscape(parameterToString(r.status, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"mediaId"+"}", url.PathEscape(parameterValueToString(r.mediaId, "mediaId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"status"+"}", url.PathEscape(parameterValueToString(r.status, "status")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -150,6 +151,7 @@ func (a *MediaAPIService) CreateMediaByStatusExecute(r ApiCreateMediaByStatusReq
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiDeleteMediaRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
@@ -191,7 +193,7 @@ func (a *MediaAPIService) DeleteMediaExecute(r ApiDeleteMediaRequest) (*http.Res
 	}
 
 	localVarPath := localBasePath + "/media/{mediaId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"mediaId"+"}", url.PathEscape(parameterToString(r.mediaId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"mediaId"+"}", url.PathEscape(parameterValueToString(r.mediaId, "mediaId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -255,6 +257,7 @@ func (a *MediaAPIService) DeleteMediaExecute(r ApiDeleteMediaRequest) (*http.Res
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiGetMediaRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
@@ -325,16 +328,19 @@ func (a *MediaAPIService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia2XXRes
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		localVarQueryParams.Add("take", parameterToString(*r.take, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
 	}
 	if r.skip != nil {
-		localVarQueryParams.Add("skip", parameterToString(*r.skip, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
 	}
 	if r.filter != nil {
-		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "")
 	}
 	if r.sort != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "")
+	} else {
+		var defaultValue string = "added"
+		r.sort = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -403,6 +409,7 @@ func (a *MediaAPIService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia2XXRes
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetMediaWatchDataRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
@@ -449,7 +456,7 @@ func (a *MediaAPIService) GetMediaWatchDataExecute(r ApiGetMediaWatchDataRequest
 	}
 
 	localVarPath := localBasePath + "/media/{mediaId}/watch_data"
-	localVarPath = strings.Replace(localVarPath, "{"+"mediaId"+"}", url.PathEscape(parameterToString(r.mediaId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"mediaId"+"}", url.PathEscape(parameterValueToString(r.mediaId, "mediaId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
