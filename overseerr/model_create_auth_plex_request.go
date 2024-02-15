@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the CreateAuthPlexRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateAuthPlexRequest{}
+
 // CreateAuthPlexRequest struct for CreateAuthPlexRequest
 type CreateAuthPlexRequest struct {
 	AuthToken string `json:"authToken"`
@@ -55,7 +58,7 @@ func (o *CreateAuthPlexRequest) GetAuthToken() string {
 // and a boolean to check if the value has been set.
 func (o *CreateAuthPlexRequest) GetAuthTokenOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.AuthToken, true
 }
@@ -66,28 +69,59 @@ func (o *CreateAuthPlexRequest) SetAuthToken(v string) {
 }
 
 func (o CreateAuthPlexRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["authToken"] = o.AuthToken
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateAuthPlexRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["authToken"] = o.AuthToken
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateAuthPlexRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateAuthPlexRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"authToken",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varCreateAuthPlexRequest := _CreateAuthPlexRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateAuthPlexRequest); err == nil {
-		*o = CreateAuthPlexRequest(varCreateAuthPlexRequest)
+	err = json.Unmarshal(data, &varCreateAuthPlexRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateAuthPlexRequest(varCreateAuthPlexRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "authToken")
 		o.AdditionalProperties = additionalProperties
 	}

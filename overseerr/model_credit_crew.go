@@ -14,13 +14,16 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreditCrew type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreditCrew{}
+
 // CreditCrew struct for CreditCrew
 type CreditCrew struct {
 	Id *float32 `json:"id,omitempty"`
 	OriginalLanguage *string `json:"originalLanguage,omitempty"`
 	EpisodeCount *float32 `json:"episodeCount,omitempty"`
 	Overview *string `json:"overview,omitempty"`
-	OriginCountry []*string `json:"originCountry,omitempty"`
+	OriginCountry []string `json:"originCountry,omitempty"`
 	OriginalName *string `json:"originalName,omitempty"`
 	VoteCount *float32 `json:"voteCount,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -30,7 +33,7 @@ type CreditCrew struct {
 	BackdropPath *string `json:"backdropPath,omitempty"`
 	FirstAirDate *string `json:"firstAirDate,omitempty"`
 	VoteAverage *float32 `json:"voteAverage,omitempty"`
-	GenreIds []*float32 `json:"genreIds,omitempty"`
+	GenreIds []float32 `json:"genreIds,omitempty"`
 	PosterPath *string `json:"posterPath,omitempty"`
 	OriginalTitle *string `json:"originalTitle,omitempty"`
 	Video *bool `json:"video,omitempty"`
@@ -64,7 +67,7 @@ func NewCreditCrewWithDefaults() *CreditCrew {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *CreditCrew) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -74,15 +77,15 @@ func (o *CreditCrew) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *CreditCrew) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -96,7 +99,7 @@ func (o *CreditCrew) SetId(v float32) {
 
 // GetOriginalLanguage returns the OriginalLanguage field value if set, zero value otherwise.
 func (o *CreditCrew) GetOriginalLanguage() string {
-	if o == nil || isNil(o.OriginalLanguage) {
+	if o == nil || IsNil(o.OriginalLanguage) {
 		var ret string
 		return ret
 	}
@@ -106,15 +109,15 @@ func (o *CreditCrew) GetOriginalLanguage() string {
 // GetOriginalLanguageOk returns a tuple with the OriginalLanguage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetOriginalLanguageOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalLanguage) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalLanguage) {
+		return nil, false
 	}
 	return o.OriginalLanguage, true
 }
 
 // HasOriginalLanguage returns a boolean if a field has been set.
 func (o *CreditCrew) HasOriginalLanguage() bool {
-	if o != nil && !isNil(o.OriginalLanguage) {
+	if o != nil && !IsNil(o.OriginalLanguage) {
 		return true
 	}
 
@@ -128,7 +131,7 @@ func (o *CreditCrew) SetOriginalLanguage(v string) {
 
 // GetEpisodeCount returns the EpisodeCount field value if set, zero value otherwise.
 func (o *CreditCrew) GetEpisodeCount() float32 {
-	if o == nil || isNil(o.EpisodeCount) {
+	if o == nil || IsNil(o.EpisodeCount) {
 		var ret float32
 		return ret
 	}
@@ -138,15 +141,15 @@ func (o *CreditCrew) GetEpisodeCount() float32 {
 // GetEpisodeCountOk returns a tuple with the EpisodeCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetEpisodeCountOk() (*float32, bool) {
-	if o == nil || isNil(o.EpisodeCount) {
-    return nil, false
+	if o == nil || IsNil(o.EpisodeCount) {
+		return nil, false
 	}
 	return o.EpisodeCount, true
 }
 
 // HasEpisodeCount returns a boolean if a field has been set.
 func (o *CreditCrew) HasEpisodeCount() bool {
-	if o != nil && !isNil(o.EpisodeCount) {
+	if o != nil && !IsNil(o.EpisodeCount) {
 		return true
 	}
 
@@ -160,7 +163,7 @@ func (o *CreditCrew) SetEpisodeCount(v float32) {
 
 // GetOverview returns the Overview field value if set, zero value otherwise.
 func (o *CreditCrew) GetOverview() string {
-	if o == nil || isNil(o.Overview) {
+	if o == nil || IsNil(o.Overview) {
 		var ret string
 		return ret
 	}
@@ -170,15 +173,15 @@ func (o *CreditCrew) GetOverview() string {
 // GetOverviewOk returns a tuple with the Overview field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetOverviewOk() (*string, bool) {
-	if o == nil || isNil(o.Overview) {
-    return nil, false
+	if o == nil || IsNil(o.Overview) {
+		return nil, false
 	}
 	return o.Overview, true
 }
 
 // HasOverview returns a boolean if a field has been set.
 func (o *CreditCrew) HasOverview() bool {
-	if o != nil && !isNil(o.Overview) {
+	if o != nil && !IsNil(o.Overview) {
 		return true
 	}
 
@@ -191,9 +194,9 @@ func (o *CreditCrew) SetOverview(v string) {
 }
 
 // GetOriginCountry returns the OriginCountry field value if set, zero value otherwise.
-func (o *CreditCrew) GetOriginCountry() []*string {
-	if o == nil || isNil(o.OriginCountry) {
-		var ret []*string
+func (o *CreditCrew) GetOriginCountry() []string {
+	if o == nil || IsNil(o.OriginCountry) {
+		var ret []string
 		return ret
 	}
 	return o.OriginCountry
@@ -201,16 +204,16 @@ func (o *CreditCrew) GetOriginCountry() []*string {
 
 // GetOriginCountryOk returns a tuple with the OriginCountry field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreditCrew) GetOriginCountryOk() ([]*string, bool) {
-	if o == nil || isNil(o.OriginCountry) {
-    return nil, false
+func (o *CreditCrew) GetOriginCountryOk() ([]string, bool) {
+	if o == nil || IsNil(o.OriginCountry) {
+		return nil, false
 	}
 	return o.OriginCountry, true
 }
 
 // HasOriginCountry returns a boolean if a field has been set.
 func (o *CreditCrew) HasOriginCountry() bool {
-	if o != nil && !isNil(o.OriginCountry) {
+	if o != nil && !IsNil(o.OriginCountry) {
 		return true
 	}
 
@@ -218,13 +221,13 @@ func (o *CreditCrew) HasOriginCountry() bool {
 }
 
 // SetOriginCountry gets a reference to the given []string and assigns it to the OriginCountry field.
-func (o *CreditCrew) SetOriginCountry(v []*string) {
+func (o *CreditCrew) SetOriginCountry(v []string) {
 	o.OriginCountry = v
 }
 
 // GetOriginalName returns the OriginalName field value if set, zero value otherwise.
 func (o *CreditCrew) GetOriginalName() string {
-	if o == nil || isNil(o.OriginalName) {
+	if o == nil || IsNil(o.OriginalName) {
 		var ret string
 		return ret
 	}
@@ -234,15 +237,15 @@ func (o *CreditCrew) GetOriginalName() string {
 // GetOriginalNameOk returns a tuple with the OriginalName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetOriginalNameOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalName) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalName) {
+		return nil, false
 	}
 	return o.OriginalName, true
 }
 
 // HasOriginalName returns a boolean if a field has been set.
 func (o *CreditCrew) HasOriginalName() bool {
-	if o != nil && !isNil(o.OriginalName) {
+	if o != nil && !IsNil(o.OriginalName) {
 		return true
 	}
 
@@ -256,7 +259,7 @@ func (o *CreditCrew) SetOriginalName(v string) {
 
 // GetVoteCount returns the VoteCount field value if set, zero value otherwise.
 func (o *CreditCrew) GetVoteCount() float32 {
-	if o == nil || isNil(o.VoteCount) {
+	if o == nil || IsNil(o.VoteCount) {
 		var ret float32
 		return ret
 	}
@@ -266,15 +269,15 @@ func (o *CreditCrew) GetVoteCount() float32 {
 // GetVoteCountOk returns a tuple with the VoteCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetVoteCountOk() (*float32, bool) {
-	if o == nil || isNil(o.VoteCount) {
-    return nil, false
+	if o == nil || IsNil(o.VoteCount) {
+		return nil, false
 	}
 	return o.VoteCount, true
 }
 
 // HasVoteCount returns a boolean if a field has been set.
 func (o *CreditCrew) HasVoteCount() bool {
-	if o != nil && !isNil(o.VoteCount) {
+	if o != nil && !IsNil(o.VoteCount) {
 		return true
 	}
 
@@ -288,7 +291,7 @@ func (o *CreditCrew) SetVoteCount(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CreditCrew) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -298,15 +301,15 @@ func (o *CreditCrew) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CreditCrew) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -320,7 +323,7 @@ func (o *CreditCrew) SetName(v string) {
 
 // GetMediaType returns the MediaType field value if set, zero value otherwise.
 func (o *CreditCrew) GetMediaType() string {
-	if o == nil || isNil(o.MediaType) {
+	if o == nil || IsNil(o.MediaType) {
 		var ret string
 		return ret
 	}
@@ -330,15 +333,15 @@ func (o *CreditCrew) GetMediaType() string {
 // GetMediaTypeOk returns a tuple with the MediaType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetMediaTypeOk() (*string, bool) {
-	if o == nil || isNil(o.MediaType) {
-    return nil, false
+	if o == nil || IsNil(o.MediaType) {
+		return nil, false
 	}
 	return o.MediaType, true
 }
 
 // HasMediaType returns a boolean if a field has been set.
 func (o *CreditCrew) HasMediaType() bool {
-	if o != nil && !isNil(o.MediaType) {
+	if o != nil && !IsNil(o.MediaType) {
 		return true
 	}
 
@@ -352,7 +355,7 @@ func (o *CreditCrew) SetMediaType(v string) {
 
 // GetPopularity returns the Popularity field value if set, zero value otherwise.
 func (o *CreditCrew) GetPopularity() float32 {
-	if o == nil || isNil(o.Popularity) {
+	if o == nil || IsNil(o.Popularity) {
 		var ret float32
 		return ret
 	}
@@ -362,15 +365,15 @@ func (o *CreditCrew) GetPopularity() float32 {
 // GetPopularityOk returns a tuple with the Popularity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetPopularityOk() (*float32, bool) {
-	if o == nil || isNil(o.Popularity) {
-    return nil, false
+	if o == nil || IsNil(o.Popularity) {
+		return nil, false
 	}
 	return o.Popularity, true
 }
 
 // HasPopularity returns a boolean if a field has been set.
 func (o *CreditCrew) HasPopularity() bool {
-	if o != nil && !isNil(o.Popularity) {
+	if o != nil && !IsNil(o.Popularity) {
 		return true
 	}
 
@@ -384,7 +387,7 @@ func (o *CreditCrew) SetPopularity(v float32) {
 
 // GetCreditId returns the CreditId field value if set, zero value otherwise.
 func (o *CreditCrew) GetCreditId() string {
-	if o == nil || isNil(o.CreditId) {
+	if o == nil || IsNil(o.CreditId) {
 		var ret string
 		return ret
 	}
@@ -394,15 +397,15 @@ func (o *CreditCrew) GetCreditId() string {
 // GetCreditIdOk returns a tuple with the CreditId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetCreditIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreditId) {
-    return nil, false
+	if o == nil || IsNil(o.CreditId) {
+		return nil, false
 	}
 	return o.CreditId, true
 }
 
 // HasCreditId returns a boolean if a field has been set.
 func (o *CreditCrew) HasCreditId() bool {
-	if o != nil && !isNil(o.CreditId) {
+	if o != nil && !IsNil(o.CreditId) {
 		return true
 	}
 
@@ -416,7 +419,7 @@ func (o *CreditCrew) SetCreditId(v string) {
 
 // GetBackdropPath returns the BackdropPath field value if set, zero value otherwise.
 func (o *CreditCrew) GetBackdropPath() string {
-	if o == nil || isNil(o.BackdropPath) {
+	if o == nil || IsNil(o.BackdropPath) {
 		var ret string
 		return ret
 	}
@@ -426,15 +429,15 @@ func (o *CreditCrew) GetBackdropPath() string {
 // GetBackdropPathOk returns a tuple with the BackdropPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetBackdropPathOk() (*string, bool) {
-	if o == nil || isNil(o.BackdropPath) {
-    return nil, false
+	if o == nil || IsNil(o.BackdropPath) {
+		return nil, false
 	}
 	return o.BackdropPath, true
 }
 
 // HasBackdropPath returns a boolean if a field has been set.
 func (o *CreditCrew) HasBackdropPath() bool {
-	if o != nil && !isNil(o.BackdropPath) {
+	if o != nil && !IsNil(o.BackdropPath) {
 		return true
 	}
 
@@ -448,7 +451,7 @@ func (o *CreditCrew) SetBackdropPath(v string) {
 
 // GetFirstAirDate returns the FirstAirDate field value if set, zero value otherwise.
 func (o *CreditCrew) GetFirstAirDate() string {
-	if o == nil || isNil(o.FirstAirDate) {
+	if o == nil || IsNil(o.FirstAirDate) {
 		var ret string
 		return ret
 	}
@@ -458,15 +461,15 @@ func (o *CreditCrew) GetFirstAirDate() string {
 // GetFirstAirDateOk returns a tuple with the FirstAirDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetFirstAirDateOk() (*string, bool) {
-	if o == nil || isNil(o.FirstAirDate) {
-    return nil, false
+	if o == nil || IsNil(o.FirstAirDate) {
+		return nil, false
 	}
 	return o.FirstAirDate, true
 }
 
 // HasFirstAirDate returns a boolean if a field has been set.
 func (o *CreditCrew) HasFirstAirDate() bool {
-	if o != nil && !isNil(o.FirstAirDate) {
+	if o != nil && !IsNil(o.FirstAirDate) {
 		return true
 	}
 
@@ -480,7 +483,7 @@ func (o *CreditCrew) SetFirstAirDate(v string) {
 
 // GetVoteAverage returns the VoteAverage field value if set, zero value otherwise.
 func (o *CreditCrew) GetVoteAverage() float32 {
-	if o == nil || isNil(o.VoteAverage) {
+	if o == nil || IsNil(o.VoteAverage) {
 		var ret float32
 		return ret
 	}
@@ -490,15 +493,15 @@ func (o *CreditCrew) GetVoteAverage() float32 {
 // GetVoteAverageOk returns a tuple with the VoteAverage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetVoteAverageOk() (*float32, bool) {
-	if o == nil || isNil(o.VoteAverage) {
-    return nil, false
+	if o == nil || IsNil(o.VoteAverage) {
+		return nil, false
 	}
 	return o.VoteAverage, true
 }
 
 // HasVoteAverage returns a boolean if a field has been set.
 func (o *CreditCrew) HasVoteAverage() bool {
-	if o != nil && !isNil(o.VoteAverage) {
+	if o != nil && !IsNil(o.VoteAverage) {
 		return true
 	}
 
@@ -511,9 +514,9 @@ func (o *CreditCrew) SetVoteAverage(v float32) {
 }
 
 // GetGenreIds returns the GenreIds field value if set, zero value otherwise.
-func (o *CreditCrew) GetGenreIds() []*float32 {
-	if o == nil || isNil(o.GenreIds) {
-		var ret []*float32
+func (o *CreditCrew) GetGenreIds() []float32 {
+	if o == nil || IsNil(o.GenreIds) {
+		var ret []float32
 		return ret
 	}
 	return o.GenreIds
@@ -521,16 +524,16 @@ func (o *CreditCrew) GetGenreIds() []*float32 {
 
 // GetGenreIdsOk returns a tuple with the GenreIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreditCrew) GetGenreIdsOk() ([]*float32, bool) {
-	if o == nil || isNil(o.GenreIds) {
-    return nil, false
+func (o *CreditCrew) GetGenreIdsOk() ([]float32, bool) {
+	if o == nil || IsNil(o.GenreIds) {
+		return nil, false
 	}
 	return o.GenreIds, true
 }
 
 // HasGenreIds returns a boolean if a field has been set.
 func (o *CreditCrew) HasGenreIds() bool {
-	if o != nil && !isNil(o.GenreIds) {
+	if o != nil && !IsNil(o.GenreIds) {
 		return true
 	}
 
@@ -538,13 +541,13 @@ func (o *CreditCrew) HasGenreIds() bool {
 }
 
 // SetGenreIds gets a reference to the given []float32 and assigns it to the GenreIds field.
-func (o *CreditCrew) SetGenreIds(v []*float32) {
+func (o *CreditCrew) SetGenreIds(v []float32) {
 	o.GenreIds = v
 }
 
 // GetPosterPath returns the PosterPath field value if set, zero value otherwise.
 func (o *CreditCrew) GetPosterPath() string {
-	if o == nil || isNil(o.PosterPath) {
+	if o == nil || IsNil(o.PosterPath) {
 		var ret string
 		return ret
 	}
@@ -554,15 +557,15 @@ func (o *CreditCrew) GetPosterPath() string {
 // GetPosterPathOk returns a tuple with the PosterPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetPosterPathOk() (*string, bool) {
-	if o == nil || isNil(o.PosterPath) {
-    return nil, false
+	if o == nil || IsNil(o.PosterPath) {
+		return nil, false
 	}
 	return o.PosterPath, true
 }
 
 // HasPosterPath returns a boolean if a field has been set.
 func (o *CreditCrew) HasPosterPath() bool {
-	if o != nil && !isNil(o.PosterPath) {
+	if o != nil && !IsNil(o.PosterPath) {
 		return true
 	}
 
@@ -576,7 +579,7 @@ func (o *CreditCrew) SetPosterPath(v string) {
 
 // GetOriginalTitle returns the OriginalTitle field value if set, zero value otherwise.
 func (o *CreditCrew) GetOriginalTitle() string {
-	if o == nil || isNil(o.OriginalTitle) {
+	if o == nil || IsNil(o.OriginalTitle) {
 		var ret string
 		return ret
 	}
@@ -586,15 +589,15 @@ func (o *CreditCrew) GetOriginalTitle() string {
 // GetOriginalTitleOk returns a tuple with the OriginalTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetOriginalTitleOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalTitle) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalTitle) {
+		return nil, false
 	}
 	return o.OriginalTitle, true
 }
 
 // HasOriginalTitle returns a boolean if a field has been set.
 func (o *CreditCrew) HasOriginalTitle() bool {
-	if o != nil && !isNil(o.OriginalTitle) {
+	if o != nil && !IsNil(o.OriginalTitle) {
 		return true
 	}
 
@@ -608,7 +611,7 @@ func (o *CreditCrew) SetOriginalTitle(v string) {
 
 // GetVideo returns the Video field value if set, zero value otherwise.
 func (o *CreditCrew) GetVideo() bool {
-	if o == nil || isNil(o.Video) {
+	if o == nil || IsNil(o.Video) {
 		var ret bool
 		return ret
 	}
@@ -618,15 +621,15 @@ func (o *CreditCrew) GetVideo() bool {
 // GetVideoOk returns a tuple with the Video field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetVideoOk() (*bool, bool) {
-	if o == nil || isNil(o.Video) {
-    return nil, false
+	if o == nil || IsNil(o.Video) {
+		return nil, false
 	}
 	return o.Video, true
 }
 
 // HasVideo returns a boolean if a field has been set.
 func (o *CreditCrew) HasVideo() bool {
-	if o != nil && !isNil(o.Video) {
+	if o != nil && !IsNil(o.Video) {
 		return true
 	}
 
@@ -640,7 +643,7 @@ func (o *CreditCrew) SetVideo(v bool) {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *CreditCrew) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -650,15 +653,15 @@ func (o *CreditCrew) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *CreditCrew) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -672,7 +675,7 @@ func (o *CreditCrew) SetTitle(v string) {
 
 // GetAdult returns the Adult field value if set, zero value otherwise.
 func (o *CreditCrew) GetAdult() bool {
-	if o == nil || isNil(o.Adult) {
+	if o == nil || IsNil(o.Adult) {
 		var ret bool
 		return ret
 	}
@@ -682,15 +685,15 @@ func (o *CreditCrew) GetAdult() bool {
 // GetAdultOk returns a tuple with the Adult field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetAdultOk() (*bool, bool) {
-	if o == nil || isNil(o.Adult) {
-    return nil, false
+	if o == nil || IsNil(o.Adult) {
+		return nil, false
 	}
 	return o.Adult, true
 }
 
 // HasAdult returns a boolean if a field has been set.
 func (o *CreditCrew) HasAdult() bool {
-	if o != nil && !isNil(o.Adult) {
+	if o != nil && !IsNil(o.Adult) {
 		return true
 	}
 
@@ -704,7 +707,7 @@ func (o *CreditCrew) SetAdult(v bool) {
 
 // GetReleaseDate returns the ReleaseDate field value if set, zero value otherwise.
 func (o *CreditCrew) GetReleaseDate() string {
-	if o == nil || isNil(o.ReleaseDate) {
+	if o == nil || IsNil(o.ReleaseDate) {
 		var ret string
 		return ret
 	}
@@ -714,15 +717,15 @@ func (o *CreditCrew) GetReleaseDate() string {
 // GetReleaseDateOk returns a tuple with the ReleaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetReleaseDateOk() (*string, bool) {
-	if o == nil || isNil(o.ReleaseDate) {
-    return nil, false
+	if o == nil || IsNil(o.ReleaseDate) {
+		return nil, false
 	}
 	return o.ReleaseDate, true
 }
 
 // HasReleaseDate returns a boolean if a field has been set.
 func (o *CreditCrew) HasReleaseDate() bool {
-	if o != nil && !isNil(o.ReleaseDate) {
+	if o != nil && !IsNil(o.ReleaseDate) {
 		return true
 	}
 
@@ -736,7 +739,7 @@ func (o *CreditCrew) SetReleaseDate(v string) {
 
 // GetDepartment returns the Department field value if set, zero value otherwise.
 func (o *CreditCrew) GetDepartment() string {
-	if o == nil || isNil(o.Department) {
+	if o == nil || IsNil(o.Department) {
 		var ret string
 		return ret
 	}
@@ -746,15 +749,15 @@ func (o *CreditCrew) GetDepartment() string {
 // GetDepartmentOk returns a tuple with the Department field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetDepartmentOk() (*string, bool) {
-	if o == nil || isNil(o.Department) {
-    return nil, false
+	if o == nil || IsNil(o.Department) {
+		return nil, false
 	}
 	return o.Department, true
 }
 
 // HasDepartment returns a boolean if a field has been set.
 func (o *CreditCrew) HasDepartment() bool {
-	if o != nil && !isNil(o.Department) {
+	if o != nil && !IsNil(o.Department) {
 		return true
 	}
 
@@ -768,7 +771,7 @@ func (o *CreditCrew) SetDepartment(v string) {
 
 // GetJob returns the Job field value if set, zero value otherwise.
 func (o *CreditCrew) GetJob() string {
-	if o == nil || isNil(o.Job) {
+	if o == nil || IsNil(o.Job) {
 		var ret string
 		return ret
 	}
@@ -778,15 +781,15 @@ func (o *CreditCrew) GetJob() string {
 // GetJobOk returns a tuple with the Job field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetJobOk() (*string, bool) {
-	if o == nil || isNil(o.Job) {
-    return nil, false
+	if o == nil || IsNil(o.Job) {
+		return nil, false
 	}
 	return o.Job, true
 }
 
 // HasJob returns a boolean if a field has been set.
 func (o *CreditCrew) HasJob() bool {
-	if o != nil && !isNil(o.Job) {
+	if o != nil && !IsNil(o.Job) {
 		return true
 	}
 
@@ -800,7 +803,7 @@ func (o *CreditCrew) SetJob(v string) {
 
 // GetMediaInfo returns the MediaInfo field value if set, zero value otherwise.
 func (o *CreditCrew) GetMediaInfo() MediaInfo {
-	if o == nil || isNil(o.MediaInfo) {
+	if o == nil || IsNil(o.MediaInfo) {
 		var ret MediaInfo
 		return ret
 	}
@@ -810,15 +813,15 @@ func (o *CreditCrew) GetMediaInfo() MediaInfo {
 // GetMediaInfoOk returns a tuple with the MediaInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditCrew) GetMediaInfoOk() (*MediaInfo, bool) {
-	if o == nil || isNil(o.MediaInfo) {
-    return nil, false
+	if o == nil || IsNil(o.MediaInfo) {
+		return nil, false
 	}
 	return o.MediaInfo, true
 }
 
 // HasMediaInfo returns a boolean if a field has been set.
 func (o *CreditCrew) HasMediaInfo() bool {
-	if o != nil && !isNil(o.MediaInfo) {
+	if o != nil && !IsNil(o.MediaInfo) {
 		return true
 	}
 
@@ -831,77 +834,85 @@ func (o *CreditCrew) SetMediaInfo(v MediaInfo) {
 }
 
 func (o CreditCrew) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreditCrew) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.OriginalLanguage) {
+	if !IsNil(o.OriginalLanguage) {
 		toSerialize["originalLanguage"] = o.OriginalLanguage
 	}
-	if !isNil(o.EpisodeCount) {
+	if !IsNil(o.EpisodeCount) {
 		toSerialize["episodeCount"] = o.EpisodeCount
 	}
-	if !isNil(o.Overview) {
+	if !IsNil(o.Overview) {
 		toSerialize["overview"] = o.Overview
 	}
-	if !isNil(o.OriginCountry) {
+	if !IsNil(o.OriginCountry) {
 		toSerialize["originCountry"] = o.OriginCountry
 	}
-	if !isNil(o.OriginalName) {
+	if !IsNil(o.OriginalName) {
 		toSerialize["originalName"] = o.OriginalName
 	}
-	if !isNil(o.VoteCount) {
+	if !IsNil(o.VoteCount) {
 		toSerialize["voteCount"] = o.VoteCount
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.MediaType) {
+	if !IsNil(o.MediaType) {
 		toSerialize["mediaType"] = o.MediaType
 	}
-	if !isNil(o.Popularity) {
+	if !IsNil(o.Popularity) {
 		toSerialize["popularity"] = o.Popularity
 	}
-	if !isNil(o.CreditId) {
+	if !IsNil(o.CreditId) {
 		toSerialize["creditId"] = o.CreditId
 	}
-	if !isNil(o.BackdropPath) {
+	if !IsNil(o.BackdropPath) {
 		toSerialize["backdropPath"] = o.BackdropPath
 	}
-	if !isNil(o.FirstAirDate) {
+	if !IsNil(o.FirstAirDate) {
 		toSerialize["firstAirDate"] = o.FirstAirDate
 	}
-	if !isNil(o.VoteAverage) {
+	if !IsNil(o.VoteAverage) {
 		toSerialize["voteAverage"] = o.VoteAverage
 	}
-	if !isNil(o.GenreIds) {
+	if !IsNil(o.GenreIds) {
 		toSerialize["genreIds"] = o.GenreIds
 	}
-	if !isNil(o.PosterPath) {
+	if !IsNil(o.PosterPath) {
 		toSerialize["posterPath"] = o.PosterPath
 	}
-	if !isNil(o.OriginalTitle) {
+	if !IsNil(o.OriginalTitle) {
 		toSerialize["originalTitle"] = o.OriginalTitle
 	}
-	if !isNil(o.Video) {
+	if !IsNil(o.Video) {
 		toSerialize["video"] = o.Video
 	}
-	if !isNil(o.Title) {
+	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if !isNil(o.Adult) {
+	if !IsNil(o.Adult) {
 		toSerialize["adult"] = o.Adult
 	}
-	if !isNil(o.ReleaseDate) {
+	if !IsNil(o.ReleaseDate) {
 		toSerialize["releaseDate"] = o.ReleaseDate
 	}
-	if !isNil(o.Department) {
+	if !IsNil(o.Department) {
 		toSerialize["department"] = o.Department
 	}
-	if !isNil(o.Job) {
+	if !IsNil(o.Job) {
 		toSerialize["job"] = o.Job
 	}
-	if !isNil(o.MediaInfo) {
+	if !IsNil(o.MediaInfo) {
 		toSerialize["mediaInfo"] = o.MediaInfo
 	}
 
@@ -909,19 +920,23 @@ func (o CreditCrew) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreditCrew) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreditCrew) UnmarshalJSON(data []byte) (err error) {
 	varCreditCrew := _CreditCrew{}
 
-	if err = json.Unmarshal(bytes, &varCreditCrew); err == nil {
-		*o = CreditCrew(varCreditCrew)
+	err = json.Unmarshal(data, &varCreditCrew)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreditCrew(varCreditCrew)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "originalLanguage")
 		delete(additionalProperties, "episodeCount")

@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the CreateRequestRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateRequestRequest{}
+
 // CreateRequestRequest struct for CreateRequestRequest
 type CreateRequestRequest struct {
 	MediaType string `json:"mediaType"`
@@ -65,7 +68,7 @@ func (o *CreateRequestRequest) GetMediaType() string {
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetMediaTypeOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MediaType, true
 }
@@ -89,7 +92,7 @@ func (o *CreateRequestRequest) GetMediaId() float32 {
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetMediaIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MediaId, true
 }
@@ -101,7 +104,7 @@ func (o *CreateRequestRequest) SetMediaId(v float32) {
 
 // GetTvdbId returns the TvdbId field value if set, zero value otherwise.
 func (o *CreateRequestRequest) GetTvdbId() float32 {
-	if o == nil || isNil(o.TvdbId) {
+	if o == nil || IsNil(o.TvdbId) {
 		var ret float32
 		return ret
 	}
@@ -111,15 +114,15 @@ func (o *CreateRequestRequest) GetTvdbId() float32 {
 // GetTvdbIdOk returns a tuple with the TvdbId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetTvdbIdOk() (*float32, bool) {
-	if o == nil || isNil(o.TvdbId) {
-    return nil, false
+	if o == nil || IsNil(o.TvdbId) {
+		return nil, false
 	}
 	return o.TvdbId, true
 }
 
 // HasTvdbId returns a boolean if a field has been set.
 func (o *CreateRequestRequest) HasTvdbId() bool {
-	if o != nil && !isNil(o.TvdbId) {
+	if o != nil && !IsNil(o.TvdbId) {
 		return true
 	}
 
@@ -133,7 +136,7 @@ func (o *CreateRequestRequest) SetTvdbId(v float32) {
 
 // GetSeasons returns the Seasons field value if set, zero value otherwise.
 func (o *CreateRequestRequest) GetSeasons() CreateRequestRequestSeasons {
-	if o == nil || isNil(o.Seasons) {
+	if o == nil || IsNil(o.Seasons) {
 		var ret CreateRequestRequestSeasons
 		return ret
 	}
@@ -143,15 +146,15 @@ func (o *CreateRequestRequest) GetSeasons() CreateRequestRequestSeasons {
 // GetSeasonsOk returns a tuple with the Seasons field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetSeasonsOk() (*CreateRequestRequestSeasons, bool) {
-	if o == nil || isNil(o.Seasons) {
-    return nil, false
+	if o == nil || IsNil(o.Seasons) {
+		return nil, false
 	}
 	return o.Seasons, true
 }
 
 // HasSeasons returns a boolean if a field has been set.
 func (o *CreateRequestRequest) HasSeasons() bool {
-	if o != nil && !isNil(o.Seasons) {
+	if o != nil && !IsNil(o.Seasons) {
 		return true
 	}
 
@@ -165,7 +168,7 @@ func (o *CreateRequestRequest) SetSeasons(v CreateRequestRequestSeasons) {
 
 // GetIs4k returns the Is4k field value if set, zero value otherwise.
 func (o *CreateRequestRequest) GetIs4k() bool {
-	if o == nil || isNil(o.Is4k) {
+	if o == nil || IsNil(o.Is4k) {
 		var ret bool
 		return ret
 	}
@@ -175,15 +178,15 @@ func (o *CreateRequestRequest) GetIs4k() bool {
 // GetIs4kOk returns a tuple with the Is4k field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetIs4kOk() (*bool, bool) {
-	if o == nil || isNil(o.Is4k) {
-    return nil, false
+	if o == nil || IsNil(o.Is4k) {
+		return nil, false
 	}
 	return o.Is4k, true
 }
 
 // HasIs4k returns a boolean if a field has been set.
 func (o *CreateRequestRequest) HasIs4k() bool {
-	if o != nil && !isNil(o.Is4k) {
+	if o != nil && !IsNil(o.Is4k) {
 		return true
 	}
 
@@ -197,7 +200,7 @@ func (o *CreateRequestRequest) SetIs4k(v bool) {
 
 // GetServerId returns the ServerId field value if set, zero value otherwise.
 func (o *CreateRequestRequest) GetServerId() float32 {
-	if o == nil || isNil(o.ServerId) {
+	if o == nil || IsNil(o.ServerId) {
 		var ret float32
 		return ret
 	}
@@ -207,15 +210,15 @@ func (o *CreateRequestRequest) GetServerId() float32 {
 // GetServerIdOk returns a tuple with the ServerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetServerIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ServerId) {
-    return nil, false
+	if o == nil || IsNil(o.ServerId) {
+		return nil, false
 	}
 	return o.ServerId, true
 }
 
 // HasServerId returns a boolean if a field has been set.
 func (o *CreateRequestRequest) HasServerId() bool {
-	if o != nil && !isNil(o.ServerId) {
+	if o != nil && !IsNil(o.ServerId) {
 		return true
 	}
 
@@ -229,7 +232,7 @@ func (o *CreateRequestRequest) SetServerId(v float32) {
 
 // GetProfileId returns the ProfileId field value if set, zero value otherwise.
 func (o *CreateRequestRequest) GetProfileId() float32 {
-	if o == nil || isNil(o.ProfileId) {
+	if o == nil || IsNil(o.ProfileId) {
 		var ret float32
 		return ret
 	}
@@ -239,15 +242,15 @@ func (o *CreateRequestRequest) GetProfileId() float32 {
 // GetProfileIdOk returns a tuple with the ProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.ProfileId) {
+		return nil, false
 	}
 	return o.ProfileId, true
 }
 
 // HasProfileId returns a boolean if a field has been set.
 func (o *CreateRequestRequest) HasProfileId() bool {
-	if o != nil && !isNil(o.ProfileId) {
+	if o != nil && !IsNil(o.ProfileId) {
 		return true
 	}
 
@@ -261,7 +264,7 @@ func (o *CreateRequestRequest) SetProfileId(v float32) {
 
 // GetRootFolder returns the RootFolder field value if set, zero value otherwise.
 func (o *CreateRequestRequest) GetRootFolder() string {
-	if o == nil || isNil(o.RootFolder) {
+	if o == nil || IsNil(o.RootFolder) {
 		var ret string
 		return ret
 	}
@@ -271,15 +274,15 @@ func (o *CreateRequestRequest) GetRootFolder() string {
 // GetRootFolderOk returns a tuple with the RootFolder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetRootFolderOk() (*string, bool) {
-	if o == nil || isNil(o.RootFolder) {
-    return nil, false
+	if o == nil || IsNil(o.RootFolder) {
+		return nil, false
 	}
 	return o.RootFolder, true
 }
 
 // HasRootFolder returns a boolean if a field has been set.
 func (o *CreateRequestRequest) HasRootFolder() bool {
-	if o != nil && !isNil(o.RootFolder) {
+	if o != nil && !IsNil(o.RootFolder) {
 		return true
 	}
 
@@ -293,7 +296,7 @@ func (o *CreateRequestRequest) SetRootFolder(v string) {
 
 // GetLanguageProfileId returns the LanguageProfileId field value if set, zero value otherwise.
 func (o *CreateRequestRequest) GetLanguageProfileId() float32 {
-	if o == nil || isNil(o.LanguageProfileId) {
+	if o == nil || IsNil(o.LanguageProfileId) {
 		var ret float32
 		return ret
 	}
@@ -303,15 +306,15 @@ func (o *CreateRequestRequest) GetLanguageProfileId() float32 {
 // GetLanguageProfileIdOk returns a tuple with the LanguageProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateRequestRequest) GetLanguageProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.LanguageProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.LanguageProfileId) {
+		return nil, false
 	}
 	return o.LanguageProfileId, true
 }
 
 // HasLanguageProfileId returns a boolean if a field has been set.
 func (o *CreateRequestRequest) HasLanguageProfileId() bool {
-	if o != nil && !isNil(o.LanguageProfileId) {
+	if o != nil && !IsNil(o.LanguageProfileId) {
 		return true
 	}
 
@@ -325,7 +328,7 @@ func (o *CreateRequestRequest) SetLanguageProfileId(v float32) {
 
 // GetUserId returns the UserId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateRequestRequest) GetUserId() float32 {
-	if o == nil || isNil(o.UserId.Get()) {
+	if o == nil || IsNil(o.UserId.Get()) {
 		var ret float32
 		return ret
 	}
@@ -337,7 +340,7 @@ func (o *CreateRequestRequest) GetUserId() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateRequestRequest) GetUserIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.UserId.Get(), o.UserId.IsSet()
 }
@@ -366,32 +369,36 @@ func (o *CreateRequestRequest) UnsetUserId() {
 }
 
 func (o CreateRequestRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateRequestRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["mediaType"] = o.MediaType
-	}
-	if true {
-		toSerialize["mediaId"] = o.MediaId
-	}
-	if !isNil(o.TvdbId) {
+	toSerialize["mediaType"] = o.MediaType
+	toSerialize["mediaId"] = o.MediaId
+	if !IsNil(o.TvdbId) {
 		toSerialize["tvdbId"] = o.TvdbId
 	}
-	if !isNil(o.Seasons) {
+	if !IsNil(o.Seasons) {
 		toSerialize["seasons"] = o.Seasons
 	}
-	if !isNil(o.Is4k) {
+	if !IsNil(o.Is4k) {
 		toSerialize["is4k"] = o.Is4k
 	}
-	if !isNil(o.ServerId) {
+	if !IsNil(o.ServerId) {
 		toSerialize["serverId"] = o.ServerId
 	}
-	if !isNil(o.ProfileId) {
+	if !IsNil(o.ProfileId) {
 		toSerialize["profileId"] = o.ProfileId
 	}
-	if !isNil(o.RootFolder) {
+	if !IsNil(o.RootFolder) {
 		toSerialize["rootFolder"] = o.RootFolder
 	}
-	if !isNil(o.LanguageProfileId) {
+	if !IsNil(o.LanguageProfileId) {
 		toSerialize["languageProfileId"] = o.LanguageProfileId
 	}
 	if o.UserId.IsSet() {
@@ -402,19 +409,45 @@ func (o CreateRequestRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateRequestRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateRequestRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"mediaType",
+		"mediaId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varCreateRequestRequest := _CreateRequestRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateRequestRequest); err == nil {
-		*o = CreateRequestRequest(varCreateRequestRequest)
+	err = json.Unmarshal(data, &varCreateRequestRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateRequestRequest(varCreateRequestRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "mediaType")
 		delete(additionalProperties, "mediaId")
 		delete(additionalProperties, "tvdbId")

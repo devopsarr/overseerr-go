@@ -90,22 +90,22 @@ Flush a specific cache
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    cacheId := "cacheId_example" // string | 
+	cacheId := "cacheId_example" // string | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateCacheFlush(context.Background(), cacheId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateCacheFlush``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.CreateCacheFlush(context.Background(), cacheId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateCacheFlush``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -158,24 +158,24 @@ Batch update all sliders.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    discoverSlider := []overseerrClient.DiscoverSlider{*overseerrClient.NewDiscoverSlider(float32(1), "Title_example", false, "1234")} // []DiscoverSlider | 
+	discoverSlider := []overseerrClient.DiscoverSlider{*overseerrClient.NewDiscoverSlider(float32(1), "Title_example", false, "1234")} // []DiscoverSlider | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateDiscover(context.Background()).DiscoverSlider(discoverSlider).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateDiscover``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateDiscover`: []DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateDiscover`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateDiscover(context.Background()).DiscoverSlider(discoverSlider).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateDiscover``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateDiscover`: []DiscoverSlider
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateDiscover`: %v\n", resp)
 }
 ```
 
@@ -224,24 +224,24 @@ Add a new slider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createDiscoverAddRequest := *overseerrClient.NewCreateDiscoverAddRequest() // CreateDiscoverAddRequest | 
+	createDiscoverAddRequest := *overseerrClient.NewCreateDiscoverAddRequest() // CreateDiscoverAddRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateDiscoverAdd(context.Background()).CreateDiscoverAddRequest(createDiscoverAddRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateDiscoverAdd``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateDiscoverAdd`: DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateDiscoverAdd`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateDiscoverAdd(context.Background()).CreateDiscoverAddRequest(createDiscoverAddRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateDiscoverAdd``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateDiscoverAdd`: DiscoverSlider
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateDiscoverAdd`: %v\n", resp)
 }
 ```
 
@@ -290,23 +290,23 @@ Initialize application
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateInitialize(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateInitialize``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateInitialize`: PublicSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateInitialize`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateInitialize(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateInitialize``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateInitialize`: PublicSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateInitialize`: %v\n", resp)
 }
 ```
 
@@ -351,24 +351,24 @@ Cancel a specific job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    jobId := "jobId_example" // string | 
+	jobId := "jobId_example" // string | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateJobsCancel(context.Background(), jobId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsCancel``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateJobsCancel`: Job
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsCancel`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateJobsCancel(context.Background(), jobId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsCancel``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateJobsCancel`: Job
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsCancel`: %v\n", resp)
 }
 ```
 
@@ -421,24 +421,24 @@ Invoke a specific job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    jobId := "jobId_example" // string | 
+	jobId := "jobId_example" // string | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateJobsRun(context.Background(), jobId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsRun``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateJobsRun`: Job
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsRun`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateJobsRun(context.Background(), jobId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsRun``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateJobsRun`: Job
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsRun`: %v\n", resp)
 }
 ```
 
@@ -491,25 +491,25 @@ Modify job schedule
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    jobId := "jobId_example" // string | 
-    createJobsScheduleRequest := *overseerrClient.NewCreateJobsScheduleRequest() // CreateJobsScheduleRequest | 
+	jobId := "jobId_example" // string | 
+	createJobsScheduleRequest := *overseerrClient.NewCreateJobsScheduleRequest() // CreateJobsScheduleRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateJobsSchedule(context.Background(), jobId).CreateJobsScheduleRequest(createJobsScheduleRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsSchedule``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateJobsSchedule`: Job
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsSchedule`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateJobsSchedule(context.Background(), jobId).CreateJobsScheduleRequest(createJobsScheduleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateJobsSchedule``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateJobsSchedule`: Job
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateJobsSchedule`: %v\n", resp)
 }
 ```
 
@@ -563,24 +563,24 @@ Update main settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    mainSettings := *overseerrClient.NewMainSettings() // MainSettings | 
+	mainSettings := *overseerrClient.NewMainSettings() // MainSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateMain(context.Background()).MainSettings(mainSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateMain``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateMain`: MainSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateMain`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateMain(context.Background()).MainSettings(mainSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateMain``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateMain`: MainSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateMain`: %v\n", resp)
 }
 ```
 
@@ -629,23 +629,23 @@ Get main settings with newly-generated API key
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateMainRegenerate(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateMainRegenerate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateMainRegenerate`: MainSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateMainRegenerate`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateMainRegenerate(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateMainRegenerate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateMainRegenerate`: MainSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateMainRegenerate`: %v\n", resp)
 }
 ```
 
@@ -690,24 +690,24 @@ Update Discord notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    discordSettings := *overseerrClient.NewDiscordSettings() // DiscordSettings | 
+	discordSettings := *overseerrClient.NewDiscordSettings() // DiscordSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsDiscord(context.Background()).DiscordSettings(discordSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsDiscord``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsDiscord`: DiscordSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsDiscord`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsDiscord(context.Background()).DiscordSettings(discordSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsDiscord``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsDiscord`: DiscordSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsDiscord`: %v\n", resp)
 }
 ```
 
@@ -756,24 +756,24 @@ Update email notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    notificationEmailSettings := *overseerrClient.NewNotificationEmailSettings() // NotificationEmailSettings | 
+	notificationEmailSettings := *overseerrClient.NewNotificationEmailSettings() // NotificationEmailSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsEmail(context.Background()).NotificationEmailSettings(notificationEmailSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsEmail``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsEmail`: NotificationEmailSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsEmail`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsEmail(context.Background()).NotificationEmailSettings(notificationEmailSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsEmail``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsEmail`: NotificationEmailSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsEmail`: %v\n", resp)
 }
 ```
 
@@ -822,24 +822,24 @@ Update Gotify notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    gotifySettings := *overseerrClient.NewGotifySettings() // GotifySettings | 
+	gotifySettings := *overseerrClient.NewGotifySettings() // GotifySettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsGotify(context.Background()).GotifySettings(gotifySettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsGotify``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsGotify`: GotifySettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsGotify`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsGotify(context.Background()).GotifySettings(gotifySettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsGotify``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsGotify`: GotifySettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsGotify`: %v\n", resp)
 }
 ```
 
@@ -888,24 +888,24 @@ Update LunaSea notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    lunaSeaSettings := *overseerrClient.NewLunaSeaSettings() // LunaSeaSettings | 
+	lunaSeaSettings := *overseerrClient.NewLunaSeaSettings() // LunaSeaSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsLunasea(context.Background()).LunaSeaSettings(lunaSeaSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsLunasea``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsLunasea`: LunaSeaSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsLunasea`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsLunasea(context.Background()).LunaSeaSettings(lunaSeaSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsLunasea``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsLunasea`: LunaSeaSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsLunasea`: %v\n", resp)
 }
 ```
 
@@ -954,24 +954,24 @@ Update Pushbullet notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    pushbulletSettings := *overseerrClient.NewPushbulletSettings() // PushbulletSettings | 
+	pushbulletSettings := *overseerrClient.NewPushbulletSettings() // PushbulletSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsPushbullet(context.Background()).PushbulletSettings(pushbulletSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsPushbullet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsPushbullet`: PushbulletSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsPushbullet`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsPushbullet(context.Background()).PushbulletSettings(pushbulletSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsPushbullet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsPushbullet`: PushbulletSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsPushbullet`: %v\n", resp)
 }
 ```
 
@@ -1020,24 +1020,24 @@ Update Pushover notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    pushoverSettings := *overseerrClient.NewPushoverSettings() // PushoverSettings | 
+	pushoverSettings := *overseerrClient.NewPushoverSettings() // PushoverSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsPushover(context.Background()).PushoverSettings(pushoverSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsPushover``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsPushover`: PushoverSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsPushover`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsPushover(context.Background()).PushoverSettings(pushoverSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsPushover``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsPushover`: PushoverSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsPushover`: %v\n", resp)
 }
 ```
 
@@ -1086,24 +1086,24 @@ Update Slack notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    slackSettings := *overseerrClient.NewSlackSettings() // SlackSettings | 
+	slackSettings := *overseerrClient.NewSlackSettings() // SlackSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsSlack(context.Background()).SlackSettings(slackSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsSlack``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsSlack`: SlackSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsSlack`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsSlack(context.Background()).SlackSettings(slackSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsSlack``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsSlack`: SlackSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsSlack`: %v\n", resp)
 }
 ```
 
@@ -1152,24 +1152,24 @@ Update Telegram notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    telegramSettings := *overseerrClient.NewTelegramSettings() // TelegramSettings | 
+	telegramSettings := *overseerrClient.NewTelegramSettings() // TelegramSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsTelegram(context.Background()).TelegramSettings(telegramSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsTelegram``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsTelegram`: TelegramSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsTelegram`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsTelegram(context.Background()).TelegramSettings(telegramSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsTelegram``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsTelegram`: TelegramSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsTelegram`: %v\n", resp)
 }
 ```
 
@@ -1218,24 +1218,24 @@ Update webhook notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    webhookSettings := *overseerrClient.NewWebhookSettings() // WebhookSettings | 
+	webhookSettings := *overseerrClient.NewWebhookSettings() // WebhookSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsWebhook(context.Background()).WebhookSettings(webhookSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsWebhook``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsWebhook`: WebhookSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsWebhook`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsWebhook(context.Background()).WebhookSettings(webhookSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsWebhook``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsWebhook`: WebhookSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsWebhook`: %v\n", resp)
 }
 ```
 
@@ -1284,24 +1284,24 @@ Update Web Push notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    webPushSettings := *overseerrClient.NewWebPushSettings() // WebPushSettings | 
+	webPushSettings := *overseerrClient.NewWebPushSettings() // WebPushSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateNotificationsWebpush(context.Background()).WebPushSettings(webPushSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsWebpush``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateNotificationsWebpush`: WebPushSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsWebpush`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateNotificationsWebpush(context.Background()).WebPushSettings(webPushSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateNotificationsWebpush``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateNotificationsWebpush`: WebPushSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateNotificationsWebpush`: %v\n", resp)
 }
 ```
 
@@ -1350,24 +1350,24 @@ Update Plex settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    plexSettings := *overseerrClient.NewPlexSettings("Main Server", "1234123412341234", "127.0.0.1", float32(32400)) // PlexSettings | 
+	plexSettings := *overseerrClient.NewPlexSettings("Main Server", "1234123412341234", "127.0.0.1", float32(32400)) // PlexSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreatePlex(context.Background()).PlexSettings(plexSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreatePlex``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreatePlex`: PlexSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreatePlex`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreatePlex(context.Background()).PlexSettings(plexSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreatePlex``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreatePlex`: PlexSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreatePlex`: %v\n", resp)
 }
 ```
 
@@ -1416,24 +1416,24 @@ Start full Plex library scan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createPlexSyncRequest := *overseerrClient.NewCreatePlexSyncRequest() // CreatePlexSyncRequest |  (optional)
+	createPlexSyncRequest := *overseerrClient.NewCreatePlexSyncRequest() // CreatePlexSyncRequest |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreatePlexSync(context.Background()).CreatePlexSyncRequest(createPlexSyncRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreatePlexSync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreatePlexSync`: GetPlexSync2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreatePlexSync`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreatePlexSync(context.Background()).CreatePlexSyncRequest(createPlexSyncRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreatePlexSync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreatePlexSync`: GetPlexSync2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreatePlexSync`: %v\n", resp)
 }
 ```
 
@@ -1482,24 +1482,24 @@ Create Radarr instance
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    radarrSettings := *overseerrClient.NewRadarrSettings("Radarr Main", "127.0.0.1", float32(7878), "exampleapikey", false, float32(1), "720p/1080p", "/movies", false, "In Cinema", false) // RadarrSettings | 
+	radarrSettings := *overseerrClient.NewRadarrSettings("Radarr Main", "127.0.0.1", float32(7878), "exampleapikey", false, float32(1), "720p/1080p", "/movies", false, "In Cinema", false) // RadarrSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateRadarr(context.Background()).RadarrSettings(radarrSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateRadarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateRadarr`: RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateRadarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateRadarr(context.Background()).RadarrSettings(radarrSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateRadarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateRadarr`: RadarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateRadarr`: %v\n", resp)
 }
 ```
 
@@ -1548,24 +1548,24 @@ Create Sonarr instance
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    sonarrSettings := *overseerrClient.NewSonarrSettings("Sonarr Main", "127.0.0.1", float32(8989), "exampleapikey", false, float32(1), "720p/1080p", "/tv/", false, false, false) // SonarrSettings | 
+	sonarrSettings := *overseerrClient.NewSonarrSettings("Sonarr Main", "127.0.0.1", float32(8989), "exampleapikey", false, float32(1), "720p/1080p", "/tv/", false, false, false) // SonarrSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateSonarr(context.Background()).SonarrSettings(sonarrSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateSonarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateSonarr`: SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateSonarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateSonarr(context.Background()).SonarrSettings(sonarrSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateSonarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateSonarr`: SonarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateSonarr`: %v\n", resp)
 }
 ```
 
@@ -1614,24 +1614,24 @@ Update Tautulli settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    tautulliSettings := *overseerrClient.NewTautulliSettings() // TautulliSettings | 
+	tautulliSettings := *overseerrClient.NewTautulliSettings() // TautulliSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.CreateTautulli(context.Background()).TautulliSettings(tautulliSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateTautulli``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateTautulli`: TautulliSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateTautulli`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.CreateTautulli(context.Background()).TautulliSettings(tautulliSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateTautulli``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateTautulli`: TautulliSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.CreateTautulli`: %v\n", resp)
 }
 ```
 
@@ -1680,24 +1680,24 @@ Delete slider by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    sliderId := float32(8.14) // float32 | 
+	sliderId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.DeleteDiscover(context.Background(), sliderId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteDiscover``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DeleteDiscover`: DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteDiscover`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.DeleteDiscover(context.Background(), sliderId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteDiscover``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteDiscover`: DiscoverSlider
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteDiscover`: %v\n", resp)
 }
 ```
 
@@ -1750,24 +1750,24 @@ Delete Radarr instance
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    radarrId := int32(56) // int32 | Radarr instance ID
+	radarrId := int32(56) // int32 | Radarr instance ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.DeleteRadarr(context.Background(), radarrId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteRadarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DeleteRadarr`: RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteRadarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.DeleteRadarr(context.Background(), radarrId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteRadarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteRadarr`: RadarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteRadarr`: %v\n", resp)
 }
 ```
 
@@ -1820,24 +1820,24 @@ Delete Sonarr instance
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    sonarrId := int32(56) // int32 | Sonarr instance ID
+	sonarrId := int32(56) // int32 | Sonarr instance ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.DeleteSonarr(context.Background(), sonarrId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteSonarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DeleteSonarr`: SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteSonarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.DeleteSonarr(context.Background(), sonarrId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.DeleteSonarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteSonarr`: SonarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.DeleteSonarr`: %v\n", resp)
 }
 ```
 
@@ -1890,23 +1890,23 @@ Get server stats
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetAbout(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetAbout``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAbout`: GetAbout2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetAbout`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetAbout(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetAbout``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAbout`: GetAbout2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetAbout`: %v\n", resp)
 }
 ```
 
@@ -1951,23 +1951,23 @@ Get a list of active caches
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetCache(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetCache``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCache`: GetCache2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetCache`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetCache(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetCache``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCache`: GetCache2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetCache`: %v\n", resp)
 }
 ```
 
@@ -2012,21 +2012,21 @@ Reset all discover sliders
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetDiscoverReset(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetDiscoverReset``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.GetDiscoverReset(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetDiscoverReset``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -2071,23 +2071,23 @@ Get main settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetMain(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetMain``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMain`: MainSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetMain`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetMain(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetMain``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMain`: MainSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetMain`: %v\n", resp)
 }
 ```
 
@@ -2132,23 +2132,23 @@ Get Discord notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsDiscord(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsDiscord``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsDiscord`: DiscordSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsDiscord`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsDiscord(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsDiscord``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsDiscord`: DiscordSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsDiscord`: %v\n", resp)
 }
 ```
 
@@ -2193,23 +2193,23 @@ Get email notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsEmail(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsEmail``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsEmail`: NotificationEmailSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsEmail`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsEmail(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsEmail``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsEmail`: NotificationEmailSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsEmail`: %v\n", resp)
 }
 ```
 
@@ -2254,23 +2254,23 @@ Get Gotify notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsGotify(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsGotify``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsGotify`: GotifySettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsGotify`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsGotify(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsGotify``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsGotify`: GotifySettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsGotify`: %v\n", resp)
 }
 ```
 
@@ -2315,23 +2315,23 @@ Get LunaSea notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsLunasea(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsLunasea``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsLunasea`: LunaSeaSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsLunasea`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsLunasea(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsLunasea``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsLunasea`: LunaSeaSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsLunasea`: %v\n", resp)
 }
 ```
 
@@ -2376,23 +2376,23 @@ Get Pushbullet notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsPushbullet(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsPushbullet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsPushbullet`: PushbulletSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsPushbullet`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsPushbullet(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsPushbullet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsPushbullet`: PushbulletSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsPushbullet`: %v\n", resp)
 }
 ```
 
@@ -2437,23 +2437,23 @@ Get Pushover notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsPushover(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsPushover``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsPushover`: PushoverSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsPushover`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsPushover(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsPushover``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsPushover`: PushoverSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsPushover`: %v\n", resp)
 }
 ```
 
@@ -2498,23 +2498,23 @@ Get Slack notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsSlack(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsSlack``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsSlack`: SlackSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsSlack`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsSlack(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsSlack``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsSlack`: SlackSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsSlack`: %v\n", resp)
 }
 ```
 
@@ -2559,23 +2559,23 @@ Get Telegram notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsTelegram(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsTelegram``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsTelegram`: TelegramSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsTelegram`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsTelegram(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsTelegram``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsTelegram`: TelegramSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsTelegram`: %v\n", resp)
 }
 ```
 
@@ -2620,23 +2620,23 @@ Get webhook notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsWebhook(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsWebhook``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsWebhook`: WebhookSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsWebhook`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsWebhook(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsWebhook``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsWebhook`: WebhookSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsWebhook`: %v\n", resp)
 }
 ```
 
@@ -2681,23 +2681,23 @@ Get Web Push notification settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetNotificationsWebpush(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsWebpush``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetNotificationsWebpush`: WebPushSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsWebpush`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetNotificationsWebpush(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetNotificationsWebpush``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetNotificationsWebpush`: WebPushSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetNotificationsWebpush`: %v\n", resp)
 }
 ```
 
@@ -2742,23 +2742,23 @@ Get Plex settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetPlex(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPlex``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPlex`: PlexSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPlex`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetPlex(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPlex``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPlex`: PlexSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPlex`: %v\n", resp)
 }
 ```
 
@@ -2803,23 +2803,23 @@ Get status of full Plex library scan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetPlexSync(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPlexSync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPlexSync`: GetPlexSync2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPlexSync`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetPlexSync(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPlexSync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPlexSync`: GetPlexSync2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPlexSync`: %v\n", resp)
 }
 ```
 
@@ -2864,23 +2864,23 @@ Get public settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetPublic(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPublic``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPublic`: PublicSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPublic`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetPublic(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetPublic``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPublic`: PublicSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetPublic`: %v\n", resp)
 }
 ```
 
@@ -2925,23 +2925,23 @@ Get Tautulli settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.GetTautulli(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetTautulli``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTautulli`: TautulliSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetTautulli`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.GetTautulli(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.GetTautulli``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTautulli`: TautulliSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.GetTautulli`: %v\n", resp)
 }
 ```
 
@@ -2986,23 +2986,23 @@ Get all discover sliders
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListDiscover(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListDiscover``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListDiscover`: []DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListDiscover`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListDiscover(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListDiscover``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListDiscover`: []DiscoverSlider
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListDiscover`: %v\n", resp)
 }
 ```
 
@@ -3047,23 +3047,23 @@ Get scheduled jobs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListJobs(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListJobs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListJobs`: []Job
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListJobs`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListJobs(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListJobs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListJobs`: []Job
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListJobs`: %v\n", resp)
 }
 ```
 
@@ -3108,27 +3108,27 @@ Returns logs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    take := float32(25) // float32 |  (optional)
-    skip := float32(0) // float32 |  (optional)
-    filter := "filter_example" // string |  (optional) (default to "debug")
-    search := "plex" // string |  (optional)
+	take := float32(25) // float32 |  (optional)
+	skip := float32(0) // float32 |  (optional)
+	filter := "filter_example" // string |  (optional) (default to "debug")
+	search := "plex" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListLogs(context.Background()).Take(take).Skip(skip).Filter(filter).Search(search).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListLogs``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListLogs`: []ListLogs2XXResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListLogs`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListLogs(context.Background()).Take(take).Skip(skip).Filter(filter).Search(search).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListLogs``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListLogs`: []ListLogs2XXResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListLogs`: %v\n", resp)
 }
 ```
 
@@ -3180,23 +3180,23 @@ Gets the user's available Plex servers
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListPlexDevicesServers(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexDevicesServers``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListPlexDevicesServers`: []PlexDevice
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexDevicesServers`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListPlexDevicesServers(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexDevicesServers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListPlexDevicesServers`: []PlexDevice
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexDevicesServers`: %v\n", resp)
 }
 ```
 
@@ -3241,25 +3241,25 @@ Get Plex libraries
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    sync := "sync_example" // string | Syncs the current libraries with the current Plex server (optional)
-    enable := "enable_example" // string | Comma separated list of libraries to enable. Any libraries not passed will be disabled! (optional)
+	sync := "sync_example" // string | Syncs the current libraries with the current Plex server (optional)
+	enable := "enable_example" // string | Comma separated list of libraries to enable. Any libraries not passed will be disabled! (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListPlexLibrary(context.Background()).Sync(sync).Enable(enable).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexLibrary``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListPlexLibrary`: []PlexLibrary
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexLibrary`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListPlexLibrary(context.Background()).Sync(sync).Enable(enable).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexLibrary``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListPlexLibrary`: []PlexLibrary
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexLibrary`: %v\n", resp)
 }
 ```
 
@@ -3309,23 +3309,23 @@ Get Plex users
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListPlexUsers(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexUsers``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListPlexUsers`: []ListPlexUsers2XXResponseInner
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexUsers`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListPlexUsers(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListPlexUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListPlexUsers`: []ListPlexUsers2XXResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListPlexUsers`: %v\n", resp)
 }
 ```
 
@@ -3370,23 +3370,23 @@ Get Radarr settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListRadarr(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListRadarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListRadarr`: []RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListRadarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListRadarr(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListRadarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListRadarr`: []RadarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListRadarr`: %v\n", resp)
 }
 ```
 
@@ -3431,24 +3431,24 @@ Get available Radarr profiles
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    radarrId := int32(56) // int32 | Radarr instance ID
+	radarrId := int32(56) // int32 | Radarr instance ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListRadarrProfiles(context.Background(), radarrId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListRadarrProfiles``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListRadarrProfiles`: []ServiceProfile
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListRadarrProfiles`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListRadarrProfiles(context.Background(), radarrId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListRadarrProfiles``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListRadarrProfiles`: []ServiceProfile
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListRadarrProfiles`: %v\n", resp)
 }
 ```
 
@@ -3501,23 +3501,23 @@ Get Sonarr settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.ListSonarr(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListSonarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListSonarr`: []SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListSonarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListSonarr(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListSonarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListSonarr`: []SonarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListSonarr`: %v\n", resp)
 }
 ```
 
@@ -3562,22 +3562,22 @@ Test Discord settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    discordSettings := *overseerrClient.NewDiscordSettings() // DiscordSettings | 
+	discordSettings := *overseerrClient.NewDiscordSettings() // DiscordSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsDiscord(context.Background()).DiscordSettings(discordSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsDiscord``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsDiscord(context.Background()).DiscordSettings(discordSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsDiscord``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -3626,22 +3626,22 @@ Test email settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    notificationEmailSettings := *overseerrClient.NewNotificationEmailSettings() // NotificationEmailSettings | 
+	notificationEmailSettings := *overseerrClient.NewNotificationEmailSettings() // NotificationEmailSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsEmail(context.Background()).NotificationEmailSettings(notificationEmailSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsEmail``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsEmail(context.Background()).NotificationEmailSettings(notificationEmailSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsEmail``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -3690,22 +3690,22 @@ Test Gotify settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    gotifySettings := *overseerrClient.NewGotifySettings() // GotifySettings | 
+	gotifySettings := *overseerrClient.NewGotifySettings() // GotifySettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsGotify(context.Background()).GotifySettings(gotifySettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsGotify``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsGotify(context.Background()).GotifySettings(gotifySettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsGotify``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -3754,22 +3754,22 @@ Test LunaSea settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    lunaSeaSettings := *overseerrClient.NewLunaSeaSettings() // LunaSeaSettings | 
+	lunaSeaSettings := *overseerrClient.NewLunaSeaSettings() // LunaSeaSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsLunasea(context.Background()).LunaSeaSettings(lunaSeaSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsLunasea``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsLunasea(context.Background()).LunaSeaSettings(lunaSeaSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsLunasea``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -3818,22 +3818,22 @@ Test Pushbullet settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    pushbulletSettings := *overseerrClient.NewPushbulletSettings() // PushbulletSettings | 
+	pushbulletSettings := *overseerrClient.NewPushbulletSettings() // PushbulletSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsPushbullet(context.Background()).PushbulletSettings(pushbulletSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsPushbullet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsPushbullet(context.Background()).PushbulletSettings(pushbulletSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsPushbullet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -3882,22 +3882,22 @@ Test Pushover settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    pushoverSettings := *overseerrClient.NewPushoverSettings() // PushoverSettings | 
+	pushoverSettings := *overseerrClient.NewPushoverSettings() // PushoverSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsPushover(context.Background()).PushoverSettings(pushoverSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsPushover``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsPushover(context.Background()).PushoverSettings(pushoverSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsPushover``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -3946,22 +3946,22 @@ Test Slack settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    slackSettings := *overseerrClient.NewSlackSettings() // SlackSettings | 
+	slackSettings := *overseerrClient.NewSlackSettings() // SlackSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsSlack(context.Background()).SlackSettings(slackSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsSlack``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsSlack(context.Background()).SlackSettings(slackSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsSlack``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -4010,22 +4010,22 @@ Test Telegram settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    telegramSettings := *overseerrClient.NewTelegramSettings() // TelegramSettings | 
+	telegramSettings := *overseerrClient.NewTelegramSettings() // TelegramSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsTelegram(context.Background()).TelegramSettings(telegramSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsTelegram``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsTelegram(context.Background()).TelegramSettings(telegramSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsTelegram``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -4074,22 +4074,22 @@ Test webhook settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    webhookSettings := *overseerrClient.NewWebhookSettings() // WebhookSettings | 
+	webhookSettings := *overseerrClient.NewWebhookSettings() // WebhookSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsWebhook(context.Background()).WebhookSettings(webhookSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsWebhook``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsWebhook(context.Background()).WebhookSettings(webhookSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsWebhook``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -4138,22 +4138,22 @@ Test Web Push settings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    webPushSettings := *overseerrClient.NewWebPushSettings() // WebPushSettings | 
+	webPushSettings := *overseerrClient.NewWebPushSettings() // WebPushSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestNotificationsWebpush(context.Background()).WebPushSettings(webPushSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsWebpush``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.SettingsAPI.TestNotificationsWebpush(context.Background()).WebPushSettings(webPushSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestNotificationsWebpush``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -4202,24 +4202,24 @@ Test Radarr configuration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    testRadarrRequest := *overseerrClient.NewTestRadarrRequest("127.0.0.1", float32(7878), "yourapikey", false) // TestRadarrRequest | 
+	testRadarrRequest := *overseerrClient.NewTestRadarrRequest("127.0.0.1", float32(7878), "yourapikey", false) // TestRadarrRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestRadarr(context.Background()).TestRadarrRequest(testRadarrRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestRadarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `TestRadarr`: TestRadarr2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestRadarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.TestRadarr(context.Background()).TestRadarrRequest(testRadarrRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestRadarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TestRadarr`: TestRadarr2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestRadarr`: %v\n", resp)
 }
 ```
 
@@ -4268,24 +4268,24 @@ Test Sonarr configuration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    testSonarrRequest := *overseerrClient.NewTestSonarrRequest("127.0.0.1", float32(8989), "yourapikey", false) // TestSonarrRequest | 
+	testSonarrRequest := *overseerrClient.NewTestSonarrRequest("127.0.0.1", float32(8989), "yourapikey", false) // TestSonarrRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.TestSonarr(context.Background()).TestSonarrRequest(testSonarrRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestSonarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `TestSonarr`: TestRadarr2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestSonarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.TestSonarr(context.Background()).TestSonarrRequest(testSonarrRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestSonarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `TestSonarr`: TestRadarr2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.TestSonarr`: %v\n", resp)
 }
 ```
 
@@ -4334,25 +4334,25 @@ Update a single slider
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    sliderId := float32(8.14) // float32 | 
-    updateDiscoverRequest := *overseerrClient.NewUpdateDiscoverRequest() // UpdateDiscoverRequest | 
+	sliderId := float32(8.14) // float32 | 
+	updateDiscoverRequest := *overseerrClient.NewUpdateDiscoverRequest() // UpdateDiscoverRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.UpdateDiscover(context.Background(), sliderId).UpdateDiscoverRequest(updateDiscoverRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateDiscover``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateDiscover`: DiscoverSlider
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateDiscover`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.UpdateDiscover(context.Background(), sliderId).UpdateDiscoverRequest(updateDiscoverRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateDiscover``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateDiscover`: DiscoverSlider
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateDiscover`: %v\n", resp)
 }
 ```
 
@@ -4406,25 +4406,25 @@ Update Radarr instance
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    radarrId := int32(56) // int32 | Radarr instance ID
-    radarrSettings := *overseerrClient.NewRadarrSettings("Radarr Main", "127.0.0.1", float32(7878), "exampleapikey", false, float32(1), "720p/1080p", "/movies", false, "In Cinema", false) // RadarrSettings | 
+	radarrId := int32(56) // int32 | Radarr instance ID
+	radarrSettings := *overseerrClient.NewRadarrSettings("Radarr Main", "127.0.0.1", float32(7878), "exampleapikey", false, float32(1), "720p/1080p", "/movies", false, "In Cinema", false) // RadarrSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.UpdateRadarr(context.Background(), radarrId).RadarrSettings(radarrSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateRadarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateRadarr`: RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateRadarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.UpdateRadarr(context.Background(), radarrId).RadarrSettings(radarrSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateRadarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateRadarr`: RadarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateRadarr`: %v\n", resp)
 }
 ```
 
@@ -4478,25 +4478,25 @@ Update Sonarr instance
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    sonarrId := int32(56) // int32 | Sonarr instance ID
-    sonarrSettings := *overseerrClient.NewSonarrSettings("Sonarr Main", "127.0.0.1", float32(8989), "exampleapikey", false, float32(1), "720p/1080p", "/tv/", false, false, false) // SonarrSettings | 
+	sonarrId := int32(56) // int32 | Sonarr instance ID
+	sonarrSettings := *overseerrClient.NewSonarrSettings("Sonarr Main", "127.0.0.1", float32(8989), "exampleapikey", false, float32(1), "720p/1080p", "/tv/", false, false, false) // SonarrSettings | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SettingsAPI.UpdateSonarr(context.Background(), sonarrId).SonarrSettings(sonarrSettings).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateSonarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateSonarr`: SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateSonarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.UpdateSonarr(context.Background(), sonarrId).SonarrSettings(sonarrSettings).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.UpdateSonarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateSonarr`: SonarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.UpdateSonarr`: %v\n", resp)
 }
 ```
 

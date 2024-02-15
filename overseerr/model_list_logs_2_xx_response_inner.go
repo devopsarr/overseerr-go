@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListLogs2XXResponseInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListLogs2XXResponseInner{}
+
 // ListLogs2XXResponseInner struct for ListLogs2XXResponseInner
 type ListLogs2XXResponseInner struct {
 	Label *string `json:"label,omitempty"`
@@ -44,7 +47,7 @@ func NewListLogs2XXResponseInnerWithDefaults() *ListLogs2XXResponseInner {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ListLogs2XXResponseInner) GetLabel() string {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *ListLogs2XXResponseInner) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListLogs2XXResponseInner) GetLabelOk() (*string, bool) {
-	if o == nil || isNil(o.Label) {
-    return nil, false
+	if o == nil || IsNil(o.Label) {
+		return nil, false
 	}
 	return o.Label, true
 }
 
 // HasLabel returns a boolean if a field has been set.
 func (o *ListLogs2XXResponseInner) HasLabel() bool {
-	if o != nil && !isNil(o.Label) {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *ListLogs2XXResponseInner) SetLabel(v string) {
 
 // GetLevel returns the Level field value if set, zero value otherwise.
 func (o *ListLogs2XXResponseInner) GetLevel() string {
-	if o == nil || isNil(o.Level) {
+	if o == nil || IsNil(o.Level) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *ListLogs2XXResponseInner) GetLevel() string {
 // GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListLogs2XXResponseInner) GetLevelOk() (*string, bool) {
-	if o == nil || isNil(o.Level) {
-    return nil, false
+	if o == nil || IsNil(o.Level) {
+		return nil, false
 	}
 	return o.Level, true
 }
 
 // HasLevel returns a boolean if a field has been set.
 func (o *ListLogs2XXResponseInner) HasLevel() bool {
-	if o != nil && !isNil(o.Level) {
+	if o != nil && !IsNil(o.Level) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *ListLogs2XXResponseInner) SetLevel(v string) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *ListLogs2XXResponseInner) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *ListLogs2XXResponseInner) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListLogs2XXResponseInner) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *ListLogs2XXResponseInner) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *ListLogs2XXResponseInner) SetMessage(v string) {
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *ListLogs2XXResponseInner) GetTimestamp() string {
-	if o == nil || isNil(o.Timestamp) {
+	if o == nil || IsNil(o.Timestamp) {
 		var ret string
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *ListLogs2XXResponseInner) GetTimestamp() string {
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListLogs2XXResponseInner) GetTimestampOk() (*string, bool) {
-	if o == nil || isNil(o.Timestamp) {
-    return nil, false
+	if o == nil || IsNil(o.Timestamp) {
+		return nil, false
 	}
 	return o.Timestamp, true
 }
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *ListLogs2XXResponseInner) HasTimestamp() bool {
-	if o != nil && !isNil(o.Timestamp) {
+	if o != nil && !IsNil(o.Timestamp) {
 		return true
 	}
 
@@ -171,17 +174,25 @@ func (o *ListLogs2XXResponseInner) SetTimestamp(v string) {
 }
 
 func (o ListLogs2XXResponseInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ListLogs2XXResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Label) {
+	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if !isNil(o.Level) {
+	if !IsNil(o.Level) {
 		toSerialize["level"] = o.Level
 	}
-	if !isNil(o.Message) {
+	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if !isNil(o.Timestamp) {
+	if !IsNil(o.Timestamp) {
 		toSerialize["timestamp"] = o.Timestamp
 	}
 
@@ -189,19 +200,23 @@ func (o ListLogs2XXResponseInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *ListLogs2XXResponseInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *ListLogs2XXResponseInner) UnmarshalJSON(data []byte) (err error) {
 	varListLogs2XXResponseInner := _ListLogs2XXResponseInner{}
 
-	if err = json.Unmarshal(bytes, &varListLogs2XXResponseInner); err == nil {
-		*o = ListLogs2XXResponseInner(varListLogs2XXResponseInner)
+	err = json.Unmarshal(data, &varListLogs2XXResponseInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = ListLogs2XXResponseInner(varListLogs2XXResponseInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "label")
 		delete(additionalProperties, "level")
 		delete(additionalProperties, "message")

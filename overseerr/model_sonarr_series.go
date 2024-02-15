@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SonarrSeries type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SonarrSeries{}
+
 // SonarrSeries struct for SonarrSeries
 type SonarrSeries struct {
 	Title *string `json:"title,omitempty"`
@@ -23,9 +26,9 @@ type SonarrSeries struct {
 	Overview *string `json:"overview,omitempty"`
 	Network *string `json:"network,omitempty"`
 	AirTime *string `json:"airTime,omitempty"`
-	Images []*SonarrSeriesImagesInner `json:"images,omitempty"`
+	Images []SonarrSeriesImagesInner `json:"images,omitempty"`
 	RemotePoster *string `json:"remotePoster,omitempty"`
-	Seasons []*SonarrSeriesSeasonsInner `json:"seasons,omitempty"`
+	Seasons []SonarrSeriesSeasonsInner `json:"seasons,omitempty"`
 	Year *float32 `json:"year,omitempty"`
 	Path *string `json:"path,omitempty"`
 	ProfileId *float32 `json:"profileId,omitempty"`
@@ -44,14 +47,14 @@ type SonarrSeries struct {
 	ImdbId *string `json:"imdbId,omitempty"`
 	TitleSlug *string `json:"titleSlug,omitempty"`
 	Certification *string `json:"certification,omitempty"`
-	Genres []*string `json:"genres,omitempty"`
-	Tags []*string `json:"tags,omitempty"`
+	Genres []string `json:"genres,omitempty"`
+	Tags []string `json:"tags,omitempty"`
 	Added *string `json:"added,omitempty"`
-	Ratings []*SonarrSeriesRatingsInner `json:"ratings,omitempty"`
+	Ratings []SonarrSeriesRatingsInner `json:"ratings,omitempty"`
 	QualityProfileId *float32 `json:"qualityProfileId,omitempty"`
 	Id NullableFloat32 `json:"id,omitempty"`
 	RootFolderPath NullableString `json:"rootFolderPath,omitempty"`
-	AddOptions []*SonarrSeriesAddOptionsInner `json:"addOptions,omitempty"`
+	AddOptions []SonarrSeriesAddOptionsInner `json:"addOptions,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +79,7 @@ func NewSonarrSeriesWithDefaults() *SonarrSeries {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *SonarrSeries) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *SonarrSeries) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *SonarrSeries) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *SonarrSeries) SetTitle(v string) {
 
 // GetSortTitle returns the SortTitle field value if set, zero value otherwise.
 func (o *SonarrSeries) GetSortTitle() string {
-	if o == nil || isNil(o.SortTitle) {
+	if o == nil || IsNil(o.SortTitle) {
 		var ret string
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *SonarrSeries) GetSortTitle() string {
 // GetSortTitleOk returns a tuple with the SortTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetSortTitleOk() (*string, bool) {
-	if o == nil || isNil(o.SortTitle) {
-    return nil, false
+	if o == nil || IsNil(o.SortTitle) {
+		return nil, false
 	}
 	return o.SortTitle, true
 }
 
 // HasSortTitle returns a boolean if a field has been set.
 func (o *SonarrSeries) HasSortTitle() bool {
-	if o != nil && !isNil(o.SortTitle) {
+	if o != nil && !IsNil(o.SortTitle) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *SonarrSeries) SetSortTitle(v string) {
 
 // GetSeasonCount returns the SeasonCount field value if set, zero value otherwise.
 func (o *SonarrSeries) GetSeasonCount() float32 {
-	if o == nil || isNil(o.SeasonCount) {
+	if o == nil || IsNil(o.SeasonCount) {
 		var ret float32
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *SonarrSeries) GetSeasonCount() float32 {
 // GetSeasonCountOk returns a tuple with the SeasonCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetSeasonCountOk() (*float32, bool) {
-	if o == nil || isNil(o.SeasonCount) {
-    return nil, false
+	if o == nil || IsNil(o.SeasonCount) {
+		return nil, false
 	}
 	return o.SeasonCount, true
 }
 
 // HasSeasonCount returns a boolean if a field has been set.
 func (o *SonarrSeries) HasSeasonCount() bool {
-	if o != nil && !isNil(o.SeasonCount) {
+	if o != nil && !IsNil(o.SeasonCount) {
 		return true
 	}
 
@@ -172,7 +175,7 @@ func (o *SonarrSeries) SetSeasonCount(v float32) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *SonarrSeries) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -182,15 +185,15 @@ func (o *SonarrSeries) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
-    return nil, false
+	if o == nil || IsNil(o.Status) {
+		return nil, false
 	}
 	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *SonarrSeries) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -204,7 +207,7 @@ func (o *SonarrSeries) SetStatus(v string) {
 
 // GetOverview returns the Overview field value if set, zero value otherwise.
 func (o *SonarrSeries) GetOverview() string {
-	if o == nil || isNil(o.Overview) {
+	if o == nil || IsNil(o.Overview) {
 		var ret string
 		return ret
 	}
@@ -214,15 +217,15 @@ func (o *SonarrSeries) GetOverview() string {
 // GetOverviewOk returns a tuple with the Overview field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetOverviewOk() (*string, bool) {
-	if o == nil || isNil(o.Overview) {
-    return nil, false
+	if o == nil || IsNil(o.Overview) {
+		return nil, false
 	}
 	return o.Overview, true
 }
 
 // HasOverview returns a boolean if a field has been set.
 func (o *SonarrSeries) HasOverview() bool {
-	if o != nil && !isNil(o.Overview) {
+	if o != nil && !IsNil(o.Overview) {
 		return true
 	}
 
@@ -236,7 +239,7 @@ func (o *SonarrSeries) SetOverview(v string) {
 
 // GetNetwork returns the Network field value if set, zero value otherwise.
 func (o *SonarrSeries) GetNetwork() string {
-	if o == nil || isNil(o.Network) {
+	if o == nil || IsNil(o.Network) {
 		var ret string
 		return ret
 	}
@@ -246,15 +249,15 @@ func (o *SonarrSeries) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetNetworkOk() (*string, bool) {
-	if o == nil || isNil(o.Network) {
-    return nil, false
+	if o == nil || IsNil(o.Network) {
+		return nil, false
 	}
 	return o.Network, true
 }
 
 // HasNetwork returns a boolean if a field has been set.
 func (o *SonarrSeries) HasNetwork() bool {
-	if o != nil && !isNil(o.Network) {
+	if o != nil && !IsNil(o.Network) {
 		return true
 	}
 
@@ -268,7 +271,7 @@ func (o *SonarrSeries) SetNetwork(v string) {
 
 // GetAirTime returns the AirTime field value if set, zero value otherwise.
 func (o *SonarrSeries) GetAirTime() string {
-	if o == nil || isNil(o.AirTime) {
+	if o == nil || IsNil(o.AirTime) {
 		var ret string
 		return ret
 	}
@@ -278,15 +281,15 @@ func (o *SonarrSeries) GetAirTime() string {
 // GetAirTimeOk returns a tuple with the AirTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetAirTimeOk() (*string, bool) {
-	if o == nil || isNil(o.AirTime) {
-    return nil, false
+	if o == nil || IsNil(o.AirTime) {
+		return nil, false
 	}
 	return o.AirTime, true
 }
 
 // HasAirTime returns a boolean if a field has been set.
 func (o *SonarrSeries) HasAirTime() bool {
-	if o != nil && !isNil(o.AirTime) {
+	if o != nil && !IsNil(o.AirTime) {
 		return true
 	}
 
@@ -299,9 +302,9 @@ func (o *SonarrSeries) SetAirTime(v string) {
 }
 
 // GetImages returns the Images field value if set, zero value otherwise.
-func (o *SonarrSeries) GetImages() []*SonarrSeriesImagesInner {
-	if o == nil || isNil(o.Images) {
-		var ret []*SonarrSeriesImagesInner
+func (o *SonarrSeries) GetImages() []SonarrSeriesImagesInner {
+	if o == nil || IsNil(o.Images) {
+		var ret []SonarrSeriesImagesInner
 		return ret
 	}
 	return o.Images
@@ -309,16 +312,16 @@ func (o *SonarrSeries) GetImages() []*SonarrSeriesImagesInner {
 
 // GetImagesOk returns a tuple with the Images field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SonarrSeries) GetImagesOk() ([]*SonarrSeriesImagesInner, bool) {
-	if o == nil || isNil(o.Images) {
-    return nil, false
+func (o *SonarrSeries) GetImagesOk() ([]SonarrSeriesImagesInner, bool) {
+	if o == nil || IsNil(o.Images) {
+		return nil, false
 	}
 	return o.Images, true
 }
 
 // HasImages returns a boolean if a field has been set.
 func (o *SonarrSeries) HasImages() bool {
-	if o != nil && !isNil(o.Images) {
+	if o != nil && !IsNil(o.Images) {
 		return true
 	}
 
@@ -326,13 +329,13 @@ func (o *SonarrSeries) HasImages() bool {
 }
 
 // SetImages gets a reference to the given []SonarrSeriesImagesInner and assigns it to the Images field.
-func (o *SonarrSeries) SetImages(v []*SonarrSeriesImagesInner) {
+func (o *SonarrSeries) SetImages(v []SonarrSeriesImagesInner) {
 	o.Images = v
 }
 
 // GetRemotePoster returns the RemotePoster field value if set, zero value otherwise.
 func (o *SonarrSeries) GetRemotePoster() string {
-	if o == nil || isNil(o.RemotePoster) {
+	if o == nil || IsNil(o.RemotePoster) {
 		var ret string
 		return ret
 	}
@@ -342,15 +345,15 @@ func (o *SonarrSeries) GetRemotePoster() string {
 // GetRemotePosterOk returns a tuple with the RemotePoster field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetRemotePosterOk() (*string, bool) {
-	if o == nil || isNil(o.RemotePoster) {
-    return nil, false
+	if o == nil || IsNil(o.RemotePoster) {
+		return nil, false
 	}
 	return o.RemotePoster, true
 }
 
 // HasRemotePoster returns a boolean if a field has been set.
 func (o *SonarrSeries) HasRemotePoster() bool {
-	if o != nil && !isNil(o.RemotePoster) {
+	if o != nil && !IsNil(o.RemotePoster) {
 		return true
 	}
 
@@ -363,9 +366,9 @@ func (o *SonarrSeries) SetRemotePoster(v string) {
 }
 
 // GetSeasons returns the Seasons field value if set, zero value otherwise.
-func (o *SonarrSeries) GetSeasons() []*SonarrSeriesSeasonsInner {
-	if o == nil || isNil(o.Seasons) {
-		var ret []*SonarrSeriesSeasonsInner
+func (o *SonarrSeries) GetSeasons() []SonarrSeriesSeasonsInner {
+	if o == nil || IsNil(o.Seasons) {
+		var ret []SonarrSeriesSeasonsInner
 		return ret
 	}
 	return o.Seasons
@@ -373,16 +376,16 @@ func (o *SonarrSeries) GetSeasons() []*SonarrSeriesSeasonsInner {
 
 // GetSeasonsOk returns a tuple with the Seasons field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SonarrSeries) GetSeasonsOk() ([]*SonarrSeriesSeasonsInner, bool) {
-	if o == nil || isNil(o.Seasons) {
-    return nil, false
+func (o *SonarrSeries) GetSeasonsOk() ([]SonarrSeriesSeasonsInner, bool) {
+	if o == nil || IsNil(o.Seasons) {
+		return nil, false
 	}
 	return o.Seasons, true
 }
 
 // HasSeasons returns a boolean if a field has been set.
 func (o *SonarrSeries) HasSeasons() bool {
-	if o != nil && !isNil(o.Seasons) {
+	if o != nil && !IsNil(o.Seasons) {
 		return true
 	}
 
@@ -390,13 +393,13 @@ func (o *SonarrSeries) HasSeasons() bool {
 }
 
 // SetSeasons gets a reference to the given []SonarrSeriesSeasonsInner and assigns it to the Seasons field.
-func (o *SonarrSeries) SetSeasons(v []*SonarrSeriesSeasonsInner) {
+func (o *SonarrSeries) SetSeasons(v []SonarrSeriesSeasonsInner) {
 	o.Seasons = v
 }
 
 // GetYear returns the Year field value if set, zero value otherwise.
 func (o *SonarrSeries) GetYear() float32 {
-	if o == nil || isNil(o.Year) {
+	if o == nil || IsNil(o.Year) {
 		var ret float32
 		return ret
 	}
@@ -406,15 +409,15 @@ func (o *SonarrSeries) GetYear() float32 {
 // GetYearOk returns a tuple with the Year field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetYearOk() (*float32, bool) {
-	if o == nil || isNil(o.Year) {
-    return nil, false
+	if o == nil || IsNil(o.Year) {
+		return nil, false
 	}
 	return o.Year, true
 }
 
 // HasYear returns a boolean if a field has been set.
 func (o *SonarrSeries) HasYear() bool {
-	if o != nil && !isNil(o.Year) {
+	if o != nil && !IsNil(o.Year) {
 		return true
 	}
 
@@ -428,7 +431,7 @@ func (o *SonarrSeries) SetYear(v float32) {
 
 // GetPath returns the Path field value if set, zero value otherwise.
 func (o *SonarrSeries) GetPath() string {
-	if o == nil || isNil(o.Path) {
+	if o == nil || IsNil(o.Path) {
 		var ret string
 		return ret
 	}
@@ -438,15 +441,15 @@ func (o *SonarrSeries) GetPath() string {
 // GetPathOk returns a tuple with the Path field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetPathOk() (*string, bool) {
-	if o == nil || isNil(o.Path) {
-    return nil, false
+	if o == nil || IsNil(o.Path) {
+		return nil, false
 	}
 	return o.Path, true
 }
 
 // HasPath returns a boolean if a field has been set.
 func (o *SonarrSeries) HasPath() bool {
-	if o != nil && !isNil(o.Path) {
+	if o != nil && !IsNil(o.Path) {
 		return true
 	}
 
@@ -460,7 +463,7 @@ func (o *SonarrSeries) SetPath(v string) {
 
 // GetProfileId returns the ProfileId field value if set, zero value otherwise.
 func (o *SonarrSeries) GetProfileId() float32 {
-	if o == nil || isNil(o.ProfileId) {
+	if o == nil || IsNil(o.ProfileId) {
 		var ret float32
 		return ret
 	}
@@ -470,15 +473,15 @@ func (o *SonarrSeries) GetProfileId() float32 {
 // GetProfileIdOk returns a tuple with the ProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.ProfileId) {
+		return nil, false
 	}
 	return o.ProfileId, true
 }
 
 // HasProfileId returns a boolean if a field has been set.
 func (o *SonarrSeries) HasProfileId() bool {
-	if o != nil && !isNil(o.ProfileId) {
+	if o != nil && !IsNil(o.ProfileId) {
 		return true
 	}
 
@@ -492,7 +495,7 @@ func (o *SonarrSeries) SetProfileId(v float32) {
 
 // GetLanguageProfileId returns the LanguageProfileId field value if set, zero value otherwise.
 func (o *SonarrSeries) GetLanguageProfileId() float32 {
-	if o == nil || isNil(o.LanguageProfileId) {
+	if o == nil || IsNil(o.LanguageProfileId) {
 		var ret float32
 		return ret
 	}
@@ -502,15 +505,15 @@ func (o *SonarrSeries) GetLanguageProfileId() float32 {
 // GetLanguageProfileIdOk returns a tuple with the LanguageProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetLanguageProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.LanguageProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.LanguageProfileId) {
+		return nil, false
 	}
 	return o.LanguageProfileId, true
 }
 
 // HasLanguageProfileId returns a boolean if a field has been set.
 func (o *SonarrSeries) HasLanguageProfileId() bool {
-	if o != nil && !isNil(o.LanguageProfileId) {
+	if o != nil && !IsNil(o.LanguageProfileId) {
 		return true
 	}
 
@@ -524,7 +527,7 @@ func (o *SonarrSeries) SetLanguageProfileId(v float32) {
 
 // GetSeasonFolder returns the SeasonFolder field value if set, zero value otherwise.
 func (o *SonarrSeries) GetSeasonFolder() bool {
-	if o == nil || isNil(o.SeasonFolder) {
+	if o == nil || IsNil(o.SeasonFolder) {
 		var ret bool
 		return ret
 	}
@@ -534,15 +537,15 @@ func (o *SonarrSeries) GetSeasonFolder() bool {
 // GetSeasonFolderOk returns a tuple with the SeasonFolder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetSeasonFolderOk() (*bool, bool) {
-	if o == nil || isNil(o.SeasonFolder) {
-    return nil, false
+	if o == nil || IsNil(o.SeasonFolder) {
+		return nil, false
 	}
 	return o.SeasonFolder, true
 }
 
 // HasSeasonFolder returns a boolean if a field has been set.
 func (o *SonarrSeries) HasSeasonFolder() bool {
-	if o != nil && !isNil(o.SeasonFolder) {
+	if o != nil && !IsNil(o.SeasonFolder) {
 		return true
 	}
 
@@ -556,7 +559,7 @@ func (o *SonarrSeries) SetSeasonFolder(v bool) {
 
 // GetMonitored returns the Monitored field value if set, zero value otherwise.
 func (o *SonarrSeries) GetMonitored() bool {
-	if o == nil || isNil(o.Monitored) {
+	if o == nil || IsNil(o.Monitored) {
 		var ret bool
 		return ret
 	}
@@ -566,15 +569,15 @@ func (o *SonarrSeries) GetMonitored() bool {
 // GetMonitoredOk returns a tuple with the Monitored field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetMonitoredOk() (*bool, bool) {
-	if o == nil || isNil(o.Monitored) {
-    return nil, false
+	if o == nil || IsNil(o.Monitored) {
+		return nil, false
 	}
 	return o.Monitored, true
 }
 
 // HasMonitored returns a boolean if a field has been set.
 func (o *SonarrSeries) HasMonitored() bool {
-	if o != nil && !isNil(o.Monitored) {
+	if o != nil && !IsNil(o.Monitored) {
 		return true
 	}
 
@@ -588,7 +591,7 @@ func (o *SonarrSeries) SetMonitored(v bool) {
 
 // GetUseSceneNumbering returns the UseSceneNumbering field value if set, zero value otherwise.
 func (o *SonarrSeries) GetUseSceneNumbering() bool {
-	if o == nil || isNil(o.UseSceneNumbering) {
+	if o == nil || IsNil(o.UseSceneNumbering) {
 		var ret bool
 		return ret
 	}
@@ -598,15 +601,15 @@ func (o *SonarrSeries) GetUseSceneNumbering() bool {
 // GetUseSceneNumberingOk returns a tuple with the UseSceneNumbering field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetUseSceneNumberingOk() (*bool, bool) {
-	if o == nil || isNil(o.UseSceneNumbering) {
-    return nil, false
+	if o == nil || IsNil(o.UseSceneNumbering) {
+		return nil, false
 	}
 	return o.UseSceneNumbering, true
 }
 
 // HasUseSceneNumbering returns a boolean if a field has been set.
 func (o *SonarrSeries) HasUseSceneNumbering() bool {
-	if o != nil && !isNil(o.UseSceneNumbering) {
+	if o != nil && !IsNil(o.UseSceneNumbering) {
 		return true
 	}
 
@@ -620,7 +623,7 @@ func (o *SonarrSeries) SetUseSceneNumbering(v bool) {
 
 // GetRuntime returns the Runtime field value if set, zero value otherwise.
 func (o *SonarrSeries) GetRuntime() float32 {
-	if o == nil || isNil(o.Runtime) {
+	if o == nil || IsNil(o.Runtime) {
 		var ret float32
 		return ret
 	}
@@ -630,15 +633,15 @@ func (o *SonarrSeries) GetRuntime() float32 {
 // GetRuntimeOk returns a tuple with the Runtime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetRuntimeOk() (*float32, bool) {
-	if o == nil || isNil(o.Runtime) {
-    return nil, false
+	if o == nil || IsNil(o.Runtime) {
+		return nil, false
 	}
 	return o.Runtime, true
 }
 
 // HasRuntime returns a boolean if a field has been set.
 func (o *SonarrSeries) HasRuntime() bool {
-	if o != nil && !isNil(o.Runtime) {
+	if o != nil && !IsNil(o.Runtime) {
 		return true
 	}
 
@@ -652,7 +655,7 @@ func (o *SonarrSeries) SetRuntime(v float32) {
 
 // GetTvdbId returns the TvdbId field value if set, zero value otherwise.
 func (o *SonarrSeries) GetTvdbId() float32 {
-	if o == nil || isNil(o.TvdbId) {
+	if o == nil || IsNil(o.TvdbId) {
 		var ret float32
 		return ret
 	}
@@ -662,15 +665,15 @@ func (o *SonarrSeries) GetTvdbId() float32 {
 // GetTvdbIdOk returns a tuple with the TvdbId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetTvdbIdOk() (*float32, bool) {
-	if o == nil || isNil(o.TvdbId) {
-    return nil, false
+	if o == nil || IsNil(o.TvdbId) {
+		return nil, false
 	}
 	return o.TvdbId, true
 }
 
 // HasTvdbId returns a boolean if a field has been set.
 func (o *SonarrSeries) HasTvdbId() bool {
-	if o != nil && !isNil(o.TvdbId) {
+	if o != nil && !IsNil(o.TvdbId) {
 		return true
 	}
 
@@ -684,7 +687,7 @@ func (o *SonarrSeries) SetTvdbId(v float32) {
 
 // GetTvRageId returns the TvRageId field value if set, zero value otherwise.
 func (o *SonarrSeries) GetTvRageId() float32 {
-	if o == nil || isNil(o.TvRageId) {
+	if o == nil || IsNil(o.TvRageId) {
 		var ret float32
 		return ret
 	}
@@ -694,15 +697,15 @@ func (o *SonarrSeries) GetTvRageId() float32 {
 // GetTvRageIdOk returns a tuple with the TvRageId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetTvRageIdOk() (*float32, bool) {
-	if o == nil || isNil(o.TvRageId) {
-    return nil, false
+	if o == nil || IsNil(o.TvRageId) {
+		return nil, false
 	}
 	return o.TvRageId, true
 }
 
 // HasTvRageId returns a boolean if a field has been set.
 func (o *SonarrSeries) HasTvRageId() bool {
-	if o != nil && !isNil(o.TvRageId) {
+	if o != nil && !IsNil(o.TvRageId) {
 		return true
 	}
 
@@ -716,7 +719,7 @@ func (o *SonarrSeries) SetTvRageId(v float32) {
 
 // GetTvMazeId returns the TvMazeId field value if set, zero value otherwise.
 func (o *SonarrSeries) GetTvMazeId() float32 {
-	if o == nil || isNil(o.TvMazeId) {
+	if o == nil || IsNil(o.TvMazeId) {
 		var ret float32
 		return ret
 	}
@@ -726,15 +729,15 @@ func (o *SonarrSeries) GetTvMazeId() float32 {
 // GetTvMazeIdOk returns a tuple with the TvMazeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetTvMazeIdOk() (*float32, bool) {
-	if o == nil || isNil(o.TvMazeId) {
-    return nil, false
+	if o == nil || IsNil(o.TvMazeId) {
+		return nil, false
 	}
 	return o.TvMazeId, true
 }
 
 // HasTvMazeId returns a boolean if a field has been set.
 func (o *SonarrSeries) HasTvMazeId() bool {
-	if o != nil && !isNil(o.TvMazeId) {
+	if o != nil && !IsNil(o.TvMazeId) {
 		return true
 	}
 
@@ -748,7 +751,7 @@ func (o *SonarrSeries) SetTvMazeId(v float32) {
 
 // GetFirstAired returns the FirstAired field value if set, zero value otherwise.
 func (o *SonarrSeries) GetFirstAired() string {
-	if o == nil || isNil(o.FirstAired) {
+	if o == nil || IsNil(o.FirstAired) {
 		var ret string
 		return ret
 	}
@@ -758,15 +761,15 @@ func (o *SonarrSeries) GetFirstAired() string {
 // GetFirstAiredOk returns a tuple with the FirstAired field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetFirstAiredOk() (*string, bool) {
-	if o == nil || isNil(o.FirstAired) {
-    return nil, false
+	if o == nil || IsNil(o.FirstAired) {
+		return nil, false
 	}
 	return o.FirstAired, true
 }
 
 // HasFirstAired returns a boolean if a field has been set.
 func (o *SonarrSeries) HasFirstAired() bool {
-	if o != nil && !isNil(o.FirstAired) {
+	if o != nil && !IsNil(o.FirstAired) {
 		return true
 	}
 
@@ -780,7 +783,7 @@ func (o *SonarrSeries) SetFirstAired(v string) {
 
 // GetLastInfoSync returns the LastInfoSync field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSeries) GetLastInfoSync() string {
-	if o == nil || isNil(o.LastInfoSync.Get()) {
+	if o == nil || IsNil(o.LastInfoSync.Get()) {
 		var ret string
 		return ret
 	}
@@ -792,7 +795,7 @@ func (o *SonarrSeries) GetLastInfoSync() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSeries) GetLastInfoSyncOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.LastInfoSync.Get(), o.LastInfoSync.IsSet()
 }
@@ -822,7 +825,7 @@ func (o *SonarrSeries) UnsetLastInfoSync() {
 
 // GetSeriesType returns the SeriesType field value if set, zero value otherwise.
 func (o *SonarrSeries) GetSeriesType() string {
-	if o == nil || isNil(o.SeriesType) {
+	if o == nil || IsNil(o.SeriesType) {
 		var ret string
 		return ret
 	}
@@ -832,15 +835,15 @@ func (o *SonarrSeries) GetSeriesType() string {
 // GetSeriesTypeOk returns a tuple with the SeriesType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetSeriesTypeOk() (*string, bool) {
-	if o == nil || isNil(o.SeriesType) {
-    return nil, false
+	if o == nil || IsNil(o.SeriesType) {
+		return nil, false
 	}
 	return o.SeriesType, true
 }
 
 // HasSeriesType returns a boolean if a field has been set.
 func (o *SonarrSeries) HasSeriesType() bool {
-	if o != nil && !isNil(o.SeriesType) {
+	if o != nil && !IsNil(o.SeriesType) {
 		return true
 	}
 
@@ -854,7 +857,7 @@ func (o *SonarrSeries) SetSeriesType(v string) {
 
 // GetCleanTitle returns the CleanTitle field value if set, zero value otherwise.
 func (o *SonarrSeries) GetCleanTitle() string {
-	if o == nil || isNil(o.CleanTitle) {
+	if o == nil || IsNil(o.CleanTitle) {
 		var ret string
 		return ret
 	}
@@ -864,15 +867,15 @@ func (o *SonarrSeries) GetCleanTitle() string {
 // GetCleanTitleOk returns a tuple with the CleanTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetCleanTitleOk() (*string, bool) {
-	if o == nil || isNil(o.CleanTitle) {
-    return nil, false
+	if o == nil || IsNil(o.CleanTitle) {
+		return nil, false
 	}
 	return o.CleanTitle, true
 }
 
 // HasCleanTitle returns a boolean if a field has been set.
 func (o *SonarrSeries) HasCleanTitle() bool {
-	if o != nil && !isNil(o.CleanTitle) {
+	if o != nil && !IsNil(o.CleanTitle) {
 		return true
 	}
 
@@ -886,7 +889,7 @@ func (o *SonarrSeries) SetCleanTitle(v string) {
 
 // GetImdbId returns the ImdbId field value if set, zero value otherwise.
 func (o *SonarrSeries) GetImdbId() string {
-	if o == nil || isNil(o.ImdbId) {
+	if o == nil || IsNil(o.ImdbId) {
 		var ret string
 		return ret
 	}
@@ -896,15 +899,15 @@ func (o *SonarrSeries) GetImdbId() string {
 // GetImdbIdOk returns a tuple with the ImdbId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetImdbIdOk() (*string, bool) {
-	if o == nil || isNil(o.ImdbId) {
-    return nil, false
+	if o == nil || IsNil(o.ImdbId) {
+		return nil, false
 	}
 	return o.ImdbId, true
 }
 
 // HasImdbId returns a boolean if a field has been set.
 func (o *SonarrSeries) HasImdbId() bool {
-	if o != nil && !isNil(o.ImdbId) {
+	if o != nil && !IsNil(o.ImdbId) {
 		return true
 	}
 
@@ -918,7 +921,7 @@ func (o *SonarrSeries) SetImdbId(v string) {
 
 // GetTitleSlug returns the TitleSlug field value if set, zero value otherwise.
 func (o *SonarrSeries) GetTitleSlug() string {
-	if o == nil || isNil(o.TitleSlug) {
+	if o == nil || IsNil(o.TitleSlug) {
 		var ret string
 		return ret
 	}
@@ -928,15 +931,15 @@ func (o *SonarrSeries) GetTitleSlug() string {
 // GetTitleSlugOk returns a tuple with the TitleSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetTitleSlugOk() (*string, bool) {
-	if o == nil || isNil(o.TitleSlug) {
-    return nil, false
+	if o == nil || IsNil(o.TitleSlug) {
+		return nil, false
 	}
 	return o.TitleSlug, true
 }
 
 // HasTitleSlug returns a boolean if a field has been set.
 func (o *SonarrSeries) HasTitleSlug() bool {
-	if o != nil && !isNil(o.TitleSlug) {
+	if o != nil && !IsNil(o.TitleSlug) {
 		return true
 	}
 
@@ -950,7 +953,7 @@ func (o *SonarrSeries) SetTitleSlug(v string) {
 
 // GetCertification returns the Certification field value if set, zero value otherwise.
 func (o *SonarrSeries) GetCertification() string {
-	if o == nil || isNil(o.Certification) {
+	if o == nil || IsNil(o.Certification) {
 		var ret string
 		return ret
 	}
@@ -960,15 +963,15 @@ func (o *SonarrSeries) GetCertification() string {
 // GetCertificationOk returns a tuple with the Certification field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetCertificationOk() (*string, bool) {
-	if o == nil || isNil(o.Certification) {
-    return nil, false
+	if o == nil || IsNil(o.Certification) {
+		return nil, false
 	}
 	return o.Certification, true
 }
 
 // HasCertification returns a boolean if a field has been set.
 func (o *SonarrSeries) HasCertification() bool {
-	if o != nil && !isNil(o.Certification) {
+	if o != nil && !IsNil(o.Certification) {
 		return true
 	}
 
@@ -981,9 +984,9 @@ func (o *SonarrSeries) SetCertification(v string) {
 }
 
 // GetGenres returns the Genres field value if set, zero value otherwise.
-func (o *SonarrSeries) GetGenres() []*string {
-	if o == nil || isNil(o.Genres) {
-		var ret []*string
+func (o *SonarrSeries) GetGenres() []string {
+	if o == nil || IsNil(o.Genres) {
+		var ret []string
 		return ret
 	}
 	return o.Genres
@@ -991,16 +994,16 @@ func (o *SonarrSeries) GetGenres() []*string {
 
 // GetGenresOk returns a tuple with the Genres field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SonarrSeries) GetGenresOk() ([]*string, bool) {
-	if o == nil || isNil(o.Genres) {
-    return nil, false
+func (o *SonarrSeries) GetGenresOk() ([]string, bool) {
+	if o == nil || IsNil(o.Genres) {
+		return nil, false
 	}
 	return o.Genres, true
 }
 
 // HasGenres returns a boolean if a field has been set.
 func (o *SonarrSeries) HasGenres() bool {
-	if o != nil && !isNil(o.Genres) {
+	if o != nil && !IsNil(o.Genres) {
 		return true
 	}
 
@@ -1008,14 +1011,14 @@ func (o *SonarrSeries) HasGenres() bool {
 }
 
 // SetGenres gets a reference to the given []string and assigns it to the Genres field.
-func (o *SonarrSeries) SetGenres(v []*string) {
+func (o *SonarrSeries) SetGenres(v []string) {
 	o.Genres = v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
-func (o *SonarrSeries) GetTags() []*string {
-	if o == nil || isNil(o.Tags) {
-		var ret []*string
+func (o *SonarrSeries) GetTags() []string {
+	if o == nil || IsNil(o.Tags) {
+		var ret []string
 		return ret
 	}
 	return o.Tags
@@ -1023,16 +1026,16 @@ func (o *SonarrSeries) GetTags() []*string {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SonarrSeries) GetTagsOk() ([]*string, bool) {
-	if o == nil || isNil(o.Tags) {
-    return nil, false
+func (o *SonarrSeries) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
 	}
 	return o.Tags, true
 }
 
 // HasTags returns a boolean if a field has been set.
 func (o *SonarrSeries) HasTags() bool {
-	if o != nil && !isNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -1040,13 +1043,13 @@ func (o *SonarrSeries) HasTags() bool {
 }
 
 // SetTags gets a reference to the given []string and assigns it to the Tags field.
-func (o *SonarrSeries) SetTags(v []*string) {
+func (o *SonarrSeries) SetTags(v []string) {
 	o.Tags = v
 }
 
 // GetAdded returns the Added field value if set, zero value otherwise.
 func (o *SonarrSeries) GetAdded() string {
-	if o == nil || isNil(o.Added) {
+	if o == nil || IsNil(o.Added) {
 		var ret string
 		return ret
 	}
@@ -1056,15 +1059,15 @@ func (o *SonarrSeries) GetAdded() string {
 // GetAddedOk returns a tuple with the Added field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetAddedOk() (*string, bool) {
-	if o == nil || isNil(o.Added) {
-    return nil, false
+	if o == nil || IsNil(o.Added) {
+		return nil, false
 	}
 	return o.Added, true
 }
 
 // HasAdded returns a boolean if a field has been set.
 func (o *SonarrSeries) HasAdded() bool {
-	if o != nil && !isNil(o.Added) {
+	if o != nil && !IsNil(o.Added) {
 		return true
 	}
 
@@ -1077,9 +1080,9 @@ func (o *SonarrSeries) SetAdded(v string) {
 }
 
 // GetRatings returns the Ratings field value if set, zero value otherwise.
-func (o *SonarrSeries) GetRatings() []*SonarrSeriesRatingsInner {
-	if o == nil || isNil(o.Ratings) {
-		var ret []*SonarrSeriesRatingsInner
+func (o *SonarrSeries) GetRatings() []SonarrSeriesRatingsInner {
+	if o == nil || IsNil(o.Ratings) {
+		var ret []SonarrSeriesRatingsInner
 		return ret
 	}
 	return o.Ratings
@@ -1087,16 +1090,16 @@ func (o *SonarrSeries) GetRatings() []*SonarrSeriesRatingsInner {
 
 // GetRatingsOk returns a tuple with the Ratings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SonarrSeries) GetRatingsOk() ([]*SonarrSeriesRatingsInner, bool) {
-	if o == nil || isNil(o.Ratings) {
-    return nil, false
+func (o *SonarrSeries) GetRatingsOk() ([]SonarrSeriesRatingsInner, bool) {
+	if o == nil || IsNil(o.Ratings) {
+		return nil, false
 	}
 	return o.Ratings, true
 }
 
 // HasRatings returns a boolean if a field has been set.
 func (o *SonarrSeries) HasRatings() bool {
-	if o != nil && !isNil(o.Ratings) {
+	if o != nil && !IsNil(o.Ratings) {
 		return true
 	}
 
@@ -1104,13 +1107,13 @@ func (o *SonarrSeries) HasRatings() bool {
 }
 
 // SetRatings gets a reference to the given []SonarrSeriesRatingsInner and assigns it to the Ratings field.
-func (o *SonarrSeries) SetRatings(v []*SonarrSeriesRatingsInner) {
+func (o *SonarrSeries) SetRatings(v []SonarrSeriesRatingsInner) {
 	o.Ratings = v
 }
 
 // GetQualityProfileId returns the QualityProfileId field value if set, zero value otherwise.
 func (o *SonarrSeries) GetQualityProfileId() float32 {
-	if o == nil || isNil(o.QualityProfileId) {
+	if o == nil || IsNil(o.QualityProfileId) {
 		var ret float32
 		return ret
 	}
@@ -1120,15 +1123,15 @@ func (o *SonarrSeries) GetQualityProfileId() float32 {
 // GetQualityProfileIdOk returns a tuple with the QualityProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeries) GetQualityProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.QualityProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.QualityProfileId) {
+		return nil, false
 	}
 	return o.QualityProfileId, true
 }
 
 // HasQualityProfileId returns a boolean if a field has been set.
 func (o *SonarrSeries) HasQualityProfileId() bool {
-	if o != nil && !isNil(o.QualityProfileId) {
+	if o != nil && !IsNil(o.QualityProfileId) {
 		return true
 	}
 
@@ -1142,7 +1145,7 @@ func (o *SonarrSeries) SetQualityProfileId(v float32) {
 
 // GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSeries) GetId() float32 {
-	if o == nil || isNil(o.Id.Get()) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret float32
 		return ret
 	}
@@ -1154,7 +1157,7 @@ func (o *SonarrSeries) GetId() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSeries) GetIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Id.Get(), o.Id.IsSet()
 }
@@ -1184,7 +1187,7 @@ func (o *SonarrSeries) UnsetId() {
 
 // GetRootFolderPath returns the RootFolderPath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSeries) GetRootFolderPath() string {
-	if o == nil || isNil(o.RootFolderPath.Get()) {
+	if o == nil || IsNil(o.RootFolderPath.Get()) {
 		var ret string
 		return ret
 	}
@@ -1196,7 +1199,7 @@ func (o *SonarrSeries) GetRootFolderPath() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSeries) GetRootFolderPathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.RootFolderPath.Get(), o.RootFolderPath.IsSet()
 }
@@ -1225,9 +1228,9 @@ func (o *SonarrSeries) UnsetRootFolderPath() {
 }
 
 // GetAddOptions returns the AddOptions field value if set, zero value otherwise.
-func (o *SonarrSeries) GetAddOptions() []*SonarrSeriesAddOptionsInner {
-	if o == nil || isNil(o.AddOptions) {
-		var ret []*SonarrSeriesAddOptionsInner
+func (o *SonarrSeries) GetAddOptions() []SonarrSeriesAddOptionsInner {
+	if o == nil || IsNil(o.AddOptions) {
+		var ret []SonarrSeriesAddOptionsInner
 		return ret
 	}
 	return o.AddOptions
@@ -1235,16 +1238,16 @@ func (o *SonarrSeries) GetAddOptions() []*SonarrSeriesAddOptionsInner {
 
 // GetAddOptionsOk returns a tuple with the AddOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SonarrSeries) GetAddOptionsOk() ([]*SonarrSeriesAddOptionsInner, bool) {
-	if o == nil || isNil(o.AddOptions) {
-    return nil, false
+func (o *SonarrSeries) GetAddOptionsOk() ([]SonarrSeriesAddOptionsInner, bool) {
+	if o == nil || IsNil(o.AddOptions) {
+		return nil, false
 	}
 	return o.AddOptions, true
 }
 
 // HasAddOptions returns a boolean if a field has been set.
 func (o *SonarrSeries) HasAddOptions() bool {
-	if o != nil && !isNil(o.AddOptions) {
+	if o != nil && !IsNil(o.AddOptions) {
 		return true
 	}
 
@@ -1252,109 +1255,117 @@ func (o *SonarrSeries) HasAddOptions() bool {
 }
 
 // SetAddOptions gets a reference to the given []SonarrSeriesAddOptionsInner and assigns it to the AddOptions field.
-func (o *SonarrSeries) SetAddOptions(v []*SonarrSeriesAddOptionsInner) {
+func (o *SonarrSeries) SetAddOptions(v []SonarrSeriesAddOptionsInner) {
 	o.AddOptions = v
 }
 
 func (o SonarrSeries) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o SonarrSeries) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Title) {
+	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if !isNil(o.SortTitle) {
+	if !IsNil(o.SortTitle) {
 		toSerialize["sortTitle"] = o.SortTitle
 	}
-	if !isNil(o.SeasonCount) {
+	if !IsNil(o.SeasonCount) {
 		toSerialize["seasonCount"] = o.SeasonCount
 	}
-	if !isNil(o.Status) {
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !isNil(o.Overview) {
+	if !IsNil(o.Overview) {
 		toSerialize["overview"] = o.Overview
 	}
-	if !isNil(o.Network) {
+	if !IsNil(o.Network) {
 		toSerialize["network"] = o.Network
 	}
-	if !isNil(o.AirTime) {
+	if !IsNil(o.AirTime) {
 		toSerialize["airTime"] = o.AirTime
 	}
-	if !isNil(o.Images) {
+	if !IsNil(o.Images) {
 		toSerialize["images"] = o.Images
 	}
-	if !isNil(o.RemotePoster) {
+	if !IsNil(o.RemotePoster) {
 		toSerialize["remotePoster"] = o.RemotePoster
 	}
-	if !isNil(o.Seasons) {
+	if !IsNil(o.Seasons) {
 		toSerialize["seasons"] = o.Seasons
 	}
-	if !isNil(o.Year) {
+	if !IsNil(o.Year) {
 		toSerialize["year"] = o.Year
 	}
-	if !isNil(o.Path) {
+	if !IsNil(o.Path) {
 		toSerialize["path"] = o.Path
 	}
-	if !isNil(o.ProfileId) {
+	if !IsNil(o.ProfileId) {
 		toSerialize["profileId"] = o.ProfileId
 	}
-	if !isNil(o.LanguageProfileId) {
+	if !IsNil(o.LanguageProfileId) {
 		toSerialize["languageProfileId"] = o.LanguageProfileId
 	}
-	if !isNil(o.SeasonFolder) {
+	if !IsNil(o.SeasonFolder) {
 		toSerialize["seasonFolder"] = o.SeasonFolder
 	}
-	if !isNil(o.Monitored) {
+	if !IsNil(o.Monitored) {
 		toSerialize["monitored"] = o.Monitored
 	}
-	if !isNil(o.UseSceneNumbering) {
+	if !IsNil(o.UseSceneNumbering) {
 		toSerialize["useSceneNumbering"] = o.UseSceneNumbering
 	}
-	if !isNil(o.Runtime) {
+	if !IsNil(o.Runtime) {
 		toSerialize["runtime"] = o.Runtime
 	}
-	if !isNil(o.TvdbId) {
+	if !IsNil(o.TvdbId) {
 		toSerialize["tvdbId"] = o.TvdbId
 	}
-	if !isNil(o.TvRageId) {
+	if !IsNil(o.TvRageId) {
 		toSerialize["tvRageId"] = o.TvRageId
 	}
-	if !isNil(o.TvMazeId) {
+	if !IsNil(o.TvMazeId) {
 		toSerialize["tvMazeId"] = o.TvMazeId
 	}
-	if !isNil(o.FirstAired) {
+	if !IsNil(o.FirstAired) {
 		toSerialize["firstAired"] = o.FirstAired
 	}
 	if o.LastInfoSync.IsSet() {
 		toSerialize["lastInfoSync"] = o.LastInfoSync.Get()
 	}
-	if !isNil(o.SeriesType) {
+	if !IsNil(o.SeriesType) {
 		toSerialize["seriesType"] = o.SeriesType
 	}
-	if !isNil(o.CleanTitle) {
+	if !IsNil(o.CleanTitle) {
 		toSerialize["cleanTitle"] = o.CleanTitle
 	}
-	if !isNil(o.ImdbId) {
+	if !IsNil(o.ImdbId) {
 		toSerialize["imdbId"] = o.ImdbId
 	}
-	if !isNil(o.TitleSlug) {
+	if !IsNil(o.TitleSlug) {
 		toSerialize["titleSlug"] = o.TitleSlug
 	}
-	if !isNil(o.Certification) {
+	if !IsNil(o.Certification) {
 		toSerialize["certification"] = o.Certification
 	}
-	if !isNil(o.Genres) {
+	if !IsNil(o.Genres) {
 		toSerialize["genres"] = o.Genres
 	}
-	if !isNil(o.Tags) {
+	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
-	if !isNil(o.Added) {
+	if !IsNil(o.Added) {
 		toSerialize["added"] = o.Added
 	}
-	if !isNil(o.Ratings) {
+	if !IsNil(o.Ratings) {
 		toSerialize["ratings"] = o.Ratings
 	}
-	if !isNil(o.QualityProfileId) {
+	if !IsNil(o.QualityProfileId) {
 		toSerialize["qualityProfileId"] = o.QualityProfileId
 	}
 	if o.Id.IsSet() {
@@ -1363,7 +1374,7 @@ func (o SonarrSeries) MarshalJSON() ([]byte, error) {
 	if o.RootFolderPath.IsSet() {
 		toSerialize["rootFolderPath"] = o.RootFolderPath.Get()
 	}
-	if !isNil(o.AddOptions) {
+	if !IsNil(o.AddOptions) {
 		toSerialize["addOptions"] = o.AddOptions
 	}
 
@@ -1371,19 +1382,23 @@ func (o SonarrSeries) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *SonarrSeries) UnmarshalJSON(bytes []byte) (err error) {
+func (o *SonarrSeries) UnmarshalJSON(data []byte) (err error) {
 	varSonarrSeries := _SonarrSeries{}
 
-	if err = json.Unmarshal(bytes, &varSonarrSeries); err == nil {
-		*o = SonarrSeries(varSonarrSeries)
+	err = json.Unmarshal(data, &varSonarrSeries)
+
+	if err != nil {
+		return err
 	}
+
+	*o = SonarrSeries(varSonarrSeries)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "title")
 		delete(additionalProperties, "sortTitle")
 		delete(additionalProperties, "seasonCount")

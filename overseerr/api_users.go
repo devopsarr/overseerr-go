@@ -22,6 +22,7 @@ import (
 
 // UsersAPIService UsersAPI service
 type UsersAPIService service
+
 type ApiCreateAuthResetPasswordRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -131,6 +132,7 @@ func (a *UsersAPIService) CreateAuthResetPasswordExecute(r ApiCreateAuthResetPas
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateAuthResetPasswordByGuidRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -180,7 +182,7 @@ func (a *UsersAPIService) CreateAuthResetPasswordByGuidExecute(r ApiCreateAuthRe
 	}
 
 	localVarPath := localBasePath + "/auth/reset-password/{guid}"
-	localVarPath = strings.Replace(localVarPath, "{"+"guid"+"}", url.PathEscape(parameterToString(r.guid, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"guid"+"}", url.PathEscape(parameterValueToString(r.guid, "guid")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -244,6 +246,7 @@ func (a *UsersAPIService) CreateAuthResetPasswordByGuidExecute(r ApiCreateAuthRe
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateUserRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -368,6 +371,7 @@ func (a *UsersAPIService) CreateUserExecute(r ApiCreateUserRequest) (*User, *htt
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateUserImportFromPlexRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -379,7 +383,7 @@ func (r ApiCreateUserImportFromPlexRequest) CreateUserImportFromPlexRequest(crea
 	return r
 }
 
-func (r ApiCreateUserImportFromPlexRequest) Execute() ([]*User, *http.Response, error) {
+func (r ApiCreateUserImportFromPlexRequest) Execute() ([]User, *http.Response, error) {
 	return r.ApiService.CreateUserImportFromPlexExecute(r)
 }
 
@@ -403,12 +407,12 @@ func (a *UsersAPIService) CreateUserImportFromPlex(ctx context.Context) ApiCreat
 
 // Execute executes the request
 //  @return []User
-func (a *UsersAPIService) CreateUserImportFromPlexExecute(r ApiCreateUserImportFromPlexRequest) ([]*User, *http.Response, error) {
+func (a *UsersAPIService) CreateUserImportFromPlexExecute(r ApiCreateUserImportFromPlexRequest) ([]User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*User
+		localVarReturnValue  []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.CreateUserImportFromPlex")
@@ -491,6 +495,7 @@ func (a *UsersAPIService) CreateUserImportFromPlexExecute(r ApiCreateUserImportF
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateUserRegisterPushSubscriptionRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -603,6 +608,7 @@ func (a *UsersAPIService) CreateUserRegisterPushSubscriptionExecute(r ApiCreateU
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiCreateUserSettingsMainRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -652,7 +658,7 @@ func (a *UsersAPIService) CreateUserSettingsMainExecute(r ApiCreateUserSettingsM
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/settings/main"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -730,6 +736,7 @@ func (a *UsersAPIService) CreateUserSettingsMainExecute(r ApiCreateUserSettingsM
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateUserSettingsNotificationsRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -779,7 +786,7 @@ func (a *UsersAPIService) CreateUserSettingsNotificationsExecute(r ApiCreateUser
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/settings/notifications"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -857,6 +864,7 @@ func (a *UsersAPIService) CreateUserSettingsNotificationsExecute(r ApiCreateUser
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateUserSettingsPasswordRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -904,7 +912,7 @@ func (a *UsersAPIService) CreateUserSettingsPasswordExecute(r ApiCreateUserSetti
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/settings/password"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -973,6 +981,7 @@ func (a *UsersAPIService) CreateUserSettingsPasswordExecute(r ApiCreateUserSetti
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiCreateUserSettingsPermissionsRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1022,7 +1031,7 @@ func (a *UsersAPIService) CreateUserSettingsPermissionsExecute(r ApiCreateUserSe
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/settings/permissions"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1100,6 +1109,7 @@ func (a *UsersAPIService) CreateUserSettingsPermissionsExecute(r ApiCreateUserSe
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiDeleteUserRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1143,7 +1153,7 @@ func (a *UsersAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*User, *htt
 	}
 
 	localVarPath := localBasePath + "/user/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1216,6 +1226,7 @@ func (a *UsersAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*User, *htt
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1280,13 +1291,16 @@ func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUser2XXRespon
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		localVarQueryParams.Add("take", parameterToString(*r.take, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
 	}
 	if r.skip != nil {
-		localVarQueryParams.Add("skip", parameterToString(*r.skip, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
 	}
 	if r.sort != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "")
+	} else {
+		var defaultValue string = "created"
+		r.sort = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1355,6 +1369,7 @@ func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUser2XXRespon
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserByUserIdRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1399,7 +1414,7 @@ func (a *UsersAPIService) GetUserByUserIdExecute(r ApiGetUserByUserIdRequest) (*
 	}
 
 	localVarPath := localBasePath + "/user/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1472,6 +1487,7 @@ func (a *UsersAPIService) GetUserByUserIdExecute(r ApiGetUserByUserIdRequest) (*
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserQuotaRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1516,7 +1532,7 @@ func (a *UsersAPIService) GetUserQuotaExecute(r ApiGetUserQuotaRequest) (*GetUse
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/quota"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1589,6 +1605,7 @@ func (a *UsersAPIService) GetUserQuotaExecute(r ApiGetUserQuotaRequest) (*GetUse
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserRequestsRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1645,17 +1662,17 @@ func (a *UsersAPIService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/requests"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		localVarQueryParams.Add("take", parameterToString(*r.take, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
 	}
 	if r.skip != nil {
-		localVarQueryParams.Add("skip", parameterToString(*r.skip, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1724,6 +1741,7 @@ func (a *UsersAPIService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserSettingsMainRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1767,7 +1785,7 @@ func (a *UsersAPIService) GetUserSettingsMainExecute(r ApiGetUserSettingsMainReq
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/settings/main"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1840,6 +1858,7 @@ func (a *UsersAPIService) GetUserSettingsMainExecute(r ApiGetUserSettingsMainReq
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserSettingsNotificationsRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1883,7 +1902,7 @@ func (a *UsersAPIService) GetUserSettingsNotificationsExecute(r ApiGetUserSettin
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/settings/notifications"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1956,6 +1975,7 @@ func (a *UsersAPIService) GetUserSettingsNotificationsExecute(r ApiGetUserSettin
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserSettingsPasswordRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -1999,7 +2019,7 @@ func (a *UsersAPIService) GetUserSettingsPasswordExecute(r ApiGetUserSettingsPas
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/settings/password"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2072,6 +2092,7 @@ func (a *UsersAPIService) GetUserSettingsPasswordExecute(r ApiGetUserSettingsPas
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserSettingsPermissionsRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -2115,7 +2136,7 @@ func (a *UsersAPIService) GetUserSettingsPermissionsExecute(r ApiGetUserSettings
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/settings/permissions"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2188,6 +2209,7 @@ func (a *UsersAPIService) GetUserSettingsPermissionsExecute(r ApiGetUserSettings
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserWatchDataRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -2234,7 +2256,7 @@ func (a *UsersAPIService) GetUserWatchDataExecute(r ApiGetUserWatchDataRequest) 
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/watch_data"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2307,6 +2329,7 @@ func (a *UsersAPIService) GetUserWatchDataExecute(r ApiGetUserWatchDataRequest) 
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetUserWatchlistRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -2357,14 +2380,17 @@ func (a *UsersAPIService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) 
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/watchlist"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+	} else {
+		var defaultValue float32 = 1
+		r.page = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2433,6 +2459,7 @@ func (a *UsersAPIService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) 
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiPutUserRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -2444,7 +2471,7 @@ func (r ApiPutUserRequest) PutUserRequest(putUserRequest PutUserRequest) ApiPutU
 	return r
 }
 
-func (r ApiPutUserRequest) Execute() ([]*User, *http.Response, error) {
+func (r ApiPutUserRequest) Execute() ([]User, *http.Response, error) {
 	return r.ApiService.PutUserExecute(r)
 }
 
@@ -2468,12 +2495,12 @@ func (a *UsersAPIService) PutUser(ctx context.Context) ApiPutUserRequest {
 
 // Execute executes the request
 //  @return []User
-func (a *UsersAPIService) PutUserExecute(r ApiPutUserRequest) ([]*User, *http.Response, error) {
+func (a *UsersAPIService) PutUserExecute(r ApiPutUserRequest) ([]User, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []*User
+		localVarReturnValue  []User
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.PutUser")
@@ -2559,6 +2586,7 @@ func (a *UsersAPIService) PutUserExecute(r ApiPutUserRequest) ([]*User, *http.Re
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiUpdateUserRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
@@ -2611,7 +2639,7 @@ func (a *UsersAPIService) UpdateUserExecute(r ApiUpdateUserRequest) (*User, *htt
 	}
 
 	localVarPath := localBasePath + "/user/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterToString(r.userId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

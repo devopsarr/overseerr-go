@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetUserSettingsMain2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUserSettingsMain2XXResponse{}
+
 // GetUserSettingsMain2XXResponse struct for GetUserSettingsMain2XXResponse
 type GetUserSettingsMain2XXResponse struct {
 	Username *string `json:"username,omitempty"`
@@ -41,7 +44,7 @@ func NewGetUserSettingsMain2XXResponseWithDefaults() *GetUserSettingsMain2XXResp
 
 // GetUsername returns the Username field value if set, zero value otherwise.
 func (o *GetUserSettingsMain2XXResponse) GetUsername() string {
-	if o == nil || isNil(o.Username) {
+	if o == nil || IsNil(o.Username) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *GetUserSettingsMain2XXResponse) GetUsername() string {
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserSettingsMain2XXResponse) GetUsernameOk() (*string, bool) {
-	if o == nil || isNil(o.Username) {
-    return nil, false
+	if o == nil || IsNil(o.Username) {
+		return nil, false
 	}
 	return o.Username, true
 }
 
 // HasUsername returns a boolean if a field has been set.
 func (o *GetUserSettingsMain2XXResponse) HasUsername() bool {
-	if o != nil && !isNil(o.Username) {
+	if o != nil && !IsNil(o.Username) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *GetUserSettingsMain2XXResponse) SetUsername(v string) {
 }
 
 func (o GetUserSettingsMain2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetUserSettingsMain2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Username) {
+	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
 
@@ -81,19 +92,23 @@ func (o GetUserSettingsMain2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetUserSettingsMain2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetUserSettingsMain2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetUserSettingsMain2XXResponse := _GetUserSettingsMain2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetUserSettingsMain2XXResponse); err == nil {
-		*o = GetUserSettingsMain2XXResponse(varGetUserSettingsMain2XXResponse)
+	err = json.Unmarshal(data, &varGetUserSettingsMain2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetUserSettingsMain2XXResponse(varGetUserSettingsMain2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "username")
 		o.AdditionalProperties = additionalProperties
 	}

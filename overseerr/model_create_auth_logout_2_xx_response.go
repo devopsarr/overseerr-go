@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateAuthLogout2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateAuthLogout2XXResponse{}
+
 // CreateAuthLogout2XXResponse struct for CreateAuthLogout2XXResponse
 type CreateAuthLogout2XXResponse struct {
 	Status *string `json:"status,omitempty"`
@@ -41,7 +44,7 @@ func NewCreateAuthLogout2XXResponseWithDefaults() *CreateAuthLogout2XXResponse {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *CreateAuthLogout2XXResponse) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *CreateAuthLogout2XXResponse) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateAuthLogout2XXResponse) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
-    return nil, false
+	if o == nil || IsNil(o.Status) {
+		return nil, false
 	}
 	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *CreateAuthLogout2XXResponse) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *CreateAuthLogout2XXResponse) SetStatus(v string) {
 }
 
 func (o CreateAuthLogout2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateAuthLogout2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Status) {
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
 
@@ -81,19 +92,23 @@ func (o CreateAuthLogout2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateAuthLogout2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateAuthLogout2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varCreateAuthLogout2XXResponse := _CreateAuthLogout2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varCreateAuthLogout2XXResponse); err == nil {
-		*o = CreateAuthLogout2XXResponse(varCreateAuthLogout2XXResponse)
+	err = json.Unmarshal(data, &varCreateAuthLogout2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateAuthLogout2XXResponse(varCreateAuthLogout2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "status")
 		o.AdditionalProperties = additionalProperties
 	}

@@ -14,9 +14,12 @@ import (
 	"encoding/json"
 )
 
+// checks if the TestRadarr2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TestRadarr2XXResponse{}
+
 // TestRadarr2XXResponse struct for TestRadarr2XXResponse
 type TestRadarr2XXResponse struct {
-	Profiles []*ServiceProfile `json:"profiles,omitempty"`
+	Profiles []ServiceProfile `json:"profiles,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -40,9 +43,9 @@ func NewTestRadarr2XXResponseWithDefaults() *TestRadarr2XXResponse {
 }
 
 // GetProfiles returns the Profiles field value if set, zero value otherwise.
-func (o *TestRadarr2XXResponse) GetProfiles() []*ServiceProfile {
-	if o == nil || isNil(o.Profiles) {
-		var ret []*ServiceProfile
+func (o *TestRadarr2XXResponse) GetProfiles() []ServiceProfile {
+	if o == nil || IsNil(o.Profiles) {
+		var ret []ServiceProfile
 		return ret
 	}
 	return o.Profiles
@@ -50,16 +53,16 @@ func (o *TestRadarr2XXResponse) GetProfiles() []*ServiceProfile {
 
 // GetProfilesOk returns a tuple with the Profiles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestRadarr2XXResponse) GetProfilesOk() ([]*ServiceProfile, bool) {
-	if o == nil || isNil(o.Profiles) {
-    return nil, false
+func (o *TestRadarr2XXResponse) GetProfilesOk() ([]ServiceProfile, bool) {
+	if o == nil || IsNil(o.Profiles) {
+		return nil, false
 	}
 	return o.Profiles, true
 }
 
 // HasProfiles returns a boolean if a field has been set.
 func (o *TestRadarr2XXResponse) HasProfiles() bool {
-	if o != nil && !isNil(o.Profiles) {
+	if o != nil && !IsNil(o.Profiles) {
 		return true
 	}
 
@@ -67,13 +70,21 @@ func (o *TestRadarr2XXResponse) HasProfiles() bool {
 }
 
 // SetProfiles gets a reference to the given []ServiceProfile and assigns it to the Profiles field.
-func (o *TestRadarr2XXResponse) SetProfiles(v []*ServiceProfile) {
+func (o *TestRadarr2XXResponse) SetProfiles(v []ServiceProfile) {
 	o.Profiles = v
 }
 
 func (o TestRadarr2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TestRadarr2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Profiles) {
+	if !IsNil(o.Profiles) {
 		toSerialize["profiles"] = o.Profiles
 	}
 
@@ -81,19 +92,23 @@ func (o TestRadarr2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *TestRadarr2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *TestRadarr2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varTestRadarr2XXResponse := _TestRadarr2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varTestRadarr2XXResponse); err == nil {
-		*o = TestRadarr2XXResponse(varTestRadarr2XXResponse)
+	err = json.Unmarshal(data, &varTestRadarr2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = TestRadarr2XXResponse(varTestRadarr2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "profiles")
 		o.AdditionalProperties = additionalProperties
 	}

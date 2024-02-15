@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetRequestCount2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetRequestCount2XXResponse{}
+
 // GetRequestCount2XXResponse struct for GetRequestCount2XXResponse
 type GetRequestCount2XXResponse struct {
 	Total *float32 `json:"total,omitempty"`
@@ -48,7 +51,7 @@ func NewGetRequestCount2XXResponseWithDefaults() *GetRequestCount2XXResponse {
 
 // GetTotal returns the Total field value if set, zero value otherwise.
 func (o *GetRequestCount2XXResponse) GetTotal() float32 {
-	if o == nil || isNil(o.Total) {
+	if o == nil || IsNil(o.Total) {
 		var ret float32
 		return ret
 	}
@@ -58,15 +61,15 @@ func (o *GetRequestCount2XXResponse) GetTotal() float32 {
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRequestCount2XXResponse) GetTotalOk() (*float32, bool) {
-	if o == nil || isNil(o.Total) {
-    return nil, false
+	if o == nil || IsNil(o.Total) {
+		return nil, false
 	}
 	return o.Total, true
 }
 
 // HasTotal returns a boolean if a field has been set.
 func (o *GetRequestCount2XXResponse) HasTotal() bool {
-	if o != nil && !isNil(o.Total) {
+	if o != nil && !IsNil(o.Total) {
 		return true
 	}
 
@@ -80,7 +83,7 @@ func (o *GetRequestCount2XXResponse) SetTotal(v float32) {
 
 // GetMovie returns the Movie field value if set, zero value otherwise.
 func (o *GetRequestCount2XXResponse) GetMovie() float32 {
-	if o == nil || isNil(o.Movie) {
+	if o == nil || IsNil(o.Movie) {
 		var ret float32
 		return ret
 	}
@@ -90,15 +93,15 @@ func (o *GetRequestCount2XXResponse) GetMovie() float32 {
 // GetMovieOk returns a tuple with the Movie field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRequestCount2XXResponse) GetMovieOk() (*float32, bool) {
-	if o == nil || isNil(o.Movie) {
-    return nil, false
+	if o == nil || IsNil(o.Movie) {
+		return nil, false
 	}
 	return o.Movie, true
 }
 
 // HasMovie returns a boolean if a field has been set.
 func (o *GetRequestCount2XXResponse) HasMovie() bool {
-	if o != nil && !isNil(o.Movie) {
+	if o != nil && !IsNil(o.Movie) {
 		return true
 	}
 
@@ -112,7 +115,7 @@ func (o *GetRequestCount2XXResponse) SetMovie(v float32) {
 
 // GetTv returns the Tv field value if set, zero value otherwise.
 func (o *GetRequestCount2XXResponse) GetTv() float32 {
-	if o == nil || isNil(o.Tv) {
+	if o == nil || IsNil(o.Tv) {
 		var ret float32
 		return ret
 	}
@@ -122,15 +125,15 @@ func (o *GetRequestCount2XXResponse) GetTv() float32 {
 // GetTvOk returns a tuple with the Tv field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRequestCount2XXResponse) GetTvOk() (*float32, bool) {
-	if o == nil || isNil(o.Tv) {
-    return nil, false
+	if o == nil || IsNil(o.Tv) {
+		return nil, false
 	}
 	return o.Tv, true
 }
 
 // HasTv returns a boolean if a field has been set.
 func (o *GetRequestCount2XXResponse) HasTv() bool {
-	if o != nil && !isNil(o.Tv) {
+	if o != nil && !IsNil(o.Tv) {
 		return true
 	}
 
@@ -144,7 +147,7 @@ func (o *GetRequestCount2XXResponse) SetTv(v float32) {
 
 // GetPending returns the Pending field value if set, zero value otherwise.
 func (o *GetRequestCount2XXResponse) GetPending() float32 {
-	if o == nil || isNil(o.Pending) {
+	if o == nil || IsNil(o.Pending) {
 		var ret float32
 		return ret
 	}
@@ -154,15 +157,15 @@ func (o *GetRequestCount2XXResponse) GetPending() float32 {
 // GetPendingOk returns a tuple with the Pending field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRequestCount2XXResponse) GetPendingOk() (*float32, bool) {
-	if o == nil || isNil(o.Pending) {
-    return nil, false
+	if o == nil || IsNil(o.Pending) {
+		return nil, false
 	}
 	return o.Pending, true
 }
 
 // HasPending returns a boolean if a field has been set.
 func (o *GetRequestCount2XXResponse) HasPending() bool {
-	if o != nil && !isNil(o.Pending) {
+	if o != nil && !IsNil(o.Pending) {
 		return true
 	}
 
@@ -176,7 +179,7 @@ func (o *GetRequestCount2XXResponse) SetPending(v float32) {
 
 // GetApproved returns the Approved field value if set, zero value otherwise.
 func (o *GetRequestCount2XXResponse) GetApproved() float32 {
-	if o == nil || isNil(o.Approved) {
+	if o == nil || IsNil(o.Approved) {
 		var ret float32
 		return ret
 	}
@@ -186,15 +189,15 @@ func (o *GetRequestCount2XXResponse) GetApproved() float32 {
 // GetApprovedOk returns a tuple with the Approved field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRequestCount2XXResponse) GetApprovedOk() (*float32, bool) {
-	if o == nil || isNil(o.Approved) {
-    return nil, false
+	if o == nil || IsNil(o.Approved) {
+		return nil, false
 	}
 	return o.Approved, true
 }
 
 // HasApproved returns a boolean if a field has been set.
 func (o *GetRequestCount2XXResponse) HasApproved() bool {
-	if o != nil && !isNil(o.Approved) {
+	if o != nil && !IsNil(o.Approved) {
 		return true
 	}
 
@@ -208,7 +211,7 @@ func (o *GetRequestCount2XXResponse) SetApproved(v float32) {
 
 // GetDeclined returns the Declined field value if set, zero value otherwise.
 func (o *GetRequestCount2XXResponse) GetDeclined() float32 {
-	if o == nil || isNil(o.Declined) {
+	if o == nil || IsNil(o.Declined) {
 		var ret float32
 		return ret
 	}
@@ -218,15 +221,15 @@ func (o *GetRequestCount2XXResponse) GetDeclined() float32 {
 // GetDeclinedOk returns a tuple with the Declined field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRequestCount2XXResponse) GetDeclinedOk() (*float32, bool) {
-	if o == nil || isNil(o.Declined) {
-    return nil, false
+	if o == nil || IsNil(o.Declined) {
+		return nil, false
 	}
 	return o.Declined, true
 }
 
 // HasDeclined returns a boolean if a field has been set.
 func (o *GetRequestCount2XXResponse) HasDeclined() bool {
-	if o != nil && !isNil(o.Declined) {
+	if o != nil && !IsNil(o.Declined) {
 		return true
 	}
 
@@ -240,7 +243,7 @@ func (o *GetRequestCount2XXResponse) SetDeclined(v float32) {
 
 // GetProcessing returns the Processing field value if set, zero value otherwise.
 func (o *GetRequestCount2XXResponse) GetProcessing() float32 {
-	if o == nil || isNil(o.Processing) {
+	if o == nil || IsNil(o.Processing) {
 		var ret float32
 		return ret
 	}
@@ -250,15 +253,15 @@ func (o *GetRequestCount2XXResponse) GetProcessing() float32 {
 // GetProcessingOk returns a tuple with the Processing field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRequestCount2XXResponse) GetProcessingOk() (*float32, bool) {
-	if o == nil || isNil(o.Processing) {
-    return nil, false
+	if o == nil || IsNil(o.Processing) {
+		return nil, false
 	}
 	return o.Processing, true
 }
 
 // HasProcessing returns a boolean if a field has been set.
 func (o *GetRequestCount2XXResponse) HasProcessing() bool {
-	if o != nil && !isNil(o.Processing) {
+	if o != nil && !IsNil(o.Processing) {
 		return true
 	}
 
@@ -272,7 +275,7 @@ func (o *GetRequestCount2XXResponse) SetProcessing(v float32) {
 
 // GetAvailable returns the Available field value if set, zero value otherwise.
 func (o *GetRequestCount2XXResponse) GetAvailable() float32 {
-	if o == nil || isNil(o.Available) {
+	if o == nil || IsNil(o.Available) {
 		var ret float32
 		return ret
 	}
@@ -282,15 +285,15 @@ func (o *GetRequestCount2XXResponse) GetAvailable() float32 {
 // GetAvailableOk returns a tuple with the Available field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetRequestCount2XXResponse) GetAvailableOk() (*float32, bool) {
-	if o == nil || isNil(o.Available) {
-    return nil, false
+	if o == nil || IsNil(o.Available) {
+		return nil, false
 	}
 	return o.Available, true
 }
 
 // HasAvailable returns a boolean if a field has been set.
 func (o *GetRequestCount2XXResponse) HasAvailable() bool {
-	if o != nil && !isNil(o.Available) {
+	if o != nil && !IsNil(o.Available) {
 		return true
 	}
 
@@ -303,29 +306,37 @@ func (o *GetRequestCount2XXResponse) SetAvailable(v float32) {
 }
 
 func (o GetRequestCount2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetRequestCount2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Total) {
+	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}
-	if !isNil(o.Movie) {
+	if !IsNil(o.Movie) {
 		toSerialize["movie"] = o.Movie
 	}
-	if !isNil(o.Tv) {
+	if !IsNil(o.Tv) {
 		toSerialize["tv"] = o.Tv
 	}
-	if !isNil(o.Pending) {
+	if !IsNil(o.Pending) {
 		toSerialize["pending"] = o.Pending
 	}
-	if !isNil(o.Approved) {
+	if !IsNil(o.Approved) {
 		toSerialize["approved"] = o.Approved
 	}
-	if !isNil(o.Declined) {
+	if !IsNil(o.Declined) {
 		toSerialize["declined"] = o.Declined
 	}
-	if !isNil(o.Processing) {
+	if !IsNil(o.Processing) {
 		toSerialize["processing"] = o.Processing
 	}
-	if !isNil(o.Available) {
+	if !IsNil(o.Available) {
 		toSerialize["available"] = o.Available
 	}
 
@@ -333,19 +344,23 @@ func (o GetRequestCount2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetRequestCount2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetRequestCount2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetRequestCount2XXResponse := _GetRequestCount2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetRequestCount2XXResponse); err == nil {
-		*o = GetRequestCount2XXResponse(varGetRequestCount2XXResponse)
+	err = json.Unmarshal(data, &varGetRequestCount2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetRequestCount2XXResponse(varGetRequestCount2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "total")
 		delete(additionalProperties, "movie")
 		delete(additionalProperties, "tv")

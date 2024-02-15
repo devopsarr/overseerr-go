@@ -21,6 +21,7 @@ import (
 
 // AuthAPIService AuthAPI service
 type AuthAPIService service
+
 type ApiCreateAuthLocalRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
@@ -130,6 +131,7 @@ func (a *AuthAPIService) CreateAuthLocalExecute(r ApiCreateAuthLocalRequest) (*U
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateAuthLogoutRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
@@ -242,6 +244,7 @@ func (a *AuthAPIService) CreateAuthLogoutExecute(r ApiCreateAuthLogoutRequest) (
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateAuthPlexRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
@@ -351,6 +354,7 @@ func (a *AuthAPIService) CreateAuthPlexExecute(r ApiCreateAuthPlexRequest) (*Use
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetAuthMeRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService

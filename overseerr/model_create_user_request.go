@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CreateUserRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateUserRequest{}
+
 // CreateUserRequest struct for CreateUserRequest
 type CreateUserRequest struct {
 	Email *string `json:"email,omitempty"`
@@ -43,7 +46,7 @@ func NewCreateUserRequestWithDefaults() *CreateUserRequest {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *CreateUserRequest) GetEmail() string {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *CreateUserRequest) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequest) GetEmailOk() (*string, bool) {
-	if o == nil || isNil(o.Email) {
-    return nil, false
+	if o == nil || IsNil(o.Email) {
+		return nil, false
 	}
 	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *CreateUserRequest) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *CreateUserRequest) SetEmail(v string) {
 
 // GetUsername returns the Username field value if set, zero value otherwise.
 func (o *CreateUserRequest) GetUsername() string {
-	if o == nil || isNil(o.Username) {
+	if o == nil || IsNil(o.Username) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *CreateUserRequest) GetUsername() string {
 // GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequest) GetUsernameOk() (*string, bool) {
-	if o == nil || isNil(o.Username) {
-    return nil, false
+	if o == nil || IsNil(o.Username) {
+		return nil, false
 	}
 	return o.Username, true
 }
 
 // HasUsername returns a boolean if a field has been set.
 func (o *CreateUserRequest) HasUsername() bool {
-	if o != nil && !isNil(o.Username) {
+	if o != nil && !IsNil(o.Username) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *CreateUserRequest) SetUsername(v string) {
 
 // GetPermissions returns the Permissions field value if set, zero value otherwise.
 func (o *CreateUserRequest) GetPermissions() float32 {
-	if o == nil || isNil(o.Permissions) {
+	if o == nil || IsNil(o.Permissions) {
 		var ret float32
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *CreateUserRequest) GetPermissions() float32 {
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreateUserRequest) GetPermissionsOk() (*float32, bool) {
-	if o == nil || isNil(o.Permissions) {
-    return nil, false
+	if o == nil || IsNil(o.Permissions) {
+		return nil, false
 	}
 	return o.Permissions, true
 }
 
 // HasPermissions returns a boolean if a field has been set.
 func (o *CreateUserRequest) HasPermissions() bool {
-	if o != nil && !isNil(o.Permissions) {
+	if o != nil && !IsNil(o.Permissions) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *CreateUserRequest) SetPermissions(v float32) {
 }
 
 func (o CreateUserRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateUserRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Email) {
+	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
-	if !isNil(o.Username) {
+	if !IsNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
-	if !isNil(o.Permissions) {
+	if !IsNil(o.Permissions) {
 		toSerialize["permissions"] = o.Permissions
 	}
 
@@ -153,19 +164,23 @@ func (o CreateUserRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateUserRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateUserRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateUserRequest := _CreateUserRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateUserRequest); err == nil {
-		*o = CreateUserRequest(varCreateUserRequest)
+	err = json.Unmarshal(data, &varCreateUserRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateUserRequest(varCreateUserRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "email")
 		delete(additionalProperties, "username")
 		delete(additionalProperties, "permissions")

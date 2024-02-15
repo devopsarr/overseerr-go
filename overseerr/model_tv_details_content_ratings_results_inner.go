@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TvDetailsContentRatingsResultsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TvDetailsContentRatingsResultsInner{}
+
 // TvDetailsContentRatingsResultsInner struct for TvDetailsContentRatingsResultsInner
 type TvDetailsContentRatingsResultsInner struct {
 	Iso31661 *string `json:"iso_3166_1,omitempty"`
@@ -42,7 +45,7 @@ func NewTvDetailsContentRatingsResultsInnerWithDefaults() *TvDetailsContentRatin
 
 // GetIso31661 returns the Iso31661 field value if set, zero value otherwise.
 func (o *TvDetailsContentRatingsResultsInner) GetIso31661() string {
-	if o == nil || isNil(o.Iso31661) {
+	if o == nil || IsNil(o.Iso31661) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *TvDetailsContentRatingsResultsInner) GetIso31661() string {
 // GetIso31661Ok returns a tuple with the Iso31661 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TvDetailsContentRatingsResultsInner) GetIso31661Ok() (*string, bool) {
-	if o == nil || isNil(o.Iso31661) {
-    return nil, false
+	if o == nil || IsNil(o.Iso31661) {
+		return nil, false
 	}
 	return o.Iso31661, true
 }
 
 // HasIso31661 returns a boolean if a field has been set.
 func (o *TvDetailsContentRatingsResultsInner) HasIso31661() bool {
-	if o != nil && !isNil(o.Iso31661) {
+	if o != nil && !IsNil(o.Iso31661) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *TvDetailsContentRatingsResultsInner) SetIso31661(v string) {
 
 // GetRating returns the Rating field value if set, zero value otherwise.
 func (o *TvDetailsContentRatingsResultsInner) GetRating() string {
-	if o == nil || isNil(o.Rating) {
+	if o == nil || IsNil(o.Rating) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *TvDetailsContentRatingsResultsInner) GetRating() string {
 // GetRatingOk returns a tuple with the Rating field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TvDetailsContentRatingsResultsInner) GetRatingOk() (*string, bool) {
-	if o == nil || isNil(o.Rating) {
-    return nil, false
+	if o == nil || IsNil(o.Rating) {
+		return nil, false
 	}
 	return o.Rating, true
 }
 
 // HasRating returns a boolean if a field has been set.
 func (o *TvDetailsContentRatingsResultsInner) HasRating() bool {
-	if o != nil && !isNil(o.Rating) {
+	if o != nil && !IsNil(o.Rating) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *TvDetailsContentRatingsResultsInner) SetRating(v string) {
 }
 
 func (o TvDetailsContentRatingsResultsInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TvDetailsContentRatingsResultsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Iso31661) {
+	if !IsNil(o.Iso31661) {
 		toSerialize["iso_3166_1"] = o.Iso31661
 	}
-	if !isNil(o.Rating) {
+	if !IsNil(o.Rating) {
 		toSerialize["rating"] = o.Rating
 	}
 
@@ -117,19 +128,23 @@ func (o TvDetailsContentRatingsResultsInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *TvDetailsContentRatingsResultsInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *TvDetailsContentRatingsResultsInner) UnmarshalJSON(data []byte) (err error) {
 	varTvDetailsContentRatingsResultsInner := _TvDetailsContentRatingsResultsInner{}
 
-	if err = json.Unmarshal(bytes, &varTvDetailsContentRatingsResultsInner); err == nil {
-		*o = TvDetailsContentRatingsResultsInner(varTvDetailsContentRatingsResultsInner)
+	err = json.Unmarshal(data, &varTvDetailsContentRatingsResultsInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = TvDetailsContentRatingsResultsInner(varTvDetailsContentRatingsResultsInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "iso_3166_1")
 		delete(additionalProperties, "rating")
 		o.AdditionalProperties = additionalProperties

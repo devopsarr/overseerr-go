@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Episode type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Episode{}
+
 // Episode struct for Episode
 type Episode struct {
 	Id *float32 `json:"id,omitempty"`
@@ -51,7 +54,7 @@ func NewEpisodeWithDefaults() *Episode {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Episode) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -61,15 +64,15 @@ func (o *Episode) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Episode) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -83,7 +86,7 @@ func (o *Episode) SetId(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Episode) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -93,15 +96,15 @@ func (o *Episode) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Episode) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -115,7 +118,7 @@ func (o *Episode) SetName(v string) {
 
 // GetAirDate returns the AirDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Episode) GetAirDate() string {
-	if o == nil || isNil(o.AirDate.Get()) {
+	if o == nil || IsNil(o.AirDate.Get()) {
 		var ret string
 		return ret
 	}
@@ -127,7 +130,7 @@ func (o *Episode) GetAirDate() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Episode) GetAirDateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.AirDate.Get(), o.AirDate.IsSet()
 }
@@ -157,7 +160,7 @@ func (o *Episode) UnsetAirDate() {
 
 // GetEpisodeNumber returns the EpisodeNumber field value if set, zero value otherwise.
 func (o *Episode) GetEpisodeNumber() float32 {
-	if o == nil || isNil(o.EpisodeNumber) {
+	if o == nil || IsNil(o.EpisodeNumber) {
 		var ret float32
 		return ret
 	}
@@ -167,15 +170,15 @@ func (o *Episode) GetEpisodeNumber() float32 {
 // GetEpisodeNumberOk returns a tuple with the EpisodeNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetEpisodeNumberOk() (*float32, bool) {
-	if o == nil || isNil(o.EpisodeNumber) {
-    return nil, false
+	if o == nil || IsNil(o.EpisodeNumber) {
+		return nil, false
 	}
 	return o.EpisodeNumber, true
 }
 
 // HasEpisodeNumber returns a boolean if a field has been set.
 func (o *Episode) HasEpisodeNumber() bool {
-	if o != nil && !isNil(o.EpisodeNumber) {
+	if o != nil && !IsNil(o.EpisodeNumber) {
 		return true
 	}
 
@@ -189,7 +192,7 @@ func (o *Episode) SetEpisodeNumber(v float32) {
 
 // GetOverview returns the Overview field value if set, zero value otherwise.
 func (o *Episode) GetOverview() string {
-	if o == nil || isNil(o.Overview) {
+	if o == nil || IsNil(o.Overview) {
 		var ret string
 		return ret
 	}
@@ -199,15 +202,15 @@ func (o *Episode) GetOverview() string {
 // GetOverviewOk returns a tuple with the Overview field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetOverviewOk() (*string, bool) {
-	if o == nil || isNil(o.Overview) {
-    return nil, false
+	if o == nil || IsNil(o.Overview) {
+		return nil, false
 	}
 	return o.Overview, true
 }
 
 // HasOverview returns a boolean if a field has been set.
 func (o *Episode) HasOverview() bool {
-	if o != nil && !isNil(o.Overview) {
+	if o != nil && !IsNil(o.Overview) {
 		return true
 	}
 
@@ -221,7 +224,7 @@ func (o *Episode) SetOverview(v string) {
 
 // GetProductionCode returns the ProductionCode field value if set, zero value otherwise.
 func (o *Episode) GetProductionCode() string {
-	if o == nil || isNil(o.ProductionCode) {
+	if o == nil || IsNil(o.ProductionCode) {
 		var ret string
 		return ret
 	}
@@ -231,15 +234,15 @@ func (o *Episode) GetProductionCode() string {
 // GetProductionCodeOk returns a tuple with the ProductionCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetProductionCodeOk() (*string, bool) {
-	if o == nil || isNil(o.ProductionCode) {
-    return nil, false
+	if o == nil || IsNil(o.ProductionCode) {
+		return nil, false
 	}
 	return o.ProductionCode, true
 }
 
 // HasProductionCode returns a boolean if a field has been set.
 func (o *Episode) HasProductionCode() bool {
-	if o != nil && !isNil(o.ProductionCode) {
+	if o != nil && !IsNil(o.ProductionCode) {
 		return true
 	}
 
@@ -253,7 +256,7 @@ func (o *Episode) SetProductionCode(v string) {
 
 // GetSeasonNumber returns the SeasonNumber field value if set, zero value otherwise.
 func (o *Episode) GetSeasonNumber() float32 {
-	if o == nil || isNil(o.SeasonNumber) {
+	if o == nil || IsNil(o.SeasonNumber) {
 		var ret float32
 		return ret
 	}
@@ -263,15 +266,15 @@ func (o *Episode) GetSeasonNumber() float32 {
 // GetSeasonNumberOk returns a tuple with the SeasonNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetSeasonNumberOk() (*float32, bool) {
-	if o == nil || isNil(o.SeasonNumber) {
-    return nil, false
+	if o == nil || IsNil(o.SeasonNumber) {
+		return nil, false
 	}
 	return o.SeasonNumber, true
 }
 
 // HasSeasonNumber returns a boolean if a field has been set.
 func (o *Episode) HasSeasonNumber() bool {
-	if o != nil && !isNil(o.SeasonNumber) {
+	if o != nil && !IsNil(o.SeasonNumber) {
 		return true
 	}
 
@@ -285,7 +288,7 @@ func (o *Episode) SetSeasonNumber(v float32) {
 
 // GetShowId returns the ShowId field value if set, zero value otherwise.
 func (o *Episode) GetShowId() float32 {
-	if o == nil || isNil(o.ShowId) {
+	if o == nil || IsNil(o.ShowId) {
 		var ret float32
 		return ret
 	}
@@ -295,15 +298,15 @@ func (o *Episode) GetShowId() float32 {
 // GetShowIdOk returns a tuple with the ShowId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetShowIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ShowId) {
-    return nil, false
+	if o == nil || IsNil(o.ShowId) {
+		return nil, false
 	}
 	return o.ShowId, true
 }
 
 // HasShowId returns a boolean if a field has been set.
 func (o *Episode) HasShowId() bool {
-	if o != nil && !isNil(o.ShowId) {
+	if o != nil && !IsNil(o.ShowId) {
 		return true
 	}
 
@@ -317,7 +320,7 @@ func (o *Episode) SetShowId(v float32) {
 
 // GetStillPath returns the StillPath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Episode) GetStillPath() string {
-	if o == nil || isNil(o.StillPath.Get()) {
+	if o == nil || IsNil(o.StillPath.Get()) {
 		var ret string
 		return ret
 	}
@@ -329,7 +332,7 @@ func (o *Episode) GetStillPath() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Episode) GetStillPathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.StillPath.Get(), o.StillPath.IsSet()
 }
@@ -359,7 +362,7 @@ func (o *Episode) UnsetStillPath() {
 
 // GetVoteAverage returns the VoteAverage field value if set, zero value otherwise.
 func (o *Episode) GetVoteAverage() float32 {
-	if o == nil || isNil(o.VoteAverage) {
+	if o == nil || IsNil(o.VoteAverage) {
 		var ret float32
 		return ret
 	}
@@ -369,15 +372,15 @@ func (o *Episode) GetVoteAverage() float32 {
 // GetVoteAverageOk returns a tuple with the VoteAverage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetVoteAverageOk() (*float32, bool) {
-	if o == nil || isNil(o.VoteAverage) {
-    return nil, false
+	if o == nil || IsNil(o.VoteAverage) {
+		return nil, false
 	}
 	return o.VoteAverage, true
 }
 
 // HasVoteAverage returns a boolean if a field has been set.
 func (o *Episode) HasVoteAverage() bool {
-	if o != nil && !isNil(o.VoteAverage) {
+	if o != nil && !IsNil(o.VoteAverage) {
 		return true
 	}
 
@@ -391,7 +394,7 @@ func (o *Episode) SetVoteAverage(v float32) {
 
 // GetVoteCount returns the VoteCount field value if set, zero value otherwise.
 func (o *Episode) GetVoteCount() float32 {
-	if o == nil || isNil(o.VoteCount) {
+	if o == nil || IsNil(o.VoteCount) {
 		var ret float32
 		return ret
 	}
@@ -401,15 +404,15 @@ func (o *Episode) GetVoteCount() float32 {
 // GetVoteCountOk returns a tuple with the VoteCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Episode) GetVoteCountOk() (*float32, bool) {
-	if o == nil || isNil(o.VoteCount) {
-    return nil, false
+	if o == nil || IsNil(o.VoteCount) {
+		return nil, false
 	}
 	return o.VoteCount, true
 }
 
 // HasVoteCount returns a boolean if a field has been set.
 func (o *Episode) HasVoteCount() bool {
-	if o != nil && !isNil(o.VoteCount) {
+	if o != nil && !IsNil(o.VoteCount) {
 		return true
 	}
 
@@ -422,38 +425,46 @@ func (o *Episode) SetVoteCount(v float32) {
 }
 
 func (o Episode) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Episode) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	if o.AirDate.IsSet() {
 		toSerialize["airDate"] = o.AirDate.Get()
 	}
-	if !isNil(o.EpisodeNumber) {
+	if !IsNil(o.EpisodeNumber) {
 		toSerialize["episodeNumber"] = o.EpisodeNumber
 	}
-	if !isNil(o.Overview) {
+	if !IsNil(o.Overview) {
 		toSerialize["overview"] = o.Overview
 	}
-	if !isNil(o.ProductionCode) {
+	if !IsNil(o.ProductionCode) {
 		toSerialize["productionCode"] = o.ProductionCode
 	}
-	if !isNil(o.SeasonNumber) {
+	if !IsNil(o.SeasonNumber) {
 		toSerialize["seasonNumber"] = o.SeasonNumber
 	}
-	if !isNil(o.ShowId) {
+	if !IsNil(o.ShowId) {
 		toSerialize["showId"] = o.ShowId
 	}
 	if o.StillPath.IsSet() {
 		toSerialize["stillPath"] = o.StillPath.Get()
 	}
-	if !isNil(o.VoteAverage) {
+	if !IsNil(o.VoteAverage) {
 		toSerialize["voteAverage"] = o.VoteAverage
 	}
-	if !isNil(o.VoteCount) {
+	if !IsNil(o.VoteCount) {
 		toSerialize["voteCount"] = o.VoteCount
 	}
 
@@ -461,19 +472,23 @@ func (o Episode) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Episode) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Episode) UnmarshalJSON(data []byte) (err error) {
 	varEpisode := _Episode{}
 
-	if err = json.Unmarshal(bytes, &varEpisode); err == nil {
-		*o = Episode(varEpisode)
+	err = json.Unmarshal(data, &varEpisode)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Episode(varEpisode)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "airDate")

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TelegramSettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TelegramSettingsOptions{}
+
 // TelegramSettingsOptions struct for TelegramSettingsOptions
 type TelegramSettingsOptions struct {
 	BotUsername *string `json:"botUsername,omitempty"`
@@ -44,7 +47,7 @@ func NewTelegramSettingsOptionsWithDefaults() *TelegramSettingsOptions {
 
 // GetBotUsername returns the BotUsername field value if set, zero value otherwise.
 func (o *TelegramSettingsOptions) GetBotUsername() string {
-	if o == nil || isNil(o.BotUsername) {
+	if o == nil || IsNil(o.BotUsername) {
 		var ret string
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *TelegramSettingsOptions) GetBotUsername() string {
 // GetBotUsernameOk returns a tuple with the BotUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TelegramSettingsOptions) GetBotUsernameOk() (*string, bool) {
-	if o == nil || isNil(o.BotUsername) {
-    return nil, false
+	if o == nil || IsNil(o.BotUsername) {
+		return nil, false
 	}
 	return o.BotUsername, true
 }
 
 // HasBotUsername returns a boolean if a field has been set.
 func (o *TelegramSettingsOptions) HasBotUsername() bool {
-	if o != nil && !isNil(o.BotUsername) {
+	if o != nil && !IsNil(o.BotUsername) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *TelegramSettingsOptions) SetBotUsername(v string) {
 
 // GetBotAPI returns the BotAPI field value if set, zero value otherwise.
 func (o *TelegramSettingsOptions) GetBotAPI() string {
-	if o == nil || isNil(o.BotAPI) {
+	if o == nil || IsNil(o.BotAPI) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *TelegramSettingsOptions) GetBotAPI() string {
 // GetBotAPIOk returns a tuple with the BotAPI field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TelegramSettingsOptions) GetBotAPIOk() (*string, bool) {
-	if o == nil || isNil(o.BotAPI) {
-    return nil, false
+	if o == nil || IsNil(o.BotAPI) {
+		return nil, false
 	}
 	return o.BotAPI, true
 }
 
 // HasBotAPI returns a boolean if a field has been set.
 func (o *TelegramSettingsOptions) HasBotAPI() bool {
-	if o != nil && !isNil(o.BotAPI) {
+	if o != nil && !IsNil(o.BotAPI) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *TelegramSettingsOptions) SetBotAPI(v string) {
 
 // GetChatId returns the ChatId field value if set, zero value otherwise.
 func (o *TelegramSettingsOptions) GetChatId() string {
-	if o == nil || isNil(o.ChatId) {
+	if o == nil || IsNil(o.ChatId) {
 		var ret string
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *TelegramSettingsOptions) GetChatId() string {
 // GetChatIdOk returns a tuple with the ChatId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TelegramSettingsOptions) GetChatIdOk() (*string, bool) {
-	if o == nil || isNil(o.ChatId) {
-    return nil, false
+	if o == nil || IsNil(o.ChatId) {
+		return nil, false
 	}
 	return o.ChatId, true
 }
 
 // HasChatId returns a boolean if a field has been set.
 func (o *TelegramSettingsOptions) HasChatId() bool {
-	if o != nil && !isNil(o.ChatId) {
+	if o != nil && !IsNil(o.ChatId) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *TelegramSettingsOptions) SetChatId(v string) {
 
 // GetSendSilently returns the SendSilently field value if set, zero value otherwise.
 func (o *TelegramSettingsOptions) GetSendSilently() bool {
-	if o == nil || isNil(o.SendSilently) {
+	if o == nil || IsNil(o.SendSilently) {
 		var ret bool
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *TelegramSettingsOptions) GetSendSilently() bool {
 // GetSendSilentlyOk returns a tuple with the SendSilently field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TelegramSettingsOptions) GetSendSilentlyOk() (*bool, bool) {
-	if o == nil || isNil(o.SendSilently) {
-    return nil, false
+	if o == nil || IsNil(o.SendSilently) {
+		return nil, false
 	}
 	return o.SendSilently, true
 }
 
 // HasSendSilently returns a boolean if a field has been set.
 func (o *TelegramSettingsOptions) HasSendSilently() bool {
-	if o != nil && !isNil(o.SendSilently) {
+	if o != nil && !IsNil(o.SendSilently) {
 		return true
 	}
 
@@ -171,17 +174,25 @@ func (o *TelegramSettingsOptions) SetSendSilently(v bool) {
 }
 
 func (o TelegramSettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TelegramSettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.BotUsername) {
+	if !IsNil(o.BotUsername) {
 		toSerialize["botUsername"] = o.BotUsername
 	}
-	if !isNil(o.BotAPI) {
+	if !IsNil(o.BotAPI) {
 		toSerialize["botAPI"] = o.BotAPI
 	}
-	if !isNil(o.ChatId) {
+	if !IsNil(o.ChatId) {
 		toSerialize["chatId"] = o.ChatId
 	}
-	if !isNil(o.SendSilently) {
+	if !IsNil(o.SendSilently) {
 		toSerialize["sendSilently"] = o.SendSilently
 	}
 
@@ -189,19 +200,23 @@ func (o TelegramSettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *TelegramSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *TelegramSettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varTelegramSettingsOptions := _TelegramSettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varTelegramSettingsOptions); err == nil {
-		*o = TelegramSettingsOptions(varTelegramSettingsOptions)
+	err = json.Unmarshal(data, &varTelegramSettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = TelegramSettingsOptions(varTelegramSettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "botUsername")
 		delete(additionalProperties, "botAPI")
 		delete(additionalProperties, "chatId")

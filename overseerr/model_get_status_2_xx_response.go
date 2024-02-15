@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetStatus2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetStatus2XXResponse{}
+
 // GetStatus2XXResponse struct for GetStatus2XXResponse
 type GetStatus2XXResponse struct {
 	Version *string `json:"version,omitempty"`
@@ -45,7 +48,7 @@ func NewGetStatus2XXResponseWithDefaults() *GetStatus2XXResponse {
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *GetStatus2XXResponse) GetVersion() string {
-	if o == nil || isNil(o.Version) {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *GetStatus2XXResponse) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetStatus2XXResponse) GetVersionOk() (*string, bool) {
-	if o == nil || isNil(o.Version) {
-    return nil, false
+	if o == nil || IsNil(o.Version) {
+		return nil, false
 	}
 	return o.Version, true
 }
 
 // HasVersion returns a boolean if a field has been set.
 func (o *GetStatus2XXResponse) HasVersion() bool {
-	if o != nil && !isNil(o.Version) {
+	if o != nil && !IsNil(o.Version) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *GetStatus2XXResponse) SetVersion(v string) {
 
 // GetCommitTag returns the CommitTag field value if set, zero value otherwise.
 func (o *GetStatus2XXResponse) GetCommitTag() string {
-	if o == nil || isNil(o.CommitTag) {
+	if o == nil || IsNil(o.CommitTag) {
 		var ret string
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *GetStatus2XXResponse) GetCommitTag() string {
 // GetCommitTagOk returns a tuple with the CommitTag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetStatus2XXResponse) GetCommitTagOk() (*string, bool) {
-	if o == nil || isNil(o.CommitTag) {
-    return nil, false
+	if o == nil || IsNil(o.CommitTag) {
+		return nil, false
 	}
 	return o.CommitTag, true
 }
 
 // HasCommitTag returns a boolean if a field has been set.
 func (o *GetStatus2XXResponse) HasCommitTag() bool {
-	if o != nil && !isNil(o.CommitTag) {
+	if o != nil && !IsNil(o.CommitTag) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *GetStatus2XXResponse) SetCommitTag(v string) {
 
 // GetUpdateAvailable returns the UpdateAvailable field value if set, zero value otherwise.
 func (o *GetStatus2XXResponse) GetUpdateAvailable() bool {
-	if o == nil || isNil(o.UpdateAvailable) {
+	if o == nil || IsNil(o.UpdateAvailable) {
 		var ret bool
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *GetStatus2XXResponse) GetUpdateAvailable() bool {
 // GetUpdateAvailableOk returns a tuple with the UpdateAvailable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetStatus2XXResponse) GetUpdateAvailableOk() (*bool, bool) {
-	if o == nil || isNil(o.UpdateAvailable) {
-    return nil, false
+	if o == nil || IsNil(o.UpdateAvailable) {
+		return nil, false
 	}
 	return o.UpdateAvailable, true
 }
 
 // HasUpdateAvailable returns a boolean if a field has been set.
 func (o *GetStatus2XXResponse) HasUpdateAvailable() bool {
-	if o != nil && !isNil(o.UpdateAvailable) {
+	if o != nil && !IsNil(o.UpdateAvailable) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *GetStatus2XXResponse) SetUpdateAvailable(v bool) {
 
 // GetCommitsBehind returns the CommitsBehind field value if set, zero value otherwise.
 func (o *GetStatus2XXResponse) GetCommitsBehind() float32 {
-	if o == nil || isNil(o.CommitsBehind) {
+	if o == nil || IsNil(o.CommitsBehind) {
 		var ret float32
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *GetStatus2XXResponse) GetCommitsBehind() float32 {
 // GetCommitsBehindOk returns a tuple with the CommitsBehind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetStatus2XXResponse) GetCommitsBehindOk() (*float32, bool) {
-	if o == nil || isNil(o.CommitsBehind) {
-    return nil, false
+	if o == nil || IsNil(o.CommitsBehind) {
+		return nil, false
 	}
 	return o.CommitsBehind, true
 }
 
 // HasCommitsBehind returns a boolean if a field has been set.
 func (o *GetStatus2XXResponse) HasCommitsBehind() bool {
-	if o != nil && !isNil(o.CommitsBehind) {
+	if o != nil && !IsNil(o.CommitsBehind) {
 		return true
 	}
 
@@ -173,7 +176,7 @@ func (o *GetStatus2XXResponse) SetCommitsBehind(v float32) {
 
 // GetRestartRequired returns the RestartRequired field value if set, zero value otherwise.
 func (o *GetStatus2XXResponse) GetRestartRequired() bool {
-	if o == nil || isNil(o.RestartRequired) {
+	if o == nil || IsNil(o.RestartRequired) {
 		var ret bool
 		return ret
 	}
@@ -183,15 +186,15 @@ func (o *GetStatus2XXResponse) GetRestartRequired() bool {
 // GetRestartRequiredOk returns a tuple with the RestartRequired field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetStatus2XXResponse) GetRestartRequiredOk() (*bool, bool) {
-	if o == nil || isNil(o.RestartRequired) {
-    return nil, false
+	if o == nil || IsNil(o.RestartRequired) {
+		return nil, false
 	}
 	return o.RestartRequired, true
 }
 
 // HasRestartRequired returns a boolean if a field has been set.
 func (o *GetStatus2XXResponse) HasRestartRequired() bool {
-	if o != nil && !isNil(o.RestartRequired) {
+	if o != nil && !IsNil(o.RestartRequired) {
 		return true
 	}
 
@@ -204,20 +207,28 @@ func (o *GetStatus2XXResponse) SetRestartRequired(v bool) {
 }
 
 func (o GetStatus2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetStatus2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Version) {
+	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
-	if !isNil(o.CommitTag) {
+	if !IsNil(o.CommitTag) {
 		toSerialize["commitTag"] = o.CommitTag
 	}
-	if !isNil(o.UpdateAvailable) {
+	if !IsNil(o.UpdateAvailable) {
 		toSerialize["updateAvailable"] = o.UpdateAvailable
 	}
-	if !isNil(o.CommitsBehind) {
+	if !IsNil(o.CommitsBehind) {
 		toSerialize["commitsBehind"] = o.CommitsBehind
 	}
-	if !isNil(o.RestartRequired) {
+	if !IsNil(o.RestartRequired) {
 		toSerialize["restartRequired"] = o.RestartRequired
 	}
 
@@ -225,19 +236,23 @@ func (o GetStatus2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetStatus2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetStatus2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetStatus2XXResponse := _GetStatus2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetStatus2XXResponse); err == nil {
-		*o = GetStatus2XXResponse(varGetStatus2XXResponse)
+	err = json.Unmarshal(data, &varGetStatus2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetStatus2XXResponse(varGetStatus2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "version")
 		delete(additionalProperties, "commitTag")
 		delete(additionalProperties, "updateAvailable")

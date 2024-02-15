@@ -22,6 +22,7 @@ import (
 
 // RequestAPIService RequestAPI service
 type RequestAPIService service
+
 type ApiCreateRequestRequest struct {
 	ctx context.Context
 	ApiService *RequestAPIService
@@ -148,6 +149,7 @@ func (a *RequestAPIService) CreateRequestExecute(r ApiCreateRequestRequest) (*Me
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateRequestByStatusRequest struct {
 	ctx context.Context
 	ApiService *RequestAPIService
@@ -197,8 +199,8 @@ func (a *RequestAPIService) CreateRequestByStatusExecute(r ApiCreateRequestBySta
 	}
 
 	localVarPath := localBasePath + "/request/{requestId}/{status}"
-	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterToString(r.requestId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"status"+"}", url.PathEscape(parameterToString(r.status, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"status"+"}", url.PathEscape(parameterValueToString(r.status, "status")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -271,6 +273,7 @@ func (a *RequestAPIService) CreateRequestByStatusExecute(r ApiCreateRequestBySta
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiCreateRequestRetryRequest struct {
 	ctx context.Context
 	ApiService *RequestAPIService
@@ -317,7 +320,7 @@ func (a *RequestAPIService) CreateRequestRetryExecute(r ApiCreateRequestRetryReq
 	}
 
 	localVarPath := localBasePath + "/request/{requestId}/retry"
-	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterToString(r.requestId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -390,6 +393,7 @@ func (a *RequestAPIService) CreateRequestRetryExecute(r ApiCreateRequestRetryReq
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiDeleteRequestRequest struct {
 	ctx context.Context
 	ApiService *RequestAPIService
@@ -431,7 +435,7 @@ func (a *RequestAPIService) DeleteRequestExecute(r ApiDeleteRequestRequest) (*ht
 	}
 
 	localVarPath := localBasePath + "/request/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterToString(r.requestId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -495,6 +499,7 @@ func (a *RequestAPIService) DeleteRequestExecute(r ApiDeleteRequestRequest) (*ht
 
 	return localVarHTTPResponse, nil
 }
+
 type ApiGetRequestRequest struct {
 	ctx context.Context
 	ApiService *RequestAPIService
@@ -574,19 +579,22 @@ func (a *RequestAPIService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserR
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		localVarQueryParams.Add("take", parameterToString(*r.take, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
 	}
 	if r.skip != nil {
-		localVarQueryParams.Add("skip", parameterToString(*r.skip, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
 	}
 	if r.filter != nil {
-		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "")
 	}
 	if r.sort != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "")
+	} else {
+		var defaultValue string = "added"
+		r.sort = &defaultValue
 	}
 	if r.requestedBy != nil {
-		localVarQueryParams.Add("requestedBy", parameterToString(*r.requestedBy, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "requestedBy", r.requestedBy, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -655,6 +663,7 @@ func (a *RequestAPIService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserR
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetRequestByRequestIdRequest struct {
 	ctx context.Context
 	ApiService *RequestAPIService
@@ -698,7 +707,7 @@ func (a *RequestAPIService) GetRequestByRequestIdExecute(r ApiGetRequestByReques
 	}
 
 	localVarPath := localBasePath + "/request/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterToString(r.requestId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -771,6 +780,7 @@ func (a *RequestAPIService) GetRequestByRequestIdExecute(r ApiGetRequestByReques
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiGetRequestCountRequest struct {
 	ctx context.Context
 	ApiService *RequestAPIService
@@ -884,6 +894,7 @@ func (a *RequestAPIService) GetRequestCountExecute(r ApiGetRequestCountRequest) 
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
 type ApiUpdateRequestRequest struct {
 	ctx context.Context
 	ApiService *RequestAPIService
@@ -933,7 +944,7 @@ func (a *RequestAPIService) UpdateRequestExecute(r ApiUpdateRequestRequest) (*Me
 	}
 
 	localVarPath := localBasePath + "/request/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterToString(r.requestId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

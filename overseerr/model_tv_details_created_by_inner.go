@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TvDetailsCreatedByInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TvDetailsCreatedByInner{}
+
 // TvDetailsCreatedByInner struct for TvDetailsCreatedByInner
 type TvDetailsCreatedByInner struct {
 	Id *float32 `json:"id,omitempty"`
@@ -44,7 +47,7 @@ func NewTvDetailsCreatedByInnerWithDefaults() *TvDetailsCreatedByInner {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *TvDetailsCreatedByInner) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *TvDetailsCreatedByInner) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TvDetailsCreatedByInner) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *TvDetailsCreatedByInner) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *TvDetailsCreatedByInner) SetId(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *TvDetailsCreatedByInner) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *TvDetailsCreatedByInner) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TvDetailsCreatedByInner) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TvDetailsCreatedByInner) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *TvDetailsCreatedByInner) SetName(v string) {
 
 // GetGender returns the Gender field value if set, zero value otherwise.
 func (o *TvDetailsCreatedByInner) GetGender() float32 {
-	if o == nil || isNil(o.Gender) {
+	if o == nil || IsNil(o.Gender) {
 		var ret float32
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *TvDetailsCreatedByInner) GetGender() float32 {
 // GetGenderOk returns a tuple with the Gender field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TvDetailsCreatedByInner) GetGenderOk() (*float32, bool) {
-	if o == nil || isNil(o.Gender) {
-    return nil, false
+	if o == nil || IsNil(o.Gender) {
+		return nil, false
 	}
 	return o.Gender, true
 }
 
 // HasGender returns a boolean if a field has been set.
 func (o *TvDetailsCreatedByInner) HasGender() bool {
-	if o != nil && !isNil(o.Gender) {
+	if o != nil && !IsNil(o.Gender) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *TvDetailsCreatedByInner) SetGender(v float32) {
 
 // GetProfilePath returns the ProfilePath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TvDetailsCreatedByInner) GetProfilePath() string {
-	if o == nil || isNil(o.ProfilePath.Get()) {
+	if o == nil || IsNil(o.ProfilePath.Get()) {
 		var ret string
 		return ret
 	}
@@ -152,7 +155,7 @@ func (o *TvDetailsCreatedByInner) GetProfilePath() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TvDetailsCreatedByInner) GetProfilePathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ProfilePath.Get(), o.ProfilePath.IsSet()
 }
@@ -181,14 +184,22 @@ func (o *TvDetailsCreatedByInner) UnsetProfilePath() {
 }
 
 func (o TvDetailsCreatedByInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TvDetailsCreatedByInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Gender) {
+	if !IsNil(o.Gender) {
 		toSerialize["gender"] = o.Gender
 	}
 	if o.ProfilePath.IsSet() {
@@ -199,19 +210,23 @@ func (o TvDetailsCreatedByInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *TvDetailsCreatedByInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *TvDetailsCreatedByInner) UnmarshalJSON(data []byte) (err error) {
 	varTvDetailsCreatedByInner := _TvDetailsCreatedByInner{}
 
-	if err = json.Unmarshal(bytes, &varTvDetailsCreatedByInner); err == nil {
-		*o = TvDetailsCreatedByInner(varTvDetailsCreatedByInner)
+	err = json.Unmarshal(data, &varTvDetailsCreatedByInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = TvDetailsCreatedByInner(varTvDetailsCreatedByInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "gender")

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UpdateIssueCommentRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateIssueCommentRequest{}
+
 // UpdateIssueCommentRequest struct for UpdateIssueCommentRequest
 type UpdateIssueCommentRequest struct {
 	Message *string `json:"message,omitempty"`
@@ -41,7 +44,7 @@ func NewUpdateIssueCommentRequestWithDefaults() *UpdateIssueCommentRequest {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *UpdateIssueCommentRequest) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -51,15 +54,15 @@ func (o *UpdateIssueCommentRequest) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateIssueCommentRequest) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *UpdateIssueCommentRequest) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *UpdateIssueCommentRequest) SetMessage(v string) {
 }
 
 func (o UpdateIssueCommentRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o UpdateIssueCommentRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Message) {
+	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
 
@@ -81,19 +92,23 @@ func (o UpdateIssueCommentRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *UpdateIssueCommentRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *UpdateIssueCommentRequest) UnmarshalJSON(data []byte) (err error) {
 	varUpdateIssueCommentRequest := _UpdateIssueCommentRequest{}
 
-	if err = json.Unmarshal(bytes, &varUpdateIssueCommentRequest); err == nil {
-		*o = UpdateIssueCommentRequest(varUpdateIssueCommentRequest)
+	err = json.Unmarshal(data, &varUpdateIssueCommentRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = UpdateIssueCommentRequest(varUpdateIssueCommentRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "message")
 		o.AdditionalProperties = additionalProperties
 	}

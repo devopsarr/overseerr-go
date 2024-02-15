@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetAbout2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetAbout2XXResponse{}
+
 // GetAbout2XXResponse struct for GetAbout2XXResponse
 type GetAbout2XXResponse struct {
 	Version *string `json:"version,omitempty"`
@@ -45,7 +48,7 @@ func NewGetAbout2XXResponseWithDefaults() *GetAbout2XXResponse {
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *GetAbout2XXResponse) GetVersion() string {
-	if o == nil || isNil(o.Version) {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *GetAbout2XXResponse) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAbout2XXResponse) GetVersionOk() (*string, bool) {
-	if o == nil || isNil(o.Version) {
-    return nil, false
+	if o == nil || IsNil(o.Version) {
+		return nil, false
 	}
 	return o.Version, true
 }
 
 // HasVersion returns a boolean if a field has been set.
 func (o *GetAbout2XXResponse) HasVersion() bool {
-	if o != nil && !isNil(o.Version) {
+	if o != nil && !IsNil(o.Version) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *GetAbout2XXResponse) SetVersion(v string) {
 
 // GetTotalRequests returns the TotalRequests field value if set, zero value otherwise.
 func (o *GetAbout2XXResponse) GetTotalRequests() float32 {
-	if o == nil || isNil(o.TotalRequests) {
+	if o == nil || IsNil(o.TotalRequests) {
 		var ret float32
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *GetAbout2XXResponse) GetTotalRequests() float32 {
 // GetTotalRequestsOk returns a tuple with the TotalRequests field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAbout2XXResponse) GetTotalRequestsOk() (*float32, bool) {
-	if o == nil || isNil(o.TotalRequests) {
-    return nil, false
+	if o == nil || IsNil(o.TotalRequests) {
+		return nil, false
 	}
 	return o.TotalRequests, true
 }
 
 // HasTotalRequests returns a boolean if a field has been set.
 func (o *GetAbout2XXResponse) HasTotalRequests() bool {
-	if o != nil && !isNil(o.TotalRequests) {
+	if o != nil && !IsNil(o.TotalRequests) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *GetAbout2XXResponse) SetTotalRequests(v float32) {
 
 // GetTotalMediaItems returns the TotalMediaItems field value if set, zero value otherwise.
 func (o *GetAbout2XXResponse) GetTotalMediaItems() float32 {
-	if o == nil || isNil(o.TotalMediaItems) {
+	if o == nil || IsNil(o.TotalMediaItems) {
 		var ret float32
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *GetAbout2XXResponse) GetTotalMediaItems() float32 {
 // GetTotalMediaItemsOk returns a tuple with the TotalMediaItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAbout2XXResponse) GetTotalMediaItemsOk() (*float32, bool) {
-	if o == nil || isNil(o.TotalMediaItems) {
-    return nil, false
+	if o == nil || IsNil(o.TotalMediaItems) {
+		return nil, false
 	}
 	return o.TotalMediaItems, true
 }
 
 // HasTotalMediaItems returns a boolean if a field has been set.
 func (o *GetAbout2XXResponse) HasTotalMediaItems() bool {
-	if o != nil && !isNil(o.TotalMediaItems) {
+	if o != nil && !IsNil(o.TotalMediaItems) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *GetAbout2XXResponse) SetTotalMediaItems(v float32) {
 
 // GetTz returns the Tz field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetAbout2XXResponse) GetTz() string {
-	if o == nil || isNil(o.Tz.Get()) {
+	if o == nil || IsNil(o.Tz.Get()) {
 		var ret string
 		return ret
 	}
@@ -153,7 +156,7 @@ func (o *GetAbout2XXResponse) GetTz() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetAbout2XXResponse) GetTzOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.Tz.Get(), o.Tz.IsSet()
 }
@@ -183,7 +186,7 @@ func (o *GetAbout2XXResponse) UnsetTz() {
 
 // GetAppDataPath returns the AppDataPath field value if set, zero value otherwise.
 func (o *GetAbout2XXResponse) GetAppDataPath() string {
-	if o == nil || isNil(o.AppDataPath) {
+	if o == nil || IsNil(o.AppDataPath) {
 		var ret string
 		return ret
 	}
@@ -193,15 +196,15 @@ func (o *GetAbout2XXResponse) GetAppDataPath() string {
 // GetAppDataPathOk returns a tuple with the AppDataPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetAbout2XXResponse) GetAppDataPathOk() (*string, bool) {
-	if o == nil || isNil(o.AppDataPath) {
-    return nil, false
+	if o == nil || IsNil(o.AppDataPath) {
+		return nil, false
 	}
 	return o.AppDataPath, true
 }
 
 // HasAppDataPath returns a boolean if a field has been set.
 func (o *GetAbout2XXResponse) HasAppDataPath() bool {
-	if o != nil && !isNil(o.AppDataPath) {
+	if o != nil && !IsNil(o.AppDataPath) {
 		return true
 	}
 
@@ -214,20 +217,28 @@ func (o *GetAbout2XXResponse) SetAppDataPath(v string) {
 }
 
 func (o GetAbout2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetAbout2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Version) {
+	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
-	if !isNil(o.TotalRequests) {
+	if !IsNil(o.TotalRequests) {
 		toSerialize["totalRequests"] = o.TotalRequests
 	}
-	if !isNil(o.TotalMediaItems) {
+	if !IsNil(o.TotalMediaItems) {
 		toSerialize["totalMediaItems"] = o.TotalMediaItems
 	}
 	if o.Tz.IsSet() {
 		toSerialize["tz"] = o.Tz.Get()
 	}
-	if !isNil(o.AppDataPath) {
+	if !IsNil(o.AppDataPath) {
 		toSerialize["appDataPath"] = o.AppDataPath
 	}
 
@@ -235,19 +246,23 @@ func (o GetAbout2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetAbout2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetAbout2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetAbout2XXResponse := _GetAbout2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetAbout2XXResponse); err == nil {
-		*o = GetAbout2XXResponse(varGetAbout2XXResponse)
+	err = json.Unmarshal(data, &varGetAbout2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetAbout2XXResponse(varGetAbout2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "version")
 		delete(additionalProperties, "totalRequests")
 		delete(additionalProperties, "totalMediaItems")

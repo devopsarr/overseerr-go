@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetCache2XXResponseApiCachesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetCache2XXResponseApiCachesInner{}
+
 // GetCache2XXResponseApiCachesInner struct for GetCache2XXResponseApiCachesInner
 type GetCache2XXResponseApiCachesInner struct {
 	Id *string `json:"id,omitempty"`
@@ -43,7 +46,7 @@ func NewGetCache2XXResponseApiCachesInnerWithDefaults() *GetCache2XXResponseApiC
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *GetCache2XXResponseApiCachesInner) GetId() string {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *GetCache2XXResponseApiCachesInner) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseApiCachesInner) GetIdOk() (*string, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *GetCache2XXResponseApiCachesInner) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *GetCache2XXResponseApiCachesInner) SetId(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *GetCache2XXResponseApiCachesInner) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *GetCache2XXResponseApiCachesInner) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseApiCachesInner) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *GetCache2XXResponseApiCachesInner) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *GetCache2XXResponseApiCachesInner) SetName(v string) {
 
 // GetStats returns the Stats field value if set, zero value otherwise.
 func (o *GetCache2XXResponseApiCachesInner) GetStats() GetCache2XXResponseApiCachesInnerStats {
-	if o == nil || isNil(o.Stats) {
+	if o == nil || IsNil(o.Stats) {
 		var ret GetCache2XXResponseApiCachesInnerStats
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *GetCache2XXResponseApiCachesInner) GetStats() GetCache2XXResponseApiCac
 // GetStatsOk returns a tuple with the Stats field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponseApiCachesInner) GetStatsOk() (*GetCache2XXResponseApiCachesInnerStats, bool) {
-	if o == nil || isNil(o.Stats) {
-    return nil, false
+	if o == nil || IsNil(o.Stats) {
+		return nil, false
 	}
 	return o.Stats, true
 }
 
 // HasStats returns a boolean if a field has been set.
 func (o *GetCache2XXResponseApiCachesInner) HasStats() bool {
-	if o != nil && !isNil(o.Stats) {
+	if o != nil && !IsNil(o.Stats) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *GetCache2XXResponseApiCachesInner) SetStats(v GetCache2XXResponseApiCac
 }
 
 func (o GetCache2XXResponseApiCachesInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetCache2XXResponseApiCachesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Stats) {
+	if !IsNil(o.Stats) {
 		toSerialize["stats"] = o.Stats
 	}
 
@@ -153,19 +164,23 @@ func (o GetCache2XXResponseApiCachesInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetCache2XXResponseApiCachesInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetCache2XXResponseApiCachesInner) UnmarshalJSON(data []byte) (err error) {
 	varGetCache2XXResponseApiCachesInner := _GetCache2XXResponseApiCachesInner{}
 
-	if err = json.Unmarshal(bytes, &varGetCache2XXResponseApiCachesInner); err == nil {
-		*o = GetCache2XXResponseApiCachesInner(varGetCache2XXResponseApiCachesInner)
+	err = json.Unmarshal(data, &varGetCache2XXResponseApiCachesInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetCache2XXResponseApiCachesInner(varGetCache2XXResponseApiCachesInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "stats")

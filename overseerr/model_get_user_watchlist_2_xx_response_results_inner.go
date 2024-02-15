@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetUserWatchlist2XXResponseResultsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUserWatchlist2XXResponseResultsInner{}
+
 // GetUserWatchlist2XXResponseResultsInner struct for GetUserWatchlist2XXResponseResultsInner
 type GetUserWatchlist2XXResponseResultsInner struct {
 	TmdbId *float32 `json:"tmdbId,omitempty"`
@@ -44,7 +47,7 @@ func NewGetUserWatchlist2XXResponseResultsInnerWithDefaults() *GetUserWatchlist2
 
 // GetTmdbId returns the TmdbId field value if set, zero value otherwise.
 func (o *GetUserWatchlist2XXResponseResultsInner) GetTmdbId() float32 {
-	if o == nil || isNil(o.TmdbId) {
+	if o == nil || IsNil(o.TmdbId) {
 		var ret float32
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *GetUserWatchlist2XXResponseResultsInner) GetTmdbId() float32 {
 // GetTmdbIdOk returns a tuple with the TmdbId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserWatchlist2XXResponseResultsInner) GetTmdbIdOk() (*float32, bool) {
-	if o == nil || isNil(o.TmdbId) {
-    return nil, false
+	if o == nil || IsNil(o.TmdbId) {
+		return nil, false
 	}
 	return o.TmdbId, true
 }
 
 // HasTmdbId returns a boolean if a field has been set.
 func (o *GetUserWatchlist2XXResponseResultsInner) HasTmdbId() bool {
-	if o != nil && !isNil(o.TmdbId) {
+	if o != nil && !IsNil(o.TmdbId) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *GetUserWatchlist2XXResponseResultsInner) SetTmdbId(v float32) {
 
 // GetRatingKey returns the RatingKey field value if set, zero value otherwise.
 func (o *GetUserWatchlist2XXResponseResultsInner) GetRatingKey() string {
-	if o == nil || isNil(o.RatingKey) {
+	if o == nil || IsNil(o.RatingKey) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *GetUserWatchlist2XXResponseResultsInner) GetRatingKey() string {
 // GetRatingKeyOk returns a tuple with the RatingKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserWatchlist2XXResponseResultsInner) GetRatingKeyOk() (*string, bool) {
-	if o == nil || isNil(o.RatingKey) {
-    return nil, false
+	if o == nil || IsNil(o.RatingKey) {
+		return nil, false
 	}
 	return o.RatingKey, true
 }
 
 // HasRatingKey returns a boolean if a field has been set.
 func (o *GetUserWatchlist2XXResponseResultsInner) HasRatingKey() bool {
-	if o != nil && !isNil(o.RatingKey) {
+	if o != nil && !IsNil(o.RatingKey) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *GetUserWatchlist2XXResponseResultsInner) SetRatingKey(v string) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *GetUserWatchlist2XXResponseResultsInner) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *GetUserWatchlist2XXResponseResultsInner) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserWatchlist2XXResponseResultsInner) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *GetUserWatchlist2XXResponseResultsInner) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *GetUserWatchlist2XXResponseResultsInner) SetType(v string) {
 
 // GetTitle returns the Title field value if set, zero value otherwise.
 func (o *GetUserWatchlist2XXResponseResultsInner) GetTitle() string {
-	if o == nil || isNil(o.Title) {
+	if o == nil || IsNil(o.Title) {
 		var ret string
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *GetUserWatchlist2XXResponseResultsInner) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserWatchlist2XXResponseResultsInner) GetTitleOk() (*string, bool) {
-	if o == nil || isNil(o.Title) {
-    return nil, false
+	if o == nil || IsNil(o.Title) {
+		return nil, false
 	}
 	return o.Title, true
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *GetUserWatchlist2XXResponseResultsInner) HasTitle() bool {
-	if o != nil && !isNil(o.Title) {
+	if o != nil && !IsNil(o.Title) {
 		return true
 	}
 
@@ -171,17 +174,25 @@ func (o *GetUserWatchlist2XXResponseResultsInner) SetTitle(v string) {
 }
 
 func (o GetUserWatchlist2XXResponseResultsInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetUserWatchlist2XXResponseResultsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.TmdbId) {
+	if !IsNil(o.TmdbId) {
 		toSerialize["tmdbId"] = o.TmdbId
 	}
-	if !isNil(o.RatingKey) {
+	if !IsNil(o.RatingKey) {
 		toSerialize["ratingKey"] = o.RatingKey
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !isNil(o.Title) {
+	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
 
@@ -189,19 +200,23 @@ func (o GetUserWatchlist2XXResponseResultsInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetUserWatchlist2XXResponseResultsInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetUserWatchlist2XXResponseResultsInner) UnmarshalJSON(data []byte) (err error) {
 	varGetUserWatchlist2XXResponseResultsInner := _GetUserWatchlist2XXResponseResultsInner{}
 
-	if err = json.Unmarshal(bytes, &varGetUserWatchlist2XXResponseResultsInner); err == nil {
-		*o = GetUserWatchlist2XXResponseResultsInner(varGetUserWatchlist2XXResponseResultsInner)
+	err = json.Unmarshal(data, &varGetUserWatchlist2XXResponseResultsInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetUserWatchlist2XXResponseResultsInner(varGetUserWatchlist2XXResponseResultsInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "tmdbId")
 		delete(additionalProperties, "ratingKey")
 		delete(additionalProperties, "type")

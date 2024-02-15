@@ -14,13 +14,16 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetPlexSync2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetPlexSync2XXResponse{}
+
 // GetPlexSync2XXResponse struct for GetPlexSync2XXResponse
 type GetPlexSync2XXResponse struct {
 	Running *bool `json:"running,omitempty"`
 	Progress *float32 `json:"progress,omitempty"`
 	Total *float32 `json:"total,omitempty"`
 	CurrentLibrary *PlexLibrary `json:"currentLibrary,omitempty"`
-	Libraries []*PlexLibrary `json:"libraries,omitempty"`
+	Libraries []PlexLibrary `json:"libraries,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -45,7 +48,7 @@ func NewGetPlexSync2XXResponseWithDefaults() *GetPlexSync2XXResponse {
 
 // GetRunning returns the Running field value if set, zero value otherwise.
 func (o *GetPlexSync2XXResponse) GetRunning() bool {
-	if o == nil || isNil(o.Running) {
+	if o == nil || IsNil(o.Running) {
 		var ret bool
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *GetPlexSync2XXResponse) GetRunning() bool {
 // GetRunningOk returns a tuple with the Running field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetPlexSync2XXResponse) GetRunningOk() (*bool, bool) {
-	if o == nil || isNil(o.Running) {
-    return nil, false
+	if o == nil || IsNil(o.Running) {
+		return nil, false
 	}
 	return o.Running, true
 }
 
 // HasRunning returns a boolean if a field has been set.
 func (o *GetPlexSync2XXResponse) HasRunning() bool {
-	if o != nil && !isNil(o.Running) {
+	if o != nil && !IsNil(o.Running) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *GetPlexSync2XXResponse) SetRunning(v bool) {
 
 // GetProgress returns the Progress field value if set, zero value otherwise.
 func (o *GetPlexSync2XXResponse) GetProgress() float32 {
-	if o == nil || isNil(o.Progress) {
+	if o == nil || IsNil(o.Progress) {
 		var ret float32
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *GetPlexSync2XXResponse) GetProgress() float32 {
 // GetProgressOk returns a tuple with the Progress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetPlexSync2XXResponse) GetProgressOk() (*float32, bool) {
-	if o == nil || isNil(o.Progress) {
-    return nil, false
+	if o == nil || IsNil(o.Progress) {
+		return nil, false
 	}
 	return o.Progress, true
 }
 
 // HasProgress returns a boolean if a field has been set.
 func (o *GetPlexSync2XXResponse) HasProgress() bool {
-	if o != nil && !isNil(o.Progress) {
+	if o != nil && !IsNil(o.Progress) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *GetPlexSync2XXResponse) SetProgress(v float32) {
 
 // GetTotal returns the Total field value if set, zero value otherwise.
 func (o *GetPlexSync2XXResponse) GetTotal() float32 {
-	if o == nil || isNil(o.Total) {
+	if o == nil || IsNil(o.Total) {
 		var ret float32
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *GetPlexSync2XXResponse) GetTotal() float32 {
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetPlexSync2XXResponse) GetTotalOk() (*float32, bool) {
-	if o == nil || isNil(o.Total) {
-    return nil, false
+	if o == nil || IsNil(o.Total) {
+		return nil, false
 	}
 	return o.Total, true
 }
 
 // HasTotal returns a boolean if a field has been set.
 func (o *GetPlexSync2XXResponse) HasTotal() bool {
-	if o != nil && !isNil(o.Total) {
+	if o != nil && !IsNil(o.Total) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *GetPlexSync2XXResponse) SetTotal(v float32) {
 
 // GetCurrentLibrary returns the CurrentLibrary field value if set, zero value otherwise.
 func (o *GetPlexSync2XXResponse) GetCurrentLibrary() PlexLibrary {
-	if o == nil || isNil(o.CurrentLibrary) {
+	if o == nil || IsNil(o.CurrentLibrary) {
 		var ret PlexLibrary
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *GetPlexSync2XXResponse) GetCurrentLibrary() PlexLibrary {
 // GetCurrentLibraryOk returns a tuple with the CurrentLibrary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetPlexSync2XXResponse) GetCurrentLibraryOk() (*PlexLibrary, bool) {
-	if o == nil || isNil(o.CurrentLibrary) {
-    return nil, false
+	if o == nil || IsNil(o.CurrentLibrary) {
+		return nil, false
 	}
 	return o.CurrentLibrary, true
 }
 
 // HasCurrentLibrary returns a boolean if a field has been set.
 func (o *GetPlexSync2XXResponse) HasCurrentLibrary() bool {
-	if o != nil && !isNil(o.CurrentLibrary) {
+	if o != nil && !IsNil(o.CurrentLibrary) {
 		return true
 	}
 
@@ -172,9 +175,9 @@ func (o *GetPlexSync2XXResponse) SetCurrentLibrary(v PlexLibrary) {
 }
 
 // GetLibraries returns the Libraries field value if set, zero value otherwise.
-func (o *GetPlexSync2XXResponse) GetLibraries() []*PlexLibrary {
-	if o == nil || isNil(o.Libraries) {
-		var ret []*PlexLibrary
+func (o *GetPlexSync2XXResponse) GetLibraries() []PlexLibrary {
+	if o == nil || IsNil(o.Libraries) {
+		var ret []PlexLibrary
 		return ret
 	}
 	return o.Libraries
@@ -182,16 +185,16 @@ func (o *GetPlexSync2XXResponse) GetLibraries() []*PlexLibrary {
 
 // GetLibrariesOk returns a tuple with the Libraries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetPlexSync2XXResponse) GetLibrariesOk() ([]*PlexLibrary, bool) {
-	if o == nil || isNil(o.Libraries) {
-    return nil, false
+func (o *GetPlexSync2XXResponse) GetLibrariesOk() ([]PlexLibrary, bool) {
+	if o == nil || IsNil(o.Libraries) {
+		return nil, false
 	}
 	return o.Libraries, true
 }
 
 // HasLibraries returns a boolean if a field has been set.
 func (o *GetPlexSync2XXResponse) HasLibraries() bool {
-	if o != nil && !isNil(o.Libraries) {
+	if o != nil && !IsNil(o.Libraries) {
 		return true
 	}
 
@@ -199,25 +202,33 @@ func (o *GetPlexSync2XXResponse) HasLibraries() bool {
 }
 
 // SetLibraries gets a reference to the given []PlexLibrary and assigns it to the Libraries field.
-func (o *GetPlexSync2XXResponse) SetLibraries(v []*PlexLibrary) {
+func (o *GetPlexSync2XXResponse) SetLibraries(v []PlexLibrary) {
 	o.Libraries = v
 }
 
 func (o GetPlexSync2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetPlexSync2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Running) {
+	if !IsNil(o.Running) {
 		toSerialize["running"] = o.Running
 	}
-	if !isNil(o.Progress) {
+	if !IsNil(o.Progress) {
 		toSerialize["progress"] = o.Progress
 	}
-	if !isNil(o.Total) {
+	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}
-	if !isNil(o.CurrentLibrary) {
+	if !IsNil(o.CurrentLibrary) {
 		toSerialize["currentLibrary"] = o.CurrentLibrary
 	}
-	if !isNil(o.Libraries) {
+	if !IsNil(o.Libraries) {
 		toSerialize["libraries"] = o.Libraries
 	}
 
@@ -225,19 +236,23 @@ func (o GetPlexSync2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetPlexSync2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetPlexSync2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetPlexSync2XXResponse := _GetPlexSync2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetPlexSync2XXResponse); err == nil {
-		*o = GetPlexSync2XXResponse(varGetPlexSync2XXResponse)
+	err = json.Unmarshal(data, &varGetPlexSync2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetPlexSync2XXResponse(varGetPlexSync2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "running")
 		delete(additionalProperties, "progress")
 		delete(additionalProperties, "total")

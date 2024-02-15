@@ -26,24 +26,24 @@ Get Radarr server quality profiles and root folders
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    radarrId := float32(0) // float32 | 
+	radarrId := float32(0) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ServiceAPI.GetServiceRadarrByRadarrId(context.Background(), radarrId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.GetServiceRadarrByRadarrId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetServiceRadarrByRadarrId`: GetServiceRadarrByRadarrId2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.GetServiceRadarrByRadarrId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceAPI.GetServiceRadarrByRadarrId(context.Background(), radarrId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.GetServiceRadarrByRadarrId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetServiceRadarrByRadarrId`: GetServiceRadarrByRadarrId2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.GetServiceRadarrByRadarrId`: %v\n", resp)
 }
 ```
 
@@ -96,24 +96,24 @@ Get Sonarr server quality profiles and root folders
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    sonarrId := float32(0) // float32 | 
+	sonarrId := float32(0) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ServiceAPI.GetServiceSonarrBySonarrId(context.Background(), sonarrId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.GetServiceSonarrBySonarrId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetServiceSonarrBySonarrId`: GetServiceSonarrBySonarrId2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.GetServiceSonarrBySonarrId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceAPI.GetServiceSonarrBySonarrId(context.Background(), sonarrId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.GetServiceSonarrBySonarrId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetServiceSonarrBySonarrId`: GetServiceSonarrBySonarrId2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.GetServiceSonarrBySonarrId`: %v\n", resp)
 }
 ```
 
@@ -166,23 +166,23 @@ Get non-sensitive Radarr server list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ServiceAPI.ListServiceRadarr(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.ListServiceRadarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListServiceRadarr`: []RadarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.ListServiceRadarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceAPI.ListServiceRadarr(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.ListServiceRadarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListServiceRadarr`: []RadarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.ListServiceRadarr`: %v\n", resp)
 }
 ```
 
@@ -227,23 +227,23 @@ Get non-sensitive Sonarr server list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ServiceAPI.ListServiceSonarr(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.ListServiceSonarr``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListServiceSonarr`: []SonarrSettings
-    fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.ListServiceSonarr`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceAPI.ListServiceSonarr(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.ListServiceSonarr``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListServiceSonarr`: []SonarrSettings
+	fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.ListServiceSonarr`: %v\n", resp)
 }
 ```
 
@@ -288,24 +288,24 @@ Get series from Sonarr
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    tmdbId := float32(0) // float32 | 
+	tmdbId := float32(0) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ServiceAPI.ListServiceSonarrLookupByTmdbId(context.Background(), tmdbId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.ListServiceSonarrLookupByTmdbId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListServiceSonarrLookupByTmdbId`: []SonarrSeries
-    fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.ListServiceSonarrLookupByTmdbId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ServiceAPI.ListServiceSonarrLookupByTmdbId(context.Background(), tmdbId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ServiceAPI.ListServiceSonarrLookupByTmdbId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListServiceSonarrLookupByTmdbId`: []SonarrSeries
+	fmt.Fprintf(os.Stdout, "Response from `ServiceAPI.ListServiceSonarrLookupByTmdbId`: %v\n", resp)
 }
 ```
 

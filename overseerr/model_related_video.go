@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the RelatedVideo type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RelatedVideo{}
+
 // RelatedVideo struct for RelatedVideo
 type RelatedVideo struct {
 	Url *string `json:"url,omitempty"`
@@ -46,7 +49,7 @@ func NewRelatedVideoWithDefaults() *RelatedVideo {
 
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *RelatedVideo) GetUrl() string {
-	if o == nil || isNil(o.Url) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *RelatedVideo) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RelatedVideo) GetUrlOk() (*string, bool) {
-	if o == nil || isNil(o.Url) {
-    return nil, false
+	if o == nil || IsNil(o.Url) {
+		return nil, false
 	}
 	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *RelatedVideo) HasUrl() bool {
-	if o != nil && !isNil(o.Url) {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *RelatedVideo) SetUrl(v string) {
 
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *RelatedVideo) GetKey() string {
-	if o == nil || isNil(o.Key) {
+	if o == nil || IsNil(o.Key) {
 		var ret string
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *RelatedVideo) GetKey() string {
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RelatedVideo) GetKeyOk() (*string, bool) {
-	if o == nil || isNil(o.Key) {
-    return nil, false
+	if o == nil || IsNil(o.Key) {
+		return nil, false
 	}
 	return o.Key, true
 }
 
 // HasKey returns a boolean if a field has been set.
 func (o *RelatedVideo) HasKey() bool {
-	if o != nil && !isNil(o.Key) {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *RelatedVideo) SetKey(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *RelatedVideo) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *RelatedVideo) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RelatedVideo) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *RelatedVideo) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *RelatedVideo) SetName(v string) {
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *RelatedVideo) GetSize() float32 {
-	if o == nil || isNil(o.Size) {
+	if o == nil || IsNil(o.Size) {
 		var ret float32
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *RelatedVideo) GetSize() float32 {
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RelatedVideo) GetSizeOk() (*float32, bool) {
-	if o == nil || isNil(o.Size) {
-    return nil, false
+	if o == nil || IsNil(o.Size) {
+		return nil, false
 	}
 	return o.Size, true
 }
 
 // HasSize returns a boolean if a field has been set.
 func (o *RelatedVideo) HasSize() bool {
-	if o != nil && !isNil(o.Size) {
+	if o != nil && !IsNil(o.Size) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *RelatedVideo) SetSize(v float32) {
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *RelatedVideo) GetType() string {
-	if o == nil || isNil(o.Type) {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *RelatedVideo) GetType() string {
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RelatedVideo) GetTypeOk() (*string, bool) {
-	if o == nil || isNil(o.Type) {
-    return nil, false
+	if o == nil || IsNil(o.Type) {
+		return nil, false
 	}
 	return o.Type, true
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *RelatedVideo) HasType() bool {
-	if o != nil && !isNil(o.Type) {
+	if o != nil && !IsNil(o.Type) {
 		return true
 	}
 
@@ -206,7 +209,7 @@ func (o *RelatedVideo) SetType(v string) {
 
 // GetSite returns the Site field value if set, zero value otherwise.
 func (o *RelatedVideo) GetSite() string {
-	if o == nil || isNil(o.Site) {
+	if o == nil || IsNil(o.Site) {
 		var ret string
 		return ret
 	}
@@ -216,15 +219,15 @@ func (o *RelatedVideo) GetSite() string {
 // GetSiteOk returns a tuple with the Site field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RelatedVideo) GetSiteOk() (*string, bool) {
-	if o == nil || isNil(o.Site) {
-    return nil, false
+	if o == nil || IsNil(o.Site) {
+		return nil, false
 	}
 	return o.Site, true
 }
 
 // HasSite returns a boolean if a field has been set.
 func (o *RelatedVideo) HasSite() bool {
-	if o != nil && !isNil(o.Site) {
+	if o != nil && !IsNil(o.Site) {
 		return true
 	}
 
@@ -237,23 +240,31 @@ func (o *RelatedVideo) SetSite(v string) {
 }
 
 func (o RelatedVideo) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o RelatedVideo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Url) {
+	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
 	}
-	if !isNil(o.Key) {
+	if !IsNil(o.Key) {
 		toSerialize["key"] = o.Key
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Size) {
+	if !IsNil(o.Size) {
 		toSerialize["size"] = o.Size
 	}
-	if !isNil(o.Type) {
+	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
-	if !isNil(o.Site) {
+	if !IsNil(o.Site) {
 		toSerialize["site"] = o.Site
 	}
 
@@ -261,19 +272,23 @@ func (o RelatedVideo) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *RelatedVideo) UnmarshalJSON(bytes []byte) (err error) {
+func (o *RelatedVideo) UnmarshalJSON(data []byte) (err error) {
 	varRelatedVideo := _RelatedVideo{}
 
-	if err = json.Unmarshal(bytes, &varRelatedVideo); err == nil {
-		*o = RelatedVideo(varRelatedVideo)
+	err = json.Unmarshal(data, &varRelatedVideo)
+
+	if err != nil {
+		return err
 	}
+
+	*o = RelatedVideo(varRelatedVideo)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "url")
 		delete(additionalProperties, "key")
 		delete(additionalProperties, "name")

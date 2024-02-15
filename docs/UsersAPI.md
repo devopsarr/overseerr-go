@@ -43,24 +43,24 @@ Send a reset password email
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createAuthResetPasswordRequest := *overseerrClient.NewCreateAuthResetPasswordRequest("Email_example") // CreateAuthResetPasswordRequest | 
+	createAuthResetPasswordRequest := *overseerrClient.NewCreateAuthResetPasswordRequest("Email_example") // CreateAuthResetPasswordRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateAuthResetPassword(context.Background()).CreateAuthResetPasswordRequest(createAuthResetPasswordRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateAuthResetPassword``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAuthResetPassword`: CreateAuthLogout2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateAuthResetPassword`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.CreateAuthResetPassword(context.Background()).CreateAuthResetPasswordRequest(createAuthResetPasswordRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateAuthResetPassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAuthResetPassword`: CreateAuthLogout2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateAuthResetPassword`: %v\n", resp)
 }
 ```
 
@@ -109,25 +109,25 @@ Reset the password for a user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    guid := "9afef5a7-ec89-4d5f-9397-261e96970b50" // string | 
-    createAuthResetPasswordByGuidRequest := *overseerrClient.NewCreateAuthResetPasswordByGuidRequest("Password_example") // CreateAuthResetPasswordByGuidRequest | 
+	guid := "9afef5a7-ec89-4d5f-9397-261e96970b50" // string | 
+	createAuthResetPasswordByGuidRequest := *overseerrClient.NewCreateAuthResetPasswordByGuidRequest("Password_example") // CreateAuthResetPasswordByGuidRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateAuthResetPasswordByGuid(context.Background(), guid).CreateAuthResetPasswordByGuidRequest(createAuthResetPasswordByGuidRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateAuthResetPasswordByGuid``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAuthResetPasswordByGuid`: CreateAuthLogout2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateAuthResetPasswordByGuid`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.CreateAuthResetPasswordByGuid(context.Background(), guid).CreateAuthResetPasswordByGuidRequest(createAuthResetPasswordByGuidRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateAuthResetPasswordByGuid``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAuthResetPasswordByGuid`: CreateAuthLogout2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateAuthResetPasswordByGuid`: %v\n", resp)
 }
 ```
 
@@ -181,24 +181,24 @@ Create new user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createUserRequest := *overseerrClient.NewCreateUserRequest() // CreateUserRequest | 
+	createUserRequest := *overseerrClient.NewCreateUserRequest() // CreateUserRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateUser(context.Background()).CreateUserRequest(createUserRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateUser`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUser`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.CreateUser(context.Background()).CreateUserRequest(createUserRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateUser`: User
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUser`: %v\n", resp)
 }
 ```
 
@@ -247,24 +247,24 @@ Import all users from Plex
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createUserImportFromPlexRequest := *overseerrClient.NewCreateUserImportFromPlexRequest() // CreateUserImportFromPlexRequest |  (optional)
+	createUserImportFromPlexRequest := *overseerrClient.NewCreateUserImportFromPlexRequest() // CreateUserImportFromPlexRequest |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateUserImportFromPlex(context.Background()).CreateUserImportFromPlexRequest(createUserImportFromPlexRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserImportFromPlex``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateUserImportFromPlex`: []User
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserImportFromPlex`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.CreateUserImportFromPlex(context.Background()).CreateUserImportFromPlexRequest(createUserImportFromPlexRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserImportFromPlex``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateUserImportFromPlex`: []User
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserImportFromPlex`: %v\n", resp)
 }
 ```
 
@@ -313,22 +313,22 @@ Register a web push /user/registerPushSubscription
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createUserRegisterPushSubscriptionRequest := *overseerrClient.NewCreateUserRegisterPushSubscriptionRequest("Endpoint_example", "Auth_example", "P256dh_example") // CreateUserRegisterPushSubscriptionRequest | 
+	createUserRegisterPushSubscriptionRequest := *overseerrClient.NewCreateUserRegisterPushSubscriptionRequest("Endpoint_example", "Auth_example", "P256dh_example") // CreateUserRegisterPushSubscriptionRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateUserRegisterPushSubscription(context.Background()).CreateUserRegisterPushSubscriptionRequest(createUserRegisterPushSubscriptionRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserRegisterPushSubscription``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.UsersAPI.CreateUserRegisterPushSubscription(context.Background()).CreateUserRegisterPushSubscriptionRequest(createUserRegisterPushSubscriptionRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserRegisterPushSubscription``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -377,25 +377,25 @@ Update general settings for a user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
-    createUserSettingsMainRequest := *overseerrClient.NewCreateUserSettingsMainRequest() // CreateUserSettingsMainRequest | 
+	userId := float32(8.14) // float32 | 
+	createUserSettingsMainRequest := *overseerrClient.NewCreateUserSettingsMainRequest() // CreateUserSettingsMainRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateUserSettingsMain(context.Background(), userId).CreateUserSettingsMainRequest(createUserSettingsMainRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsMain``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateUserSettingsMain`: GetUserSettingsMain2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsMain`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.CreateUserSettingsMain(context.Background(), userId).CreateUserSettingsMainRequest(createUserSettingsMainRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsMain``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateUserSettingsMain`: GetUserSettingsMain2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsMain`: %v\n", resp)
 }
 ```
 
@@ -449,25 +449,25 @@ Update notification settings for a user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
-    userSettingsNotifications := *overseerrClient.NewUserSettingsNotifications() // UserSettingsNotifications | 
+	userId := float32(8.14) // float32 | 
+	userSettingsNotifications := *overseerrClient.NewUserSettingsNotifications() // UserSettingsNotifications | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateUserSettingsNotifications(context.Background(), userId).UserSettingsNotifications(userSettingsNotifications).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsNotifications``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateUserSettingsNotifications`: UserSettingsNotifications
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsNotifications`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.CreateUserSettingsNotifications(context.Background(), userId).UserSettingsNotifications(userSettingsNotifications).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsNotifications``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateUserSettingsNotifications`: UserSettingsNotifications
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsNotifications`: %v\n", resp)
 }
 ```
 
@@ -521,23 +521,23 @@ Update password for a user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
-    createUserSettingsPasswordRequest := *overseerrClient.NewCreateUserSettingsPasswordRequest("NewPassword_example") // CreateUserSettingsPasswordRequest | 
+	userId := float32(8.14) // float32 | 
+	createUserSettingsPasswordRequest := *overseerrClient.NewCreateUserSettingsPasswordRequest("NewPassword_example") // CreateUserSettingsPasswordRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateUserSettingsPassword(context.Background(), userId).CreateUserSettingsPasswordRequest(createUserSettingsPasswordRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsPassword``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.UsersAPI.CreateUserSettingsPassword(context.Background(), userId).CreateUserSettingsPasswordRequest(createUserSettingsPasswordRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsPassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -591,25 +591,25 @@ Update permission settings for a user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
-    createUserSettingsPermissionsRequest := *overseerrClient.NewCreateUserSettingsPermissionsRequest(float32(123)) // CreateUserSettingsPermissionsRequest | 
+	userId := float32(8.14) // float32 | 
+	createUserSettingsPermissionsRequest := *overseerrClient.NewCreateUserSettingsPermissionsRequest(float32(123)) // CreateUserSettingsPermissionsRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.CreateUserSettingsPermissions(context.Background(), userId).CreateUserSettingsPermissionsRequest(createUserSettingsPermissionsRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsPermissions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateUserSettingsPermissions`: GetUserSettingsPermissions2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsPermissions`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.CreateUserSettingsPermissions(context.Background(), userId).CreateUserSettingsPermissionsRequest(createUserSettingsPermissionsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.CreateUserSettingsPermissions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateUserSettingsPermissions`: GetUserSettingsPermissions2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.CreateUserSettingsPermissions`: %v\n", resp)
 }
 ```
 
@@ -663,24 +663,24 @@ Delete user by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
+	userId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.DeleteUser(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.DeleteUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DeleteUser`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.DeleteUser`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.DeleteUser(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.DeleteUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteUser`: User
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.DeleteUser`: %v\n", resp)
 }
 ```
 
@@ -733,26 +733,26 @@ Get all users
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    take := float32(20) // float32 |  (optional)
-    skip := float32(0) // float32 |  (optional)
-    sort := "sort_example" // string |  (optional) (default to "created")
+	take := float32(20) // float32 |  (optional)
+	skip := float32(0) // float32 |  (optional)
+	sort := "sort_example" // string |  (optional) (default to "created")
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUser(context.Background()).Take(take).Skip(skip).Sort(sort).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUser`: GetUser2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUser`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUser(context.Background()).Take(take).Skip(skip).Sort(sort).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUser`: GetUser2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUser`: %v\n", resp)
 }
 ```
 
@@ -803,24 +803,24 @@ Get user by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
+	userId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserByUserId(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserByUserId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserByUserId`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserByUserId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserByUserId(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserByUserId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserByUserId`: User
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserByUserId`: %v\n", resp)
 }
 ```
 
@@ -873,24 +873,24 @@ Get quotas for a specific user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
+	userId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserQuota(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserQuota``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserQuota`: GetUserQuota2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserQuota`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserQuota(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserQuota``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserQuota`: GetUserQuota2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserQuota`: %v\n", resp)
 }
 ```
 
@@ -943,26 +943,26 @@ Get requests for a specific user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
-    take := float32(20) // float32 |  (optional)
-    skip := float32(0) // float32 |  (optional)
+	userId := float32(8.14) // float32 | 
+	take := float32(20) // float32 |  (optional)
+	skip := float32(0) // float32 |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserRequests(context.Background(), userId).Take(take).Skip(skip).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserRequests``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserRequests`: GetUserRequests2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserRequests`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserRequests(context.Background(), userId).Take(take).Skip(skip).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserRequests``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserRequests`: GetUserRequests2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserRequests`: %v\n", resp)
 }
 ```
 
@@ -1017,24 +1017,24 @@ Get general settings for a user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
+	userId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserSettingsMain(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsMain``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserSettingsMain`: GetUserSettingsMain2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsMain`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserSettingsMain(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsMain``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserSettingsMain`: GetUserSettingsMain2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsMain`: %v\n", resp)
 }
 ```
 
@@ -1087,24 +1087,24 @@ Get notification settings for a user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
+	userId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserSettingsNotifications(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsNotifications``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserSettingsNotifications`: UserSettingsNotifications
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsNotifications`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserSettingsNotifications(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsNotifications``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserSettingsNotifications`: UserSettingsNotifications
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsNotifications`: %v\n", resp)
 }
 ```
 
@@ -1157,24 +1157,24 @@ Get password page informatiom
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
+	userId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserSettingsPassword(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsPassword``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserSettingsPassword`: GetUserSettingsPassword2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsPassword`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserSettingsPassword(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsPassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserSettingsPassword`: GetUserSettingsPassword2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsPassword`: %v\n", resp)
 }
 ```
 
@@ -1227,24 +1227,24 @@ Get permission settings for a user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
+	userId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserSettingsPermissions(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsPermissions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserSettingsPermissions`: GetUserSettingsPermissions2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsPermissions`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserSettingsPermissions(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserSettingsPermissions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserSettingsPermissions`: GetUserSettingsPermissions2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserSettingsPermissions`: %v\n", resp)
 }
 ```
 
@@ -1297,24 +1297,24 @@ Get watch data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
+	userId := float32(8.14) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserWatchData(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserWatchData``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserWatchData`: GetUserWatchData2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserWatchData`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserWatchData(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserWatchData``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserWatchData`: GetUserWatchData2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserWatchData`: %v\n", resp)
 }
 ```
 
@@ -1367,25 +1367,25 @@ Get the Plex watchlist for a specific user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
-    page := float32(1) // float32 |  (optional) (default to 1)
+	userId := float32(8.14) // float32 | 
+	page := float32(1) // float32 |  (optional) (default to 1)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.GetUserWatchlist(context.Background(), userId).Page(page).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserWatchlist``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetUserWatchlist`: GetUserWatchlist2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserWatchlist`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserWatchlist(context.Background(), userId).Page(page).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserWatchlist``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserWatchlist`: GetUserWatchlist2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserWatchlist`: %v\n", resp)
 }
 ```
 
@@ -1439,24 +1439,24 @@ Update batch of users
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    putUserRequest := *overseerrClient.NewPutUserRequest() // PutUserRequest | 
+	putUserRequest := *overseerrClient.NewPutUserRequest() // PutUserRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.PutUser(context.Background()).PutUserRequest(putUserRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.PutUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PutUser`: []User
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.PutUser`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.PutUser(context.Background()).PutUserRequest(putUserRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.PutUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PutUser`: []User
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.PutUser`: %v\n", resp)
 }
 ```
 
@@ -1505,25 +1505,25 @@ Update a user by user ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    userId := float32(8.14) // float32 | 
-    user := *overseerrClient.NewUser(int32(1), "hey@itsme.com", "2020-09-02T05:02:23.000Z", "2020-09-02T05:02:23.000Z") // User | 
+	userId := float32(8.14) // float32 | 
+	user := *overseerrClient.NewUser(int32(1), "hey@itsme.com", "2020-09-02T05:02:23.000Z", "2020-09-02T05:02:23.000Z") // User | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersAPI.UpdateUser(context.Background(), userId).User(user).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.UpdateUser``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateUser`: User
-    fmt.Fprintf(os.Stdout, "Response from `UsersAPI.UpdateUser`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.UpdateUser(context.Background(), userId).User(user).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.UpdateUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateUser`: User
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.UpdateUser`: %v\n", resp)
 }
 ```
 

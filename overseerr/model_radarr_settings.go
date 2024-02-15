@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the RadarrSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &RadarrSettings{}
+
 // RadarrSettings struct for RadarrSettings
 type RadarrSettings struct {
 	Id *float32 `json:"id,omitempty"`
@@ -68,7 +71,7 @@ func NewRadarrSettingsWithDefaults() *RadarrSettings {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *RadarrSettings) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -78,15 +81,15 @@ func (o *RadarrSettings) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *RadarrSettings) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -112,7 +115,7 @@ func (o *RadarrSettings) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -136,7 +139,7 @@ func (o *RadarrSettings) GetHostname() string {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetHostnameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Hostname, true
 }
@@ -160,7 +163,7 @@ func (o *RadarrSettings) GetPort() float32 {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetPortOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Port, true
 }
@@ -184,7 +187,7 @@ func (o *RadarrSettings) GetApiKey() string {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetApiKeyOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ApiKey, true
 }
@@ -208,7 +211,7 @@ func (o *RadarrSettings) GetUseSsl() bool {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetUseSslOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.UseSsl, true
 }
@@ -220,7 +223,7 @@ func (o *RadarrSettings) SetUseSsl(v bool) {
 
 // GetBaseUrl returns the BaseUrl field value if set, zero value otherwise.
 func (o *RadarrSettings) GetBaseUrl() string {
-	if o == nil || isNil(o.BaseUrl) {
+	if o == nil || IsNil(o.BaseUrl) {
 		var ret string
 		return ret
 	}
@@ -230,15 +233,15 @@ func (o *RadarrSettings) GetBaseUrl() string {
 // GetBaseUrlOk returns a tuple with the BaseUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetBaseUrlOk() (*string, bool) {
-	if o == nil || isNil(o.BaseUrl) {
-    return nil, false
+	if o == nil || IsNil(o.BaseUrl) {
+		return nil, false
 	}
 	return o.BaseUrl, true
 }
 
 // HasBaseUrl returns a boolean if a field has been set.
 func (o *RadarrSettings) HasBaseUrl() bool {
-	if o != nil && !isNil(o.BaseUrl) {
+	if o != nil && !IsNil(o.BaseUrl) {
 		return true
 	}
 
@@ -264,7 +267,7 @@ func (o *RadarrSettings) GetActiveProfileId() float32 {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetActiveProfileIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ActiveProfileId, true
 }
@@ -288,7 +291,7 @@ func (o *RadarrSettings) GetActiveProfileName() string {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetActiveProfileNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ActiveProfileName, true
 }
@@ -312,7 +315,7 @@ func (o *RadarrSettings) GetActiveDirectory() string {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetActiveDirectoryOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ActiveDirectory, true
 }
@@ -336,7 +339,7 @@ func (o *RadarrSettings) GetIs4k() bool {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetIs4kOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Is4k, true
 }
@@ -360,7 +363,7 @@ func (o *RadarrSettings) GetMinimumAvailability() string {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetMinimumAvailabilityOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MinimumAvailability, true
 }
@@ -384,7 +387,7 @@ func (o *RadarrSettings) GetIsDefault() bool {
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetIsDefaultOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.IsDefault, true
 }
@@ -396,7 +399,7 @@ func (o *RadarrSettings) SetIsDefault(v bool) {
 
 // GetExternalUrl returns the ExternalUrl field value if set, zero value otherwise.
 func (o *RadarrSettings) GetExternalUrl() string {
-	if o == nil || isNil(o.ExternalUrl) {
+	if o == nil || IsNil(o.ExternalUrl) {
 		var ret string
 		return ret
 	}
@@ -406,15 +409,15 @@ func (o *RadarrSettings) GetExternalUrl() string {
 // GetExternalUrlOk returns a tuple with the ExternalUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetExternalUrlOk() (*string, bool) {
-	if o == nil || isNil(o.ExternalUrl) {
-    return nil, false
+	if o == nil || IsNil(o.ExternalUrl) {
+		return nil, false
 	}
 	return o.ExternalUrl, true
 }
 
 // HasExternalUrl returns a boolean if a field has been set.
 func (o *RadarrSettings) HasExternalUrl() bool {
-	if o != nil && !isNil(o.ExternalUrl) {
+	if o != nil && !IsNil(o.ExternalUrl) {
 		return true
 	}
 
@@ -428,7 +431,7 @@ func (o *RadarrSettings) SetExternalUrl(v string) {
 
 // GetSyncEnabled returns the SyncEnabled field value if set, zero value otherwise.
 func (o *RadarrSettings) GetSyncEnabled() bool {
-	if o == nil || isNil(o.SyncEnabled) {
+	if o == nil || IsNil(o.SyncEnabled) {
 		var ret bool
 		return ret
 	}
@@ -438,15 +441,15 @@ func (o *RadarrSettings) GetSyncEnabled() bool {
 // GetSyncEnabledOk returns a tuple with the SyncEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetSyncEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.SyncEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.SyncEnabled) {
+		return nil, false
 	}
 	return o.SyncEnabled, true
 }
 
 // HasSyncEnabled returns a boolean if a field has been set.
 func (o *RadarrSettings) HasSyncEnabled() bool {
-	if o != nil && !isNil(o.SyncEnabled) {
+	if o != nil && !IsNil(o.SyncEnabled) {
 		return true
 	}
 
@@ -460,7 +463,7 @@ func (o *RadarrSettings) SetSyncEnabled(v bool) {
 
 // GetPreventSearch returns the PreventSearch field value if set, zero value otherwise.
 func (o *RadarrSettings) GetPreventSearch() bool {
-	if o == nil || isNil(o.PreventSearch) {
+	if o == nil || IsNil(o.PreventSearch) {
 		var ret bool
 		return ret
 	}
@@ -470,15 +473,15 @@ func (o *RadarrSettings) GetPreventSearch() bool {
 // GetPreventSearchOk returns a tuple with the PreventSearch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RadarrSettings) GetPreventSearchOk() (*bool, bool) {
-	if o == nil || isNil(o.PreventSearch) {
-    return nil, false
+	if o == nil || IsNil(o.PreventSearch) {
+		return nil, false
 	}
 	return o.PreventSearch, true
 }
 
 // HasPreventSearch returns a boolean if a field has been set.
 func (o *RadarrSettings) HasPreventSearch() bool {
-	if o != nil && !isNil(o.PreventSearch) {
+	if o != nil && !IsNil(o.PreventSearch) {
 		return true
 	}
 
@@ -491,53 +494,39 @@ func (o *RadarrSettings) SetPreventSearch(v bool) {
 }
 
 func (o RadarrSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o RadarrSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if true {
-		toSerialize["port"] = o.Port
-	}
-	if true {
-		toSerialize["apiKey"] = o.ApiKey
-	}
-	if true {
-		toSerialize["useSsl"] = o.UseSsl
-	}
-	if !isNil(o.BaseUrl) {
+	toSerialize["name"] = o.Name
+	toSerialize["hostname"] = o.Hostname
+	toSerialize["port"] = o.Port
+	toSerialize["apiKey"] = o.ApiKey
+	toSerialize["useSsl"] = o.UseSsl
+	if !IsNil(o.BaseUrl) {
 		toSerialize["baseUrl"] = o.BaseUrl
 	}
-	if true {
-		toSerialize["activeProfileId"] = o.ActiveProfileId
-	}
-	if true {
-		toSerialize["activeProfileName"] = o.ActiveProfileName
-	}
-	if true {
-		toSerialize["activeDirectory"] = o.ActiveDirectory
-	}
-	if true {
-		toSerialize["is4k"] = o.Is4k
-	}
-	if true {
-		toSerialize["minimumAvailability"] = o.MinimumAvailability
-	}
-	if true {
-		toSerialize["isDefault"] = o.IsDefault
-	}
-	if !isNil(o.ExternalUrl) {
+	toSerialize["activeProfileId"] = o.ActiveProfileId
+	toSerialize["activeProfileName"] = o.ActiveProfileName
+	toSerialize["activeDirectory"] = o.ActiveDirectory
+	toSerialize["is4k"] = o.Is4k
+	toSerialize["minimumAvailability"] = o.MinimumAvailability
+	toSerialize["isDefault"] = o.IsDefault
+	if !IsNil(o.ExternalUrl) {
 		toSerialize["externalUrl"] = o.ExternalUrl
 	}
-	if !isNil(o.SyncEnabled) {
+	if !IsNil(o.SyncEnabled) {
 		toSerialize["syncEnabled"] = o.SyncEnabled
 	}
-	if !isNil(o.PreventSearch) {
+	if !IsNil(o.PreventSearch) {
 		toSerialize["preventSearch"] = o.PreventSearch
 	}
 
@@ -545,19 +534,54 @@ func (o RadarrSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *RadarrSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *RadarrSettings) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"name",
+		"hostname",
+		"port",
+		"apiKey",
+		"useSsl",
+		"activeProfileId",
+		"activeProfileName",
+		"activeDirectory",
+		"is4k",
+		"minimumAvailability",
+		"isDefault",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varRadarrSettings := _RadarrSettings{}
 
-	if err = json.Unmarshal(bytes, &varRadarrSettings); err == nil {
-		*o = RadarrSettings(varRadarrSettings)
+	err = json.Unmarshal(data, &varRadarrSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = RadarrSettings(varRadarrSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "hostname")

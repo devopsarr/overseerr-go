@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Collection type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Collection{}
+
 // Collection struct for Collection
 type Collection struct {
 	Id *float32 `json:"id,omitempty"`
@@ -21,7 +24,7 @@ type Collection struct {
 	Overview *string `json:"overview,omitempty"`
 	PosterPath *string `json:"posterPath,omitempty"`
 	BackdropPath *string `json:"backdropPath,omitempty"`
-	Parts []*MovieResult `json:"parts,omitempty"`
+	Parts []MovieResult `json:"parts,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -46,7 +49,7 @@ func NewCollectionWithDefaults() *Collection {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Collection) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *Collection) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Collection) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Collection) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *Collection) SetId(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Collection) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *Collection) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Collection) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Collection) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *Collection) SetName(v string) {
 
 // GetOverview returns the Overview field value if set, zero value otherwise.
 func (o *Collection) GetOverview() string {
-	if o == nil || isNil(o.Overview) {
+	if o == nil || IsNil(o.Overview) {
 		var ret string
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *Collection) GetOverview() string {
 // GetOverviewOk returns a tuple with the Overview field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Collection) GetOverviewOk() (*string, bool) {
-	if o == nil || isNil(o.Overview) {
-    return nil, false
+	if o == nil || IsNil(o.Overview) {
+		return nil, false
 	}
 	return o.Overview, true
 }
 
 // HasOverview returns a boolean if a field has been set.
 func (o *Collection) HasOverview() bool {
-	if o != nil && !isNil(o.Overview) {
+	if o != nil && !IsNil(o.Overview) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *Collection) SetOverview(v string) {
 
 // GetPosterPath returns the PosterPath field value if set, zero value otherwise.
 func (o *Collection) GetPosterPath() string {
-	if o == nil || isNil(o.PosterPath) {
+	if o == nil || IsNil(o.PosterPath) {
 		var ret string
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *Collection) GetPosterPath() string {
 // GetPosterPathOk returns a tuple with the PosterPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Collection) GetPosterPathOk() (*string, bool) {
-	if o == nil || isNil(o.PosterPath) {
-    return nil, false
+	if o == nil || IsNil(o.PosterPath) {
+		return nil, false
 	}
 	return o.PosterPath, true
 }
 
 // HasPosterPath returns a boolean if a field has been set.
 func (o *Collection) HasPosterPath() bool {
-	if o != nil && !isNil(o.PosterPath) {
+	if o != nil && !IsNil(o.PosterPath) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *Collection) SetPosterPath(v string) {
 
 // GetBackdropPath returns the BackdropPath field value if set, zero value otherwise.
 func (o *Collection) GetBackdropPath() string {
-	if o == nil || isNil(o.BackdropPath) {
+	if o == nil || IsNil(o.BackdropPath) {
 		var ret string
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *Collection) GetBackdropPath() string {
 // GetBackdropPathOk returns a tuple with the BackdropPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Collection) GetBackdropPathOk() (*string, bool) {
-	if o == nil || isNil(o.BackdropPath) {
-    return nil, false
+	if o == nil || IsNil(o.BackdropPath) {
+		return nil, false
 	}
 	return o.BackdropPath, true
 }
 
 // HasBackdropPath returns a boolean if a field has been set.
 func (o *Collection) HasBackdropPath() bool {
-	if o != nil && !isNil(o.BackdropPath) {
+	if o != nil && !IsNil(o.BackdropPath) {
 		return true
 	}
 
@@ -205,9 +208,9 @@ func (o *Collection) SetBackdropPath(v string) {
 }
 
 // GetParts returns the Parts field value if set, zero value otherwise.
-func (o *Collection) GetParts() []*MovieResult {
-	if o == nil || isNil(o.Parts) {
-		var ret []*MovieResult
+func (o *Collection) GetParts() []MovieResult {
+	if o == nil || IsNil(o.Parts) {
+		var ret []MovieResult
 		return ret
 	}
 	return o.Parts
@@ -215,16 +218,16 @@ func (o *Collection) GetParts() []*MovieResult {
 
 // GetPartsOk returns a tuple with the Parts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Collection) GetPartsOk() ([]*MovieResult, bool) {
-	if o == nil || isNil(o.Parts) {
-    return nil, false
+func (o *Collection) GetPartsOk() ([]MovieResult, bool) {
+	if o == nil || IsNil(o.Parts) {
+		return nil, false
 	}
 	return o.Parts, true
 }
 
 // HasParts returns a boolean if a field has been set.
 func (o *Collection) HasParts() bool {
-	if o != nil && !isNil(o.Parts) {
+	if o != nil && !IsNil(o.Parts) {
 		return true
 	}
 
@@ -232,28 +235,36 @@ func (o *Collection) HasParts() bool {
 }
 
 // SetParts gets a reference to the given []MovieResult and assigns it to the Parts field.
-func (o *Collection) SetParts(v []*MovieResult) {
+func (o *Collection) SetParts(v []MovieResult) {
 	o.Parts = v
 }
 
 func (o Collection) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Collection) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Overview) {
+	if !IsNil(o.Overview) {
 		toSerialize["overview"] = o.Overview
 	}
-	if !isNil(o.PosterPath) {
+	if !IsNil(o.PosterPath) {
 		toSerialize["posterPath"] = o.PosterPath
 	}
-	if !isNil(o.BackdropPath) {
+	if !IsNil(o.BackdropPath) {
 		toSerialize["backdropPath"] = o.BackdropPath
 	}
-	if !isNil(o.Parts) {
+	if !IsNil(o.Parts) {
 		toSerialize["parts"] = o.Parts
 	}
 
@@ -261,19 +272,23 @@ func (o Collection) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Collection) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Collection) UnmarshalJSON(data []byte) (err error) {
 	varCollection := _Collection{}
 
-	if err = json.Unmarshal(bytes, &varCollection); err == nil {
-		*o = Collection(varCollection)
+	err = json.Unmarshal(data, &varCollection)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Collection(varCollection)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "overview")

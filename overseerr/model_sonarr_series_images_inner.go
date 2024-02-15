@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SonarrSeriesImagesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SonarrSeriesImagesInner{}
+
 // SonarrSeriesImagesInner struct for SonarrSeriesImagesInner
 type SonarrSeriesImagesInner struct {
 	CoverType *string `json:"coverType,omitempty"`
@@ -42,7 +45,7 @@ func NewSonarrSeriesImagesInnerWithDefaults() *SonarrSeriesImagesInner {
 
 // GetCoverType returns the CoverType field value if set, zero value otherwise.
 func (o *SonarrSeriesImagesInner) GetCoverType() string {
-	if o == nil || isNil(o.CoverType) {
+	if o == nil || IsNil(o.CoverType) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *SonarrSeriesImagesInner) GetCoverType() string {
 // GetCoverTypeOk returns a tuple with the CoverType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeriesImagesInner) GetCoverTypeOk() (*string, bool) {
-	if o == nil || isNil(o.CoverType) {
-    return nil, false
+	if o == nil || IsNil(o.CoverType) {
+		return nil, false
 	}
 	return o.CoverType, true
 }
 
 // HasCoverType returns a boolean if a field has been set.
 func (o *SonarrSeriesImagesInner) HasCoverType() bool {
-	if o != nil && !isNil(o.CoverType) {
+	if o != nil && !IsNil(o.CoverType) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *SonarrSeriesImagesInner) SetCoverType(v string) {
 
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *SonarrSeriesImagesInner) GetUrl() string {
-	if o == nil || isNil(o.Url) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *SonarrSeriesImagesInner) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeriesImagesInner) GetUrlOk() (*string, bool) {
-	if o == nil || isNil(o.Url) {
-    return nil, false
+	if o == nil || IsNil(o.Url) {
+		return nil, false
 	}
 	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *SonarrSeriesImagesInner) HasUrl() bool {
-	if o != nil && !isNil(o.Url) {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *SonarrSeriesImagesInner) SetUrl(v string) {
 }
 
 func (o SonarrSeriesImagesInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o SonarrSeriesImagesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.CoverType) {
+	if !IsNil(o.CoverType) {
 		toSerialize["coverType"] = o.CoverType
 	}
-	if !isNil(o.Url) {
+	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
 	}
 
@@ -117,19 +128,23 @@ func (o SonarrSeriesImagesInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *SonarrSeriesImagesInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *SonarrSeriesImagesInner) UnmarshalJSON(data []byte) (err error) {
 	varSonarrSeriesImagesInner := _SonarrSeriesImagesInner{}
 
-	if err = json.Unmarshal(bytes, &varSonarrSeriesImagesInner); err == nil {
-		*o = SonarrSeriesImagesInner(varSonarrSeriesImagesInner)
+	err = json.Unmarshal(data, &varSonarrSeriesImagesInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = SonarrSeriesImagesInner(varSonarrSeriesImagesInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "coverType")
 		delete(additionalProperties, "url")
 		o.AdditionalProperties = additionalProperties

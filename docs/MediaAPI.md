@@ -25,26 +25,26 @@ Update media status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    mediaId := "1" // string | Media ID
-    status := "available" // string | New status
-    createMediaByStatusRequest := *overseerrClient.NewCreateMediaByStatusRequest() // CreateMediaByStatusRequest |  (optional)
+	mediaId := "1" // string | Media ID
+	status := "available" // string | New status
+	createMediaByStatusRequest := *overseerrClient.NewCreateMediaByStatusRequest() // CreateMediaByStatusRequest |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaAPI.CreateMediaByStatus(context.Background(), mediaId, status).CreateMediaByStatusRequest(createMediaByStatusRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.CreateMediaByStatus``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateMediaByStatus`: MediaInfo
-    fmt.Fprintf(os.Stdout, "Response from `MediaAPI.CreateMediaByStatus`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MediaAPI.CreateMediaByStatus(context.Background(), mediaId, status).CreateMediaByStatusRequest(createMediaByStatusRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.CreateMediaByStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateMediaByStatus`: MediaInfo
+	fmt.Fprintf(os.Stdout, "Response from `MediaAPI.CreateMediaByStatus`: %v\n", resp)
 }
 ```
 
@@ -100,22 +100,22 @@ Delete media item
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    mediaId := "1" // string | Media ID
+	mediaId := "1" // string | Media ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaAPI.DeleteMedia(context.Background(), mediaId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.DeleteMedia``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.MediaAPI.DeleteMedia(context.Background(), mediaId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.DeleteMedia``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -168,27 +168,27 @@ Get media
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    take := float32(20) // float32 |  (optional)
-    skip := float32(0) // float32 |  (optional)
-    filter := "filter_example" // string |  (optional)
-    sort := "sort_example" // string |  (optional) (default to "added")
+	take := float32(20) // float32 |  (optional)
+	skip := float32(0) // float32 |  (optional)
+	filter := "filter_example" // string |  (optional)
+	sort := "sort_example" // string |  (optional) (default to "added")
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaAPI.GetMedia(context.Background()).Take(take).Skip(skip).Filter(filter).Sort(sort).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.GetMedia``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMedia`: GetMedia2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `MediaAPI.GetMedia`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MediaAPI.GetMedia(context.Background()).Take(take).Skip(skip).Filter(filter).Sort(sort).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.GetMedia``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMedia`: GetMedia2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `MediaAPI.GetMedia`: %v\n", resp)
 }
 ```
 
@@ -240,24 +240,24 @@ Get watch data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    mediaId := "1" // string | Media ID
+	mediaId := "1" // string | Media ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MediaAPI.GetMediaWatchData(context.Background(), mediaId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.GetMediaWatchData``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMediaWatchData`: GetMediaWatchData2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `MediaAPI.GetMediaWatchData`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MediaAPI.GetMediaWatchData(context.Background(), mediaId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MediaAPI.GetMediaWatchData``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMediaWatchData`: GetMediaWatchData2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `MediaAPI.GetMediaWatchData`: %v\n", resp)
 }
 ```
 

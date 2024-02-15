@@ -26,25 +26,25 @@ Get TV details
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    tvId := float32(76479) // float32 | 
-    language := "en" // string |  (optional)
+	tvId := float32(76479) // float32 | 
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TvAPI.GetTvByTvId(context.Background(), tvId).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvByTvId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTvByTvId`: TvDetails
-    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvByTvId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TvAPI.GetTvByTvId(context.Background(), tvId).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvByTvId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTvByTvId`: TvDetails
+	fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvByTvId`: %v\n", resp)
 }
 ```
 
@@ -98,24 +98,24 @@ Get TV ratings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    tvId := float32(76479) // float32 | 
+	tvId := float32(76479) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TvAPI.GetTvRatings(context.Background(), tvId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvRatings``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTvRatings`: GetTvRatings2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvRatings`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TvAPI.GetTvRatings(context.Background(), tvId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvRatings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTvRatings`: GetTvRatings2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvRatings`: %v\n", resp)
 }
 ```
 
@@ -168,26 +168,26 @@ Get recommended TV series
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    tvId := float32(76479) // float32 | 
-    page := float32(1) // float32 |  (optional) (default to 1)
-    language := "en" // string |  (optional)
+	tvId := float32(76479) // float32 | 
+	page := float32(1) // float32 |  (optional) (default to 1)
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TvAPI.GetTvRecommendations(context.Background(), tvId).Page(page).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvRecommendations``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTvRecommendations`: GetDiscoverTv2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvRecommendations`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TvAPI.GetTvRecommendations(context.Background(), tvId).Page(page).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvRecommendations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTvRecommendations`: GetDiscoverTv2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvRecommendations`: %v\n", resp)
 }
 ```
 
@@ -242,26 +242,26 @@ Get season details and episode list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    tvId := float32(76479) // float32 | 
-    seasonId := float32(1) // float32 | 
-    language := "en" // string |  (optional)
+	tvId := float32(76479) // float32 | 
+	seasonId := float32(1) // float32 | 
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TvAPI.GetTvSeasonBySeasonId(context.Background(), tvId, seasonId).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvSeasonBySeasonId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTvSeasonBySeasonId`: Season
-    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvSeasonBySeasonId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TvAPI.GetTvSeasonBySeasonId(context.Background(), tvId, seasonId).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvSeasonBySeasonId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTvSeasonBySeasonId`: Season
+	fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvSeasonBySeasonId`: %v\n", resp)
 }
 ```
 
@@ -317,26 +317,26 @@ Get similar TV series
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    tvId := float32(76479) // float32 | 
-    page := float32(1) // float32 |  (optional) (default to 1)
-    language := "en" // string |  (optional)
+	tvId := float32(76479) // float32 | 
+	page := float32(1) // float32 |  (optional) (default to 1)
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TvAPI.GetTvSimilar(context.Background(), tvId).Page(page).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvSimilar``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTvSimilar`: GetDiscoverTv2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvSimilar`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TvAPI.GetTvSimilar(context.Background(), tvId).Page(page).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TvAPI.GetTvSimilar``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTvSimilar`: GetDiscoverTv2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `TvAPI.GetTvSimilar`: %v\n", resp)
 }
 ```
 

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ListLanguages2XXResponseInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ListLanguages2XXResponseInner{}
+
 // ListLanguages2XXResponseInner struct for ListLanguages2XXResponseInner
 type ListLanguages2XXResponseInner struct {
 	Iso6391 *string `json:"iso_639_1,omitempty"`
@@ -43,7 +46,7 @@ func NewListLanguages2XXResponseInnerWithDefaults() *ListLanguages2XXResponseInn
 
 // GetIso6391 returns the Iso6391 field value if set, zero value otherwise.
 func (o *ListLanguages2XXResponseInner) GetIso6391() string {
-	if o == nil || isNil(o.Iso6391) {
+	if o == nil || IsNil(o.Iso6391) {
 		var ret string
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *ListLanguages2XXResponseInner) GetIso6391() string {
 // GetIso6391Ok returns a tuple with the Iso6391 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListLanguages2XXResponseInner) GetIso6391Ok() (*string, bool) {
-	if o == nil || isNil(o.Iso6391) {
-    return nil, false
+	if o == nil || IsNil(o.Iso6391) {
+		return nil, false
 	}
 	return o.Iso6391, true
 }
 
 // HasIso6391 returns a boolean if a field has been set.
 func (o *ListLanguages2XXResponseInner) HasIso6391() bool {
-	if o != nil && !isNil(o.Iso6391) {
+	if o != nil && !IsNil(o.Iso6391) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *ListLanguages2XXResponseInner) SetIso6391(v string) {
 
 // GetEnglishName returns the EnglishName field value if set, zero value otherwise.
 func (o *ListLanguages2XXResponseInner) GetEnglishName() string {
-	if o == nil || isNil(o.EnglishName) {
+	if o == nil || IsNil(o.EnglishName) {
 		var ret string
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *ListLanguages2XXResponseInner) GetEnglishName() string {
 // GetEnglishNameOk returns a tuple with the EnglishName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListLanguages2XXResponseInner) GetEnglishNameOk() (*string, bool) {
-	if o == nil || isNil(o.EnglishName) {
-    return nil, false
+	if o == nil || IsNil(o.EnglishName) {
+		return nil, false
 	}
 	return o.EnglishName, true
 }
 
 // HasEnglishName returns a boolean if a field has been set.
 func (o *ListLanguages2XXResponseInner) HasEnglishName() bool {
-	if o != nil && !isNil(o.EnglishName) {
+	if o != nil && !IsNil(o.EnglishName) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *ListLanguages2XXResponseInner) SetEnglishName(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ListLanguages2XXResponseInner) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *ListLanguages2XXResponseInner) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListLanguages2XXResponseInner) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ListLanguages2XXResponseInner) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *ListLanguages2XXResponseInner) SetName(v string) {
 }
 
 func (o ListLanguages2XXResponseInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ListLanguages2XXResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Iso6391) {
+	if !IsNil(o.Iso6391) {
 		toSerialize["iso_639_1"] = o.Iso6391
 	}
-	if !isNil(o.EnglishName) {
+	if !IsNil(o.EnglishName) {
 		toSerialize["english_name"] = o.EnglishName
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 
@@ -153,19 +164,23 @@ func (o ListLanguages2XXResponseInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *ListLanguages2XXResponseInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *ListLanguages2XXResponseInner) UnmarshalJSON(data []byte) (err error) {
 	varListLanguages2XXResponseInner := _ListLanguages2XXResponseInner{}
 
-	if err = json.Unmarshal(bytes, &varListLanguages2XXResponseInner); err == nil {
-		*o = ListLanguages2XXResponseInner(varListLanguages2XXResponseInner)
+	err = json.Unmarshal(data, &varListLanguages2XXResponseInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = ListLanguages2XXResponseInner(varListLanguages2XXResponseInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "iso_639_1")
 		delete(additionalProperties, "english_name")
 		delete(additionalProperties, "name")

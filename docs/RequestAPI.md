@@ -29,24 +29,24 @@ Create new request
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createRequestRequest := *overseerrClient.NewCreateRequestRequest("movie", float32(123)) // CreateRequestRequest | 
+	createRequestRequest := *overseerrClient.NewCreateRequestRequest("movie", float32(123)) // CreateRequestRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestAPI.CreateRequest(context.Background()).CreateRequestRequest(createRequestRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateRequest`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequest`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RequestAPI.CreateRequest(context.Background()).CreateRequestRequest(createRequestRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateRequest`: MediaRequest
+	fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequest`: %v\n", resp)
 }
 ```
 
@@ -95,25 +95,25 @@ Update a request's status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    requestId := "1" // string | Request ID
-    status := "status_example" // string | New status
+	requestId := "1" // string | Request ID
+	status := "status_example" // string | New status
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestAPI.CreateRequestByStatus(context.Background(), requestId, status).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequestByStatus``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateRequestByStatus`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequestByStatus`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RequestAPI.CreateRequestByStatus(context.Background(), requestId, status).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequestByStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateRequestByStatus`: MediaRequest
+	fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequestByStatus`: %v\n", resp)
 }
 ```
 
@@ -168,24 +168,24 @@ Retry failed request
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    requestId := "1" // string | Request ID
+	requestId := "1" // string | Request ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestAPI.CreateRequestRetry(context.Background(), requestId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequestRetry``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateRequestRetry`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequestRetry`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RequestAPI.CreateRequestRetry(context.Background(), requestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.CreateRequestRetry``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateRequestRetry`: MediaRequest
+	fmt.Fprintf(os.Stdout, "Response from `RequestAPI.CreateRequestRetry`: %v\n", resp)
 }
 ```
 
@@ -238,22 +238,22 @@ Delete request
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    requestId := "1" // string | Request ID
+	requestId := "1" // string | Request ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestAPI.DeleteRequest(context.Background(), requestId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.DeleteRequest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.RequestAPI.DeleteRequest(context.Background(), requestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.DeleteRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -306,28 +306,28 @@ Get all requests
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    take := float32(20) // float32 |  (optional)
-    skip := float32(0) // float32 |  (optional)
-    filter := "filter_example" // string |  (optional)
-    sort := "sort_example" // string |  (optional) (default to "added")
-    requestedBy := float32(1) // float32 |  (optional)
+	take := float32(20) // float32 |  (optional)
+	skip := float32(0) // float32 |  (optional)
+	filter := "filter_example" // string |  (optional)
+	sort := "sort_example" // string |  (optional) (default to "added")
+	requestedBy := float32(1) // float32 |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestAPI.GetRequest(context.Background()).Take(take).Skip(skip).Filter(filter).Sort(sort).RequestedBy(requestedBy).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetRequest`: GetUserRequests2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequest`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RequestAPI.GetRequest(context.Background()).Take(take).Skip(skip).Filter(filter).Sort(sort).RequestedBy(requestedBy).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRequest`: GetUserRequests2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequest`: %v\n", resp)
 }
 ```
 
@@ -380,24 +380,24 @@ Get MediaRequest
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    requestId := "1" // string | Request ID
+	requestId := "1" // string | Request ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestAPI.GetRequestByRequestId(context.Background(), requestId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequestByRequestId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetRequestByRequestId`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequestByRequestId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RequestAPI.GetRequestByRequestId(context.Background(), requestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequestByRequestId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRequestByRequestId`: MediaRequest
+	fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequestByRequestId`: %v\n", resp)
 }
 ```
 
@@ -450,23 +450,23 @@ Gets request counts
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestAPI.GetRequestCount(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequestCount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetRequestCount`: GetRequestCount2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequestCount`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RequestAPI.GetRequestCount(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.GetRequestCount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetRequestCount`: GetRequestCount2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `RequestAPI.GetRequestCount`: %v\n", resp)
 }
 ```
 
@@ -511,25 +511,25 @@ Update MediaRequest
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    requestId := "1" // string | Request ID
-    updateRequestRequest := *overseerrClient.NewUpdateRequestRequest("MediaType_example") // UpdateRequestRequest | 
+	requestId := "1" // string | Request ID
+	updateRequestRequest := *overseerrClient.NewUpdateRequestRequest("MediaType_example") // UpdateRequestRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RequestAPI.UpdateRequest(context.Background(), requestId).UpdateRequestRequest(updateRequestRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.UpdateRequest``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateRequest`: MediaRequest
-    fmt.Fprintf(os.Stdout, "Response from `RequestAPI.UpdateRequest`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RequestAPI.UpdateRequest(context.Background(), requestId).UpdateRequestRequest(updateRequestRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RequestAPI.UpdateRequest``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateRequest`: MediaRequest
+	fmt.Fprintf(os.Stdout, "Response from `RequestAPI.UpdateRequest`: %v\n", resp)
 }
 ```
 

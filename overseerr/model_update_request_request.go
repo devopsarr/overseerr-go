@@ -15,10 +15,13 @@ import (
 	"fmt"
 )
 
+// checks if the UpdateRequestRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UpdateRequestRequest{}
+
 // UpdateRequestRequest struct for UpdateRequestRequest
 type UpdateRequestRequest struct {
 	MediaType string `json:"mediaType"`
-	Seasons []*float32 `json:"seasons,omitempty"`
+	Seasons []float32 `json:"seasons,omitempty"`
 	Is4k *bool `json:"is4k,omitempty"`
 	ServerId *float32 `json:"serverId,omitempty"`
 	ProfileId *float32 `json:"profileId,omitempty"`
@@ -62,7 +65,7 @@ func (o *UpdateRequestRequest) GetMediaType() string {
 // and a boolean to check if the value has been set.
 func (o *UpdateRequestRequest) GetMediaTypeOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MediaType, true
 }
@@ -73,9 +76,9 @@ func (o *UpdateRequestRequest) SetMediaType(v string) {
 }
 
 // GetSeasons returns the Seasons field value if set, zero value otherwise.
-func (o *UpdateRequestRequest) GetSeasons() []*float32 {
-	if o == nil || isNil(o.Seasons) {
-		var ret []*float32
+func (o *UpdateRequestRequest) GetSeasons() []float32 {
+	if o == nil || IsNil(o.Seasons) {
+		var ret []float32
 		return ret
 	}
 	return o.Seasons
@@ -83,16 +86,16 @@ func (o *UpdateRequestRequest) GetSeasons() []*float32 {
 
 // GetSeasonsOk returns a tuple with the Seasons field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateRequestRequest) GetSeasonsOk() ([]*float32, bool) {
-	if o == nil || isNil(o.Seasons) {
-    return nil, false
+func (o *UpdateRequestRequest) GetSeasonsOk() ([]float32, bool) {
+	if o == nil || IsNil(o.Seasons) {
+		return nil, false
 	}
 	return o.Seasons, true
 }
 
 // HasSeasons returns a boolean if a field has been set.
 func (o *UpdateRequestRequest) HasSeasons() bool {
-	if o != nil && !isNil(o.Seasons) {
+	if o != nil && !IsNil(o.Seasons) {
 		return true
 	}
 
@@ -100,13 +103,13 @@ func (o *UpdateRequestRequest) HasSeasons() bool {
 }
 
 // SetSeasons gets a reference to the given []float32 and assigns it to the Seasons field.
-func (o *UpdateRequestRequest) SetSeasons(v []*float32) {
+func (o *UpdateRequestRequest) SetSeasons(v []float32) {
 	o.Seasons = v
 }
 
 // GetIs4k returns the Is4k field value if set, zero value otherwise.
 func (o *UpdateRequestRequest) GetIs4k() bool {
-	if o == nil || isNil(o.Is4k) {
+	if o == nil || IsNil(o.Is4k) {
 		var ret bool
 		return ret
 	}
@@ -116,15 +119,15 @@ func (o *UpdateRequestRequest) GetIs4k() bool {
 // GetIs4kOk returns a tuple with the Is4k field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRequestRequest) GetIs4kOk() (*bool, bool) {
-	if o == nil || isNil(o.Is4k) {
-    return nil, false
+	if o == nil || IsNil(o.Is4k) {
+		return nil, false
 	}
 	return o.Is4k, true
 }
 
 // HasIs4k returns a boolean if a field has been set.
 func (o *UpdateRequestRequest) HasIs4k() bool {
-	if o != nil && !isNil(o.Is4k) {
+	if o != nil && !IsNil(o.Is4k) {
 		return true
 	}
 
@@ -138,7 +141,7 @@ func (o *UpdateRequestRequest) SetIs4k(v bool) {
 
 // GetServerId returns the ServerId field value if set, zero value otherwise.
 func (o *UpdateRequestRequest) GetServerId() float32 {
-	if o == nil || isNil(o.ServerId) {
+	if o == nil || IsNil(o.ServerId) {
 		var ret float32
 		return ret
 	}
@@ -148,15 +151,15 @@ func (o *UpdateRequestRequest) GetServerId() float32 {
 // GetServerIdOk returns a tuple with the ServerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRequestRequest) GetServerIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ServerId) {
-    return nil, false
+	if o == nil || IsNil(o.ServerId) {
+		return nil, false
 	}
 	return o.ServerId, true
 }
 
 // HasServerId returns a boolean if a field has been set.
 func (o *UpdateRequestRequest) HasServerId() bool {
-	if o != nil && !isNil(o.ServerId) {
+	if o != nil && !IsNil(o.ServerId) {
 		return true
 	}
 
@@ -170,7 +173,7 @@ func (o *UpdateRequestRequest) SetServerId(v float32) {
 
 // GetProfileId returns the ProfileId field value if set, zero value otherwise.
 func (o *UpdateRequestRequest) GetProfileId() float32 {
-	if o == nil || isNil(o.ProfileId) {
+	if o == nil || IsNil(o.ProfileId) {
 		var ret float32
 		return ret
 	}
@@ -180,15 +183,15 @@ func (o *UpdateRequestRequest) GetProfileId() float32 {
 // GetProfileIdOk returns a tuple with the ProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRequestRequest) GetProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.ProfileId) {
+		return nil, false
 	}
 	return o.ProfileId, true
 }
 
 // HasProfileId returns a boolean if a field has been set.
 func (o *UpdateRequestRequest) HasProfileId() bool {
-	if o != nil && !isNil(o.ProfileId) {
+	if o != nil && !IsNil(o.ProfileId) {
 		return true
 	}
 
@@ -202,7 +205,7 @@ func (o *UpdateRequestRequest) SetProfileId(v float32) {
 
 // GetRootFolder returns the RootFolder field value if set, zero value otherwise.
 func (o *UpdateRequestRequest) GetRootFolder() string {
-	if o == nil || isNil(o.RootFolder) {
+	if o == nil || IsNil(o.RootFolder) {
 		var ret string
 		return ret
 	}
@@ -212,15 +215,15 @@ func (o *UpdateRequestRequest) GetRootFolder() string {
 // GetRootFolderOk returns a tuple with the RootFolder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRequestRequest) GetRootFolderOk() (*string, bool) {
-	if o == nil || isNil(o.RootFolder) {
-    return nil, false
+	if o == nil || IsNil(o.RootFolder) {
+		return nil, false
 	}
 	return o.RootFolder, true
 }
 
 // HasRootFolder returns a boolean if a field has been set.
 func (o *UpdateRequestRequest) HasRootFolder() bool {
-	if o != nil && !isNil(o.RootFolder) {
+	if o != nil && !IsNil(o.RootFolder) {
 		return true
 	}
 
@@ -234,7 +237,7 @@ func (o *UpdateRequestRequest) SetRootFolder(v string) {
 
 // GetLanguageProfileId returns the LanguageProfileId field value if set, zero value otherwise.
 func (o *UpdateRequestRequest) GetLanguageProfileId() float32 {
-	if o == nil || isNil(o.LanguageProfileId) {
+	if o == nil || IsNil(o.LanguageProfileId) {
 		var ret float32
 		return ret
 	}
@@ -244,15 +247,15 @@ func (o *UpdateRequestRequest) GetLanguageProfileId() float32 {
 // GetLanguageProfileIdOk returns a tuple with the LanguageProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UpdateRequestRequest) GetLanguageProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.LanguageProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.LanguageProfileId) {
+		return nil, false
 	}
 	return o.LanguageProfileId, true
 }
 
 // HasLanguageProfileId returns a boolean if a field has been set.
 func (o *UpdateRequestRequest) HasLanguageProfileId() bool {
-	if o != nil && !isNil(o.LanguageProfileId) {
+	if o != nil && !IsNil(o.LanguageProfileId) {
 		return true
 	}
 
@@ -266,7 +269,7 @@ func (o *UpdateRequestRequest) SetLanguageProfileId(v float32) {
 
 // GetUserId returns the UserId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateRequestRequest) GetUserId() float32 {
-	if o == nil || isNil(o.UserId.Get()) {
+	if o == nil || IsNil(o.UserId.Get()) {
 		var ret float32
 		return ret
 	}
@@ -278,7 +281,7 @@ func (o *UpdateRequestRequest) GetUserId() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpdateRequestRequest) GetUserIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.UserId.Get(), o.UserId.IsSet()
 }
@@ -307,26 +310,32 @@ func (o *UpdateRequestRequest) UnsetUserId() {
 }
 
 func (o UpdateRequestRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["mediaType"] = o.MediaType
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
-	if !isNil(o.Seasons) {
+	return json.Marshal(toSerialize)
+}
+
+func (o UpdateRequestRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["mediaType"] = o.MediaType
+	if !IsNil(o.Seasons) {
 		toSerialize["seasons"] = o.Seasons
 	}
-	if !isNil(o.Is4k) {
+	if !IsNil(o.Is4k) {
 		toSerialize["is4k"] = o.Is4k
 	}
-	if !isNil(o.ServerId) {
+	if !IsNil(o.ServerId) {
 		toSerialize["serverId"] = o.ServerId
 	}
-	if !isNil(o.ProfileId) {
+	if !IsNil(o.ProfileId) {
 		toSerialize["profileId"] = o.ProfileId
 	}
-	if !isNil(o.RootFolder) {
+	if !IsNil(o.RootFolder) {
 		toSerialize["rootFolder"] = o.RootFolder
 	}
-	if !isNil(o.LanguageProfileId) {
+	if !IsNil(o.LanguageProfileId) {
 		toSerialize["languageProfileId"] = o.LanguageProfileId
 	}
 	if o.UserId.IsSet() {
@@ -337,19 +346,44 @@ func (o UpdateRequestRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *UpdateRequestRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *UpdateRequestRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"mediaType",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varUpdateRequestRequest := _UpdateRequestRequest{}
 
-	if err = json.Unmarshal(bytes, &varUpdateRequestRequest); err == nil {
-		*o = UpdateRequestRequest(varUpdateRequestRequest)
+	err = json.Unmarshal(data, &varUpdateRequestRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = UpdateRequestRequest(varUpdateRequestRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "mediaType")
 		delete(additionalProperties, "seasons")
 		delete(additionalProperties, "is4k")

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Issue type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Issue{}
+
 // Issue struct for Issue
 type Issue struct {
 	Id *float32 `json:"id,omitempty"`
@@ -21,7 +24,7 @@ type Issue struct {
 	Media *MediaInfo `json:"media,omitempty"`
 	CreatedBy *User `json:"createdBy,omitempty"`
 	ModifiedBy *User `json:"modifiedBy,omitempty"`
-	Comments []*IssueComment `json:"comments,omitempty"`
+	Comments []IssueComment `json:"comments,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -46,7 +49,7 @@ func NewIssueWithDefaults() *Issue {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Issue) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -56,15 +59,15 @@ func (o *Issue) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Issue) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Issue) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -78,7 +81,7 @@ func (o *Issue) SetId(v float32) {
 
 // GetIssueType returns the IssueType field value if set, zero value otherwise.
 func (o *Issue) GetIssueType() float32 {
-	if o == nil || isNil(o.IssueType) {
+	if o == nil || IsNil(o.IssueType) {
 		var ret float32
 		return ret
 	}
@@ -88,15 +91,15 @@ func (o *Issue) GetIssueType() float32 {
 // GetIssueTypeOk returns a tuple with the IssueType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Issue) GetIssueTypeOk() (*float32, bool) {
-	if o == nil || isNil(o.IssueType) {
-    return nil, false
+	if o == nil || IsNil(o.IssueType) {
+		return nil, false
 	}
 	return o.IssueType, true
 }
 
 // HasIssueType returns a boolean if a field has been set.
 func (o *Issue) HasIssueType() bool {
-	if o != nil && !isNil(o.IssueType) {
+	if o != nil && !IsNil(o.IssueType) {
 		return true
 	}
 
@@ -110,7 +113,7 @@ func (o *Issue) SetIssueType(v float32) {
 
 // GetMedia returns the Media field value if set, zero value otherwise.
 func (o *Issue) GetMedia() MediaInfo {
-	if o == nil || isNil(o.Media) {
+	if o == nil || IsNil(o.Media) {
 		var ret MediaInfo
 		return ret
 	}
@@ -120,15 +123,15 @@ func (o *Issue) GetMedia() MediaInfo {
 // GetMediaOk returns a tuple with the Media field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Issue) GetMediaOk() (*MediaInfo, bool) {
-	if o == nil || isNil(o.Media) {
-    return nil, false
+	if o == nil || IsNil(o.Media) {
+		return nil, false
 	}
 	return o.Media, true
 }
 
 // HasMedia returns a boolean if a field has been set.
 func (o *Issue) HasMedia() bool {
-	if o != nil && !isNil(o.Media) {
+	if o != nil && !IsNil(o.Media) {
 		return true
 	}
 
@@ -142,7 +145,7 @@ func (o *Issue) SetMedia(v MediaInfo) {
 
 // GetCreatedBy returns the CreatedBy field value if set, zero value otherwise.
 func (o *Issue) GetCreatedBy() User {
-	if o == nil || isNil(o.CreatedBy) {
+	if o == nil || IsNil(o.CreatedBy) {
 		var ret User
 		return ret
 	}
@@ -152,15 +155,15 @@ func (o *Issue) GetCreatedBy() User {
 // GetCreatedByOk returns a tuple with the CreatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Issue) GetCreatedByOk() (*User, bool) {
-	if o == nil || isNil(o.CreatedBy) {
-    return nil, false
+	if o == nil || IsNil(o.CreatedBy) {
+		return nil, false
 	}
 	return o.CreatedBy, true
 }
 
 // HasCreatedBy returns a boolean if a field has been set.
 func (o *Issue) HasCreatedBy() bool {
-	if o != nil && !isNil(o.CreatedBy) {
+	if o != nil && !IsNil(o.CreatedBy) {
 		return true
 	}
 
@@ -174,7 +177,7 @@ func (o *Issue) SetCreatedBy(v User) {
 
 // GetModifiedBy returns the ModifiedBy field value if set, zero value otherwise.
 func (o *Issue) GetModifiedBy() User {
-	if o == nil || isNil(o.ModifiedBy) {
+	if o == nil || IsNil(o.ModifiedBy) {
 		var ret User
 		return ret
 	}
@@ -184,15 +187,15 @@ func (o *Issue) GetModifiedBy() User {
 // GetModifiedByOk returns a tuple with the ModifiedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Issue) GetModifiedByOk() (*User, bool) {
-	if o == nil || isNil(o.ModifiedBy) {
-    return nil, false
+	if o == nil || IsNil(o.ModifiedBy) {
+		return nil, false
 	}
 	return o.ModifiedBy, true
 }
 
 // HasModifiedBy returns a boolean if a field has been set.
 func (o *Issue) HasModifiedBy() bool {
-	if o != nil && !isNil(o.ModifiedBy) {
+	if o != nil && !IsNil(o.ModifiedBy) {
 		return true
 	}
 
@@ -205,9 +208,9 @@ func (o *Issue) SetModifiedBy(v User) {
 }
 
 // GetComments returns the Comments field value if set, zero value otherwise.
-func (o *Issue) GetComments() []*IssueComment {
-	if o == nil || isNil(o.Comments) {
-		var ret []*IssueComment
+func (o *Issue) GetComments() []IssueComment {
+	if o == nil || IsNil(o.Comments) {
+		var ret []IssueComment
 		return ret
 	}
 	return o.Comments
@@ -215,16 +218,16 @@ func (o *Issue) GetComments() []*IssueComment {
 
 // GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Issue) GetCommentsOk() ([]*IssueComment, bool) {
-	if o == nil || isNil(o.Comments) {
-    return nil, false
+func (o *Issue) GetCommentsOk() ([]IssueComment, bool) {
+	if o == nil || IsNil(o.Comments) {
+		return nil, false
 	}
 	return o.Comments, true
 }
 
 // HasComments returns a boolean if a field has been set.
 func (o *Issue) HasComments() bool {
-	if o != nil && !isNil(o.Comments) {
+	if o != nil && !IsNil(o.Comments) {
 		return true
 	}
 
@@ -232,28 +235,36 @@ func (o *Issue) HasComments() bool {
 }
 
 // SetComments gets a reference to the given []IssueComment and assigns it to the Comments field.
-func (o *Issue) SetComments(v []*IssueComment) {
+func (o *Issue) SetComments(v []IssueComment) {
 	o.Comments = v
 }
 
 func (o Issue) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Issue) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.IssueType) {
+	if !IsNil(o.IssueType) {
 		toSerialize["issueType"] = o.IssueType
 	}
-	if !isNil(o.Media) {
+	if !IsNil(o.Media) {
 		toSerialize["media"] = o.Media
 	}
-	if !isNil(o.CreatedBy) {
+	if !IsNil(o.CreatedBy) {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-	if !isNil(o.ModifiedBy) {
+	if !IsNil(o.ModifiedBy) {
 		toSerialize["modifiedBy"] = o.ModifiedBy
 	}
-	if !isNil(o.Comments) {
+	if !IsNil(o.Comments) {
 		toSerialize["comments"] = o.Comments
 	}
 
@@ -261,19 +272,23 @@ func (o Issue) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Issue) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Issue) UnmarshalJSON(data []byte) (err error) {
 	varIssue := _Issue{}
 
-	if err = json.Unmarshal(bytes, &varIssue); err == nil {
-		*o = Issue(varIssue)
+	err = json.Unmarshal(data, &varIssue)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Issue(varIssue)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "issueType")
 		delete(additionalProperties, "media")

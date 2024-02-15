@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the TelegramSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TelegramSettings{}
+
 // TelegramSettings struct for TelegramSettings
 type TelegramSettings struct {
 	Enabled *bool `json:"enabled,omitempty"`
@@ -43,7 +46,7 @@ func NewTelegramSettingsWithDefaults() *TelegramSettings {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *TelegramSettings) GetEnabled() bool {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *TelegramSettings) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TelegramSettings) GetEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.Enabled) {
-    return nil, false
+	if o == nil || IsNil(o.Enabled) {
+		return nil, false
 	}
 	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *TelegramSettings) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *TelegramSettings) SetEnabled(v bool) {
 
 // GetTypes returns the Types field value if set, zero value otherwise.
 func (o *TelegramSettings) GetTypes() float32 {
-	if o == nil || isNil(o.Types) {
+	if o == nil || IsNil(o.Types) {
 		var ret float32
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *TelegramSettings) GetTypes() float32 {
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TelegramSettings) GetTypesOk() (*float32, bool) {
-	if o == nil || isNil(o.Types) {
-    return nil, false
+	if o == nil || IsNil(o.Types) {
+		return nil, false
 	}
 	return o.Types, true
 }
 
 // HasTypes returns a boolean if a field has been set.
 func (o *TelegramSettings) HasTypes() bool {
-	if o != nil && !isNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *TelegramSettings) SetTypes(v float32) {
 
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *TelegramSettings) GetOptions() TelegramSettingsOptions {
-	if o == nil || isNil(o.Options) {
+	if o == nil || IsNil(o.Options) {
 		var ret TelegramSettingsOptions
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *TelegramSettings) GetOptions() TelegramSettingsOptions {
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TelegramSettings) GetOptionsOk() (*TelegramSettingsOptions, bool) {
-	if o == nil || isNil(o.Options) {
-    return nil, false
+	if o == nil || IsNil(o.Options) {
+		return nil, false
 	}
 	return o.Options, true
 }
 
 // HasOptions returns a boolean if a field has been set.
 func (o *TelegramSettings) HasOptions() bool {
-	if o != nil && !isNil(o.Options) {
+	if o != nil && !IsNil(o.Options) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *TelegramSettings) SetOptions(v TelegramSettingsOptions) {
 }
 
 func (o TelegramSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TelegramSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Enabled) {
+	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
-	if !isNil(o.Types) {
+	if !IsNil(o.Types) {
 		toSerialize["types"] = o.Types
 	}
-	if !isNil(o.Options) {
+	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
 
@@ -153,19 +164,23 @@ func (o TelegramSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *TelegramSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *TelegramSettings) UnmarshalJSON(data []byte) (err error) {
 	varTelegramSettings := _TelegramSettings{}
 
-	if err = json.Unmarshal(bytes, &varTelegramSettings); err == nil {
-		*o = TelegramSettings(varTelegramSettings)
+	err = json.Unmarshal(data, &varTelegramSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = TelegramSettings(varTelegramSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "enabled")
 		delete(additionalProperties, "types")
 		delete(additionalProperties, "options")

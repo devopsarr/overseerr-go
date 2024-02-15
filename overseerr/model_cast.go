@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Cast type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Cast{}
+
 // Cast struct for Cast
 type Cast struct {
 	Id *float32 `json:"id,omitempty"`
@@ -48,7 +51,7 @@ func NewCastWithDefaults() *Cast {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Cast) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -58,15 +61,15 @@ func (o *Cast) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cast) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Cast) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -80,7 +83,7 @@ func (o *Cast) SetId(v float32) {
 
 // GetCastId returns the CastId field value if set, zero value otherwise.
 func (o *Cast) GetCastId() float32 {
-	if o == nil || isNil(o.CastId) {
+	if o == nil || IsNil(o.CastId) {
 		var ret float32
 		return ret
 	}
@@ -90,15 +93,15 @@ func (o *Cast) GetCastId() float32 {
 // GetCastIdOk returns a tuple with the CastId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cast) GetCastIdOk() (*float32, bool) {
-	if o == nil || isNil(o.CastId) {
-    return nil, false
+	if o == nil || IsNil(o.CastId) {
+		return nil, false
 	}
 	return o.CastId, true
 }
 
 // HasCastId returns a boolean if a field has been set.
 func (o *Cast) HasCastId() bool {
-	if o != nil && !isNil(o.CastId) {
+	if o != nil && !IsNil(o.CastId) {
 		return true
 	}
 
@@ -112,7 +115,7 @@ func (o *Cast) SetCastId(v float32) {
 
 // GetCharacter returns the Character field value if set, zero value otherwise.
 func (o *Cast) GetCharacter() string {
-	if o == nil || isNil(o.Character) {
+	if o == nil || IsNil(o.Character) {
 		var ret string
 		return ret
 	}
@@ -122,15 +125,15 @@ func (o *Cast) GetCharacter() string {
 // GetCharacterOk returns a tuple with the Character field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cast) GetCharacterOk() (*string, bool) {
-	if o == nil || isNil(o.Character) {
-    return nil, false
+	if o == nil || IsNil(o.Character) {
+		return nil, false
 	}
 	return o.Character, true
 }
 
 // HasCharacter returns a boolean if a field has been set.
 func (o *Cast) HasCharacter() bool {
-	if o != nil && !isNil(o.Character) {
+	if o != nil && !IsNil(o.Character) {
 		return true
 	}
 
@@ -144,7 +147,7 @@ func (o *Cast) SetCharacter(v string) {
 
 // GetCreditId returns the CreditId field value if set, zero value otherwise.
 func (o *Cast) GetCreditId() string {
-	if o == nil || isNil(o.CreditId) {
+	if o == nil || IsNil(o.CreditId) {
 		var ret string
 		return ret
 	}
@@ -154,15 +157,15 @@ func (o *Cast) GetCreditId() string {
 // GetCreditIdOk returns a tuple with the CreditId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cast) GetCreditIdOk() (*string, bool) {
-	if o == nil || isNil(o.CreditId) {
-    return nil, false
+	if o == nil || IsNil(o.CreditId) {
+		return nil, false
 	}
 	return o.CreditId, true
 }
 
 // HasCreditId returns a boolean if a field has been set.
 func (o *Cast) HasCreditId() bool {
-	if o != nil && !isNil(o.CreditId) {
+	if o != nil && !IsNil(o.CreditId) {
 		return true
 	}
 
@@ -176,7 +179,7 @@ func (o *Cast) SetCreditId(v string) {
 
 // GetGender returns the Gender field value if set, zero value otherwise.
 func (o *Cast) GetGender() float32 {
-	if o == nil || isNil(o.Gender) {
+	if o == nil || IsNil(o.Gender) {
 		var ret float32
 		return ret
 	}
@@ -186,15 +189,15 @@ func (o *Cast) GetGender() float32 {
 // GetGenderOk returns a tuple with the Gender field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cast) GetGenderOk() (*float32, bool) {
-	if o == nil || isNil(o.Gender) {
-    return nil, false
+	if o == nil || IsNil(o.Gender) {
+		return nil, false
 	}
 	return o.Gender, true
 }
 
 // HasGender returns a boolean if a field has been set.
 func (o *Cast) HasGender() bool {
-	if o != nil && !isNil(o.Gender) {
+	if o != nil && !IsNil(o.Gender) {
 		return true
 	}
 
@@ -208,7 +211,7 @@ func (o *Cast) SetGender(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Cast) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -218,15 +221,15 @@ func (o *Cast) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cast) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Cast) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -240,7 +243,7 @@ func (o *Cast) SetName(v string) {
 
 // GetOrder returns the Order field value if set, zero value otherwise.
 func (o *Cast) GetOrder() float32 {
-	if o == nil || isNil(o.Order) {
+	if o == nil || IsNil(o.Order) {
 		var ret float32
 		return ret
 	}
@@ -250,15 +253,15 @@ func (o *Cast) GetOrder() float32 {
 // GetOrderOk returns a tuple with the Order field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Cast) GetOrderOk() (*float32, bool) {
-	if o == nil || isNil(o.Order) {
-    return nil, false
+	if o == nil || IsNil(o.Order) {
+		return nil, false
 	}
 	return o.Order, true
 }
 
 // HasOrder returns a boolean if a field has been set.
 func (o *Cast) HasOrder() bool {
-	if o != nil && !isNil(o.Order) {
+	if o != nil && !IsNil(o.Order) {
 		return true
 	}
 
@@ -272,7 +275,7 @@ func (o *Cast) SetOrder(v float32) {
 
 // GetProfilePath returns the ProfilePath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Cast) GetProfilePath() string {
-	if o == nil || isNil(o.ProfilePath.Get()) {
+	if o == nil || IsNil(o.ProfilePath.Get()) {
 		var ret string
 		return ret
 	}
@@ -284,7 +287,7 @@ func (o *Cast) GetProfilePath() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Cast) GetProfilePathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ProfilePath.Get(), o.ProfilePath.IsSet()
 }
@@ -313,26 +316,34 @@ func (o *Cast) UnsetProfilePath() {
 }
 
 func (o Cast) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Cast) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.CastId) {
+	if !IsNil(o.CastId) {
 		toSerialize["castId"] = o.CastId
 	}
-	if !isNil(o.Character) {
+	if !IsNil(o.Character) {
 		toSerialize["character"] = o.Character
 	}
-	if !isNil(o.CreditId) {
+	if !IsNil(o.CreditId) {
 		toSerialize["creditId"] = o.CreditId
 	}
-	if !isNil(o.Gender) {
+	if !IsNil(o.Gender) {
 		toSerialize["gender"] = o.Gender
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Order) {
+	if !IsNil(o.Order) {
 		toSerialize["order"] = o.Order
 	}
 	if o.ProfilePath.IsSet() {
@@ -343,19 +354,23 @@ func (o Cast) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Cast) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Cast) UnmarshalJSON(data []byte) (err error) {
 	varCast := _Cast{}
 
-	if err = json.Unmarshal(bytes, &varCast); err == nil {
-		*o = Cast(varCast)
+	err = json.Unmarshal(data, &varCast)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Cast(varCast)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "castId")
 		delete(additionalProperties, "character")

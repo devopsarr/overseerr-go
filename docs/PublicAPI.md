@@ -23,23 +23,23 @@ Get Overseerr status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PublicAPI.GetStatus(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetStatus``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetStatus`: GetStatus2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetStatus`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetStatus(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetStatus`: GetStatus2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetStatus`: %v\n", resp)
 }
 ```
 
@@ -84,23 +84,23 @@ Get application data volume status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PublicAPI.GetStatusAppdata(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetStatusAppdata``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetStatusAppdata`: GetStatusAppdata2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetStatusAppdata`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PublicAPI.GetStatusAppdata(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PublicAPI.GetStatusAppdata``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetStatusAppdata`: GetStatusAppdata2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `PublicAPI.GetStatusAppdata`: %v\n", resp)
 }
 ```
 

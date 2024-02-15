@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the SonarrSeriesRatingsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SonarrSeriesRatingsInner{}
+
 // SonarrSeriesRatingsInner struct for SonarrSeriesRatingsInner
 type SonarrSeriesRatingsInner struct {
 	Votes *float32 `json:"votes,omitempty"`
@@ -42,7 +45,7 @@ func NewSonarrSeriesRatingsInnerWithDefaults() *SonarrSeriesRatingsInner {
 
 // GetVotes returns the Votes field value if set, zero value otherwise.
 func (o *SonarrSeriesRatingsInner) GetVotes() float32 {
-	if o == nil || isNil(o.Votes) {
+	if o == nil || IsNil(o.Votes) {
 		var ret float32
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *SonarrSeriesRatingsInner) GetVotes() float32 {
 // GetVotesOk returns a tuple with the Votes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeriesRatingsInner) GetVotesOk() (*float32, bool) {
-	if o == nil || isNil(o.Votes) {
-    return nil, false
+	if o == nil || IsNil(o.Votes) {
+		return nil, false
 	}
 	return o.Votes, true
 }
 
 // HasVotes returns a boolean if a field has been set.
 func (o *SonarrSeriesRatingsInner) HasVotes() bool {
-	if o != nil && !isNil(o.Votes) {
+	if o != nil && !IsNil(o.Votes) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *SonarrSeriesRatingsInner) SetVotes(v float32) {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *SonarrSeriesRatingsInner) GetValue() float32 {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		var ret float32
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *SonarrSeriesRatingsInner) GetValue() float32 {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSeriesRatingsInner) GetValueOk() (*float32, bool) {
-	if o == nil || isNil(o.Value) {
-    return nil, false
+	if o == nil || IsNil(o.Value) {
+		return nil, false
 	}
 	return o.Value, true
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *SonarrSeriesRatingsInner) HasValue() bool {
-	if o != nil && !isNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *SonarrSeriesRatingsInner) SetValue(v float32) {
 }
 
 func (o SonarrSeriesRatingsInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o SonarrSeriesRatingsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Votes) {
+	if !IsNil(o.Votes) {
 		toSerialize["votes"] = o.Votes
 	}
-	if !isNil(o.Value) {
+	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
 
@@ -117,19 +128,23 @@ func (o SonarrSeriesRatingsInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *SonarrSeriesRatingsInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *SonarrSeriesRatingsInner) UnmarshalJSON(data []byte) (err error) {
 	varSonarrSeriesRatingsInner := _SonarrSeriesRatingsInner{}
 
-	if err = json.Unmarshal(bytes, &varSonarrSeriesRatingsInner); err == nil {
-		*o = SonarrSeriesRatingsInner(varSonarrSeriesRatingsInner)
+	err = json.Unmarshal(data, &varSonarrSeriesRatingsInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = SonarrSeriesRatingsInner(varSonarrSeriesRatingsInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "votes")
 		delete(additionalProperties, "value")
 		o.AdditionalProperties = additionalProperties

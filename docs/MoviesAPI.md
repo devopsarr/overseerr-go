@@ -25,25 +25,25 @@ Get movie details
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    movieId := float32(337401) // float32 | 
-    language := "en" // string |  (optional)
+	movieId := float32(337401) // float32 | 
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesAPI.GetMovieByMovieId(context.Background(), movieId).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieByMovieId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMovieByMovieId`: MovieDetails
-    fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieByMovieId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoviesAPI.GetMovieByMovieId(context.Background(), movieId).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieByMovieId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMovieByMovieId`: MovieDetails
+	fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieByMovieId`: %v\n", resp)
 }
 ```
 
@@ -97,24 +97,24 @@ Get movie ratings
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    movieId := float32(337401) // float32 | 
+	movieId := float32(337401) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesAPI.GetMovieRatings(context.Background(), movieId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieRatings``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMovieRatings`: GetMovieRatings2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieRatings`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoviesAPI.GetMovieRatings(context.Background(), movieId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieRatings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMovieRatings`: GetMovieRatings2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieRatings`: %v\n", resp)
 }
 ```
 
@@ -167,26 +167,26 @@ Get recommended movies
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    movieId := float32(337401) // float32 | 
-    page := float32(1) // float32 |  (optional) (default to 1)
-    language := "en" // string |  (optional)
+	movieId := float32(337401) // float32 | 
+	page := float32(1) // float32 |  (optional) (default to 1)
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesAPI.GetMovieRecommendations(context.Background(), movieId).Page(page).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieRecommendations``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMovieRecommendations`: GetDiscoverMovies2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieRecommendations`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoviesAPI.GetMovieRecommendations(context.Background(), movieId).Page(page).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieRecommendations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMovieRecommendations`: GetDiscoverMovies2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieRecommendations`: %v\n", resp)
 }
 ```
 
@@ -241,26 +241,26 @@ Get similar movies
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    movieId := float32(337401) // float32 | 
-    page := float32(1) // float32 |  (optional) (default to 1)
-    language := "en" // string |  (optional)
+	movieId := float32(337401) // float32 | 
+	page := float32(1) // float32 |  (optional) (default to 1)
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoviesAPI.GetMovieSimilar(context.Background(), movieId).Page(page).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieSimilar``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMovieSimilar`: GetDiscoverMovies2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieSimilar`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoviesAPI.GetMovieSimilar(context.Background(), movieId).Page(page).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoviesAPI.GetMovieSimilar``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMovieSimilar`: GetDiscoverMovies2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `MoviesAPI.GetMovieSimilar`: %v\n", resp)
 }
 ```
 

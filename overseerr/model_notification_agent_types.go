@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NotificationAgentTypes type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NotificationAgentTypes{}
+
 // NotificationAgentTypes struct for NotificationAgentTypes
 type NotificationAgentTypes struct {
 	Discord *float32 `json:"discord,omitempty"`
@@ -48,7 +51,7 @@ func NewNotificationAgentTypesWithDefaults() *NotificationAgentTypes {
 
 // GetDiscord returns the Discord field value if set, zero value otherwise.
 func (o *NotificationAgentTypes) GetDiscord() float32 {
-	if o == nil || isNil(o.Discord) {
+	if o == nil || IsNil(o.Discord) {
 		var ret float32
 		return ret
 	}
@@ -58,15 +61,15 @@ func (o *NotificationAgentTypes) GetDiscord() float32 {
 // GetDiscordOk returns a tuple with the Discord field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationAgentTypes) GetDiscordOk() (*float32, bool) {
-	if o == nil || isNil(o.Discord) {
-    return nil, false
+	if o == nil || IsNil(o.Discord) {
+		return nil, false
 	}
 	return o.Discord, true
 }
 
 // HasDiscord returns a boolean if a field has been set.
 func (o *NotificationAgentTypes) HasDiscord() bool {
-	if o != nil && !isNil(o.Discord) {
+	if o != nil && !IsNil(o.Discord) {
 		return true
 	}
 
@@ -80,7 +83,7 @@ func (o *NotificationAgentTypes) SetDiscord(v float32) {
 
 // GetEmail returns the Email field value if set, zero value otherwise.
 func (o *NotificationAgentTypes) GetEmail() float32 {
-	if o == nil || isNil(o.Email) {
+	if o == nil || IsNil(o.Email) {
 		var ret float32
 		return ret
 	}
@@ -90,15 +93,15 @@ func (o *NotificationAgentTypes) GetEmail() float32 {
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationAgentTypes) GetEmailOk() (*float32, bool) {
-	if o == nil || isNil(o.Email) {
-    return nil, false
+	if o == nil || IsNil(o.Email) {
+		return nil, false
 	}
 	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *NotificationAgentTypes) HasEmail() bool {
-	if o != nil && !isNil(o.Email) {
+	if o != nil && !IsNil(o.Email) {
 		return true
 	}
 
@@ -112,7 +115,7 @@ func (o *NotificationAgentTypes) SetEmail(v float32) {
 
 // GetPushbullet returns the Pushbullet field value if set, zero value otherwise.
 func (o *NotificationAgentTypes) GetPushbullet() float32 {
-	if o == nil || isNil(o.Pushbullet) {
+	if o == nil || IsNil(o.Pushbullet) {
 		var ret float32
 		return ret
 	}
@@ -122,15 +125,15 @@ func (o *NotificationAgentTypes) GetPushbullet() float32 {
 // GetPushbulletOk returns a tuple with the Pushbullet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationAgentTypes) GetPushbulletOk() (*float32, bool) {
-	if o == nil || isNil(o.Pushbullet) {
-    return nil, false
+	if o == nil || IsNil(o.Pushbullet) {
+		return nil, false
 	}
 	return o.Pushbullet, true
 }
 
 // HasPushbullet returns a boolean if a field has been set.
 func (o *NotificationAgentTypes) HasPushbullet() bool {
-	if o != nil && !isNil(o.Pushbullet) {
+	if o != nil && !IsNil(o.Pushbullet) {
 		return true
 	}
 
@@ -144,7 +147,7 @@ func (o *NotificationAgentTypes) SetPushbullet(v float32) {
 
 // GetPushover returns the Pushover field value if set, zero value otherwise.
 func (o *NotificationAgentTypes) GetPushover() float32 {
-	if o == nil || isNil(o.Pushover) {
+	if o == nil || IsNil(o.Pushover) {
 		var ret float32
 		return ret
 	}
@@ -154,15 +157,15 @@ func (o *NotificationAgentTypes) GetPushover() float32 {
 // GetPushoverOk returns a tuple with the Pushover field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationAgentTypes) GetPushoverOk() (*float32, bool) {
-	if o == nil || isNil(o.Pushover) {
-    return nil, false
+	if o == nil || IsNil(o.Pushover) {
+		return nil, false
 	}
 	return o.Pushover, true
 }
 
 // HasPushover returns a boolean if a field has been set.
 func (o *NotificationAgentTypes) HasPushover() bool {
-	if o != nil && !isNil(o.Pushover) {
+	if o != nil && !IsNil(o.Pushover) {
 		return true
 	}
 
@@ -176,7 +179,7 @@ func (o *NotificationAgentTypes) SetPushover(v float32) {
 
 // GetSlack returns the Slack field value if set, zero value otherwise.
 func (o *NotificationAgentTypes) GetSlack() float32 {
-	if o == nil || isNil(o.Slack) {
+	if o == nil || IsNil(o.Slack) {
 		var ret float32
 		return ret
 	}
@@ -186,15 +189,15 @@ func (o *NotificationAgentTypes) GetSlack() float32 {
 // GetSlackOk returns a tuple with the Slack field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationAgentTypes) GetSlackOk() (*float32, bool) {
-	if o == nil || isNil(o.Slack) {
-    return nil, false
+	if o == nil || IsNil(o.Slack) {
+		return nil, false
 	}
 	return o.Slack, true
 }
 
 // HasSlack returns a boolean if a field has been set.
 func (o *NotificationAgentTypes) HasSlack() bool {
-	if o != nil && !isNil(o.Slack) {
+	if o != nil && !IsNil(o.Slack) {
 		return true
 	}
 
@@ -208,7 +211,7 @@ func (o *NotificationAgentTypes) SetSlack(v float32) {
 
 // GetTelegram returns the Telegram field value if set, zero value otherwise.
 func (o *NotificationAgentTypes) GetTelegram() float32 {
-	if o == nil || isNil(o.Telegram) {
+	if o == nil || IsNil(o.Telegram) {
 		var ret float32
 		return ret
 	}
@@ -218,15 +221,15 @@ func (o *NotificationAgentTypes) GetTelegram() float32 {
 // GetTelegramOk returns a tuple with the Telegram field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationAgentTypes) GetTelegramOk() (*float32, bool) {
-	if o == nil || isNil(o.Telegram) {
-    return nil, false
+	if o == nil || IsNil(o.Telegram) {
+		return nil, false
 	}
 	return o.Telegram, true
 }
 
 // HasTelegram returns a boolean if a field has been set.
 func (o *NotificationAgentTypes) HasTelegram() bool {
-	if o != nil && !isNil(o.Telegram) {
+	if o != nil && !IsNil(o.Telegram) {
 		return true
 	}
 
@@ -240,7 +243,7 @@ func (o *NotificationAgentTypes) SetTelegram(v float32) {
 
 // GetWebhook returns the Webhook field value if set, zero value otherwise.
 func (o *NotificationAgentTypes) GetWebhook() float32 {
-	if o == nil || isNil(o.Webhook) {
+	if o == nil || IsNil(o.Webhook) {
 		var ret float32
 		return ret
 	}
@@ -250,15 +253,15 @@ func (o *NotificationAgentTypes) GetWebhook() float32 {
 // GetWebhookOk returns a tuple with the Webhook field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationAgentTypes) GetWebhookOk() (*float32, bool) {
-	if o == nil || isNil(o.Webhook) {
-    return nil, false
+	if o == nil || IsNil(o.Webhook) {
+		return nil, false
 	}
 	return o.Webhook, true
 }
 
 // HasWebhook returns a boolean if a field has been set.
 func (o *NotificationAgentTypes) HasWebhook() bool {
-	if o != nil && !isNil(o.Webhook) {
+	if o != nil && !IsNil(o.Webhook) {
 		return true
 	}
 
@@ -272,7 +275,7 @@ func (o *NotificationAgentTypes) SetWebhook(v float32) {
 
 // GetWebpush returns the Webpush field value if set, zero value otherwise.
 func (o *NotificationAgentTypes) GetWebpush() float32 {
-	if o == nil || isNil(o.Webpush) {
+	if o == nil || IsNil(o.Webpush) {
 		var ret float32
 		return ret
 	}
@@ -282,15 +285,15 @@ func (o *NotificationAgentTypes) GetWebpush() float32 {
 // GetWebpushOk returns a tuple with the Webpush field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NotificationAgentTypes) GetWebpushOk() (*float32, bool) {
-	if o == nil || isNil(o.Webpush) {
-    return nil, false
+	if o == nil || IsNil(o.Webpush) {
+		return nil, false
 	}
 	return o.Webpush, true
 }
 
 // HasWebpush returns a boolean if a field has been set.
 func (o *NotificationAgentTypes) HasWebpush() bool {
-	if o != nil && !isNil(o.Webpush) {
+	if o != nil && !IsNil(o.Webpush) {
 		return true
 	}
 
@@ -303,29 +306,37 @@ func (o *NotificationAgentTypes) SetWebpush(v float32) {
 }
 
 func (o NotificationAgentTypes) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o NotificationAgentTypes) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Discord) {
+	if !IsNil(o.Discord) {
 		toSerialize["discord"] = o.Discord
 	}
-	if !isNil(o.Email) {
+	if !IsNil(o.Email) {
 		toSerialize["email"] = o.Email
 	}
-	if !isNil(o.Pushbullet) {
+	if !IsNil(o.Pushbullet) {
 		toSerialize["pushbullet"] = o.Pushbullet
 	}
-	if !isNil(o.Pushover) {
+	if !IsNil(o.Pushover) {
 		toSerialize["pushover"] = o.Pushover
 	}
-	if !isNil(o.Slack) {
+	if !IsNil(o.Slack) {
 		toSerialize["slack"] = o.Slack
 	}
-	if !isNil(o.Telegram) {
+	if !IsNil(o.Telegram) {
 		toSerialize["telegram"] = o.Telegram
 	}
-	if !isNil(o.Webhook) {
+	if !IsNil(o.Webhook) {
 		toSerialize["webhook"] = o.Webhook
 	}
-	if !isNil(o.Webpush) {
+	if !IsNil(o.Webpush) {
 		toSerialize["webpush"] = o.Webpush
 	}
 
@@ -333,19 +344,23 @@ func (o NotificationAgentTypes) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *NotificationAgentTypes) UnmarshalJSON(bytes []byte) (err error) {
+func (o *NotificationAgentTypes) UnmarshalJSON(data []byte) (err error) {
 	varNotificationAgentTypes := _NotificationAgentTypes{}
 
-	if err = json.Unmarshal(bytes, &varNotificationAgentTypes); err == nil {
-		*o = NotificationAgentTypes(varNotificationAgentTypes)
+	err = json.Unmarshal(data, &varNotificationAgentTypes)
+
+	if err != nil {
+		return err
 	}
+
+	*o = NotificationAgentTypes(varNotificationAgentTypes)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "discord")
 		delete(additionalProperties, "email")
 		delete(additionalProperties, "pushbullet")

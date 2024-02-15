@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the LunaSeaSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &LunaSeaSettings{}
+
 // LunaSeaSettings struct for LunaSeaSettings
 type LunaSeaSettings struct {
 	Enabled *bool `json:"enabled,omitempty"`
@@ -43,7 +46,7 @@ func NewLunaSeaSettingsWithDefaults() *LunaSeaSettings {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *LunaSeaSettings) GetEnabled() bool {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *LunaSeaSettings) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LunaSeaSettings) GetEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.Enabled) {
-    return nil, false
+	if o == nil || IsNil(o.Enabled) {
+		return nil, false
 	}
 	return o.Enabled, true
 }
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *LunaSeaSettings) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *LunaSeaSettings) SetEnabled(v bool) {
 
 // GetTypes returns the Types field value if set, zero value otherwise.
 func (o *LunaSeaSettings) GetTypes() float32 {
-	if o == nil || isNil(o.Types) {
+	if o == nil || IsNil(o.Types) {
 		var ret float32
 		return ret
 	}
@@ -85,15 +88,15 @@ func (o *LunaSeaSettings) GetTypes() float32 {
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LunaSeaSettings) GetTypesOk() (*float32, bool) {
-	if o == nil || isNil(o.Types) {
-    return nil, false
+	if o == nil || IsNil(o.Types) {
+		return nil, false
 	}
 	return o.Types, true
 }
 
 // HasTypes returns a boolean if a field has been set.
 func (o *LunaSeaSettings) HasTypes() bool {
-	if o != nil && !isNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *LunaSeaSettings) SetTypes(v float32) {
 
 // GetOptions returns the Options field value if set, zero value otherwise.
 func (o *LunaSeaSettings) GetOptions() LunaSeaSettingsOptions {
-	if o == nil || isNil(o.Options) {
+	if o == nil || IsNil(o.Options) {
 		var ret LunaSeaSettingsOptions
 		return ret
 	}
@@ -117,15 +120,15 @@ func (o *LunaSeaSettings) GetOptions() LunaSeaSettingsOptions {
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LunaSeaSettings) GetOptionsOk() (*LunaSeaSettingsOptions, bool) {
-	if o == nil || isNil(o.Options) {
-    return nil, false
+	if o == nil || IsNil(o.Options) {
+		return nil, false
 	}
 	return o.Options, true
 }
 
 // HasOptions returns a boolean if a field has been set.
 func (o *LunaSeaSettings) HasOptions() bool {
-	if o != nil && !isNil(o.Options) {
+	if o != nil && !IsNil(o.Options) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *LunaSeaSettings) SetOptions(v LunaSeaSettingsOptions) {
 }
 
 func (o LunaSeaSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o LunaSeaSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Enabled) {
+	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
-	if !isNil(o.Types) {
+	if !IsNil(o.Types) {
 		toSerialize["types"] = o.Types
 	}
-	if !isNil(o.Options) {
+	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
 
@@ -153,19 +164,23 @@ func (o LunaSeaSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *LunaSeaSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *LunaSeaSettings) UnmarshalJSON(data []byte) (err error) {
 	varLunaSeaSettings := _LunaSeaSettings{}
 
-	if err = json.Unmarshal(bytes, &varLunaSeaSettings); err == nil {
-		*o = LunaSeaSettings(varLunaSeaSettings)
+	err = json.Unmarshal(data, &varLunaSeaSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = LunaSeaSettings(varLunaSeaSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "enabled")
 		delete(additionalProperties, "types")
 		delete(additionalProperties, "options")

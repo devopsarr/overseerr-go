@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the CreateUserRegisterPushSubscriptionRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateUserRegisterPushSubscriptionRequest{}
+
 // CreateUserRegisterPushSubscriptionRequest struct for CreateUserRegisterPushSubscriptionRequest
 type CreateUserRegisterPushSubscriptionRequest struct {
 	Endpoint string `json:"endpoint"`
@@ -59,7 +62,7 @@ func (o *CreateUserRegisterPushSubscriptionRequest) GetEndpoint() string {
 // and a boolean to check if the value has been set.
 func (o *CreateUserRegisterPushSubscriptionRequest) GetEndpointOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Endpoint, true
 }
@@ -83,7 +86,7 @@ func (o *CreateUserRegisterPushSubscriptionRequest) GetAuth() string {
 // and a boolean to check if the value has been set.
 func (o *CreateUserRegisterPushSubscriptionRequest) GetAuthOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Auth, true
 }
@@ -107,7 +110,7 @@ func (o *CreateUserRegisterPushSubscriptionRequest) GetP256dh() string {
 // and a boolean to check if the value has been set.
 func (o *CreateUserRegisterPushSubscriptionRequest) GetP256dhOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.P256dh, true
 }
@@ -118,34 +121,63 @@ func (o *CreateUserRegisterPushSubscriptionRequest) SetP256dh(v string) {
 }
 
 func (o CreateUserRegisterPushSubscriptionRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CreateUserRegisterPushSubscriptionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["endpoint"] = o.Endpoint
-	}
-	if true {
-		toSerialize["auth"] = o.Auth
-	}
-	if true {
-		toSerialize["p256dh"] = o.P256dh
-	}
+	toSerialize["endpoint"] = o.Endpoint
+	toSerialize["auth"] = o.Auth
+	toSerialize["p256dh"] = o.P256dh
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *CreateUserRegisterPushSubscriptionRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *CreateUserRegisterPushSubscriptionRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"endpoint",
+		"auth",
+		"p256dh",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varCreateUserRegisterPushSubscriptionRequest := _CreateUserRegisterPushSubscriptionRequest{}
 
-	if err = json.Unmarshal(bytes, &varCreateUserRegisterPushSubscriptionRequest); err == nil {
-		*o = CreateUserRegisterPushSubscriptionRequest(varCreateUserRegisterPushSubscriptionRequest)
+	err = json.Unmarshal(data, &varCreateUserRegisterPushSubscriptionRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = CreateUserRegisterPushSubscriptionRequest(varCreateUserRegisterPushSubscriptionRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "endpoint")
 		delete(additionalProperties, "auth")
 		delete(additionalProperties, "p256dh")

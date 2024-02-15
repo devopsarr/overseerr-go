@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the MovieDetailsProductionCountriesInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieDetailsProductionCountriesInner{}
+
 // MovieDetailsProductionCountriesInner struct for MovieDetailsProductionCountriesInner
 type MovieDetailsProductionCountriesInner struct {
 	Iso31661 *string `json:"iso_3166_1,omitempty"`
@@ -42,7 +45,7 @@ func NewMovieDetailsProductionCountriesInnerWithDefaults() *MovieDetailsProducti
 
 // GetIso31661 returns the Iso31661 field value if set, zero value otherwise.
 func (o *MovieDetailsProductionCountriesInner) GetIso31661() string {
-	if o == nil || isNil(o.Iso31661) {
+	if o == nil || IsNil(o.Iso31661) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *MovieDetailsProductionCountriesInner) GetIso31661() string {
 // GetIso31661Ok returns a tuple with the Iso31661 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsProductionCountriesInner) GetIso31661Ok() (*string, bool) {
-	if o == nil || isNil(o.Iso31661) {
-    return nil, false
+	if o == nil || IsNil(o.Iso31661) {
+		return nil, false
 	}
 	return o.Iso31661, true
 }
 
 // HasIso31661 returns a boolean if a field has been set.
 func (o *MovieDetailsProductionCountriesInner) HasIso31661() bool {
-	if o != nil && !isNil(o.Iso31661) {
+	if o != nil && !IsNil(o.Iso31661) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *MovieDetailsProductionCountriesInner) SetIso31661(v string) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *MovieDetailsProductionCountriesInner) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *MovieDetailsProductionCountriesInner) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieDetailsProductionCountriesInner) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *MovieDetailsProductionCountriesInner) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *MovieDetailsProductionCountriesInner) SetName(v string) {
 }
 
 func (o MovieDetailsProductionCountriesInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieDetailsProductionCountriesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Iso31661) {
+	if !IsNil(o.Iso31661) {
 		toSerialize["iso_3166_1"] = o.Iso31661
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 
@@ -117,19 +128,23 @@ func (o MovieDetailsProductionCountriesInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MovieDetailsProductionCountriesInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MovieDetailsProductionCountriesInner) UnmarshalJSON(data []byte) (err error) {
 	varMovieDetailsProductionCountriesInner := _MovieDetailsProductionCountriesInner{}
 
-	if err = json.Unmarshal(bytes, &varMovieDetailsProductionCountriesInner); err == nil {
-		*o = MovieDetailsProductionCountriesInner(varMovieDetailsProductionCountriesInner)
+	err = json.Unmarshal(data, &varMovieDetailsProductionCountriesInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MovieDetailsProductionCountriesInner(varMovieDetailsProductionCountriesInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "iso_3166_1")
 		delete(additionalProperties, "name")
 		o.AdditionalProperties = additionalProperties

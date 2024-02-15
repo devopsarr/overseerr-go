@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Company type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Company{}
+
 // Company struct for Company
 type Company struct {
 	Id *float32 `json:"id,omitempty"`
@@ -43,7 +46,7 @@ func NewCompanyWithDefaults() *Company {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Company) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -53,15 +56,15 @@ func (o *Company) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Company) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Company) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *Company) SetId(v float32) {
 
 // GetLogoPath returns the LogoPath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Company) GetLogoPath() string {
-	if o == nil || isNil(o.LogoPath.Get()) {
+	if o == nil || IsNil(o.LogoPath.Get()) {
 		var ret string
 		return ret
 	}
@@ -87,7 +90,7 @@ func (o *Company) GetLogoPath() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Company) GetLogoPathOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.LogoPath.Get(), o.LogoPath.IsSet()
 }
@@ -117,7 +120,7 @@ func (o *Company) UnsetLogoPath() {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Company) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -127,15 +130,15 @@ func (o *Company) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Company) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Company) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -148,14 +151,22 @@ func (o *Company) SetName(v string) {
 }
 
 func (o Company) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Company) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	if o.LogoPath.IsSet() {
 		toSerialize["logo_path"] = o.LogoPath.Get()
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 
@@ -163,19 +174,23 @@ func (o Company) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Company) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Company) UnmarshalJSON(data []byte) (err error) {
 	varCompany := _Company{}
 
-	if err = json.Unmarshal(bytes, &varCompany); err == nil {
-		*o = Company(varCompany)
+	err = json.Unmarshal(data, &varCompany)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Company(varCompany)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "logo_path")
 		delete(additionalProperties, "name")

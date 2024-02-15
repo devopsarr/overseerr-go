@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the MovieResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieResult{}
+
 // MovieResult struct for MovieResult
 type MovieResult struct {
 	Id float32 `json:"id"`
@@ -24,7 +27,7 @@ type MovieResult struct {
 	BackdropPath *string `json:"backdropPath,omitempty"`
 	VoteCount *float32 `json:"voteCount,omitempty"`
 	VoteAverage *float32 `json:"voteAverage,omitempty"`
-	GenreIds []*float32 `json:"genreIds,omitempty"`
+	GenreIds []float32 `json:"genreIds,omitempty"`
 	Overview *string `json:"overview,omitempty"`
 	OriginalLanguage *string `json:"originalLanguage,omitempty"`
 	Title string `json:"title"`
@@ -72,7 +75,7 @@ func (o *MovieResult) GetId() float32 {
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Id, true
 }
@@ -96,7 +99,7 @@ func (o *MovieResult) GetMediaType() string {
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetMediaTypeOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.MediaType, true
 }
@@ -108,7 +111,7 @@ func (o *MovieResult) SetMediaType(v string) {
 
 // GetPopularity returns the Popularity field value if set, zero value otherwise.
 func (o *MovieResult) GetPopularity() float32 {
-	if o == nil || isNil(o.Popularity) {
+	if o == nil || IsNil(o.Popularity) {
 		var ret float32
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *MovieResult) GetPopularity() float32 {
 // GetPopularityOk returns a tuple with the Popularity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetPopularityOk() (*float32, bool) {
-	if o == nil || isNil(o.Popularity) {
-    return nil, false
+	if o == nil || IsNil(o.Popularity) {
+		return nil, false
 	}
 	return o.Popularity, true
 }
 
 // HasPopularity returns a boolean if a field has been set.
 func (o *MovieResult) HasPopularity() bool {
-	if o != nil && !isNil(o.Popularity) {
+	if o != nil && !IsNil(o.Popularity) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *MovieResult) SetPopularity(v float32) {
 
 // GetPosterPath returns the PosterPath field value if set, zero value otherwise.
 func (o *MovieResult) GetPosterPath() string {
-	if o == nil || isNil(o.PosterPath) {
+	if o == nil || IsNil(o.PosterPath) {
 		var ret string
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *MovieResult) GetPosterPath() string {
 // GetPosterPathOk returns a tuple with the PosterPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetPosterPathOk() (*string, bool) {
-	if o == nil || isNil(o.PosterPath) {
-    return nil, false
+	if o == nil || IsNil(o.PosterPath) {
+		return nil, false
 	}
 	return o.PosterPath, true
 }
 
 // HasPosterPath returns a boolean if a field has been set.
 func (o *MovieResult) HasPosterPath() bool {
-	if o != nil && !isNil(o.PosterPath) {
+	if o != nil && !IsNil(o.PosterPath) {
 		return true
 	}
 
@@ -172,7 +175,7 @@ func (o *MovieResult) SetPosterPath(v string) {
 
 // GetBackdropPath returns the BackdropPath field value if set, zero value otherwise.
 func (o *MovieResult) GetBackdropPath() string {
-	if o == nil || isNil(o.BackdropPath) {
+	if o == nil || IsNil(o.BackdropPath) {
 		var ret string
 		return ret
 	}
@@ -182,15 +185,15 @@ func (o *MovieResult) GetBackdropPath() string {
 // GetBackdropPathOk returns a tuple with the BackdropPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetBackdropPathOk() (*string, bool) {
-	if o == nil || isNil(o.BackdropPath) {
-    return nil, false
+	if o == nil || IsNil(o.BackdropPath) {
+		return nil, false
 	}
 	return o.BackdropPath, true
 }
 
 // HasBackdropPath returns a boolean if a field has been set.
 func (o *MovieResult) HasBackdropPath() bool {
-	if o != nil && !isNil(o.BackdropPath) {
+	if o != nil && !IsNil(o.BackdropPath) {
 		return true
 	}
 
@@ -204,7 +207,7 @@ func (o *MovieResult) SetBackdropPath(v string) {
 
 // GetVoteCount returns the VoteCount field value if set, zero value otherwise.
 func (o *MovieResult) GetVoteCount() float32 {
-	if o == nil || isNil(o.VoteCount) {
+	if o == nil || IsNil(o.VoteCount) {
 		var ret float32
 		return ret
 	}
@@ -214,15 +217,15 @@ func (o *MovieResult) GetVoteCount() float32 {
 // GetVoteCountOk returns a tuple with the VoteCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetVoteCountOk() (*float32, bool) {
-	if o == nil || isNil(o.VoteCount) {
-    return nil, false
+	if o == nil || IsNil(o.VoteCount) {
+		return nil, false
 	}
 	return o.VoteCount, true
 }
 
 // HasVoteCount returns a boolean if a field has been set.
 func (o *MovieResult) HasVoteCount() bool {
-	if o != nil && !isNil(o.VoteCount) {
+	if o != nil && !IsNil(o.VoteCount) {
 		return true
 	}
 
@@ -236,7 +239,7 @@ func (o *MovieResult) SetVoteCount(v float32) {
 
 // GetVoteAverage returns the VoteAverage field value if set, zero value otherwise.
 func (o *MovieResult) GetVoteAverage() float32 {
-	if o == nil || isNil(o.VoteAverage) {
+	if o == nil || IsNil(o.VoteAverage) {
 		var ret float32
 		return ret
 	}
@@ -246,15 +249,15 @@ func (o *MovieResult) GetVoteAverage() float32 {
 // GetVoteAverageOk returns a tuple with the VoteAverage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetVoteAverageOk() (*float32, bool) {
-	if o == nil || isNil(o.VoteAverage) {
-    return nil, false
+	if o == nil || IsNil(o.VoteAverage) {
+		return nil, false
 	}
 	return o.VoteAverage, true
 }
 
 // HasVoteAverage returns a boolean if a field has been set.
 func (o *MovieResult) HasVoteAverage() bool {
-	if o != nil && !isNil(o.VoteAverage) {
+	if o != nil && !IsNil(o.VoteAverage) {
 		return true
 	}
 
@@ -267,9 +270,9 @@ func (o *MovieResult) SetVoteAverage(v float32) {
 }
 
 // GetGenreIds returns the GenreIds field value if set, zero value otherwise.
-func (o *MovieResult) GetGenreIds() []*float32 {
-	if o == nil || isNil(o.GenreIds) {
-		var ret []*float32
+func (o *MovieResult) GetGenreIds() []float32 {
+	if o == nil || IsNil(o.GenreIds) {
+		var ret []float32
 		return ret
 	}
 	return o.GenreIds
@@ -277,16 +280,16 @@ func (o *MovieResult) GetGenreIds() []*float32 {
 
 // GetGenreIdsOk returns a tuple with the GenreIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MovieResult) GetGenreIdsOk() ([]*float32, bool) {
-	if o == nil || isNil(o.GenreIds) {
-    return nil, false
+func (o *MovieResult) GetGenreIdsOk() ([]float32, bool) {
+	if o == nil || IsNil(o.GenreIds) {
+		return nil, false
 	}
 	return o.GenreIds, true
 }
 
 // HasGenreIds returns a boolean if a field has been set.
 func (o *MovieResult) HasGenreIds() bool {
-	if o != nil && !isNil(o.GenreIds) {
+	if o != nil && !IsNil(o.GenreIds) {
 		return true
 	}
 
@@ -294,13 +297,13 @@ func (o *MovieResult) HasGenreIds() bool {
 }
 
 // SetGenreIds gets a reference to the given []float32 and assigns it to the GenreIds field.
-func (o *MovieResult) SetGenreIds(v []*float32) {
+func (o *MovieResult) SetGenreIds(v []float32) {
 	o.GenreIds = v
 }
 
 // GetOverview returns the Overview field value if set, zero value otherwise.
 func (o *MovieResult) GetOverview() string {
-	if o == nil || isNil(o.Overview) {
+	if o == nil || IsNil(o.Overview) {
 		var ret string
 		return ret
 	}
@@ -310,15 +313,15 @@ func (o *MovieResult) GetOverview() string {
 // GetOverviewOk returns a tuple with the Overview field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetOverviewOk() (*string, bool) {
-	if o == nil || isNil(o.Overview) {
-    return nil, false
+	if o == nil || IsNil(o.Overview) {
+		return nil, false
 	}
 	return o.Overview, true
 }
 
 // HasOverview returns a boolean if a field has been set.
 func (o *MovieResult) HasOverview() bool {
-	if o != nil && !isNil(o.Overview) {
+	if o != nil && !IsNil(o.Overview) {
 		return true
 	}
 
@@ -332,7 +335,7 @@ func (o *MovieResult) SetOverview(v string) {
 
 // GetOriginalLanguage returns the OriginalLanguage field value if set, zero value otherwise.
 func (o *MovieResult) GetOriginalLanguage() string {
-	if o == nil || isNil(o.OriginalLanguage) {
+	if o == nil || IsNil(o.OriginalLanguage) {
 		var ret string
 		return ret
 	}
@@ -342,15 +345,15 @@ func (o *MovieResult) GetOriginalLanguage() string {
 // GetOriginalLanguageOk returns a tuple with the OriginalLanguage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetOriginalLanguageOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalLanguage) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalLanguage) {
+		return nil, false
 	}
 	return o.OriginalLanguage, true
 }
 
 // HasOriginalLanguage returns a boolean if a field has been set.
 func (o *MovieResult) HasOriginalLanguage() bool {
-	if o != nil && !isNil(o.OriginalLanguage) {
+	if o != nil && !IsNil(o.OriginalLanguage) {
 		return true
 	}
 
@@ -376,7 +379,7 @@ func (o *MovieResult) GetTitle() string {
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetTitleOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Title, true
 }
@@ -388,7 +391,7 @@ func (o *MovieResult) SetTitle(v string) {
 
 // GetOriginalTitle returns the OriginalTitle field value if set, zero value otherwise.
 func (o *MovieResult) GetOriginalTitle() string {
-	if o == nil || isNil(o.OriginalTitle) {
+	if o == nil || IsNil(o.OriginalTitle) {
 		var ret string
 		return ret
 	}
@@ -398,15 +401,15 @@ func (o *MovieResult) GetOriginalTitle() string {
 // GetOriginalTitleOk returns a tuple with the OriginalTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetOriginalTitleOk() (*string, bool) {
-	if o == nil || isNil(o.OriginalTitle) {
-    return nil, false
+	if o == nil || IsNil(o.OriginalTitle) {
+		return nil, false
 	}
 	return o.OriginalTitle, true
 }
 
 // HasOriginalTitle returns a boolean if a field has been set.
 func (o *MovieResult) HasOriginalTitle() bool {
-	if o != nil && !isNil(o.OriginalTitle) {
+	if o != nil && !IsNil(o.OriginalTitle) {
 		return true
 	}
 
@@ -420,7 +423,7 @@ func (o *MovieResult) SetOriginalTitle(v string) {
 
 // GetReleaseDate returns the ReleaseDate field value if set, zero value otherwise.
 func (o *MovieResult) GetReleaseDate() string {
-	if o == nil || isNil(o.ReleaseDate) {
+	if o == nil || IsNil(o.ReleaseDate) {
 		var ret string
 		return ret
 	}
@@ -430,15 +433,15 @@ func (o *MovieResult) GetReleaseDate() string {
 // GetReleaseDateOk returns a tuple with the ReleaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetReleaseDateOk() (*string, bool) {
-	if o == nil || isNil(o.ReleaseDate) {
-    return nil, false
+	if o == nil || IsNil(o.ReleaseDate) {
+		return nil, false
 	}
 	return o.ReleaseDate, true
 }
 
 // HasReleaseDate returns a boolean if a field has been set.
 func (o *MovieResult) HasReleaseDate() bool {
-	if o != nil && !isNil(o.ReleaseDate) {
+	if o != nil && !IsNil(o.ReleaseDate) {
 		return true
 	}
 
@@ -452,7 +455,7 @@ func (o *MovieResult) SetReleaseDate(v string) {
 
 // GetAdult returns the Adult field value if set, zero value otherwise.
 func (o *MovieResult) GetAdult() bool {
-	if o == nil || isNil(o.Adult) {
+	if o == nil || IsNil(o.Adult) {
 		var ret bool
 		return ret
 	}
@@ -462,15 +465,15 @@ func (o *MovieResult) GetAdult() bool {
 // GetAdultOk returns a tuple with the Adult field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetAdultOk() (*bool, bool) {
-	if o == nil || isNil(o.Adult) {
-    return nil, false
+	if o == nil || IsNil(o.Adult) {
+		return nil, false
 	}
 	return o.Adult, true
 }
 
 // HasAdult returns a boolean if a field has been set.
 func (o *MovieResult) HasAdult() bool {
-	if o != nil && !isNil(o.Adult) {
+	if o != nil && !IsNil(o.Adult) {
 		return true
 	}
 
@@ -484,7 +487,7 @@ func (o *MovieResult) SetAdult(v bool) {
 
 // GetVideo returns the Video field value if set, zero value otherwise.
 func (o *MovieResult) GetVideo() bool {
-	if o == nil || isNil(o.Video) {
+	if o == nil || IsNil(o.Video) {
 		var ret bool
 		return ret
 	}
@@ -494,15 +497,15 @@ func (o *MovieResult) GetVideo() bool {
 // GetVideoOk returns a tuple with the Video field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetVideoOk() (*bool, bool) {
-	if o == nil || isNil(o.Video) {
-    return nil, false
+	if o == nil || IsNil(o.Video) {
+		return nil, false
 	}
 	return o.Video, true
 }
 
 // HasVideo returns a boolean if a field has been set.
 func (o *MovieResult) HasVideo() bool {
-	if o != nil && !isNil(o.Video) {
+	if o != nil && !IsNil(o.Video) {
 		return true
 	}
 
@@ -516,7 +519,7 @@ func (o *MovieResult) SetVideo(v bool) {
 
 // GetMediaInfo returns the MediaInfo field value if set, zero value otherwise.
 func (o *MovieResult) GetMediaInfo() MediaInfo {
-	if o == nil || isNil(o.MediaInfo) {
+	if o == nil || IsNil(o.MediaInfo) {
 		var ret MediaInfo
 		return ret
 	}
@@ -526,15 +529,15 @@ func (o *MovieResult) GetMediaInfo() MediaInfo {
 // GetMediaInfoOk returns a tuple with the MediaInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MovieResult) GetMediaInfoOk() (*MediaInfo, bool) {
-	if o == nil || isNil(o.MediaInfo) {
-    return nil, false
+	if o == nil || IsNil(o.MediaInfo) {
+		return nil, false
 	}
 	return o.MediaInfo, true
 }
 
 // HasMediaInfo returns a boolean if a field has been set.
 func (o *MovieResult) HasMediaInfo() bool {
-	if o != nil && !isNil(o.MediaInfo) {
+	if o != nil && !IsNil(o.MediaInfo) {
 		return true
 	}
 
@@ -547,53 +550,55 @@ func (o *MovieResult) SetMediaInfo(v MediaInfo) {
 }
 
 func (o MovieResult) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["mediaType"] = o.MediaType
-	}
-	if !isNil(o.Popularity) {
+	toSerialize["id"] = o.Id
+	toSerialize["mediaType"] = o.MediaType
+	if !IsNil(o.Popularity) {
 		toSerialize["popularity"] = o.Popularity
 	}
-	if !isNil(o.PosterPath) {
+	if !IsNil(o.PosterPath) {
 		toSerialize["posterPath"] = o.PosterPath
 	}
-	if !isNil(o.BackdropPath) {
+	if !IsNil(o.BackdropPath) {
 		toSerialize["backdropPath"] = o.BackdropPath
 	}
-	if !isNil(o.VoteCount) {
+	if !IsNil(o.VoteCount) {
 		toSerialize["voteCount"] = o.VoteCount
 	}
-	if !isNil(o.VoteAverage) {
+	if !IsNil(o.VoteAverage) {
 		toSerialize["voteAverage"] = o.VoteAverage
 	}
-	if !isNil(o.GenreIds) {
+	if !IsNil(o.GenreIds) {
 		toSerialize["genreIds"] = o.GenreIds
 	}
-	if !isNil(o.Overview) {
+	if !IsNil(o.Overview) {
 		toSerialize["overview"] = o.Overview
 	}
-	if !isNil(o.OriginalLanguage) {
+	if !IsNil(o.OriginalLanguage) {
 		toSerialize["originalLanguage"] = o.OriginalLanguage
 	}
-	if true {
-		toSerialize["title"] = o.Title
-	}
-	if !isNil(o.OriginalTitle) {
+	toSerialize["title"] = o.Title
+	if !IsNil(o.OriginalTitle) {
 		toSerialize["originalTitle"] = o.OriginalTitle
 	}
-	if !isNil(o.ReleaseDate) {
+	if !IsNil(o.ReleaseDate) {
 		toSerialize["releaseDate"] = o.ReleaseDate
 	}
-	if !isNil(o.Adult) {
+	if !IsNil(o.Adult) {
 		toSerialize["adult"] = o.Adult
 	}
-	if !isNil(o.Video) {
+	if !IsNil(o.Video) {
 		toSerialize["video"] = o.Video
 	}
-	if !isNil(o.MediaInfo) {
+	if !IsNil(o.MediaInfo) {
 		toSerialize["mediaInfo"] = o.MediaInfo
 	}
 
@@ -601,19 +606,46 @@ func (o MovieResult) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MovieResult) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MovieResult) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"mediaType",
+		"title",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varMovieResult := _MovieResult{}
 
-	if err = json.Unmarshal(bytes, &varMovieResult); err == nil {
-		*o = MovieResult(varMovieResult)
+	err = json.Unmarshal(data, &varMovieResult)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MovieResult(varMovieResult)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "mediaType")
 		delete(additionalProperties, "popularity")

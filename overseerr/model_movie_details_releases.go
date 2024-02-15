@@ -14,9 +14,12 @@ import (
 	"encoding/json"
 )
 
+// checks if the MovieDetailsReleases type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MovieDetailsReleases{}
+
 // MovieDetailsReleases struct for MovieDetailsReleases
 type MovieDetailsReleases struct {
-	Results []*MovieDetailsReleasesResultsInner `json:"results,omitempty"`
+	Results []MovieDetailsReleasesResultsInner `json:"results,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -40,9 +43,9 @@ func NewMovieDetailsReleasesWithDefaults() *MovieDetailsReleases {
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *MovieDetailsReleases) GetResults() []*MovieDetailsReleasesResultsInner {
-	if o == nil || isNil(o.Results) {
-		var ret []*MovieDetailsReleasesResultsInner
+func (o *MovieDetailsReleases) GetResults() []MovieDetailsReleasesResultsInner {
+	if o == nil || IsNil(o.Results) {
+		var ret []MovieDetailsReleasesResultsInner
 		return ret
 	}
 	return o.Results
@@ -50,16 +53,16 @@ func (o *MovieDetailsReleases) GetResults() []*MovieDetailsReleasesResultsInner 
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MovieDetailsReleases) GetResultsOk() ([]*MovieDetailsReleasesResultsInner, bool) {
-	if o == nil || isNil(o.Results) {
-    return nil, false
+func (o *MovieDetailsReleases) GetResultsOk() ([]MovieDetailsReleasesResultsInner, bool) {
+	if o == nil || IsNil(o.Results) {
+		return nil, false
 	}
 	return o.Results, true
 }
 
 // HasResults returns a boolean if a field has been set.
 func (o *MovieDetailsReleases) HasResults() bool {
-	if o != nil && !isNil(o.Results) {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
@@ -67,13 +70,21 @@ func (o *MovieDetailsReleases) HasResults() bool {
 }
 
 // SetResults gets a reference to the given []MovieDetailsReleasesResultsInner and assigns it to the Results field.
-func (o *MovieDetailsReleases) SetResults(v []*MovieDetailsReleasesResultsInner) {
+func (o *MovieDetailsReleases) SetResults(v []MovieDetailsReleasesResultsInner) {
 	o.Results = v
 }
 
 func (o MovieDetailsReleases) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o MovieDetailsReleases) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Results) {
+	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
 
@@ -81,19 +92,23 @@ func (o MovieDetailsReleases) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *MovieDetailsReleases) UnmarshalJSON(bytes []byte) (err error) {
+func (o *MovieDetailsReleases) UnmarshalJSON(data []byte) (err error) {
 	varMovieDetailsReleases := _MovieDetailsReleases{}
 
-	if err = json.Unmarshal(bytes, &varMovieDetailsReleases); err == nil {
-		*o = MovieDetailsReleases(varMovieDetailsReleases)
+	err = json.Unmarshal(data, &varMovieDetailsReleases)
+
+	if err != nil {
+		return err
 	}
+
+	*o = MovieDetailsReleases(varMovieDetailsReleases)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "results")
 		o.AdditionalProperties = additionalProperties
 	}

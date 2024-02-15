@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the PlexConnection type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PlexConnection{}
+
 // PlexConnection struct for PlexConnection
 type PlexConnection struct {
 	Protocol string `json:"protocol"`
@@ -65,7 +68,7 @@ func (o *PlexConnection) GetProtocol() string {
 // and a boolean to check if the value has been set.
 func (o *PlexConnection) GetProtocolOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Protocol, true
 }
@@ -89,7 +92,7 @@ func (o *PlexConnection) GetAddress() string {
 // and a boolean to check if the value has been set.
 func (o *PlexConnection) GetAddressOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Address, true
 }
@@ -113,7 +116,7 @@ func (o *PlexConnection) GetPort() float32 {
 // and a boolean to check if the value has been set.
 func (o *PlexConnection) GetPortOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Port, true
 }
@@ -137,7 +140,7 @@ func (o *PlexConnection) GetUri() string {
 // and a boolean to check if the value has been set.
 func (o *PlexConnection) GetUriOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Uri, true
 }
@@ -161,7 +164,7 @@ func (o *PlexConnection) GetLocal() bool {
 // and a boolean to check if the value has been set.
 func (o *PlexConnection) GetLocalOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Local, true
 }
@@ -173,7 +176,7 @@ func (o *PlexConnection) SetLocal(v bool) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *PlexConnection) GetStatus() float32 {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret float32
 		return ret
 	}
@@ -183,15 +186,15 @@ func (o *PlexConnection) GetStatus() float32 {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexConnection) GetStatusOk() (*float32, bool) {
-	if o == nil || isNil(o.Status) {
-    return nil, false
+	if o == nil || IsNil(o.Status) {
+		return nil, false
 	}
 	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *PlexConnection) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -205,7 +208,7 @@ func (o *PlexConnection) SetStatus(v float32) {
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *PlexConnection) GetMessage() string {
-	if o == nil || isNil(o.Message) {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
@@ -215,15 +218,15 @@ func (o *PlexConnection) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PlexConnection) GetMessageOk() (*string, bool) {
-	if o == nil || isNil(o.Message) {
-    return nil, false
+	if o == nil || IsNil(o.Message) {
+		return nil, false
 	}
 	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *PlexConnection) HasMessage() bool {
-	if o != nil && !isNil(o.Message) {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
@@ -236,26 +239,24 @@ func (o *PlexConnection) SetMessage(v string) {
 }
 
 func (o PlexConnection) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PlexConnection) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["protocol"] = o.Protocol
-	}
-	if true {
-		toSerialize["address"] = o.Address
-	}
-	if true {
-		toSerialize["port"] = o.Port
-	}
-	if true {
-		toSerialize["uri"] = o.Uri
-	}
-	if true {
-		toSerialize["local"] = o.Local
-	}
-	if !isNil(o.Status) {
+	toSerialize["protocol"] = o.Protocol
+	toSerialize["address"] = o.Address
+	toSerialize["port"] = o.Port
+	toSerialize["uri"] = o.Uri
+	toSerialize["local"] = o.Local
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !isNil(o.Message) {
+	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
 
@@ -263,19 +264,48 @@ func (o PlexConnection) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PlexConnection) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PlexConnection) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"protocol",
+		"address",
+		"port",
+		"uri",
+		"local",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varPlexConnection := _PlexConnection{}
 
-	if err = json.Unmarshal(bytes, &varPlexConnection); err == nil {
-		*o = PlexConnection(varPlexConnection)
+	err = json.Unmarshal(data, &varPlexConnection)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PlexConnection(varPlexConnection)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "protocol")
 		delete(additionalProperties, "address")
 		delete(additionalProperties, "port")

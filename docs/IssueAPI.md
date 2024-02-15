@@ -31,24 +31,24 @@ Create new issue
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    createIssueRequest := *overseerrClient.NewCreateIssueRequest() // CreateIssueRequest | 
+	createIssueRequest := *overseerrClient.NewCreateIssueRequest() // CreateIssueRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.CreateIssue(context.Background()).CreateIssueRequest(createIssueRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssue``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateIssue`: Issue
-    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssue`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IssueAPI.CreateIssue(context.Background()).CreateIssueRequest(createIssueRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssue``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateIssue`: Issue
+	fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssue`: %v\n", resp)
 }
 ```
 
@@ -97,25 +97,25 @@ Update an issue's status
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    issueId := "1" // string | Issue ID
-    status := "status_example" // string | New status
+	issueId := "1" // string | Issue ID
+	status := "status_example" // string | New status
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.CreateIssueByStatus(context.Background(), issueId, status).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssueByStatus``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateIssueByStatus`: Issue
-    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssueByStatus`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IssueAPI.CreateIssueByStatus(context.Background(), issueId, status).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssueByStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateIssueByStatus`: Issue
+	fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssueByStatus`: %v\n", resp)
 }
 ```
 
@@ -170,25 +170,25 @@ Create a comment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    issueId := float32(1) // float32 | 
-    createIssueCommentRequest := *overseerrClient.NewCreateIssueCommentRequest("Message_example") // CreateIssueCommentRequest | 
+	issueId := float32(1) // float32 | 
+	createIssueCommentRequest := *overseerrClient.NewCreateIssueCommentRequest("Message_example") // CreateIssueCommentRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.CreateIssueComment(context.Background(), issueId).CreateIssueCommentRequest(createIssueCommentRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssueComment``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateIssueComment`: Issue
-    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssueComment`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IssueAPI.CreateIssueComment(context.Background(), issueId).CreateIssueCommentRequest(createIssueCommentRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.CreateIssueComment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateIssueComment`: Issue
+	fmt.Fprintf(os.Stdout, "Response from `IssueAPI.CreateIssueComment`: %v\n", resp)
 }
 ```
 
@@ -242,22 +242,22 @@ Delete issue
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    issueId := "1" // string | Issue ID
+	issueId := "1" // string | Issue ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.DeleteIssue(context.Background(), issueId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.DeleteIssue``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.IssueAPI.DeleteIssue(context.Background(), issueId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.DeleteIssue``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -310,22 +310,22 @@ Delete issue comment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    commentId := "1" // string | Issue Comment ID
+	commentId := "1" // string | Issue Comment ID
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.DeleteIssueComment(context.Background(), commentId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.DeleteIssueComment``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.IssueAPI.DeleteIssueComment(context.Background(), commentId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.DeleteIssueComment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -378,28 +378,28 @@ Get all issues
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    take := float32(20) // float32 |  (optional)
-    skip := float32(0) // float32 |  (optional)
-    sort := "sort_example" // string |  (optional) (default to "added")
-    filter := "filter_example" // string |  (optional) (default to "open")
-    requestedBy := float32(1) // float32 |  (optional)
+	take := float32(20) // float32 |  (optional)
+	skip := float32(0) // float32 |  (optional)
+	sort := "sort_example" // string |  (optional) (default to "added")
+	filter := "filter_example" // string |  (optional) (default to "open")
+	requestedBy := float32(1) // float32 |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.GetIssue(context.Background()).Take(take).Skip(skip).Sort(sort).Filter(filter).RequestedBy(requestedBy).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssue``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetIssue`: GetIssue2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssue`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IssueAPI.GetIssue(context.Background()).Take(take).Skip(skip).Sort(sort).Filter(filter).RequestedBy(requestedBy).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssue``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIssue`: GetIssue2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssue`: %v\n", resp)
 }
 ```
 
@@ -452,24 +452,24 @@ Get issue
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    issueId := float32(1) // float32 | 
+	issueId := float32(1) // float32 | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.GetIssueByIssueId(context.Background(), issueId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueByIssueId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetIssueByIssueId`: Issue
-    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueByIssueId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IssueAPI.GetIssueByIssueId(context.Background(), issueId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueByIssueId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIssueByIssueId`: Issue
+	fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueByIssueId`: %v\n", resp)
 }
 ```
 
@@ -522,24 +522,24 @@ Get issue comment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    commentId := "1" // string | 
+	commentId := "1" // string | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.GetIssueCommentByCommentId(context.Background(), commentId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueCommentByCommentId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetIssueCommentByCommentId`: IssueComment
-    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueCommentByCommentId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IssueAPI.GetIssueCommentByCommentId(context.Background(), commentId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueCommentByCommentId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIssueCommentByCommentId`: IssueComment
+	fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueCommentByCommentId`: %v\n", resp)
 }
 ```
 
@@ -592,23 +592,23 @@ Gets issue counts
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.GetIssueCount(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueCount``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetIssueCount`: GetIssueCount2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueCount`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IssueAPI.GetIssueCount(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.GetIssueCount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIssueCount`: GetIssueCount2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `IssueAPI.GetIssueCount`: %v\n", resp)
 }
 ```
 
@@ -653,25 +653,25 @@ Update issue comment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    commentId := "1" // string | 
-    updateIssueCommentRequest := *overseerrClient.NewUpdateIssueCommentRequest() // UpdateIssueCommentRequest | 
+	commentId := "1" // string | 
+	updateIssueCommentRequest := *overseerrClient.NewUpdateIssueCommentRequest() // UpdateIssueCommentRequest | 
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IssueAPI.UpdateIssueComment(context.Background(), commentId).UpdateIssueCommentRequest(updateIssueCommentRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.UpdateIssueComment``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateIssueComment`: IssueComment
-    fmt.Fprintf(os.Stdout, "Response from `IssueAPI.UpdateIssueComment`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IssueAPI.UpdateIssueComment(context.Background(), commentId).UpdateIssueCommentRequest(updateIssueCommentRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IssueAPI.UpdateIssueComment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateIssueComment`: IssueComment
+	fmt.Fprintf(os.Stdout, "Response from `IssueAPI.UpdateIssueComment`: %v\n", resp)
 }
 ```
 

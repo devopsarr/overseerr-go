@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Season type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Season{}
+
 // Season struct for Season
 type Season struct {
 	Id *float32 `json:"id,omitempty"`
@@ -23,7 +26,7 @@ type Season struct {
 	Overview *string `json:"overview,omitempty"`
 	PosterPath *string `json:"posterPath,omitempty"`
 	SeasonNumber *float32 `json:"seasonNumber,omitempty"`
-	Episodes []*Episode `json:"episodes,omitempty"`
+	Episodes []Episode `json:"episodes,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -48,7 +51,7 @@ func NewSeasonWithDefaults() *Season {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Season) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -58,15 +61,15 @@ func (o *Season) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Season) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *Season) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -80,7 +83,7 @@ func (o *Season) SetId(v float32) {
 
 // GetAirDate returns the AirDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Season) GetAirDate() string {
-	if o == nil || isNil(o.AirDate.Get()) {
+	if o == nil || IsNil(o.AirDate.Get()) {
 		var ret string
 		return ret
 	}
@@ -92,7 +95,7 @@ func (o *Season) GetAirDate() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Season) GetAirDateOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.AirDate.Get(), o.AirDate.IsSet()
 }
@@ -122,7 +125,7 @@ func (o *Season) UnsetAirDate() {
 
 // GetEpisodeCount returns the EpisodeCount field value if set, zero value otherwise.
 func (o *Season) GetEpisodeCount() float32 {
-	if o == nil || isNil(o.EpisodeCount) {
+	if o == nil || IsNil(o.EpisodeCount) {
 		var ret float32
 		return ret
 	}
@@ -132,15 +135,15 @@ func (o *Season) GetEpisodeCount() float32 {
 // GetEpisodeCountOk returns a tuple with the EpisodeCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Season) GetEpisodeCountOk() (*float32, bool) {
-	if o == nil || isNil(o.EpisodeCount) {
-    return nil, false
+	if o == nil || IsNil(o.EpisodeCount) {
+		return nil, false
 	}
 	return o.EpisodeCount, true
 }
 
 // HasEpisodeCount returns a boolean if a field has been set.
 func (o *Season) HasEpisodeCount() bool {
-	if o != nil && !isNil(o.EpisodeCount) {
+	if o != nil && !IsNil(o.EpisodeCount) {
 		return true
 	}
 
@@ -154,7 +157,7 @@ func (o *Season) SetEpisodeCount(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Season) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -164,15 +167,15 @@ func (o *Season) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Season) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *Season) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -186,7 +189,7 @@ func (o *Season) SetName(v string) {
 
 // GetOverview returns the Overview field value if set, zero value otherwise.
 func (o *Season) GetOverview() string {
-	if o == nil || isNil(o.Overview) {
+	if o == nil || IsNil(o.Overview) {
 		var ret string
 		return ret
 	}
@@ -196,15 +199,15 @@ func (o *Season) GetOverview() string {
 // GetOverviewOk returns a tuple with the Overview field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Season) GetOverviewOk() (*string, bool) {
-	if o == nil || isNil(o.Overview) {
-    return nil, false
+	if o == nil || IsNil(o.Overview) {
+		return nil, false
 	}
 	return o.Overview, true
 }
 
 // HasOverview returns a boolean if a field has been set.
 func (o *Season) HasOverview() bool {
-	if o != nil && !isNil(o.Overview) {
+	if o != nil && !IsNil(o.Overview) {
 		return true
 	}
 
@@ -218,7 +221,7 @@ func (o *Season) SetOverview(v string) {
 
 // GetPosterPath returns the PosterPath field value if set, zero value otherwise.
 func (o *Season) GetPosterPath() string {
-	if o == nil || isNil(o.PosterPath) {
+	if o == nil || IsNil(o.PosterPath) {
 		var ret string
 		return ret
 	}
@@ -228,15 +231,15 @@ func (o *Season) GetPosterPath() string {
 // GetPosterPathOk returns a tuple with the PosterPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Season) GetPosterPathOk() (*string, bool) {
-	if o == nil || isNil(o.PosterPath) {
-    return nil, false
+	if o == nil || IsNil(o.PosterPath) {
+		return nil, false
 	}
 	return o.PosterPath, true
 }
 
 // HasPosterPath returns a boolean if a field has been set.
 func (o *Season) HasPosterPath() bool {
-	if o != nil && !isNil(o.PosterPath) {
+	if o != nil && !IsNil(o.PosterPath) {
 		return true
 	}
 
@@ -250,7 +253,7 @@ func (o *Season) SetPosterPath(v string) {
 
 // GetSeasonNumber returns the SeasonNumber field value if set, zero value otherwise.
 func (o *Season) GetSeasonNumber() float32 {
-	if o == nil || isNil(o.SeasonNumber) {
+	if o == nil || IsNil(o.SeasonNumber) {
 		var ret float32
 		return ret
 	}
@@ -260,15 +263,15 @@ func (o *Season) GetSeasonNumber() float32 {
 // GetSeasonNumberOk returns a tuple with the SeasonNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Season) GetSeasonNumberOk() (*float32, bool) {
-	if o == nil || isNil(o.SeasonNumber) {
-    return nil, false
+	if o == nil || IsNil(o.SeasonNumber) {
+		return nil, false
 	}
 	return o.SeasonNumber, true
 }
 
 // HasSeasonNumber returns a boolean if a field has been set.
 func (o *Season) HasSeasonNumber() bool {
-	if o != nil && !isNil(o.SeasonNumber) {
+	if o != nil && !IsNil(o.SeasonNumber) {
 		return true
 	}
 
@@ -281,9 +284,9 @@ func (o *Season) SetSeasonNumber(v float32) {
 }
 
 // GetEpisodes returns the Episodes field value if set, zero value otherwise.
-func (o *Season) GetEpisodes() []*Episode {
-	if o == nil || isNil(o.Episodes) {
-		var ret []*Episode
+func (o *Season) GetEpisodes() []Episode {
+	if o == nil || IsNil(o.Episodes) {
+		var ret []Episode
 		return ret
 	}
 	return o.Episodes
@@ -291,16 +294,16 @@ func (o *Season) GetEpisodes() []*Episode {
 
 // GetEpisodesOk returns a tuple with the Episodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Season) GetEpisodesOk() ([]*Episode, bool) {
-	if o == nil || isNil(o.Episodes) {
-    return nil, false
+func (o *Season) GetEpisodesOk() ([]Episode, bool) {
+	if o == nil || IsNil(o.Episodes) {
+		return nil, false
 	}
 	return o.Episodes, true
 }
 
 // HasEpisodes returns a boolean if a field has been set.
 func (o *Season) HasEpisodes() bool {
-	if o != nil && !isNil(o.Episodes) {
+	if o != nil && !IsNil(o.Episodes) {
 		return true
 	}
 
@@ -308,34 +311,42 @@ func (o *Season) HasEpisodes() bool {
 }
 
 // SetEpisodes gets a reference to the given []Episode and assigns it to the Episodes field.
-func (o *Season) SetEpisodes(v []*Episode) {
+func (o *Season) SetEpisodes(v []Episode) {
 	o.Episodes = v
 }
 
 func (o Season) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Season) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
 	if o.AirDate.IsSet() {
 		toSerialize["airDate"] = o.AirDate.Get()
 	}
-	if !isNil(o.EpisodeCount) {
+	if !IsNil(o.EpisodeCount) {
 		toSerialize["episodeCount"] = o.EpisodeCount
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Overview) {
+	if !IsNil(o.Overview) {
 		toSerialize["overview"] = o.Overview
 	}
-	if !isNil(o.PosterPath) {
+	if !IsNil(o.PosterPath) {
 		toSerialize["posterPath"] = o.PosterPath
 	}
-	if !isNil(o.SeasonNumber) {
+	if !IsNil(o.SeasonNumber) {
 		toSerialize["seasonNumber"] = o.SeasonNumber
 	}
-	if !isNil(o.Episodes) {
+	if !IsNil(o.Episodes) {
 		toSerialize["episodes"] = o.Episodes
 	}
 
@@ -343,19 +354,23 @@ func (o Season) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *Season) UnmarshalJSON(bytes []byte) (err error) {
+func (o *Season) UnmarshalJSON(data []byte) (err error) {
 	varSeason := _Season{}
 
-	if err = json.Unmarshal(bytes, &varSeason); err == nil {
-		*o = Season(varSeason)
+	err = json.Unmarshal(data, &varSeason)
+
+	if err != nil {
+		return err
 	}
+
+	*o = Season(varSeason)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "airDate")
 		delete(additionalProperties, "episodeCount")

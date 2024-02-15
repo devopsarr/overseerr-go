@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the TestSonarrRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TestSonarrRequest{}
+
 // TestSonarrRequest struct for TestSonarrRequest
 type TestSonarrRequest struct {
 	Hostname string `json:"hostname"`
@@ -62,7 +65,7 @@ func (o *TestSonarrRequest) GetHostname() string {
 // and a boolean to check if the value has been set.
 func (o *TestSonarrRequest) GetHostnameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Hostname, true
 }
@@ -86,7 +89,7 @@ func (o *TestSonarrRequest) GetPort() float32 {
 // and a boolean to check if the value has been set.
 func (o *TestSonarrRequest) GetPortOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Port, true
 }
@@ -110,7 +113,7 @@ func (o *TestSonarrRequest) GetApiKey() string {
 // and a boolean to check if the value has been set.
 func (o *TestSonarrRequest) GetApiKeyOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ApiKey, true
 }
@@ -134,7 +137,7 @@ func (o *TestSonarrRequest) GetUseSsl() bool {
 // and a boolean to check if the value has been set.
 func (o *TestSonarrRequest) GetUseSslOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.UseSsl, true
 }
@@ -146,7 +149,7 @@ func (o *TestSonarrRequest) SetUseSsl(v bool) {
 
 // GetBaseUrl returns the BaseUrl field value if set, zero value otherwise.
 func (o *TestSonarrRequest) GetBaseUrl() string {
-	if o == nil || isNil(o.BaseUrl) {
+	if o == nil || IsNil(o.BaseUrl) {
 		var ret string
 		return ret
 	}
@@ -156,15 +159,15 @@ func (o *TestSonarrRequest) GetBaseUrl() string {
 // GetBaseUrlOk returns a tuple with the BaseUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TestSonarrRequest) GetBaseUrlOk() (*string, bool) {
-	if o == nil || isNil(o.BaseUrl) {
-    return nil, false
+	if o == nil || IsNil(o.BaseUrl) {
+		return nil, false
 	}
 	return o.BaseUrl, true
 }
 
 // HasBaseUrl returns a boolean if a field has been set.
 func (o *TestSonarrRequest) HasBaseUrl() bool {
-	if o != nil && !isNil(o.BaseUrl) {
+	if o != nil && !IsNil(o.BaseUrl) {
 		return true
 	}
 
@@ -177,20 +180,20 @@ func (o *TestSonarrRequest) SetBaseUrl(v string) {
 }
 
 func (o TestSonarrRequest) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o TestSonarrRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if true {
-		toSerialize["port"] = o.Port
-	}
-	if true {
-		toSerialize["apiKey"] = o.ApiKey
-	}
-	if true {
-		toSerialize["useSsl"] = o.UseSsl
-	}
-	if !isNil(o.BaseUrl) {
+	toSerialize["hostname"] = o.Hostname
+	toSerialize["port"] = o.Port
+	toSerialize["apiKey"] = o.ApiKey
+	toSerialize["useSsl"] = o.UseSsl
+	if !IsNil(o.BaseUrl) {
 		toSerialize["baseUrl"] = o.BaseUrl
 	}
 
@@ -198,19 +201,47 @@ func (o TestSonarrRequest) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *TestSonarrRequest) UnmarshalJSON(bytes []byte) (err error) {
+func (o *TestSonarrRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"hostname",
+		"port",
+		"apiKey",
+		"useSsl",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varTestSonarrRequest := _TestSonarrRequest{}
 
-	if err = json.Unmarshal(bytes, &varTestSonarrRequest); err == nil {
-		*o = TestSonarrRequest(varTestSonarrRequest)
+	err = json.Unmarshal(data, &varTestSonarrRequest)
+
+	if err != nil {
+		return err
 	}
+
+	*o = TestSonarrRequest(varTestSonarrRequest)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "hostname")
 		delete(additionalProperties, "port")
 		delete(additionalProperties, "apiKey")

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetUserQuota2XXResponseMovie type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetUserQuota2XXResponseMovie{}
+
 // GetUserQuota2XXResponseMovie struct for GetUserQuota2XXResponseMovie
 type GetUserQuota2XXResponseMovie struct {
 	Days *float32 `json:"days,omitempty"`
@@ -45,7 +48,7 @@ func NewGetUserQuota2XXResponseMovieWithDefaults() *GetUserQuota2XXResponseMovie
 
 // GetDays returns the Days field value if set, zero value otherwise.
 func (o *GetUserQuota2XXResponseMovie) GetDays() float32 {
-	if o == nil || isNil(o.Days) {
+	if o == nil || IsNil(o.Days) {
 		var ret float32
 		return ret
 	}
@@ -55,15 +58,15 @@ func (o *GetUserQuota2XXResponseMovie) GetDays() float32 {
 // GetDaysOk returns a tuple with the Days field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserQuota2XXResponseMovie) GetDaysOk() (*float32, bool) {
-	if o == nil || isNil(o.Days) {
-    return nil, false
+	if o == nil || IsNil(o.Days) {
+		return nil, false
 	}
 	return o.Days, true
 }
 
 // HasDays returns a boolean if a field has been set.
 func (o *GetUserQuota2XXResponseMovie) HasDays() bool {
-	if o != nil && !isNil(o.Days) {
+	if o != nil && !IsNil(o.Days) {
 		return true
 	}
 
@@ -77,7 +80,7 @@ func (o *GetUserQuota2XXResponseMovie) SetDays(v float32) {
 
 // GetLimit returns the Limit field value if set, zero value otherwise.
 func (o *GetUserQuota2XXResponseMovie) GetLimit() float32 {
-	if o == nil || isNil(o.Limit) {
+	if o == nil || IsNil(o.Limit) {
 		var ret float32
 		return ret
 	}
@@ -87,15 +90,15 @@ func (o *GetUserQuota2XXResponseMovie) GetLimit() float32 {
 // GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserQuota2XXResponseMovie) GetLimitOk() (*float32, bool) {
-	if o == nil || isNil(o.Limit) {
-    return nil, false
+	if o == nil || IsNil(o.Limit) {
+		return nil, false
 	}
 	return o.Limit, true
 }
 
 // HasLimit returns a boolean if a field has been set.
 func (o *GetUserQuota2XXResponseMovie) HasLimit() bool {
-	if o != nil && !isNil(o.Limit) {
+	if o != nil && !IsNil(o.Limit) {
 		return true
 	}
 
@@ -109,7 +112,7 @@ func (o *GetUserQuota2XXResponseMovie) SetLimit(v float32) {
 
 // GetUsed returns the Used field value if set, zero value otherwise.
 func (o *GetUserQuota2XXResponseMovie) GetUsed() float32 {
-	if o == nil || isNil(o.Used) {
+	if o == nil || IsNil(o.Used) {
 		var ret float32
 		return ret
 	}
@@ -119,15 +122,15 @@ func (o *GetUserQuota2XXResponseMovie) GetUsed() float32 {
 // GetUsedOk returns a tuple with the Used field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserQuota2XXResponseMovie) GetUsedOk() (*float32, bool) {
-	if o == nil || isNil(o.Used) {
-    return nil, false
+	if o == nil || IsNil(o.Used) {
+		return nil, false
 	}
 	return o.Used, true
 }
 
 // HasUsed returns a boolean if a field has been set.
 func (o *GetUserQuota2XXResponseMovie) HasUsed() bool {
-	if o != nil && !isNil(o.Used) {
+	if o != nil && !IsNil(o.Used) {
 		return true
 	}
 
@@ -141,7 +144,7 @@ func (o *GetUserQuota2XXResponseMovie) SetUsed(v float32) {
 
 // GetRemaining returns the Remaining field value if set, zero value otherwise.
 func (o *GetUserQuota2XXResponseMovie) GetRemaining() float32 {
-	if o == nil || isNil(o.Remaining) {
+	if o == nil || IsNil(o.Remaining) {
 		var ret float32
 		return ret
 	}
@@ -151,15 +154,15 @@ func (o *GetUserQuota2XXResponseMovie) GetRemaining() float32 {
 // GetRemainingOk returns a tuple with the Remaining field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserQuota2XXResponseMovie) GetRemainingOk() (*float32, bool) {
-	if o == nil || isNil(o.Remaining) {
-    return nil, false
+	if o == nil || IsNil(o.Remaining) {
+		return nil, false
 	}
 	return o.Remaining, true
 }
 
 // HasRemaining returns a boolean if a field has been set.
 func (o *GetUserQuota2XXResponseMovie) HasRemaining() bool {
-	if o != nil && !isNil(o.Remaining) {
+	if o != nil && !IsNil(o.Remaining) {
 		return true
 	}
 
@@ -173,7 +176,7 @@ func (o *GetUserQuota2XXResponseMovie) SetRemaining(v float32) {
 
 // GetRestricted returns the Restricted field value if set, zero value otherwise.
 func (o *GetUserQuota2XXResponseMovie) GetRestricted() bool {
-	if o == nil || isNil(o.Restricted) {
+	if o == nil || IsNil(o.Restricted) {
 		var ret bool
 		return ret
 	}
@@ -183,15 +186,15 @@ func (o *GetUserQuota2XXResponseMovie) GetRestricted() bool {
 // GetRestrictedOk returns a tuple with the Restricted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetUserQuota2XXResponseMovie) GetRestrictedOk() (*bool, bool) {
-	if o == nil || isNil(o.Restricted) {
-    return nil, false
+	if o == nil || IsNil(o.Restricted) {
+		return nil, false
 	}
 	return o.Restricted, true
 }
 
 // HasRestricted returns a boolean if a field has been set.
 func (o *GetUserQuota2XXResponseMovie) HasRestricted() bool {
-	if o != nil && !isNil(o.Restricted) {
+	if o != nil && !IsNil(o.Restricted) {
 		return true
 	}
 
@@ -204,20 +207,28 @@ func (o *GetUserQuota2XXResponseMovie) SetRestricted(v bool) {
 }
 
 func (o GetUserQuota2XXResponseMovie) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetUserQuota2XXResponseMovie) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Days) {
+	if !IsNil(o.Days) {
 		toSerialize["days"] = o.Days
 	}
-	if !isNil(o.Limit) {
+	if !IsNil(o.Limit) {
 		toSerialize["limit"] = o.Limit
 	}
-	if !isNil(o.Used) {
+	if !IsNil(o.Used) {
 		toSerialize["used"] = o.Used
 	}
-	if !isNil(o.Remaining) {
+	if !IsNil(o.Remaining) {
 		toSerialize["remaining"] = o.Remaining
 	}
-	if !isNil(o.Restricted) {
+	if !IsNil(o.Restricted) {
 		toSerialize["restricted"] = o.Restricted
 	}
 
@@ -225,19 +236,23 @@ func (o GetUserQuota2XXResponseMovie) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetUserQuota2XXResponseMovie) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetUserQuota2XXResponseMovie) UnmarshalJSON(data []byte) (err error) {
 	varGetUserQuota2XXResponseMovie := _GetUserQuota2XXResponseMovie{}
 
-	if err = json.Unmarshal(bytes, &varGetUserQuota2XXResponseMovie); err == nil {
-		*o = GetUserQuota2XXResponseMovie(varGetUserQuota2XXResponseMovie)
+	err = json.Unmarshal(data, &varGetUserQuota2XXResponseMovie)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetUserQuota2XXResponseMovie(varGetUserQuota2XXResponseMovie)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "days")
 		delete(additionalProperties, "limit")
 		delete(additionalProperties, "used")

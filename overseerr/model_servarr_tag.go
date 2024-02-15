@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ServarrTag type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ServarrTag{}
+
 // ServarrTag struct for ServarrTag
 type ServarrTag struct {
 	Id *float32 `json:"id,omitempty"`
@@ -42,7 +45,7 @@ func NewServarrTagWithDefaults() *ServarrTag {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ServarrTag) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *ServarrTag) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ServarrTag) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *ServarrTag) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *ServarrTag) SetId(v float32) {
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ServarrTag) GetLabel() string {
-	if o == nil || isNil(o.Label) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *ServarrTag) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ServarrTag) GetLabelOk() (*string, bool) {
-	if o == nil || isNil(o.Label) {
-    return nil, false
+	if o == nil || IsNil(o.Label) {
+		return nil, false
 	}
 	return o.Label, true
 }
 
 // HasLabel returns a boolean if a field has been set.
 func (o *ServarrTag) HasLabel() bool {
-	if o != nil && !isNil(o.Label) {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *ServarrTag) SetLabel(v string) {
 }
 
 func (o ServarrTag) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ServarrTag) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Label) {
+	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
 
@@ -117,19 +128,23 @@ func (o ServarrTag) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *ServarrTag) UnmarshalJSON(bytes []byte) (err error) {
+func (o *ServarrTag) UnmarshalJSON(data []byte) (err error) {
 	varServarrTag := _ServarrTag{}
 
-	if err = json.Unmarshal(bytes, &varServarrTag); err == nil {
-		*o = ServarrTag(varServarrTag)
+	err = json.Unmarshal(data, &varServarrTag)
+
+	if err != nil {
+		return err
 	}
+
+	*o = ServarrTag(varServarrTag)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "label")
 		o.AdditionalProperties = additionalProperties

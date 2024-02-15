@@ -23,25 +23,25 @@ Get person details
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    personId := float32(287) // float32 | 
-    language := "en" // string |  (optional)
+	personId := float32(287) // float32 | 
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PersonAPI.GetPersonByPersonId(context.Background(), personId).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PersonAPI.GetPersonByPersonId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPersonByPersonId`: PersonDetails
-    fmt.Fprintf(os.Stdout, "Response from `PersonAPI.GetPersonByPersonId`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PersonAPI.GetPersonByPersonId(context.Background(), personId).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PersonAPI.GetPersonByPersonId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPersonByPersonId`: PersonDetails
+	fmt.Fprintf(os.Stdout, "Response from `PersonAPI.GetPersonByPersonId`: %v\n", resp)
 }
 ```
 
@@ -95,25 +95,25 @@ Get combined credits
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    overseerrClient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
 )
 
 func main() {
-    personId := float32(287) // float32 | 
-    language := "en" // string |  (optional)
+	personId := float32(287) // float32 | 
+	language := "en" // string |  (optional)
 
-    configuration := overseerrClient.NewConfiguration()
-    apiClient := overseerrClient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PersonAPI.GetPersonCombinedCredits(context.Background(), personId).Language(language).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PersonAPI.GetPersonCombinedCredits``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetPersonCombinedCredits`: GetPersonCombinedCredits2XXResponse
-    fmt.Fprintf(os.Stdout, "Response from `PersonAPI.GetPersonCombinedCredits`: %v\n", resp)
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PersonAPI.GetPersonCombinedCredits(context.Background(), personId).Language(language).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PersonAPI.GetPersonCombinedCredits``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPersonCombinedCredits`: GetPersonCombinedCredits2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `PersonAPI.GetPersonCombinedCredits`: %v\n", resp)
 }
 ```
 

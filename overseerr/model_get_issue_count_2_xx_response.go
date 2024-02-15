@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetIssueCount2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetIssueCount2XXResponse{}
+
 // GetIssueCount2XXResponse struct for GetIssueCount2XXResponse
 type GetIssueCount2XXResponse struct {
 	Total *float32 `json:"total,omitempty"`
@@ -47,7 +50,7 @@ func NewGetIssueCount2XXResponseWithDefaults() *GetIssueCount2XXResponse {
 
 // GetTotal returns the Total field value if set, zero value otherwise.
 func (o *GetIssueCount2XXResponse) GetTotal() float32 {
-	if o == nil || isNil(o.Total) {
+	if o == nil || IsNil(o.Total) {
 		var ret float32
 		return ret
 	}
@@ -57,15 +60,15 @@ func (o *GetIssueCount2XXResponse) GetTotal() float32 {
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetIssueCount2XXResponse) GetTotalOk() (*float32, bool) {
-	if o == nil || isNil(o.Total) {
-    return nil, false
+	if o == nil || IsNil(o.Total) {
+		return nil, false
 	}
 	return o.Total, true
 }
 
 // HasTotal returns a boolean if a field has been set.
 func (o *GetIssueCount2XXResponse) HasTotal() bool {
-	if o != nil && !isNil(o.Total) {
+	if o != nil && !IsNil(o.Total) {
 		return true
 	}
 
@@ -79,7 +82,7 @@ func (o *GetIssueCount2XXResponse) SetTotal(v float32) {
 
 // GetVideo returns the Video field value if set, zero value otherwise.
 func (o *GetIssueCount2XXResponse) GetVideo() float32 {
-	if o == nil || isNil(o.Video) {
+	if o == nil || IsNil(o.Video) {
 		var ret float32
 		return ret
 	}
@@ -89,15 +92,15 @@ func (o *GetIssueCount2XXResponse) GetVideo() float32 {
 // GetVideoOk returns a tuple with the Video field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetIssueCount2XXResponse) GetVideoOk() (*float32, bool) {
-	if o == nil || isNil(o.Video) {
-    return nil, false
+	if o == nil || IsNil(o.Video) {
+		return nil, false
 	}
 	return o.Video, true
 }
 
 // HasVideo returns a boolean if a field has been set.
 func (o *GetIssueCount2XXResponse) HasVideo() bool {
-	if o != nil && !isNil(o.Video) {
+	if o != nil && !IsNil(o.Video) {
 		return true
 	}
 
@@ -111,7 +114,7 @@ func (o *GetIssueCount2XXResponse) SetVideo(v float32) {
 
 // GetAudio returns the Audio field value if set, zero value otherwise.
 func (o *GetIssueCount2XXResponse) GetAudio() float32 {
-	if o == nil || isNil(o.Audio) {
+	if o == nil || IsNil(o.Audio) {
 		var ret float32
 		return ret
 	}
@@ -121,15 +124,15 @@ func (o *GetIssueCount2XXResponse) GetAudio() float32 {
 // GetAudioOk returns a tuple with the Audio field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetIssueCount2XXResponse) GetAudioOk() (*float32, bool) {
-	if o == nil || isNil(o.Audio) {
-    return nil, false
+	if o == nil || IsNil(o.Audio) {
+		return nil, false
 	}
 	return o.Audio, true
 }
 
 // HasAudio returns a boolean if a field has been set.
 func (o *GetIssueCount2XXResponse) HasAudio() bool {
-	if o != nil && !isNil(o.Audio) {
+	if o != nil && !IsNil(o.Audio) {
 		return true
 	}
 
@@ -143,7 +146,7 @@ func (o *GetIssueCount2XXResponse) SetAudio(v float32) {
 
 // GetSubtitles returns the Subtitles field value if set, zero value otherwise.
 func (o *GetIssueCount2XXResponse) GetSubtitles() float32 {
-	if o == nil || isNil(o.Subtitles) {
+	if o == nil || IsNil(o.Subtitles) {
 		var ret float32
 		return ret
 	}
@@ -153,15 +156,15 @@ func (o *GetIssueCount2XXResponse) GetSubtitles() float32 {
 // GetSubtitlesOk returns a tuple with the Subtitles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetIssueCount2XXResponse) GetSubtitlesOk() (*float32, bool) {
-	if o == nil || isNil(o.Subtitles) {
-    return nil, false
+	if o == nil || IsNil(o.Subtitles) {
+		return nil, false
 	}
 	return o.Subtitles, true
 }
 
 // HasSubtitles returns a boolean if a field has been set.
 func (o *GetIssueCount2XXResponse) HasSubtitles() bool {
-	if o != nil && !isNil(o.Subtitles) {
+	if o != nil && !IsNil(o.Subtitles) {
 		return true
 	}
 
@@ -175,7 +178,7 @@ func (o *GetIssueCount2XXResponse) SetSubtitles(v float32) {
 
 // GetOthers returns the Others field value if set, zero value otherwise.
 func (o *GetIssueCount2XXResponse) GetOthers() float32 {
-	if o == nil || isNil(o.Others) {
+	if o == nil || IsNil(o.Others) {
 		var ret float32
 		return ret
 	}
@@ -185,15 +188,15 @@ func (o *GetIssueCount2XXResponse) GetOthers() float32 {
 // GetOthersOk returns a tuple with the Others field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetIssueCount2XXResponse) GetOthersOk() (*float32, bool) {
-	if o == nil || isNil(o.Others) {
-    return nil, false
+	if o == nil || IsNil(o.Others) {
+		return nil, false
 	}
 	return o.Others, true
 }
 
 // HasOthers returns a boolean if a field has been set.
 func (o *GetIssueCount2XXResponse) HasOthers() bool {
-	if o != nil && !isNil(o.Others) {
+	if o != nil && !IsNil(o.Others) {
 		return true
 	}
 
@@ -207,7 +210,7 @@ func (o *GetIssueCount2XXResponse) SetOthers(v float32) {
 
 // GetOpen returns the Open field value if set, zero value otherwise.
 func (o *GetIssueCount2XXResponse) GetOpen() float32 {
-	if o == nil || isNil(o.Open) {
+	if o == nil || IsNil(o.Open) {
 		var ret float32
 		return ret
 	}
@@ -217,15 +220,15 @@ func (o *GetIssueCount2XXResponse) GetOpen() float32 {
 // GetOpenOk returns a tuple with the Open field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetIssueCount2XXResponse) GetOpenOk() (*float32, bool) {
-	if o == nil || isNil(o.Open) {
-    return nil, false
+	if o == nil || IsNil(o.Open) {
+		return nil, false
 	}
 	return o.Open, true
 }
 
 // HasOpen returns a boolean if a field has been set.
 func (o *GetIssueCount2XXResponse) HasOpen() bool {
-	if o != nil && !isNil(o.Open) {
+	if o != nil && !IsNil(o.Open) {
 		return true
 	}
 
@@ -239,7 +242,7 @@ func (o *GetIssueCount2XXResponse) SetOpen(v float32) {
 
 // GetClosed returns the Closed field value if set, zero value otherwise.
 func (o *GetIssueCount2XXResponse) GetClosed() float32 {
-	if o == nil || isNil(o.Closed) {
+	if o == nil || IsNil(o.Closed) {
 		var ret float32
 		return ret
 	}
@@ -249,15 +252,15 @@ func (o *GetIssueCount2XXResponse) GetClosed() float32 {
 // GetClosedOk returns a tuple with the Closed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetIssueCount2XXResponse) GetClosedOk() (*float32, bool) {
-	if o == nil || isNil(o.Closed) {
-    return nil, false
+	if o == nil || IsNil(o.Closed) {
+		return nil, false
 	}
 	return o.Closed, true
 }
 
 // HasClosed returns a boolean if a field has been set.
 func (o *GetIssueCount2XXResponse) HasClosed() bool {
-	if o != nil && !isNil(o.Closed) {
+	if o != nil && !IsNil(o.Closed) {
 		return true
 	}
 
@@ -270,26 +273,34 @@ func (o *GetIssueCount2XXResponse) SetClosed(v float32) {
 }
 
 func (o GetIssueCount2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetIssueCount2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Total) {
+	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}
-	if !isNil(o.Video) {
+	if !IsNil(o.Video) {
 		toSerialize["video"] = o.Video
 	}
-	if !isNil(o.Audio) {
+	if !IsNil(o.Audio) {
 		toSerialize["audio"] = o.Audio
 	}
-	if !isNil(o.Subtitles) {
+	if !IsNil(o.Subtitles) {
 		toSerialize["subtitles"] = o.Subtitles
 	}
-	if !isNil(o.Others) {
+	if !IsNil(o.Others) {
 		toSerialize["others"] = o.Others
 	}
-	if !isNil(o.Open) {
+	if !IsNil(o.Open) {
 		toSerialize["open"] = o.Open
 	}
-	if !isNil(o.Closed) {
+	if !IsNil(o.Closed) {
 		toSerialize["closed"] = o.Closed
 	}
 
@@ -297,19 +308,23 @@ func (o GetIssueCount2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetIssueCount2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetIssueCount2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetIssueCount2XXResponse := _GetIssueCount2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetIssueCount2XXResponse); err == nil {
-		*o = GetIssueCount2XXResponse(varGetIssueCount2XXResponse)
+	err = json.Unmarshal(data, &varGetIssueCount2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetIssueCount2XXResponse(varGetIssueCount2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "total")
 		delete(additionalProperties, "video")
 		delete(additionalProperties, "audio")

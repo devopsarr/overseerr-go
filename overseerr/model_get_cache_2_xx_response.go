@@ -14,10 +14,13 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetCache2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetCache2XXResponse{}
+
 // GetCache2XXResponse struct for GetCache2XXResponse
 type GetCache2XXResponse struct {
 	ImageCache *GetCache2XXResponseImageCache `json:"imageCache,omitempty"`
-	ApiCaches []*GetCache2XXResponseApiCachesInner `json:"apiCaches,omitempty"`
+	ApiCaches []GetCache2XXResponseApiCachesInner `json:"apiCaches,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -42,7 +45,7 @@ func NewGetCache2XXResponseWithDefaults() *GetCache2XXResponse {
 
 // GetImageCache returns the ImageCache field value if set, zero value otherwise.
 func (o *GetCache2XXResponse) GetImageCache() GetCache2XXResponseImageCache {
-	if o == nil || isNil(o.ImageCache) {
+	if o == nil || IsNil(o.ImageCache) {
 		var ret GetCache2XXResponseImageCache
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GetCache2XXResponse) GetImageCache() GetCache2XXResponseImageCache {
 // GetImageCacheOk returns a tuple with the ImageCache field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetCache2XXResponse) GetImageCacheOk() (*GetCache2XXResponseImageCache, bool) {
-	if o == nil || isNil(o.ImageCache) {
-    return nil, false
+	if o == nil || IsNil(o.ImageCache) {
+		return nil, false
 	}
 	return o.ImageCache, true
 }
 
 // HasImageCache returns a boolean if a field has been set.
 func (o *GetCache2XXResponse) HasImageCache() bool {
-	if o != nil && !isNil(o.ImageCache) {
+	if o != nil && !IsNil(o.ImageCache) {
 		return true
 	}
 
@@ -73,9 +76,9 @@ func (o *GetCache2XXResponse) SetImageCache(v GetCache2XXResponseImageCache) {
 }
 
 // GetApiCaches returns the ApiCaches field value if set, zero value otherwise.
-func (o *GetCache2XXResponse) GetApiCaches() []*GetCache2XXResponseApiCachesInner {
-	if o == nil || isNil(o.ApiCaches) {
-		var ret []*GetCache2XXResponseApiCachesInner
+func (o *GetCache2XXResponse) GetApiCaches() []GetCache2XXResponseApiCachesInner {
+	if o == nil || IsNil(o.ApiCaches) {
+		var ret []GetCache2XXResponseApiCachesInner
 		return ret
 	}
 	return o.ApiCaches
@@ -83,16 +86,16 @@ func (o *GetCache2XXResponse) GetApiCaches() []*GetCache2XXResponseApiCachesInne
 
 // GetApiCachesOk returns a tuple with the ApiCaches field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetCache2XXResponse) GetApiCachesOk() ([]*GetCache2XXResponseApiCachesInner, bool) {
-	if o == nil || isNil(o.ApiCaches) {
-    return nil, false
+func (o *GetCache2XXResponse) GetApiCachesOk() ([]GetCache2XXResponseApiCachesInner, bool) {
+	if o == nil || IsNil(o.ApiCaches) {
+		return nil, false
 	}
 	return o.ApiCaches, true
 }
 
 // HasApiCaches returns a boolean if a field has been set.
 func (o *GetCache2XXResponse) HasApiCaches() bool {
-	if o != nil && !isNil(o.ApiCaches) {
+	if o != nil && !IsNil(o.ApiCaches) {
 		return true
 	}
 
@@ -100,16 +103,24 @@ func (o *GetCache2XXResponse) HasApiCaches() bool {
 }
 
 // SetApiCaches gets a reference to the given []GetCache2XXResponseApiCachesInner and assigns it to the ApiCaches field.
-func (o *GetCache2XXResponse) SetApiCaches(v []*GetCache2XXResponseApiCachesInner) {
+func (o *GetCache2XXResponse) SetApiCaches(v []GetCache2XXResponseApiCachesInner) {
 	o.ApiCaches = v
 }
 
 func (o GetCache2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetCache2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.ImageCache) {
+	if !IsNil(o.ImageCache) {
 		toSerialize["imageCache"] = o.ImageCache
 	}
-	if !isNil(o.ApiCaches) {
+	if !IsNil(o.ApiCaches) {
 		toSerialize["apiCaches"] = o.ApiCaches
 	}
 
@@ -117,19 +128,23 @@ func (o GetCache2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetCache2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetCache2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetCache2XXResponse := _GetCache2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetCache2XXResponse); err == nil {
-		*o = GetCache2XXResponse(varGetCache2XXResponse)
+	err = json.Unmarshal(data, &varGetCache2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetCache2XXResponse(varGetCache2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "imageCache")
 		delete(additionalProperties, "apiCaches")
 		o.AdditionalProperties = additionalProperties

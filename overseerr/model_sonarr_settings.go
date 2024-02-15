@@ -15,6 +15,9 @@ import (
 	"fmt"
 )
 
+// checks if the SonarrSettings type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SonarrSettings{}
+
 // SonarrSettings struct for SonarrSettings
 type SonarrSettings struct {
 	Id *float32 `json:"id,omitempty"`
@@ -73,7 +76,7 @@ func NewSonarrSettingsWithDefaults() *SonarrSettings {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *SonarrSettings) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -83,15 +86,15 @@ func (o *SonarrSettings) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *SonarrSettings) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -117,7 +120,7 @@ func (o *SonarrSettings) GetName() string {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Name, true
 }
@@ -141,7 +144,7 @@ func (o *SonarrSettings) GetHostname() string {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetHostnameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Hostname, true
 }
@@ -165,7 +168,7 @@ func (o *SonarrSettings) GetPort() float32 {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetPortOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Port, true
 }
@@ -189,7 +192,7 @@ func (o *SonarrSettings) GetApiKey() string {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetApiKeyOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ApiKey, true
 }
@@ -213,7 +216,7 @@ func (o *SonarrSettings) GetUseSsl() bool {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetUseSslOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.UseSsl, true
 }
@@ -225,7 +228,7 @@ func (o *SonarrSettings) SetUseSsl(v bool) {
 
 // GetBaseUrl returns the BaseUrl field value if set, zero value otherwise.
 func (o *SonarrSettings) GetBaseUrl() string {
-	if o == nil || isNil(o.BaseUrl) {
+	if o == nil || IsNil(o.BaseUrl) {
 		var ret string
 		return ret
 	}
@@ -235,15 +238,15 @@ func (o *SonarrSettings) GetBaseUrl() string {
 // GetBaseUrlOk returns a tuple with the BaseUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetBaseUrlOk() (*string, bool) {
-	if o == nil || isNil(o.BaseUrl) {
-    return nil, false
+	if o == nil || IsNil(o.BaseUrl) {
+		return nil, false
 	}
 	return o.BaseUrl, true
 }
 
 // HasBaseUrl returns a boolean if a field has been set.
 func (o *SonarrSettings) HasBaseUrl() bool {
-	if o != nil && !isNil(o.BaseUrl) {
+	if o != nil && !IsNil(o.BaseUrl) {
 		return true
 	}
 
@@ -269,7 +272,7 @@ func (o *SonarrSettings) GetActiveProfileId() float32 {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetActiveProfileIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ActiveProfileId, true
 }
@@ -293,7 +296,7 @@ func (o *SonarrSettings) GetActiveProfileName() string {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetActiveProfileNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ActiveProfileName, true
 }
@@ -317,7 +320,7 @@ func (o *SonarrSettings) GetActiveDirectory() string {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetActiveDirectoryOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.ActiveDirectory, true
 }
@@ -329,7 +332,7 @@ func (o *SonarrSettings) SetActiveDirectory(v string) {
 
 // GetActiveLanguageProfileId returns the ActiveLanguageProfileId field value if set, zero value otherwise.
 func (o *SonarrSettings) GetActiveLanguageProfileId() float32 {
-	if o == nil || isNil(o.ActiveLanguageProfileId) {
+	if o == nil || IsNil(o.ActiveLanguageProfileId) {
 		var ret float32
 		return ret
 	}
@@ -339,15 +342,15 @@ func (o *SonarrSettings) GetActiveLanguageProfileId() float32 {
 // GetActiveLanguageProfileIdOk returns a tuple with the ActiveLanguageProfileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetActiveLanguageProfileIdOk() (*float32, bool) {
-	if o == nil || isNil(o.ActiveLanguageProfileId) {
-    return nil, false
+	if o == nil || IsNil(o.ActiveLanguageProfileId) {
+		return nil, false
 	}
 	return o.ActiveLanguageProfileId, true
 }
 
 // HasActiveLanguageProfileId returns a boolean if a field has been set.
 func (o *SonarrSettings) HasActiveLanguageProfileId() bool {
-	if o != nil && !isNil(o.ActiveLanguageProfileId) {
+	if o != nil && !IsNil(o.ActiveLanguageProfileId) {
 		return true
 	}
 
@@ -361,7 +364,7 @@ func (o *SonarrSettings) SetActiveLanguageProfileId(v float32) {
 
 // GetActiveAnimeProfileId returns the ActiveAnimeProfileId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSettings) GetActiveAnimeProfileId() float32 {
-	if o == nil || isNil(o.ActiveAnimeProfileId.Get()) {
+	if o == nil || IsNil(o.ActiveAnimeProfileId.Get()) {
 		var ret float32
 		return ret
 	}
@@ -373,7 +376,7 @@ func (o *SonarrSettings) GetActiveAnimeProfileId() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSettings) GetActiveAnimeProfileIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ActiveAnimeProfileId.Get(), o.ActiveAnimeProfileId.IsSet()
 }
@@ -403,7 +406,7 @@ func (o *SonarrSettings) UnsetActiveAnimeProfileId() {
 
 // GetActiveAnimeLanguageProfileId returns the ActiveAnimeLanguageProfileId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSettings) GetActiveAnimeLanguageProfileId() float32 {
-	if o == nil || isNil(o.ActiveAnimeLanguageProfileId.Get()) {
+	if o == nil || IsNil(o.ActiveAnimeLanguageProfileId.Get()) {
 		var ret float32
 		return ret
 	}
@@ -415,7 +418,7 @@ func (o *SonarrSettings) GetActiveAnimeLanguageProfileId() float32 {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSettings) GetActiveAnimeLanguageProfileIdOk() (*float32, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ActiveAnimeLanguageProfileId.Get(), o.ActiveAnimeLanguageProfileId.IsSet()
 }
@@ -445,7 +448,7 @@ func (o *SonarrSettings) UnsetActiveAnimeLanguageProfileId() {
 
 // GetActiveAnimeProfileName returns the ActiveAnimeProfileName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSettings) GetActiveAnimeProfileName() string {
-	if o == nil || isNil(o.ActiveAnimeProfileName.Get()) {
+	if o == nil || IsNil(o.ActiveAnimeProfileName.Get()) {
 		var ret string
 		return ret
 	}
@@ -457,7 +460,7 @@ func (o *SonarrSettings) GetActiveAnimeProfileName() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSettings) GetActiveAnimeProfileNameOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ActiveAnimeProfileName.Get(), o.ActiveAnimeProfileName.IsSet()
 }
@@ -487,7 +490,7 @@ func (o *SonarrSettings) UnsetActiveAnimeProfileName() {
 
 // GetActiveAnimeDirectory returns the ActiveAnimeDirectory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SonarrSettings) GetActiveAnimeDirectory() string {
-	if o == nil || isNil(o.ActiveAnimeDirectory.Get()) {
+	if o == nil || IsNil(o.ActiveAnimeDirectory.Get()) {
 		var ret string
 		return ret
 	}
@@ -499,7 +502,7 @@ func (o *SonarrSettings) GetActiveAnimeDirectory() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SonarrSettings) GetActiveAnimeDirectoryOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ActiveAnimeDirectory.Get(), o.ActiveAnimeDirectory.IsSet()
 }
@@ -541,7 +544,7 @@ func (o *SonarrSettings) GetIs4k() bool {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetIs4kOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.Is4k, true
 }
@@ -565,7 +568,7 @@ func (o *SonarrSettings) GetEnableSeasonFolders() bool {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetEnableSeasonFoldersOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.EnableSeasonFolders, true
 }
@@ -589,7 +592,7 @@ func (o *SonarrSettings) GetIsDefault() bool {
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetIsDefaultOk() (*bool, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return &o.IsDefault, true
 }
@@ -601,7 +604,7 @@ func (o *SonarrSettings) SetIsDefault(v bool) {
 
 // GetExternalUrl returns the ExternalUrl field value if set, zero value otherwise.
 func (o *SonarrSettings) GetExternalUrl() string {
-	if o == nil || isNil(o.ExternalUrl) {
+	if o == nil || IsNil(o.ExternalUrl) {
 		var ret string
 		return ret
 	}
@@ -611,15 +614,15 @@ func (o *SonarrSettings) GetExternalUrl() string {
 // GetExternalUrlOk returns a tuple with the ExternalUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetExternalUrlOk() (*string, bool) {
-	if o == nil || isNil(o.ExternalUrl) {
-    return nil, false
+	if o == nil || IsNil(o.ExternalUrl) {
+		return nil, false
 	}
 	return o.ExternalUrl, true
 }
 
 // HasExternalUrl returns a boolean if a field has been set.
 func (o *SonarrSettings) HasExternalUrl() bool {
-	if o != nil && !isNil(o.ExternalUrl) {
+	if o != nil && !IsNil(o.ExternalUrl) {
 		return true
 	}
 
@@ -633,7 +636,7 @@ func (o *SonarrSettings) SetExternalUrl(v string) {
 
 // GetSyncEnabled returns the SyncEnabled field value if set, zero value otherwise.
 func (o *SonarrSettings) GetSyncEnabled() bool {
-	if o == nil || isNil(o.SyncEnabled) {
+	if o == nil || IsNil(o.SyncEnabled) {
 		var ret bool
 		return ret
 	}
@@ -643,15 +646,15 @@ func (o *SonarrSettings) GetSyncEnabled() bool {
 // GetSyncEnabledOk returns a tuple with the SyncEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetSyncEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.SyncEnabled) {
-    return nil, false
+	if o == nil || IsNil(o.SyncEnabled) {
+		return nil, false
 	}
 	return o.SyncEnabled, true
 }
 
 // HasSyncEnabled returns a boolean if a field has been set.
 func (o *SonarrSettings) HasSyncEnabled() bool {
-	if o != nil && !isNil(o.SyncEnabled) {
+	if o != nil && !IsNil(o.SyncEnabled) {
 		return true
 	}
 
@@ -665,7 +668,7 @@ func (o *SonarrSettings) SetSyncEnabled(v bool) {
 
 // GetPreventSearch returns the PreventSearch field value if set, zero value otherwise.
 func (o *SonarrSettings) GetPreventSearch() bool {
-	if o == nil || isNil(o.PreventSearch) {
+	if o == nil || IsNil(o.PreventSearch) {
 		var ret bool
 		return ret
 	}
@@ -675,15 +678,15 @@ func (o *SonarrSettings) GetPreventSearch() bool {
 // GetPreventSearchOk returns a tuple with the PreventSearch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SonarrSettings) GetPreventSearchOk() (*bool, bool) {
-	if o == nil || isNil(o.PreventSearch) {
-    return nil, false
+	if o == nil || IsNil(o.PreventSearch) {
+		return nil, false
 	}
 	return o.PreventSearch, true
 }
 
 // HasPreventSearch returns a boolean if a field has been set.
 func (o *SonarrSettings) HasPreventSearch() bool {
-	if o != nil && !isNil(o.PreventSearch) {
+	if o != nil && !IsNil(o.PreventSearch) {
 		return true
 	}
 
@@ -696,38 +699,30 @@ func (o *SonarrSettings) SetPreventSearch(v bool) {
 }
 
 func (o SonarrSettings) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o SonarrSettings) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["hostname"] = o.Hostname
-	}
-	if true {
-		toSerialize["port"] = o.Port
-	}
-	if true {
-		toSerialize["apiKey"] = o.ApiKey
-	}
-	if true {
-		toSerialize["useSsl"] = o.UseSsl
-	}
-	if !isNil(o.BaseUrl) {
+	toSerialize["name"] = o.Name
+	toSerialize["hostname"] = o.Hostname
+	toSerialize["port"] = o.Port
+	toSerialize["apiKey"] = o.ApiKey
+	toSerialize["useSsl"] = o.UseSsl
+	if !IsNil(o.BaseUrl) {
 		toSerialize["baseUrl"] = o.BaseUrl
 	}
-	if true {
-		toSerialize["activeProfileId"] = o.ActiveProfileId
-	}
-	if true {
-		toSerialize["activeProfileName"] = o.ActiveProfileName
-	}
-	if true {
-		toSerialize["activeDirectory"] = o.ActiveDirectory
-	}
-	if !isNil(o.ActiveLanguageProfileId) {
+	toSerialize["activeProfileId"] = o.ActiveProfileId
+	toSerialize["activeProfileName"] = o.ActiveProfileName
+	toSerialize["activeDirectory"] = o.ActiveDirectory
+	if !IsNil(o.ActiveLanguageProfileId) {
 		toSerialize["activeLanguageProfileId"] = o.ActiveLanguageProfileId
 	}
 	if o.ActiveAnimeProfileId.IsSet() {
@@ -742,22 +737,16 @@ func (o SonarrSettings) MarshalJSON() ([]byte, error) {
 	if o.ActiveAnimeDirectory.IsSet() {
 		toSerialize["activeAnimeDirectory"] = o.ActiveAnimeDirectory.Get()
 	}
-	if true {
-		toSerialize["is4k"] = o.Is4k
-	}
-	if true {
-		toSerialize["enableSeasonFolders"] = o.EnableSeasonFolders
-	}
-	if true {
-		toSerialize["isDefault"] = o.IsDefault
-	}
-	if !isNil(o.ExternalUrl) {
+	toSerialize["is4k"] = o.Is4k
+	toSerialize["enableSeasonFolders"] = o.EnableSeasonFolders
+	toSerialize["isDefault"] = o.IsDefault
+	if !IsNil(o.ExternalUrl) {
 		toSerialize["externalUrl"] = o.ExternalUrl
 	}
-	if !isNil(o.SyncEnabled) {
+	if !IsNil(o.SyncEnabled) {
 		toSerialize["syncEnabled"] = o.SyncEnabled
 	}
-	if !isNil(o.PreventSearch) {
+	if !IsNil(o.PreventSearch) {
 		toSerialize["preventSearch"] = o.PreventSearch
 	}
 
@@ -765,19 +754,54 @@ func (o SonarrSettings) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *SonarrSettings) UnmarshalJSON(bytes []byte) (err error) {
+func (o *SonarrSettings) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"name",
+		"hostname",
+		"port",
+		"apiKey",
+		"useSsl",
+		"activeProfileId",
+		"activeProfileName",
+		"activeDirectory",
+		"is4k",
+		"enableSeasonFolders",
+		"isDefault",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varSonarrSettings := _SonarrSettings{}
 
-	if err = json.Unmarshal(bytes, &varSonarrSettings); err == nil {
-		*o = SonarrSettings(varSonarrSettings)
+	err = json.Unmarshal(data, &varSonarrSettings)
+
+	if err != nil {
+		return err
 	}
+
+	*o = SonarrSettings(varSonarrSettings)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "hostname")

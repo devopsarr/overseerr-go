@@ -14,12 +14,15 @@ import (
 	"encoding/json"
 )
 
+// checks if the WatchProvidersInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WatchProvidersInner{}
+
 // WatchProvidersInner struct for WatchProvidersInner
 type WatchProvidersInner struct {
 	Iso31661 *string `json:"iso_3166_1,omitempty"`
 	Link *string `json:"link,omitempty"`
-	Buy []*WatchProviderDetails `json:"buy,omitempty"`
-	Flatrate []*WatchProviderDetails `json:"flatrate,omitempty"`
+	Buy []WatchProviderDetails `json:"buy,omitempty"`
+	Flatrate []WatchProviderDetails `json:"flatrate,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,7 +47,7 @@ func NewWatchProvidersInnerWithDefaults() *WatchProvidersInner {
 
 // GetIso31661 returns the Iso31661 field value if set, zero value otherwise.
 func (o *WatchProvidersInner) GetIso31661() string {
-	if o == nil || isNil(o.Iso31661) {
+	if o == nil || IsNil(o.Iso31661) {
 		var ret string
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *WatchProvidersInner) GetIso31661() string {
 // GetIso31661Ok returns a tuple with the Iso31661 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WatchProvidersInner) GetIso31661Ok() (*string, bool) {
-	if o == nil || isNil(o.Iso31661) {
-    return nil, false
+	if o == nil || IsNil(o.Iso31661) {
+		return nil, false
 	}
 	return o.Iso31661, true
 }
 
 // HasIso31661 returns a boolean if a field has been set.
 func (o *WatchProvidersInner) HasIso31661() bool {
-	if o != nil && !isNil(o.Iso31661) {
+	if o != nil && !IsNil(o.Iso31661) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *WatchProvidersInner) SetIso31661(v string) {
 
 // GetLink returns the Link field value if set, zero value otherwise.
 func (o *WatchProvidersInner) GetLink() string {
-	if o == nil || isNil(o.Link) {
+	if o == nil || IsNil(o.Link) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *WatchProvidersInner) GetLink() string {
 // GetLinkOk returns a tuple with the Link field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WatchProvidersInner) GetLinkOk() (*string, bool) {
-	if o == nil || isNil(o.Link) {
-    return nil, false
+	if o == nil || IsNil(o.Link) {
+		return nil, false
 	}
 	return o.Link, true
 }
 
 // HasLink returns a boolean if a field has been set.
 func (o *WatchProvidersInner) HasLink() bool {
-	if o != nil && !isNil(o.Link) {
+	if o != nil && !IsNil(o.Link) {
 		return true
 	}
 
@@ -107,9 +110,9 @@ func (o *WatchProvidersInner) SetLink(v string) {
 }
 
 // GetBuy returns the Buy field value if set, zero value otherwise.
-func (o *WatchProvidersInner) GetBuy() []*WatchProviderDetails {
-	if o == nil || isNil(o.Buy) {
-		var ret []*WatchProviderDetails
+func (o *WatchProvidersInner) GetBuy() []WatchProviderDetails {
+	if o == nil || IsNil(o.Buy) {
+		var ret []WatchProviderDetails
 		return ret
 	}
 	return o.Buy
@@ -117,16 +120,16 @@ func (o *WatchProvidersInner) GetBuy() []*WatchProviderDetails {
 
 // GetBuyOk returns a tuple with the Buy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WatchProvidersInner) GetBuyOk() ([]*WatchProviderDetails, bool) {
-	if o == nil || isNil(o.Buy) {
-    return nil, false
+func (o *WatchProvidersInner) GetBuyOk() ([]WatchProviderDetails, bool) {
+	if o == nil || IsNil(o.Buy) {
+		return nil, false
 	}
 	return o.Buy, true
 }
 
 // HasBuy returns a boolean if a field has been set.
 func (o *WatchProvidersInner) HasBuy() bool {
-	if o != nil && !isNil(o.Buy) {
+	if o != nil && !IsNil(o.Buy) {
 		return true
 	}
 
@@ -134,14 +137,14 @@ func (o *WatchProvidersInner) HasBuy() bool {
 }
 
 // SetBuy gets a reference to the given []WatchProviderDetails and assigns it to the Buy field.
-func (o *WatchProvidersInner) SetBuy(v []*WatchProviderDetails) {
+func (o *WatchProvidersInner) SetBuy(v []WatchProviderDetails) {
 	o.Buy = v
 }
 
 // GetFlatrate returns the Flatrate field value if set, zero value otherwise.
-func (o *WatchProvidersInner) GetFlatrate() []*WatchProviderDetails {
-	if o == nil || isNil(o.Flatrate) {
-		var ret []*WatchProviderDetails
+func (o *WatchProvidersInner) GetFlatrate() []WatchProviderDetails {
+	if o == nil || IsNil(o.Flatrate) {
+		var ret []WatchProviderDetails
 		return ret
 	}
 	return o.Flatrate
@@ -149,16 +152,16 @@ func (o *WatchProvidersInner) GetFlatrate() []*WatchProviderDetails {
 
 // GetFlatrateOk returns a tuple with the Flatrate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WatchProvidersInner) GetFlatrateOk() ([]*WatchProviderDetails, bool) {
-	if o == nil || isNil(o.Flatrate) {
-    return nil, false
+func (o *WatchProvidersInner) GetFlatrateOk() ([]WatchProviderDetails, bool) {
+	if o == nil || IsNil(o.Flatrate) {
+		return nil, false
 	}
 	return o.Flatrate, true
 }
 
 // HasFlatrate returns a boolean if a field has been set.
 func (o *WatchProvidersInner) HasFlatrate() bool {
-	if o != nil && !isNil(o.Flatrate) {
+	if o != nil && !IsNil(o.Flatrate) {
 		return true
 	}
 
@@ -166,22 +169,30 @@ func (o *WatchProvidersInner) HasFlatrate() bool {
 }
 
 // SetFlatrate gets a reference to the given []WatchProviderDetails and assigns it to the Flatrate field.
-func (o *WatchProvidersInner) SetFlatrate(v []*WatchProviderDetails) {
+func (o *WatchProvidersInner) SetFlatrate(v []WatchProviderDetails) {
 	o.Flatrate = v
 }
 
 func (o WatchProvidersInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o WatchProvidersInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Iso31661) {
+	if !IsNil(o.Iso31661) {
 		toSerialize["iso_3166_1"] = o.Iso31661
 	}
-	if !isNil(o.Link) {
+	if !IsNil(o.Link) {
 		toSerialize["link"] = o.Link
 	}
-	if !isNil(o.Buy) {
+	if !IsNil(o.Buy) {
 		toSerialize["buy"] = o.Buy
 	}
-	if !isNil(o.Flatrate) {
+	if !IsNil(o.Flatrate) {
 		toSerialize["flatrate"] = o.Flatrate
 	}
 
@@ -189,19 +200,23 @@ func (o WatchProvidersInner) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *WatchProvidersInner) UnmarshalJSON(bytes []byte) (err error) {
+func (o *WatchProvidersInner) UnmarshalJSON(data []byte) (err error) {
 	varWatchProvidersInner := _WatchProvidersInner{}
 
-	if err = json.Unmarshal(bytes, &varWatchProvidersInner); err == nil {
-		*o = WatchProvidersInner(varWatchProvidersInner)
+	err = json.Unmarshal(data, &varWatchProvidersInner)
+
+	if err != nil {
+		return err
 	}
+
+	*o = WatchProvidersInner(varWatchProvidersInner)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "iso_3166_1")
 		delete(additionalProperties, "link")
 		delete(additionalProperties, "buy")

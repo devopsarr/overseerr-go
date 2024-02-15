@@ -14,13 +14,16 @@ import (
 	"encoding/json"
 )
 
+// checks if the PersonDetails type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PersonDetails{}
+
 // PersonDetails struct for PersonDetails
 type PersonDetails struct {
 	Id *float32 `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Deathday *string `json:"deathday,omitempty"`
 	KnownForDepartment *string `json:"knownForDepartment,omitempty"`
-	AlsoKnownAs []*string `json:"alsoKnownAs,omitempty"`
+	AlsoKnownAs []string `json:"alsoKnownAs,omitempty"`
 	Gender *string `json:"gender,omitempty"`
 	Biography *string `json:"biography,omitempty"`
 	Popularity *string `json:"popularity,omitempty"`
@@ -53,7 +56,7 @@ func NewPersonDetailsWithDefaults() *PersonDetails {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *PersonDetails) GetId() float32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
@@ -63,15 +66,15 @@ func (o *PersonDetails) GetId() float32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetIdOk() (*float32, bool) {
-	if o == nil || isNil(o.Id) {
-    return nil, false
+	if o == nil || IsNil(o.Id) {
+		return nil, false
 	}
 	return o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *PersonDetails) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -85,7 +88,7 @@ func (o *PersonDetails) SetId(v float32) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *PersonDetails) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -95,15 +98,15 @@ func (o *PersonDetails) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
-    return nil, false
+	if o == nil || IsNil(o.Name) {
+		return nil, false
 	}
 	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PersonDetails) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -117,7 +120,7 @@ func (o *PersonDetails) SetName(v string) {
 
 // GetDeathday returns the Deathday field value if set, zero value otherwise.
 func (o *PersonDetails) GetDeathday() string {
-	if o == nil || isNil(o.Deathday) {
+	if o == nil || IsNil(o.Deathday) {
 		var ret string
 		return ret
 	}
@@ -127,15 +130,15 @@ func (o *PersonDetails) GetDeathday() string {
 // GetDeathdayOk returns a tuple with the Deathday field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetDeathdayOk() (*string, bool) {
-	if o == nil || isNil(o.Deathday) {
-    return nil, false
+	if o == nil || IsNil(o.Deathday) {
+		return nil, false
 	}
 	return o.Deathday, true
 }
 
 // HasDeathday returns a boolean if a field has been set.
 func (o *PersonDetails) HasDeathday() bool {
-	if o != nil && !isNil(o.Deathday) {
+	if o != nil && !IsNil(o.Deathday) {
 		return true
 	}
 
@@ -149,7 +152,7 @@ func (o *PersonDetails) SetDeathday(v string) {
 
 // GetKnownForDepartment returns the KnownForDepartment field value if set, zero value otherwise.
 func (o *PersonDetails) GetKnownForDepartment() string {
-	if o == nil || isNil(o.KnownForDepartment) {
+	if o == nil || IsNil(o.KnownForDepartment) {
 		var ret string
 		return ret
 	}
@@ -159,15 +162,15 @@ func (o *PersonDetails) GetKnownForDepartment() string {
 // GetKnownForDepartmentOk returns a tuple with the KnownForDepartment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetKnownForDepartmentOk() (*string, bool) {
-	if o == nil || isNil(o.KnownForDepartment) {
-    return nil, false
+	if o == nil || IsNil(o.KnownForDepartment) {
+		return nil, false
 	}
 	return o.KnownForDepartment, true
 }
 
 // HasKnownForDepartment returns a boolean if a field has been set.
 func (o *PersonDetails) HasKnownForDepartment() bool {
-	if o != nil && !isNil(o.KnownForDepartment) {
+	if o != nil && !IsNil(o.KnownForDepartment) {
 		return true
 	}
 
@@ -180,9 +183,9 @@ func (o *PersonDetails) SetKnownForDepartment(v string) {
 }
 
 // GetAlsoKnownAs returns the AlsoKnownAs field value if set, zero value otherwise.
-func (o *PersonDetails) GetAlsoKnownAs() []*string {
-	if o == nil || isNil(o.AlsoKnownAs) {
-		var ret []*string
+func (o *PersonDetails) GetAlsoKnownAs() []string {
+	if o == nil || IsNil(o.AlsoKnownAs) {
+		var ret []string
 		return ret
 	}
 	return o.AlsoKnownAs
@@ -190,16 +193,16 @@ func (o *PersonDetails) GetAlsoKnownAs() []*string {
 
 // GetAlsoKnownAsOk returns a tuple with the AlsoKnownAs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PersonDetails) GetAlsoKnownAsOk() ([]*string, bool) {
-	if o == nil || isNil(o.AlsoKnownAs) {
-    return nil, false
+func (o *PersonDetails) GetAlsoKnownAsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AlsoKnownAs) {
+		return nil, false
 	}
 	return o.AlsoKnownAs, true
 }
 
 // HasAlsoKnownAs returns a boolean if a field has been set.
 func (o *PersonDetails) HasAlsoKnownAs() bool {
-	if o != nil && !isNil(o.AlsoKnownAs) {
+	if o != nil && !IsNil(o.AlsoKnownAs) {
 		return true
 	}
 
@@ -207,13 +210,13 @@ func (o *PersonDetails) HasAlsoKnownAs() bool {
 }
 
 // SetAlsoKnownAs gets a reference to the given []string and assigns it to the AlsoKnownAs field.
-func (o *PersonDetails) SetAlsoKnownAs(v []*string) {
+func (o *PersonDetails) SetAlsoKnownAs(v []string) {
 	o.AlsoKnownAs = v
 }
 
 // GetGender returns the Gender field value if set, zero value otherwise.
 func (o *PersonDetails) GetGender() string {
-	if o == nil || isNil(o.Gender) {
+	if o == nil || IsNil(o.Gender) {
 		var ret string
 		return ret
 	}
@@ -223,15 +226,15 @@ func (o *PersonDetails) GetGender() string {
 // GetGenderOk returns a tuple with the Gender field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetGenderOk() (*string, bool) {
-	if o == nil || isNil(o.Gender) {
-    return nil, false
+	if o == nil || IsNil(o.Gender) {
+		return nil, false
 	}
 	return o.Gender, true
 }
 
 // HasGender returns a boolean if a field has been set.
 func (o *PersonDetails) HasGender() bool {
-	if o != nil && !isNil(o.Gender) {
+	if o != nil && !IsNil(o.Gender) {
 		return true
 	}
 
@@ -245,7 +248,7 @@ func (o *PersonDetails) SetGender(v string) {
 
 // GetBiography returns the Biography field value if set, zero value otherwise.
 func (o *PersonDetails) GetBiography() string {
-	if o == nil || isNil(o.Biography) {
+	if o == nil || IsNil(o.Biography) {
 		var ret string
 		return ret
 	}
@@ -255,15 +258,15 @@ func (o *PersonDetails) GetBiography() string {
 // GetBiographyOk returns a tuple with the Biography field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetBiographyOk() (*string, bool) {
-	if o == nil || isNil(o.Biography) {
-    return nil, false
+	if o == nil || IsNil(o.Biography) {
+		return nil, false
 	}
 	return o.Biography, true
 }
 
 // HasBiography returns a boolean if a field has been set.
 func (o *PersonDetails) HasBiography() bool {
-	if o != nil && !isNil(o.Biography) {
+	if o != nil && !IsNil(o.Biography) {
 		return true
 	}
 
@@ -277,7 +280,7 @@ func (o *PersonDetails) SetBiography(v string) {
 
 // GetPopularity returns the Popularity field value if set, zero value otherwise.
 func (o *PersonDetails) GetPopularity() string {
-	if o == nil || isNil(o.Popularity) {
+	if o == nil || IsNil(o.Popularity) {
 		var ret string
 		return ret
 	}
@@ -287,15 +290,15 @@ func (o *PersonDetails) GetPopularity() string {
 // GetPopularityOk returns a tuple with the Popularity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetPopularityOk() (*string, bool) {
-	if o == nil || isNil(o.Popularity) {
-    return nil, false
+	if o == nil || IsNil(o.Popularity) {
+		return nil, false
 	}
 	return o.Popularity, true
 }
 
 // HasPopularity returns a boolean if a field has been set.
 func (o *PersonDetails) HasPopularity() bool {
-	if o != nil && !isNil(o.Popularity) {
+	if o != nil && !IsNil(o.Popularity) {
 		return true
 	}
 
@@ -309,7 +312,7 @@ func (o *PersonDetails) SetPopularity(v string) {
 
 // GetPlaceOfBirth returns the PlaceOfBirth field value if set, zero value otherwise.
 func (o *PersonDetails) GetPlaceOfBirth() string {
-	if o == nil || isNil(o.PlaceOfBirth) {
+	if o == nil || IsNil(o.PlaceOfBirth) {
 		var ret string
 		return ret
 	}
@@ -319,15 +322,15 @@ func (o *PersonDetails) GetPlaceOfBirth() string {
 // GetPlaceOfBirthOk returns a tuple with the PlaceOfBirth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetPlaceOfBirthOk() (*string, bool) {
-	if o == nil || isNil(o.PlaceOfBirth) {
-    return nil, false
+	if o == nil || IsNil(o.PlaceOfBirth) {
+		return nil, false
 	}
 	return o.PlaceOfBirth, true
 }
 
 // HasPlaceOfBirth returns a boolean if a field has been set.
 func (o *PersonDetails) HasPlaceOfBirth() bool {
-	if o != nil && !isNil(o.PlaceOfBirth) {
+	if o != nil && !IsNil(o.PlaceOfBirth) {
 		return true
 	}
 
@@ -341,7 +344,7 @@ func (o *PersonDetails) SetPlaceOfBirth(v string) {
 
 // GetProfilePath returns the ProfilePath field value if set, zero value otherwise.
 func (o *PersonDetails) GetProfilePath() string {
-	if o == nil || isNil(o.ProfilePath) {
+	if o == nil || IsNil(o.ProfilePath) {
 		var ret string
 		return ret
 	}
@@ -351,15 +354,15 @@ func (o *PersonDetails) GetProfilePath() string {
 // GetProfilePathOk returns a tuple with the ProfilePath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetProfilePathOk() (*string, bool) {
-	if o == nil || isNil(o.ProfilePath) {
-    return nil, false
+	if o == nil || IsNil(o.ProfilePath) {
+		return nil, false
 	}
 	return o.ProfilePath, true
 }
 
 // HasProfilePath returns a boolean if a field has been set.
 func (o *PersonDetails) HasProfilePath() bool {
-	if o != nil && !isNil(o.ProfilePath) {
+	if o != nil && !IsNil(o.ProfilePath) {
 		return true
 	}
 
@@ -373,7 +376,7 @@ func (o *PersonDetails) SetProfilePath(v string) {
 
 // GetAdult returns the Adult field value if set, zero value otherwise.
 func (o *PersonDetails) GetAdult() bool {
-	if o == nil || isNil(o.Adult) {
+	if o == nil || IsNil(o.Adult) {
 		var ret bool
 		return ret
 	}
@@ -383,15 +386,15 @@ func (o *PersonDetails) GetAdult() bool {
 // GetAdultOk returns a tuple with the Adult field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetAdultOk() (*bool, bool) {
-	if o == nil || isNil(o.Adult) {
-    return nil, false
+	if o == nil || IsNil(o.Adult) {
+		return nil, false
 	}
 	return o.Adult, true
 }
 
 // HasAdult returns a boolean if a field has been set.
 func (o *PersonDetails) HasAdult() bool {
-	if o != nil && !isNil(o.Adult) {
+	if o != nil && !IsNil(o.Adult) {
 		return true
 	}
 
@@ -405,7 +408,7 @@ func (o *PersonDetails) SetAdult(v bool) {
 
 // GetImdbId returns the ImdbId field value if set, zero value otherwise.
 func (o *PersonDetails) GetImdbId() string {
-	if o == nil || isNil(o.ImdbId) {
+	if o == nil || IsNil(o.ImdbId) {
 		var ret string
 		return ret
 	}
@@ -415,15 +418,15 @@ func (o *PersonDetails) GetImdbId() string {
 // GetImdbIdOk returns a tuple with the ImdbId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetImdbIdOk() (*string, bool) {
-	if o == nil || isNil(o.ImdbId) {
-    return nil, false
+	if o == nil || IsNil(o.ImdbId) {
+		return nil, false
 	}
 	return o.ImdbId, true
 }
 
 // HasImdbId returns a boolean if a field has been set.
 func (o *PersonDetails) HasImdbId() bool {
-	if o != nil && !isNil(o.ImdbId) {
+	if o != nil && !IsNil(o.ImdbId) {
 		return true
 	}
 
@@ -437,7 +440,7 @@ func (o *PersonDetails) SetImdbId(v string) {
 
 // GetHomepage returns the Homepage field value if set, zero value otherwise.
 func (o *PersonDetails) GetHomepage() string {
-	if o == nil || isNil(o.Homepage) {
+	if o == nil || IsNil(o.Homepage) {
 		var ret string
 		return ret
 	}
@@ -447,15 +450,15 @@ func (o *PersonDetails) GetHomepage() string {
 // GetHomepageOk returns a tuple with the Homepage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PersonDetails) GetHomepageOk() (*string, bool) {
-	if o == nil || isNil(o.Homepage) {
-    return nil, false
+	if o == nil || IsNil(o.Homepage) {
+		return nil, false
 	}
 	return o.Homepage, true
 }
 
 // HasHomepage returns a boolean if a field has been set.
 func (o *PersonDetails) HasHomepage() bool {
-	if o != nil && !isNil(o.Homepage) {
+	if o != nil && !IsNil(o.Homepage) {
 		return true
 	}
 
@@ -468,44 +471,52 @@ func (o *PersonDetails) SetHomepage(v string) {
 }
 
 func (o PersonDetails) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PersonDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Deathday) {
+	if !IsNil(o.Deathday) {
 		toSerialize["deathday"] = o.Deathday
 	}
-	if !isNil(o.KnownForDepartment) {
+	if !IsNil(o.KnownForDepartment) {
 		toSerialize["knownForDepartment"] = o.KnownForDepartment
 	}
-	if !isNil(o.AlsoKnownAs) {
+	if !IsNil(o.AlsoKnownAs) {
 		toSerialize["alsoKnownAs"] = o.AlsoKnownAs
 	}
-	if !isNil(o.Gender) {
+	if !IsNil(o.Gender) {
 		toSerialize["gender"] = o.Gender
 	}
-	if !isNil(o.Biography) {
+	if !IsNil(o.Biography) {
 		toSerialize["biography"] = o.Biography
 	}
-	if !isNil(o.Popularity) {
+	if !IsNil(o.Popularity) {
 		toSerialize["popularity"] = o.Popularity
 	}
-	if !isNil(o.PlaceOfBirth) {
+	if !IsNil(o.PlaceOfBirth) {
 		toSerialize["placeOfBirth"] = o.PlaceOfBirth
 	}
-	if !isNil(o.ProfilePath) {
+	if !IsNil(o.ProfilePath) {
 		toSerialize["profilePath"] = o.ProfilePath
 	}
-	if !isNil(o.Adult) {
+	if !IsNil(o.Adult) {
 		toSerialize["adult"] = o.Adult
 	}
-	if !isNil(o.ImdbId) {
+	if !IsNil(o.ImdbId) {
 		toSerialize["imdbId"] = o.ImdbId
 	}
-	if !isNil(o.Homepage) {
+	if !IsNil(o.Homepage) {
 		toSerialize["homepage"] = o.Homepage
 	}
 
@@ -513,19 +524,23 @@ func (o PersonDetails) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PersonDetails) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PersonDetails) UnmarshalJSON(data []byte) (err error) {
 	varPersonDetails := _PersonDetails{}
 
-	if err = json.Unmarshal(bytes, &varPersonDetails); err == nil {
-		*o = PersonDetails(varPersonDetails)
+	err = json.Unmarshal(data, &varPersonDetails)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PersonDetails(varPersonDetails)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "deathday")

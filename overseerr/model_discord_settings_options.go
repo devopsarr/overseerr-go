@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DiscordSettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DiscordSettingsOptions{}
+
 // DiscordSettingsOptions struct for DiscordSettingsOptions
 type DiscordSettingsOptions struct {
 	BotUsername *string `json:"botUsername,omitempty"`
@@ -44,7 +47,7 @@ func NewDiscordSettingsOptionsWithDefaults() *DiscordSettingsOptions {
 
 // GetBotUsername returns the BotUsername field value if set, zero value otherwise.
 func (o *DiscordSettingsOptions) GetBotUsername() string {
-	if o == nil || isNil(o.BotUsername) {
+	if o == nil || IsNil(o.BotUsername) {
 		var ret string
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *DiscordSettingsOptions) GetBotUsername() string {
 // GetBotUsernameOk returns a tuple with the BotUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscordSettingsOptions) GetBotUsernameOk() (*string, bool) {
-	if o == nil || isNil(o.BotUsername) {
-    return nil, false
+	if o == nil || IsNil(o.BotUsername) {
+		return nil, false
 	}
 	return o.BotUsername, true
 }
 
 // HasBotUsername returns a boolean if a field has been set.
 func (o *DiscordSettingsOptions) HasBotUsername() bool {
-	if o != nil && !isNil(o.BotUsername) {
+	if o != nil && !IsNil(o.BotUsername) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *DiscordSettingsOptions) SetBotUsername(v string) {
 
 // GetBotAvatarUrl returns the BotAvatarUrl field value if set, zero value otherwise.
 func (o *DiscordSettingsOptions) GetBotAvatarUrl() string {
-	if o == nil || isNil(o.BotAvatarUrl) {
+	if o == nil || IsNil(o.BotAvatarUrl) {
 		var ret string
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *DiscordSettingsOptions) GetBotAvatarUrl() string {
 // GetBotAvatarUrlOk returns a tuple with the BotAvatarUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscordSettingsOptions) GetBotAvatarUrlOk() (*string, bool) {
-	if o == nil || isNil(o.BotAvatarUrl) {
-    return nil, false
+	if o == nil || IsNil(o.BotAvatarUrl) {
+		return nil, false
 	}
 	return o.BotAvatarUrl, true
 }
 
 // HasBotAvatarUrl returns a boolean if a field has been set.
 func (o *DiscordSettingsOptions) HasBotAvatarUrl() bool {
-	if o != nil && !isNil(o.BotAvatarUrl) {
+	if o != nil && !IsNil(o.BotAvatarUrl) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *DiscordSettingsOptions) SetBotAvatarUrl(v string) {
 
 // GetWebhookUrl returns the WebhookUrl field value if set, zero value otherwise.
 func (o *DiscordSettingsOptions) GetWebhookUrl() string {
-	if o == nil || isNil(o.WebhookUrl) {
+	if o == nil || IsNil(o.WebhookUrl) {
 		var ret string
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *DiscordSettingsOptions) GetWebhookUrl() string {
 // GetWebhookUrlOk returns a tuple with the WebhookUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscordSettingsOptions) GetWebhookUrlOk() (*string, bool) {
-	if o == nil || isNil(o.WebhookUrl) {
-    return nil, false
+	if o == nil || IsNil(o.WebhookUrl) {
+		return nil, false
 	}
 	return o.WebhookUrl, true
 }
 
 // HasWebhookUrl returns a boolean if a field has been set.
 func (o *DiscordSettingsOptions) HasWebhookUrl() bool {
-	if o != nil && !isNil(o.WebhookUrl) {
+	if o != nil && !IsNil(o.WebhookUrl) {
 		return true
 	}
 
@@ -140,7 +143,7 @@ func (o *DiscordSettingsOptions) SetWebhookUrl(v string) {
 
 // GetEnableMentions returns the EnableMentions field value if set, zero value otherwise.
 func (o *DiscordSettingsOptions) GetEnableMentions() bool {
-	if o == nil || isNil(o.EnableMentions) {
+	if o == nil || IsNil(o.EnableMentions) {
 		var ret bool
 		return ret
 	}
@@ -150,15 +153,15 @@ func (o *DiscordSettingsOptions) GetEnableMentions() bool {
 // GetEnableMentionsOk returns a tuple with the EnableMentions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DiscordSettingsOptions) GetEnableMentionsOk() (*bool, bool) {
-	if o == nil || isNil(o.EnableMentions) {
-    return nil, false
+	if o == nil || IsNil(o.EnableMentions) {
+		return nil, false
 	}
 	return o.EnableMentions, true
 }
 
 // HasEnableMentions returns a boolean if a field has been set.
 func (o *DiscordSettingsOptions) HasEnableMentions() bool {
-	if o != nil && !isNil(o.EnableMentions) {
+	if o != nil && !IsNil(o.EnableMentions) {
 		return true
 	}
 
@@ -171,17 +174,25 @@ func (o *DiscordSettingsOptions) SetEnableMentions(v bool) {
 }
 
 func (o DiscordSettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o DiscordSettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.BotUsername) {
+	if !IsNil(o.BotUsername) {
 		toSerialize["botUsername"] = o.BotUsername
 	}
-	if !isNil(o.BotAvatarUrl) {
+	if !IsNil(o.BotAvatarUrl) {
 		toSerialize["botAvatarUrl"] = o.BotAvatarUrl
 	}
-	if !isNil(o.WebhookUrl) {
+	if !IsNil(o.WebhookUrl) {
 		toSerialize["webhookUrl"] = o.WebhookUrl
 	}
-	if !isNil(o.EnableMentions) {
+	if !IsNil(o.EnableMentions) {
 		toSerialize["enableMentions"] = o.EnableMentions
 	}
 
@@ -189,19 +200,23 @@ func (o DiscordSettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *DiscordSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *DiscordSettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varDiscordSettingsOptions := _DiscordSettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varDiscordSettingsOptions); err == nil {
-		*o = DiscordSettingsOptions(varDiscordSettingsOptions)
+	err = json.Unmarshal(data, &varDiscordSettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = DiscordSettingsOptions(varDiscordSettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "botUsername")
 		delete(additionalProperties, "botAvatarUrl")
 		delete(additionalProperties, "webhookUrl")

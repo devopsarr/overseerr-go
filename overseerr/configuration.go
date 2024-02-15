@@ -28,20 +28,8 @@ func (c contextKey) String() string {
 }
 
 var (
-	// ContextOAuth2 takes an oauth2.TokenSource as authentication for the request.
-	ContextOAuth2 = contextKey("token")
-
-	// ContextBasicAuth takes BasicAuth as authentication for the request.
-	ContextBasicAuth = contextKey("basic")
-
-	// ContextAccessToken takes a string oauth2 access token as authentication for the request.
-	ContextAccessToken = contextKey("accesstoken")
-
 	// ContextAPIKeys takes a string apikey as authentication for the request
 	ContextAPIKeys = contextKey("apiKeys")
-
-	// ContextHttpSignatureAuth takes HttpSignatureAuth as authentication for the request.
-	ContextHttpSignatureAuth = contextKey("httpsignature")
 
 	// ContextServerIndex uses a server configuration from the index.
 	ContextServerIndex = contextKey("serverIndex")
@@ -101,16 +89,14 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		// x-release-please-start-version
 		UserAgent:        "overseerr-go/v0.1.1",
-		// x-release-please-end
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
 				URL: "{server}/api/v1",
 				Description: "No description provided",
 				Variables: map[string]ServerVariable{
-					"server": {
+					"server": ServerVariable{
 						Description: "No description provided",
 						DefaultValue: "http://localhost:5055",
 					},

@@ -14,12 +14,15 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetDiscoverMovies2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetDiscoverMovies2XXResponse{}
+
 // GetDiscoverMovies2XXResponse struct for GetDiscoverMovies2XXResponse
 type GetDiscoverMovies2XXResponse struct {
 	Page *float32 `json:"page,omitempty"`
 	TotalPages *float32 `json:"totalPages,omitempty"`
 	TotalResults *float32 `json:"totalResults,omitempty"`
-	Results []*MovieResult `json:"results,omitempty"`
+	Results []MovieResult `json:"results,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -44,7 +47,7 @@ func NewGetDiscoverMovies2XXResponseWithDefaults() *GetDiscoverMovies2XXResponse
 
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *GetDiscoverMovies2XXResponse) GetPage() float32 {
-	if o == nil || isNil(o.Page) {
+	if o == nil || IsNil(o.Page) {
 		var ret float32
 		return ret
 	}
@@ -54,15 +57,15 @@ func (o *GetDiscoverMovies2XXResponse) GetPage() float32 {
 // GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetDiscoverMovies2XXResponse) GetPageOk() (*float32, bool) {
-	if o == nil || isNil(o.Page) {
-    return nil, false
+	if o == nil || IsNil(o.Page) {
+		return nil, false
 	}
 	return o.Page, true
 }
 
 // HasPage returns a boolean if a field has been set.
 func (o *GetDiscoverMovies2XXResponse) HasPage() bool {
-	if o != nil && !isNil(o.Page) {
+	if o != nil && !IsNil(o.Page) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *GetDiscoverMovies2XXResponse) SetPage(v float32) {
 
 // GetTotalPages returns the TotalPages field value if set, zero value otherwise.
 func (o *GetDiscoverMovies2XXResponse) GetTotalPages() float32 {
-	if o == nil || isNil(o.TotalPages) {
+	if o == nil || IsNil(o.TotalPages) {
 		var ret float32
 		return ret
 	}
@@ -86,15 +89,15 @@ func (o *GetDiscoverMovies2XXResponse) GetTotalPages() float32 {
 // GetTotalPagesOk returns a tuple with the TotalPages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetDiscoverMovies2XXResponse) GetTotalPagesOk() (*float32, bool) {
-	if o == nil || isNil(o.TotalPages) {
-    return nil, false
+	if o == nil || IsNil(o.TotalPages) {
+		return nil, false
 	}
 	return o.TotalPages, true
 }
 
 // HasTotalPages returns a boolean if a field has been set.
 func (o *GetDiscoverMovies2XXResponse) HasTotalPages() bool {
-	if o != nil && !isNil(o.TotalPages) {
+	if o != nil && !IsNil(o.TotalPages) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *GetDiscoverMovies2XXResponse) SetTotalPages(v float32) {
 
 // GetTotalResults returns the TotalResults field value if set, zero value otherwise.
 func (o *GetDiscoverMovies2XXResponse) GetTotalResults() float32 {
-	if o == nil || isNil(o.TotalResults) {
+	if o == nil || IsNil(o.TotalResults) {
 		var ret float32
 		return ret
 	}
@@ -118,15 +121,15 @@ func (o *GetDiscoverMovies2XXResponse) GetTotalResults() float32 {
 // GetTotalResultsOk returns a tuple with the TotalResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetDiscoverMovies2XXResponse) GetTotalResultsOk() (*float32, bool) {
-	if o == nil || isNil(o.TotalResults) {
-    return nil, false
+	if o == nil || IsNil(o.TotalResults) {
+		return nil, false
 	}
 	return o.TotalResults, true
 }
 
 // HasTotalResults returns a boolean if a field has been set.
 func (o *GetDiscoverMovies2XXResponse) HasTotalResults() bool {
-	if o != nil && !isNil(o.TotalResults) {
+	if o != nil && !IsNil(o.TotalResults) {
 		return true
 	}
 
@@ -139,9 +142,9 @@ func (o *GetDiscoverMovies2XXResponse) SetTotalResults(v float32) {
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *GetDiscoverMovies2XXResponse) GetResults() []*MovieResult {
-	if o == nil || isNil(o.Results) {
-		var ret []*MovieResult
+func (o *GetDiscoverMovies2XXResponse) GetResults() []MovieResult {
+	if o == nil || IsNil(o.Results) {
+		var ret []MovieResult
 		return ret
 	}
 	return o.Results
@@ -149,16 +152,16 @@ func (o *GetDiscoverMovies2XXResponse) GetResults() []*MovieResult {
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetDiscoverMovies2XXResponse) GetResultsOk() ([]*MovieResult, bool) {
-	if o == nil || isNil(o.Results) {
-    return nil, false
+func (o *GetDiscoverMovies2XXResponse) GetResultsOk() ([]MovieResult, bool) {
+	if o == nil || IsNil(o.Results) {
+		return nil, false
 	}
 	return o.Results, true
 }
 
 // HasResults returns a boolean if a field has been set.
 func (o *GetDiscoverMovies2XXResponse) HasResults() bool {
-	if o != nil && !isNil(o.Results) {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
@@ -166,22 +169,30 @@ func (o *GetDiscoverMovies2XXResponse) HasResults() bool {
 }
 
 // SetResults gets a reference to the given []MovieResult and assigns it to the Results field.
-func (o *GetDiscoverMovies2XXResponse) SetResults(v []*MovieResult) {
+func (o *GetDiscoverMovies2XXResponse) SetResults(v []MovieResult) {
 	o.Results = v
 }
 
 func (o GetDiscoverMovies2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetDiscoverMovies2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Page) {
+	if !IsNil(o.Page) {
 		toSerialize["page"] = o.Page
 	}
-	if !isNil(o.TotalPages) {
+	if !IsNil(o.TotalPages) {
 		toSerialize["totalPages"] = o.TotalPages
 	}
-	if !isNil(o.TotalResults) {
+	if !IsNil(o.TotalResults) {
 		toSerialize["totalResults"] = o.TotalResults
 	}
-	if !isNil(o.Results) {
+	if !IsNil(o.Results) {
 		toSerialize["results"] = o.Results
 	}
 
@@ -189,19 +200,23 @@ func (o GetDiscoverMovies2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetDiscoverMovies2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetDiscoverMovies2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetDiscoverMovies2XXResponse := _GetDiscoverMovies2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetDiscoverMovies2XXResponse); err == nil {
-		*o = GetDiscoverMovies2XXResponse(varGetDiscoverMovies2XXResponse)
+	err = json.Unmarshal(data, &varGetDiscoverMovies2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetDiscoverMovies2XXResponse(varGetDiscoverMovies2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "page")
 		delete(additionalProperties, "totalPages")
 		delete(additionalProperties, "totalResults")

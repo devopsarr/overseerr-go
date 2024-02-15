@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the PushbulletSettingsOptions type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PushbulletSettingsOptions{}
+
 // PushbulletSettingsOptions struct for PushbulletSettingsOptions
 type PushbulletSettingsOptions struct {
 	AccessToken *string `json:"accessToken,omitempty"`
@@ -42,7 +45,7 @@ func NewPushbulletSettingsOptionsWithDefaults() *PushbulletSettingsOptions {
 
 // GetAccessToken returns the AccessToken field value if set, zero value otherwise.
 func (o *PushbulletSettingsOptions) GetAccessToken() string {
-	if o == nil || isNil(o.AccessToken) {
+	if o == nil || IsNil(o.AccessToken) {
 		var ret string
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *PushbulletSettingsOptions) GetAccessToken() string {
 // GetAccessTokenOk returns a tuple with the AccessToken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PushbulletSettingsOptions) GetAccessTokenOk() (*string, bool) {
-	if o == nil || isNil(o.AccessToken) {
-    return nil, false
+	if o == nil || IsNil(o.AccessToken) {
+		return nil, false
 	}
 	return o.AccessToken, true
 }
 
 // HasAccessToken returns a boolean if a field has been set.
 func (o *PushbulletSettingsOptions) HasAccessToken() bool {
-	if o != nil && !isNil(o.AccessToken) {
+	if o != nil && !IsNil(o.AccessToken) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *PushbulletSettingsOptions) SetAccessToken(v string) {
 
 // GetChannelTag returns the ChannelTag field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PushbulletSettingsOptions) GetChannelTag() string {
-	if o == nil || isNil(o.ChannelTag.Get()) {
+	if o == nil || IsNil(o.ChannelTag.Get()) {
 		var ret string
 		return ret
 	}
@@ -86,7 +89,7 @@ func (o *PushbulletSettingsOptions) GetChannelTag() string {
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushbulletSettingsOptions) GetChannelTagOk() (*string, bool) {
 	if o == nil {
-    return nil, false
+		return nil, false
 	}
 	return o.ChannelTag.Get(), o.ChannelTag.IsSet()
 }
@@ -115,8 +118,16 @@ func (o *PushbulletSettingsOptions) UnsetChannelTag() {
 }
 
 func (o PushbulletSettingsOptions) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o PushbulletSettingsOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.AccessToken) {
+	if !IsNil(o.AccessToken) {
 		toSerialize["accessToken"] = o.AccessToken
 	}
 	if o.ChannelTag.IsSet() {
@@ -127,19 +138,23 @@ func (o PushbulletSettingsOptions) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *PushbulletSettingsOptions) UnmarshalJSON(bytes []byte) (err error) {
+func (o *PushbulletSettingsOptions) UnmarshalJSON(data []byte) (err error) {
 	varPushbulletSettingsOptions := _PushbulletSettingsOptions{}
 
-	if err = json.Unmarshal(bytes, &varPushbulletSettingsOptions); err == nil {
-		*o = PushbulletSettingsOptions(varPushbulletSettingsOptions)
+	err = json.Unmarshal(data, &varPushbulletSettingsOptions)
+
+	if err != nil {
+		return err
 	}
+
+	*o = PushbulletSettingsOptions(varPushbulletSettingsOptions)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "accessToken")
 		delete(additionalProperties, "channelTag")
 		o.AdditionalProperties = additionalProperties

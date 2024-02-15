@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the GetServiceSonarrBySonarrId2XXResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetServiceSonarrBySonarrId2XXResponse{}
+
 // GetServiceSonarrBySonarrId2XXResponse struct for GetServiceSonarrBySonarrId2XXResponse
 type GetServiceSonarrBySonarrId2XXResponse struct {
 	Server *SonarrSettings `json:"server,omitempty"`
@@ -42,7 +45,7 @@ func NewGetServiceSonarrBySonarrId2XXResponseWithDefaults() *GetServiceSonarrByS
 
 // GetServer returns the Server field value if set, zero value otherwise.
 func (o *GetServiceSonarrBySonarrId2XXResponse) GetServer() SonarrSettings {
-	if o == nil || isNil(o.Server) {
+	if o == nil || IsNil(o.Server) {
 		var ret SonarrSettings
 		return ret
 	}
@@ -52,15 +55,15 @@ func (o *GetServiceSonarrBySonarrId2XXResponse) GetServer() SonarrSettings {
 // GetServerOk returns a tuple with the Server field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetServiceSonarrBySonarrId2XXResponse) GetServerOk() (*SonarrSettings, bool) {
-	if o == nil || isNil(o.Server) {
-    return nil, false
+	if o == nil || IsNil(o.Server) {
+		return nil, false
 	}
 	return o.Server, true
 }
 
 // HasServer returns a boolean if a field has been set.
 func (o *GetServiceSonarrBySonarrId2XXResponse) HasServer() bool {
-	if o != nil && !isNil(o.Server) {
+	if o != nil && !IsNil(o.Server) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *GetServiceSonarrBySonarrId2XXResponse) SetServer(v SonarrSettings) {
 
 // GetProfiles returns the Profiles field value if set, zero value otherwise.
 func (o *GetServiceSonarrBySonarrId2XXResponse) GetProfiles() ServiceProfile {
-	if o == nil || isNil(o.Profiles) {
+	if o == nil || IsNil(o.Profiles) {
 		var ret ServiceProfile
 		return ret
 	}
@@ -84,15 +87,15 @@ func (o *GetServiceSonarrBySonarrId2XXResponse) GetProfiles() ServiceProfile {
 // GetProfilesOk returns a tuple with the Profiles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetServiceSonarrBySonarrId2XXResponse) GetProfilesOk() (*ServiceProfile, bool) {
-	if o == nil || isNil(o.Profiles) {
-    return nil, false
+	if o == nil || IsNil(o.Profiles) {
+		return nil, false
 	}
 	return o.Profiles, true
 }
 
 // HasProfiles returns a boolean if a field has been set.
 func (o *GetServiceSonarrBySonarrId2XXResponse) HasProfiles() bool {
-	if o != nil && !isNil(o.Profiles) {
+	if o != nil && !IsNil(o.Profiles) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *GetServiceSonarrBySonarrId2XXResponse) SetProfiles(v ServiceProfile) {
 }
 
 func (o GetServiceSonarrBySonarrId2XXResponse) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o GetServiceSonarrBySonarrId2XXResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Server) {
+	if !IsNil(o.Server) {
 		toSerialize["server"] = o.Server
 	}
-	if !isNil(o.Profiles) {
+	if !IsNil(o.Profiles) {
 		toSerialize["profiles"] = o.Profiles
 	}
 
@@ -117,19 +128,23 @@ func (o GetServiceSonarrBySonarrId2XXResponse) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
-func (o *GetServiceSonarrBySonarrId2XXResponse) UnmarshalJSON(bytes []byte) (err error) {
+func (o *GetServiceSonarrBySonarrId2XXResponse) UnmarshalJSON(data []byte) (err error) {
 	varGetServiceSonarrBySonarrId2XXResponse := _GetServiceSonarrBySonarrId2XXResponse{}
 
-	if err = json.Unmarshal(bytes, &varGetServiceSonarrBySonarrId2XXResponse); err == nil {
-		*o = GetServiceSonarrBySonarrId2XXResponse(varGetServiceSonarrBySonarrId2XXResponse)
+	err = json.Unmarshal(data, &varGetServiceSonarrBySonarrId2XXResponse)
+
+	if err != nil {
+		return err
 	}
+
+	*o = GetServiceSonarrBySonarrId2XXResponse(varGetServiceSonarrBySonarrId2XXResponse)
 
 	additionalProperties := make(map[string]interface{})
 
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "server")
 		delete(additionalProperties, "profiles")
 		o.AdditionalProperties = additionalProperties
