@@ -12,6 +12,7 @@ package overseerr
 
 import (
 	"encoding/json"
+	"gopkg.in/validator.v2"
 	"fmt"
 )
 
@@ -47,7 +48,11 @@ func (dst *PersonResultKnownForInner) UnmarshalJSON(data []byte) error {
 		if string(jsonMovieResult) == "{}" { // empty struct
 			dst.MovieResult = nil
 		} else {
-			match++
+			if err = validator.Validate(dst.MovieResult); err != nil {
+				dst.MovieResult = nil
+			} else {
+				match++
+			}
 		}
 	} else {
 		dst.MovieResult = nil
@@ -60,7 +65,11 @@ func (dst *PersonResultKnownForInner) UnmarshalJSON(data []byte) error {
 		if string(jsonTvResult) == "{}" { // empty struct
 			dst.TvResult = nil
 		} else {
-			match++
+			if err = validator.Validate(dst.TvResult); err != nil {
+				dst.TvResult = nil
+			} else {
+				match++
+			}
 		}
 	} else {
 		dst.TvResult = nil
