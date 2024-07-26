@@ -12,6 +12,7 @@ package overseerr
 
 import (
 	"encoding/json"
+	"gopkg.in/validator.v2"
 	"fmt"
 )
 
@@ -47,7 +48,11 @@ func (dst *CreateRequestRequestSeasons) UnmarshalJSON(data []byte) error {
 		if string(jsonArrayOfFloat32) == "{}" { // empty struct
 			dst.ArrayOfFloat32 = nil
 		} else {
-			match++
+			if err = validator.Validate(dst.ArrayOfFloat32); err != nil {
+				dst.ArrayOfFloat32 = nil
+			} else {
+				match++
+			}
 		}
 	} else {
 		dst.ArrayOfFloat32 = nil
@@ -60,7 +65,11 @@ func (dst *CreateRequestRequestSeasons) UnmarshalJSON(data []byte) error {
 		if string(jsonString) == "{}" { // empty struct
 			dst.String = nil
 		} else {
-			match++
+			if err = validator.Validate(dst.String); err != nil {
+				dst.String = nil
+			} else {
+				match++
+			}
 		}
 	} else {
 		dst.String = nil
