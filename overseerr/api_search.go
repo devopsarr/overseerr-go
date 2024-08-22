@@ -85,13 +85,13 @@ func (a *SearchAPIService) GetDiscoverKeywordMoviesExecute(r ApiGetDiscoverKeywo
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -303,55 +303,55 @@ func (a *SearchAPIService) GetDiscoverMoviesExecute(r ApiGetDiscoverMoviesReques
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	if r.genre != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "genre", r.genre, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "genre", r.genre, "form", "")
 	}
 	if r.studio != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "studio", r.studio, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "studio", r.studio, "form", "")
 	}
 	if r.keywords != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "keywords", r.keywords, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "keywords", r.keywords, "form", "")
 	}
 	if r.sortBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sortBy", r.sortBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortBy", r.sortBy, "form", "")
 	}
 	if r.primaryReleaseDateGte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "primaryReleaseDateGte", r.primaryReleaseDateGte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "primaryReleaseDateGte", r.primaryReleaseDateGte, "form", "")
 	}
 	if r.primaryReleaseDateLte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "primaryReleaseDateLte", r.primaryReleaseDateLte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "primaryReleaseDateLte", r.primaryReleaseDateLte, "form", "")
 	}
 	if r.withRuntimeGte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeGte", r.withRuntimeGte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeGte", r.withRuntimeGte, "form", "")
 	}
 	if r.withRuntimeLte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeLte", r.withRuntimeLte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeLte", r.withRuntimeLte, "form", "")
 	}
 	if r.voteAverageGte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageGte", r.voteAverageGte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageGte", r.voteAverageGte, "form", "")
 	}
 	if r.voteAverageLte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageLte", r.voteAverageLte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageLte", r.voteAverageLte, "form", "")
 	}
 	if r.voteCountGte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountGte", r.voteCountGte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountGte", r.voteCountGte, "form", "")
 	}
 	if r.voteCountLte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountLte", r.voteCountLte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountLte", r.voteCountLte, "form", "")
 	}
 	if r.watchRegion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "form", "")
 	}
 	if r.watchProviders != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "watchProviders", r.watchProviders, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "watchProviders", r.watchProviders, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -483,13 +483,13 @@ func (a *SearchAPIService) GetDiscoverMoviesGenreByGenreIdExecute(r ApiGetDiscov
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -621,13 +621,13 @@ func (a *SearchAPIService) GetDiscoverMoviesLanguageByLanguageExecute(r ApiGetDi
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language2 != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language2, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language2, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -759,13 +759,13 @@ func (a *SearchAPIService) GetDiscoverMoviesStudioByStudioIdExecute(r ApiGetDisc
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -893,13 +893,13 @@ func (a *SearchAPIService) GetDiscoverMoviesUpcomingExecute(r ApiGetDiscoverMovi
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1027,13 +1027,13 @@ func (a *SearchAPIService) GetDiscoverTrendingExecute(r ApiGetDiscoverTrendingRe
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1245,55 +1245,55 @@ func (a *SearchAPIService) GetDiscoverTvExecute(r ApiGetDiscoverTvRequest) (*Get
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	if r.genre != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "genre", r.genre, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "genre", r.genre, "form", "")
 	}
 	if r.network != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "network", r.network, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "network", r.network, "form", "")
 	}
 	if r.keywords != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "keywords", r.keywords, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "keywords", r.keywords, "form", "")
 	}
 	if r.sortBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sortBy", r.sortBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sortBy", r.sortBy, "form", "")
 	}
 	if r.firstAirDateGte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "firstAirDateGte", r.firstAirDateGte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "firstAirDateGte", r.firstAirDateGte, "form", "")
 	}
 	if r.firstAirDateLte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "firstAirDateLte", r.firstAirDateLte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "firstAirDateLte", r.firstAirDateLte, "form", "")
 	}
 	if r.withRuntimeGte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeGte", r.withRuntimeGte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeGte", r.withRuntimeGte, "form", "")
 	}
 	if r.withRuntimeLte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeLte", r.withRuntimeLte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "withRuntimeLte", r.withRuntimeLte, "form", "")
 	}
 	if r.voteAverageGte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageGte", r.voteAverageGte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageGte", r.voteAverageGte, "form", "")
 	}
 	if r.voteAverageLte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageLte", r.voteAverageLte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteAverageLte", r.voteAverageLte, "form", "")
 	}
 	if r.voteCountGte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountGte", r.voteCountGte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountGte", r.voteCountGte, "form", "")
 	}
 	if r.voteCountLte != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountLte", r.voteCountLte, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "voteCountLte", r.voteCountLte, "form", "")
 	}
 	if r.watchRegion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "form", "")
 	}
 	if r.watchProviders != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "watchProviders", r.watchProviders, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "watchProviders", r.watchProviders, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1425,13 +1425,13 @@ func (a *SearchAPIService) GetDiscoverTvGenreByGenreIdExecute(r ApiGetDiscoverTv
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1563,13 +1563,13 @@ func (a *SearchAPIService) GetDiscoverTvLanguageByLanguageExecute(r ApiGetDiscov
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language2 != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language2, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language2, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1701,13 +1701,13 @@ func (a *SearchAPIService) GetDiscoverTvNetworkByNetworkIdExecute(r ApiGetDiscov
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1835,13 +1835,13 @@ func (a *SearchAPIService) GetDiscoverTvUpcomingExecute(r ApiGetDiscoverTvUpcomi
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1961,7 +1961,7 @@ func (a *SearchAPIService) GetDiscoverWatchlistExecute(r ApiGetDiscoverWatchlist
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
@@ -2100,15 +2100,15 @@ func (a *SearchAPIService) GetSearchExecute(r ApiGetSearchRequest) (*GetSearch2X
 		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "form", "")
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2238,9 +2238,9 @@ func (a *SearchAPIService) GetSearchCompanyExecute(r ApiGetSearchCompanyRequest)
 		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "form", "")
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
@@ -2373,9 +2373,9 @@ func (a *SearchAPIService) GetSearchKeywordExecute(r ApiGetSearchKeywordRequest)
 		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "form", "")
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
@@ -2500,7 +2500,7 @@ func (a *SearchAPIService) ListDiscoverGenresliderMovieExecute(r ApiListDiscover
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2622,7 +2622,7 @@ func (a *SearchAPIService) ListDiscoverGenresliderTvExecute(r ApiListDiscoverGen
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

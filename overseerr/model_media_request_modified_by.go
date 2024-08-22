@@ -15,6 +15,7 @@ import (
 	"fmt"
 )
 
+
 // MediaRequestModifiedBy struct for MediaRequestModifiedBy
 type MediaRequestModifiedBy struct {
 	User *User
@@ -65,6 +66,7 @@ func (src *MediaRequestModifiedBy) MarshalJSON() ([]byte, error) {
 
 	return nil, nil // no data in anyOf schemas
 }
+
 
 type NullableMediaRequestModifiedBy struct {
 	value *MediaRequestModifiedBy

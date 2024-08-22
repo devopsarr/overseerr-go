@@ -1291,13 +1291,13 @@ func (a *UsersAPIService) GetUserExecute(r ApiGetUserRequest) (*GetUser2XXRespon
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "form", "")
 	}
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "form", "")
 	}
 	if r.sort != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
 		var defaultValue string = "created"
 		r.sort = &defaultValue
@@ -1669,10 +1669,10 @@ func (a *UsersAPIService) GetUserRequestsExecute(r ApiGetUserRequestsRequest) (*
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "form", "")
 	}
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2387,7 +2387,7 @@ func (a *UsersAPIService) GetUserWatchlistExecute(r ApiGetUserWatchlistRequest) 
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue

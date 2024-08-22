@@ -5606,19 +5606,19 @@ func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]ListLogs2X
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "form", "")
 	}
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "form", "")
 	}
 	if r.filter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "form", "")
 	} else {
 		var defaultValue string = "debug"
 		r.filter = &defaultValue
 	}
 	if r.search != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -5861,10 +5861,10 @@ func (a *SettingsAPIService) ListPlexLibraryExecute(r ApiListPlexLibraryRequest)
 	localVarFormParams := url.Values{}
 
 	if r.sync != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sync", r.sync, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sync", r.sync, "form", "")
 	}
 	if r.enable != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "enable", r.enable, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "enable", r.enable, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -691,25 +691,25 @@ func (a *IssueAPIService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue2XXRes
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "form", "")
 	}
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "form", "")
 	}
 	if r.sort != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
 		var defaultValue string = "added"
 		r.sort = &defaultValue
 	}
 	if r.filter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "form", "")
 	} else {
 		var defaultValue string = "open"
 		r.filter = &defaultValue
 	}
 	if r.requestedBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "requestedBy", r.requestedBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "requestedBy", r.requestedBy, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

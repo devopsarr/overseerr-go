@@ -15,6 +15,7 @@ import (
 	"fmt"
 )
 
+
 // GetSearch2XXResponseResultsInner struct for GetSearch2XXResponseResultsInner
 type GetSearch2XXResponseResultsInner struct {
 	MovieResult *MovieResult
@@ -83,6 +84,7 @@ func (src *GetSearch2XXResponseResultsInner) MarshalJSON() ([]byte, error) {
 
 	return nil, nil // no data in anyOf schemas
 }
+
 
 type NullableGetSearch2XXResponseResultsInner struct {
 	value *GetSearch2XXResponseResultsInner
