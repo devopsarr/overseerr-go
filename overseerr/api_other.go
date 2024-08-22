@@ -196,7 +196,7 @@ func (a *OtherAPIService) ListWatchprovidersMoviesExecute(r ApiListWatchprovider
 		return localVarReturnValue, nil, reportError("watchRegion is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -434,7 +434,7 @@ func (a *OtherAPIService) ListWatchprovidersTvExecute(r ApiListWatchprovidersTvR
 		return localVarReturnValue, nil, reportError("watchRegion is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "watchRegion", r.watchRegion, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

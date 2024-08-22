@@ -79,7 +79,7 @@ func (a *MoviesAPIService) GetMovieByMovieIdExecute(r ApiGetMovieByMovieIdReques
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -328,13 +328,13 @@ func (a *MoviesAPIService) GetMovieRecommendationsExecute(r ApiGetMovieRecommend
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -466,13 +466,13 @@ func (a *MoviesAPIService) GetMovieSimilarExecute(r ApiGetMovieSimilarRequest) (
 	localVarFormParams := url.Values{}
 
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
 		var defaultValue float32 = 1
 		r.page = &defaultValue
 	}
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

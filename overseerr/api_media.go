@@ -328,16 +328,16 @@ func (a *MediaAPIService) GetMediaExecute(r ApiGetMediaRequest) (*GetMedia2XXRes
 	localVarFormParams := url.Values{}
 
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "take", r.take, "form", "")
 	}
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "skip", r.skip, "form", "")
 	}
 	if r.filter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "form", "")
 	}
 	if r.sort != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
 		var defaultValue string = "added"
 		r.sort = &defaultValue

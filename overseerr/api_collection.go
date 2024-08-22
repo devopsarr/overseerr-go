@@ -79,7 +79,7 @@ func (a *CollectionAPIService) GetCollectionByCollectionIdExecute(r ApiGetCollec
 	localVarFormParams := url.Values{}
 
 	if r.language != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
