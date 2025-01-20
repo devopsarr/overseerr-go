@@ -55,7 +55,7 @@ func (dst *MediaRequestModifiedBy) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *MediaRequestModifiedBy) MarshalJSON() ([]byte, error) {
+func (src MediaRequestModifiedBy) MarshalJSON() ([]byte, error) {
 	if src.User != nil {
 		return json.Marshal(&src.User)
 	}
