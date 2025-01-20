@@ -69,7 +69,7 @@ func (dst *GetSearch2XXResponseResultsInner) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *GetSearch2XXResponseResultsInner) MarshalJSON() ([]byte, error) {
+func (src GetSearch2XXResponseResultsInner) MarshalJSON() ([]byte, error) {
 	if src.MovieResult != nil {
 		return json.Marshal(&src.MovieResult)
 	}
