@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.1](https://github.com/devopsarr/overseerr-go/compare/v1.0.0...v1.0.1) (2025-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.10.0 ([79e93a2](https://github.com/devopsarr/overseerr-go/commit/79e93a2d45e1cbdd22086124f369cfae0268c6d8))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.11.0 ([c926e65](https://github.com/devopsarr/overseerr-go/commit/c926e65111c28e194a5ae65b65612e4b5a011c18))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.9.0 ([1d6d228](https://github.com/devopsarr/overseerr-go/commit/1d6d228e182a99082f234160c454c542714366b5))
+
 ## [1.0.0](https://github.com/devopsarr/overseerr-go/compare/v0.1.1...v1.0.0) (2024-02-15)
 
 
