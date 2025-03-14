@@ -12,8 +12,8 @@ package overseerr
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // CreateRequestRequestSeasons - struct for CreateRequestRequestSeasons
@@ -112,6 +112,20 @@ func (obj *CreateRequestRequestSeasons) GetActualInstance() (interface{}) {
 
 	if obj.String != nil {
 		return obj.String
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj CreateRequestRequestSeasons) GetActualInstanceValue() (interface{}) {
+	if obj.ArrayOfFloat32 != nil {
+		return *obj.ArrayOfFloat32
+	}
+
+	if obj.String != nil {
+		return *obj.String
 	}
 
 	// all schemas are nil

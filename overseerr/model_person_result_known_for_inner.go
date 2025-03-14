@@ -12,8 +12,8 @@ package overseerr
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // PersonResultKnownForInner - struct for PersonResultKnownForInner
@@ -112,6 +112,20 @@ func (obj *PersonResultKnownForInner) GetActualInstance() (interface{}) {
 
 	if obj.TvResult != nil {
 		return obj.TvResult
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj PersonResultKnownForInner) GetActualInstanceValue() (interface{}) {
+	if obj.MovieResult != nil {
+		return *obj.MovieResult
+	}
+
+	if obj.TvResult != nil {
+		return *obj.TvResult
 	}
 
 	// all schemas are nil
