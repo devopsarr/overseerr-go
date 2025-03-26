@@ -52,6 +52,7 @@ Method | HTTP request | Description
 [**ListDiscover**](SettingsAPI.md#ListDiscover) | **Get** /settings/discover | Get all discover sliders
 [**ListJobs**](SettingsAPI.md#ListJobs) | **Get** /settings/jobs | Get scheduled jobs
 [**ListLogs**](SettingsAPI.md#ListLogs) | **Get** /settings/logs | Returns logs
+[**ListNotificationsPushoverSounds**](SettingsAPI.md#ListNotificationsPushoverSounds) | **Get** /settings/notifications/pushover/sounds | Get Pushover sounds
 [**ListPlexDevicesServers**](SettingsAPI.md#ListPlexDevicesServers) | **Get** /settings/plex/devices/servers | Gets the user&#39;s available Plex servers
 [**ListPlexLibrary**](SettingsAPI.md#ListPlexLibrary) | **Get** /settings/plex/library | Get Plex libraries
 [**ListPlexUsers**](SettingsAPI.md#ListPlexUsers) | **Get** /settings/plex/users | Get Plex users
@@ -3151,6 +3152,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ListLogs2XXResponseInner**](ListLogs2XXResponseInner.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListNotificationsPushoverSounds
+
+> []ListNotificationsPushoverSounds2XXResponseInner ListNotificationsPushoverSounds(ctx).Token(token).Execute()
+
+Get Pushover sounds
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
+)
+
+func main() {
+	token := "token_example" // string | 
+
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettingsAPI.ListNotificationsPushoverSounds(context.Background()).Token(token).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.ListNotificationsPushoverSounds``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListNotificationsPushoverSounds`: []ListNotificationsPushoverSounds2XXResponseInner
+	fmt.Fprintf(os.Stdout, "Response from `SettingsAPI.ListNotificationsPushoverSounds`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListNotificationsPushoverSoundsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **string** |  | 
+
+### Return type
+
+[**[]ListNotificationsPushoverSounds2XXResponseInner**](ListNotificationsPushoverSounds2XXResponseInner.md)
 
 ### Authorization
 

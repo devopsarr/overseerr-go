@@ -14,8 +14,11 @@ Method | HTTP request | Description
 [**CreateUserSettingsPassword**](UsersAPI.md#CreateUserSettingsPassword) | **Post** /user/{userId}/settings/password | Update password for a user
 [**CreateUserSettingsPermissions**](UsersAPI.md#CreateUserSettingsPermissions) | **Post** /user/{userId}/settings/permissions | Update permission settings for a user
 [**DeleteUser**](UsersAPI.md#DeleteUser) | **Delete** /user/{userId} | Delete user by ID
+[**DeleteUserPushSubscription**](UsersAPI.md#DeleteUserPushSubscription) | **Delete** /user/{userId}/pushSubscription/{key} | Delete user push subscription by key
 [**GetUser**](UsersAPI.md#GetUser) | **Get** /user | Get all users
 [**GetUserByUserId**](UsersAPI.md#GetUserByUserId) | **Get** /user/{userId} | Get user by ID
+[**GetUserPushSubscriptionByKey**](UsersAPI.md#GetUserPushSubscriptionByKey) | **Get** /user/{userId}/pushSubscription/{key} | Get web push notification settings for a user
+[**GetUserPushSubscriptions**](UsersAPI.md#GetUserPushSubscriptions) | **Get** /user/{userId}/pushSubscriptions | Get all web push notification settings for a user
 [**GetUserQuota**](UsersAPI.md#GetUserQuota) | **Get** /user/{userId}/quota | Get quotas for a specific user
 [**GetUserRequests**](UsersAPI.md#GetUserRequests) | **Get** /user/{userId}/requests | Get requests for a specific user
 [**GetUserSettingsMain**](UsersAPI.md#GetUserSettingsMain) | **Get** /user/{userId}/settings/main | Get general settings for a user
@@ -719,6 +722,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteUserPushSubscription
+
+> DeleteUserPushSubscription(ctx, userId, key).Execute()
+
+Delete user push subscription by key
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
+)
+
+func main() {
+	userId := float32(8.14) // float32 | 
+	key := "key_example" // string | 
+
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	r, err := apiClient.UsersAPI.DeleteUserPushSubscription(context.Background(), userId, key).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.DeleteUserPushSubscription``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **float32** |  | 
+**key** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteUserPushSubscriptionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetUser
 
 > GetUser2XXResponse GetUser(ctx).Take(take).Skip(skip).Sort(sort).Execute()
@@ -844,6 +918,149 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**User**](User.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserPushSubscriptionByKey
+
+> GetUserPushSubscriptions2XXResponse GetUserPushSubscriptionByKey(ctx, userId, key).Execute()
+
+Get web push notification settings for a user
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
+)
+
+func main() {
+	userId := float32(8.14) // float32 | 
+	key := "key_example" // string | 
+
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserPushSubscriptionByKey(context.Background(), userId, key).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserPushSubscriptionByKey``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserPushSubscriptionByKey`: GetUserPushSubscriptions2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserPushSubscriptionByKey`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **float32** |  | 
+**key** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserPushSubscriptionByKeyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GetUserPushSubscriptions2XXResponse**](GetUserPushSubscriptions2XXResponse.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUserPushSubscriptions
+
+> GetUserPushSubscriptions2XXResponse GetUserPushSubscriptions(ctx, userId).Execute()
+
+Get all web push notification settings for a user
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	overseerrClient "github.com/devopsarr/overseerr-go/overseerr"
+)
+
+func main() {
+	userId := float32(8.14) // float32 | 
+
+	configuration := overseerrClient.NewConfiguration()
+	apiClient := overseerrClient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsersAPI.GetUserPushSubscriptions(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserPushSubscriptions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUserPushSubscriptions`: GetUserPushSubscriptions2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserPushSubscriptions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**userId** | **float32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUserPushSubscriptionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GetUserPushSubscriptions2XXResponse**](GetUserPushSubscriptions2XXResponse.md)
 
 ### Authorization
 

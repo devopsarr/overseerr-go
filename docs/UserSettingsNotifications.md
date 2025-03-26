@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **PushbulletAccessToken** | Pointer to **NullableString** |  | [optional] 
 **PushoverApplicationToken** | Pointer to **NullableString** |  | [optional] 
 **PushoverUserKey** | Pointer to **NullableString** |  | [optional] 
+**PushoverSound** | Pointer to **NullableString** |  | [optional] 
 **TelegramEnabled** | Pointer to **bool** |  | [optional] 
 **TelegramBotUsername** | Pointer to **NullableString** |  | [optional] 
 **TelegramChatId** | Pointer to **NullableString** |  | [optional] 
@@ -322,6 +323,41 @@ HasPushoverUserKey returns a boolean if a field has been set.
 `func (o *UserSettingsNotifications) UnsetPushoverUserKey()`
 
 UnsetPushoverUserKey ensures that no value is present for PushoverUserKey, not even an explicit nil
+### GetPushoverSound
+
+`func (o *UserSettingsNotifications) GetPushoverSound() string`
+
+GetPushoverSound returns the PushoverSound field if non-nil, zero value otherwise.
+
+### GetPushoverSoundOk
+
+`func (o *UserSettingsNotifications) GetPushoverSoundOk() (*string, bool)`
+
+GetPushoverSoundOk returns a tuple with the PushoverSound field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPushoverSound
+
+`func (o *UserSettingsNotifications) SetPushoverSound(v string)`
+
+SetPushoverSound sets PushoverSound field to given value.
+
+### HasPushoverSound
+
+`func (o *UserSettingsNotifications) HasPushoverSound() bool`
+
+HasPushoverSound returns a boolean if a field has been set.
+
+### SetPushoverSoundNil
+
+`func (o *UserSettingsNotifications) SetPushoverSoundNil(b bool)`
+
+ SetPushoverSoundNil sets the value for PushoverSound to be an explicit nil
+
+### UnsetPushoverSound
+`func (o *UserSettingsNotifications) UnsetPushoverSound()`
+
+UnsetPushoverSound ensures that no value is present for PushoverSound, not even an explicit nil
 ### GetTelegramEnabled
 
 `func (o *UserSettingsNotifications) GetTelegramEnabled() bool`
