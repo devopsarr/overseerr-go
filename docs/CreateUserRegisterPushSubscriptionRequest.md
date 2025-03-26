@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Endpoint** | **string** |  | 
 **Auth** | **string** |  | 
 **P256dh** | **string** |  | 
+**UserAgent** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -86,6 +87,31 @@ and a boolean to check if the value has been set.
 
 SetP256dh sets P256dh field to given value.
 
+
+### GetUserAgent
+
+`func (o *CreateUserRegisterPushSubscriptionRequest) GetUserAgent() string`
+
+GetUserAgent returns the UserAgent field if non-nil, zero value otherwise.
+
+### GetUserAgentOk
+
+`func (o *CreateUserRegisterPushSubscriptionRequest) GetUserAgentOk() (*string, bool)`
+
+GetUserAgentOk returns a tuple with the UserAgent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserAgent
+
+`func (o *CreateUserRegisterPushSubscriptionRequest) SetUserAgent(v string)`
+
+SetUserAgent sets UserAgent field to given value.
+
+### HasUserAgent
+
+`func (o *CreateUserRegisterPushSubscriptionRequest) HasUserAgent() bool`
+
+HasUserAgent returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
