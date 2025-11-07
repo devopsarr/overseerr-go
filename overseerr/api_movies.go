@@ -447,8 +447,9 @@ func (a *MoviesAPIService) GetMovieRecommendationsExecute(r ApiGetMovieRecommend
 	if r.page != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
-		var defaultValue float32 = 1
-		r.page = &defaultValue
+        var defaultValue float32 = 1
+        parameterAddToHeaderOrQuery(localVarQueryParams, "page", defaultValue, "form", "")
+        r.page = &defaultValue
 	}
 	if r.language != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
@@ -585,8 +586,9 @@ func (a *MoviesAPIService) GetMovieSimilarExecute(r ApiGetMovieSimilarRequest) (
 	if r.page != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	} else {
-		var defaultValue float32 = 1
-		r.page = &defaultValue
+        var defaultValue float32 = 1
+        parameterAddToHeaderOrQuery(localVarQueryParams, "page", defaultValue, "form", "")
+        r.page = &defaultValue
 	}
 	if r.language != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
