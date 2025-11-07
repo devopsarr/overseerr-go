@@ -590,8 +590,9 @@ func (a *RequestAPIService) GetRequestExecute(r ApiGetRequestRequest) (*GetUserR
 	if r.sort != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
-		var defaultValue string = "added"
-		r.sort = &defaultValue
+        var defaultValue string = "added"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
+        r.sort = &defaultValue
 	}
 	if r.requestedBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "requestedBy", r.requestedBy, "form", "")

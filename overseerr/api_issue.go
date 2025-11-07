@@ -699,14 +699,16 @@ func (a *IssueAPIService) GetIssueExecute(r ApiGetIssueRequest) (*GetIssue2XXRes
 	if r.sort != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
-		var defaultValue string = "added"
-		r.sort = &defaultValue
+        var defaultValue string = "added"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
+        r.sort = &defaultValue
 	}
 	if r.filter != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "form", "")
 	} else {
-		var defaultValue string = "open"
-		r.filter = &defaultValue
+        var defaultValue string = "open"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "filter", defaultValue, "form", "")
+        r.filter = &defaultValue
 	}
 	if r.requestedBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "requestedBy", r.requestedBy, "form", "")
