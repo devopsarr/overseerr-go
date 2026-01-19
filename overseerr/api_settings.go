@@ -5614,9 +5614,9 @@ func (a *SettingsAPIService) ListLogsExecute(r ApiListLogsRequest) ([]ListLogs2X
 	if r.filter != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", r.filter, "form", "")
 	} else {
-        var defaultValue string = "debug"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "filter", defaultValue, "form", "")
-        r.filter = &defaultValue
+		var defaultValue string = "debug"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "filter", defaultValue, "form", "")
+		r.filter = &defaultValue
 	}
 	if r.search != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "form", "")
