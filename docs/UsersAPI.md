@@ -14,10 +14,10 @@ Method | HTTP request | Description
 [**CreateUserSettingsPassword**](UsersAPI.md#CreateUserSettingsPassword) | **Post** /user/{userId}/settings/password | Update password for a user
 [**CreateUserSettingsPermissions**](UsersAPI.md#CreateUserSettingsPermissions) | **Post** /user/{userId}/settings/permissions | Update permission settings for a user
 [**DeleteUser**](UsersAPI.md#DeleteUser) | **Delete** /user/{userId} | Delete user by ID
-[**DeleteUserPushSubscription**](UsersAPI.md#DeleteUserPushSubscription) | **Delete** /user/{userId}/pushSubscription/{key} | Delete user push subscription by key
+[**DeleteUserPushSubscription**](UsersAPI.md#DeleteUserPushSubscription) | **Delete** /user/{userId}/pushSubscription/{endpoint} | Delete user push subscription by key
 [**GetUser**](UsersAPI.md#GetUser) | **Get** /user | Get all users
 [**GetUserByUserId**](UsersAPI.md#GetUserByUserId) | **Get** /user/{userId} | Get user by ID
-[**GetUserPushSubscriptionByKey**](UsersAPI.md#GetUserPushSubscriptionByKey) | **Get** /user/{userId}/pushSubscription/{key} | Get web push notification settings for a user
+[**GetUserPushSubscriptionByEndpoint**](UsersAPI.md#GetUserPushSubscriptionByEndpoint) | **Get** /user/{userId}/pushSubscription/{endpoint} | Get web push notification settings for a user
 [**GetUserPushSubscriptions**](UsersAPI.md#GetUserPushSubscriptions) | **Get** /user/{userId}/pushSubscriptions | Get all web push notification settings for a user
 [**GetUserQuota**](UsersAPI.md#GetUserQuota) | **Get** /user/{userId}/quota | Get quotas for a specific user
 [**GetUserRequests**](UsersAPI.md#GetUserRequests) | **Get** /user/{userId}/requests | Get requests for a specific user
@@ -724,7 +724,7 @@ Name | Type | Description  | Notes
 
 ## DeleteUserPushSubscription
 
-> DeleteUserPushSubscription(ctx, userId, key).Execute()
+> DeleteUserPushSubscription(ctx, userId, endpoint).Execute()
 
 Delete user push subscription by key
 
@@ -744,11 +744,11 @@ import (
 
 func main() {
 	userId := float32(8.14) // float32 | 
-	key := "key_example" // string | 
+	endpoint := "endpoint_example" // string | 
 
 	configuration := overseerrClient.NewConfiguration()
 	apiClient := overseerrClient.NewAPIClient(configuration)
-	r, err := apiClient.UsersAPI.DeleteUserPushSubscription(context.Background(), userId, key).Execute()
+	r, err := apiClient.UsersAPI.DeleteUserPushSubscription(context.Background(), userId, endpoint).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.DeleteUserPushSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **userId** | **float32** |  | 
-**key** | **string** |  | 
+**endpoint** | **string** |  | 
 
 ### Other Parameters
 
@@ -933,9 +933,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetUserPushSubscriptionByKey
+## GetUserPushSubscriptionByEndpoint
 
-> GetUserPushSubscriptions2XXResponse GetUserPushSubscriptionByKey(ctx, userId, key).Execute()
+> GetUserPushSubscriptions2XXResponse GetUserPushSubscriptionByEndpoint(ctx, userId, endpoint).Execute()
 
 Get web push notification settings for a user
 
@@ -955,17 +955,17 @@ import (
 
 func main() {
 	userId := float32(8.14) // float32 | 
-	key := "key_example" // string | 
+	endpoint := "endpoint_example" // string | 
 
 	configuration := overseerrClient.NewConfiguration()
 	apiClient := overseerrClient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.GetUserPushSubscriptionByKey(context.Background(), userId, key).Execute()
+	resp, r, err := apiClient.UsersAPI.GetUserPushSubscriptionByEndpoint(context.Background(), userId, endpoint).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserPushSubscriptionByKey``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.GetUserPushSubscriptionByEndpoint``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUserPushSubscriptionByKey`: GetUserPushSubscriptions2XXResponse
-	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserPushSubscriptionByKey`: %v\n", resp)
+	// response from `GetUserPushSubscriptionByEndpoint`: GetUserPushSubscriptions2XXResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsersAPI.GetUserPushSubscriptionByEndpoint`: %v\n", resp)
 }
 ```
 
@@ -976,11 +976,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **userId** | **float32** |  | 
-**key** | **string** |  | 
+**endpoint** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetUserPushSubscriptionByKeyRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUserPushSubscriptionByEndpointRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

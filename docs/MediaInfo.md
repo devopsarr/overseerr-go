@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **float32** |  | [optional] [readonly] 
 **TmdbId** | Pointer to **float32** |  | [optional] [readonly] 
 **TvdbId** | Pointer to **NullableFloat32** |  | [optional] [readonly] 
-**Status** | Pointer to **float32** | Availability of the media. 1 &#x3D; &#x60;UNKNOWN&#x60;, 2 &#x3D; &#x60;PENDING&#x60;, 3 &#x3D; &#x60;PROCESSING&#x60;, 4 &#x3D; &#x60;PARTIALLY_AVAILABLE&#x60;, 5 &#x3D; &#x60;AVAILABLE&#x60; | [optional] 
+**Status** | Pointer to **float32** | Availability of the media. 1 &#x3D; &#x60;UNKNOWN&#x60;, 2 &#x3D; &#x60;PENDING&#x60;, 3 &#x3D; &#x60;PROCESSING&#x60;, 4 &#x3D; &#x60;PARTIALLY_AVAILABLE&#x60;, 5 &#x3D; &#x60;AVAILABLE&#x60;, 6 &#x3D; &#x60;DELETED&#x60; | [optional] 
 **Requests** | Pointer to [**[]MediaRequest**](MediaRequest.md) |  | [optional] [readonly] 
 **CreatedAt** | Pointer to **string** |  | [optional] [readonly] 
 **UpdatedAt** | Pointer to **string** |  | [optional] [readonly] 
