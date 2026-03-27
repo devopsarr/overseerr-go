@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.3](https://github.com/devopsarr/overseerr-go/compare/v1.0.2...v1.0.3) (2026-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sct/overseerr to v1.35.0 ([6760eb5](https://github.com/devopsarr/overseerr-go/commit/6760eb5b4f6f9e2327fa50a0b9f0090110436971))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.16.0 ([e1f011c](https://github.com/devopsarr/overseerr-go/commit/e1f011c1a0b440835b5af3abe775bbae78d51c2e))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.17.0 ([1826c50](https://github.com/devopsarr/overseerr-go/commit/1826c50cd41b2591a76c45ad23519bf57f824236))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.18.0 ([e832fa2](https://github.com/devopsarr/overseerr-go/commit/e832fa20d4f46e9c4f1574adb209cc28dac2cfa9))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.18.0 ([096afe1](https://github.com/devopsarr/overseerr-go/commit/096afe1b37b33431810711db264bad3bb39fa536))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.19.0 ([31749c5](https://github.com/devopsarr/overseerr-go/commit/31749c522c286a82e7609ea20342de13c10a611e))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.19.0 ([a77284a](https://github.com/devopsarr/overseerr-go/commit/a77284aa44baafee85feba56b0bfb8cc2aacc371))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.20.0 ([72667e5](https://github.com/devopsarr/overseerr-go/commit/72667e502cb0ecddfd0203eeb49c807720986c8b))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.20.0 ([45e60b0](https://github.com/devopsarr/overseerr-go/commit/45e60b07a5851cb8e86138e4e40c0cb8b8ba92ca))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.20.0 ([f8bad5c](https://github.com/devopsarr/overseerr-go/commit/f8bad5ca655cec593fd7d2068c8177cc64a8a3a2))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.21.0 ([cef1b7b](https://github.com/devopsarr/overseerr-go/commit/cef1b7b31bcf11ebe6d6ce44f830a92c2b5c20d3))
+* **deps:** update openapitools/openapi-generator-cli docker tag to v7.21.0 ([7aee192](https://github.com/devopsarr/overseerr-go/commit/7aee192d1dad51537daf76e90f7290512c55965c))
+
 ## [1.0.2](https://github.com/devopsarr/overseerr-go/compare/v1.0.1...v1.0.2) (2025-09-02)
 
 
