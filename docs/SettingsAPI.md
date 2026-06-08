@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ## CreateDiscoverAdd
 
-> DiscoverSlider CreateDiscoverAdd(ctx).CreateDiscoverAddRequest(createDiscoverAddRequest).Execute()
+> DiscoverSlider CreateDiscoverAdd(ctx).UpdateDiscoverRequest(updateDiscoverRequest).Execute()
 
 Add a new slider
 
@@ -232,11 +232,11 @@ import (
 )
 
 func main() {
-	createDiscoverAddRequest := *overseerrClient.NewCreateDiscoverAddRequest() // CreateDiscoverAddRequest | 
+	updateDiscoverRequest := *overseerrClient.NewUpdateDiscoverRequest() // UpdateDiscoverRequest | 
 
 	configuration := overseerrClient.NewConfiguration()
 	apiClient := overseerrClient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SettingsAPI.CreateDiscoverAdd(context.Background()).CreateDiscoverAddRequest(createDiscoverAddRequest).Execute()
+	resp, r, err := apiClient.SettingsAPI.CreateDiscoverAdd(context.Background()).UpdateDiscoverRequest(updateDiscoverRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.CreateDiscoverAdd``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -257,7 +257,7 @@ Other parameters are passed through a pointer to a apiCreateDiscoverAddRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createDiscoverAddRequest** | [**CreateDiscoverAddRequest**](CreateDiscoverAddRequest.md) |  | 
+ **updateDiscoverRequest** | [**UpdateDiscoverRequest**](UpdateDiscoverRequest.md) |  | 
 
 ### Return type
 
@@ -4323,7 +4323,7 @@ Name | Type | Description  | Notes
 
 ## TestSonarr
 
-> TestRadarr2XXResponse TestSonarr(ctx).TestSonarrRequest(testSonarrRequest).Execute()
+> TestRadarr2XXResponse TestSonarr(ctx).TestRadarrRequest(testRadarrRequest).Execute()
 
 Test Sonarr configuration
 
@@ -4342,11 +4342,11 @@ import (
 )
 
 func main() {
-	testSonarrRequest := *overseerrClient.NewTestSonarrRequest("127.0.0.1", float32(8989), "yourapikey", false) // TestSonarrRequest | 
+	testRadarrRequest := *overseerrClient.NewTestRadarrRequest("127.0.0.1", float32(7878), "yourapikey", false) // TestRadarrRequest | 
 
 	configuration := overseerrClient.NewConfiguration()
 	apiClient := overseerrClient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SettingsAPI.TestSonarr(context.Background()).TestSonarrRequest(testSonarrRequest).Execute()
+	resp, r, err := apiClient.SettingsAPI.TestSonarr(context.Background()).TestRadarrRequest(testRadarrRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SettingsAPI.TestSonarr``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4367,7 +4367,7 @@ Other parameters are passed through a pointer to a apiTestSonarrRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testSonarrRequest** | [**TestSonarrRequest**](TestSonarrRequest.md) |  | 
+ **testRadarrRequest** | [**TestRadarrRequest**](TestRadarrRequest.md) |  | 
 
 ### Return type
 
