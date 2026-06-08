@@ -489,7 +489,7 @@ func (r ApiListGenresTvRequest) Language(language string) ApiListGenresTvRequest
 	return r
 }
 
-func (r ApiListGenresTvRequest) Execute() ([]ListGenresTv2XXResponseInner, *http.Response, error) {
+func (r ApiListGenresTvRequest) Execute() ([]ListGenresMovie2XXResponseInner, *http.Response, error) {
 	return r.ApiService.ListGenresTvExecute(r)
 }
 
@@ -509,13 +509,13 @@ func (a *TmdbAPIService) ListGenresTv(ctx context.Context) ApiListGenresTvReques
 }
 
 // Execute executes the request
-//  @return []ListGenresTv2XXResponseInner
-func (a *TmdbAPIService) ListGenresTvExecute(r ApiListGenresTvRequest) ([]ListGenresTv2XXResponseInner, *http.Response, error) {
+//  @return []ListGenresMovie2XXResponseInner
+func (a *TmdbAPIService) ListGenresTvExecute(r ApiListGenresTvRequest) ([]ListGenresMovie2XXResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ListGenresTv2XXResponseInner
+		localVarReturnValue  []ListGenresMovie2XXResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TmdbAPIService.ListGenresTv")

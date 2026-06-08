@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ## ListGenresTv
 
-> []ListGenresTv2XXResponseInner ListGenresTv(ctx).Language(language).Execute()
+> []ListGenresMovie2XXResponseInner ListGenresTv(ctx).Language(language).Execute()
 
 Get list of official TMDB movie genres
 
@@ -311,7 +311,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TmdbAPI.ListGenresTv``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListGenresTv`: []ListGenresTv2XXResponseInner
+	// response from `ListGenresTv`: []ListGenresMovie2XXResponseInner
 	fmt.Fprintf(os.Stdout, "Response from `TmdbAPI.ListGenresTv`: %v\n", resp)
 }
 ```
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ListGenresTv2XXResponseInner**](ListGenresTv2XXResponseInner.md)
+[**[]ListGenresMovie2XXResponseInner**](ListGenresMovie2XXResponseInner.md)
 
 ### Authorization
 
